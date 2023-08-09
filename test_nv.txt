@@ -1,0 +1,31 @@
+NGC2204 06:15:33.000 -18:39:54.000 Ks 600 1  iristype=focus nv_symbol=*g nv_total_time=800         Type=focus    priority=15
+IRAS08370-4030 8:38:54.900 -40:41:20.000 S1 2000.000 1  iristype=seq20   nv_overhead=140                       Type=Bochum  priority=10
+OGLE-GD-CEP-0069 06:48:58 -00:37:31 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5       Type=ECL_WAW     flag=ignore_phs cycle=2
+V578_Mon 06:32:00.607 +04:52:40.89 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5       Type=WAW
+BB_Eri 04:53:37.5180 -19:26:01.065 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5       Type=WAW
+V1388_Ori 06:10:59.166 +11:59:41.50 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4      Type=WAW
+QX_Car 09:54:33.884 -58:25:16.59 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5         Type=WAW
+DX_Gem 06:33:54.610 14:28:17.000 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4         Type=WAW
+FLAT 00:00:00 -90:00:00 F 1300 1  iristype=flat nv_total_time=1400         Type=flat            priority=15   t_start=02:00:00    flag=ignore_vis
+SW_CMa 07:08:15.237 -22:26:25.2 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4          Type=WAW
+GN_Cnc 09:16:04.4360 +20:04:23.393 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5       Type=WAW
+FLAT 00:00:00 -90:00:00 F 2000 1  iristype=narrowflat nv_total_time=2100   Type=flat            priority=15   t_start=03:00:00   flag=ignore_vis
+GL_Car 11:14:39.837 -60:39:36.36 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5         Type=WAW
+V501_Mon 06:40:41.726 -01:06:39.99 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4       Type=WAW
+T_Sex 09:53:28.3993 +02:03:26.356 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4        Type=WAW
+FS_Mon 07:24:42.304 -05:09:14.56 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4         Type=WAW
+3C273 12:29:6.700 2:3:9.000 Jn,Hn,Ks 720.000,720.000,720 1,1,1   iristype=seqhalf nv_overhead=140                    Type=Bochum  priority=10 cycle=2
+3C273 12:29:6.700 2:3:9.000 Br,CO,He 2000.000,2000.000,2000.000 1,1,1  iristype=seq20 nv_overhead=140        Type=Bochum  priority=10 cycle=2
+CG_12 13:57:36.000 -39:59:0.000 Ks 2200.000 1  iristype=hodapp  Type=hodapp                priority=10 cycle=5
+V1022_Cen 15:02:34.7547 -41:34:25.270 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5    Type=WAW
+KT_Com 13:33:50.23 +17:25:30.38 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5          Type=WAW
+HW_Lib 15:00:53.1288 -04:27:19.959 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4       Type=WAW
+FW_Lup 15:22:25.3803 -40:55:36.236 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4       Type=WAW
+TV_Nor 16:04:09.245 -51:32:40.10 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4         Type=WAW
+AQ_Ser 15:22:15.184 +02:30:11.02 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4         Type=WAW
+V2351_Oph 16:25:15.0055 -09:51:53.362 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5    Type=WAW
+UX_Nor 16:27:44.70 -56:47:08.10 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4          Type=WAW
+AB_Ara 16:42:08.99 -57:18:44.80 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4          Type=WAW
+W_Vir 13:26:01.99 -03:22:43.42 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4           Type=WAW
+V554_Oph 17:42:51.34 -21:30:11.60 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=4        Type=WAW
+V675_Sgr 18:13:35.4100 -34:19:01.840 Ks,Hn,Jn 360,360,360 1,1,1  iristype=seqquart   priority=5     Type=WAW
