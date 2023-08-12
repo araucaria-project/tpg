@@ -191,7 +191,9 @@ class main:
                           # if "cycle=" in line.split()[i]:
                           #    cycle=int(line.split()[i].split("=")[1])
 
-                  slotTime = (float(seq.split("/")[0]) * (float(seq.split("/")[2]) + float(overhed)))/60.
+                  slotTime = 0
+                  for x_seq in seq.split(","):
+                      slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhed)))/60.
                   # if len(time)>0 and len(time)==len(ndit):
                   #    for a,b in zip(time,ndit):
                   #        if "overload" in self.flags: a=float(a)/2.
