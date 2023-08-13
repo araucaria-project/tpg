@@ -85,7 +85,8 @@ class main:
        
   def getargs(self):
       if len(sys.argv)<3:
-         print("wrong format: ./tpg.py telescope (zb08 or jk15 or iris) 2019/08/20 [--nv --ph -o --loud] \n --nv : export plan to NV file format \n --ph : reject object based on phase caverage \n -o : overload objects (exp=dit/2)")
+         print("wrong format: ./tpg.py telescope (zb08 or jk15) date (yyyy/mm/dd) [opt: master_file.txt] \n")
+         print("example: ./tpg.py zb08 2023/08/12")
          sys.exit()
       else:
          self.flags=[]

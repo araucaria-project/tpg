@@ -4,7 +4,7 @@ Script for generating observing plans for **zb08** and **jk15** telescopes. Scri
 
 ### RUNNING SCRIPT:
 ```
-tpg.py <zb08|jk15> <date> (YYYY/MM/DD)
+tpg.py <zb08|jk15> <date> (YYYY/MM/DD) [optional: master_catalog_file]
 ```
 ```
 tpg.py zb08 2023/08/1  >| zb08_230810.txt
@@ -16,7 +16,7 @@ tpg.py zb08 2023/08/1  >| zb08_230810.txt
 
 ```plainttext
 zb08_FILE=./zb08_master.txt    # file with objects with specification for  
-HMIN=40                        # default visibility altitude condition for all objects
+HMIN=35                        # default visibility altitude condition for all objects
 HSUN=-9                        # default sun altitude, as the begining of the obserwations
 ```      
 ### MASTER FILE (format)
