@@ -2,6 +2,24 @@
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
 #e.g. AU_Peg	    21:24:00.2421322416	     +18:16:43.777873164	seq=1/Ic/30,1/V/30,1/B/30    P=2.4121	           mV=9.21	priority=4     comment="binary and dusty envelope"
 
+#Landolt standard fields
+
+TPHE  00:30:16  -46:27:55  seq=1/B/90,1/V/90,1/V/90,1/g/90,1/r/90,1/i/90,1/z/90 	P=-99.99  mV=14.65  priority=5  comment="7 standards between mV 11 and 14.5"
+SA92  00:56:08  +01:04:29  seq=1/B/90,1/V/90,1/V/90,1/g/90,1/r/90,1/i/90,1/z/90 	P=-99.99  mV=11.81 priority=5  comment="bunch of standards with mV between 11 and 15"
+SA95  03:53:04 	+00:03:12  seq=1/B/90,1/V/90,1/V/90,1/g/90,1/r/90,1/i/90,1/z/90 	P=-99.99  mV=12.68 priority=5  comment="bunch of standards centered on star SA95 101, mV between 11 and 15"
+SA110  18:42:45  +00:07:42  seq=1/B/90,1/V/90,1/V/90,1/g/90,1/r/90,1/i/90,1/z/90 	P=-99.99  mV=12.43 priority=5  comment="bunch of standards centered on star SA110 361, mV between 10 and 14"
+SA113  21:41:00  +00:27:21  seq=1/B/90,1/V/90,1/V/90,1/g/90,1/r/90,1/i/90,1/z/90 	P=-99.99  mV=10.88  priority=5 comment="bunch of standards centered on star SA113 342, mV between 10 and 14"
+#SA98
+#RU149
+#RU152
+#SA104
+#SA107
+#SA112
+#SA114
+#SA115
+
+
+
 
 # group t2_Cep
 
