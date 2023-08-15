@@ -23,7 +23,8 @@ zb08_FILE=./zb08_master.txt
 # **NOT IMPLEMENTED** PHCOV=0.05             # phase distance to reject
 # **NOT IMPLEMENTED** PHNUM=2                # minimum number of observations in phase to reject
 
-HMIN=40                # default visibility altitude condition for all objects
+HMIN=40                # default visibility min altitude condition for all objects
+HMAX=85                # default visibility max altitude condition for all objects
 HSUN=-9                # default sun altitude, as the begining of the obserwations
       
 
@@ -35,6 +36,7 @@ Additional markers are:
 
    seq=1/Ic/30                 -
    priority=5                  - script allocates higher priority first. If priority is < -50, script will never allocate object
+   comment="some comment"
 # **NOT IMPLEMENTED**   nv_overhead=50              - overhead in seconds added to each DIT
 # **NOT IMPLEMENTED**   nv_total_time=800           - totl time in seconds (not calculating DIT and NDIT)
 # **NOT IMPLEMENTED**   t_start=22:30:00            - visibility only after preset time each night

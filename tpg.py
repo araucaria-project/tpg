@@ -46,12 +46,13 @@ class main:
       #self.obs_num=3                                                        # minimum number of observations to reject
       #self.phase_coverage=0.05                                              # phase distance to reject
       #self.phase_num=2                                                      # number of observations in phase to reject
-      self.h_def="40"     # defoult visibility altitude condition for all objects
-      self.h_sun="-9"     # defoult sun altitude, as the begining of the obserwations    
+      self.h_max="80"     # defoult visibility altitude condition for all objects
+      self.h_min="35"     # defoult visibility altitude condition for all objects
+      self.h_sun="-18"     # defoult sun altitude, as the begining of the obserwations
       self.overhead=0
     
     
-      if not os.path.isfile('./scheduler.cfg'): sys.stderr.write('WARNING - Using defould config: no file scheduler.cfg  \n') 
+      if not os.path.isfile('./scheduler.cfg'): sys.stderr.write('WARNING - Using defoult config: no file scheduler.cfg  \n')
       else:
          plik=open("scheduler.cfg",'r')
          for line in plik: 
@@ -78,10 +79,13 @@ class main:
                    #    self.phase_coverage=float(line.split("=")[1].strip())
                    # if "PHNUM=" in line:
                    #    self.phase_num=int(line.split("=")[1].strip())
+                   if "HMAX=" in line:
+                      self.h_max=line.split("=")[1].strip()
                    if "HMIN=" in line:
-                      self.h_def=line.split("=")[1].strip()    
+                      self.h_min=line.split("=")[1].strip()
                    if "HSUN=" in line:
-                      self.h_sun=line.split("=")[1].strip()                   
+                      self.h_sun=line.split("=")[1].strip()
+
        
   def getargs(self):
       if len(sys.argv)<3:
@@ -117,6 +121,7 @@ class main:
       self.ra=[]
       self.dec=[]
       self.seq=[]
+      self.comment=[]
       self.slotTime=[]           # minutes of allocation for object
       self.spec=[]               # specification for NV to observe
       self.tstart=[]             # 
@@ -152,6 +157,8 @@ class main:
                   seq = "1/Ic/30"
                   priority = 0
                   slotTime = 0
+                  comment=""
+
 
                   overhed = self.overhead
                   # cycle=1
@@ -159,7 +166,18 @@ class main:
                   # tt=0
                   # ts=False
                   # te=False
+                  if "comment=" in line:
+                      tmp = line.split("comment=")[1]
+                      if "\"" in line:
+                          comment = tmp.split("\"")[1]
+                      if "\'" in line:
+                          comment = tmp.split("\'")[1]
+
+
+
+
                   for i, tmp in enumerate(line.split()):
+
                       if i == 0:
                           name = line.split()[0]
                       elif i == 1:
@@ -226,6 +244,7 @@ class main:
                   self.ra.append(ra)
                   self.dec.append(dec)
                   self.seq.append(seq)
+                  self.comment.append(comment)
                   self.slotTime.append(slotTime)
                   self.spec.append(line)
                   self.priority.append(priority)
@@ -259,7 +278,7 @@ class main:
           s._ra = self.ra[n]
           s._dec = self.dec[n]
           self.oca.date = self.sunset
-          self.oca.horizon=self.h_def
+          self.oca.horizon=self.h_min
           vis=[]
           hT=[]
           s.compute(self.oca)
@@ -268,7 +287,7 @@ class main:
               s.compute(self.oca)
               h=float(str(s.alt).split(":")[0])+float(str(s.alt).split(":")[1])/60
               hT.append(h)
-              if float(h)>float(self.h_def): T=True
+              if float(h)>float(self.h_min) and float(h)<float(self.h_max): T=True
               else: T=False
               #if "ignore_vis" in self.obflag[n]: T=True
               vis.append(T)
@@ -344,6 +363,7 @@ class main:
                    k=int(self.nightObject[n])
                    #print(self.spec[k])
                    txt = f"OBJECT {self.name[k]} {self.ra[k]} {self.dec[k]} seq={self.seq[k]}"
+                   if len(self.comment[k]) > 0: txt = txt + f" comment=\"{self.comment[k]}\""
                    print(txt)
 
                 else:
