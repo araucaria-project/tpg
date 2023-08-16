@@ -159,7 +159,6 @@ class main:
                   slotTime = 0
                   comment=""
 
-
                   overhed = self.overhead
                   # cycle=1
                   # total=False
@@ -173,8 +172,11 @@ class main:
                       if "\'" in line:
                           comment = tmp.split("\'")[1]
 
+                  if "seq=" in line:
+                      seq=line.split("seq=")[1].split()[0]
 
-
+                  if "priority=" in line:
+                      priority=line.split("priority=")[1].split()[0]
 
                   for i, tmp in enumerate(line.split()):
 
@@ -185,13 +187,7 @@ class main:
                       elif i == 2:
                           dec = line.split()[2]
 
-                      elif i > 2:
-
-                          if "seq=" in line.split()[i]:
-                              seq = (line.split()[i].split("=")[1])
-
-                          if "priority=" in line.split()[i]:
-                              priority = int((line.split()[i].split("=")[1]))
+                      #elif i > 2:
 
                           # if "flag=ignore_phs" in line.split()[i]:
                           #    flag.append("ignore_phs")
@@ -331,7 +327,7 @@ class main:
                   bounds = (nn, nn + slots)
 
                   if all(self.nightFree[bounds[0]:bounds[1] + 1]) and all(visibility[bounds[0]:bounds[1] + 1]) and \
-                          self.priority[k] > -50:
+                          int(self.priority[k]) > -50:
                       if int(self.priority[k]) > priormax:
                           priormax = int(self.priority[k])
                           bfin = bounds
@@ -367,12 +363,6 @@ class main:
                 else:
                   t0=self.nightTime[n]
                   ZNACZNIK=True
-
-
-
-
-
-
 
 
   def MaskPhase(self):      # mask phase covarage
@@ -492,17 +482,8 @@ class main:
                     ZNACZNIK=True
           if "loud" in self.flags and ZNACZNIK: 
              txt=self.name[n]+" masked: t_start or t_end"
-             sys.stderr.write(txt+"\n")                    
- 
+             sys.stderr.write(txt+"\n")
 
-
-
-
-
-
-
-
-                           
                             
 
 ####### SCRIPT RUN
