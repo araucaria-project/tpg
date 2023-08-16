@@ -278,7 +278,7 @@ class main:
           s._ra = self.ra[n]
           s._dec = self.dec[n]
           self.oca.date = self.sunset
-          self.oca.horizon=self.h_min
+          self.oca.horizon=self.h_sun
           vis=[]
           hT=[]
           s.compute(self.oca)
@@ -356,8 +356,6 @@ class main:
                    self.oca.date = ephem.Date(self.nightTime[n])
                    txt = "WAIT ut="+str(self.oca.date).split()[1]
                    print(txt)
-#WAIT ut=15:06:00
-
                 prev = int(self.nightObject[n])
                 if prev>-50:
                    k=int(self.nightObject[n])
