@@ -49,7 +49,7 @@ class main:
       self.h_max="80"     # defoult visibility altitude condition for all objects
       self.h_min="35"     # defoult visibility altitude condition for all objects
       self.h_sun="-18"     # defoult sun altitude, as the begining of the obserwations
-      self.overhead=0
+      self.overhead=20
     
     
       if not os.path.isfile('./scheduler.cfg'): sys.stderr.write('WARNING - Using defoult config: no file scheduler.cfg  \n')
@@ -101,7 +101,7 @@ class main:
          elif sys.argv[1]=="zb08":
             self.Obfile=self.zb08_file
             self.flags.append("zb08")
-            self.overhead=65.
+            self.overhead=20.
 
          self.date=sys.argv[2]+" 16:00:00"
          if "--ph" in sys.argv: self.flags.append("ph")
