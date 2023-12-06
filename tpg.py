@@ -2,10 +2,9 @@
 
 #=============================
 #        Marek Gorski
-#         12.02.2020
 #=============================
 
-# ./scheduler.py iris ( or v16)  2019/08/20 [--nv --ph -o]  >| plan_nv_iris.txt
+# ./tpg.py zb08 ( or v16)  2019/08/20 [--nv --ph -o]  >| plan.txt
 # --ph : reject object based on phase caverage"
 # --loud : loud to sys.sterr
 # -o : overload objects
@@ -14,7 +13,10 @@ import sys,os,numpy,ephem
 
 class main:
   def __init__(self):
-   
+
+      self.cwd = os.getcwd()
+      self.script_dir = os.path.dirname(os.path.abspath(__file__))
+
       #--------------- MAIN SCRIPT --------------
       self.config()
       self.getargs()                  # reads script arguments
@@ -30,36 +32,18 @@ class main:
       self.allocate()                 #   SCHEDULING OBJECTS
       self.export()                   # export plan
 
- 
-
-
-      
   def config(self):
 
-      self.zb08_file="zb08_master.txt"                # path to files with objects for zb08
-      #self.irisfile="iris_master_nv.txt"                 # path to files with objects for IRIS
-      #self.bestfile="best_manster_nv.txt"
-      #self.v16file="/home/observer/scripts/OCANV/CATALOGS/v16_master_nv.txt"                   # path to files with objects for V16
-      #self.obsdata_dir="/home/observer/scripts/OCANV/ObsData"              # path to files with previous observations phase coverage
-      #self.taball_path="/home/observer/scripts/OCANV/CATALOGS/TAB.ALL"     # path to file with known periods and jd0
-      #self.logdir="/home/observer/Documents/v16/"
-      #self.obs_num=3                                                        # minimum number of observations to reject
-      #self.phase_coverage=0.05                                              # phase distance to reject
-      #self.phase_num=2                                                      # number of observations in phase to reject
-      self.h_max="80"     # defoult visibility altitude condition for all objects
-      self.h_min="35"     # defoult visibility altitude condition for all objects
-      self.h_sun="-18"     # defoult sun altitude, as the begining of the obserwations
-      self.overhead=20
-    
-    
-      if not os.path.isfile('./scheduler.cfg'): sys.stderr.write('WARNING - Using defoult config: no file scheduler.cfg  \n')
+      if not os.path.isfile(self.script_dir+'/tpg.cfg'):
+          sys.stderr.write('WARNING - No config file tpg.cfg:\n')
+          sys.exit()
       else:
-         plik=open("scheduler.cfg",'r')
+         plik=open(self.script_dir+"/tpg.cfg",'r')
          for line in plik: 
              if line:  # no empty lines
                 if line[0]!="#":
                    if "zb08_FILE=" in line:
-                      self.zb08_file=line.split("=")[1].strip()
+                       self.zb08_file=line.split("=")[1].strip()
 
                    # if "IRISFILE=" in line:
                    #    self.irisfile=line.split("=")[1].strip()
@@ -145,7 +129,7 @@ class main:
 
       if not os.path.isfile(self.Obfile):
           sys.stderr.write('No Objects Catalog file!\n')
-          sys.stderr.write('Check scheduler.cfg file.\n')
+          sys.stderr.write('Check tpg.cfg file\n')
           sys.exit()
 
       plik = open(self.Obfile, 'r')
@@ -488,4 +472,5 @@ class main:
 
 ####### SCRIPT RUN
     
-m = main()
+if __name__ == "__main__":
+    m = main()

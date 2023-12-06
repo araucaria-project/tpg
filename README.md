@@ -2,7 +2,7 @@
 
 Script for generating observing plans for **zb08** and **jk15** telescopes. Script alocates time based on priority and visibility. Calculates slot time based on specification ``seq`` of each object. Creates files readable by *TOI* and *TEXTUI*.
 
-### RUNNING SCRIPT:
+### RUNNING SCRIPT
 ```
 tpg.py <zb08|jk15> <date> (YYYY/MM/DD) [optional: master_catalog_file]
 ```
@@ -10,12 +10,22 @@ tpg.py <zb08|jk15> <date> (YYYY/MM/DD) [optional: master_catalog_file]
 tpg.py zb08 2023/08/1  >| zb08_230810.txt
 ```
 
+### INSTALLATION
+pull from github
+```commandline
+cd tpg
+pipx install .
+```
+upgrading
+```commandline
+pipx upgrade tpg
+```
 
 ### CONFIGURATION
-`scheduler.cfg`
+`tpg.cfg`
 
 ```plainttext
-zb08_FILE=./zb08_master.txt    # file with objects with specification for  
+zb08_FILE=~/tpg/zb08_master.txt    # file with objects with specification for  
 HMIN=35                        # default visibility based on min altitude condition for all objects
 HMIN=80                        # default visibility based on max altitude condition for all objects
 HSUN=-18                        # default sun altitude, as the begining of the obserwations

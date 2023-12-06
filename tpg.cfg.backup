@@ -1,42 +1,42 @@
 
 
 
+zb08_FILE=./zb08_master.txt
+
 #IRISFILE=/Users/mgorski/DEVELOPER/OCA/OCANV/CATALOGS/iris_master_nv.txt
-IRISFILE=/home/observer/scripts/OCANV/CATALOGS/iris_master_nv.txt
 #V16FILE=/Users/mgorski/DEVELOPER/OCA/OCANV/CATALOGS/v16_master_nv.txt
-V16FILE=/home/observer/scripts/OCANV/CATALOGS/v16_master_nv.txt
-BESTFILE=best_master_nv.txt
+#BESTFILE=best_master_nv.txt
 
 
 #--------------------------------------------------------
 # path to files with previous observations phase coverage
 #OBSDATA=/Users/mgorski/DEVELOPER/OCA/OCANV/ObsData
-OBSDATA=/home/observer/scripts/OCANV/ObsData
+
 
 # path to file with known periods and jd0
 
 #TABALL=/Users/mgorski/DEVELOPER/OCA/OCANV/CATALOGS/TAB.ALL
-TABALL=/home/observer/scripts/OCANV/CATALOGS/TAB.ALL
+
 
 
 #LOGDIR=./LOG/
-LOGDIR=/home/observer/Documents/v16/
+
 
 #----------------------------------------------------------
 # minimum total number of observations to reject
-OBSNUM=3
+#OBSNUM=3
 
 # phase distance to reject
-# PHCOV=0.01
-PHCOV=0.002
+#PHCOV=0.002
 
 # minimum number of observations in phase to reject
-PHNUM=2
+#PHNUM=2
 
 
 #---------------------------------------------------
-# default visibility altitude condition for all objects
+# defoult visibility altitude condition for all objects
 HMIN=40
+HMAX=80
 
-# default sun altitude, as the begining of the obserwations
-HSUN=-9
+# defoult sun altitude, as the begining of the obserwations
+HSUN=-18
