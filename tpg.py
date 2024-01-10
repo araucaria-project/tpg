@@ -26,7 +26,7 @@ class main:
       self.CalcObject()               # calculates visibilities for all objects
       self.Waga()                     # calculate propability for randomization order of objects to observe
       self.RandomizeList()            # randomize listo of objects to observev
-      # self.MaskVis()                  # mask visibilite base on t_start and t_end
+      self.MaskStartEnd()                  # mask visibilite base on t_start and t_end
       # self.MaskPhase()                # reject objects based on phase covarage
       # self.MakeCycle()                # changes prioryty based on cycle
       self.allocate()                 #   SCHEDULING OBJECTS
@@ -147,8 +147,8 @@ class main:
                   # cycle=1
                   # total=False
                   # tt=0
-                  # ts=False
-                  # te=False
+                  ts=False
+                  te=False
                   if "comment=" in line:
                       tmp = line.split("comment=")[1]
                       if "\"" in line:
@@ -161,6 +161,13 @@ class main:
 
                   if "priority=" in line:
                       priority=line.split("priority=")[1].split()[0]
+
+                  if "t_start=" in line:
+                      ts = line.split("t_start=")[1].split()[0]
+
+
+                  if "t_end=" in line:
+                      te = line.split("t_end=")[1].split()[0]
 
                   for i, tmp in enumerate(line.split()):
 
@@ -183,16 +190,17 @@ class main:
                           #    overhed=float((line.split()[i].split("=")[1]))
                           # if "nv_total_time=" in line.split()[i]:
                           #    total=float((line.split()[i].split("=")[1]))
-                          # if "t_start=" in line.split()[i]:
-                          #    ts=(line.split()[i].split("=")[1])
-                          # if "t_end=" in line.split()[i]:
-                          #    te=(line.split()[i].split("=")[1])
                           # if "cycle=" in line.split()[i]:
                           #    cycle=int(line.split()[i].split("=")[1])
 
                   slotTime = 0
+                  k = 1
+                  if "x(" in seq and ")" in seq:
+                      k = int(seq.split("x")[0])
+                      seq = seq.split("x(")[1].split(")")[0]
                   for x_seq in seq.split(","):
                       slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhed)))/60.
+                  slotTime=k*slotTime
                   # if len(time)>0 and len(time)==len(ndit):
                   #    for a,b in zip(time,ndit):
                   #        if "overload" in self.flags: a=float(a)/2.
@@ -228,8 +236,8 @@ class main:
                   self.slotTime.append(slotTime)
                   self.spec.append(line)
                   self.priority.append(priority)
-                  # self.tstart.append(ts)
-                  # self.tend.append(te)
+                  self.tstart.append(ts)
+                  self.tend.append(te)
                   # self.obflag.append(flag)
                   # self.cycle.append(cycle)
 
@@ -348,6 +356,49 @@ class main:
                   t0=self.nightTime[n]
                   ZNACZNIK=True
 
+  def MaskStartEnd(self):  # Masks visibility based on t_start t_end
+      for n, tmp in enumerate(self.name):
+          ZNACZNIK = False
+
+          ts = self.tstart[n]
+          if ts:
+              if "T" in ts:
+                  ts = ts.replace("T", " ")
+              if "/" not in ts:
+                  date = self.date.split()[0]
+                  if int(ts.split(":")[0])<16:
+                      date = ephem.Date(date)+1
+                      date = str(ephem.Date(date)).split()[0]
+                  ts = date + " " + ts
+              ts = ephem.Date(ts)
+              time_s = ts
+              if time_s or time_e:
+                  for i, tmp in enumerate(self.nightTime):
+                      if float(self.nightTime[i]) < float(time_s) and self.visibility[n][i] and time_s:
+                          self.visibility[n][i] = False
+                          ZNACZNIK = True
+
+          te = self.tend[n]
+          if te:
+              if "T" in te:
+                  te = te.replace("T", " ")
+              if "/" not in te:
+                  date = self.date.split()[0]
+                  if int(ts.split(":")[0])<16:
+                      date = ephem.Date(date)+1
+                      date = str(ephem.Date(date)).split()[0]
+                  te = date + " " + te
+              te = ephem.Date(te)
+              time_e = te
+
+              if time_s or time_e:
+                  for i, tmp in enumerate(self.nightTime):
+                      if float(self.nightTime[i]) > float(time_e) and self.visibility[n][i] and time_e:
+                          self.visibility[n][i] = False
+                          ZNACZNIK = True
+              if "loud" in self.flags and ZNACZNIK:
+                  txt = self.name[n] + " masked: t_start or t_end"
+                  sys.stderr.write(txt + "\n")
 
   def MaskPhase(self):      # mask phase covarage
       if "ph" in self.flags:         
@@ -451,24 +502,7 @@ class main:
                    sys.stderr.write(txt+"\n")                
 
 
-  def MaskVis(self):           # Masks visibility based on t_start t_end
-      for n,tmp in enumerate(self.name):
-          ZNACZNIK=False
-          time_s=self.tstart[n]
-          time_e=self.tend[n]
-          if time_s or time_e:
-             for i,tmp in enumerate(self.nightTime):
-                 if float(self.nightTime[i]) < float(time_s) and self.visibility[n][i] and time_s: 
-                    self.visibility[n][i]=False 
-                    ZNACZNIK=True
-                 if float(self.nightTime[i]) > float(time_e) and self.visibility[n][i] and time_e: 
-                    self.visibility[n][i]=False 
-                    ZNACZNIK=True
-          if "loud" in self.flags and ZNACZNIK: 
-             txt=self.name[n]+" masked: t_start or t_end"
-             sys.stderr.write(txt+"\n")
 
-                            
 
 ####### SCRIPT RUN
     
