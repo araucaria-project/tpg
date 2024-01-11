@@ -7,18 +7,13 @@
 TPHE  00:30:16  -46:27:55   seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=12.33  priority=5  comment="7 standards, centered on TPHE B, mV between 11 and 14.5"
 SA92  00:56:08  +01:04:29   seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=11.81 priority=5  comment="bunch of standards with mV between 11 and 15"
 SA95  03:53:04 	+00:03:12   seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=12.68 priority=5  comment="bunch of standards centered on star SA95 101, mV between 11 and 15"
+SA98  06:52:05 	-00:19:18  seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=12.27  priority=5 comment="bunch of standards centered on star SA98 650, mV between 10 and 15"
+RU149  07:24:14 	-00:31:41  seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=11.48  priority=5 comment="bunch of standards centered on star RU149 D, mV between 11.5 and 14.5"
+RU152  07:29:56 	-02:05:39  seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=13.01  priority=5 comment="bunch of standards centered on star RU152, mV between 11 and 15"
+SA104  12:42:21 	-00:33:12  seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=11.67  priority=5 comment="bunch of standards centered on star SA104 335, mV between 10 and 15"
 SA110  18:42:45  +00:07:42  seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=12.43 priority=5  comment="bunch of standards centered on star SA110 361, mV between 10 and 14"
 SA113  21:41:00  +00:27:21  seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=10.88  priority=5 comment="bunch of standards centered on star SA113 342, mV between 10 and 14"
-#SA98
-#RU149
-#RU152
-#SA104
-#SA107
-#SA112
-SA114 22:41:38.8  +01:12:14  seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=10.88  priority=5
-#SA115
-
-
+SA114 22:41:37  +01:08:14  seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=10.88  priority=5 comment="bunch of standards centered on star ~SA114 750, mV between 9.5 and 12"
 
 
 # group t2_Cep
