@@ -1,9 +1,21 @@
 #format of each line should be as following:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
-#e.g. AU_Peg	    21:24:00.2421322416	     +18:16:43.777873164	seq=1/Ic/30,1/V/30,1/B/30    P=2.4121	           mV=9.21	priority=4     comment="binary and dusty envelope"
+# example1	21:24:00.2421	     +18:16:43.77	seq=1/Ic/30,1/V/30,1/B/30    P=2.4121	           mV=9.21	priority=4     comment="binary and dusty envelope"
+# example2  07:24:14 	-00:31:41  seq=10x(1/B/60,1/V/30,1/Ic/30) 	 priority=6 t_start=08:20 t_end=10:00
+# example3  07:24:14 	-00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30) 	 priority=6 t_start=00:20 t_end=10:00
+
+# Nikki test objects
+WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
+WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
+
+CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
+CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
+
+TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
+TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
+
 
 #Landolt standard fields
-
 TPHE  00:30:16  -46:27:55   seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=12.33  priority=5  comment="7 standards, centered on TPHE B, mV between 11 and 14.5"
 SA92  00:56:08  +01:04:29   seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=11.81 priority=5  comment="bunch of standards with mV between 11 and 15"
 SA95  03:53:04 	+00:03:12   seq=1/B/60,1/V/30,1/Ic/30 	P=-99.99  mV=12.68 priority=5  comment="bunch of standards centered on star SA95 101, mV between 11 and 15"

@@ -4,11 +4,14 @@ Script for generating observing plans for **zb08** and **jk15** telescopes. Scri
 
 ### RUNNING SCRIPT
 ```
-tpg.py <zb08|jk15> <date> (YYYY/MM/DD) [optional: master_catalog_file]
+tpg.py <zb08|jk15> <date> (YYYY/MM/DD) [ut (hh:mm)]
 ```
 ```
 tpg.py zb08 2023/08/1  >| zb08_230810.txt
+tpg.py zb08 2023/08/1 03:45 
 ```
+If `ut` is specified, the plan will **start at UT**.
+If it's not specified, it will **start at sunset** (defined by `HSUN` in configuration)
 
 ### INSTALLATION
 pull from github
@@ -42,6 +45,7 @@ BX_Del	    20:21:18.97    +18:26:16.29 	seq=1/Ic/30     priority=4	 t_start=2024
 #### Specification:
 * `seq=1/Ic/30,2/V/45` - (N/filter/exp_time) both sequences will be executed.  
   `seq=10x(1/Ic/30,2/V/45)` - (N/filter/exp_time) sequences will be repeated 10 times.
+  `seq=INFx(1/Ic/30,2/V/45)` - (N/filter/exp_time) sequences will be repeated as long it's visible.
 * `priority=5`  - script allocates higher priority first. If priority is < -50, script will never allocate object
 * `comment="some comment"` - comment visible to observer
 * `t_start=2024/01/09T1:20:05` - date and ut  for start
