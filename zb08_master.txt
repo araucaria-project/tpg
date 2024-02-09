@@ -3,6 +3,8 @@
 # example1	21:24:00.2421	     +18:16:43.77	seq=1/Ic/30,1/V/30,1/B/30    P=2.4121	           mV=9.21	priority=4     comment="binary and dusty envelope"
 # example2  07:24:14 	-00:31:41  seq=10x(1/B/60,1/V/30,1/Ic/30) 	 priority=6 t_start=08:20 t_end=10:00
 # example3  07:24:14 	-00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30) 	 priority=6 t_start=00:20 t_end=10:00
+# example4  07:24:14 	-00:31:41  seq=2x(1/B/36) 	 priority=7 ph_start=0.8 ph_end=0.1 P=0.1 t0=2460310.5
+
 
 # Nikki test objects
 WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
@@ -192,6 +194,62 @@ ASAS_J025822+1540.3                 02:58:21.96 15:40:18.66 seq=2/Ic/15,2/V/10,2
 ASAS_J002443-6949.7                 00:24:42.20 -69:49:43.96 seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26 priority=4 P=0.7279597 mV=11.33 comment=RRAB
 TY_Cet                           02:20:44.25 -14:23:22.95 seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/28 priority=4 P=0.32368 mV=11.44 comment=RRC
 ASAS_J031408-3446.4                 03:14:08.31 -34:46:22.44 seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39 priority=4 P=0.3124235 mV=11.88 comment=RRC
+
+
+# EB Darka scbr + gaia
+
+# Efemerydy  0.125*czas_trwania_zacmienia odjete i dodane do faz poczatku i konca zacmienia
+#  p - fazy zacmienia glownego (primary),  s - fazy zacmienia wtornego (secondary)
+#  ID               Vmag       P              T0          p_begin    p_end      s_begin    s_end      Filters  Group
+
+
+#  TYC1243-402-1    11.4       P=8.074682    t0=2456813.845     ph_start=0.9808     ph_end=0.0192     ph_start=0.4863     ph_end=0.5231     BVI      sbcr
+#  TYC6484-426-1    10.7       P=7.056725    t0=2458469.462     ph_start=0.9720     ph_end=0.0280     ph_start=0.4602     ph_end=0.5170     vby/BVI? sbcr/benchmark
+#  V365_Pup          7.8       P=12.87155    t0=2459220.7057    ph_start=0.986      ph_end=0.014      ph_start=0.645      ph_end=0.688      vby      sbcr
+#  PX_Hya            8.4       P=36.1555     t0=2454536.308     ph_start=0.9917     ph_end=0.0083     ph_start=0.1943     ph_end=0.2250     vby      sbcr
+#  TYC266-718-1     10.3       P=35.024018   t0=2456813.790     ph_start=0.9928     ph_end=0.0072     ph_start=0.4806     ph_end=0.4938     vby      sbcr/benchmark
+#  LQ_Mus            7.5       P=7.506404    t0=2452712.7448    ph_start=0.9771     ph_end=0.0229     ph_start=0.4771     ph_end=0.5229     vby      sbcr/benchmark
+#  BD-18_4532       10.7       P=9.1274      t0=2456816.892     ph_start=0.9830     ph_end=0.0170     ph_start=0.7219     ph_end=0.7617     vby/BVI? sbcr
+#  TYC20-893-1      11.8       P=8.36117     t0=2456807.200     ph_start=0.9812     ph_end=0.0188     ph_start=0.5380     ph_end=0.5823     BVI      gaia
+#  RV_Hyi           11.1       P=7.195053    t0=2458351.626     ph_start=0.975      ph_end=0.025      ph_start=0.5759     ph_end=0.6416     vby/BVI? gaia/slow_apsidal_motion
+#  E_220471927      13.4       P=19.8828     t0=2456805.128     ph_start=0.9840     ph_end=0.0160     ph_start=0.3212     ph_end=0.3433     BVI      gaia/benchmark
+#  TYC1257-132-1    11.8       P=9.37395     t0=2457611.387     ph_start=0.9675     ph_end=0.0325     ph_start=0.5247     ph_end=0.5830     BVI      gaia
+#  CD-41_1394       10.7       P=17.5547     t0=2454935.8574    ph_start=0.9882     ph_end=0.0118     ph_start=0.1499     ph_end=0.1780     vby/BVI? gaia
+#  E_246891964      11.8       P=30.44006    t0=2456830.746     ph_start=0.9775     ph_end=0.0225     ph_start=0.6705     ph_end=0.6953     BVI      gaia/benchmark/slow_apsidal_motion
+#  CPD-64_390       10.2       P=31.114765   t0=2458347.587     ph_start=0.9910     ph_end=0.0090     ph_start=0.5284     ph_end=0.5502     vby      gaia
+#  E_246887507      12.4       P=11.46055    t0=2456813.968     ph_start=0.9799     ph_end=0.0201     ph_start=0.2916     ph_end=0.3426     BVI      gaia
+#  TYC735-1315-1    11.3       P=15.71975    t0=2458483.786     ph_start=0.9875     ph_end=0.0125     ph_start=0.3071     ph_end=0.3559     BVI      gaia
+#  E_202086627      11.6       P=7.149794    t0=2456806.281     ph_start=0.9813     ph_end=0.0187     ph_start=0.4849     ph_end=0.5211     BVI      gaia/benchmark
+#  TYC6511-1799-1   11.4       P=26.3815     t0=2458473.34      ph_start=0.990      ph_end=0.010      ph_start=0.3381     ph_end=0.3924     BVI      gaia
+#  TYC8547-1509-1   11.1       P=7.14020     t0=2458646.3474    ph_start=0.9762     ph_end=0.0238     ph_start=0.4768     ph_end=0.5246     vby/BVI? gaia
+#  V400_Gem         11.4       P=11.305257   t0=2456805.5283    ph_start=0.9786     ph_end=0.0214     ph_start=0.4793     ph_end=0.5230     BVI      gaia/benchmark
+#  TYC1392-886-1    11.4       P=6.764156    t0=2456814.550     ph_start=0.975      ph_end=0.025      ph_start=0.475      ph_end=0.525      BVI      gaia
+#  TYC1396-393-1    12.3       P=8.79464     t0=2456816.2882    ph_start=0.9794     ph_end=0.0206     ph_start=0.4828     ph_end=0.5245     BVI      gaia/benchmark
+#  TYC246-1159-1    11.0       P=16.77565    t0=2456834.876     ph_start=0.9892     ph_end=0.0108     ph_start=0.3388     ph_end=0.3636     vby/BVI? gaia
+#  E_248912952      13.6       P=3.139174    t0=2457934.967     ph_start=0.950      ph_end=0.050      ph_start=0.450      ph_end=0.550      BVI      gaia
+#  SWASPJ104335.88  12.4       P=9.65706     t0=2458550.9467    ph_start=0.9787     ph_end=0.0213     ph_start=0.3902     ph_end=0.4404     BVI      gaia
+#  TYC852-1050-1    10.3       P=3.1427839   t0=2456832.5513    ph_start=0.9556     ph_end=0.0444     ph_start=0.4556     ph_end=0.5444     vby      gaia
+#  TYC4930-128-1    11.5       P=8.48188     t0=2457615.7932    ph_start=0.9812     ph_end=0.0188     ph_start=0.588      ph_end=0.634      BVI      gaia/slow_apsidal_motion
+#  E_201253025      13.0       P=6.78641     t0=2456851.124     ph_start=0.9746     ph_end=0.0254     ph_start=0.4671     ph_end=0.5227     BVI      gaia
+#  BD-04_3206       10.8       P=5.422527    t0=2457618.388     ph_start=0.9740     ph_end=0.0260     ph_start=0.4737     ph_end=0.5263     vby/BVI? gaia
+#  TYC4951-933-1    11.0       P=15.28954    t0=2457579.870     ph_start=0.9890     ph_end=0.0110     ph_start=0.1953     ph_end=0.2229     vby/BVI? gaia
+#  E_212707624      13.3       P=7.210726    t0=2457233.7727    ph_start=0.9797     ph_end=0.0203     ph_start=0.4863     ph_end=0.5311     BVI      gaia
+#  LP_Lib           11.4       P=4.88418     t0=2458012.7289    ph_start=0.9672     ph_end=0.0328     ph_start=0.4669     ph_end=0.5331     BVI      gaia
+#  E_204321014      12.4       P=3.79213     t0=2456814.4278    ph_start=0.9685     ph_end=0.0315     ph_start=0.4685     ph_end=0.5315     BVI      gaia
+#  TYC6780-1523-1   10.8       P=4.6601      t0=2456814.6264    ph_start=0.9449     ph_end=0.0551     ph_start=0.4449     ph_end=0.5551     vby/BVI? gaia
+#  TYC6206-1374-1   11.8       P=15.5854     t0=2456795.2723    ph_start=0.9875     ph_end=0.0125     ph_start=0.6367     ph_end=0.6593     BVI      gaia
+#  TYC6240-759-1    11.7       P=13.6336     t0=2457712.055     ph_start=0.990      ph_end=0.010      ph_start=0.1336     ph_end=0.1583     BVI      gaia
+#  BD-19_4582       11.0       P=3.13694     t0=2457748.538     ph_start=0.9480     ph_end=0.0520     ph_start=0.4480     ph_end=0.5520     vby/BVI? gaia
+#  TYC6247-420-1    12.2       P=6.38382     t0=2457704.996     ph_start=0.9687     ph_end=0.0313     ph_start=0.4687     ph_end=0.5313     BVI      gaia
+#  E_218070138      12.1       P=15.102      t0=2456804.9364    ph_start=0.9859     ph_end=0.0141     ph_start=0.9859     ph_end=0.0141     BVI      gaia/benchmark
+#  TYC6306-1822-1   11.1       P=6.4907      t0=2457616.60      ph_start=0.9625     ph_end=0.0375     ph_start=0.4625     ph_end=0.5375     vby/BVI? gaia
+#  GN_Aqr           11.7       P=4.4043915   t0=2456814.423     ph_start=0.9625     ph_end=0.0375     ph_start=0.4625     ph_end=0.5375     BVI      gaia
+#  CD-24_17223      10.7       P=10.351663   t0=2458370.4114    ph_start=0.9664     ph_end=0.0336     ph_start=0.4826     ph_end=0.5496     vby/BVI? gaia
+#  TYC5239-1149-1   12.1       P=21.19382    t0=2456811.828     ph_start=0.9875     ph_end=0.0125     ph_start=0.4711     ph_end=0.4921     BVI      gaia/benchmark
+#  E_206134477      12.3       P=4.236594    t0=2456814.076     ph_start=0.9562     ph_end=0.0438     ph_start=0.4562     ph_end=0.5438     BVI      gaia
+#  E_246098758      13.7       P=7.390488    t0=2457793.890     ph_start=0.9812     ph_end=0.0188     ph_start=0.4812     ph_end=0.5188     BVI      gaia
+#  TYC5829-1047-1   12.1       P=8.375554    t0=2457775.8396    ph_start=0.9786     ph_end=0.0214     ph_start=0.4786     ph_end=0.5214     BVI      gaia
+#  BC_Oct           10.3       P=26.45942    t0=2458346.1226    ph_start=0.9881     ph_end=0.0119     ph_start=0.3229     ph_end=0.3576     vby      gaia
 
 
 #

@@ -27,6 +27,7 @@ class main:
       self.Waga()                     # calculate propability for randomization order of objects to observe
       self.RandomizeList()            # randomize listo of objects to observev
       self.MaskStartEnd()                  # mask visibilite base on t_start and t_end
+      self.MaskPhaseStartEnd()                  # mask visibilite base on t_start and t_end
       # self.MaskPhase()                # reject objects based on phase covarage
       # self.MakeCycle()                # changes prioryty based on cycle
       self.allocate()                 #   SCHEDULING OBJECTS
@@ -199,9 +200,6 @@ class main:
                         period = line.split("P=")[1].split()[0]
                         t0 = line.split("t0=")[1].split()[0]
 
-                    if "ph_end=" in line:
-                        pe = line.split("ph_end=")[1].split()[0]
-
 
                     for i, tmp in enumerate(line.split()):
 
@@ -222,6 +220,8 @@ class main:
                         k = int(k)
 
                         seq0 = seq.split("x(")[1].split(")")[0]
+                    else:
+                        seq0 = seq
                     for x_seq in seq0.split(","):
                         slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhed)))/60.
                     slotTime = k * slotTime
@@ -368,7 +368,6 @@ class main:
                    empty_time =  float(self.nightTime[n]-t0)*24.*60.*60.
                    self.oca.date = ephem.Date(self.nightTime[n])
                    txt = "WAIT ut="+str(self.oca.date).split()[1]
-                   print(txt)
                 prev = int(self.nightObject[n])
                 if prev>-50:
                    k=int(self.nightObject[n])
@@ -426,6 +425,39 @@ class main:
 
               if "loud" in self.flags and ZNACZNIK:
                   txt = self.name[n] + f" masked: {time_s} to {time_e}"
+                  sys.stderr.write(txt + "\n")
+
+
+
+    def MaskPhaseStartEnd(self):  # Masks visibility based on pstart and pend
+      for n, tmp in enumerate(self.name):
+          ZNACZNIK = False
+
+          ps = self.pstart[n]
+          pe = self.pend[n]
+          period = self.period[n]
+          t0 = self.t0[n]
+
+          if ps:
+              for i, t in enumerate(self.nightTime):
+                  if self.visibility[n][i]:
+                      jd = ephem.julian_date(ephem.Date(t))
+                      p = (jd - float(t0))/float(period)%1
+                      if pe < ps:
+                          if p > float(pe) and p < float(ps):
+                              self.visibility[n][i] = False
+                              ZNACZNIK = True
+                          else:
+                              pass
+                      else:
+                          if p > float(ps) and p < float(pe):
+                            pass
+                          else:
+                            self.visibility[n][i] = False
+                            ZNACZNIK = True
+
+              if "loud" in self.flags and ZNACZNIK:
+                  txt = self.name[n] + f" masked: {ps} to {pe}"
                   sys.stderr.write(txt + "\n")
 
     def MaskPhase(self):      # mask phase covarage
