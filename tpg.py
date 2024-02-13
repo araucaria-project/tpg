@@ -76,9 +76,9 @@ class main:
     def getargs(self):
         self.flags = []
         if len(sys.argv)<3:
-            print("wrong format: ./tpg.py telescope (zb08 or jk15) date (yyyy/mm/dd) [ut] (hh:mm) \n")
-            print("example: ./tpg.py zb08 2023/08/12")
-            print("example: ./tpg.py zb08 2023/08/12 13:45")
+            print("wrong format: tpg telescope (zb08 or jk15) date (yyyy/mm/dd) [ut] (hh:mm) \n")
+            print("example: tpg zb08 2023/08/12")
+            print("example: tpg zb08 2023/08/12 13:45")
             sys.exit()
         else:
             if "--ph" in sys.argv:
@@ -108,9 +108,9 @@ class main:
                 self.flags.append("start_at_ut")
 
             else:
-                print("wrong format: ./tpg.py telescope (zb08 or jk15) date (yyyy/mm/dd) [ut] (hh:mm) \n")
-                print("example: ./tpg.py zb08 2023/08/12")
-                print("example: ./tpg.py zb08 2023/08/12 13:45")
+                print("wrong format: tpg telescope (zb08 or jk15) date (yyyy/mm/dd) [ut] (hh:mm) \n")
+                print("example: tpg zb08 2023/08/12")
+                print("example: tpg zb08 2023/08/12 13:45")
                 sys.exit()
 
 
