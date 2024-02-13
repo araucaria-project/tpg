@@ -44,7 +44,7 @@ BX_Del	    20:21:18.97    +18:26:16.29 	seq=1/Ic/30     priority=4	 t_start=2024
 ```
 #### Specification:
 * `seq=1/Ic/30,2/V/45` - (N/filter/exp_time) both sequences will be executed.  
-  `seq=10x(1/Ic/30,2/V/45)` - (N/filter/exp_time) sequences will be repeated 10 times.
+  `seq=10x(1/Ic/30,2/V/45)` - (N/filter/exp_time) sequences will be repeated 10 times.   
   `seq=INFx(1/Ic/30,2/V/45)` - (N/filter/exp_time) sequences will be repeated as long it's visible.
 * `priority=5`  - script allocates higher priority first. If priority is < -50, script will never allocate object
 * `comment="some comment"` - comment visible to observer
@@ -54,6 +54,8 @@ BX_Del	    20:21:18.97    +18:26:16.29 	seq=1/Ic/30     priority=4	 t_start=2024
 * `t_end=2024/01/09T10:10:05` - date and ut  for start  
   `t_end=2024/01/09` - alternative date only  
   `t_end=10:10:05` - alternative ut only (before 16:00 will be considered next day)
+* `ph_star=0.1 ph_end=0.3 P=7.5 hjd0=2460310.2` - phase to observe, all keys are required   
+  `ph_star=0.8 ph_end=0.1 P=7.5 hjd0=2460310.2` - yes, it is cyclic
 
 ### REMARKS
 * no white spaces in *NAME* *RA* *DEC* *seq* 

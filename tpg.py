@@ -136,7 +136,7 @@ class main:
       self.pstart=[]
       self.pend=[]
       self.period=[]
-      self.t0=[]
+      self.hjd0=[]
       
 
 
@@ -174,7 +174,7 @@ class main:
                     ps = False
                     pe = False
                     period = False
-                    t0 = False
+                    hjd0 = False
                     if "comment=" in line:
                         tmp = line.split("comment=")[1]
                         if "\"" in line:
@@ -194,11 +194,11 @@ class main:
                     if "t_end=" in line:
                         te = line.split("t_end=")[1].split()[0]
 
-                    if "ph_start=" in line and "ph_end=" in line and "P=" in line and "t0=" in line:
+                    if "ph_start=" in line and "ph_end=" in line and "P=" in line and "hjd0=" in line:
                         ps = line.split("ph_start=")[1].split()[0]
                         pe = line.split("ph_end=")[1].split()[0]
                         period = line.split("P=")[1].split()[0]
-                        t0 = line.split("t0=")[1].split()[0]
+                        hjd0 = line.split("hjd0=")[1].split()[0]
 
 
                     for i, tmp in enumerate(line.split()):
@@ -240,7 +240,7 @@ class main:
                     self.pstart.append(ps)
                     self.pend.append(pe)
                     self.period.append(period)
-                    self.t0.append(t0)
+                    self.hjd0.append(hjd0)
 
                     self.obflag.append(flag)
                     # self.cycle.append(cycle)
@@ -334,11 +334,11 @@ class main:
                             loops = 1
                             go = True
                             while go:
-                                if all(visibility[nn:(nn + int(loops * slots))+1]):
+                                if all(visibility[nn:(nn + int(loops * slots))+2]) and len(visibility[nn:]) > int(loops * slots)+1:
                                     loops = loops + 1
                                 else:
                                     go = False
-                            loops = loops - 1
+                            loops = loops
                             slots = int( slots * loops )
                         slots = int(slots)
                         bounds = (nn, nn + slots)
@@ -356,6 +356,9 @@ class main:
                     self.random_index_list = numpy.delete(self.random_index_list, done)
                     if "inf" in self.obflag[kfin]:
                         self.seq[kfin] = self.seq[kfin].replace("INFx",f"{loops}x")
+                        if "loud" in self.flags:
+                            txt = f" {self.name[kfin]} INF changed to {loops}"
+                            sys.stderr.write(txt + "\n")
 
     def export(self):
       if True:
@@ -436,13 +439,13 @@ class main:
           ps = self.pstart[n]
           pe = self.pend[n]
           period = self.period[n]
-          t0 = self.t0[n]
+          hjd0 = self.hjd0[n]
 
           if ps:
               for i, t in enumerate(self.nightTime):
                   if self.visibility[n][i]:
                       jd = ephem.julian_date(ephem.Date(t))
-                      p = (jd - float(t0))/float(period)%1
+                      p = (jd - float(hjd0))/float(period)%1
                       if pe < ps:
                           if p > float(pe) and p < float(ps):
                               self.visibility[n][i] = False
