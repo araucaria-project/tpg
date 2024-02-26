@@ -7,14 +7,14 @@
 
 
 # Nikki test objects
-WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
-WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
+# WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
+# WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
 
-CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
-CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
+# CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
+# CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
 
-TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
-TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
+# TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
+# TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
 
 
 #Landolt standard fields
@@ -41,7 +41,7 @@ RT_TrA	    16:34:30.89     -63:08:00.81	seq=2/Ic/3.2,2/V/1.7,2/B/3.2,2/g/1.7,2/r
 SW_Tau	    04:24:32.97     +04:07:24.08	seq=2/Ic/3.4,2/V/1.8,2/B/3.4,2/g/1.7,2/r/1.5,2/i/2.1,2/z/8         P=1.583535	       mV=9.75     priority=4
 V2022_Sgr	18:40:38.97     -25:22:49.96	seq=2/Ic/80,2/V/67,2/B/80,2/g/70,2/r/33,2/i/54,2/z/137      P=1.533171	       mV=13.57     priority=4  comment="not sure whitch star"
 V439_Oph	17:43:33.27     +03:35:36.06	seq=2/Ic/24,2/V/17,2/B/24,2/g/17,2/r/10,2/i/16,2/z/48 	     P=1.89303	       mV=12.14     priority=4
-#V553_Cen  	14:46:33.63     -32:10:15.26	seq=2/Ic/1,2/V/1,22/B/1,/g/1,2/r/1,2/i/1,2/z/8 	     P=2.06055	       mV=8.32     priority=2
+V553_Cen  	14:46:33.63     -32:10:15.26	seq=2/Ic/1,2/V/1,2/B/1,2/g/1,2/r/1,2/i/1,2/z/8 	     P=2.06055	       mV=8.32     priority=2
 V606_Pup	07:28:44.79     -44:28:16.74	seq=2/Ic/11,2/V/7,2/B/11,2/g/7,2/r/5,2/i/7,2/z/24          P=1.43775	       mV=11.25     priority=4   comment="exp not verified"
 V971_Aql	19:26:04.79     -10:54:30.93	seq=2/Ic/22,2/V/15,2/B/22,2/g/15,2/r/9,2/i/14,2/z/44 	     P=1.62454	       mV=12.03     priority=4
 VY_Pyx	    08:54:29.63     -23:31:18.57	seq=1/Ic/1,1/V/1,2/B/1,1/g/1,1/r/1,1/i/1,1/z/2          P=1.23995	       mV=7.24     priority=1    comment="exp not verified"
@@ -194,6 +194,73 @@ ASAS_J025822+1540.3                 02:58:21.96 15:40:18.66 seq=2/Ic/15,2/V/10,2
 ASAS_J002443-6949.7                 00:24:42.20 -69:49:43.96 seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26 priority=4 P=0.7279597 mV=11.33 comment=RRAB
 TY_Cet                           02:20:44.25 -14:23:22.95 seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/28 priority=4 P=0.32368 mV=11.44 comment=RRC
 ASAS_J031408-3446.4                 03:14:08.31 -34:46:22.44 seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39 priority=4 P=0.3124235 mV=11.88 comment=RRC
+U_Cae	04:53:14.43	-37:49:15.78	seq=2/Ic/24,2/V/18,2/g/18,2/r/10,2/i/16,2/z/45	priority=4	P=0.4197758	mV=12.18
+SU_Col	05:07:47.04	-33:51:54.68	seq=2/Ic/32,2/V/24,2/g/25,2/r/14,2/i/21,2/z/60	priority=4	P=0.4873444	mV=12.54
+IU_Car	06:53:07.45	-59:35:43.69	seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38	priority=4	P=0.7369909	mV=11.94
+AA_CMi	07:17:19.17	01:43:40.05	seq=2/Ic/14,2/V/10,2/g/10,2/r/6,2/i/9,2/z/29	priority=4	P=0.4763293	mV=11.56
+HK_Pup	07:44:46.82	-13:05:56.32	seq=2/Ic/12,2/V/8,2/g/7,2/r/5,2/i/7,2/z/25	priority=4	P=0.7342215	mV=11.28
+BB_Pup	08:24:22.63	-19:32:31.42	seq=2/Ic/23,2/V/17,2/g/18,2/r/10,2/i/15,2/z/45	priority=4	P=0.4805504	mV=12.16
+GO_Hya	08:54:53.5	06:26:12.57	seq=2/Ic/29,2/V/22,2/g/22,2/r/12,2/i/19,2/z/54	priority=4	P=0.6364379	mV=12.4
+SZ_Hya	09:13:48.81	-9:19:09.44	seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26	priority=4	P=0.537228	mV=11.34
+WZ_Hya	10:13:24.12	-13:08:17.7	seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20	priority=4	P=0.5377	mV=10.86
+FS_Vel	10:46:00.36	-43:59:17.22	seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44	priority=4	P=0.4757695	mV=12.14
+AF_Vel	10:53:02.56	-49:54:22.98	seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/27	priority=4	P=0.5274124	mV=11.41
+V595_Cen	11:22:06.14	-36:35:08.09	seq=2/Ic/22,2/V/16,2/g/16,2/r/9,2/i/14,2/z/42	priority=4	P=0.6910371	mV=12.07
+SS_Leo	11:33:54.47	00:02:00.43	seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22	priority=4	P=0.6263506	mV=11.04
+BI_Cen	11:45:54.59	-59:22:40.46	seq=2/Ic/20,2/V/14,2/g/15,2/r/8,2/i/13,2/z/39	priority=4	P=0.4531901	mV=11.98
+IK_Hya	12:04:47.2	-27:40:44.03	seq=2/Ic/5,2/V/3,2/g/2,2/r/2,2/i/3,2/z/14	priority=4	P=0.6503034	mV=10.14
+UU_Vir	12:08:35.03	00:27:24.35	seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/4,2/z/17	priority=4	P=0.4755842	mV=10.57
+V476_Cen	12:48:24.08	-33:39:29.26	seq=2/Ic/7,2/V/3,2/g/3,2/r/3,2/i/4,2/z/16	priority=4	P=0.5514032	mV=10.46
+AS_Vir	12:52:45.88	-10:15:37.02	seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38	priority=4	P=0.553415	mV=11.92
+AM_Vir	13:23:33.33	-16:39:58.57	seq=2/Ic/13,2/V/9,2/g/9,2/r/6,2/i/8,2/z/27	priority=4	P=0.615085	mV=11.45
+RV_Oct	13:46:31.38	-84:24:06.15	seq=2/Ic/9,2/V/6,2/g/5,2/r/4,2/i/6,2/z/21	priority=4	P=0.5711583	mV=10.96
+V499_Cen	13:55:14.78	-43:14:25.18	seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/23	priority=4	P=0.521208	mV=11.17
+V674_Cen	14:03:24.01	-36:24:20.52	seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26	priority=4	P=0.4939896	mV=11.38
+ST_Vir	14:27:39.07	00:54:06.07	seq=2/Ic/17,2/V/12,2/g/12,2/r/7,2/i/11,2/z/34	priority=4	P=0.4109	mV=11.77
+TY_Aps	14:48:49.89	-71:19:41.78	seq=2/Ic/18,2/V/13,2/g/13,2/r/8,2/i/12,2/z/36	priority=4	P=0.5016788	mV=11.86
+XZ_Aps	14:52:05.32	-79:40:46.37	seq=2/Ic/26,2/V/19,2/g/20,2/r/11,2/i/17,2/z/49	priority=4	P=0.5872567	mV=12.28
+TV_Lib	15:18:21.89	-08:27:42.7	seq=2/Ic/21,2/V/16,2/g/16,2/r/9,2/i/14,2/z/41	priority=4	P=0.269624	mV=12.06
+ASAS_J152205-0628.3	15:22:04.83	-06:28:16.31	seq=2/Ic/10,2/V/7,2/g/6,2/r/4,2/i/7,2/z/23	priority=4	P=0.7788966	mV=11.13
+FW_Lup	15:22:25.38	-40:55:36.48	seq=2/Ic/3,2/V/1,2/g/1,2/r/2,2/i/2,2/z/11	priority=4	P=0.4841701	mV=9.03
+VY_Ser	15:31:01.82	01:41:01.61	seq=2/Ic/5,2/V/2,2/g/2,2/r/2,2/i/3,2/z/14	priority=4	P=0.7141	mV=10.13
+AN_Ser	15:53:31.05	12:57:39.97	seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/6,2/z/20	priority=4	P=0.5220603	mV=10.92
+AT_Ser	15:55:40.37	07:59:19.47	seq=2/Ic/13,2/V/9,2/g/9,2/r/6,2/i/9,2/z/28	priority=4	P=0.7466091	mV=11.46
+AV_Ser	16:03:41.83	00:35:56.86	seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/28	priority=4	P=0.487564	mV=11.51
+BS_Aps	16:20:51.49	-71:40:15.91	seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44	priority=4	P=0.5825659	mV=12.16
+V445_Oph	16:24:41.21	-06:32:29.82	seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21	priority=4	P=0.397025	mV=11.01
+VX_Her	16:30:40.75	18:22:00.88	seq=2/Ic/8,2/V/5,2/g/5,2/r/4,2/i/5,2/z/19	priority=4	P=0.455363	mV=10.79
+UV_Oct	16:32:24.97	-83:54:12.36	seq=2/Ic/4,2/V/1,2/g/1,2/r/2,2/i/2,2/z/12	priority=4	P=0.54258	mV=9.48
+RW_TrA	17:00:46.67	-66:39:50.12	seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/25	priority=4	P=0.3740418	mV=11.3
+V494_Sco	17:40:48.48	-31:32:31.9	seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26	priority=4	P=0.427281	mV=11.37
+EX_Aps	17:51:45.01	-69:20:05.07	seq=2/Ic/27,2/V/20,2/g/21,2/r/11,2/i/18,2/z/51	priority=4	P=0.4718003	mV=12.34
+WY_Pav	17:56:12.31	-57:09:43.92	seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44	priority=4	P=0.5885764	mV=12.15
+MS_Ara	18:03:04.28	-52:43:21.14	seq=2/Ic/21,2/V/15,2/g/15,2/r/9,2/i/14,2/z/40	priority=4	P=0.5249876	mV=12.02
+V1640_Sgr	18:43:35.47	-34:52:13.53	seq=2/Ic/36,2/V/28,2/g/29,2/r/15,2/i/24,2/z/67	priority=4	P=0.3676	mV=12.68
+V413_CrA	18:47:57.57	-37:44:22.93	seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/5,2/z/18	priority=4	P=0.58934	mV=10.63
+V440_Sgr	19:32:20.78	-23:51:13.61	seq=2/Ic/6,2/V/3,2/g/3,2/r/3,2/i/4,2/z/15	priority=4	P=0.4774941	mV=10.27
+V1645_Sgr	20:20:44.51	-41:07:06.44	seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26	priority=4	P=0.553	mV=11.35
+RV_Cap	21:01:28.89	-15:13:47.75	seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21	priority=4	P=0.447745	mV=11.01
+SW_Aqr	21:15:17.81	00:04:34.0	seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/24	priority=4	P=0.459305	mV=11.2
+NSVS_17246509	21:23:48.85	-07:32:05.39	seq=2/Ic/30,2/V/23,2/g/23,2/r/13,2/i/20,2/z/56	priority=4	P=0.7974628	mV=12.46
+YY_Tuc	23:11:00.58	-58:20:07.61	seq=2/Ic/20,2/V/15,2/g/15,2/r/9,2/i/13,2/z/39	priority=4	P=0.6348982	mV=11.98
+DH_Peg	22:15:25.66	06:49:21.43	seq=2/Ic/4,2/V/1,2/g/1,2/r/2,2/i/3,2/z/12	priority=4	P=0.25551	mV=9.58	comment="RRc
+BV_Aqr	22:02:54.0	-21:31:32.46	seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/22	priority=4	P=0.3637032	mV=11.11	comment="RRc
+YZ_Cap	21:19:32.4	-15:07:01.43	seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/25	priority=4	P=0.2734529	mV=11.28	comment="RRc
+DR_Cap	20:31:44.92	-21:58:46.7	seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26	priority=4	P=0.3107105	mV=11.38	comment="RRc
+ASAS_J200431-5352.3	20:04:31.45	-53:52:18.85	seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22	priority=4	P=0.300227	mV=11.08	comment="RRc
+HX_Ara	17:58:44.91	-55:16:24.25	seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38	priority=4	P=0.219404	mV=11.94	comment="RRc
+AP_Ser	15:14:00.88	09:58:51.21	seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22	priority=4	P=0.3408258	mV=11.07	comment="RRc
+ASAS_J143322-0418.2	14:33:22.04	-04:18:11.59	seq=2/Ic/8,2/V/4,2/g/4,2/r/3,2/i/5,2/z/18	priority=4	P=0.249632	mV=10.73	comment="RRc
+ASAS_J132225-2042.3	13:22:25.26	-20:42:21.61	seq=2/Ic/8,2/V/4,2/g/4,2/r/3,2/i/5,2/z/18	priority=4	P=0.235934	mV=10.67	comment="RRc
+Y_Crv	12:38:10.42	-15:00:00.16	seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/10,2/z/30	priority=4	P=0.3290266	mV=11.6	comment="RRc
+HY_Com	12:18:16.01	16:09:15.45	seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/4,2/z/17	priority=4	P=0.4485784	mV=10.54	comment="RRc
+V753_Cen	11:51:15.34	-55:48:16.46	seq=2/Ic/7,2/V/3,2/g/3,2/r/3,2/i/4,2/z/16	priority=4	P=0.22135	mV=10.48	comment="RRc
+ASAS_J110522-2641.0	11:05:21.93	-26:41:04.77	seq=2/Ic/18,2/V/13,2/g/13,2/r/8,2/i/12,2/z/36	priority=4	P=0.2944592	mV=11.85	comment="RRc
+NSVS_13036187	10:13:31.77	-07:02:17.39	seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21	priority=4	P=0.31358	mV=11.0	comment="RRc
+ASAS_J090900-0410.4	09:09:00.08	-04:10:24.67	seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20	priority=4	P=0.303258	mV=10.87	comment="RRc
+V701_Pup	08:19:32.85	-23:58:10.49	seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/5,2/z/17	priority=4	P=0.285668	mV=10.62	comment="RRc
+ASAS_J081012-2903.0	08:10:12.06	-29:03:00.69	seq=2/Ic/4,2/V/2,2/g/1,2/r/2,2/i/3,2/z/12	priority=4	P=0.229656	mV=9.67	comment="RRc
+RW_Ari	02:16:03.71	17:31:58.75	seq=2/Ic/26,2/V/20,2/g/20,2/r/11,2/i/17,2/z/50	priority=4	P=0.3542971	mV=12.3	comment="RRc
 
 #ccep Gergely list (not complete)
 SS_CMa	07:26:07.19	-25:15:26.3	seq=2/B/3.6,2/V/2.0,2/Ic/3.6,2/g/1.9,2/r/1.6,2/i/2.3,2/z/8	P=12.3541042	mV=9.84	priority=4
@@ -230,74 +297,6 @@ KN_Cen	13:36:36.88	-64:33:29.9	seq=2/B/3.7,2/V/2.0,2/Ic/3.7,2/g/1.9,2/r/1.6,2/i/
 QY_Cen	14:08:17.12	-61:44:11.2	seq=2/B/14,2/V/9,2/Ic/14,2/g/9,2/r/6,2/i/9,2/z/29	P=17.7542664	mV=11.50	priority=4
 
 
-# Obiekty testowe DARKA !!!!!!   EB Darka scbr + gaia
-
-# Efemerydy  0.125*czas_trwania_zacmienia odjete i dodane do faz poczatku i konca zacmienia
-#  p - fazy zacmienia glownego (primary),  s - fazy zacmienia wtornego (secondary)
-#  ID               Vmag       P              T0          p_begin    p_end      s_begin    s_end      Filters  Group
-
-  V365_Pup         07:19:06.5 -35:11:03        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=7.8        priority=5   P=12.87155    hjd0=2459220.7057    ph_start=0.986      ph_end=0.014                sbcr
-  PX_Hya           10:33:30.7 -20:10:52        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=8.4        priority=5   P=36.1555     hjd0=2454536.308     ph_start=0.9917     ph_end=0.0083       vby      sbcr
-  TYC266-718-1     11:11:33.5 +02:47:13        seq=INFx(1/B/5,1/V/5,1/Ic/4)  mV=10.3       priority=5   P=35.024018   hjd0=2456813.790     ph_start=0.9928     ph_end=0.0072       vby      sbcr/benchmark
-  LQ_Mus           12:52:08.2 -68:54:01        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=7.5        priority=5   P=7.506404    hjd0=2452712.7448    ph_start=0.9771     ph_end=0.0229       vby      sbcr/benchmark
-  RV_Hyi           01:20:52.343 -80:19:00.637  seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.1    priority=5   P=7.195053    hjd0=2458351.626     ph_start=0.975      ph_end=0.025        vby/BVI? gaia/slow_apsidal_motion
-  TYC1257-132-1    03:56:22.1 +18:52:13        seq=INFx(1/B/40,1/V/15,1/Ic/20)  mV=11.8    priority=5   P=9.37395     hjd0=2457611.387     ph_start=0.9675     ph_end=0.0325       BVI      gaia
-  CD-41_1394       04:22:35.2 -41:29:00        seq=INFx(1/B/10,1/V/5,1/Ic/8)  mV=10.7      priority=5   P=17.5547     hjd0=2454935.8574    ph_start=0.9882     ph_end=0.0118       vby/BVI? gaia
-  TYC4930-128-1    11:30:03.2 -00:50:04        seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.5    priority=5   P=8.48188     hjd0=2457615.7932    ph_start=0.9812     ph_end=0.0188       BVI      gaia/slow_apsidal_motion
-  BD-04_3206       12:06:20.8 -04:54:50        seq=INFx(1/B/15,1/V/5,1/Ic/10)  mV=10.8     priority=5   P=5.422527    hjd0=2457618.388     ph_start=0.9740     ph_end=0.0260       vby/BVI? gaia
-  TYC4951-933-1    12:30:18.2 -04:02:51        seq=INFx(1/B/15,1/V/5,1/Ic/10)  mV=11.0     priority=5   P=15.28954    hjd0=2457579.870     ph_start=0.9890     ph_end=0.0110       vby/BVI? gaia
-  LP_Lib           15:13:38.475 -20:26:32.116  seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.4    priority=5   P=4.88418     hjd0=2458012.7289    ph_start=0.9672     ph_end=0.0328       BVI      gaia
-  GN_Aqr         22:22:18.697 -04:12:22.596    seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.7    priority=5   P=4.4043915   hjd0=2456814.423     ph_start=0.9625     ph_end=0.0375       BVI      gaia
-  CD-24_17223      22:33:51.4 -23:51:53        seq=INFx(1/B/15,1/V/5,1/Ic/8)  mV=10.7      priority=5   P=10.351663   hjd0=2458370.4114    ph_start=0.9664     ph_end=0.0336       vby/BVI? gaia
-  BC_Oct       23:38:08.067 -81:21:18.381      seq=INFx(1/B/15,1/V/5,1/Ic/8)  mV=10.3      priority=5   P=26.45942    hjd0=2458346.1226    ph_start=0.9881     ph_end=0.0119       vby      gaia
-
-  V365_Pup         07:19:06.5 -35:11:03        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=7.8          priority=5   P=12.87155    hjd0=2459220.7057       ph_start=0.645      ph_end=0.688              sbcr
-  PX_Hya           10:33:30.7 -20:10:52        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=8.4          priority=5   P=36.1555     hjd0=2454536.308        ph_start=0.1943     ph_end=0.2250     vby      sbcr
-  TYC266-718-1     11:11:33.5 +02:47:13        seq=INFx(1/B/5,1/V/5,1/Ic/4)  mV=10.3         priority=5   P=35.024018   hjd0=2456813.790        ph_start=0.4806     ph_end=0.4938     vby      sbcr/benchmark
-  LQ_Mus           12:52:08.2 -68:54:01        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=7.5          priority=5   P=7.506404    hjd0=2452712.7448       ph_start=0.4771     ph_end=0.5229     vby      sbcr/benchmark
-  RV_Hyi           01:20:52.343 -80:19:00.637  seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.1         priority=5   P=7.195053    hjd0=2458351.626     ph_start=0.5759     ph_end=0.6416     vby/BVI? gaia/slow_apsidal_motion
-  TYC1257-132-1    03:56:22.1 +18:52:13        seq=INFx(1/B/40,1/V/15,1/Ic/20)  mV=11.8         priority=5   P=9.37395     hjd0=2457611.387     ph_start=0.5247     ph_end=0.5830     BVI      gaia
-  CD-41_1394       04:22:35.2 -41:29:00        seq=INFx(1/B/10,1/V/5,1/Ic/8)  mV=10.7         priority=5   P=17.5547     hjd0=2454935.8574      ph_start=0.1499     ph_end=0.1780     vby/BVI? gaia
-  TYC4930-128-1    11:30:03.2 -00:50:04        seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.5         priority=5   P=8.48188     hjd0=2457615.7932    ph_start=0.588      ph_end=0.634      BVI      gaia/slow_apsidal_motion
-  BD-04_3206       12:06:20.8 -04:54:50        seq=INFx(1/B/15,1/V/5,1/Ic/10)  mV=10.8         priority=5   P=5.422527    hjd0=2457618.388      ph_start=0.4737     ph_end=0.5263     vby/BVI? gaia
-  TYC4951-933-1    12:30:18.2 -04:02:51        seq=INFx(1/B/15,1/V/5,1/Ic/10)  mV=11.0         priority=5   P=15.28954    hjd0=2457579.870      ph_start=0.1953     ph_end=0.2229     vby/BVI? gaia
-  LP_Lib           15:13:38.475 -20:26:32.116  seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.4         priority=5   P=4.88418     hjd0=2458012.7289    ph_start=0.4669     ph_end=0.5331     BVI      gaia
-  GN_Aqr         22:22:18.697 -04:12:22.596    seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.7         priority=5   P=4.4043915   hjd0=2456814.423     ph_start=0.4625     ph_end=0.5375     BVI      gaia
-  CD-24_17223      22:33:51.4 -23:51:53        seq=INFx(1/B/15,1/V/5,1/Ic/8)  mV=10.7         priority=5   P=10.351663   hjd0=2458370.4114      ph_start=0.4826     ph_end=0.5496     vby/BVI? gaia
-  BC_Oct       23:38:08.067 -81:21:18.381      seq=INFx(1/B/15,1/V/5,1/Ic/8)  mV=10.3         priority=5   P=26.45942    hjd0=2458346.1226      ph_start=0.3229     ph_end=0.3576     vby      gaia
-
- # druga iteracja po przejsciu 80 deg
-
-  V365_Pup         07:19:06.5 -35:11:03        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=7.8        priority=5   P=12.87155    hjd0=2459220.7057    ph_start=0.986      ph_end=0.014                sbcr
-  PX_Hya           10:33:30.7 -20:10:52        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=8.4        priority=5   P=36.1555     hjd0=2454536.308     ph_start=0.9917     ph_end=0.0083       vby      sbcr
-  TYC266-718-1     11:11:33.5 +02:47:13        seq=INFx(1/B/5,1/V/5,1/Ic/4)  mV=10.3       priority=5   P=35.024018   hjd0=2456813.790     ph_start=0.9928     ph_end=0.0072       vby      sbcr/benchmark
-  LQ_Mus           12:52:08.2 -68:54:01        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=7.5        priority=5   P=7.506404    hjd0=2452712.7448    ph_start=0.9771     ph_end=0.0229       vby      sbcr/benchmark
-  RV_Hyi           01:20:52.343 -80:19:00.637  seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.1    priority=5   P=7.195053    hjd0=2458351.626     ph_start=0.975      ph_end=0.025        vby/BVI? gaia/slow_apsidal_motion
-  TYC1257-132-1    03:56:22.1 +18:52:13        seq=INFx(1/B/40,1/V/15,1/Ic/20)  mV=11.8    priority=5   P=9.37395     hjd0=2457611.387     ph_start=0.9675     ph_end=0.0325       BVI      gaia
-  CD-41_1394       04:22:35.2 -41:29:00        seq=INFx(1/B/10,1/V/5,1/Ic/8)  mV=10.7      priority=5   P=17.5547     hjd0=2454935.8574    ph_start=0.9882     ph_end=0.0118       vby/BVI? gaia
-  TYC4930-128-1    11:30:03.2 -00:50:04        seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.5    priority=5   P=8.48188     hjd0=2457615.7932    ph_start=0.9812     ph_end=0.0188       BVI      gaia/slow_apsidal_motion
-  BD-04_3206       12:06:20.8 -04:54:50        seq=INFx(1/B/15,1/V/5,1/Ic/10)  mV=10.8     priority=5   P=5.422527    hjd0=2457618.388     ph_start=0.9740     ph_end=0.0260       vby/BVI? gaia
-  TYC4951-933-1    12:30:18.2 -04:02:51        seq=INFx(1/B/15,1/V/5,1/Ic/10)  mV=11.0     priority=5   P=15.28954    hjd0=2457579.870     ph_start=0.9890     ph_end=0.0110       vby/BVI? gaia
-  LP_Lib           15:13:38.475 -20:26:32.116  seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.4    priority=5   P=4.88418     hjd0=2458012.7289    ph_start=0.9672     ph_end=0.0328       BVI      gaia
-  GN_Aqr         22:22:18.697 -04:12:22.596    seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.7    priority=5   P=4.4043915   hjd0=2456814.423     ph_start=0.9625     ph_end=0.0375       BVI      gaia
-  CD-24_17223      22:33:51.4 -23:51:53        seq=INFx(1/B/15,1/V/5,1/Ic/8)  mV=10.7      priority=5   P=10.351663   hjd0=2458370.4114    ph_start=0.9664     ph_end=0.0336       vby/BVI? gaia
-  BC_Oct       23:38:08.067 -81:21:18.381      seq=INFx(1/B/15,1/V/5,1/Ic/8)  mV=10.3      priority=5   P=26.45942    hjd0=2458346.1226    ph_start=0.9881     ph_end=0.0119       vby      gaia
-
-  V365_Pup         07:19:06.5 -35:11:03        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=7.8          priority=5   P=12.87155    hjd0=2459220.7057       ph_start=0.645      ph_end=0.688              sbcr
-  PX_Hya           10:33:30.7 -20:10:52        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=8.4          priority=5   P=36.1555     hjd0=2454536.308        ph_start=0.1943     ph_end=0.2250     vby      sbcr
-  TYC266-718-1     11:11:33.5 +02:47:13        seq=INFx(1/B/5,1/V/5,1/Ic/4)  mV=10.3         priority=5   P=35.024018   hjd0=2456813.790        ph_start=0.4806     ph_end=0.4938     vby      sbcr/benchmark
-  LQ_Mus           12:52:08.2 -68:54:01        seq=INFx(1/B/1,1/V/1,1/Ic/1)  mV=7.5          priority=5   P=7.506404    hjd0=2452712.7448       ph_start=0.4771     ph_end=0.5229     vby      sbcr/benchmark
-  RV_Hyi           01:20:52.343 -80:19:00.637  seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.1         priority=5   P=7.195053    hjd0=2458351.626     ph_start=0.5759     ph_end=0.6416     vby/BVI? gaia/slow_apsidal_motion
-  TYC1257-132-1    03:56:22.1 +18:52:13        seq=INFx(1/B/40,1/V/15,1/Ic/20)  mV=11.8         priority=5   P=9.37395     hjd0=2457611.387     ph_start=0.5247     ph_end=0.5830     BVI      gaia
-  CD-41_1394       04:22:35.2 -41:29:00        seq=INFx(1/B/10,1/V/5,1/Ic/8)  mV=10.7         priority=5   P=17.5547     hjd0=2454935.8574      ph_start=0.1499     ph_end=0.1780     vby/BVI? gaia
-  TYC4930-128-1    11:30:03.2 -00:50:04        seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.5         priority=5   P=8.48188     hjd0=2457615.7932    ph_start=0.588      ph_end=0.634      BVI      gaia/slow_apsidal_motion
-  BD-04_3206       12:06:20.8 -04:54:50        seq=INFx(1/B/15,1/V/5,1/Ic/10)  mV=10.8         priority=5   P=5.422527    hjd0=2457618.388      ph_start=0.4737     ph_end=0.5263     vby/BVI? gaia
-  TYC4951-933-1    12:30:18.2 -04:02:51        seq=INFx(1/B/15,1/V/5,1/Ic/10)  mV=11.0         priority=5   P=15.28954    hjd0=2457579.870      ph_start=0.1953     ph_end=0.2229     vby/BVI? gaia
-  LP_Lib           15:13:38.475 -20:26:32.116  seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.4         priority=5   P=4.88418     hjd0=2458012.7289    ph_start=0.4669     ph_end=0.5331     BVI      gaia
-  GN_Aqr         22:22:18.697 -04:12:22.596    seq=INFx(1/B/30,1/V/10,1/Ic/20)  mV=11.7         priority=5   P=4.4043915   hjd0=2456814.423     ph_start=0.4625     ph_end=0.5375     BVI      gaia
-  CD-24_17223      22:33:51.4 -23:51:53        seq=INFx(1/B/15,1/V/5,1/Ic/8)  mV=10.7         priority=5   P=10.351663   hjd0=2458370.4114      ph_start=0.4826     ph_end=0.5496     vby/BVI? gaia
-  BC_Oct       23:38:08.067 -81:21:18.381      seq=INFx(1/B/15,1/V/5,1/Ic/8)  mV=10.3         priority=5   P=26.45942    hjd0=2458346.1226      ph_start=0.3229     ph_end=0.3576     vby      gaia
-
 
 # EB Darka scbr + gaia
 
@@ -305,54 +304,106 @@ QY_Cen	14:08:17.12	-61:44:11.2	seq=2/B/14,2/V/9,2/Ic/14,2/g/9,2/r/6,2/i/9,2/z/29
 #  p - fazy zacmienia glownego (primary),  s - fazy zacmienia wtornego (secondary)
 #  ID               Vmag       P              T0          p_begin    p_end      s_begin    s_end      Filters  Group
 
+# primary eclipses
 
- #    #  TYC1243-402-1                                11.4       P=8.074682    hjd0=2456813.845     ph_start=0.9808     ph_end=0.0192     ph_start=0.4863     ph_end=0.5231     BVI      sbcr
- #    #  TYC6484-426-1                                10.7       P=7.056725    hjd0=2458469.462     ph_start=0.9720     ph_end=0.0280     ph_start=0.4602     ph_end=0.5170     vby/BVI? sbcr/benchmark
- #      V365_Pup         07:19:06.5 -35:11:03         7.8       P=12.87155     hjd0=2459220.7057    ph_start=0.986      ph_end=0.014      ph_start=0.645      ph_end=0.688      vby      sbcr
- #      PX_Hya           10:33:30.7 -20:10:52         8.4       P=36.1555      hjd0=2454536.308     ph_start=0.9917     ph_end=0.0083     ph_start=0.1943     ph_end=0.2250     vby      sbcr
- #      TYC266-718-1     11:11:33.5 +02:47:13         10.3       P=35.024018   hjd0=2456813.790     ph_start=0.9928     ph_end=0.0072     ph_start=0.4806     ph_end=0.4938     vby      sbcr/benchmark
- #      LQ_Mus           12:52:08.2 -68:54:01         7.5       P=7.506404     hjd0=2452712.7448    ph_start=0.9771     ph_end=0.0229     ph_start=0.4771     ph_end=0.5229     vby      sbcr/benchmark
- #    #  BD-18_4532                                   10.7       P=9.1274      hjd0=2456816.892     ph_start=0.9830     ph_end=0.0170     ph_start=0.7219     ph_end=0.7617     vby/BVI? sbcr
- #    #  TYC20-893-1                                  11.8       P=8.36117     hjd0=2456807.200     ph_start=0.9812     ph_end=0.0188     ph_start=0.5380     ph_end=0.5823     BVI      gaia
- #      RV_Hyi           01:20:52.343 -80:19:00.637   11.1       P=7.195053    hjd0=2458351.626     ph_start=0.975      ph_end=0.025      ph_start=0.5759     ph_end=0.6416     vby/BVI? gaia/slow_apsidal_motion
- #    #  E_220471927                                  13.4       P=19.8828     hjd0=2456805.128     ph_start=0.9840     ph_end=0.0160     ph_start=0.3212     ph_end=0.3433     BVI      gaia/benchmark
- #      TYC1257-132-1    03:56:22.1 +18:52:13         11.8       P=9.37395     hjd0=2457611.387     ph_start=0.9675     ph_end=0.0325     ph_start=0.5247     ph_end=0.5830     BVI      gaia
- #      CD-41_1394       04:22:35.2 -41:29:00         10.7       P=17.5547     hjd0=2454935.8574    ph_start=0.9882     ph_end=0.0118     ph_start=0.1499     ph_end=0.1780     vby/BVI? gaia
- #    #  E_246891964                                  11.8       P=30.44006    hjd0=2456830.746     ph_start=0.9775     ph_end=0.0225     ph_start=0.6705     ph_end=0.6953     BVI      gaia/benchmark/slow_apsidal_motion
- #    #  CPD-64_390                                   10.2       P=31.114765   hjd0=2458347.587     ph_start=0.9910     ph_end=0.0090     ph_start=0.5284     ph_end=0.5502     vby      gaia
- #    #  E_246887507                                  12.4       P=11.46055    hjd0=2456813.968     ph_start=0.9799     ph_end=0.0201     ph_start=0.2916     ph_end=0.3426     BVI      gaia
- #    #  TYC735-1315-1                                11.3       P=15.71975    hjd0=2458483.786     ph_start=0.9875     ph_end=0.0125     ph_start=0.3071     ph_end=0.3559     BVI      gaia
- #    #  E_202086627                                  11.6       P=7.149794    hjd0=2456806.281     ph_start=0.9813     ph_end=0.0187     ph_start=0.4849     ph_end=0.5211     BVI      gaia/benchmark
- #    #  TYC6511-1799-1                               11.4       P=26.3815     hjd0=2458473.34      ph_start=0.990      ph_end=0.010      ph_start=0.3381     ph_end=0.3924     BVI      gaia
- #    #  TYC8547-1509-1                               11.1       P=7.14020     hjd0=2458646.3474    ph_start=0.9762     ph_end=0.0238     ph_start=0.4768     ph_end=0.5246     vby/BVI? gaia
- #    #  V400_Gem                                     11.4       P=11.305257   hjd0=2456805.5283    ph_start=0.9786     ph_end=0.0214     ph_start=0.4793     ph_end=0.5230     BVI      gaia/benchmark
- #    #  TYC1392-886-1                                11.4       P=6.764156    hjd0=2456814.550     ph_start=0.975      ph_end=0.025      ph_start=0.475      ph_end=0.525      BVI      gaia
- #    #  TYC1396-393-1                                12.3       P=8.79464     hjd0=2456816.2882    ph_start=0.9794     ph_end=0.0206     ph_start=0.4828     ph_end=0.5245     BVI      gaia/benchmark
- #    #  TYC246-1159-1                                11.0       P=16.77565    hjd0=2456834.876     ph_start=0.9892     ph_end=0.0108     ph_start=0.3388     ph_end=0.3636     vby/BVI? gaia
- #    #  E_248912952                                  13.6       P=3.139174    hjd0=2457934.967     ph_start=0.950      ph_end=0.050      ph_start=0.450      ph_end=0.550      BVI      gaia
- #    #  SWASPJ104335.88                              12.4       P=9.65706     hjd0=2458550.9467    ph_start=0.9787     ph_end=0.0213     ph_start=0.3902     ph_end=0.4404     BVI      gaia
- #    #  TYC852-1050-1                                10.3       P=3.1427839   hjd0=2456832.5513    ph_start=0.9556     ph_end=0.0444     ph_start=0.4556     ph_end=0.5444     vby      gaia
- #      TYC4930-128-1    11:30:03.2 -00:50:04         11.5       P=8.48188     hjd0=2457615.7932    ph_start=0.9812     ph_end=0.0188     ph_start=0.588      ph_end=0.634      BVI      gaia/slow_apsidal_motion
- #    #  E_201253025                                  13.0       P=6.78641     hjd0=2456851.124     ph_start=0.9746     ph_end=0.0254     ph_start=0.4671     ph_end=0.5227     BVI      gaia
- #      BD-04_3206       12:06:20.8 -04:54:50         10.8       P=5.422527    hjd0=2457618.388     ph_start=0.9740     ph_end=0.0260     ph_start=0.4737     ph_end=0.5263     vby/BVI? gaia
- #      TYC4951-933-1    12:30:18.2 -04:02:51         11.0       P=15.28954    hjd0=2457579.870     ph_start=0.9890     ph_end=0.0110     ph_start=0.1953     ph_end=0.2229     vby/BVI? gaia
- #    #  E_212707624                                  13.3       P=7.210726    hjd0=2457233.7727    ph_start=0.9797     ph_end=0.0203     ph_start=0.4863     ph_end=0.5311     BVI      gaia
- #      LP_Lib           15:13:38.475 -20:26:32.116   11.4       P=4.88418     hjd0=2458012.7289    ph_start=0.9672     ph_end=0.0328     ph_start=0.4669     ph_end=0.5331     BVI      gaia
- #    #  E_204321014                                  12.4       P=3.79213     hjd0=2456814.4278    ph_start=0.9685     ph_end=0.0315     ph_start=0.4685     ph_end=0.5315     BVI      gaia
- #    #  TYC6780-1523-1                               10.8       P=4.6601      hjd0=2456814.6264    ph_start=0.9449     ph_end=0.0551     ph_start=0.4449     ph_end=0.5551     vby/BVI? gaia
- #    #  TYC6206-1374-1                               11.8       P=15.5854     hjd0=2456795.2723    ph_start=0.9875     ph_end=0.0125     ph_start=0.6367     ph_end=0.6593     BVI      gaia
- #    #  TYC6240-759-1                                11.7       P=13.6336     hjd0=2457712.055     ph_start=0.990      ph_end=0.010      ph_start=0.1336     ph_end=0.1583     BVI      gaia
- #    #  BD-19_4582                                   11.0       P=3.13694     hjd0=2457748.538     ph_start=0.9480     ph_end=0.0520     ph_start=0.4480     ph_end=0.5520     vby/BVI? gaia
- #    #  TYC6247-420-1                                12.2       P=6.38382     hjd0=2457704.996     ph_start=0.9687     ph_end=0.0313     ph_start=0.4687     ph_end=0.5313     BVI      gaia
- #    #  E_218070138                                  12.1       P=15.102      hjd0=2456804.9364    ph_start=0.9859     ph_end=0.0141     ph_start=0.9859     ph_end=0.0141     BVI      gaia/benchmark
- #    #  TYC6306-1822-1                               11.1       P=6.4907      hjd0=2457616.60      ph_start=0.9625     ph_end=0.0375     ph_start=0.4625     ph_end=0.5375     vby/BVI? gaia
- #      GN_Aqr         22:22:18.697 -04:12:22.596     11.7       P=4.4043915   hjd0=2456814.423     ph_start=0.9625     ph_end=0.0375     ph_start=0.4625     ph_end=0.5375     BVI      gaia
- #      CD-24_17223      22:33:51.4 -23:51:53         10.7       P=10.351663   hjd0=2458370.4114    ph_start=0.9664     ph_end=0.0336     ph_start=0.4826     ph_end=0.5496     vby/BVI? gaia
- #    #  TYC5239-1149-1                               12.1       P=21.19382    hjd0=2456811.828     ph_start=0.9875     ph_end=0.0125     ph_start=0.4711     ph_end=0.4921     BVI      gaia/benchmark
- #    #  E_206134477                                  12.3       P=4.236594    hjd0=2456814.076     ph_start=0.9562     ph_end=0.0438     ph_start=0.4562     ph_end=0.5438     BVI      gaia
- #    #  E_246098758                                  13.7       P=7.390488    hjd0=2457793.890     ph_start=0.9812     ph_end=0.0188     ph_start=0.4812     ph_end=0.5188     BVI      gaia
- #    #  TYC5829-1047-1                               12.1       P=8.375554    hjd0=2457775.8396    ph_start=0.9786     ph_end=0.0214     ph_start=0.4786     ph_end=0.5214     BVI      gaia
- #      BC_Oct       23:38:08.067 -81:21:18.381       10.3       P=26.45942    hjd0=2458346.1226    ph_start=0.9881     ph_end=0.0119     ph_start=0.3229     ph_end=0.3576     vby      gaia
+  TYC1243-402-1    03:41:14.3 +20:12:54         11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7   P=8.074682    hjd0=2456813.845     ph_start=0.9808     ph_end=0.0192   comment="Darek EB prim ecl"  BVI      sbcr
+  TYC6484-426-1    05:31:13.65 -27:09:04.2      10.7    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7   P=7.056725    hjd0=2458469.462     ph_start=0.9720     ph_end=0.0280   comment="Darek EB prim ecl"  vby/BVI? sbcr/benchmark
+  #V365_Pup         07:19:06.5 -35:11:03         7.8     seq=INFx(1/B/1,1/V/1,1/Ic/1)      priority=7    P=12.87155    hjd0=2459220.7057    ph_start=0.986      ph_end=0.014   comment="Darek EB prim ecl"   vby      sbcr
+  #PX_Hya           10:33:30.7 -20:10:52         8.4     seq=INFx(1/B/1,1/V/1,1/Ic/1)      priority=7    P=36.1555     hjd0=2454536.308     ph_start=0.9917     ph_end=0.0083  comment="Darek EB prim ecl"   vby      sbcr
+  TYC266-718-1     11:11:33.5 +02:47:13         10.3    seq=INFx(1/B/5,1/V/3,1/Ic/5)       priority=7   P=35.024018   hjd0=2456813.790     ph_start=0.9928     ph_end=0.0072   comment="Darek EB prim ecl"  vby      sbcr/benchmark
+  #LQ_Mus           12:52:08.2 -68:54:01         7.5     seq=INFx(1/B/1,1/V/1,1/Ic/1)      priority=7    P=7.506404    hjd0=2452712.7448    ph_start=0.9771     ph_end=0.0229  comment="Darek EB prim ecl"   vby      sbcr/benchmark
+  BD-18_4532       17:27:47.1 -18:34:55         10.7    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7   P=9.1274      hjd0=2456816.892     ph_start=0.9830     ph_end=0.0170   comment="Darek EB prim ecl"  vby/BVI? sbcr
+  TYC20-893-1      01:17:26.4 +00:40:46         11.8    seq=INFx(1/B/18,1/V/12,1/Ic/18)    priority=7   P=8.36117     hjd0=2456807.200     ph_start=0.9812     ph_end=0.0188   comment="Darek EB prim ecl"  BVI      gaia
+  RV_Hyi           01:20:52.3 -80:19:00.63      11.1    seq=INFx(1/B/10,1/V/7,1/Ic/10)     priority=7   P=7.195053    hjd0=2458351.626     ph_start=0.975      ph_end=0.025    comment="Darek EB prim ecl"  vby/BVI? gaia/slow_apsidal_motion
+  E_220471927      01:29:09.7 +06:07:46         13.4    seq=INFx(1/B/80,1/V/54,1/Ic/80)    priority=7   P=19.8828     hjd0=2456805.128     ph_start=0.9840     ph_end=0.0160   comment="Darek EB prim ecl"  BVI      gaia/benchmark
+  TYC1257-132-1    03:56:22.1 +18:52:13         11.8    seq=INFx(1/B/18,1/V/12,1/Ic/18)    priority=7   P=9.37395     hjd0=2457611.387     ph_start=0.9675     ph_end=0.0325   comment="Darek EB prim ecl"  BVI      gaia
+  CD-41_1394       04:22:35.2 -41:29:00         10.7    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7   P=17.5547     hjd0=2454935.8574    ph_start=0.9882     ph_end=0.0118   comment="Darek EB prim ecl"  vby/BVI? gaia
+  E_246891964      04:43:27.3 +16:40:33         11.8    seq=INFx(1/B/18,1/V/12,1/Ic/18)    priority=7   P=30.44006    hjd0=2456830.746     ph_start=0.9775     ph_end=0.0225   comment="Darek EB prim ecl"  BVI      gaia/benchmark/slow_apsidal_motion
+  CPD-64_390       04:56:28.16 -64:29:15.1      10.2    seq=INFx(1/B/4,1/V/3,1/Ic/4)       priority=7   P=31.114765   hjd0=2458347.587     ph_start=0.9910     ph_end=0.0090   comment="Darek EB prim ecl"  vby      gaia
+  E_246887507      05:11:51.0 +16:37:57         12.4    seq=INFx(1/B/32,1/V/22,1/Ic/32)    priority=7   P=11.46055    hjd0=2456813.968     ph_start=0.9799     ph_end=0.0201   comment="Darek EB prim ecl"  BVI      gaia
+  TYC735-1315-1    06:17:27.35 11:00:17.5       11.3    seq=INFx(1/B/12,1/V/8,1/Ic/12)     priority=7   P=15.71975    hjd0=2458483.786     ph_start=0.9875     ph_end=0.0125   comment="Darek EB prim ecl"  BVI      gaia
+  E_202086627      06:25:55.9 +15:36:13         11.6    seq=INFx(1/B/15,1/V/10,1/Ic/15)    priority=7   P=7.149794    hjd0=2456806.281     ph_start=0.9813     ph_end=0.0187   comment="Darek EB prim ecl"  BVI      gaia/benchmark
+  TYC6511-1799-1   06:29:26.36 -25:13:29.4      11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7   P=26.3815     hjd0=2458473.34      ph_start=0.990      ph_end=0.010    comment="Darek EB prim ecl"  BVI      gaia
+  TYC8547-1509-1   06:33:56.45 -59:57:37.9      11.1    seq=INFx(1/B/10,1/V/7,1/Ic/10)     priority=7   P=7.14020     hjd0=2458646.3474    ph_start=0.9762     ph_end=0.0238   comment="Darek EB prim ecl"  vby/BVI? gaia
+  V400_Gem         06:37:36.0 +17:47:33         11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7   P=11.305257   hjd0=2456805.5283    ph_start=0.9786     ph_end=0.0214   comment="Darek EB prim ecl"  BVI      gaia/benchmark
+  TYC1392-886-1    08:36:07.0 +17:25:38         11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7   P=6.764156    hjd0=2456814.550     ph_start=0.975      ph_end=0.025    comment="Darek EB prim ecl"  BVI      gaia
+  TYC1396-393-1    08:44:06.6 +18:30:40         12.3    seq=INFx(1/B/29,1/V/20,1/Ic/29)    priority=7   P=8.79464     hjd0=2456816.2882    ph_start=0.9794     ph_end=0.0206   comment="Darek EB prim ecl"  BVI      gaia/benchmark
+  TYC246-1159-1    10:28:03.4 +01:47:50         11.0    seq=INFx(1/B/9,1/V/6,1/Ic/9)       priority=7   P=16.77565    hjd0=2456834.876     ph_start=0.9892     ph_end=0.0108   comment="Darek EB prim ecl"  vby/BVI? gaia
+  E_248912952      10:34:40.2 +13:39:15         13.6    seq=INFx(1/B/96,1/V/65,1/Ic/96)    priority=7   P=3.139174    hjd0=2457934.967     ph_start=0.950      ph_end=0.050    comment="Darek EB prim ecl"  BVI      gaia
+  SWASPJ104335.88  10:43:35.859 -43:40:15.2     12.4    seq=INFx(1/B/32,1/V/22,1/Ic/32)    priority=7   P=9.65706     hjd0=2458550.9467    ph_start=0.9787     ph_end=0.0213   comment="Darek EB prim ecl"  BVI      gaia
+  TYC852-1050-1    10:45:42.3 +12:47:00         10.3    seq=INFx(1/B/5,1/V/3,1/Ic/5)       priority=7   P=3.1427839   hjd0=2456832.5513    ph_start=0.9556     ph_end=0.0444   comment="Darek EB prim ecl"  vby      gaia
+  TYC4930-128-1    11:30:03.2 -00:50:04         11.5    seq=INFx(1/B/14,1/V/9,1/Ic/14)     priority=7   P=8.48188     hjd0=2457615.7932    ph_start=0.9812     ph_end=0.0188   comment="Darek EB prim ecl"  BVI      gaia/slow_apsidal_motion
+  E_201253025      11:57:19.8 -03:09:43         13.0    seq=INFx(1/B/55,1/V/38,1/Ic/55)    priority=7   P=6.78641     hjd0=2456851.124     ph_start=0.9746     ph_end=0.0254   comment="Darek EB prim ecl"  BVI      gaia
+  BD-04_3206       12:06:20.8 -04:54:50         10.8    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7   P=5.422527    hjd0=2457618.388     ph_start=0.9740     ph_end=0.0260   comment="Darek EB prim ecl"  vby/BVI? gaia
+  TYC4951-933-1    12:30:18.2 -04:02:51         11.0    seq=INFx(1/B/9,1/V/6,1/Ic/9)       priority=7   P=15.28954    hjd0=2457579.870     ph_start=0.9890     ph_end=0.0110   comment="Darek EB prim ecl"  vby/BVI? gaia
+  E_212707624      13:18:53.4 -08:04:17         13.3    seq=INFx(1/B/73,1/V/50,1/Ic/73)    priority=7   P=7.210726    hjd0=2457233.7727    ph_start=0.9797     ph_end=0.0203   comment="Darek EB prim ecl"  BVI      gaia
+  LP_Lib           15:13:38.475 -20:26:32.116   11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7   P=4.88418     hjd0=2458012.7289    ph_start=0.9672     ph_end=0.0328   comment="Darek EB prim ecl"  BVI      gaia
+  E_204321014      15:57:53.4 -22:47:45         12.4    seq=INFx(1/B/32,1/V/22,1/Ic/32)    priority=7   P=3.79213     hjd0=2456814.4278    ph_start=0.9685     ph_end=0.0315   comment="Darek EB prim ecl"  BVI      gaia
+  TYC6780-1523-1   16:08:51.0 -23:51:01         10.8    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7   P=4.6601      hjd0=2456814.6264    ph_start=0.9449     ph_end=0.0551   comment="Darek EB prim ecl"  vby/BVI? gaia
+  TYC6206-1374-1   16:19:01.1 -17:16:24         11.8    seq=INFx(1/B/18,1/V/12,1/Ic/18)    priority=7   P=15.5854     hjd0=2456795.2723    ph_start=0.9875     ph_end=0.0125   comment="Darek EB prim ecl"  BVI      gaia
+  TYC6240-759-1    17:08:50.4 -18:51:51         11.7    seq=INFx(1/B/17,1/V/11,1/Ic/17)    priority=7   P=13.6336     hjd0=2457712.055     ph_start=0.990      ph_end=0.010    comment="Darek EB prim ecl"  BVI      gaia
+  BD-19_4582       17:17:49.7 -19:15:16         11.0    seq=INFx(1/B/9,1/V/6,1/Ic/9)       priority=7   P=3.13694     hjd0=2457748.538     ph_start=0.9480     ph_end=0.0520   comment="Darek EB prim ecl"  vby/BVI? gaia
+  TYC6247-420-1    17:31:40.6 -20:46:33         12.2    seq=INFx(1/B/26,1/V/18,1/Ic/26)    priority=7   P=6.38382     hjd0=2457704.996     ph_start=0.9687     ph_end=0.0313   comment="Darek EB prim ecl"  BVI      gaia
+  E_218070138      18:49:00.7 -19:27:50         12.1    seq=INFx(1/B/24,1/V/16,1/Ic/24)    priority=7   P=15.102      hjd0=2456804.9364    ph_start=0.9859     ph_end=0.0141   comment="Darek EB prim ecl"  BVI      gaia/benchmark
+  TYC6306-1822-1   19:30:47.8 -19:36:30         11.1    seq=INFx(1/B/10,1/V/7,1/Ic/10)     priority=7   P=6.4907      hjd0=2457616.60      ph_start=0.9625     ph_end=0.0375   comment="Darek EB prim ecl"  vby/BVI? gaia
+  GN_Aqr           22:22:18.697 -04:12:22.596   11.7    seq=INFx(1/B/17,1/V/11,1/Ic/17)    priority=7   P=4.4043915   hjd0=2456814.423     ph_start=0.9625     ph_end=0.0375   comment="Darek EB prim ecl"  BVI      gaia
+  CD-24_17223      22:33:51.4 -23:51:53         10.7    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7   P=10.351663   hjd0=2458370.4114    ph_start=0.9664     ph_end=0.0336   comment="Darek EB prim ecl"  vby/BVI? gaia
+  TYC5239-1149-1   22:36:00.5 -06:04:50         12.1    seq=INFx(1/B/24,1/V/16,1/Ic/24)    priority=7   P=21.19382    hjd0=2456811.828     ph_start=0.9875     ph_end=0.0125   comment="Darek EB prim ecl"  BVI      gaia/benchmark
+  E_206134477      22:53:24.2 -11:11:53         12.3    seq=INFx(1/B/29,1/V/20,1/Ic/29)    priority=7    P=4.236594    hjd0=2456814.076     ph_start=0.9562     ph_end=0.0438  comment="Darek EB prim ecl"   BVI      gaia
+  E_246098758      23:16:12.9 -07:10:05         13.7    seq=INFx(1/B/105,1/V/72,1/Ic/105)  priority=7     P=7.390488    hjd0=2457793.890     ph_start=0.9812     ph_end=0.0188 comment="Darek EB prim ecl"    BVI      gaia
+  TYC5829-1047-1   23:32:17.1 -09:50:41         12.1    seq=INFx(1/B/24,1/V/16,1/Ic/24)    priority=7    P=8.375554    hjd0=2457775.8396    ph_start=0.9786     ph_end=0.0214  comment="Darek EB prim ecl"   BVI      gaia
+  BC_Oct           23:38:08.067 -81:21:18.381   10.3    seq=INFx(1/B/5,1/V/3,1/Ic/5)       priority=7    P=26.45942    hjd0=2458346.1226    ph_start=0.9881     ph_end=0.0119  comment="Darek EB prim ecl"   vby      gaia
+
+
+  # secondary eclipses
+
+  TYC1243-402-1    03:41:14.3 +20:12:54         11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7      P=8.074682    hjd0=2456813.845      ph_start=0.4863     ph_end=0.5231    comment="Darek EB sec ecl"   BVI      sbcr
+  TYC6484-426-1    05:31:13.65 -27:09:04.2      10.7    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7      P=7.056725    hjd0=2458469.462      ph_start=0.4602     ph_end=0.5170    comment="Darek EB sec ecl"   vby/BVI? sbcr/benchmark
+  #V365_Pup         07:19:06.5 -35:11:03         7.8     seq=INFx(1/B/1,1/V/1,1/Ic/1)      priority=7       P=12.87155    hjd0=2459220.7057     ph_start=0.645      ph_end=0.688    comment="Darek EB sec ecl"    vby      sbcr
+  #PX_Hya           10:33:30.7 -20:10:52         8.4     seq=INFx(1/B/1,1/V/1,1/Ic/1)      priority=7       P=36.1555     hjd0=2454536.308      ph_start=0.1943     ph_end=0.2250   comment="Darek EB sec ecl"    vby      sbcr
+  TYC266-718-1     11:11:33.5 +02:47:13         10.3    seq=INFx(1/B/5,1/V/3,1/Ic/5)       priority=7      P=35.024018   hjd0=2456813.790      ph_start=0.4806     ph_end=0.4938    comment="Darek EB sec ecl"   vby      sbcr/benchmark
+  #LQ_Mus           12:52:08.2 -68:54:01         7.5     seq=INFx(1/B/1,1/V/1,1/Ic/1)      priority=7       P=7.506404    hjd0=2452712.7448     ph_start=0.4771     ph_end=0.5229   comment="Darek EB sec ecl"    vby      sbcr/benchmark
+  BD-18_4532       17:27:47.1 -18:34:55         10.7    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7      P=9.1274      hjd0=2456816.892      ph_start=0.7219     ph_end=0.7617    comment="Darek EB sec ecl"   vby/BVI? sbcr
+  TYC20-893-1      01:17:26.4 +00:40:46         11.8    seq=INFx(1/B/18,1/V/12,1/Ic/18)    priority=7      P=8.36117     hjd0=2456807.200      ph_start=0.5380     ph_end=0.5823    comment="Darek EB sec ecl"   BVI      gaia
+  RV_Hyi           01:20:52.3 -80:19:00.63      11.1    seq=INFx(1/B/10,1/V/7,1/Ic/10)     priority=7      P=7.195053    hjd0=2458351.626      ph_start=0.5759     ph_end=0.6416    comment="Darek EB sec ecl"   vby/BVI? gaia/slow_apsidal_motion
+  E_220471927      01:29:09.7 +06:07:46         13.4    seq=INFx(1/B/80,1/V/54,1/Ic/80)    priority=7      P=19.8828     hjd0=2456805.128      ph_start=0.3212     ph_end=0.3433    comment="Darek EB sec ecl"   BVI      gaia/benchmark
+  TYC1257-132-1    03:56:22.1 +18:52:13         11.8    seq=INFx(1/B/18,1/V/12,1/Ic/18)    priority=7      P=9.37395     hjd0=2457611.387      ph_start=0.5247     ph_end=0.5830    comment="Darek EB sec ecl"   BVI      gaia
+  CD-41_1394       04:22:35.2 -41:29:00         10.7    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7      P=17.5547     hjd0=2454935.8574     ph_start=0.1499     ph_end=0.1780    comment="Darek EB sec ecl"   vby/BVI? gaia
+  E_246891964      04:43:27.3 +16:40:33         11.8    seq=INFx(1/B/18,1/V/12,1/Ic/18)    priority=7      P=30.44006    hjd0=2456830.746      ph_start=0.6705     ph_end=0.6953    comment="Darek EB sec ecl"   BVI      gaia/benchmark/slow_apsidal_motion
+  CPD-64_390       04:56:28.16 -64:29:15.1      10.2    seq=INFx(1/B/4,1/V/3,1/Ic/4)       priority=7      P=31.114765   hjd0=2458347.587      ph_start=0.5284     ph_end=0.5502    comment="Darek EB sec ecl"   vby      gaia
+  E_246887507      05:11:51.0 +16:37:57         12.4    seq=INFx(1/B/32,1/V/22,1/Ic/32)    priority=7      P=11.46055    hjd0=2456813.968      ph_start=0.2916     ph_end=0.3426    comment="Darek EB sec ecl"   BVI      gaia
+  TYC735-1315-1    06:17:27.35 11:00:17.5       11.3    seq=INFx(1/B/12,1/V/8,1/Ic/12)     priority=7      P=15.71975    hjd0=2458483.786      ph_start=0.3071     ph_end=0.3559    comment="Darek EB sec ecl"   BVI      gaia
+  E_202086627      06:25:55.9 +15:36:13         11.6    seq=INFx(1/B/15,1/V/10,1/Ic/15)    priority=7      P=7.149794    hjd0=2456806.281      ph_start=0.4849     ph_end=0.5211    comment="Darek EB sec ecl"   BVI      gaia/benchmark
+  TYC6511-1799-1   06:29:26.36 -25:13:29.4      11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7      P=26.3815     hjd0=2458473.34       ph_start=0.3381     ph_end=0.3924    comment="Darek EB sec ecl"   BVI      gaia
+  TYC8547-1509-1   06:33:56.45 -59:57:37.9      11.1    seq=INFx(1/B/10,1/V/7,1/Ic/10)     priority=7      P=7.14020     hjd0=2458646.3474     ph_start=0.4768     ph_end=0.5246    comment="Darek EB sec ecl"   vby/BVI? gaia
+  V400_Gem         06:37:36.0 +17:47:33         11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7      P=11.305257   hjd0=2456805.5283     ph_start=0.4793     ph_end=0.5230    comment="Darek EB sec ecl"   BVI      gaia/benchmark
+  TYC1392-886-1    08:36:07.0 +17:25:38         11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7      P=6.764156    hjd0=2456814.550      ph_start=0.475      ph_end=0.525     comment="Darek EB sec ecl"   BVI      gaia
+  TYC1396-393-1    08:44:06.6 +18:30:40         12.3    seq=INFx(1/B/29,1/V/20,1/Ic/29)    priority=7      P=8.79464     hjd0=2456816.2882     ph_start=0.4828     ph_end=0.5245    comment="Darek EB sec ecl"   BVI      gaia/benchmark
+  TYC246-1159-1    10:28:03.4 +01:47:50         11.0    seq=INFx(1/B/9,1/V/6,1/Ic/9)       priority=7      P=16.77565    hjd0=2456834.876      ph_start=0.3388     ph_end=0.3636    comment="Darek EB sec ecl"   vby/BVI? gaia
+  E_248912952      10:34:40.2 +13:39:15         13.6    seq=INFx(1/B/96,1/V/65,1/Ic/96)    priority=7      P=3.139174    hjd0=2457934.967      ph_start=0.450      ph_end=0.550     comment="Darek EB sec ecl"   BVI      gaia
+  SWASPJ104335.88  10:43:35.859 -43:40:15.2     12.4    seq=INFx(1/B/32,1/V/22,1/Ic/32)    priority=7      P=9.65706     hjd0=2458550.9467     ph_start=0.3902     ph_end=0.4404    comment="Darek EB sec ecl"   BVI      gaia
+  TYC852-1050-1    10:45:42.3 +12:47:00         10.3    seq=INFx(1/B/5,1/V/3,1/Ic/5)       priority=7      P=3.1427839   hjd0=2456832.5513     ph_start=0.4556     ph_end=0.5444    comment="Darek EB sec ecl"   vby      gaia
+  TYC4930-128-1    11:30:03.2 -00:50:04         11.5    seq=INFx(1/B/14,1/V/9,1/Ic/14)     priority=7      P=8.48188     hjd0=2457615.7932     ph_start=0.588      ph_end=0.634     comment="Darek EB sec ecl"   BVI      gaia/slow_apsidal_motion
+  E_201253025      11:57:19.8 -03:09:43         13.0    seq=INFx(1/B/55,1/V/38,1/Ic/55)    priority=7      P=6.78641     hjd0=2456851.124      ph_start=0.4671     ph_end=0.5227    comment="Darek EB sec ecl"   BVI      gaia
+  BD-04_3206       12:06:20.8 -04:54:50         10.8    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7      P=5.422527    hjd0=2457618.388      ph_start=0.4737     ph_end=0.5263    comment="Darek EB sec ecl"   vby/BVI? gaia
+  TYC4951-933-1    12:30:18.2 -04:02:51         11.0    seq=INFx(1/B/9,1/V/6,1/Ic/9)       priority=7      P=15.28954    hjd0=2457579.870      ph_start=0.1953     ph_end=0.2229    comment="Darek EB sec ecl"   vby/BVI? gaia
+  E_212707624      13:18:53.4 -08:04:17         13.3    seq=INFx(1/B/73,1/V/50,1/Ic/73)    priority=7      P=7.210726    hjd0=2457233.7727     ph_start=0.4863     ph_end=0.5311    comment="Darek EB sec ecl"   BVI      gaia
+  LP_Lib           15:13:38.475 -20:26:32.116   11.4    seq=INFx(1/B/13,1/V/9,1/Ic/13)     priority=7      P=4.88418     hjd0=2458012.7289     ph_start=0.4669     ph_end=0.5331    comment="Darek EB sec ecl"   BVI      gaia
+  E_204321014      15:57:53.4 -22:47:45         12.4    seq=INFx(1/B/32,1/V/22,1/Ic/32)    priority=7      P=3.79213     hjd0=2456814.4278     ph_start=0.4685     ph_end=0.5315    comment="Darek EB sec ecl"   BVI      gaia
+  TYC6780-1523-1   16:08:51.0 -23:51:01         10.8    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7      P=4.6601      hjd0=2456814.6264     ph_start=0.4449     ph_end=0.5551    comment="Darek EB sec ecl"   vby/BVI? gaia
+  TYC6206-1374-1   16:19:01.1 -17:16:24         11.8    seq=INFx(1/B/18,1/V/12,1/Ic/18)    priority=7      P=15.5854     hjd0=2456795.2723     ph_start=0.6367     ph_end=0.6593    comment="Darek EB sec ecl"   BVI      gaia
+  TYC6240-759-1    17:08:50.4 -18:51:51         11.7    seq=INFx(1/B/17,1/V/11,1/Ic/17)    priority=7      P=13.6336     hjd0=2457712.055      ph_start=0.1336     ph_end=0.1583    comment="Darek EB sec ecl"   BVI      gaia
+  BD-19_4582       17:17:49.7 -19:15:16         11.0    seq=INFx(1/B/9,1/V/6,1/Ic/9)       priority=7      P=3.13694     hjd0=2457748.538      ph_start=0.4480     ph_end=0.5520    comment="Darek EB sec ecl"   vby/BVI? gaia
+  TYC6247-420-1    17:31:40.6 -20:46:33         12.2    seq=INFx(1/B/26,1/V/18,1/Ic/26)    priority=7      P=6.38382     hjd0=2457704.996      ph_start=0.4687     ph_end=0.5313    comment="Darek EB sec ecl"   BVI      gaia
+  E_218070138      18:49:00.7 -19:27:50         12.1    seq=INFx(1/B/24,1/V/16,1/Ic/24)    priority=7      P=15.102      hjd0=2456804.9364     ph_start=0.9859     ph_end=0.0141    comment="Darek EB sec ecl"   BVI      gaia/benchmark
+  TYC6306-1822-1   19:30:47.8 -19:36:30         11.1    seq=INFx(1/B/10,1/V/7,1/Ic/10)     priority=7      P=6.4907      hjd0=2457616.60       ph_start=0.4625     ph_end=0.5375    comment="Darek EB sec ecl"   vby/BVI? gaia
+  GN_Aqr           22:22:18.697 -04:12:22.596   11.7    seq=INFx(1/B/17,1/V/11,1/Ic/17)    priority=7      P=4.4043915   hjd0=2456814.423      ph_start=0.4625     ph_end=0.5375    comment="Darek EB sec ecl"   BVI      gaia
+  CD-24_17223      22:33:51.4 -23:51:53         10.7    seq=INFx(1/B/7,1/V/5,1/Ic/7)       priority=7      P=10.351663   hjd0=2458370.4114     ph_start=0.4826     ph_end=0.5496    comment="Darek EB sec ecl"   vby/BVI? gaia
+  TYC5239-1149-1   22:36:00.5 -06:04:50         12.1    seq=INFx(1/B/24,1/V/16,1/Ic/24)    priority=7      P=21.19382    hjd0=2456811.828      ph_start=0.4711     ph_end=0.4921    comment="Darek EB sec ecl"   BVI      gaia/benchmark
+  E_206134477      22:53:24.2 -11:11:53         12.3    seq=INFx(1/B/29,1/V/20,1/Ic/29)    priority=7       P=4.236594    hjd0=2456814.076      ph_start=0.4562     ph_end=0.5438   comment="Darek EB sec ecl"    BVI      gaia
+  E_246098758      23:16:12.9 -07:10:05         13.7    seq=INFx(1/B/105,1/V/72,1/Ic/105)  priority=7        P=7.390488    hjd0=2457793.890      ph_start=0.4812     ph_end=0.5188  comment="Darek EB sec ecl"     BVI      gaia
+  TYC5829-1047-1   23:32:17.1 -09:50:41         12.1    seq=INFx(1/B/24,1/V/16,1/Ic/24)    priority=7       P=8.375554    hjd0=2457775.8396     ph_start=0.4786     ph_end=0.5214   comment="Darek EB sec ecl"    BVI      gaia
+  BC_Oct           23:38:08.067 -81:21:18.381   10.3    seq=INFx(1/B/5,1/V/3,1/Ic/5)       priority=7       P=26.45942    hjd0=2458346.1226     ph_start=0.3229     ph_end=0.3576   comment="Darek EB sec ecl"    vby      gaia
 
 
 #

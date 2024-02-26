@@ -75,10 +75,11 @@ class main:
        
     def getargs(self):
         self.flags = []
+        self.wind = False
         if len(sys.argv)<3:
-            print("wrong format: ./tpg.py telescope (zb08 or jk15) date (yyyy/mm/dd) [ut] (hh:mm) \n")
-            print("example: ./tpg.py zb08 2023/08/12")
-            print("example: ./tpg.py zb08 2023/08/12 13:45")
+            print("wrong format: tpg telescope (zb08 or jk15) date (yyyy/mm/dd) [ut] (hh:mm) \n")
+            print("example: tpg zb08 2023/08/12")
+            print("example: tpg zb08 2023/08/12 13:45")
             sys.exit()
         else:
             if "--ph" in sys.argv:
@@ -90,6 +91,11 @@ class main:
             if "-o" in sys.argv:
                 self.flags.append("overload")
                 sys.argv.remove("-o")
+            if "--wind" in sys.argv:
+                n = sys.argv.index("--wind")
+                self.wind = float(sys.argv[n+1])
+                del sys.argv[n:n + 2]
+                print(sys.argv)
 
             if sys.argv[1]=="iris":
                 self.Obfile=self.irisfile
@@ -98,7 +104,7 @@ class main:
             elif sys.argv[1]=="zb08":
                 self.Obfile=self.zb08_file
                 self.flags.append("zb08")
-                self.overhead=20.
+                self.overhead=7.
 
             if len(sys.argv)==3:
                 self.date=sys.argv[2]+" 16:00:00"
@@ -108,9 +114,9 @@ class main:
                 self.flags.append("start_at_ut")
 
             else:
-                print("wrong format: ./tpg.py telescope (zb08 or jk15) date (yyyy/mm/dd) [ut] (hh:mm) \n")
-                print("example: ./tpg.py zb08 2023/08/12")
-                print("example: ./tpg.py zb08 2023/08/12 13:45")
+                print("wrong format: tpg telescope (zb08 or jk15) date (yyyy/mm/dd) [ut] (hh:mm) \n")
+                print("example: tpg zb08 2023/08/12")
+                print("example: tpg zb08 2023/08/12 13:45")
                 sys.exit()
 
 
@@ -168,7 +174,7 @@ class main:
                     slotTime = 0
                     comment=""
 
-                    overhed = self.overhead
+                    overhead = self.overhead
                     ts=False
                     te=False
                     ps = False
@@ -223,7 +229,7 @@ class main:
                     else:
                         seq0 = seq
                     for x_seq in seq0.split(","):
-                        slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhed)))/60.
+                        slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))/60.
                     slotTime = k * slotTime
 
 
@@ -275,9 +281,12 @@ class main:
 
     def CalcObject(self):       # Colculate visibility for all objects
       for n,tmp in enumerate(self.name):
+          wind_mask_flag = True
+          moon_mask_flag = True
           s = ephem.FixedBody()
           s._ra = self.ra[n]
           s._dec = self.dec[n]
+          moon = ephem.Moon()
           self.oca.date = self.sunset
           self.oca.horizon=self.h_sun
           vis=[]
@@ -286,10 +295,37 @@ class main:
           for i,tmp in enumerate(self.nightTime):
               self.oca.date=self.nightTime[i]
               s.compute(self.oca)
-              h=float(str(s.alt).split(":")[0])+float(str(s.alt).split(":")[1])/60
+              az = float(str(s.az).split(":")[0])+float(str(s.az).split(":")[1])/60
+              h = float(str(s.alt).split(":")[0])+float(str(s.alt).split(":")[1])/60
               hT.append(h)
-              if float(h)>float(self.h_min) and float(h)<float(self.h_max): T=True
-              else: T=False
+              if float(h)>float(self.h_min) and float(h)<float(self.h_max):
+                  T=True
+              else:
+                  T=False
+
+              moon.compute(self.oca)
+              sep = ephem.separation(moon, s)
+              separation = float(str(sep).split(":")[0])+float(str(sep).split(":")[1])/60
+              if separation < 30.:
+                  T = False
+                  if moon_mask_flag:
+                      moon_mask_flag = False
+                      if "loud" in self.flags:
+                          txt = f" {self.name[n]} masked MOON"
+                          sys.stderr.write(txt + "\n")
+
+              if self.wind != False:
+                  d = numpy.abs(self.wind - az)
+                  if d > 180.:
+                      d = 360. - d
+                  if d < float(self.wind_distance):
+                      T = False
+                      if wind_mask_flag:
+                         wind_mask_flag = False
+                         if "loud" in self.flags:
+                             txt = f" {self.name[n]} masked WIND"
+                             sys.stderr.write(txt + "\n")
+
               #if "ignore_vis" in self.obflag[n]: T=True
               vis.append(T)
           self.visibility.append(vis)
@@ -375,8 +411,8 @@ class main:
                 if prev>-50:
                    k=int(self.nightObject[n])
                    #print(self.spec[k])
-                   txt = f"OBJECT {self.name[k]} {self.ra[k]} {self.dec[k]} seq={self.seq[k]}"
-                   if len(self.comment[k]) > 0: txt = txt + f" comment=\"{self.comment[k]}\""
+                   txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
+                   if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
                    print(txt)
 
                 else:
