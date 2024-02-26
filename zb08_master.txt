@@ -7,14 +7,14 @@
 
 
 # Nikki test objects
-WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
-WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
+# WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
+# WASP_0639-32  06:39:30.33 -32:24:04.8 seq=INFx(1/g/4,1/r/3.1,1/i/4,1/z/16) priority=7 t_start=2024/02/13T1:40:13 t_end=2024/02/13T05:35:15 comment="Secondary eclipse egress"
 
-CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
-CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
+# CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
+# CD-31_3271    06:24:48.93 -31:51:52.2 seq=INFx(1/g/1.2,1/r/1.1,1/i/1.6,1/z/6) priority=7 t_start=2024/02/11T01:00:00 t_end=2024/02/11T03:30:00 comment="Secondary eclipse ingress"
 
-TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
-TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
+# TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
+# TYC_8547-22-1 06:36:58.94 -58:27:36.6 seq=INFx(1/g/1.4,1/r/1.2,1/i/1.8,1/z/7) priority=7 t_start=2024/02/16T03:00:00 t_end=2024/02/16T05:45:00 comment="Primary eclipse egress"
 
 
 #Landolt standard fields

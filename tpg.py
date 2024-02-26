@@ -411,8 +411,8 @@ class main:
                 if prev>-50:
                    k=int(self.nightObject[n])
                    #print(self.spec[k])
-                   txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]} \t seq={self.seq[k]}"
-                   if len(self.comment[k]) > 0: txt = txt + f"\t comment=\"{self.comment[k]}\""
+                   txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
+                   if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
                    print(txt)
 
                 else:
