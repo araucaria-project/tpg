@@ -104,10 +104,12 @@ class main:
                 self.flags.append("iris")
                 self.overhead=100.
             elif sys.argv[1]=="zb08":
+                print("zb08")
                 self.Obfile=self.zb08_file
                 self.flags.append("zb08")
                 self.overhead=7.
             elif sys.argv[1]=="wk06":
+                print("wk06")
                 self.Obfile=self.wk06_file
                 self.flags.append("wk06")
                 self.overhead=7.
