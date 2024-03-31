@@ -44,6 +44,8 @@ class main:
                     if line[0] != "#":
                         if "zb08_FILE=" in line:
                             self.zb08_file=line.split("=")[1].strip()
+                        if "wk06_FILE=" in line:
+                            self.wk06_file=line.split("=")[1].strip()
 
                        # if "IRISFILE=" in line:
                        #    self.irisfile=line.split("=")[1].strip()
@@ -104,6 +106,10 @@ class main:
             elif sys.argv[1]=="zb08":
                 self.Obfile=self.zb08_file
                 self.flags.append("zb08")
+                self.overhead=7.
+            elif sys.argv[1]=="wk06":
+                self.Obfile=self.wk06_file
+                self.flags.append("wk06")
                 self.overhead=7.
 
             if len(sys.argv)==3:
