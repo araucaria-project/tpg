@@ -1,16 +1,29 @@
 #format of each line should be as following:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
-# example1	21:24:00.2421	     +18:16:43.77	seq=1/Ic/15,1/V/45,1/B/30    P=2.4121	           mV=9.21	priority=4     comment="binary and dusty envelope"
-# example2  07:24:14 	-00:31:41  seq=10x(1/B/60,1/V/45,1/Ic/15) 	 priority=6 t_start=08:20 t_end=10:00
-# example3  07:24:14 	-00:31:41  seq=INFx(1/B/60,1/V/45,1/Ic/15) 	 priority=6 t_start=00:20 t_end=10:00
-# example4  07:24:14 	-00:31:41  seq=2x(1/B/36) 	 priority=7 ph_start=0.8 ph_end=0.1 P=0.1 t0=2460310.5
+# example1 21:24:00.2421      +18:16:43.77 seq=1/Ic/15,1/V/45,1/B/30    P=2.4121            mV=9.21 priority=4     comment="binary and dusty envelope"
+# example2  07:24:14  -00:31:41  seq=10x(1/B/60,1/V/45,1/Ic/15)   priority=6 t_start=08:20 t_end=10:00
+# example3  07:24:14  -00:31:41  seq=INFx(1/B/60,1/V/45,1/Ic/15)   priority=6 t_start=00:20 t_end=10:00
+# example4  07:24:14  -00:31:41  seq=2x(1/B/36)   priority=7 ph_start=0.8 ph_end=0.1 P=0.1 t0=2460310.5
+
+
+#Landolt standard fields
+TPHE  00:30:16  -46:27:55   seq=1/B/30,1/V/30,1/Ic/10   P=-99.99  mV=12.33  priority=10     comment=" standard field "
+SA92  00:56:08  +01:04:29   seq=1/B/30,1/V/30,1/Ic/10   P=-99.99  mV=11.81 priority=10      comment=" standard field "
+SA95  03:53:04  +00:03:12   seq=1/B/30,1/V/30,1/Ic/10   P=-99.99  mV=12.68 priority=10      comment=" standard field "
+SA98  06:52:05  -00:19:18  seq=1/B/30,1/V/30,1/Ic/10    P=-99.99  mV=12.27  priority=10     comment=" standard field "
+RU149  07:24:14         -00:31:41  seq=1/B/30,1/V/30,1/Ic/10    P=-99.99  mV=11.48  priority=10 comment=" standard field "
+RU152  07:29:56         -02:05:39  seq=1/B/30,1/V/30,1/Ic/10    P=-99.99  mV=13.01  priority=10 comment=" standard field "
+SA104  12:42:21         -00:33:12  seq=1/B/30,1/V/30,1/Ic/10    P=-99.99  mV=11.67  priority=10 comment=" standard field "
+SA110  18:42:45  +00:07:42  seq=1/B/30,1/V/30,1/Ic/10   P=-99.99  mV=12.43 priority=10      comment=" standard field "
+SA113  21:41:00  +00:27:21  seq=1/B/30,1/V/30,1/Ic/10   P=-99.99  mV=10.88  priority=10     comment=" standard field "
+SA114 22:41:37  +01:08:14  seq=1/B/30,1/V/30,1/Ic/10    P=-99.99  mV=10.88  priority=10     comment=" standard field "
 
 
 # Nikki test objects
 TYC_7091-888-1  06:39:30.33 -32:24:04.8 seq=INFx(2/Ic/8,2/V/12,2/B/16) mV=10.66 P=11.658317, t0=2455241.33931 ph_start=0.945 ph_end=0.055  priority=7 comment="Primary eclipse ingress"
 TYC_7091-888-1  06:39:30.33 -32:24:04.8 seq=INFx(2/Ic/8,2/V/12,2/B/16) mV=10.66 P=11.658317, t0=2455241.33931 ph_start=0.945 ph_end=0.055  priority=7 comment="Secondary eclipse ingress"
-LL_Aqr	        22:34:42.15 -03:35:58.2	seq=INFx(2/Ic/2,2/V/3,2/B/4)   mV=9.32  P=-20.178321 t0=2455098.54955 ph_start=0.970 ph_end=0.030  priority=7 comment="Primary eclipse ingress"
-LL_Aqr	        22:34:42.15 -03:35:58.2	seq=INFx(2/Ic/2,2/V/3,2/B/4)   mV=9.32  P=-20.178321 t0=2455098.54955 ph_start=0.290 ph_end=0.350  priority=7 comment="Secondary eclipse ingress"
+LL_Aqr         22:34:42.15 -03:35:58.2 seq=INFx(2/Ic/2,2/V/3,2/B/4)   mV=9.32  P=-20.178321 t0=2455098.54955 ph_start=0.970 ph_end=0.030  priority=7 comment="Primary eclipse ingress"
+LL_Aqr         22:34:42.15 -03:35:58.2 seq=INFx(2/Ic/2,2/V/3,2/B/4)   mV=9.32  P=-20.178321 t0=2455098.54955 ph_start=0.290 ph_end=0.350  priority=7 comment="Secondary eclipse ingress"
 
 
 # EB Darka scbr + gaia
@@ -38,7 +51,7 @@ LL_Aqr	        22:34:42.15 -03:35:58.2	seq=INFx(2/Ic/2,2/V/3,2/B/4)   mV=9.32  P
   E_246887507      05:11:51.0 +16:37:57         12.4    seq=INFx(1/B/64,1/V/66,1/Ic/32)    priority=7   P=11.46055    t0=2456813.968     ph_start=0.9799     ph_end=0.0201   comment="Darek EB prim ecl"  BVI      gaia
   TYC735-1315-1    06:17:27.35 11:00:17.5       11.3    seq=INFx(1/B/24,1/V/24,1/Ic/12)     priority=7   P=15.71975    t0=2458483.786     ph_start=0.9875     ph_end=0.0125   comment="Darek EB prim ecl"  BVI      gaia
   E_202086627      06:25:55.9 +15:36:13         11.6    seq=INFx(1/B/30,1/V/30,1/Ic/15)    priority=7   P=7.149794    t0=2456806.281     ph_start=0.9813     ph_end=0.0187   comment="Darek EB prim ecl"  BVI      gaia/benchmark
-  TYC6511-1799-1   06:29:26.36 -25:13:29.4      11.4    seq=INFx(1/B/26,1/V/27,1/Ic/13)     priority=7   P=26.3815     t0=2458473.34      ph_start=0.990      ph_end=0.010    comment="Darek EB prim ecl"  BVI      gaia
+  TYC6511-1799-1   06:29:26.36 -25:13:29.4      11.4    seq=INFx(1/B/26,1/V/27,1/Ic/7)     priority=7   P=26.3815     t0=2458473.34      ph_start=0.990      ph_end=0.010    comment="Darek EB prim ecl"  BVI      gaia
   TYC8547-1509-1   06:33:56.45 -59:57:37.9      11.1    seq=INFx(1/B/20,1/V/21,1/Ic/10)     priority=7   P=7.14020     t0=2458646.3474    ph_start=0.9762     ph_end=0.0238   comment="Darek EB prim ecl"  vby/BVI? gaia
   V400_Gem         06:37:36.0 +17:47:33         11.4    seq=INFx(1/B/26,1/V/27,1/Ic/13)     priority=7   P=11.305257   t0=2456805.5283    ph_start=0.9786     ph_end=0.0214   comment="Darek EB prim ecl"  BVI      gaia/benchmark
   TYC1392-886-1    08:36:07.0 +17:25:38         11.4    seq=INFx(1/B/26,1/V/27,1/Ic/13)     priority=7   P=6.764156    t0=2456814.550     ph_start=0.975      ph_end=0.025    comment="Darek EB prim ecl"  BVI      gaia
@@ -90,7 +103,7 @@ LL_Aqr	        22:34:42.15 -03:35:58.2	seq=INFx(2/Ic/2,2/V/3,2/B/4)   mV=9.32  P
   E_246887507      05:11:51.0 +16:37:57         12.4    seq=INFx(1/B/64,1/V/66,1/Ic/32)    priority=7      P=11.46055    t0=2456813.968      ph_start=0.2916     ph_end=0.3426    comment="Darek EB sec ecl"   BVI      gaia
   TYC735-1315-1    06:17:27.35 11:00:17.5       11.3    seq=INFx(1/B/24,1/V/24,1/Ic/12)     priority=7      P=15.71975    t0=2458483.786      ph_start=0.3071     ph_end=0.3559    comment="Darek EB sec ecl"   BVI      gaia
   E_202086627      06:25:55.9 +15:36:13         11.6    seq=INFx(1/B/30,1/V/30,1/Ic/15)    priority=7      P=7.149794    t0=2456806.281      ph_start=0.4849     ph_end=0.5211    comment="Darek EB sec ecl"   BVI      gaia/benchmark
-  TYC6511-1799-1   06:29:26.36 -25:13:29.4      11.4    seq=INFx(1/B/26,1/V/27,1/Ic/13)     priority=7      P=26.3815     t0=2458473.34       ph_start=0.3381     ph_end=0.3924    comment="Darek EB sec ecl"   BVI      gaia
+  TYC6511-1799-1   06:29:26.36 -25:13:29.4      11.4    seq=INFx(1/B/26,1/V/27,1/Ic/7)     priority=7      P=26.3815     t0=2458473.34       ph_start=0.3381     ph_end=0.3924    comment="Darek EB sec ecl"   BVI      gaia
   TYC8547-1509-1   06:33:56.45 -59:57:37.9      11.1    seq=INFx(1/B/20,1/V/21,1/Ic/10)     priority=7      P=7.14020     t0=2458646.3474     ph_start=0.4768     ph_end=0.5246    comment="Darek EB sec ecl"   vby/BVI? gaia
   V400_Gem         06:37:36.0 +17:47:33         11.4    seq=INFx(1/B/26,1/V/27,1/Ic/13)     priority=7      P=11.305257   t0=2456805.5283     ph_start=0.4793     ph_end=0.5230    comment="Darek EB sec ecl"   BVI      gaia/benchmark
   TYC1392-886-1    08:36:07.0 +17:25:38         11.4    seq=INFx(1/B/26,1/V/27,1/Ic/13)     priority=7      P=6.764156    t0=2456814.550      ph_start=0.475      ph_end=0.525     comment="Darek EB sec ecl"   BVI      gaia
