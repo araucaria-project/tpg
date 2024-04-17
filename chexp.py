@@ -35,8 +35,12 @@ def change_exposure_factor(plan, factor, filter=None):
                     continue
                 old_exposure = f'{match[0]}/{match[1]}/{match[2]}'
                 # clac new_exp_time - new exp time rounded to one decimal point
-                new_exp_time = round(float(match[2]) * factor)
-                new_exposure = f'{match[0]}/{match[1]}/{float(match[2]) * factor:.6g}'
+                new_exposure = f'{match[0]}/{match[1]}/{round(float(match[2]) * factor, 1):g}'
+                try:
+                    c,d = new_exposure.split('.')
+                    new_exposure = f'{c}.{d[0]}'
+                except ValueError:
+                    pass
                 line = line.replace(old_exposure, new_exposure)
         new_plan.append(line)
     return '\n'.join(new_plan)
