@@ -48,7 +48,7 @@ DU_Ara      17:23:12.61     -63:53:47.50    seq=2/Ic/21,2/V/15,2/B/21,2/g/15,2/r
 V745_Oph  17:20:02.93     +03:48:56.00    seq=2/Ic/50,2/V/39,2/B/50,2/g/40,2/r/21,2/i/33,2/z/90        P=1.59646         mV=13.00     priority=4
 BV_Cha      13:02:21.18     -79:45:26.40    seq=2/Ic/23,2/V/16,2/B/23,2/g/16,2/r/10,2/i/15,2/z/46      P=1.2380317         mV=12.10     priority=4  comment="exp not verified"
 KZ_Cen      12:01:55.19     -46:16:41.40    seq=2/Ic/34,2/V/25,2/B/34,2/g/25,2/r/14,2/i/22,2/z/64      P=1.5200403         mV=12.53     priority=4  comment="exp not verified"
-DD_Mus      12:14:39.69     -68:32:35.90    seq=2/Ic/70,2/V/57,2/B/70,2/g/59,2/r/29,2/i/47,2/z/121      P=1.6972479         mV=13.40     priority=4  comment="exp not verified"
+DD_Mus      12:14:39.69     -68:32:35.90    seq=2/Ic/70,2/V/57,2/B/70,2/g/30,2/r/29,2/i/47,2/z/121      P=1.6972479         mV=13.40     priority=4  comment="exp not verified"
 AL_Lyr      19:19:29.61     +27:33:44.43  seq=2/Ic/21,2/V/14,2/B/21,2/g/15,2/r/9,2/i/14,2/z/42        P=12.978             mV=11.98     priority=4     comment="pW Vir"
 AL_Vir      14:11:09.04     -13:18:38.43  seq=1/Ic/1,1/V/1,2/B/1,1/g/1,1/r/1,1/i/1,1/z/3        P=10.3065         mV=9.10     priority=2         comment="pW Vir?"
 AP_Her      18:50:27.72     +15:56:24.66  seq=2/Ic/6,2/V/4,2/B/6,2/g/4,2/r/3.0,2/i/4,2/z/15      P=10.411             mV=10.63     priority=4     comment="pW Vir"
