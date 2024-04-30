@@ -106,11 +106,11 @@ class main:
             elif sys.argv[1]=="zb08":
                 self.Obfile=self.zb08_file
                 self.flags.append("zb08")
-                self.overhead=7.
+                self.overhead=15
             elif sys.argv[1]=="wk06":
                 self.Obfile=self.wk06_file
                 self.flags.append("wk06")
-                self.overhead=7.
+                self.overhead=15
 
             if len(sys.argv)==3:
                 self.date=sys.argv[2]+" 16:00:00"
