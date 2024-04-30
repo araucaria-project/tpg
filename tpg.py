@@ -235,8 +235,8 @@ class main:
                     else:
                         seq0 = seq
                     for x_seq in seq0.split(","):
-                        slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))/60.
-                    slotTime = k * slotTime
+                        slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
+                    slotTime = (k * slotTime)/60.
 
 
                     self.name.append(name)
