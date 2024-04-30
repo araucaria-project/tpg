@@ -97,7 +97,7 @@ class main:
                 n = sys.argv.index("--wind")
                 self.wind = float(sys.argv[n+1])
                 del sys.argv[n:n + 2]
-                print(sys.argv)
+                #print(sys.argv)
 
             if sys.argv[1]=="iris":
                 self.Obfile=self.irisfile
@@ -222,7 +222,7 @@ class main:
                         elif i == 2:
                             dec = line.split()[2]
 
-                    slotTime = 0
+                    slotTime = 10
                     k = 1
                     if "x(" in seq and ")" in seq:
                         k = seq.split("x")[0]
