@@ -1,17 +1,19 @@
 [tool.poetry]
 name = "tpg"
-version = "0.0.2"
+version = "0.0.3"
 description = "telescope plan generator"
 authors = ["mgorski <mgorski@camk.edu.pl>"]
 license = "MIT"
 readme = "README.md"
-include = ['tpg.cfg']
+include = ['config.yaml']
 
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
+pyyaml = "^6.0"
 ephem = "^4.1.4"
 numpy = "^1.24.1"
+
 
 [tool.poetry.scripts]
 tpg = "tpg:main"
