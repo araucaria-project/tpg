@@ -3,19 +3,22 @@ import time
 
 
 class telescope_plan_generator():
-    def __init__(self,tel,date,wind=None,done=None,flags=[]):
+    def __init__(self,tel,date,wind=None,done=None):
 
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
-        #self.script_dir = os.path.dirname(tmp)
+        self.flags = []
 
         with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
             self.cfg = yaml.safe_load(cfg_file)
 
         self.tel = tel
-        self.date = date
+        if len(date) == 1:
+            self.date = date[0] + " 16:00:00"
+        elif len(date) == 2:
+            self.date = date[0] + " " + date[1]
+            self.flags.append("start_at_ut")
         self.wind = wind
-        self.flags = flags
         self.plan = []
 
 
@@ -183,6 +186,9 @@ class telescope_plan_generator():
 
         self.sunset = self.oca.next_setting(ephem.Sun(), use_center=True)
         self.sunrise = self.oca.next_rising(ephem.Sun(), use_center=True)
+
+        if self.sunset > self.sunrise:
+            self.sunrise = self.sunrise + 24*ephem.hour
 
         if "start_at_ut" in self.flags:
             t = ephem.Date(self.date)
