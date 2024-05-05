@@ -163,6 +163,7 @@ class telescope_plan_generator():
                                     float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
                     slotTime = (k * slotTime) / 60.
 
+
                     if uid and uid in self.done:
                         pass
                     else:
@@ -369,9 +370,30 @@ class telescope_plan_generator():
                     prev = int(self.nightObject[n])
                     if prev > -50:
                         k = int(self.nightObject[n])
-                        txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
-                        if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
-                        self.plan.append(txt)
+
+                        if "x" in self.seq[k]:
+                            q = self.seq[k].split("x")[0]
+                            r = self.seq[k].split("x")[1]
+                            if int(q) > 10:
+                                self.seq[k] = f"10x{r}"
+                                for _ in range(int(int(q)/10)):
+                                    txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
+                                    if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
+                                    self.plan.append(txt)
+                                z = int(q)-10*int(int(q)/10)
+                                if z != 0:
+                                    self.seq[k] = f"{z}x{r}"
+                                    txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
+                                    if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
+                                    self.plan.append(txt)
+                            else:
+                                txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
+                                if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
+                                self.plan.append(txt)
+                        else:
+                            txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
+                            if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
+                            self.plan.append(txt)
 
                     else:
                         t0 = self.nightTime[n]
