@@ -8,6 +8,7 @@ class telescope_plan_generator():
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
+        self.done = done
 
         with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
             self.cfg = yaml.safe_load(cfg_file)
@@ -58,6 +59,7 @@ class telescope_plan_generator():
         self.tstart = []  #
         self.tend = []  #
         self.obflag = []  #
+        self.uid = []
 
         self.pstart = []
         self.pend = []
@@ -99,12 +101,16 @@ class telescope_plan_generator():
                     period = False
                     hjd0 = False
                     ph_mk = False
+                    uid = False
                     if "comment=" in line:
                         tmp = line.split("comment=")[1]
                         if "\"" in line:
                             comment = tmp.split("\"")[1]
                         if "\'" in line:
                             comment = tmp.split("\'")[1]
+
+                    if "uid=" in line:
+                        uid = line.split("uid=")[1].split()[0]
 
                     if "seq=" in line:
                         seq = line.split("seq=")[1].split()[0]
@@ -157,24 +163,28 @@ class telescope_plan_generator():
                                     float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
                     slotTime = (k * slotTime) / 60.
 
-                    self.name.append(name)
-                    self.ra.append(ra)
-                    self.dec.append(dec)
-                    self.seq.append(seq)
-                    self.comment.append(comment)
-                    self.slotTime.append(slotTime)
-                    self.spec.append(line)
-                    self.priority.append(priority)
-                    self.tstart.append(ts)
-                    self.tend.append(te)
-                    self.pstart.append(ps)
-                    self.pend.append(pe)
-                    self.period.append(period)
-                    self.hjd0.append(hjd0)
-                    self.ph_mask.append(ph_mk)
+                    if uid and uid in self.done:
+                        pass
+                    else:
+                        self.name.append(name)
+                        self.ra.append(ra)
+                        self.dec.append(dec)
+                        self.seq.append(seq)
+                        self.comment.append(comment)
+                        self.slotTime.append(slotTime)
+                        self.spec.append(line)
+                        self.priority.append(priority)
+                        self.tstart.append(ts)
+                        self.tend.append(te)
+                        self.pstart.append(ps)
+                        self.pend.append(pe)
+                        self.period.append(period)
+                        self.hjd0.append(hjd0)
+                        self.ph_mask.append(ph_mk)
+                        self.uid.append(uid)
 
-                    self.obflag.append(flag)
-                    # self.cycle.append(cycle)
+                        self.obflag.append(flag)
+                        # self.cycle.append(cycle)
 
     def MakeTime(self):  # Make observing time
         self.oca = ephem.Observer()
