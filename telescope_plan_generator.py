@@ -15,10 +15,10 @@ class telescope_plan_generator():
 
         self.tel = tel
         if len(date) == 1:
+            self.flags.append("start_at_sunset")
             self.date = date[0] + " 16:00:00"
         elif len(date) == 2:
             self.date = date[0] + " " + date[1]
-            self.flags.append("start_at_ut")
         self.wind = wind
         self.plan = []
 
@@ -192,18 +192,17 @@ class telescope_plan_generator():
         self.oca.lon = str(-70.2)
         self.oca.lat = str(-24.58)
         self.oca.elev = 2800
-        self.oca.horizon = self.cfg[self.tel]["hsun"]  # altitude of sun to start and stop observations
+        self.oca.horizon = str(self.cfg[self.tel]["hsun"])  # altitude of sun to start and stop observations
 
-        self.sunset = self.oca.next_setting(ephem.Sun(), use_center=True)
-        self.sunrise = self.oca.next_rising(ephem.Sun(), use_center=True)
-
-        if self.sunset > self.sunrise:
-            self.sunrise = self.sunrise + 24*ephem.hour
-
-        if "start_at_ut" in self.flags:
-            t = ephem.Date(self.date)
-        else:
+        if "start_at_sunset" in self.flags:
+            self.sunset = self.oca.next_setting(ephem.Sun(), use_center=True)
             t = self.sunset
+            self.oca.date = self.sunset
+            self.sunrise = self.oca.next_rising(ephem.Sun(), use_center=True)
+        else:
+            t = ephem.Date(self.date)
+            self.oca.date = t
+            self.sunrise = self.oca.next_rising(ephem.Sun(), use_center=True)
 
         if "loud" in self.flags:
             txt = f"sunset: {self.sunset}\n"
