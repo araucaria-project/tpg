@@ -83,9 +83,7 @@ E_206134477     22:53:24.2  -11:11:53      12.3  seq=INFx(2/B/16,2/V/10,2/Ic/12,
 E_246098758     23:16:12.9  -07:10:05      13.7  seq=INFx(2/B/57,2/V/36,2/Ic/43)                                priority=7   P=7.390488   hjd0=2457793.890  ph_start=0.9812     ph_end=0.0188   comment="Darek EB prim ecl"    BVI      gaia
 TYC5829-1047-1  23:32:17.1  -09:50:41      12.1  seq=INFx(2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54)      priority=7   P=8.375554   hjd0=2457775.8396 ph_start=0.9786     ph_end=0.0214   comment="Darek EB prim ecl"   BVI      gaia
 BC_Oct          23:38:08.067 -81:21:18.381 10.3  seq=INFx(2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13) priority=7   P=26.45942   hjd0=2458346.1226 ph_start=0.9881     ph_end=0.0119   comment="Darek EB prim ecl"   vby      gaia
-
 # secondary eclipses
-
 #V365_Pup        07:19:06.5  -35:11:03      7.8   seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                                 priority=7   P=12.87155   hjd0=2459220.7057 ph_start=0.645      ph_end=0.688     comment="Darek EB sec ecl"    vby      sbcr
 #PX_Hya          10:33:30.7  -20:10:52      8.4   seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                                 priority=7   P=36.1555    hjd0=2454536.308  ph_start=0.1943     ph_end=0.2250    comment="Darek EB sec ecl"    vby      sbcr
 #LQ_Mus          12:52:08.2  -68:54:01      7.5   seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                                 priority=7   P=7.506404   hjd0=2452712.7448 ph_start=0.4771     ph_end=0.5229    comment="Darek EB sec ecl"    vby      sbcr/benchmark
@@ -137,51 +135,51 @@ BC_Oct          23:38:08.067 -81:21:18.381 10.3  seq=INFx(2/B/2.5,2/V/1.5,2/Ic/1
 
 # observations out of eclipse
 
-#V365_Pup        07:19:06.5  -35:11:03      7.8  seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                               priority=2   P=12.87155   hjd0=2459220.7057           comment="Darek EB prim ecl"   vby      sbcr
-#PX_Hya          10:33:30.7  -20:10:52      8.4  seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                               priority=2   P=36.1555    hjd0=2454536.308            comment="Darek EB prim ecl"   vby      sbcr
-#LQ_Mus          12:52:08.2  -68:54:01      7.5  seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                               priority=2   P=7.506404   hjd0=2452712.7448           comment="Darek EB prim ecl"   vby      sbcr/benchmark
-TYC20-893-1     01:17:26.4  +00:40:46      11.8  seq=1x(2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48)     priority=2   P=8.36117    hjd0=2456807.200            comment="Darek EB prim ecl"  BVI      gaia
-RV_Hyi          01:20:52.3  -80:19:00.63   11.1  seq=1x(2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26)      priority=2   P=7.195053   hjd0=2458351.626            comment="Darek EB prim ecl"  vby/BVI? gaia/slow_apsidal_motion
-E_220471927     01:29:09.7  +06:07:46      13.4  seq=1x(2/B/44,2/V/27,2/Ic/33)                                priority=2   P=19.8828    hjd0=2456805.128            comment="Darek EB prim ecl"  BVI      gaia/benchmark
-TYC1243-402-1   03:41:14.3  +20:12:54      11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=8.074682   hjd0=2456813.845            comment="Darek EB prim ecl"  BVI      sbcr
-TYC1257-132-1   03:56:22.1  +18:52:13      11.8  seq=1x(2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48)     priority=2   P=9.37395    hjd0=2457611.387            comment="Darek EB prim ecl"  BVI      gaia
-CD-41_1394      04:22:35.2  -41:29:00      10.7  seq=1x(2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16) priority=2   P=17.5547    hjd0=2454935.8574           comment="Darek EB prim ecl"  vby/BVI? gaia
-E_246891964     04:43:27.3  +16:40:33      11.8  seq=1x(2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48)     priority=2   P=30.44006   hjd0=2456830.746            comment="Darek EB prim ecl"  BVI      gaia/benchmark/slow_apsidal_motion
-CPD-64_390      04:56:28.16 -64:29:15.1    10.2  seq=1x(2/B/2.3,2/V/1.4,2/Ic/1.7,2/y_s/4.3,2/v_s/12,2/b_s/12) priority=2   P=31.114765  hjd0=2458347.587            comment="Darek EB prim ecl"  vby      gaia
-E_246887507     05:11:51.0  +16:37:57      12.4  seq=1x(2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80)              priority=2   P=11.46055   hjd0=2456813.968            comment="Darek EB prim ecl"  BVI      gaia
-TYC6484-426-1   05:31:13.65 -27:09:04.2    10.7  seq=1x(2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16) priority=2   P=7.056725   hjd0=2458469.462            comment="Darek EB prim ecl"  vby/BVI? sbcr/benchmark
-TYC735-1315-1   06:17:27.35  11:00:17.5    11.3  seq=1x(2/B/6,2/V/4,2/Ic/4.8,2/y_s/12,2/v_s/32,2/b_s/32)      priority=2   P=15.71975   hjd0=2458483.786            comment="Darek EB prim ecl"  BVI      gaia
-E_202086627     06:25:55.9  +15:36:13      11.6  seq=1x(2/B/8,2/V/5,2/Ic/6,2/y_s/16,2/v_s/42,2/b_s/42)        priority=2   P=7.149794   hjd0=2456806.281            comment="Darek EB prim ecl"  BVI      gaia/benchmark
-TYC6511-1799-1  06:29:26.36 -25:13:29.4    11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=26.3815    hjd0=2458473.34             comment="Darek EB prim ecl"  BVI      gaia
-TYC8547-1509-1  06:33:56.45 -59:57:37.9    11.1  seq=1x(2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26)      priority=2   P=7.14020    hjd0=2458646.3474           comment="Darek EB prim ecl"  vby/BVI? gaia
-V400_Gem        06:37:36.0  +17:47:33      11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=11.305257  hjd0=2456805.5283           comment="Darek EB prim ecl"  BVI      gaia/benchmark
-TYC1392-886-1   08:36:07.0  +17:25:38      11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=6.764156   hjd0=2456814.550            comment="Darek EB prim ecl"  BVI      gaia
-TYC1396-393-1   08:44:06.6  +18:30:40      12.3  seq=1x(2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72)     priority=2   P=8.79464    hjd0=2456816.2882           comment="Darek EB prim ecl"  BVI      gaia/benchmark
-TYC246-1159-1   10:28:03.4  +01:47:50      11.0  seq=1x(2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24)     priority=2   P=16.77565   hjd0=2456834.876            comment="Darek EB prim ecl"  vby/BVI? gaia
-E_248912952     10:34:40.2  +13:39:15      13.6  seq=1x(2/B/52,2/V/33,2/Ic/40)                                priority=2   P=3.139174   hjd0=2457934.967            comment="Darek EB prim ecl"  BVI      gaia
-SWASPJ104335.88 10:43:35.859 -43:40:15.2   12.4  seq=1x(2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80)              priority=2   P=9.65706    hjd0=2458550.9467           comment="Darek EB prim ecl"  BVI      gaia
-TYC852-1050-1   10:45:42.3  +12:47:00      10.3  seq=1x(2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13) priority=2   P=3.1427839  hjd0=2456832.5513           comment="Darek EB prim ecl"  vby      gaia
-TYC266-718-1    11:11:33.5  +02:47:13      10.3  seq=1x(2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13) priority=2   P=35.024018  hjd0=2456813.790            comment="Darek EB prim ecl"  vby      sbcr/benchmark
-TYC4930-128-1   11:30:03.2  -00:50:04      11.5  seq=1x(2/B/8,2/V/5,2/Ic/6,2/y_s/15,2/v_s/40,2/b_s/40)        priority=2   P=8.48188    hjd0=2457615.7932           comment="Darek EB prim ecl"  BVI      gaia/slow_apsidal_motion
-E_201253025     11:57:19.8  -03:09:43      13.0  seq=1x(2/B/30,2/V/19,2/Ic/23,2/y_s/57)                       priority=2   P=6.78641    hjd0=2456851.124            comment="Darek EB prim ecl"  BVI      gaia
-BD-04_3206      12:06:20.8  -04:54:50      10.8  seq=1x(2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20)     priority=2   P=5.422527   hjd0=2457618.388            comment="Darek EB prim ecl"  vby/BVI? gaia
-TYC4951-933-1   12:30:18.2  -04:02:51      11.0  seq=1x(2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24)     priority=2   P=15.28954   hjd0=2457579.870            comment="Darek EB prim ecl"  vby/BVI? gaia
-E_212707624     13:18:53.4  -08:04:17      13.3  seq=1x(2/B/40,2/V/25,2/Ic/30)                                priority=2   P=7.210726   hjd0=2457233.7727           comment="Darek EB prim ecl"  BVI      gaia
-LP_Lib          15:13:38.475 -20:26:32.116 11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=4.88418    hjd0=2458012.7289           comment="Darek EB prim ecl"  BVI      gaia
-E_204321014     15:57:53.4  -22:47:45      12.4  seq=1x(2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80)              priority=2   P=3.79213    hjd0=2456814.4278           comment="Darek EB prim ecl"  BVI      gaia
-TYC6780-1523-1  16:08:51.0  -23:51:01      10.8  seq=1x(2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20)     priority=2   P=4.6601     hjd0=2456814.6264           comment="Darek EB prim ecl"  vby/BVI? gaia
-TYC6206-1374-1  16:19:01.1  -17:16:24      11.8  seq=1x(2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48)     priority=2   P=15.5854    hjd0=2456795.2723           comment="Darek EB prim ecl"  BVI      gaia
-TYC6240-759-1   17:08:50.4  -18:51:51      11.7  seq=1x(2/B/9,2/V/6,2/Ic/7,2/y_s/17,2/v_s/45,2/b_s/45)        priority=2   P=13.6336    hjd0=2457712.055            comment="Darek EB prim ecl"  BVI      gaia
-BD-19_4582      17:17:49.7  -19:15:16      11.0  seq=1x(2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24)     priority=2   P=3.13694    hjd0=2457748.538            comment="Darek EB prim ecl"  vby/BVI? gaia
-BD-18_4532      17:27:47.1  -18:34:55      10.7  seq=1x(2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16) priority=2   P=9.1274     hjd0=2456816.892            comment="Darek EB prim ecl"  vby/BVI? sbcr
-TYC6247-420-1   17:31:40.6  -20:46:33      12.2  seq=1x(2/B/14,2/V/9,2/Ic/11,2/y_s/27,2/v_s/60,2/b_s/60)      priority=2   P=6.38382    hjd0=2457704.996            comment="Darek EB prim ecl"  BVI      gaia
-E_218070138     18:49:00.7  -19:27:50      12.1  seq=1x(2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54)      priority=2   P=15.102     hjd0=2456804.9364           comment="Darek EB prim ecl"  BVI      gaia/benchmark
-TYC6306-1822-1  19:30:47.8  -19:36:30      11.1  seq=1x(2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26)      priority=2   P=6.4907     hjd0=2457616.60             comment="Darek EB prim ecl"  vby/BVI? gaia
-GN_Aqr          22:22:18.697 -04:12:22.596 11.7  seq=1x(2/B/9,2/V/6,2/Ic/7,2/y_s/18,2/v_s/48,2/b_s/48)        priority=2   P=4.4043915  hjd0=2456814.423            comment="Darek EB prim ecl"  BVI      gaia
-CD-24_17223     22:33:51.4  -23:51:53      10.7  seq=1x(2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16) priority=2   P=10.351663  hjd0=2458370.4114           comment="Darek EB prim ecl"  vby/BVI? gaia
-TYC5239-1149-1  22:36:00.5  -06:04:50      12.1  seq=1x(2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54)      priority=2   P=21.19382   hjd0=2456811.828            comment="Darek EB prim ecl"  BVI      gaia/benchmark
-E_206134477     22:53:24.2  -11:11:53      12.3  seq=1x(2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72)     priority=2   P=4.236594   hjd0=2456814.076            comment="Darek EB prim ecl"   BVI      gaia
-E_246098758     23:16:12.9  -07:10:05      13.7  seq=1x(2/B/57,2/V/36,2/Ic/43)                                priority=2   P=7.390488   hjd0=2457793.890            comment="Darek EB prim ecl"    BVI      gaia
-TYC5829-1047-1  23:32:17.1  -09:50:41      12.1  seq=1x(2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54)      priority=2   P=8.375554   hjd0=2457775.8396           comment="Darek EB prim ecl"   BVI      gaia
-BC_Oct          23:38:08.067 -81:21:18.381 10.3  seq=1x(2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13) priority=2   P=26.45942   hjd0=2458346.1226           comment="Darek EB prim ecl"   vby      gaia
+ #V365_Pup        07:19:06.5  -35:11:03      7.8  seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                               priority=2   P=12.87155   hjd0=2459220.7057           comment="Darek EB prim ecl"   vby      sbcr
+ #PX_Hya          10:33:30.7  -20:10:52      8.4  seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                               priority=2   P=36.1555    hjd0=2454536.308            comment="Darek EB prim ecl"   vby      sbcr
+ #LQ_Mus          12:52:08.2  -68:54:01      7.5  seq=INFx(1/B/2,1/V/3,1/Ic/0.7)                               priority=2   P=7.506404   hjd0=2452712.7448           comment="Darek EB prim ecl"   vby      sbcr/benchmark
+ TYC20-893-1     01:17:26.4  +00:40:46      11.8  seq=1x(2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48)     priority=2   P=8.36117    hjd0=2456807.200            comment="Darek EB prim ecl"  BVI      gaia
+ RV_Hyi          01:20:52.3  -80:19:00.63   11.1  seq=1x(2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26)      priority=2   P=7.195053   hjd0=2458351.626            comment="Darek EB prim ecl"  vby/BVI? gaia/slow_apsidal_motion
+ E_220471927     01:29:09.7  +06:07:46      13.4  seq=1x(2/B/44,2/V/27,2/Ic/33)                                priority=2   P=19.8828    hjd0=2456805.128            comment="Darek EB prim ecl"  BVI      gaia/benchmark
+ TYC1243-402-1   03:41:14.3  +20:12:54      11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=8.074682   hjd0=2456813.845            comment="Darek EB prim ecl"  BVI      sbcr
+ TYC1257-132-1   03:56:22.1  +18:52:13      11.8  seq=1x(2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48)     priority=2   P=9.37395    hjd0=2457611.387            comment="Darek EB prim ecl"  BVI      gaia
+ CD-41_1394      04:22:35.2  -41:29:00      10.7  seq=1x(2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16) priority=2   P=17.5547    hjd0=2454935.8574           comment="Darek EB prim ecl"  vby/BVI? gaia
+ E_246891964     04:43:27.3  +16:40:33      11.8  seq=1x(2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48)     priority=2   P=30.44006   hjd0=2456830.746            comment="Darek EB prim ecl"  BVI      gaia/benchmark/slow_apsidal_motion
+ CPD-64_390      04:56:28.16 -64:29:15.1    10.2  seq=1x(2/B/2.3,2/V/1.4,2/Ic/1.7,2/y_s/4.3,2/v_s/12,2/b_s/12) priority=2   P=31.114765  hjd0=2458347.587            comment="Darek EB prim ecl"  vby      gaia
+ E_246887507     05:11:51.0  +16:37:57      12.4  seq=1x(2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80)              priority=2   P=11.46055   hjd0=2456813.968            comment="Darek EB prim ecl"  BVI      gaia
+ TYC6484-426-1   05:31:13.65 -27:09:04.2    10.7  seq=1x(2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16) priority=2   P=7.056725   hjd0=2458469.462            comment="Darek EB prim ecl"  vby/BVI? sbcr/benchmark
+ TYC735-1315-1   06:17:27.35  11:00:17.5    11.3  seq=1x(2/B/6,2/V/4,2/Ic/4.8,2/y_s/12,2/v_s/32,2/b_s/32)      priority=2   P=15.71975   hjd0=2458483.786            comment="Darek EB prim ecl"  BVI      gaia
+ E_202086627     06:25:55.9  +15:36:13      11.6  seq=1x(2/B/8,2/V/5,2/Ic/6,2/y_s/16,2/v_s/42,2/b_s/42)        priority=2   P=7.149794   hjd0=2456806.281            comment="Darek EB prim ecl"  BVI      gaia/benchmark
+ TYC6511-1799-1  06:29:26.36 -25:13:29.4    11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=26.3815    hjd0=2458473.34             comment="Darek EB prim ecl"  BVI      gaia
+ TYC8547-1509-1  06:33:56.45 -59:57:37.9    11.1  seq=1x(2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26)      priority=2   P=7.14020    hjd0=2458646.3474           comment="Darek EB prim ecl"  vby/BVI? gaia
+ V400_Gem        06:37:36.0  +17:47:33      11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=11.305257  hjd0=2456805.5283           comment="Darek EB prim ecl"  BVI      gaia/benchmark
+ TYC1392-886-1   08:36:07.0  +17:25:38      11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=6.764156   hjd0=2456814.550            comment="Darek EB prim ecl"  BVI      gaia
+ TYC1396-393-1   08:44:06.6  +18:30:40      12.3  seq=1x(2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72)     priority=2   P=8.79464    hjd0=2456816.2882           comment="Darek EB prim ecl"  BVI      gaia/benchmark
+ TYC246-1159-1   10:28:03.4  +01:47:50      11.0  seq=1x(2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24)     priority=2   P=16.77565   hjd0=2456834.876            comment="Darek EB prim ecl"  vby/BVI? gaia
+ E_248912952     10:34:40.2  +13:39:15      13.6  seq=1x(2/B/52,2/V/33,2/Ic/40)                                priority=2   P=3.139174   hjd0=2457934.967            comment="Darek EB prim ecl"  BVI      gaia
+ SWASPJ104335.88 10:43:35.859 -43:40:15.2   12.4  seq=1x(2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80)              priority=2   P=9.65706    hjd0=2458550.9467           comment="Darek EB prim ecl"  BVI      gaia
+ TYC852-1050-1   10:45:42.3  +12:47:00      10.3  seq=1x(2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13) priority=2   P=3.1427839  hjd0=2456832.5513           comment="Darek EB prim ecl"  vby      gaia
+ TYC266-718-1    11:11:33.5  +02:47:13      10.3  seq=1x(2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13) priority=2   P=35.024018  hjd0=2456813.790            comment="Darek EB prim ecl"  vby      sbcr/benchmark
+ TYC4930-128-1   11:30:03.2  -00:50:04      11.5  seq=1x(2/B/8,2/V/5,2/Ic/6,2/y_s/15,2/v_s/40,2/b_s/40)        priority=2   P=8.48188    hjd0=2457615.7932           comment="Darek EB prim ecl"  BVI      gaia/slow_apsidal_motion
+ E_201253025     11:57:19.8  -03:09:43      13.0  seq=1x(2/B/30,2/V/19,2/Ic/23,2/y_s/57)                       priority=2   P=6.78641    hjd0=2456851.124            comment="Darek EB prim ecl"  BVI      gaia
+ BD-04_3206      12:06:20.8  -04:54:50      10.8  seq=1x(2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20)     priority=2   P=5.422527   hjd0=2457618.388            comment="Darek EB prim ecl"  vby/BVI? gaia
+ TYC4951-933-1   12:30:18.2  -04:02:51      11.0  seq=1x(2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24)     priority=2   P=15.28954   hjd0=2457579.870            comment="Darek EB prim ecl"  vby/BVI? gaia
+ E_212707624     13:18:53.4  -08:04:17      13.3  seq=1x(2/B/40,2/V/25,2/Ic/30)                                priority=2   P=7.210726   hjd0=2457233.7727           comment="Darek EB prim ecl"  BVI      gaia
+ LP_Lib          15:13:38.475 -20:26:32.116 11.4  seq=1x(2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35)      priority=2   P=4.88418    hjd0=2458012.7289           comment="Darek EB prim ecl"  BVI      gaia
+ E_204321014     15:57:53.4  -22:47:45      12.4  seq=1x(2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80)              priority=2   P=3.79213    hjd0=2456814.4278           comment="Darek EB prim ecl"  BVI      gaia
+ TYC6780-1523-1  16:08:51.0  -23:51:01      10.8  seq=1x(2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20)     priority=2   P=4.6601     hjd0=2456814.6264           comment="Darek EB prim ecl"  vby/BVI? gaia
+ TYC6206-1374-1  16:19:01.1  -17:16:24      11.8  seq=1x(2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48)     priority=2   P=15.5854    hjd0=2456795.2723           comment="Darek EB prim ecl"  BVI      gaia
+ TYC6240-759-1   17:08:50.4  -18:51:51      11.7  seq=1x(2/B/9,2/V/6,2/Ic/7,2/y_s/17,2/v_s/45,2/b_s/45)        priority=2   P=13.6336    hjd0=2457712.055            comment="Darek EB prim ecl"  BVI      gaia
+ BD-19_4582      17:17:49.7  -19:15:16      11.0  seq=1x(2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24)     priority=2   P=3.13694    hjd0=2457748.538            comment="Darek EB prim ecl"  vby/BVI? gaia
+ BD-18_4532      17:27:47.1  -18:34:55      10.7  seq=1x(2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16) priority=2   P=9.1274     hjd0=2456816.892            comment="Darek EB prim ecl"  vby/BVI? sbcr
+ TYC6247-420-1   17:31:40.6  -20:46:33      12.2  seq=1x(2/B/14,2/V/9,2/Ic/11,2/y_s/27,2/v_s/60,2/b_s/60)      priority=2   P=6.38382    hjd0=2457704.996            comment="Darek EB prim ecl"  BVI      gaia
+ E_218070138     18:49:00.7  -19:27:50      12.1  seq=1x(2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54)      priority=2   P=15.102     hjd0=2456804.9364           comment="Darek EB prim ecl"  BVI      gaia/benchmark
+ TYC6306-1822-1  19:30:47.8  -19:36:30      11.1  seq=1x(2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26)      priority=2   P=6.4907     hjd0=2457616.60             comment="Darek EB prim ecl"  vby/BVI? gaia
+ GN_Aqr          22:22:18.697 -04:12:22.596 11.7  seq=1x(2/B/9,2/V/6,2/Ic/7,2/y_s/18,2/v_s/48,2/b_s/48)        priority=2   P=4.4043915  hjd0=2456814.423            comment="Darek EB prim ecl"  BVI      gaia
+ CD-24_17223     22:33:51.4  -23:51:53      10.7  seq=1x(2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16) priority=2   P=10.351663  hjd0=2458370.4114           comment="Darek EB prim ecl"  vby/BVI? gaia
+ TYC5239-1149-1  22:36:00.5  -06:04:50      12.1  seq=1x(2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54)      priority=2   P=21.19382   hjd0=2456811.828            comment="Darek EB prim ecl"  BVI      gaia/benchmark
+ E_206134477     22:53:24.2  -11:11:53      12.3  seq=1x(2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72)     priority=2   P=4.236594   hjd0=2456814.076            comment="Darek EB prim ecl"   BVI      gaia
+ E_246098758     23:16:12.9  -07:10:05      13.7  seq=1x(2/B/57,2/V/36,2/Ic/43)                                priority=2   P=7.390488   hjd0=2457793.890            comment="Darek EB prim ecl"    BVI      gaia
+ TYC5829-1047-1  23:32:17.1  -09:50:41      12.1  seq=1x(2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54)      priority=2   P=8.375554   hjd0=2457775.8396           comment="Darek EB prim ecl"   BVI      gaia
+ BC_Oct          23:38:08.067 -81:21:18.381 10.3  seq=1x(2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13) priority=2   P=26.45942   hjd0=2458346.1226           comment="Darek EB prim ecl"   vby      gaia
 

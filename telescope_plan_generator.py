@@ -190,9 +190,9 @@ class telescope_plan_generator():
     def MakeTime(self):  # Make observing time
         self.oca = ephem.Observer()
         self.oca.date = self.date
-        self.oca.lon = str(-70.2)
-        self.oca.lat = str(-24.58)
-        self.oca.elev = 2800
+        self.oca.lon = str(-70.1963)
+        self.oca.lat = str(-24.598)
+        self.oca.elev = 2817
         self.oca.horizon = str(self.cfg[self.tel]["hsun"])  # altitude of sun to start and stop observations
 
         if "start_at_sunset" in self.flags:
@@ -215,6 +215,7 @@ class telescope_plan_generator():
             self.nightTime.append(t)
             self.nightObject.append(-100)
             self.nightFree.append(True)
+
 
     def CalcObject(self):  # Colculate visibility for all objects
         for n, tmp in enumerate(self.name):
@@ -356,17 +357,23 @@ class telescope_plan_generator():
                             txt = f" {self.name[kfin]} INF changed to {loops}"
                             sys.stderr.write(txt + "\n")
 
+        #DUPA
+        #for nn, tmp in enumerate(self.nightTime):
+        #        print(ephem.Date(self.nightTime[nn]),self.nightFree[nn],self.nightObject[nn])
+
     def export(self):
         if True:
             prev = -100
             ZNACZNIK = False
             for n, tmp in enumerate(self.nightTime):
+                #print(self.nightTime[n], self.nightObject[n])
                 if int(self.nightObject[n]) != prev:
                     if ZNACZNIK:
                         ZNACZNIK = False
                         empty_time = float(self.nightTime[n] - t0) * 24. * 60. * 60.
                         self.oca.date = ephem.Date(self.nightTime[n])
                         txt = "WAIT ut=" + str(self.oca.date).split()[1]
+                        self.plan.append(txt)
                     prev = int(self.nightObject[n])
                     if prev > -50:
                         k = int(self.nightObject[n])
