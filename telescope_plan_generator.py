@@ -365,6 +365,11 @@ class telescope_plan_generator():
         if True:
             prev = -100
             ZNACZNIK = False
+            if "start_at_sunset" in self.flags:
+                txt = f'WAIT sunset={str(self.cfg[self.tel]["hsun"])}'
+            else:
+                txt = f'WAIT ut={str(ephem.Date(self.nightTime[0])).split()[1]}'
+            self.plan.append(txt)
             for n, tmp in enumerate(self.nightTime):
                 #print(self.nightTime[n], self.nightObject[n])
                 if int(self.nightObject[n]) != prev:
