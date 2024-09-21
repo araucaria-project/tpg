@@ -14,6 +14,8 @@ pyyaml = "^6.0"
 ephem = "^4.1.4"
 numpy = "^1.24.1"
 
+ctc = {git = "https://github.com/araucaria-project/ctc.git"}
+
 
 [tool.poetry.scripts]
 tpg = "tpg:main"

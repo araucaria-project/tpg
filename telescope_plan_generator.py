@@ -1,14 +1,16 @@
 import sys,os,yaml,numpy,ephem
 import time
 
+from ctc import CycleTimeCalc
+
 
 class telescope_plan_generator():
-    def __init__(self,tel,date,wind=None,done=None):
+    def __init__(self,tel,date,wind=None,done_uobi=[]):
 
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
-        self.done = done
+        self.done = done_uobi
 
         with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
             self.cfg = yaml.safe_load(cfg_file)
@@ -59,7 +61,7 @@ class telescope_plan_generator():
         self.tstart = []  #
         self.tend = []  #
         self.obflag = []  #
-        self.uid = []
+        self.uobi = []
 
         self.pstart = []
         self.pend = []
@@ -83,6 +85,11 @@ class telescope_plan_generator():
             sys.stderr.write('Check tpg.cfg file\n')
             sys.exit()
 
+        # CTC
+        self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"])
+        self.ctc.set_rm_modes(self.cfg["ctc"]["rm_modes_mhz"])
+        self.ctc.set_start_rmode(2)
+
         plik = open(self.cfg[self.tel]["master_file"], 'r')
         for line in plik:
             line = line.strip()
@@ -101,7 +108,7 @@ class telescope_plan_generator():
                     period = False
                     hjd0 = False
                     ph_mk = False
-                    uid = False
+                    uobi = False
                     if "comment=" in line:
                         tmp = line.split("comment=")[1]
                         if "\"" in line:
@@ -109,8 +116,8 @@ class telescope_plan_generator():
                         if "\'" in line:
                             comment = tmp.split("\'")[1]
 
-                    if "uid=" in line:
-                        uid = line.split("uid=")[1].split()[0]
+                    if "uobi=" in line:
+                        uobi = line.split("uobi=")[1].split()[0]
 
                     if "seq=" in line:
                         seq = line.split("seq=")[1].split()[0]
@@ -163,8 +170,20 @@ class telescope_plan_generator():
                                     float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
                     slotTime = (k * slotTime) / 60.
 
+                    self.ctc.reset_time()
 
-                    if uid and uid in self.done:
+                    if "INF" in seq:
+                        tmp = seq.replace("INF","1")
+                    else:
+                        tmp = seq
+
+                    program = f"OBJECT  {name} {ra} {dec} seq={tmp}"
+                    ctc_ob_time = self.ctc.calc_time(program)/60.
+
+                    #print(name, slotTime, ctc_ob_time)
+                    slotTime = ctc_ob_time + 0.2 # dodajemy 12 sekund na ruch teleskopu
+
+                    if uobi and uobi in self.done:
                         pass
                     else:
                         self.name.append(name)
@@ -182,7 +201,7 @@ class telescope_plan_generator():
                         self.period.append(period)
                         self.hjd0.append(hjd0)
                         self.ph_mask.append(ph_mk)
-                        self.uid.append(uid)
+                        self.uobi.append(uobi)
 
                         self.obflag.append(flag)
                         # self.cycle.append(cycle)
@@ -401,9 +420,13 @@ class telescope_plan_generator():
                             else:
                                 txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
                                 if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
+                                if self.uobi[k]:
+                                    txt = txt + f" uobi={self.uobi[k]}"
                                 self.plan.append(txt)
                         else:
                             txt = f"OBJECT  {self.name[k]} {self.ra[k]} {self.dec[k]}      seq={self.seq[k]}"
+                            if self.uobi[k]:
+                                txt = txt + f" uobi={self.uobi[k]}"
                             if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
                             self.plan.append(txt)
 
@@ -524,44 +547,6 @@ class telescope_plan_generator():
                             maska = [a and b for a,b in zip(maska2,maska1)]
                             if len(ph[maska]) > int(self.ph_mask[n].split("/")[0]):
                                 self.visibility[n][i] = False
-
-    def MakeCycle(self):
-        for n, tmp in enumerate(self.name):
-            cycle = int(self.cycle[n])
-            if cycle > 1:
-                i = 0
-                ZNACZNIK_i = False
-                ZNACZNIK_0 = False
-                while i < cycle + 1:
-                    i = i + 1
-                    dni = i
-                    name = self.spec[n].split()[0]
-                    filt = self.spec[n].split()[3]
-                    tmp = str(ephem.Date(ephem.Date(self.date) - 24 * dni * ephem.hour)).split()[0]
-                    filename = tmp.split("/")[0] + tmp.split("/")[1] + tmp.split("/")[2] + ".txt"
-                    if "v16" in self.flags: filename = "log_v16_" + filename
-                    if "iris" in self.flags: filename = "log_iris_" + filename
-                    if os.path.isfile(self.logdir + filename):
-                        plik = open(self.logdir + filename, 'r')
-                        linie = plik.readlines()
-                        log = [x.split()[1] for x in linie if name in x]
-                        filt = filt.split(",")
-                        ZNACZNIK = True
-                        for f in filt:
-                            if not f in log: ZNACZNIK = False
-                        if i == cycle and ZNACZNIK: ZNACZNIK_0 = True
-                        if i < cycle and ZNACZNIK: ZNACZNIK_i = True
-
-                if not ZNACZNIK_0 and not ZNACZNIK_i:
-                    self.priority[n] = self.priority[n] + 1
-                    if "loud" in self.flags:
-                        txt = name + " over cycle: priority+1"
-                        sys.stderr.write(txt + "\n")
-                if ZNACZNIK_i:
-                    self.priority[n] = 1
-                    if "loud" in self.flags:
-                        txt = name + " within cycle: priority=1"
-                        sys.stderr.write(txt + "\n")
 
 
 
