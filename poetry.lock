@@ -95,7 +95,7 @@ test = ["hypothesis", "pytest", "pytest-remotedata"]
 
 [[package]]
 name = "ctc"
-version = "1.0.0"
+version = "1.0.2"
 description = "Telescope Cycle Time Calculator"
 category = "main"
 optional = false
@@ -112,7 +112,7 @@ scikit-learn = "^1.5.2"
 type = "git"
 url = "https://github.com/araucaria-project/ctc.git"
 reference = "HEAD"
-resolved_reference = "08ef60d9c6b9956a434eceb150a3741e94f116bb"
+resolved_reference = "cc59221049e9609fff6901e34137add10312dda2"
 
 [[package]]
 name = "ephem"

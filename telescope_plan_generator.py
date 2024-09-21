@@ -68,6 +68,8 @@ class telescope_plan_generator():
         self.period = []
         self.hjd0 = []
 
+        self.cycle = []
+
         self.ph_mask = []
 
         # additional
@@ -86,7 +88,7 @@ class telescope_plan_generator():
             sys.exit()
 
         # CTC
-        self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"])
+        self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"], tpg=True)
         self.ctc.set_rm_modes(self.cfg["ctc"]["rm_modes_mhz"])
         self.ctc.set_start_rmode(self.cfg[self.tel]["def_read_mode"])
 
@@ -108,6 +110,7 @@ class telescope_plan_generator():
                     period = False
                     hjd0 = False
                     ph_mk = False
+                    cycle = False
                     uobi = False
                     if "comment=" in line:
                         tmp = line.split("comment=")[1]
@@ -143,6 +146,9 @@ class telescope_plan_generator():
 
                     if "ph_mk=" in line:
                         ph_mk = line.split("ph_mk=")[1].split()[0]
+
+                    if "cycle=" in line:
+                        cycle = line.split("cycle=")[1].split()[0]
 
                     for i, tmp in enumerate(line.split()):
 
@@ -182,7 +188,7 @@ class telescope_plan_generator():
 
                     #print(name, slotTime, ctc_ob_time)
                     slotTime = ctc_ob_time
-                    
+
                     if uobi and uobi in self.done:
                         pass
                     else:
@@ -201,10 +207,10 @@ class telescope_plan_generator():
                         self.period.append(period)
                         self.hjd0.append(hjd0)
                         self.ph_mask.append(ph_mk)
+                        self.cycle.append(cycle)
                         self.uobi.append(uobi)
 
                         self.obflag.append(flag)
-                        # self.cycle.append(cycle)
 
     def MakeTime(self):  # Make observing time
         self.oca = ephem.Observer()
@@ -253,6 +259,7 @@ class telescope_plan_generator():
                 else:
                     vis1 = [x < ts or x > tr for x in self.nightTime]
             except ephem.NeverUpError:
+                #print("newer up", self.name[n])
                 vis1 = [False for _ in range(len(self.nightTime))]
             except ephem.AlwaysUpError:
                 vis1 = [True for _ in range(len(self.nightTime))]
@@ -369,16 +376,19 @@ class telescope_plan_generator():
                 if OK:
                     self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
                     self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
-                    self.random_index_list = numpy.delete(self.random_index_list, done)
+                    q = self.random_index_list[done]
+                    if self.cycle[q]:
+                        dn = int(1440 * float(self.cycle[q]))
+                        if dn > len(self.visibility[q][nn:]) : dn = len(self.visibility[q][nn:])
+                        self.visibility[q][nn:nn+dn] = [False] * dn
+                    else:
+                        self.random_index_list = numpy.delete(self.random_index_list, done)
                     if "inf" in self.obflag[kfin]:
                         self.seq[kfin] = self.seq[kfin].replace("INFx", f"{loops}x")
                         if "loud" in self.flags:
                             txt = f" {self.name[kfin]} INF changed to {loops}"
                             sys.stderr.write(txt + "\n")
 
-        #DUPA
-        #for nn, tmp in enumerate(self.nightTime):
-        #        print(ephem.Date(self.nightTime[nn]),self.nightFree[nn],self.nightObject[nn])
 
     def export(self):
         if True:
@@ -547,6 +557,5 @@ class telescope_plan_generator():
                             maska = [a and b for a,b in zip(maska2,maska1)]
                             if len(ph[maska]) > int(self.ph_mask[n].split("/")[0]):
                                 self.visibility[n][i] = False
-
 
 

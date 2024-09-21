@@ -19,7 +19,7 @@ class main:
 
     args = argparser.parse_args()
 
-    p = tpg(args.tel,args.date,wind=args.wind,done=[])
+    p = tpg(args.tel,args.date,wind=args.wind,done_uobi=[])
     for x in p.plan:
         print(x)
 ####### SCRIPT RUN
