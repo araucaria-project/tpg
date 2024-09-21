@@ -88,7 +88,7 @@ class telescope_plan_generator():
         # CTC
         self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"])
         self.ctc.set_rm_modes(self.cfg["ctc"]["rm_modes_mhz"])
-        self.ctc.set_start_rmode(2)
+        self.ctc.set_start_rmode(self.cfg[self.tel]["def_read_mode"])
 
         plik = open(self.cfg[self.tel]["master_file"], 'r')
         for line in plik:
@@ -181,8 +181,8 @@ class telescope_plan_generator():
                     ctc_ob_time = self.ctc.calc_time(program)/60.
 
                     #print(name, slotTime, ctc_ob_time)
-                    slotTime = ctc_ob_time + 0.2 # dodajemy 12 sekund na ruch teleskopu
-
+                    slotTime = ctc_ob_time
+                    
                     if uobi and uobi in self.done:
                         pass
                     else:
