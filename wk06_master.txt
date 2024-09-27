@@ -33,6 +33,7 @@ Fairall9    01:23:45.76  -58:48:20.8089  seq=1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/60
 
 # Cepheids in clusters
 
+
 OBJECT TW_Nor   16:04:55.22 -51:57:12.6 priority=2 uobi=a159c42c ph_mk=2/V/0.04 P=10.78618    seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/8,2/Ic/7       comment="Ppul = 10.78618, mV = 11.5, FeH = 0.27"
 OBJECT V340_Ara 16:45:19.11 -51:20:33.4 priority=2 uobi=633d471f ph_mk=2/V/0.04 P=20.814      seq=2/u_s/60,2/b_s/13,2/v_s/13,2/y_s/4.7,2/B/2.5,2/V/1.5,2/Ic/1.5  comment="Ppul = 20.814,   mV = 10.2, FeH = 0.33"
 OBJECT KQ_Sco   16:51:38.55 -45:25:36.1 priority=2 uobi=d6f0fa2d ph_mk=2/V/0.04 P=28.7805     seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1        comment="Ppul = 28.7805,  mV = 9.8, FeH = 0.52"
