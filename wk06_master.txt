@@ -31,6 +31,20 @@ ASASSN-14cc 21:39:48.25 -59:59:32.85   seq=5/V/300 priority=10 comment="Karolina
 
 Fairall9    01:23:45.76  -58:48:20.8089  seq=1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/600  priority=8 cycle=0.1   comment="AGN observe twice per night"
 
+# Cepheids in clusters
+
+OBJECT TW_Nor   16:04:55.22 -51:57:12.6 priority=2 uobi=a159c42c ph_mk=2/V/0.04  seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/8,2/Ic/7 comment="Ppul = 10.78618, mV = 11.5, FeH = 0.27"
+OBJECT V340_Ara 16:45:19.11 -51:20:33.4 priority=2 uobi=633d471f ph_mk=2/V/0.04  seq=2/u_s/60,2/b_s/13,2/v_s/13,2/y_s/4.7,2/B/2.5,2/V/1.5,2/Ic/1.5 comment="Ppul = 20.814, mV = 10.2, FeH = 0.33"
+OBJECT KQ_Sco   16:51:38.55 -45:25:36.1 priority=2 uobi=d6f0fa2d ph_mk=2/V/0.04  seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1 comment="Ppul = 28.7805, mV = 9.8, FeH = 0.52"
+OBJECT AV_Sgr   18:04:48.78 -22:43:56.8 priority=2 uobi=410cf813 ph_mk=2/V/0.04  seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/6,2/Ic/4 comment="Ppul = 15.415, mV = 11.3, FeH = 0.35"
+OBJECT VY_Sgr   18:12:04.57 -20:42:14.5 priority=2 uobi=9edcbac1 ph_mk=2/V/0.04  seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/6,2/Ic/4 comment="Ppul = 13.5572, mV = 11.3, FeH = 0.33 "
+OBJECT CM_Sct   18:42:26.82 -05:20:27.0 priority=2 uobi=567af958 ph_mk=2/V/0.04  seq=2/u_s/140,2/b_s/26,2/v_s/26,2/y_s/10,2/B/5,2/V/3.3,2/Ic/3.3 comment="Ppul = 3.916977, mV = 11.1, FeH = 0.12*"
+OBJECT EV_Sct   18:36:39.60 -08:11:05.3 priority=2 uobi=78cec8fb ph_mk=2/V/0.04  seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2.5,2/V/1.5,2/Ic/1.5 comment="Ppul = 3.09099, mV = 10.1, FeH = 0.09*"
+OBJECT V367_Sct 18:33:35.23 -10:25:38.1 priority=2 uobi=a23c3b88 ph_mk=2/V/0.04  seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/8,2/Ic/7 comment="Ppul = 6.29307, mV = 11.6, FeH = 0.05^"
+OBJECT CN_Sct   18:42:30.49 -04:19:50.3 priority=2 uobi=554d15ac ph_mk=2/V/0.04  seq=2/u_s/300,2/b_s/72,2/v_s/72,2/y_s/30,2/B/16,2/V/10,2/Ic/10 comment="Ppul = 9.9923, mV = 12.4, FeH = 0.30*"
+OBJECT RS_Ori   06:22:13.19 +14:40:41.2 priority=2 uobi=f65bddcc ph_mk=2/V/0.04  seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1 comment="Ppul = 7.566881, mV = 8.4, FeH = 0.11"
+
+
 
 # EB Darka scbr + gaia
 
