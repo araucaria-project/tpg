@@ -29,7 +29,7 @@ ASASSN-14cc 21:39:48.25 -59:59:32.85   seq=5/V/300 priority=10 comment="Karolina
 
 # AGN - powtorzone aby byly dwie obserwacje danej nocy
 
-Fairall9    01:23:45.76  -58:48:20.8089  seq=1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/600  priority=8 cycle=0.1   comment="AGN observe twice per night"
+Fairall9    01:23:45.76  -58:48:20.8089  seq=1/Ic/60,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/600  priority=8 cycle=0.1   comment="AGN observe twice per night"
 
 # Cepheids in clusters
 
