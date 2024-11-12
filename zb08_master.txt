@@ -266,12 +266,12 @@ RW_CMa            07:13:11.67 -18:43:50.7  seq=2/B/9,2/V/3.6,2/Ic/3,2/g/5,2/r/1.
 SS_CMa            07:26:07.19 -25:15:26.3  seq=2/B/3.6,2/V/1.6,2/Ic/1.6,2/g/2.0,2/r/1.0,2/i/1.6,2/z/4      ph_mk=4/V/0.02     P=12.3541042  mV=9.84   priority=5  comment="T1CepF"   uobi=e048844c
 X_Pup             07:32:47.03 -20:54:34.9  seq=2/B/1,2/V/0.5,2/Ic/0.5,2/g/0.8,2/r/0.5,2/i/0.5,2/z/1        ph_mk=4/V/0.02     P=25.9722922  mV=8.46   priority=5  comment="T1CepF"   uobi=2677d543
 VZ_Pup            07:38:35.24 -28:29:58.6  seq=2/B/2.4,2/V/1.2,2/Ic/1.8,2/g/1.5,2/r/1,2/i/1.4,2/z/6        ph_mk=4/V/0.02     P=23.1752288  mV=10.15  priority=5  comment="T1CepF"   uobi=c7a493d9
-WX_Pup            07:41:59.00 -25:52:34.2  seq=2/B/1.2,2/V/0.6,2/Ic/0.7,2/g/0.7,2/r/0.5,2/i/0.5,2/z/2.5    ph_mk=4/V/0.02     P=15.2347337  mV=9.09   priority=5  comment="T1CepF"   uobi=fe41571e
+WX_Pup            07:41:59.00 -25:52:34.2  seq=2/B/1.2,2/V/0.6,2/Ic/0.7,2/g/0.7,2/r/0.5,2/i/0.5,2/z/2.5    ph_mk=4/V/0.02     P=8.9363892   mV=9.09   priority=5  comment="T1CepF"   uobi=fe41571e
 OGLE-GD-CEP-0127  07:45:11.79 -36:58:29.1  seq=2/B/50,2/V/30,2/Ic/20,2/g/40,2/r/15,2/i/16,2/z/70           ph_mk=4/V/0.02     P=13.7677045  mV=12.79  priority=5  comment="T1CepF"   uobi=c6dbcf86
 AD_Pup            07:48:03.85 -25:34:40.0  seq=2/B/2,2/V/1.2,2/Ic/1.8,2/g/1.8,2/r/1,2/i/1.2,2/z/5          ph_mk=4/V/0.02     P=13.5968142  mV=9.99   priority=5  comment="T1CepF"   uobi=691fa8c9
-BM_Pup            07:50:03.12 -28:15:18.5  seq=2/B/8,2/V/3,2/Ic/2,2/g/4,2/r/1.5,2/i/1.5,2/z/8              ph_mk=4/V/0.02     P=15.2347337  mV=10.83  priority=5  comment="T1CepF"   uobi=6dc74a63
-V724_Pup          07:53:45.07 -36:58:13.4  seq=2/B/15,2/V/4,2/Ic/3,2/g/7,2/r/2,2/i/2.5,2/z/8               ph_mk=4/V/0.02     P=15.2347337  mV=11.05  priority=5  comment="T1CepF"   uobi=53ae75c7
-LL_Pup            07:53:48.78 -30:27:37.1  seq=2/B/8,2/V/3.2,2/Ic/3.2,2/g/5,2/r/1.5,2/i/1.8,2/z/8          ph_mk=4/V/0.02     P=15.2347337  mV=11.32  priority=5  comment="T1CepF"   uobi=717fbabb
+BM_Pup            07:50:03.12 -28:15:18.5  seq=2/B/8,2/V/3,2/Ic/2,2/g/4,2/r/1.5,2/i/1.5,2/z/8              ph_mk=4/V/0.02     P=7.1983699   mV=10.83  priority=5  comment="T1CepF"   uobi=6dc74a63
+V724_Pup          07:53:45.07 -36:58:13.4  seq=2/B/15,2/V/4,2/Ic/3,2/g/7,2/r/2,2/i/2.5,2/z/8               ph_mk=4/V/0.02     P=5.564072    mV=11.05  priority=5  comment="T1CepF"   uobi=53ae75c7
+LL_Pup            07:53:48.78 -30:27:37.1  seq=2/B/8,2/V/3.2,2/Ic/3.2,2/g/5,2/r/1.5,2/i/1.8,2/z/8          ph_mk=4/V/0.02     P=5.077405    mV=11.32  priority=5  comment="T1CepF"   uobi=717fbabb
 NT_Pup            07:58:46.34 -38:59:39.6  seq=2/B/25,2/V/10,2/Ic/8,2/g/12,2/r/5,2/i/6,2/z/25              ph_mk=4/V/0.02     P=15.5612767  mV=12.19  priority=5  comment="T1CepF"   uobi=b2ba32ad
 LS_Pup            07:58:59.22 -29:18:28.3  seq=2/B/8,2/V/4,2/Ic/3,2/g/4.5,2/r/1.5,2/i/1.8,2/z/8            ph_mk=4/V/0.02     P=14.1472871  mV=10.59  priority=5  comment="T1CepF"   uobi=9f9e87c2
 ASASSN-V_J080048.39-374940.5 08:00:48.38 -37:49:40.6 seq=2/B/6,2/V/2,2/Ic/2,2/g/4,2/r/1.2,2/i/1.6,2/z/6    ph_mk=4/V/0.02     P=5.8847089   mV=11.15  priority=5  comment="T1CepF"   
