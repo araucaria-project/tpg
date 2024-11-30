@@ -10,16 +10,16 @@ OGLE-GD-CEP-0127  07:45:11.79  -36:58:29.1  ph_mk=2/Ic/0.05  seq=2/B/42  P=13.76
 
 
 #Landolt standard fields
-TPHE  00:30:16  -46:27:55   seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=12.33  priority=10     comment=" standard field "
-SA92  00:56:08  +01:04:29   seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=11.81 priority=10      comment=" standard field "
-SA95  03:53:04   +00:03:12   seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=12.68 priority=10      comment=" standard field "
-SA98  06:52:05   -00:19:18  seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=12.27  priority=10     comment=" standard field "
-RU149  07:24:14   -00:31:41  seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=11.48  priority=10 comment=" standard field "
-RU152  07:29:56   -02:05:39  seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=13.01  priority=10 comment=" standard field "
-SA104  12:42:21   -00:33:12  seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=11.67  priority=10 comment=" standard field "
-SA110  18:42:45  +00:07:42  seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=12.43 priority=10      comment=" standard field "
-SA113  21:41:00  +00:27:21  seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=10.88  priority=10     comment=" standard field "
-SA114 22:41:37  +01:08:14  seq=1/B/60,1/V/30,1/Ic/30   P=-99.99  mV=10.88  priority=10     comment=" standard field "
+TPHE  00:30:16  -46:27:55   seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=12.33  priority=10     comment=" standard field "
+SA92  00:56:08  +01:04:29   seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=11.81 priority=10      comment=" standard field "
+SA95  03:53:04   +00:03:12   seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=12.68 priority=10      comment=" standard field "
+SA98  06:52:05   -00:19:18  seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=12.27  priority=10     comment=" standard field "
+RU149  07:24:14   -00:31:41  seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=11.48  priority=10 comment=" standard field "
+RU152  07:29:56   -02:05:39  seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=13.01  priority=10 comment=" standard field "
+SA104  12:42:21   -00:33:12  seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=11.67  priority=10 comment=" standard field "
+SA110  18:42:45  +00:07:42  seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=12.43 priority=10      comment=" standard field "
+SA113  21:41:00  +00:27:21  seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=10.88  priority=10     comment=" standard field "
+SA114 22:41:37  +01:08:14  seq=2x(1/B/30,3/V/15,2/Ic/15)   P=-99.99  mV=10.88  priority=10     comment=" standard field "
 
 #temporary object for Czarek (30 days starting 15.03)
 #V840_Cen  13:20:49.462  -55:50:14.559  seq=2/V/110,2/Ic/90  p=8.1 mV=14.2 priority=6
@@ -59,7 +59,7 @@ RS_Pav      18:07:22.00     -58:57:42.04  seq=2/Ic/6,2/V/3.8,2/B/6,2/g/3.7,2/r/2
 ST_Pup      06:48:56.41     -37:16:33.33  seq=2/Ic/5,2/V/3.1,2/B/5,2/g/3.1,2/r/2.4,2/i/3.5,2/z/12      ph_mk=1/Ic/0.02   uobi=88f5a4d7            P=18.73             mV=10.34     priority=4   comment="exp not verified"
 TX_Del      20:50:12.69     +03:39:08.36  seq=1/Ic/1,1/V/1,2/B/1,1/g/1,1/r/1,1/i/1,1/z/4               ph_mk=1/Ic/0.02   uobi=42603d40         nie wiem czy nie saturowana     P=6.165907         mV=8.84     priority=1          comment="binary - pW Vir?"
 V741_Sgr  18:20:46.05     -29:48:46.73    seq=1/Ic/2,1/V/2,2/B/2,1/g/2,1/r/2,1/i/2,1/z/3               ph_mk=1/Ic/0.02   uobi=c6b3e262            bardzo jasna gwiazda w polu       P=15.16817         mV=-9.999     priority=2
-VZ_Tau      05:05:14.25     +21:45:48.91  seq=2/Ic/41,2/V/31,2/B/41,2/g/32,2/r/17,2/i/27,2/z/77        ph_mk=1/Ic/0.02   uobi=2d3592ce       P=13.943             mV=12.78     priority=4   comment="exp not verified"
+VZ_Tau      05:05:54.25     +21:45:48.91  seq=2/Ic/41,2/V/31,2/B/41,2/g/32,2/r/17,2/i/27,2/z/77        ph_mk=1/Ic/0.02   uobi=2d3592ce       P=13.943             mV=12.78     priority=4   comment="exp not verified"
 W_Vir      13:26:01.99     -03:22:43.43   seq=2/Ic/6,2/V/3.6,2/B/6,2/g/3.5,2/r/2.7,2/i/4.0,2/z/14      ph_mk=1/Ic/0.02   uobi=cd8c8e19       P=17.2736         mV=10.48     priority=4
 PZ_Aql      18:55:56.05     -02:52:47.0   seq=2/Ic/18,2/V/8,2/B/6,2/g/12,2/r/5,2/i/5,2/z/37            ph_mk=1/Ic/0.02   uobi=9be48984        P=8.7577481         mV=11.79     priority=4       comment="pW Vir", 40k ADU przy 5 sek
 V375_Lup  15:28:32.86     -30:51:49.7     seq=2/Ic/39,2/V/29,2/B/39,2/g/30,2/r/16,2/i/25,2/z/72        ph_mk=1/Ic/0.02   uobi=115af295      P=6.4768             mV=12.70     priority=4
@@ -118,7 +118,7 @@ RR_Leo       10:07:43.46  +23:59:30.31              uobi=ff0ddf11      seq=2/Ic/
 RU_Scl       00:02:48.10  -24:56:43.07              uobi=29dc1911      seq=2/Ic/5,2/V/3.3,2/g/3.2,2/r/2.5,2/i/3.7,2/z/13         priority=4  P=0.4933549  mV=10.39
 RV_Cet       02:15:14.90  -10:48:00.71              uobi=9101b9ff      seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20             priority=4  P=0.62341  mV=10.97
 RV_Phe       23:28:31.45  -47:27:13.04              uobi=f9e2a120      seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39             priority=4  P=0.5964071  mV=11.88
-RX_Cet       00:33:38.28  -15:29:14.80              uobi=3c9b3f2c      seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/29             priority=4  P=0.57373  mV=11.50   comment='exp not verified'
+RX_Cet       00:33:38.28  -15:29:14.80              uobi=3c9b3f2c      seq=2/Ic/14,2/V/9,2/g/6,2/r/4,2/i/9,2/z/29             priority=4  P=0.57373  mV=11.50   comment=''
 RX_Eri       04:49:44.29  -15:44:28.24              uobi=d0d945c2      seq=2/Ic/4.0,2/V/2.2,2/g/2.1,2/r/1.7,2/i/2.5,2/z/9         priority=4  P=0.5872453  mV=9.96
 S_Ara       17:59:10.73  -49:26:00.45               uobi=520d66fd     seq=2/Ic/6,2/V/3.5,2/g/3.5,2/r/2.6,2/i/3.9,2/z/13             priority=4  P=0.451848  mV=10.46
 SS_For       02:07:51.97  -26:51:57.71              uobi=9881721f      seq=2/Ic/5,2/V/3.0,2/g/3.0,2/r/2.3,2/i/3.4,2/z/12         priority=4  P=0.49543    mV=10.30
@@ -126,7 +126,7 @@ ST_Pic       06:14:01.16  -61:28:23.52              uobi=d02a610b      seq=2/Ic/
 SV_Eri       03:11:52.10  -11:21:14.06              uobi=f26f5672      seq=2/Ic/4,2/V/2.6,2/g/2.5,2/r/2.0,2/i/3.0,2/z/11         priority=4  P=0.713877     mV=10.14
 SW_And       00:23:43.08  +29:24:03.62              uobi=d9d99c86      seq=1/Ic/5,1/V/5,1/g/5,1/r/5,1/i/5,1/z/5         priority=1  P=0.442262     mV=9.15
 SX_For       03:30:22.34  -36:03:13.50              uobi=7ee2f91a      seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20         priority=4  P=0.6053423  mV=10.97
-SZ_Gem       07:53:43.45  +19:16:23.92              uobi=0c47fee4      seq=2/Ic/23,2/V/16,2/g/16,2/r/9,2/i/15,2/z/45         priority=4  P=0.5011303  mV=12.07   comment="exp not verified"
+SZ_Gem       07:53:43.45  +19:16:23.92              uobi=0c47fee4      seq=2/Ic/10,2/V/5,2/g/4,2/r/4,2/i/9,2/z/45         priority=4  P=0.5011303  mV=12.07   comment=""
 TT_Lyn       09:03:07.78  +44:35:08.11              uobi=91dab0dd      seq=2/Ic/2.7,2/V/1.4,2/g/1.4,2/r/1.2,2/i/1.7,2/z/6         priority=4  P=0.597434355  mV=9.51   comment="exp not verified"
 U_Lep       04:56:17.98  -21:13:02.02               uobi=e886cfd4     seq=2/Ic/6,2/V/4,2/g/4,2/r/3.0,2/i/4,2/z/15            priority=4  P=0.5814789  mV=10.63
 U_Pic       04:50:06.62  -50:39:25.23               uobi=ccf7a0ea     seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/25             priority=4  P=0.4403750  mV=11.26
