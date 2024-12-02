@@ -15,11 +15,14 @@ ephem = "^4.1.4"
 numpy = "^1.24.1"
 
 ctc = {git = "https://github.com/araucaria-project/ctc.git"}
+pyaraucaria = {git = "https://github.com/araucaria-project/pyaraucaria.git"}
+
 
 
 [tool.poetry.scripts]
 tpg = "tpg:main"
 chexp = "chexp:main"
+grouptoplan = "grouptoplan:main"
 
 [build-system]
 requires = ["poetry-core"]
