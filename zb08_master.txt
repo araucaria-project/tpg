@@ -107,7 +107,7 @@ BR_Aqr       23:38:32.89  -09:19:07.46              uobi=3c690b12      seq=2/Ic/
 BT_Aqr       20:57:48.40  -05:41:06.67              uobi=80d56d2a      seq=2/Ic/50,2/V/23,2/g/20,2/r/20,2/i/35,2/z/100             priority=4  P=0.4063595  mV=12.46
 CD_Vel       09:44:38.24  -45:52:37.11              uobi=f7adbac3      seq=2/Ic/22,2/V/15,2/g/15,2/r/9,2/i/14,2/z/43         priority=4  P=0.5735076  mV=12.01   comment="exp not verified"
 CP_Aqr       21:10:12.84  -01:43:16.13              uobi=2a81e587      seq=2/Ic/16,2/V/10,2/g/10,2/r/6,2/i/10,2/z/33             priority=4  P=0.4634018  mV=11.63
-DH_Hya       09:00:14.82  -09:46:44.29              uobi=c241f14e      seq=2/Ic/20,2/V/13,2/g/13,2/r/8,2/i/13,2/z/40         priority=4  P=0.4890007  mV=11.90   comment=""
+DH_Hya       09:00:14.82  -09:46:44.29              uobi=c241f14e      seq=2/Ic/15,2/V/5,2/g/4,2/r/4,2/i/11,2/z/40         priority=4  P=0.4890007  mV=11.90   comment=""
 DN_Aqr       23:19:17.20  -24:12:58.82              uobi=1b8792d1      seq=2/Ic/11,2/V/7,2/g/7,2/r/4,2/i/7,2/z/24             priority=4  P=0.6337558  mV=11.21
 DX_Del       20:47:28.35  +12:27:50.68              uobi=ab4b1c47      seq=2/Ic/4,2/V/2.5,2/g/2.4,2/r/2.0,2/i/2.9,2/z/10         priority=4  P=0.4726191  mV=10.10
 EW_Cam       07:27:27.98  +72:42:12.50              uobi=5b1c9eec      seq=2/Ic/2.7,2/V/1.4,2/g/1.3,2/r/1.2,2/i/1.7,2/z/6         priority=4  P=0.628408      mV=9.48   comment="exp not verified"
