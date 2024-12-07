@@ -1,3 +1,8 @@
+# Following setting should be removed, and values from global config used instead
+# hmin, hmax, def_read_mode, rm_modes_mhz
+# Following settings may be moved to global config:
+# overhead, hsun, wind_dist, moon_dist
+
 wk06:
   master_file: /home/observer/src/tpg/wk06_master.txt        # file with OB definitions
   data_file: /data/fits/wk06/processed-ofp/targets/          # directory with observations
@@ -21,13 +26,24 @@ zb08:
   wind_dist: 95
   moon_dist: 40
 
+jk15:
+#  master_file: /home/observer/src/tpg/jk15_master.txt
+  master_file: jk15_master.txt
+  data_file: /data/fits/jk15/processed-ofp/targets/
+  def_read_mode: 5
+  overhead: 60
+  hmin: 35
+  hmax: 80
+  hsun: -18
+  wind_dist: 95
+  moon_dist: 40
+
 
 ctc:
   ctc_base_folder: /data/misc/cycle_time_calc
   rm_modes_mhz: {
     "zb08": [5, 3, 1, 0.05],
-#    "jk15": [4, 2, 1, 1, 0.1, 0.1],
-    "jk15": [1],
+    "jk15": [4, 2, 1, 1, 0.1, 0.1],
     "wk06": [5, 3, 1, 0.05],
     "dev": [1, 1, 1, 1, 1, 1, 1],
     "sim": [1, 1, 1, 1, 1, 1, 1],

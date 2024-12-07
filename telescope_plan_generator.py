@@ -111,6 +111,7 @@ class telescope_plan_generator():
                     hjd0 = False
                     ph_mk = False
                     cycle = False
+                    read_mod = None
                     uobi = False
                     if "comment=" in line:
                         tmp = line.split("comment=")[1]
@@ -150,6 +151,10 @@ class telescope_plan_generator():
                     if "cycle=" in line:
                         cycle = line.split("cycle=")[1].split()[0]
 
+                    if "read_mod=" in line:
+                        read_mod = line.split("read_mod=")[1].split()[0]
+
+
                     for i, tmp in enumerate(line.split()):
 
                         if i == 0:
@@ -184,6 +189,9 @@ class telescope_plan_generator():
                         tmp = seq
 
                     program = f"OBJECT  {name} {ra} {dec} seq={tmp}"
+                    if read_mod is not None:
+                        program = program + f" read_mod={read_mod}"
+
                     ctc_ob_time = self.ctc.calc_time(program)/60.
 
                     #print(name, slotTime, ctc_ob_time)
