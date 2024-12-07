@@ -82,10 +82,13 @@ class telescope_plan_generator():
         self.cycle = []
 
     def LoadObjects(self):  # Load Object file
+        # first try patch as it is, if file not found, take base path form __FILE__ and append config file path using os.path.join
         if not os.path.isfile(self.cfg[self.tel]["master_file"]):
-            sys.stderr.write('No Objects Catalog file!\n')
-            sys.stderr.write('Check tpg.cfg file\n')
-            sys.exit()
+            self.cfg[self.tel]["master_file"] = os.path.join(self.script_dir, self.cfg[self.tel]["master_file"])
+            if not os.path.isfile(self.cfg[self.tel]["master_file"]):
+                sys.stderr.write(f'No Objects Catalog file {self.cfg[self.tel]["master_file"]}\n')
+                sys.stderr.write('Check tpg.cfg file\n')
+                sys.exit()
 
         # CTC
         self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"], tpg=True)
