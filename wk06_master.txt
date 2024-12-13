@@ -204,21 +204,21 @@ BC_Oct          23:38:08.067 -81:21:18.381 10.3  seq=INFx(2/B/2.5,2/V/1.5,2/Ic/1
 
 # SMC early-type eclipsing binaries
 # Primary eclipses
-OGLE-SMC-ECL-0720  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/36,2/V/48,2/Ic/120)  P=6.0522822  mV=14.32  hjd0=2460657.52  ph_start=-0.07 ph_end=0.07 cycle=0.03 comment="SMC-ECL-0720 prim ecl"
-OGLE-SMC-ECL-2270  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/30,2/V/40,2/Ic/100)  P=3.9460493  mV=13.93  hjd0=2460658.06  ph_start=-0.11 ph_end=0.11 cycle=0.03 comment="SMC-ECL-2270 prim ecl"
-OGLE-SMC-ECL-3378  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=4.4803698  mV=14.61  hjd0=2460658.10  ph_start=-0.06 ph_end=0.06 cycle=0.02 comment="SMC-ECL-3378 prim ecl"
-OGLE-SMC-ECL-3378  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=2.3200554  mV=14.89  hjd0=2460658.165 ph_start=-0.11 ph_end=0.11 cycle=0.03 comment="SMC-ECL-3417 prim ecl"
-OGLE-SMC-ECL-4440  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/60,2/V/80,2/Ic/225)  P=9.0179343  mV=14.95  hjd0=2460653.90  ph_start=-0.05 ph_end=0.05 cycle=0.03 comment="SMC-ECL-4440 prim ecl"
+OGLE-SMC-ECL-0720  00:44:08.67 -73:14:18.5 priority=7 seq=1x(2/B/36,2/V/48,2/Ic/120)  P=6.0522822  mV=14.32  hjd0=2460657.52  ph_start=-0.07 ph_end=0.07 cycle=0.03 comment="SMC-ECL-0720 prim ecl"
+OGLE-SMC-ECL-2270  00:53:33.35 -72:56:24.5 priority=7 seq=1x(2/B/30,2/V/40,2/Ic/100)  P=3.9460493  mV=13.93  hjd0=2460658.06  ph_start=-0.11 ph_end=0.11 cycle=0.03 comment="SMC-ECL-2270 prim ecl"
+OGLE-SMC-ECL-3378  00:56:17.60 -72:19:54.2 priority=7 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=4.4803698  mV=14.61  hjd0=2460658.10  ph_start=-0.06 ph_end=0.06 cycle=0.02 comment="SMC-ECL-3378 prim ecl"
+OGLE-SMC-ECL-3378  00:56:17.60 -72:19:54.2 priority=7 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=2.3200554  mV=14.89  hjd0=2460658.165 ph_start=-0.11 ph_end=0.11 cycle=0.03 comment="SMC-ECL-3417 prim ecl"
+OGLE-SMC-ECL-4440  01:02:01.37 -72:29:07.5 priority=7 seq=1x(2/B/60,2/V/80,2/Ic/225)  P=9.0179343  mV=14.95  hjd0=2460653.90  ph_start=-0.05 ph_end=0.05 cycle=0.03 comment="SMC-ECL-4440 prim ecl"
 
 # Secondary eclipses
-OGLE-SMC-ECL-0720  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/36,2/V/48,2/Ic/120)  P=6.0522822  mV=14.32  hjd0=2460657.52  ph_start=0.46  ph_end=0.60 cycle=0.03 comment="SMC-ECL-0720 sec ecl"
-OGLE-SMC-ECL-2270  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/30,2/V/40,2/Ic/100)  P=3.9460493  mV=13.93  hjd0=2460658.06  ph_start=0.39  ph_end=0.61 cycle=0.03 comment="SMC-ECL-2270 sec ecl"
-OGLE-SMC-ECL-3378  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=4.4803698  mV=14.61  hjd0=2460658.10  ph_start=0.28  ph_end=0.38 cycle=0.02 comment="SMC-ECL-3378 sec ecl"
-OGLE-SMC-ECL-3378  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=2.3200554  mV=14.89  hjd0=2460658.165 ph_start=0.39  ph_end=0.61 cycle=0.03 comment="SMC-ECL-3417 sec ecl"
-OGLE-SMC-ECL-4440  09:30:15.83 -53:03:31.2 priority=7 seq=1x(2/B/60,2/V/80,2/Ic/225)  P=9.0179343  mV=14.95  hjd0=2460653.90  ph_start=0.43  ph_end=0.55 cycle=0.03 comment="SMC-ECL-4440 sec ecl"
+OGLE-SMC-ECL-0720  00:44:08.67 -73:14:18.5 priority=7 seq=1x(2/B/36,2/V/48,2/Ic/120)  P=6.0522822  mV=14.32  hjd0=2460657.52  ph_start=0.46  ph_end=0.60 cycle=0.03 comment="SMC-ECL-0720 sec ecl"
+OGLE-SMC-ECL-2270  00:53:33.35 -72:56:24.5 priority=7 seq=1x(2/B/30,2/V/40,2/Ic/100)  P=3.9460493  mV=13.93  hjd0=2460658.06  ph_start=0.39  ph_end=0.61 cycle=0.03 comment="SMC-ECL-2270 sec ecl"
+OGLE-SMC-ECL-3378  00:56:17.60 -72:19:54.2 priority=7 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=4.4803698  mV=14.61  hjd0=2460658.10  ph_start=0.28  ph_end=0.38 cycle=0.02 comment="SMC-ECL-3378 sec ecl"
+OGLE-SMC-ECL-3378  00:56:17.60 -72:19:54.2 priority=7 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=2.3200554  mV=14.89  hjd0=2460658.165 ph_start=0.39  ph_end=0.61 cycle=0.03 comment="SMC-ECL-3417 sec ecl"
+OGLE-SMC-ECL-4440  01:02:01.37 -72:29:07.5 priority=7 seq=1x(2/B/60,2/V/80,2/Ic/225)  P=9.0179343  mV=14.95  hjd0=2460653.90  ph_start=0.43  ph_end=0.55 cycle=0.03 comment="SMC-ECL-4440 sec ecl"
 
 # Out of eclipse observations
-OGLE-SMC-ECL-0720  09:30:15.83 -53:03:31.2 priority=2 seq=1x(2/B/36,2/V/48,2/Ic/120)  P=6.0522822  mV=14.32  hjd0=2460657.52  comment="SMC-ECL-0720 out of ecl"
-OGLE-SMC-ECL-2270  09:30:15.83 -53:03:31.2 priority=2 seq=1x(2/B/30,2/V/40,2/Ic/100)  P=3.9460493  mV=13.93  hjd0=2460658.06  comment="SMC-ECL-2270 out of ecl"
-OGLE-SMC-ECL-3378  09:30:15.83 -53:03:31.2 priority=2 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=4.4803698  mV=14.61  hjd0=2460658.10  comment="SMC-ECL-3378 out of ecl"
-OGLE-SMC-ECL-4440  09:30:15.83 -53:03:31.2 priority=2 seq=1x(2/B/60,2/V/80,2/Ic/225)  P=9.0179343  mV=14.95  hjd0=2460653.90  comment="SMC-ECL-4440 out of ecl"
+OGLE-SMC-ECL-0720  00:44:08.67 -73:14:18.5 priority=2 seq=1x(2/B/36,2/V/48,2/Ic/120)  P=6.0522822  mV=14.32  hjd0=2460657.52  comment="SMC-ECL-0720 out of ecl"
+OGLE-SMC-ECL-2270  00:53:33.35 -72:56:24.5 priority=2 seq=1x(2/B/30,2/V/40,2/Ic/100)  P=3.9460493  mV=13.93  hjd0=2460658.06  comment="SMC-ECL-2270 out of ecl"
+OGLE-SMC-ECL-3378  00:56:17.60 -72:19:54.2 priority=2 seq=1x(2/B/48,2/V/64,2/Ic/180)  P=4.4803698  mV=14.61  hjd0=2460658.10  comment="SMC-ECL-3378 out of ecl"
+OGLE-SMC-ECL-4440  01:02:01.37 -72:29:07.5 priority=2 seq=1x(2/B/60,2/V/80,2/Ic/225)  P=9.0179343  mV=14.95  hjd0=2460653.90  comment="SMC-ECL-4440 out of ecl"
