@@ -287,6 +287,13 @@ OGLE-GD-CEP-0339  09:14:27.32 -47:19:05.9  seq=2/B/240,2/V/120,2/Ic/18,2/g/240,2
 EX_Vel            09:20:01.51 -52:51:22.3  seq=2/B/15,2/V/5,2/Ic/4,2/g/9,2/r/2,2/i/3,2/z/10                ph_mk=4/V/0.02     P=13.2343597  mV=11.55  priority=5  comment="T1CepF"   uobi=8929b815
 V532_Vel          09:22:49.80 -51:51:38.7  seq=2/B/60,2/V/35,2/Ic/20,2/g/45,2/r/16,2/i/19,2/z/40           ph_mk=4/V/0.02     P=11.2070272  mV=12.90  priority=5  comment="T1CepF"   uobi=dd1b277e
 V536_Vel          09:27:57.81 -52:18:58.3  seq=2/B/20,2/V/6,2/Ic/3.6,2/g/12,2/r/3,2/i/2.5,2/z/8            ph_mk=4/V/0.02     P=7.6433684   mV=12.18  priority=5  comment="T1CepF"   uobi=e8ab14ed
+DP_Vel            09:30:15.83 -53:03:31.2  seq=2/B/15,2/V/5,2/Ic/3,2/g/8,2/r/2,2/i/2,2/z/8                 ph_mk=4/V/0.02     P=5.4844858   mV=12.19  priority=5  comment="T1CepF"   
+FG_Vel            09:33:23.72 -52:45:21.0  seq=2/B/15,2/V/4,2/Ic/2.5,2/g/8,2/r/2,2/i/2,2/z/8               ph_mk=4/V/0.02     P=6.4536452   mV=11.89  priority=5  comment="T1CepF"   
+T__Ant            09:33:50.85 -36:36:56.6  seq=2/B/0.8,2/V/0.5,2/Ic/0.5,2/g/0.6,2/r/0.5,2/i/0.5,2/z/1.5    ph_mk=4/V/0.02     P=5.8983587   mV=9.26   priority=5  comment="T1CepF"   
+AE_Vel            09:36:51.46 -53:01:58.0  seq=2/B/2,2/V/0.5,2/Ic/0.5,2/g/1.2,2/r/0.5,2/i/0.5,2/z/1.2      ph_mk=4/V/0.02     P=7.1339448   mV=10.4   priority=5  comment="T1CepF"   
+CS_Vel            09:41:10.25 -53:48:57.7  seq=2/B/12,2/V/3,2/Ic/2.5,2/g/8,2/r/1.6,2/i/2,2/z/6             ph_mk=4/V/0.02     P=5.9047043   mV=11.24  priority=5  comment="T1CepF"   
+V690_Car          09:48:26.80 -58:01:05.3  seq=2/B/12,2/V/5,2/Ic/4,2/g/10,2/r/3,2/i/3,2/z/10               ph_mk=4/V/0.02     P=4.1505759   mV=11.35  priority=5  comment="T1CepF"   
+GX_Car            09:55:26.15 -58:25:46.9  seq=2/B/1,2/V/0.6,2/Ic/0.5,2/g/0.6,2/r/0.5,2/i/0.5,2/z/1.2      ph_mk=4/V/0.02     P=7.19688     mV=9.42   priority=5  comment="T1CepF"   
 OGLE-GD-CEP-0568  10:43:18.96 -59:11:29.6  seq=2/B/150,2/V/90,2/Ic/15,2/g/120,2/r/25,2/i/12,2/z/30         ph_mk=4/V/0.02     P=45.4368458  mV=14.20  priority=5  comment="T1CepF"   uobi=8cf2a52b
 FF_Car            10:44:54.08 -58:17:52.6  seq=2/B/60,2/V/18,2/Ic/6,2/g/35,2/r/8,2/i/6,2/z/15              ph_mk=4/V/0.02     P=16.3343552  mV=12.94  priority=5  comment="T1CepF"   uobi=e00b3c8b
 FI_Car            10:51:01.81 -58:35:26.1  seq=2/B/18,2/V/5,2/Ic/3,2/g/9,2/r/2.5,2/i/3,2/z/12              ph_mk=4/V/0.02     P=13.457704   mV=11.53  priority=5  comment="T1CepF"   uobi=c0598f39
