@@ -602,9 +602,10 @@ class telescope_plan_generator():
                                             if len(line.split())>9:
                                                 if int(line.split()[9]) < 2:
                                                     jd.append(float(line.split()[3]))
+                                                else:
+                                                    print("rejected")
                                             else:
                                                 jd.append(float(line.split()[3]))
-                                                print("rejected")
                                         except ValueError:
                                             pass
 
