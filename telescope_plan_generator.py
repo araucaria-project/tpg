@@ -31,6 +31,10 @@ class telescope_plan_generator():
         else:
             txt = f'date missing\n'
 
+        if len(date[0].split("/")[0])<3:
+            print("wrong date format: yyyy/mm/dd")
+            sys.exit(0)
+
         self.wind = wind
         self.plan = []
 
@@ -433,6 +437,9 @@ class telescope_plan_generator():
                             OK = True
                             done = nk
 
+
+
+
                 if OK:
                     self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
                     self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
@@ -602,8 +609,6 @@ class telescope_plan_generator():
                                             if len(line.split())>9:
                                                 if int(line.split()[9]) < 2:
                                                     jd.append(float(line.split()[3]))
-                                                else:
-                                                    print("rejected")
                                             else:
                                                 jd.append(float(line.split()[3]))
                                         except ValueError:
