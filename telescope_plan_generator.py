@@ -47,10 +47,12 @@ class telescope_plan_generator():
         self.MaskMoon()
         self.MaskWind()
         self.MaskPhase()
-        self.Waga()  # calculate propability for randomization order of objects to observe
-        self.RandomizeList()  # randomize listo of objects to observev
+        #self.Waga()  # calculate propability for randomization order of objects to observe
+        #self.RandomizeList()  # randomize listo of objects to observev
         self.MaskStartEnd()  # mask visibilite base on t_start and t_end
         self.MaskPhaseStartEnd()  # mask visibilite base on t_start and t_end
+        self.Waga()  # calculate propability for randomization order of objects to observe
+        self.RandomizeList()  # randomize listo of objects to observev
         self.allocate()  # SCHEDULING OBJECTS
         self.export()  # export plan
 
@@ -597,16 +599,22 @@ class telescope_plan_generator():
                                 for line in plik:
                                     if len(line.strip()) > 0:
                                         try:
-                                            jd.append(float(line.split()[3]))
+                                            if len(line.split())>9:
+                                                if int(line.split()[9]) < 2:
+                                                    jd.append(float(line.split()[3]))
+                                            else:
+                                                jd.append(float(line.split()[3]))
+                                                print("rejected")
                                         except ValueError:
                                             pass
+
                     except (FileNotFoundError, ValueError) as e:
                         pass
                     P = self.period[n]
                     hjd0 = self.hjd0[n]
                     if P and len(jd)>0:
                         if not hjd0:
-                            hjd0 = min(jd)
+                            hjd0 = 2460000
                         ph = (numpy.array(jd) - float(hjd0)) / float(P) % 1
 
                         night_ph = (numpy.array(self.nightTime) - float(hjd0)) / float(P) % 1
