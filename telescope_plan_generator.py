@@ -69,6 +69,7 @@ class telescope_plan_generator():
         self.nightTime = []  # time in ephem.Date format
         self.nightObject = []  # index of objects to observe
         self.nightFree = []  # Bool marker of allocation
+        self.nightObChange = []    # Bool marker to indicate ob change
 
         # objects to obserrve
         self.name = []
@@ -287,6 +288,7 @@ class telescope_plan_generator():
             t = t + 1 * ephem.minute  # time resolution : 1 minute
             self.nightTime.append(t)
             self.nightObject.append(-100)
+            self.nightObChange.append(False)
             self.nightFree.append(True)
 
 
@@ -443,10 +445,12 @@ class telescope_plan_generator():
                 if OK:
                     self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
                     self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
+                    self.nightObChange[bfin[0]] = True
                     q = self.random_index_list[done]
-                    if self.cycle[q]:
-                        dn = int(1440 * float(self.cycle[q]))
-                        if dn > len(self.visibility[q][nn:]) : dn = len(self.visibility[q][nn:])
+                    if self.cycle[q] != False:
+                        dn = int(1440 * float(self.cycle[q]))  # 1440 minut ma doba
+                        if dn > len(self.visibility[q][nn:]):
+                            dn = len(self.visibility[q][nn:])
                         self.visibility[q][nn:nn+dn] = [False] * dn
                     else:
                         self.random_index_list = numpy.delete(self.random_index_list, done)
@@ -468,7 +472,8 @@ class telescope_plan_generator():
             self.plan.append(txt)
             for n, tmp in enumerate(self.nightTime):
                 #print(self.nightTime[n], self.nightObject[n])
-                if int(self.nightObject[n]) != prev:
+                if self.nightObChange[n]:
+                #if int(self.nightObject[n]) != prev:
                     if ZNACZNIK:
                         ZNACZNIK = False
                         empty_time = float(self.nightTime[n] - t0) * 24. * 60. * 60.
