@@ -5,25 +5,37 @@ from ctc import CycleTimeCalc
 
 
 class telescope_plan_generator():
-    def __init__(self,tel,date,wind=None,done_uobi=[]):
+    def __init__(self,tel,date,wind=None,loud=False,done_uobi=[]):
 
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
         self.done = done_uobi
+        self.loud = loud
+        self.msg = ""
 
         with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
             self.cfg = yaml.safe_load(cfg_file)
+            txt = f'config loaded from config.yaml\n'
+            if self.loud: sys.stderr.write(txt)
+            self.msg = self.msg + txt
 
         self.tel = tel
         if len(date) == 1:
             self.flags.append("start_at_sunset")
             self.date = date[0] + " 16:00:00"
+            txt = f'start at sunset\n'
         elif len(date) == 2:
             self.date = date[0] + " " + date[1]
+            txt = f'start at {self.date}\n'
+        else:
+            txt = f'date missing\n'
+
         self.wind = wind
         self.plan = []
 
+        if self.loud: sys.stderr.write(txt)
+        self.msg = self.msg + txt
 
         # --------------- MAIN SCRIPT --------------
 
@@ -44,6 +56,8 @@ class telescope_plan_generator():
 
 
     def Initiate(self):
+
+        self.ctc_active = True
 
         # plan                      # 1 minute resolution
         self.nightTime = []  # time in ephem.Date format
@@ -79,7 +93,7 @@ class telescope_plan_generator():
         self.probability = []  # propability for object list randomization
         self.visibility = []  # visibility of each object (self.nightTime indicies)
         self.priority = []  # priority for observations
-        self.cycle = []
+        self.cycle = [] # specifcation how often to observe, e.g. cycle=3 - every three days
 
     def LoadObjects(self):  # Load Object file
         # first try patch as it is, if file not found, take base path form __FILE__ and append config file path using os.path.join
@@ -87,13 +101,16 @@ class telescope_plan_generator():
             self.cfg[self.tel]["master_file"] = os.path.join(self.script_dir, self.cfg[self.tel]["master_file"])
             if not os.path.isfile(self.cfg[self.tel]["master_file"]):
                 sys.stderr.write(f'No Objects Catalog file {self.cfg[self.tel]["master_file"]}\n')
-                sys.stderr.write('Check tpg.cfg file\n')
+                sys.stderr.write('Check config.yaml file\n')
                 sys.exit()
 
-        # CTC
-        self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"], tpg=True)
-        self.ctc.set_rm_modes(self.cfg["ctc"]["rm_modes_mhz"])
-        self.ctc.set_start_rmode(self.cfg[self.tel]["def_read_mode"])
+        if os.path.exists(self.cfg["ctc"]["ctc_base_folder"]):
+            self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"], tpg=True)
+            self.ctc.set_rm_modes(self.cfg["ctc"]["rm_modes_mhz"])
+            self.ctc.set_start_rmode(self.cfg[self.tel]["def_read_mode"])
+            self.ctc_active = True
+        else:
+            self.ctc_active = False
 
         plik = open(self.cfg[self.tel]["master_file"], 'r')
         for line in plik:
@@ -184,8 +201,6 @@ class telescope_plan_generator():
                                     float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
                     slotTime = (k * slotTime) / 60.
 
-                    self.ctc.reset_time()
-
                     if "INF" in seq:
                         tmp = seq.replace("INF","1")
                     else:
@@ -195,10 +210,17 @@ class telescope_plan_generator():
                     if read_mod is not None:
                         program = program + f" read_mod={read_mod}"
 
-                    ctc_ob_time = self.ctc.calc_time(program)/60.
+                    if self.ctc_active:
+                        self.ctc.reset_time()
+                        ctc_ob_time = self.ctc.calc_time(program)/60.
+                        slotTime = ctc_ob_time
+                        txt = f'{name} CTC slot time: {slotTime}'
+                    else:
+                        slotTime = calc_slot_time(program,overhead)/60.
+                        txt = f'{name} TPG slot time: {slotTime}\n'
 
-                    #print(name, slotTime, ctc_ob_time)
-                    slotTime = ctc_ob_time
+                    if self.loud: sys.stderr.write(txt)
+                    self.msg = self.msg + txt
 
                     if uobi and uobi in self.done:
                         pass
@@ -233,19 +255,28 @@ class telescope_plan_generator():
 
         if "start_at_sunset" in self.flags:
             self.sunset = self.oca.next_setting(ephem.Sun(), use_center=True)
+
+            txt = f'sunset: {self.sunset}\n'
+            if self.loud: sys.stderr.write(txt)
+            self.msg = self.msg + txt
+
             t = self.sunset
             self.oca.date = self.sunset
             self.sunrise = self.oca.next_rising(ephem.Sun(), use_center=True)
+
+            txt = f'sunrise: {self.sunrise}\n'
+            if self.loud: sys.stderr.write(txt)
+            self.msg = self.msg + txt
+
         else:
             t = ephem.Date(self.date)
             self.oca.date = t
             self.sunrise = self.oca.next_rising(ephem.Sun(), use_center=True)
 
-        if "loud" in self.flags:
-            txt = f"sunset: {self.sunset}\n"
-            txt = txt + f"sunrise: {self.sunrise}\n"
-            txt = txt + f"plan start: {t}\n"
-            sys.stderr.write(txt)
+            txt = f'sunrise: {self.sunrise}\n'
+            if self.loud: sys.stderr.write(txt)
+            self.msg = self.msg + txt
+
         while t < self.sunrise:
             t = t + 1 * ephem.minute  # time resolution : 1 minute
             self.nightTime.append(t)
@@ -291,6 +322,11 @@ class telescope_plan_generator():
             vis = [a and b for a,b in zip(vis1,vis2)]
             self.visibility.append(vis)
 
+            vis = numpy.array(vis)
+            txt = f'{self.name[n]} visible for {len(vis[vis])} minutes\n'
+            if self.loud: sys.stderr.write(txt)
+            self.msg = self.msg + txt
+
 
     def MaskMoon(self):
         moon = ephem.Moon()
@@ -306,7 +342,13 @@ class telescope_plan_generator():
                 s.compute(self.oca)
                 sep = ephem.separation(s,moon) * 180/ephem.pi
                 if sep < float(self.cfg[self.tel]["moon_dist"]):
+                    # mask everything for faster calculation
                     self.visibility[n] = [False for _ in range(len(self.nightTime))]
+                    txt = f'{self.name[n]} masked because of MOON\n'
+                    if self.loud: sys.stderr.write(txt)
+                    self.msg = self.msg + txt
+
+
 
     def MaskWind(self):
         if self.wind:
@@ -325,6 +367,11 @@ class telescope_plan_generator():
                         dist = 360. - dist
                     if dist < float(self.cfg[self.tel]["wind_dist"]):
                         self.visibility[n] = [False for _ in range(len(self.nightTime))]
+                        # masked for all night because of calc time
+                        txt = f'{self.name[n]} masked because of WIND\n'
+                        if self.loud: sys.stderr.write(txt)
+                        self.msg = self.msg + txt
+
 
     def Waga(self):  #
         for n, tmp in enumerate(self.name):
@@ -477,6 +524,7 @@ class telescope_plan_generator():
                             self.visibility[n][i] = False
                             ZNACZNIK = True
 
+
             te = self.tend[n]
             if te:
                 if "T" in te:
@@ -498,9 +546,10 @@ class telescope_plan_generator():
                             self.visibility[n][i] = False
                             ZNACZNIK = True
 
-                if "loud" in self.flags and ZNACZNIK:
-                    txt = self.name[n] + f" masked: {time_s} to {time_e}"
-                    sys.stderr.write(txt + "\n")
+                if ZNACZNIK:
+                    txt = f'{self.name[n]} time masked {time_s} to {time_e}\n'
+                    if self.loud: sys.stderr.write(txt)
+                    self.msg = self.msg + txt
 
     def MaskPhaseStartEnd(self):  # Masks visibility based on pstart and pend
         for n, tmp in enumerate(self.name):
@@ -529,13 +578,15 @@ class telescope_plan_generator():
                                 self.visibility[n][i] = False
                                 ZNACZNIK = True
 
-                if "loud" in self.flags and ZNACZNIK:
-                    txt = self.name[n] + f" masked: {ps} to {pe}"
-                    sys.stderr.write(txt + "\n")
+                if ZNACZNIK:
+                    txt = f'{self.name[n]} phase masked {ps} to {pe}\n'
+                    if self.loud: sys.stderr.write(txt)
+                    self.msg = self.msg + txt
 
     def MaskPhase(self):  # mask phase covarage
         if True:
             for n, tmp in enumerate(self.name):
+                ZNACZNIK = False
                 if self.ph_mask[n]:
                     jd = []
                     try:
@@ -568,5 +619,26 @@ class telescope_plan_generator():
                             maska = [a and b for a,b in zip(maska2,maska1)]
                             if len(ph[maska]) > int(self.ph_mask[n].split("/")[0]):
                                 self.visibility[n][i] = False
+                                ZNACZNIK = True
+                if ZNACZNIK:
+                    txt = f'{self.name[n]} masked for observed data\n'
+                    if self.loud: sys.stderr.write(txt)
+                    self.msg = self.msg + txt
 
 
+def calc_slot_time(program, overhed):
+    slotTime = 10
+    k = 1
+    seq = program.split("seq=")[1].split()[0]
+    try:
+        if "x(" in seq and ")" in seq:
+            k = int(seq.split("x")[0])
+            seq = seq.split("x(")[1].split(")")[0]
+        for x_seq in seq.split(","):
+            if "a" in x_seq:
+                x_seq = x_seq.replace("/a", "/5")
+            slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhed)))
+        slotTime = k * slotTime
+    except:
+        slotTime = 0
+    return slotTime

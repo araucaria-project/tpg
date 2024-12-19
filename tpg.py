@@ -16,10 +16,11 @@ class main:
     argparser.add_argument("tel", type=str, choices=['wk06', 'zb08', 'jk15'], help='Telescope id')
     argparser.add_argument("date", nargs="+", type=str, help='date of observation')
     argparser.add_argument("--wind", type=float, default=None, help='wind direction (to avoid)')
+    argparser.add_argument("--loud", action="store_true", help="Enable loud mode")
 
     args = argparser.parse_args()
 
-    p = tpg(args.tel,args.date,wind=args.wind,done_uobi=[])
+    p = tpg(args.tel,args.date,wind=args.wind,loud=args.loud,done_uobi=[])
     for x in p.plan:
         print(x)
 ####### SCRIPT RUN
