@@ -4,8 +4,8 @@ Script for generating observing plans for **wk06**, **zb08** and **jk15** telesc
 
 ### RUNNING SCRIPT
 ```
-poetry run tpg {wk06,zb08,jk15} date [ut] [--wind WIND] [-h]
-date: YYY/MM/DD [hh:mm:ss] 
+poetry run tpg {wk06,zb08,jk15} date [ut] [--wind WIND] [-h] [--loud]
+date: YYYY/MM/DD [hh:mm:ss] 
 ```
 
 ```example

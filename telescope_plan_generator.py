@@ -51,8 +51,6 @@ class telescope_plan_generator():
         self.MaskMoon()
         self.MaskWind()
         self.MaskPhase()
-        #self.Waga()  # calculate propability for randomization order of objects to observe
-        #self.RandomizeList()  # randomize listo of objects to observev
         self.MaskStartEnd()  # mask visibilite base on t_start and t_end
         self.MaskPhaseStartEnd()  # mask visibilite base on t_start and t_end
         self.Waga()  # calculate propability for randomization order of objects to observe
@@ -135,7 +133,7 @@ class telescope_plan_generator():
                     ps = False
                     pe = False
                     period = False
-                    hjd0 = False
+                    hjd0 = 2460000
                     ph_mk = False
                     cycle = False
                     read_mod = None
@@ -624,8 +622,6 @@ class telescope_plan_generator():
                     P = self.period[n]
                     hjd0 = self.hjd0[n]
                     if P and len(jd)>0:
-                        if not hjd0:
-                            hjd0 = 2460000
                         ph = (numpy.array(jd) - float(hjd0)) / float(P) % 1
 
                         night_ph = (numpy.array(self.nightTime) - float(hjd0)) / float(P) % 1
