@@ -98,164 +98,164 @@ CN_TrA      16:28:29.58   -61:55:51.31   seq=2/Ic/20,2/V/13,2/B/20,2/g/13,2/r/8,
 
 # group RR Lyr
 
-AA_Aql       20:38:15.07  -02:53:25.01              uobi=c64ca884      seq=2/Ic/6,2/V/3.8,2/g/3.7,2/r/2.8,2/i/4,2/z/14             priority=4  P=0.3617877  mV=10.53
-AV_Peg       21:52:02.79  +22:34:29.37              uobi=bb5ed367      seq=2/Ic/20,2/V/13,2/g/13,2/r/8,2/i/13,2/z/40         priority=4  P=0.3903814  mV=11.90
-BB_Eri       04:53:37.51  -19:26:01.06              uobi=d96d923a      seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/30             priority=4  P=0.5699097  mV=11.54
-BH_Peg       22:53:01.03  +15:47:16.60              uobi=95481ad3      seq=2/Ic/5,2/V/3.5,2/g/3.4,2/r/2.6,2/i/3.8,2/z/13         priority=4  P=0.640993      mV=10.44
-BK_Tuc       23:29:33.31  -72:32:39.79              uobi=388d005f      seq=2/Ic/45,2/V/35,2/g/36,2/r/19,2/i/30,2/z/83             priority=4  P=0.5500676  mV=12.89
-BR_Aqr       23:38:32.89  -09:19:07.46              uobi=3c690b12      seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/27         priority=4  P=0.4818717  mV=11.38
-BT_Aqr       20:57:48.40  -05:41:06.67              uobi=80d56d2a      seq=2/Ic/50,2/V/23,2/g/20,2/r/20,2/i/35,2/z/100             priority=4  P=0.4063595  mV=12.46
-CD_Vel       09:44:38.24  -45:52:37.11              uobi=f7adbac3      seq=2/Ic/22,2/V/15,2/g/15,2/r/9,2/i/14,2/z/43         priority=4  P=0.5735076  mV=12.01   comment="exp not verified"
-CP_Aqr       21:10:12.84  -01:43:16.13              uobi=2a81e587      seq=2/Ic/16,2/V/10,2/g/10,2/r/6,2/i/10,2/z/33             priority=4  P=0.4634018  mV=11.63
-DH_Hya       09:00:14.82  -09:46:44.29              uobi=c241f14e      seq=2/Ic/15,2/V/5,2/g/4,2/r/4,2/i/11,2/z/40         priority=4  P=0.4890007  mV=11.90   comment=""
-DN_Aqr       23:19:17.20  -24:12:58.82              uobi=1b8792d1      seq=2/Ic/11,2/V/7,2/g/7,2/r/4,2/i/7,2/z/24             priority=4  P=0.6337558  mV=11.21
-DX_Del       20:47:28.35  +12:27:50.68              uobi=ab4b1c47      seq=2/Ic/4,2/V/2.5,2/g/2.4,2/r/2.0,2/i/2.9,2/z/10         priority=4  P=0.4726191  mV=10.10
-EW_Cam       07:27:27.98  +72:42:12.50              uobi=5b1c9eec      seq=2/Ic/2.7,2/V/1.4,2/g/1.3,2/r/1.2,2/i/1.7,2/z/6         priority=4  P=0.628408      mV=9.48   comment="exp not verified"
-HH_Pup       07:20:35.55  -46:42:30.09              uobi=81bcf932      seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/28         priority=4  P=0.3907454  mV=11.44  comment="exp not verified"
-RR_Cet       01:32:08.17  +01:20:30.23              uobi=66333ecc      seq=2/Ic/3.9,2/V/2.2,2/g/2.1,2/r/1.7,2/i/2.5,2/z/9         priority=4  P=0.55302836  mV=9.94
-RR_Gru       21:38:03.56  -44:41:12.09              uobi=e5e10174      seq=2/Ic/36,2/V/27,2/g/28,2/r/15,2/i/24,2/z/68            priority=4  P=0.5524640  mV=12.63
-RR_Leo       10:07:43.46  +23:59:30.31              uobi=ff0ddf11      seq=2/Ic/8,2/V/5,2/g/5,2/r/3.7,2/i/5,2/z/18         priority=4  P=0.4524021  mV=10.87
-RU_Scl       00:02:48.10  -24:56:43.07              uobi=29dc1911      seq=2/Ic/5,2/V/3.3,2/g/3.2,2/r/2.5,2/i/3.7,2/z/13         priority=4  P=0.4933549  mV=10.39
-RV_Cet       02:15:14.90  -10:48:00.71              uobi=9101b9ff      seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20             priority=4  P=0.62341  mV=10.97
-RV_Phe       23:28:31.45  -47:27:13.04              uobi=f9e2a120      seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39             priority=4  P=0.5964071  mV=11.88
-RX_Cet       00:33:38.28  -15:29:14.80              uobi=3c9b3f2c      seq=2/Ic/14,2/V/9,2/g/6,2/r/4,2/i/9,2/z/29             priority=4  P=0.57373  mV=11.50   comment=''
-RX_Eri       04:49:44.29  -15:44:28.24              uobi=d0d945c2      seq=2/Ic/4.0,2/V/2.2,2/g/2.1,2/r/1.7,2/i/2.5,2/z/9         priority=4  P=0.5872453  mV=9.96
-S_Ara       17:59:10.73  -49:26:00.45               uobi=520d66fd     seq=2/Ic/6,2/V/3.5,2/g/3.5,2/r/2.6,2/i/3.9,2/z/13             priority=4  P=0.451848  mV=10.46
-SS_For       02:07:51.97  -26:51:57.71              uobi=9881721f      seq=2/Ic/5,2/V/3.0,2/g/3.0,2/r/2.3,2/i/3.4,2/z/12         priority=4  P=0.49543    mV=10.30
-ST_Pic       06:14:01.16  -61:28:23.52              uobi=d02a610b      seq=2/Ic/3.2,2/V/1.7,2/g/1.7,2/r/1.4,2/i/2.0,2/z/7         priority=4  P=0.4857445  mV=9.696  comment="exp not verified"
-SV_Eri       03:11:52.10  -11:21:14.06              uobi=f26f5672      seq=2/Ic/4,2/V/2.6,2/g/2.5,2/r/2.0,2/i/3.0,2/z/11         priority=4  P=0.713877     mV=10.14
-SW_And       00:23:43.08  +29:24:03.62              uobi=d9d99c86      seq=1/Ic/5,1/V/5,1/g/5,1/r/5,1/i/5,1/z/5         priority=1  P=0.442262     mV=9.15
-SX_For       03:30:22.34  -36:03:13.50              uobi=7ee2f91a      seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20         priority=4  P=0.6053423  mV=10.97
-SZ_Gem       07:53:43.45  +19:16:23.92              uobi=0c47fee4      seq=2/Ic/10,2/V/5,2/g/4,2/r/4,2/i/9,2/z/45         priority=4  P=0.5011303  mV=12.07   comment=""
-TT_Lyn       09:03:07.78  +44:35:08.11              uobi=91dab0dd      seq=2/Ic/2.7,2/V/1.4,2/g/1.4,2/r/1.2,2/i/1.7,2/z/6         priority=4  P=0.597434355  mV=9.51   comment="exp not verified"
-U_Lep       04:56:17.98  -21:13:02.02               uobi=e886cfd4     seq=2/Ic/6,2/V/4,2/g/4,2/r/3.0,2/i/4,2/z/15            priority=4  P=0.5814789  mV=10.63
-U_Pic       04:50:06.62  -50:39:25.23               uobi=ccf7a0ea     seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/25             priority=4  P=0.4403750  mV=11.26
-UU_Cet       00:04:05.12  -16:59:51.54              uobi=0825d0c7      seq=2/Ic/20,2/V/14,2/g/14,2/r/8,2/i/13,2/z/41             priority=4  P=0.6060736  mV=11.95
-V341_Aql   20:32:31.55  +00:35:07.04                uobi=0c7baebe    seq=2/Ic/8,2/V/5,2/g/4,2/r/3.6,2/i/5,2/z/18             priority=4  P=0.5780230  mV=10.83
-V4424_Sgr   19:54:01.90  -30:15:10.43               uobi=5d7e2dd2     seq=2/Ic/5,2/V/2.6,2/g/2.5,2/r/2,2/i/3,2/z/12         priority=4  P=0.4245034  mV=10.32
-V675_Sgr   18:13:35.40  -34:19:01.85                uobi=bcc9ac2d    seq=2/Ic/4,2/V/2.7,2/g/2.6,2/r/2.1,2/i/3.1,2/z/11             priority=4  P=0.6422935  mV=10.18
-V_Ind       21:11:29.90  -45:04:28.39               uobi=698d5f76     seq=2/Ic/4,2/V/2.5,2/g/2.7,2/r/2.1,2/i/3.1,2/z/11         priority=4  P=0.4796017  mV=10.21
-VW_Scl       01:18:14.97  -39:12:44.84              uobi=eafdc0b0      seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/23             priority=4  P=0.5109117  mV=11.17
-W_Tuc       00:58:09.70  -63:23:44.36               uobi=08deb864     seq=2/Ic/11,2/V/7,2/g/7,2/r/4,2/i/7,2/z/24             priority=4  P=0.6422382  mV=11.23    comment="exp not verified"
-WY_Ant       10:16:04.94  -29:43:42.41              uobi=bb76618b      seq=2/Ic/6,2/V/3.8,2/g/3.8,2/r/2.8,2/i/3.8,2/z/13         priority=4  P=0.5743427  mV=10.87    comment="exp not verified"
-X_Ari       03:08:30.88  +10:26:45.21               uobi=8802f2e1     seq=2/Ic/2.7,2/V/1.4,2/g/1.4,2/r/1.2,2/i/1.7,2/z/6         priority=4  P=0.6511796  mV=9.50
-X_Ret       03:25:20.09  -65:03:18.61               uobi=892f9fa3     seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39             priority=4  P=0.49201  mV=11.88
-XZ_Gru       22:47:34.68  -39:03:33.00              uobi=72ecd669      seq=2/Ic/7,2/V/4,2/g/4,2/r/3.5,2/i/5,2/z/17         priority=4  P=0.8831035  mV=10.79
-Z_Mic       21:16:22.70  -30:17:03.06               uobi=3a9bc0ed     seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/30             priority=4  P=0.5869258  mV=11.54
-AE_Boo       14:47:35.26  +16:50:43.55              uobi=f3ad5406      seq=2/Ic/6,2/V/4,2/g/4,2/r/3.0,2/i/4,2/z/15             priority=4  P=0.3148921  mV=10.62    comment="RRc"
-CS_Eri       02:37:05.75  -42:57:48.03              uobi=a736fbb6      seq=2/Ic/2.7,2/V/1.4,2/g/1.3,2/r/1.2,2/i/1.7,2/z/6         priority=4  P=0.311331  mV=9.47        comment="RRc"
-EV_Psc       23:54:08.12  +00:57:49.08              uobi=d76f4c7b      seq=2/Ic/7,2/V/4,2/g/4,2/r/3.1,2/i/4,2/z/15         priority=4  P=0.3062573  mV=10.64    comment="RRc"
-IY_Eri       02:07:28.15  -57:52:09.96              uobi=bd1d5f2b      seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/23             priority=4  P=0.375026  mV=11.16    comment="RRc"
-LS_Her       16:02:03.79  +17:28:50.41              uobi=1463a38b      seq=2/Ic/8,2/V/5,2/g/5,2/r/3.9,2/i/5,2/z/19             priority=4  P=0.230808  mV=10.93    comment="RRc"
-MT_Tel       19:02:12.27  -46:39:12.08              uobi=7e534f21      seq=1/Ic/1,1/V/1,1/g/1,1/r/1,1/i/1,1/z/7         priority=1  P=0.3169011  mV=8.94        comment="RRc"
-RU_Psc       01:14:26.03  +24:24:56.36              uobi=35b9c32b      seq=2/Ic/4,2/V/2.8,2/g/2.7,2/r/2.2,2/i/3.2,2/z/11         priority=4  P=0.390385  mV=10.22    comment="RRc"
-RU_Sex       09:45:40.74  -06:43:59.84              uobi=400df41d      seq=2/Ic/7,2/V/4,2/g/4,2/r/3.5,2/i/5,2/z/17         priority=4  P=0.350232  mV=10.79    comment="RRc, exp not verified"
-T_Sex       09:53:28.39  +02:03:26.34               uobi=16ecd46d     seq=2/Ic/5,2/V/2.9,2/g/2.9,2/r/2.2,2/i/3.3,2/z/12         priority=4  P=0.32469759  mV=10.26    comment="RRc, exp not verified"
-AR_Per       04:17:17.20 47:24:00.64                uobi=648cdfa6      seq=2/Ic/3.9,2/V/2.2,2/g/2.1,2/r/1.7,2/i/2.5,2/z/9               priority=4 P=0.42554892 mV=9.94 comment=RRAB
-V1047_Cas   00:42:01.51 54:15:04.94                 uobi=4028e8c5    seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/23                 priority=4 P=0.3344 mV=11.14 comment=RRC
-V1057_Cas   00:51:53.02 65:10:50.12                 uobi=4155649a    seq=2/Ic/4,2/V/2.8,2/g/2.7,2/r/2.2,2/i/3.2,2/z/11               priority=4 P=0.423323 mV=10.22 comment=RRC
-V1059_Cas   00:54:35.98 74:31:41.39                 uobi=a5323405    seq=2/Ic/6,2/V/3.9,2/g/3.8,2/r/2.9,2/i/4,2/z/15                 priority=4 P=0.64968 mV=10.57 comment=RRAB
-LP_Cam      04:09:40.36 62:27:11.49                 uobi=4655e098    seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/10,2/z/32           priority=4 P=0.57203 mV=11.61 comment=RRAB
-RX_For      03:11:13.22 -26:28:58.69                uobi=c49a3ff3     seq=2/Ic/20,2/V/14,2/g/14,2/r/8,2/i/13,2/z/41           priority=4 P=0.597313 mV=11.95 comment=RRAB
-BD+15_477   03:23:37.20 15:40:04.42                 uobi=5fb9e2f0      seq=2/Ic/3.4,2/V/1.8,2/g/1.7,2/r/1.5,2/i/2.1,2/z/8 priority=4 P=0.238477 mV=9.75 comment=RRC
-HD_290025   05:11:18.08 -1:31:32.45                 uobi=9e5e7f13      seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/13,2/z/39 priority=4 P=0.6949022 mV=11.89 comment=RRAB
-AO_Lep      05:24:14.64 -14:06:03.13                uobi=c813a320       seq=2/Ic/16,2/V/11,2/g/11,2/r/7,2/i/11,2/z/34 priority=4 P=0.5600866 mV=11.69 comment=RRAB
-RY_Col      05:15:07.78 -41:37:41.67                uobi=8af49c5e       seq=2/Ic/6,2/V/3.5,2/g/3.4,2/r/2.6,2/i/3.9,2/z/13 priority=4 P=0.47884 mV=10.45 comment=RRAB
-VW_Scl      01:18:14.97 -39:12:44.84                uobi=5a77ec00       seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/6,2/z/20 priority=4 P=0.5109117 mV=11.01 comment=RRAB
-SV_Scl     01:44:59.66 -30:03:33.39                 uobi=9be59aa0      seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/10,2/z/32 priority=4 P=0.377364 mV=11.6 comment=RRC
-RU_Cet     01:00:40.30 -15:57:27.61                 uobi=0fcf6c44      seq=2/Ic/20,2/V/13,2/g/13,2/r/8,2/i/13,2/z/40 priority=4 P=0.5862844 mV=11.9 comment=RRAB
-RZ_Cet     02:28:32.44 -8:21:30.11                  uobi=2ce1c6fc       seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/30 priority=4 P=0.5105981 mV=11.53 comment=RRAB
-RY_Psc     00:11:41.10 -1:44:55.33                  uobi=e0712cd3       seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/29 priority=4 P=0.5297456 mV=11.49 comment=RRAB
-SS_Psc     01:20:52.36 21:43:43.26                  uobi=7c747fa9       seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/6,2/z/20 priority=4 P=0.28779276 mV=11.01 comment=RRC
-RU_Psc     01:14:26.04 24:24:56.37                  uobi=3f9f5865       seq=2/Ic/4,2/V/2.6,2/g/2.6,2/r/2.0,2/i/3.0,2/z/11 priority=4 P=0.390385 mV=10.15 comment=RRC
-XX_And     01:17:27.41 38:57:02.05                  uobi=a9c324b4       seq=2/Ic/6,2/V/4,2/g/4,2/r/3.0,2/i/4,2/z/15 priority=4 P=0.722757 mV=10.62 comment=RRAB
-SS_Pic     05:47:28.92 -45:14:45.43                 uobi=8e17245f        seq=2/Ic/3,2/V/2,2/g/2,2/r/2,2/i/2,2/z/8 priority=4 P=0.494099 mV=10.2 comment=RRAB
-U_Pic      04:50:06.63 -50:39:25.24                 uobi=54d17134        seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/23 priority=4 P=0.440375 mV=11.17 comment=RRAB
-RS_Pic     04:42:03.27 -51:33:35.33                 uobi=fc57485d        seq=2/Ic/20,2/V/13,2/g/14,2/r/8,2/i/13,2/z/40 priority=4 P=0.7320752 mV=11.91 comment=RRAB
-HD_270239      05:51:21.74 -68:12:44.05             uobi=a5fed282       seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39 priority=4 P=0.321776 mV=11.87 comment=RRC
-CPD-66_237     03:58:12.55 -66:29:40.57             uobi=a60ca283       seq=2/Ic/17,2/V/11,2/g/11,2/r/7,2/i/11,2/z/35 priority=4 P=0.360599 mV=11.74 comment=RRC
-AM_Tuc      01:18:30.65 -67:55:04.96                uobi=057e3a5a       seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/30 priority=4 P=0.4057948 mV=11.54 comment=RRC
-AO_Tuc      00:04:06.34 -59:29:06.15                uobi=7e801c6b       seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22 priority=4 P=0.3332332 mV=11.1 comment=RRC
-V795_Cep    01:24:30.87 85:01:07.24                 uobi=a2edb0c3        seq=2/Ic/16,2/V/10,2/g/10,2/r/6,2/i/10,2/z/33 priority=4 P=0.36697 mV=11.64 comment=RRC
-BW_Tri      02:16:06.25 34:37:48.98                 uobi=2bb7a6b7        seq=2/Ic/17,2/V/11,2/g/12,2/r/7,2/i/11,2/z/36 priority=4 P=0.22246 mV=11.75 comment=RRC
-V516_And    00:56:03.36 35:33:57.65                 uobi=1c4d9a19        seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26 priority=4 P=0.42871 mV=11.33 comment=RRC
-BB_Lep      05:42:30.17 -16:22:54.57                uobi=fe4992e2         seq=2/Ic/18,2/V/12,2/g/12,2/r/7,2/i/11,2/z/36 priority=4 P=0.5389 mV=11.78 comment=RRAB
-CD_Ari      03:03:15.50 27:16:41.52                 uobi=cb4a37d3          seq=2/Ic/13,2/V/9,2/g/9,2/r/5,2/i/9,2/z/29 priority=4 P=0.328282 mV=11.46 comment=RRC
-V1035_Cas   00:27:58.95 49:09:45.27                 uobi=4cda6b2c          seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39 priority=4 P=0.39202 mV=11.86 comment=RRC
-HL_Cet      01:57:52.30 -5:32:03.37                 uobi=31941b28          seq=2/Ic/18,2/V/12,2/g/12,2/r/7,2/i/12,2/z/37 priority=4 P=0.301467 mV=11.79 comment=RRC
-FR_Psc      00:47:57.06 11:42:23.69                 uobi=5fa0fb49          seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22 priority=4 P=0.45568 mV=11.08 comment=RRAB
-ASAS_J004107+2040.4    00:41:07.05 20:40:26.92      uobi=33244a90        seq=2/Ic/17,2/V/11,2/g/11,2/r/7,2/i/11,2/z/35 priority=4 P=0.367528 mV=11.74 comment=RRC
-ASAS_J025822+1540.3    02:58:21.96 15:40:18.66      uobi=d316960a        seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/9,2/z/31 priority=4 P=0.6424174 mV=11.56 comment=RRAB
-ASAS_J002443-6949.7    00:24:42.20 -69:49:43.96     uobi=5cea859c         seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26 priority=4 P=0.7279597 mV=11.33 comment=RRAB
-TY_Cet          02:20:44.25 -14:23:22.95            uobi=4f865415         seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/28 priority=4 P=0.32368 mV=11.44 comment=RRC
-ASAS_J031408-3446.4   03:14:08.31 -34:46:22.44      uobi=f81eb8fd       seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39 priority=4 P=0.3124235 mV=11.88 comment=RRC
-U_Cae  04:53:14.43  -37:49:15.78                    uobi=59e19989         seq=2/Ic/24,2/V/18,2/g/18,2/r/10,2/i/16,2/z/45  priority=4  P=0.4197758  mV=12.18
-SU_Col  05:07:47.04  -33:51:54.68                   uobi=0c0f97cb          seq=2/Ic/32,2/V/24,2/g/25,2/r/14,2/i/21,2/z/60  priority=4  P=0.4873444  mV=12.54
-IU_Car  06:53:07.45  -59:35:43.69                   uobi=506ac680          seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38  priority=4  P=0.7369909  mV=11.94
-AA_CMi  07:17:19.17  01:43:40.05                    uobi=506fb6d2         seq=2/Ic/14,2/V/10,2/g/10,2/r/6,2/i/9,2/z/29  priority=4  P=0.4763293  mV=11.56
-HK_Pup  07:44:46.82  -13:05:56.32                   uobi=56661a94          seq=2/Ic/12,2/V/8,2/g/7,2/r/5,2/i/7,2/z/25  priority=4  P=0.7342215  mV=11.28
-BB_Pup  08:24:22.63  -19:32:31.42                   uobi=6680b945          seq=2/Ic/23,2/V/17,2/g/18,2/r/10,2/i/15,2/z/45  priority=4  P=0.4805504  mV=12.16
-GO_Hya  08:54:53.5  06:26:12.57                     uobi=ed89e021       seq=2/Ic/29,2/V/22,2/g/22,2/r/12,2/i/19,2/z/54  priority=4  P=0.6364379  mV=12.4
-SZ_Hya  09:13:48.81  -9:19:09.44                    uobi=9280d804        seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26  priority=4  P=0.537228  mV=11.34
-WZ_Hya  10:13:24.12  -13:08:17.7                    uobi=41b552e2        seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20  priority=4  P=0.5377  mV=10.86
-FS_Vel  10:46:00.36  -43:59:17.22                   uobi=8dfac071        seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44  priority=4  P=0.4757695  mV=12.14
-AF_Vel  10:53:02.56  -49:54:22.98                   uobi=34c0093d        seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/27  priority=4  P=0.5274124  mV=11.41
-V595_Cen  11:22:06.14  -36:35:08.09                 uobi=a5efd616            seq=2/Ic/22,2/V/16,2/g/16,2/r/9,2/i/14,2/z/42  priority=4  P=0.6910371  mV=12.07
-SS_Leo  11:33:54.47  -00:02:00.43                   uobi=a893b2fb         seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22  priority=4  P=0.6263506  mV=11.04
-BI_Cen  11:45:54.59  -59:22:40.46                   uobi=ffaa1bcb         seq=2/Ic/20,2/V/14,2/g/15,2/r/8,2/i/13,2/z/39  priority=4  P=0.4531901  mV=11.98
-IK_Hya  12:04:47.2  -27:40:44.03                    uobi=105e6b32        seq=2/Ic/3,2/V/2,2/g/2,2/r/1.5,2/i/2,2/z/14  priority=4  P=0.6503034  mV=10.14
-UU_Vir  12:08:35.03  -00:27:24.35                   uobi=a3d7bab7         seq=2/Ic/5,2/V/2.5,2/g/2,2/r/1.8,2/i/3.5,2/z/17  priority=4  P=0.4755842  mV=10.57
-V746_Cen  12:48:24.08 -33:39:29.26                  uobi=67f94be2          seq=2/Ic/7,2/V/3,2/g/3,2/r/3,2/i/4,2/z/16  priority=4  P=0.5514032  mV=10.46
-AS_Vir  12:52:45.88  -10:15:37.02                   uobi=430c1933         seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38  priority=4  P=0.553415  mV=11.92
-AM_Vir  13:23:33.33  -16:39:58.57                   uobi=a53cae6d         seq=2/Ic/13,2/V/9,2/g/9,2/r/6,2/i/8,2/z/27  priority=4  P=0.615085  mV=11.45
-RV_Oct  13:46:31.38  -84:24:06.15                   uobi=8fb616bf         seq=2/Ic/9,2/V/6,2/g/5,2/r/4,2/i/6,2/z/21  priority=4  P=0.5711583  mV=10.96
-V499_Cen  13:55:14.78  -43:14:25.18                 uobi=52152364            seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/23  priority=4  P=0.521208  mV=11.17
-V674_Cen  14:03:24.01  -36:24:20.52                 uobi=90a512d1            seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26  priority=4  P=0.4939896  mV=11.38
-ST_Vir  14:27:39.07  -00:54:06.07                   uobi=ace4e104                 seq=2/Ic/17,2/V/12,2/g/12,2/r/7,2/i/11,2/z/34  priority=4  P=0.4109  mV=11.77
-TY_Aps  14:48:49.89  -71:19:41.78                   uobi=941d4251                 seq=2/Ic/18,2/V/13,2/g/13,2/r/8,2/i/12,2/z/36  priority=4  P=0.5016788  mV=11.86
-XZ_Aps  14:52:05.32  -79:40:46.37                   uobi=22657c55                 seq=2/Ic/26,2/V/19,2/g/20,2/r/11,2/i/17,2/z/49  priority=4  P=0.5872567  mV=12.28
-TV_Lib  15:18:21.89  -08:27:42.7                    uobi=c641090f                seq=2/Ic/21,2/V/16,2/g/16,2/r/9,2/i/14,2/z/41  priority=4  P=0.269624  mV=12.06
-ASAS_J152205-0628.3  15:22:04.83  -06:28:16.31      uobi=06a99ad3          seq=2/Ic/6,2/V/4,2/g/4,2/r/2,2/i/4,2/z/11  priority=4  P=0.7788966  mV=11.13
-FW_Lup  15:22:25.38  -40:55:36.48                   uobi=19dddc0a            seq=2/Ic/3,2/V/1,2/g/1,2/r/1,2/i/2,2/z/8  priority=4  P=0.4841701  mV=9.03
-VY_Ser  15:31:01.82  01:41:01.61                    uobi=4759b821           seq=2/Ic/5,2/V/2,2/g/2,2/r/2,2/i/3,2/z/14  priority=4  P=0.7141  mV=10.13
-AN_Ser  15:53:31.05  12:57:39.97                    uobi=fe971657           seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/6,2/z/20  priority=4  P=0.5220603  mV=10.92
-AT_Ser  15:55:40.37  07:59:19.47                    uobi=98b0737f           seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/18  priority=4  P=0.7466091  mV=11.46
-AV_Ser  16:03:41.83  00:35:56.86                    uobi=7d43343c           seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/28  priority=4  P=0.487564  mV=11.51
-BS_Aps  16:20:51.49  -71:40:15.91                   uobi=46158594            seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44  priority=4  P=0.5825659  mV=12.16
-V445_Oph  16:24:41.21  -06:32:29.82                 uobi=2eb0bd77         seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21  priority=4  P=0.397025  mV=11.01
-VX_Her  16:30:40.75  18:22:00.88                    uobi=55a86550        seq=2/Ic/8,2/V/5,2/g/5,2/r/4,2/i/5,2/z/19  priority=4  P=0.455363  mV=10.79
-UV_Oct  16:32:24.97  -83:54:12.36                   uobi=6493692e         seq=2/Ic/4,2/V/1,2/g/1,2/r/2,2/i/2,2/z/12  priority=4  P=0.54258  mV=9.48
-RW_TrA  17:00:46.67  -66:39:50.12                   uobi=f9050c97         seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/25  priority=4  P=0.3740418  mV=11.3
-V494_Sco  17:40:48.48  -31:32:31.9                  uobi=4287a90f          seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26  priority=4  P=0.427281  mV=11.37
-EX_Aps  17:51:45.01  -69:20:05.07                   uobi=8dc6a519         seq=2/Ic/27,2/V/20,2/g/21,2/r/11,2/i/18,2/z/51  priority=4  P=0.4718003  mV=12.34
-WY_Pav  17:56:12.31  -57:09:43.92                   uobi=3e871f75         seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44  priority=4  P=0.5885764  mV=12.15
-MS_Ara  18:03:04.28  -52:43:21.14                   uobi=04e71cc1         seq=2/Ic/21,2/V/15,2/g/15,2/r/9,2/i/14,2/z/40  priority=4  P=0.5249876  mV=12.02
-V1640_Sgr  18:43:35.47  -34:52:13.53                uobi=d9df9d61         seq=2/Ic/36,2/V/28,2/g/29,2/r/15,2/i/24,2/z/67  priority=4  P=0.3676  mV=12.68
-V413_CrA  18:47:57.57  -37:44:22.93                 uobi=7f3e88ce        seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/5,2/z/18  priority=4  P=0.58934  mV=10.63
-V440_Sgr  19:32:20.78  -23:51:13.61                 uobi=e963d9c5        seq=2/Ic/6,2/V/1.5,2/g/1.5,2/r/1.5,2/i/3,2/z/15  priority=4  P=0.4774941  mV=10.27
-V1645_Sgr  20:20:44.51  -41:07:06.44                uobi=88eae19c         seq=2/Ic/8,2/V/4,2/g/3,2/r/2.5,2/i/7,2/z/30  priority=4  P=0.553  mV=11.35
-RV_Cap  21:01:28.89  -15:13:47.75                   uobi=9e9e3286        seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21  priority=4  P=0.447745  mV=11.01
-SW_Aqr  21:15:17.81  00:04:34.0                     uobi=5a784b0a         seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/24  priority=4  P=0.459305  mV=11.2
-NSVS_17246509  21:23:48.85  -07:32:05.39            uobi=92fb70b6           seq=2/Ic/30,2/V/23,2/g/23,2/r/13,2/i/20,2/z/56  priority=4  P=0.7974628  mV=12.46
-YY_Tuc  23:11:00.58  -58:20:07.61                   uobi=9069b2dc            seq=2/Ic/20,2/V/15,2/g/15,2/r/9,2/i/13,2/z/39  priority=4  P=0.6348982  mV=11.98
-DH_Peg  22:15:25.66  06:49:21.43                    uobi=62266d0e           seq=2/Ic/4,2/V/1,2/g/1,2/r/2,2/i/3,2/z/12  priority=4  P=0.25551  mV=9.58  comment="RRc
-BV_Aqr  22:02:54.0  -21:31:32.46                    uobi=faaf5cdb           seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/22  priority=4  P=0.3637032  mV=11.11  comment="RRc
-YZ_Cap  21:19:32.4  -15:07:01.43                    uobi=19bba56f           seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/25  priority=4  P=0.2734529  mV=11.28  comment="RRc
-DR_Cap  20:31:44.92  -21:58:46.7                    uobi=3d80b607           seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26  priority=4  P=0.3107105  mV=11.38  comment="RRc
-ASAS_J200431-5352.3  20:04:31.45  -53:52:18.85      uobi=1d872d65         seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22  priority=4  P=0.300227  mV=11.08  comment="RRc
-HX_Ara  17:58:44.91  -55:16:24.25                   uobi=ee47bc84          seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38  priority=4  P=0.219404  mV=11.94  comment="RRc
-AP_Ser  15:14:00.88  09:58:51.21                    uobi=3f5c3d42         seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22  priority=4  P=0.3408258  mV=11.07  comment="RRc
-ASAS_J143322-0418.2  14:33:22.04  -04:18:11.59      uobi=7f358c49          seq=2/Ic/8,2/V/4,2/g/4,2/r/3,2/i/5,2/z/18  priority=4  P=0.249632  mV=10.73  comment="RRc
-ASAS_J132225-2042.3  13:22:25.26  -20:42:21.61      uobi=41c20279          seq=2/Ic/8,2/V/4,2/g/3,2/r/3,2/i/5,2/z/18  priority=4  P=0.235934  mV=10.67  comment="RRc
-Y_Crv  12:38:10.42  -15:00:00.16                    uobi=4f61d6db           seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/10,2/z/30  priority=4  P=0.3290266  mV=11.6  comment="RRc
-HY_Com  12:18:16.01  16:09:15.45                    uobi=3f575a78           seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/4,2/z/17  priority=4  P=0.4485784  mV=10.54  comment="RRc
-V753_Cen  11:51:15.34  -55:48:16.46                 uobi=92154775          seq=2/Ic/7,2/V/3,2/g/3,2/r/3,2/i/4,2/z/16  priority=4  P=0.22135  mV=10.48  comment="RRc
-ASAS_J110522-2641.0  11:05:21.93  -26:41:04.77      uobi=e8e4616d           seq=2/Ic/18,2/V/13,2/g/13,2/r/8,2/i/12,2/z/36  priority=4  P=0.2944592  mV=11.85  comment="RRc
-NSVS_13036187  10:13:31.77  -07:02:17.39            uobi=c1670a83            seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21  priority=4  P=0.31358  mV=11.0  comment="RRc
-ASAS_J090900-0410.4  09:09:00.08  -04:10:24.67      uobi=41a05813            seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20  priority=4  P=0.303258  mV=10.87  comment="RRc
-V701_Pup  08:19:32.85  -23:58:10.49                 uobi=decfa5ee             seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/5,2/z/17  priority=4  P=0.285668  mV=10.62  comment="RRc
-ASAS_J081012-2903.0  08:10:12.06  -29:03:00.69      uobi=0b9b3124             seq=2/Ic/4,2/V/2,2/g/1,2/r/2,2/i/3,2/z/12  priority=4  P=0.229656  mV=9.67  comment="RRc
-RW_Ari  02:16:03.71  17:31:58.75                    uobi=fd862148              seq=2/Ic/26,2/V/20,2/g/20,2/r/11,2/i/17,2/z/50  priority=4  P=0.3542971  mV=12.3  comment="RRc
+AA_Aql       20:38:15.07  -02:53:25.01            uobi=c64ca884   seq=2/Ic/6,2/V/3.8,2/g/3.7,2/r/2.8,2/i/4,2/z/14      priority=4  P=0.3617877    mV=10.53
+AV_Peg       21:52:02.79  +22:34:29.37            uobi=bb5ed367   seq=2/Ic/20,2/V/13,2/g/13,2/r/8,2/i/13,2/z/40        priority=4  P=0.3903814    mV=11.90
+BB_Eri       04:53:37.51  -19:26:01.06            uobi=d96d923a   seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/30           priority=4  P=0.5699097    mV=11.54
+BH_Peg       22:53:01.03  +15:47:16.60            uobi=95481ad3   seq=2/Ic/5,2/V/3.5,2/g/3.4,2/r/2.6,2/i/3.8,2/z/13    priority=4  P=0.640993     mV=10.44
+BK_Tuc       23:29:33.31  -72:32:39.79            uobi=388d005f   seq=2/Ic/45,2/V/35,2/g/36,2/r/19,2/i/30,2/z/83       priority=4  P=0.5500676    mV=12.89
+BR_Aqr       23:38:32.89  -09:19:07.46            uobi=3c690b12   seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/27           priority=4  P=0.4818717    mV=11.38
+BT_Aqr       20:57:48.40  -05:41:06.67            uobi=80d56d2a   seq=2/Ic/50,2/V/23,2/g/20,2/r/20,2/i/35,2/z/100      priority=4  P=0.4063595    mV=12.46
+CD_Vel       09:44:38.24  -45:52:37.11            uobi=f7adbac3   seq=2/Ic/22,2/V/15,2/g/15,2/r/9,2/i/14,2/z/43        priority=4  P=0.5735076    mV=12.01   comment="exp not verified"
+CP_Aqr       21:10:12.84  -01:43:16.13            uobi=2a81e587   seq=2/Ic/16,2/V/10,2/g/10,2/r/6,2/i/10,2/z/33        priority=4  P=0.4634018    mV=11.63
+DH_Hya       09:00:14.82  -09:46:44.29            uobi=c241f14e   seq=2/Ic/15,2/V/5,2/g/4,2/r/4,2/i/11,2/z/40          priority=4  P=0.4890007    mV=11.90   comment=""
+DN_Aqr       23:19:17.20  -24:12:58.82            uobi=1b8792d1   seq=2/Ic/11,2/V/7,2/g/7,2/r/4,2/i/7,2/z/24           priority=4  P=0.6337558    mV=11.21
+DX_Del       20:47:28.35  +12:27:50.68            uobi=ab4b1c47   seq=2/Ic/4,2/V/2.5,2/g/2.4,2/r/2.0,2/i/2.9,2/z/10    priority=4  P=0.4726191    mV=10.10
+EW_Cam       07:27:27.98  +72:42:12.50            uobi=5b1c9eec   seq=2/Ic/2.7,2/V/1.4,2/g/1.3,2/r/1.2,2/i/1.7,2/z/6   priority=4  P=0.628408     mV=9.48    comment="exp not verified"
+HH_Pup       07:20:35.55  -46:42:30.09            uobi=81bcf932   seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/28           priority=4  P=0.3907454    mV=11.44   comment="exp not verified"
+RR_Cet       01:32:08.17  +01:20:30.23            uobi=66333ecc   seq=2/Ic/3.9,2/V/2.2,2/g/2.1,2/r/1.7,2/i/2.5,2/z/9   priority=4  P=0.55302836   mV=9.94
+RR_Gru       21:38:03.56  -44:41:12.09            uobi=e5e10174   seq=2/Ic/36,2/V/27,2/g/28,2/r/15,2/i/24,2/z/68       priority=4  P=0.5524640    mV=12.63
+RR_Leo       10:07:43.46  +23:59:30.31            uobi=ff0ddf11   seq=2/Ic/8,2/V/5,2/g/5,2/r/3.7,2/i/5,2/z/18          priority=4  P=0.4524021    mV=10.87
+RU_Scl       00:02:48.10  -24:56:43.07            uobi=29dc1911   seq=2/Ic/5,2/V/3.3,2/g/3.2,2/r/2.5,2/i/3.7,2/z/13    priority=4  P=0.4933549    mV=10.39
+RV_Cet       02:15:14.90  -10:48:00.71            uobi=9101b9ff   seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20            priority=4  P=0.62341      mV=10.97
+RV_Phe       23:28:31.45  -47:27:13.04            uobi=f9e2a120   seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39        priority=4  P=0.5964071    mV=11.88
+RX_Cet       00:33:38.28  -15:29:14.80            uobi=3c9b3f2c   seq=2/Ic/14,2/V/9,2/g/6,2/r/4,2/i/9,2/z/29           priority=4  P=0.57373      mV=11.50   comment=''
+RX_Eri       04:49:44.29  -15:44:28.24            uobi=d0d945c2   seq=2/Ic/4.0,2/V/2.2,2/g/2.1,2/r/1.7,2/i/2.5,2/z/9   priority=4  P=0.5872453    mV=9.96
+S_Ara        17:59:10.73  -49:26:00.45            uobi=520d66fd   seq=2/Ic/6,2/V/3.5,2/g/3.5,2/r/2.6,2/i/3.9,2/z/13    priority=4  P=0.451848     mV=10.46
+SS_For       02:07:51.97  -26:51:57.71            uobi=9881721f   seq=2/Ic/5,2/V/3.0,2/g/3.0,2/r/2.3,2/i/3.4,2/z/12    priority=4  P=0.49543      mV=10.30
+ST_Pic       06:14:01.16  -61:28:23.52            uobi=d02a610b   seq=2/Ic/3.2,2/V/1.7,2/g/1.7,2/r/1.4,2/i/2.0,2/z/7   priority=4  P=0.4857445    mV=9.696   comment="exp not verified"
+SV_Eri       03:11:52.10  -11:21:14.06            uobi=f26f5672   seq=2/Ic/4,2/V/2.6,2/g/2.5,2/r/2.0,2/i/3.0,2/z/11    priority=4  P=0.713877     mV=10.14
+SW_And       00:23:43.08  +29:24:03.62            uobi=d9d99c86   seq=1/Ic/5,1/V/5,1/g/5,1/r/5,1/i/5,1/z/5             priority=1  P=0.442262     mV=9.15
+SX_For       03:30:22.34  -36:03:13.50            uobi=7ee2f91a   seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20            priority=4  P=0.6053423    mV=10.97
+SZ_Gem       07:53:43.45  +19:16:23.92            uobi=0c47fee4   seq=2/Ic/10,2/V/5,2/g/4,2/r/4,2/i/9,2/z/45           priority=4  P=0.5011303    mV=12.07   comment=""
+TT_Lyn       09:03:07.78  +44:35:08.11            uobi=91dab0dd   seq=2/Ic/2.7,2/V/1.4,2/g/1.4,2/r/1.2,2/i/1.7,2/z/6   priority=4  P=0.597434355  mV=9.51    comment="exp not verified"
+U_Lep        04:56:17.98  -21:13:02.02            uobi=e886cfd4   seq=2/Ic/6,2/V/4,2/g/4,2/r/3.0,2/i/4,2/z/15          priority=4  P=0.5814789    mV=10.63
+U_Pic        04:50:06.62  -50:39:25.23            uobi=ccf7a0ea   seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/25           priority=4  P=0.4403750    mV=11.26
+UU_Cet       00:04:05.12  -16:59:51.54            uobi=0825d0c7   seq=2/Ic/20,2/V/14,2/g/14,2/r/8,2/i/13,2/z/41        priority=4  P=0.6060736    mV=11.95
+V341_Aql     20:32:31.55  +00:35:07.04            uobi=0c7baebe   seq=2/Ic/8,2/V/5,2/g/4,2/r/3.6,2/i/5,2/z/18          priority=4  P=0.5780230    mV=10.83
+V4424_Sgr    19:54:01.90  -30:15:10.43            uobi=5d7e2dd2   seq=2/Ic/5,2/V/2.6,2/g/2.5,2/r/2,2/i/3,2/z/12        priority=4  P=0.4245034    mV=10.32
+V675_Sgr     18:13:35.40  -34:19:01.85            uobi=bcc9ac2d   seq=2/Ic/4,2/V/2.7,2/g/2.6,2/r/2.1,2/i/3.1,2/z/11    priority=4  P=0.6422935    mV=10.18
+V_Ind        21:11:29.90  -45:04:28.39            uobi=698d5f76   seq=2/Ic/4,2/V/2.5,2/g/2.7,2/r/2.1,2/i/3.1,2/z/11    priority=4  P=0.4796017    mV=10.21
+VW_Scl       01:18:14.97  -39:12:44.84            uobi=eafdc0b0   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/23           priority=4  P=0.5109117    mV=11.17
+W_Tuc        00:58:09.70  -63:23:44.36            uobi=08deb864   seq=2/Ic/11,2/V/7,2/g/7,2/r/4,2/i/7,2/z/24           priority=4  P=0.6422382    mV=11.23   comment="exp not verified"
+WY_Ant       10:16:04.94  -29:43:42.41            uobi=bb76618b   seq=2/Ic/6,2/V/3.8,2/g/3.8,2/r/2.8,2/i/3.8,2/z/13    priority=4  P=0.5743427    mV=10.87   comment="exp not verified"
+X_Ari        03:08:30.88  +10:26:45.21            uobi=8802f2e1   seq=2/Ic/2.7,2/V/1.4,2/g/1.4,2/r/1.2,2/i/1.7,2/z/6   priority=4  P=0.6511796    mV=9.50
+X_Ret        03:25:20.09  -65:03:18.61            uobi=892f9fa3   seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39        priority=4  P=0.49201      mV=11.88
+XZ_Gru       22:47:34.68  -39:03:33.00            uobi=72ecd669   seq=2/Ic/7,2/V/4,2/g/4,2/r/3.5,2/i/5,2/z/17          priority=4  P=0.8831035    mV=10.79
+Z_Mic        21:16:22.70  -30:17:03.06            uobi=3a9bc0ed   seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/30           priority=4  P=0.5869258    mV=11.54
+AE_Boo       14:47:35.26  +16:50:43.55            uobi=f3ad5406   seq=2/Ic/6,2/V/4,2/g/4,2/r/3.0,2/i/4,2/z/15          priority=4  P=0.3148921    mV=10.62   comment="RRc"
+CS_Eri       02:37:05.75  -42:57:48.03            uobi=a736fbb6   seq=2/Ic/2.7,2/V/1.4,2/g/1.3,2/r/1.2,2/i/1.7,2/z/6   priority=4  P=0.311331     mV=9.47    comment="RRc"
+EV_Psc       23:54:08.12  +00:57:49.08            uobi=d76f4c7b   seq=2/Ic/7,2/V/4,2/g/4,2/r/3.1,2/i/4,2/z/15          priority=4  P=0.3062573    mV=10.64   comment="RRc"
+IY_Eri       02:07:28.15  -57:52:09.96            uobi=bd1d5f2b   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/23           priority=4  P=0.375026     mV=11.16   comment="RRc"
+LS_Her       16:02:03.79  +17:28:50.41            uobi=1463a38b   seq=2/Ic/8,2/V/5,2/g/5,2/r/3.9,2/i/5,2/z/19          priority=4  P=0.230808     mV=10.93   comment="RRc"
+MT_Tel       19:02:12.27  -46:39:12.08            uobi=7e534f21   seq=1/Ic/1,1/V/1,1/g/1,1/r/1,1/i/1,1/z/7             priority=1  P=0.3169011    mV=8.94    comment="RRc"
+RU_Psc       01:14:26.03  +24:24:56.36            uobi=35b9c32b   seq=2/Ic/4,2/V/2.8,2/g/2.7,2/r/2.2,2/i/3.2,2/z/11    priority=4  P=0.390385     mV=10.22   comment="RRc"
+RU_Sex       09:45:40.74  -06:43:59.84            uobi=400df41d   seq=2/Ic/7,2/V/4,2/g/4,2/r/3.5,2/i/5,2/z/17          priority=4  P=0.350232     mV=10.79   comment="RRc, exp not verified"
+T_Sex        09:53:28.39  +02:03:26.34            uobi=16ecd46d   seq=2/Ic/5,2/V/2.9,2/g/2.9,2/r/2.2,2/i/3.3,2/z/12    priority=4  P=0.32469759   mV=10.26   comment="RRc, exp not verified"
+AR_Per       04:17:17.20  +47:24:00.64            uobi=648cdfa6   seq=2/Ic/3.9,2/V/2.2,2/g/2.1,2/r/1.7,2/i/2.5,2/z/9   priority=4  P=0.42554892   mV=9.94    comment=RRAB
+V1047_Cas    00:42:01.51  +54:15:04.94            uobi=4028e8c5   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/23           priority=4  P=0.3344       mV=11.14   comment=RRC
+V1057_Cas    00:51:53.02  +65:10:50.12            uobi=4155649a   seq=2/Ic/4,2/V/2.8,2/g/2.7,2/r/2.2,2/i/3.2,2/z/11    priority=4  P=0.423323     mV=10.22   comment=RRC
+V1059_Cas    00:54:35.98  +74:31:41.39            uobi=a5323405   seq=2/Ic/6,2/V/3.9,2/g/3.8,2/r/2.9,2/i/4,2/z/15      priority=4  P=0.64968      mV=10.57   comment=RRAB
+LP_Cam       04:09:40.36  +62:27:11.49            uobi=4655e098   seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/10,2/z/32        priority=4  P=0.57203      mV=11.61   comment=RRAB
+RX_For       03:11:13.22  -26:28:58.69            uobi=c49a3ff3   seq=2/Ic/20,2/V/14,2/g/14,2/r/8,2/i/13,2/z/41        priority=4  P=0.597313     mV=11.95   comment=RRAB
+BD+15_477    03:23:37.20  +15:40:04.42            uobi=5fb9e2f0   seq=2/Ic/3.4,2/V/1.8,2/g/1.7,2/r/1.5,2/i/2.1,2/z/8   priority=4  P=0.238477     mV=9.75    comment=RRC
+HD_290025    05:11:18.08  -01:31:32.45            uobi=9e5e7f13   seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/13,2/z/39        priority=4  P=0.6949022    mV=11.89   comment=RRAB
+AO_Lep       05:24:14.64  -14:06:03.13            uobi=c813a320   seq=2/Ic/16,2/V/11,2/g/11,2/r/7,2/i/11,2/z/34        priority=4  P=0.5600866    mV=11.69   comment=RRAB
+RY_Col       05:15:07.78  -41:37:41.67            uobi=8af49c5e   seq=2/Ic/6,2/V/3.5,2/g/3.4,2/r/2.6,2/i/3.9,2/z/13    priority=4  P=0.47884      mV=10.45   comment=RRAB
+VW_Scl       01:18:14.97  -39:12:44.84            uobi=5a77ec00   seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/6,2/z/20            priority=4  P=0.5109117    mV=11.01   comment=RRAB
+SV_Scl       01:44:59.66  -30:03:33.39            uobi=9be59aa0   seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/10,2/z/32        priority=4  P=0.377364     mV=11.6    comment=RRC
+RU_Cet       01:00:40.30  -15:57:27.61            uobi=0fcf6c44   seq=2/Ic/20,2/V/13,2/g/13,2/r/8,2/i/13,2/z/40        priority=4  P=0.5862844    mV=11.9    comment=RRAB
+RZ_Cet       02:28:32.44  -08:21:30.11            uobi=2ce1c6fc   seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/30           priority=4  P=0.5105981    mV=11.53   comment=RRAB
+RY_Psc       00:11:41.10  -01:44:55.33            uobi=e0712cd3   seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/29           priority=4  P=0.5297456    mV=11.49   comment=RRAB
+SS_Psc       01:20:52.36  +21:43:43.26            uobi=7c747fa9   seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/6,2/z/20            priority=4  P=0.28779276   mV=11.01   comment=RRC
+RU_Psc       01:14:26.04  +24:24:56.37            uobi=3f9f5865   seq=2/Ic/4,2/V/2.6,2/g/2.6,2/r/2.0,2/i/3.0,2/z/11    priority=4  P=0.390385     mV=10.15   comment=RRC
+XX_And       01:17:27.41  +38:57:02.05            uobi=a9c324b4   seq=2/Ic/6,2/V/4,2/g/4,2/r/3.0,2/i/4,2/z/15          priority=4  P=0.722757     mV=10.62   comment=RRAB
+SS_Pic       05:47:28.92  -45:14:45.43            uobi=8e17245f   seq=2/Ic/3,2/V/2,2/g/2,2/r/2,2/i/2,2/z/8             priority=4  P=0.494099     mV=10.2    comment=RRAB
+U_Pic        04:50:06.63  -50:39:25.24            uobi=54d17134   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/23           priority=4  P=0.440375     mV=11.17   comment=RRAB
+RS_Pic       04:42:03.27  -51:33:35.33            uobi=fc57485d   seq=2/Ic/20,2/V/13,2/g/14,2/r/8,2/i/13,2/z/40        priority=4  P=0.7320752    mV=11.91   comment=RRAB
+HD_270239    05:51:21.74  -68:12:44.05            uobi=a5fed282   seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39        priority=4  P=0.321776     mV=11.87   comment=RRC
+CPD-66_237   03:58:12.55  -66:29:40.57            uobi=a60ca283   seq=2/Ic/17,2/V/11,2/g/11,2/r/7,2/i/11,2/z/35        priority=4  P=0.360599     mV=11.74   comment=RRC
+AM_Tuc       01:18:30.65  -67:55:04.96            uobi=057e3a5a   seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/30           priority=4  P=0.4057948    mV=11.54   comment=RRC
+AO_Tuc       00:04:06.34  -59:29:06.15            uobi=7e801c6b   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22           priority=4  P=0.3332332    mV=11.1    comment=RRC
+V795_Cep     01:24:30.87  +85:01:07.24            uobi=a2edb0c3   seq=2/Ic/16,2/V/10,2/g/10,2/r/6,2/i/10,2/z/33        priority=4  P=0.36697      mV=11.64   comment=RRC
+BW_Tri       02:16:06.25  +34:37:48.98            uobi=2bb7a6b7   seq=2/Ic/17,2/V/11,2/g/12,2/r/7,2/i/11,2/z/36        priority=4  P=0.22246      mV=11.75   comment=RRC
+V516_And     00:56:03.36  +35:33:57.65            uobi=1c4d9a19   seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26           priority=4  P=0.42871      mV=11.33   comment=RRC
+BB_Lep       05:42:30.17  -16:22:54.57            uobi=fe4992e2   seq=2/Ic/18,2/V/12,2/g/12,2/r/7,2/i/11,2/z/36        priority=4  P=0.5389       mV=11.78   comment=RRAB
+CD_Ari       03:03:15.50  +27:16:41.52            uobi=cb4a37d3   seq=2/Ic/13,2/V/9,2/g/9,2/r/5,2/i/9,2/z/29           priority=4  P=0.328282     mV=11.46   comment=RRC
+V1035_Cas    00:27:58.95  +49:09:45.27            uobi=4cda6b2c   seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39        priority=4  P=0.39202      mV=11.86   comment=RRC
+HL_Cet       01:57:52.30  -05:32:03.37            uobi=31941b28   seq=2/Ic/18,2/V/12,2/g/12,2/r/7,2/i/12,2/z/37        priority=4  P=0.301467     mV=11.79   comment=RRC
+FR_Psc       00:47:57.06  +11:42:23.69            uobi=5fa0fb49   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22           priority=4  P=0.45568      mV=11.08   comment=RRAB
+TY_Cet       02:20:44.25  -14:23:22.95            uobi=4f865415   seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/28           priority=4  P=0.32368      mV=11.44   comment=RRC
+ASAS_J004107+2040.4    00:41:07.05  +20:40:26.92  uobi=33244a90   seq=2/Ic/17,2/V/11,2/g/11,2/r/7,2/i/11,2/z/35        priority=4  P=0.367528     mV=11.74   comment=RRC
+ASAS_J025822+1540.3    02:58:21.96  +15:40:18.66  uobi=d316960a   seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/9,2/z/31         priority=4  P=0.6424174    mV=11.56   comment=RRAB
+ASAS_J002443-6949.7    00:24:42.20  -69:49:43.96  uobi=5cea859c   seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26           priority=4  P=0.7279597    mV=11.33   comment=RRAB
+ASAS_J031408-3446.4    03:14:08.31  -34:46:22.44  uobi=f81eb8fd   seq=2/Ic/19,2/V/13,2/g/13,2/r/8,2/i/12,2/z/39        priority=4  P=0.3124235    mV=11.88   comment=RRC
+U_Cae        04:53:14.43  -37:49:15.78            uobi=59e19989   seq=2/Ic/24,2/V/18,2/g/18,2/r/10,2/i/16,2/z/45       priority=4  P=0.4197758    mV=12.18
+SU_Col       05:07:47.04  -33:51:54.68            uobi=0c0f97cb   seq=2/Ic/32,2/V/24,2/g/25,2/r/14,2/i/21,2/z/60       priority=4  P=0.4873444    mV=12.54
+IU_Car       06:53:07.45  -59:35:43.69            uobi=506ac680   seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38        priority=4  P=0.7369909    mV=11.94
+AA_CMi       07:17:19.17  +01:43:40.05            uobi=506fb6d2   seq=2/Ic/14,2/V/10,2/g/10,2/r/6,2/i/9,2/z/29         priority=4  P=0.4763293    mV=11.56
+HK_Pup       07:44:46.82  -13:05:56.32            uobi=56661a94   seq=2/Ic/12,2/V/8,2/g/7,2/r/5,2/i/7,2/z/25           priority=4  P=0.7342215    mV=11.28
+BB_Pup       08:24:22.63  -19:32:31.42            uobi=6680b945   seq=2/Ic/23,2/V/17,2/g/18,2/r/10,2/i/15,2/z/45       priority=4  P=0.4805504    mV=12.16
+GO_Hya       08:54:53.50  +06:26:12.57            uobi=ed89e021   seq=2/Ic/29,2/V/22,2/g/22,2/r/12,2/i/19,2/z/54       priority=4  P=0.6364379    mV=12.4
+SZ_Hya       09:13:48.81  -09:19:09.44            uobi=9280d804   seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26           priority=4  P=0.537228     mV=11.34
+WZ_Hya       10:13:24.12  -13:08:17.70            uobi=41b552e2   seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20            priority=4  P=0.5377       mV=10.86
+FS_Vel       10:46:00.36  -43:59:17.22            uobi=8dfac071   seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44       priority=4  P=0.4757695    mV=12.14
+AF_Vel       10:53:02.56  -49:54:22.98            uobi=34c0093d   seq=2/Ic/13,2/V/8,2/g/8,2/r/5,2/i/8,2/z/27           priority=4  P=0.5274124    mV=11.41
+V595_Cen     11:22:06.14  -36:35:08.09            uobi=a5efd616   seq=2/Ic/22,2/V/16,2/g/16,2/r/9,2/i/14,2/z/42        priority=4  P=0.6910371    mV=12.07
+SS_Leo       11:33:54.47  -00:02:00.43            uobi=a893b2fb   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22           priority=4  P=0.6263506    mV=11.04
+BI_Cen       11:45:54.59  -59:22:40.46            uobi=ffaa1bcb   seq=2/Ic/20,2/V/14,2/g/15,2/r/8,2/i/13,2/z/39        priority=4  P=0.4531901    mV=11.98
+IK_Hya       12:04:47.20  -27:40:44.03            uobi=105e6b32   seq=2/Ic/3,2/V/2,2/g/2,2/r/1.5,2/i/2,2/z/14          priority=4  P=0.6503034    mV=10.14
+UU_Vir       12:08:35.03  -00:27:24.35            uobi=a3d7bab7   seq=2/Ic/5,2/V/2.5,2/g/2,2/r/1.8,2/i/3.5,2/z/17      priority=4  P=0.4755842    mV=10.57
+V746_Cen     12:48:24.08  -33:39:29.26            uobi=67f94be2   seq=2/Ic/7,2/V/3,2/g/3,2/r/3,2/i/4,2/z/16            priority=4  P=0.5514032    mV=10.46
+AS_Vir       12:52:45.88  -10:15:37.02            uobi=430c1933   seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38        priority=4  P=0.553415     mV=11.92
+AM_Vir       13:23:33.33  -16:39:58.57            uobi=a53cae6d   seq=2/Ic/13,2/V/9,2/g/9,2/r/6,2/i/8,2/z/27           priority=4  P=0.615085     mV=11.45
+RV_Oct       13:46:31.38  -84:24:06.15            uobi=8fb616bf   seq=2/Ic/9,2/V/6,2/g/5,2/r/4,2/i/6,2/z/21            priority=4  P=0.5711583    mV=10.96
+V499_Cen     13:55:14.78  -43:14:25.18            uobi=52152364   seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/23           priority=4  P=0.521208     mV=11.17
+V674_Cen     14:03:24.01  -36:24:20.52            uobi=90a512d1   seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26           priority=4  P=0.4939896    mV=11.38
+ST_Vir       14:27:39.07  -00:54:06.07            uobi=ace4e104   seq=2/Ic/17,2/V/12,2/g/12,2/r/7,2/i/11,2/z/34        priority=4  P=0.4109       mV=11.77
+TY_Aps       14:48:49.89  -71:19:41.78            uobi=941d4251   seq=2/Ic/18,2/V/13,2/g/13,2/r/8,2/i/12,2/z/36        priority=4  P=0.5016788    mV=11.86
+XZ_Aps       14:52:05.32  -79:40:46.37            uobi=22657c55   seq=2/Ic/26,2/V/19,2/g/20,2/r/11,2/i/17,2/z/49       priority=4  P=0.5872567    mV=12.28
+TV_Lib       15:18:21.89  -08:27:42.70            uobi=c641090f   seq=2/Ic/21,2/V/16,2/g/16,2/r/9,2/i/14,2/z/41        priority=4  P=0.269624     mV=12.06
+ASAS_J152205-0628.3    15:22:04.83  -06:28:16.31  uobi=06a99ad3   seq=2/Ic/6,2/V/4,2/g/4,2/r/2,2/i/4,2/z/11            priority=4  P=0.7788966    mV=11.13
+FW_Lup       15:22:25.38  -40:55:36.48            uobi=19dddc0a   seq=2/Ic/3,2/V/1,2/g/1,2/r/1,2/i/2,2/z/8             priority=4  P=0.4841701    mV=9.03
+VY_Ser       15:31:01.82  +01:41:01.61            uobi=4759b821   seq=2/Ic/5,2/V/2,2/g/2,2/r/2,2/i/3,2/z/14            priority=4  P=0.7141       mV=10.13
+AN_Ser       15:53:31.05  +12:57:39.97            uobi=fe971657   seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/6,2/z/20            priority=4  P=0.5220603    mV=10.92
+AT_Ser       15:55:40.37  +07:59:19.47            uobi=98b0737f   seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/18            priority=4  P=0.7466091    mV=11.46
+AV_Ser       16:03:41.83  +00:35:56.86            uobi=7d43343c   seq=2/Ic/14,2/V/9,2/g/9,2/r/6,2/i/9,2/z/28           priority=4  P=0.487564     mV=11.51
+BS_Aps       16:20:51.49  -71:40:15.91            uobi=46158594   seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44       priority=4  P=0.5825659    mV=12.16
+V445_Oph     16:24:41.21  -06:32:29.82            uobi=2eb0bd77   seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21            priority=4  P=0.397025     mV=11.01
+VX_Her       16:30:40.75  +18:22:00.88            uobi=55a86550   seq=2/Ic/8,2/V/5,2/g/5,2/r/4,2/i/5,2/z/19            priority=4  P=0.455363     mV=10.79
+UV_Oct       16:32:24.97  -83:54:12.36            uobi=6493692e   seq=2/Ic/4,2/V/1,2/g/1,2/r/2,2/i/2,2/z/12            priority=4  P=0.54258      mV=9.48
+RW_TrA       17:00:46.67  -66:39:50.12            uobi=f9050c97   seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/25           priority=4  P=0.3740418    mV=11.3
+V494_Sco     17:40:48.48  -31:32:31.90            uobi=4287a90f   seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26           priority=4  P=0.427281     mV=11.37
+EX_Aps       17:51:45.01  -69:20:05.07            uobi=8dc6a519   seq=2/Ic/27,2/V/20,2/g/21,2/r/11,2/i/18,2/z/51       priority=4  P=0.4718003    mV=12.34
+WY_Pav       17:56:12.31  -57:09:43.92            uobi=3e871f75   seq=2/Ic/23,2/V/17,2/g/17,2/r/10,2/i/15,2/z/44       priority=4  P=0.5885764    mV=12.15
+MS_Ara       18:03:04.28  -52:43:21.14            uobi=04e71cc1   seq=2/Ic/21,2/V/15,2/g/15,2/r/9,2/i/14,2/z/40        priority=4  P=0.5249876    mV=12.02
+V1640_Sgr    18:43:35.47  -34:52:13.53            uobi=d9df9d61   seq=2/Ic/36,2/V/28,2/g/29,2/r/15,2/i/24,2/z/67       priority=4  P=0.3676       mV=12.68
+V413_CrA     18:47:57.57  -37:44:22.93            uobi=7f3e88ce   seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/5,2/z/18            priority=4  P=0.58934      mV=10.63
+V440_Sgr     19:32:20.78  -23:51:13.61            uobi=e963d9c5   seq=2/Ic/6,2/V/1.5,2/g/1.5,2/r/1.5,2/i/3,2/z/15      priority=4  P=0.4774941    mV=10.27
+V1645_Sgr    20:20:44.51  -41:07:06.44            uobi=88eae19c   seq=2/Ic/8,2/V/4,2/g/3,2/r/2.5,2/i/7,2/z/30          priority=4  P=0.553        mV=11.35
+RV_Cap       21:01:28.89  -15:13:47.75            uobi=9e9e3286   seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21            priority=4  P=0.447745     mV=11.01
+SW_Aqr       21:15:17.81  +00:04:34.00            uobi=5a784b0a   seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/24           priority=4  P=0.459305     mV=11.2
+NSVS_17246509          21:23:48.85  -07:32:05.39  uobi=92fb70b6   seq=2/Ic/30,2/V/23,2/g/23,2/r/13,2/i/20,2/z/56       priority=4  P=0.7974628    mV=12.46
+YY_Tuc       23:11:00.58  -58:20:07.61            uobi=9069b2dc   seq=2/Ic/20,2/V/15,2/g/15,2/r/9,2/i/13,2/z/39        priority=4  P=0.6348982    mV=11.98
+DH_Peg       22:15:25.66  +06:49:21.43            uobi=62266d0e   seq=2/Ic/4,2/V/1,2/g/1,2/r/2,2/i/3,2/z/12            priority=4  P=0.25551      mV=9.58    comment="RRc
+BV_Aqr       22:02:54.00  -21:31:32.46            uobi=faaf5cdb   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/7,2/z/22           priority=4  P=0.3637032    mV=11.11   comment="RRc
+YZ_Cap       21:19:32.40  -15:07:01.43            uobi=19bba56f   seq=2/Ic/11,2/V/7,2/g/7,2/r/5,2/i/7,2/z/25           priority=4  P=0.2734529    mV=11.28   comment="RRc
+DR_Cap       20:31:44.92  -21:58:46.70            uobi=3d80b607   seq=2/Ic/12,2/V/8,2/g/8,2/r/5,2/i/8,2/z/26           priority=4  P=0.3107105    mV=11.38   comment="RRc
+ASAS_J200431-5352.3    20:04:31.45  -53:52:18.85  uobi=1d872d65   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22           priority=4  P=0.300227     mV=11.08   comment="RRc
+HX_Ara       17:58:44.91  -55:16:24.25            uobi=ee47bc84   seq=2/Ic/19,2/V/14,2/g/14,2/r/8,2/i/13,2/z/38        priority=4  P=0.219404     mV=11.94   comment="RRc
+AP_Ser       15:14:00.88  +09:58:51.21            uobi=3f5c3d42   seq=2/Ic/10,2/V/6,2/g/6,2/r/4,2/i/6,2/z/22           priority=4  P=0.3408258    mV=11.07   comment="RRc
+ASAS_J143322-0418.2    14:33:22.04  -04:18:11.59  uobi=7f358c49   seq=2/Ic/8,2/V/4,2/g/4,2/r/3,2/i/5,2/z/18            priority=4  P=0.249632     mV=10.73   comment="RRc
+ASAS_J132225-2042.3    13:22:25.26  -20:42:21.61  uobi=41c20279   seq=2/Ic/8,2/V/4,2/g/3,2/r/3,2/i/5,2/z/18            priority=4  P=0.235934     mV=10.67   comment="RRc
+Y_Crv        12:38:10.42  -15:00:00.16            uobi=4f61d6db   seq=2/Ic/15,2/V/10,2/g/10,2/r/6,2/i/10,2/z/30        priority=4  P=0.3290266    mV=11.6    comment="RRc
+HY_Com       12:18:16.01  +16:09:15.45            uobi=3f575a78   seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/4,2/z/17            priority=4  P=0.4485784    mV=10.54   comment="RRc
+V753_Cen     11:51:15.34  -55:48:16.46            uobi=92154775   seq=2/Ic/7,2/V/3,2/g/3,2/r/3,2/i/4,2/z/16            priority=4  P=0.22135      mV=10.48   comment="RRc
+ASAS_J110522-2641.0    11:05:21.93  -26:41:04.77  uobi=e8e4616d   seq=2/Ic/18,2/V/13,2/g/13,2/r/8,2/i/12,2/z/36        priority=4  P=0.2944592    mV=11.85   comment="RRc
+NSVS_13036187          10:13:31.77  -07:02:17.39  uobi=c1670a83   seq=2/Ic/9,2/V/6,2/g/6,2/r/4,2/i/6,2/z/21            priority=4  P=0.31358      mV=11.0    comment="RRc
+ASAS_J090900-0410.4    09:09:00.08  -04:10:24.67  uobi=41a05813   seq=2/Ic/9,2/V/5,2/g/5,2/r/4,2/i/5,2/z/20            priority=4  P=0.303258     mV=10.87   comment="RRc
+V701_Pup     08:19:32.85  -23:58:10.49            uobi=decfa5ee   seq=2/Ic/7,2/V/4,2/g/4,2/r/3,2/i/5,2/z/17            priority=4  P=0.285668     mV=10.62   comment="RRc
+ASAS_J081012-2903.0    08:10:12.06  -29:03:00.69  uobi=0b9b3124   seq=2/Ic/4,2/V/2,2/g/1,2/r/2,2/i/3,2/z/12            priority=4  P=0.229656     mV=9.67    comment="RRc
+RW_Ari       02:16:03.71  17:31:58.75             uobi=fd862148   seq=2/Ic/26,2/V/20,2/g/20,2/r/11,2/i/17,2/z/50       priority=4  P=0.3542971    mV=12.3    comment="RRc
 
 #ccep Gergely list (not complete)
 
