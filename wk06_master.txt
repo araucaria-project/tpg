@@ -19,7 +19,7 @@ SA113                   21:41:00           +00:27:21          seq=1/B/10,1/V/5,1
 SA114                   22:41:37           +01:08:14          seq=1/B/10,1/V/5,1/Ic/6.7             priority=10     P=-99.99        mV=10.88 comment=" standard field " 
 
 # obiekt Karoliny
-ASASSN-14cc             21:39:48.25        -59:59:32.85       seq=5/V/300       priority=10     comment="Karolina object" 
+ASASSN-14cc             21:39:48.25        -59:59:32.85       seq=2/V/300       priority=10     comment="Karolina's cataclysmic variable" 
 
 # Nikki test objects
 # TYC_7091-888-1  06:39:30.33 -32:24:04.8 seq=INFx(2/Ic/5.3,2/V/12,2/B/16) mV=10.66 P=11.658317 hjd0=2455241.33931 ph_start=0.945 ph_end=0.055  priority=7 comment="Primary eclipse ingress"
