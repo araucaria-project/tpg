@@ -437,9 +437,6 @@ class telescope_plan_generator():
                             OK = True
                             done = nk
 
-
-
-
                 if OK:
                     self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
                     self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
@@ -469,17 +466,17 @@ class telescope_plan_generator():
                 txt = f'WAIT ut={str(ephem.Date(self.nightTime[0])).split()[1]}'
             self.plan.append(txt)
             for n, tmp in enumerate(self.nightTime):
-                #print(self.nightTime[n], self.nightObject[n])
+                #print(self.nightTime[n], self.nightObject[n], self.nightObChange[n], self.nightFree[n])
+                if self.nightFree[n]:
+                    ZNACZNIK = True
                 if self.nightObChange[n]:
-                #if int(self.nightObject[n]) != prev:
                     if ZNACZNIK:
                         ZNACZNIK = False
-                        empty_time = float(self.nightTime[n] - t0) * 24. * 60. * 60.
                         self.oca.date = ephem.Date(self.nightTime[n])
                         txt = "WAIT ut=" + str(self.oca.date).split()[1]
                         self.plan.append(txt)
-                    prev = int(self.nightObject[n])
-                    if prev > -50:
+                    if True:
+                    #if prev > -50:
                         k = int(self.nightObject[n])
 
                         if "x" in self.seq[k]:
@@ -509,10 +506,7 @@ class telescope_plan_generator():
                                 txt = txt + f" uobi={self.uobi[k]}"
                             if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
                             self.plan.append(txt)
-
-                    else:
-                        t0 = self.nightTime[n]
-                        ZNACZNIK = True
+                prev = int(self.nightObject[n])
 
     def MaskStartEnd(self):  # Masks visibility based on t_start t_end
         for n, tmp in enumerate(self.name):
