@@ -365,6 +365,37 @@ V916_Aql                19:10:00.41        +12:32:11.5        seq=2/B/16,2/V/3.5
 GY_Sge                  19:35:13.63        +19:12:08.6        seq=2/B/9,2/V/2,2/Ic/0.5,2/g/5,2/r/0.6,2/i/0.5,2/z/1.6              priority=5      ph_mk=4/V/0.02      uobi=0cfd3739      sciprog=ccep_mw      pi=ghajdu        tag=ccep          P=51.814089     comment="T1CepF"   mV=9.9
 
 
+
+# LMC early-type eclipsing binaries
+# SCIPROG deb_et_lmc
+# PI dgraczyk
+#
+# OGLE-LMC-ECL-05764      05:02:40.77      -68:24:21.4       seq=       priority=6      mV=14.231      P=5.725912      hjd0=2453570.9054      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=14.371 observed but never included in zb08_master"
+# OGLE-LMC-ECL-06782      05:04:59.05      -70:31:13.9       seq=       priority=6      mV=13.714      P=4.270776      hjd0=2453560.7368      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=13.913 observed but never included in zb08_master"
+# OGLE-LMC-ECL-07641      05:06:51.94      -68:25:46.5       seq=       priority=6      mV=14.039      P=6.33001       hjd0=2453570.6569      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=14.25  observed but never included in zb08_master"
+# OGLE-LMC-ECL-16675      05:28:23.98      -69:12:26.2       seq=       priority=6      mV=13.867      P=3.74864       hjd0=2453564.9887      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=14.046 observed but never included in zb08_master"
+# OGLE-LMC-ECL-17198      05:29:24.63      -68:42:13.1       seq=       priority=6      mV=13.926      P=3.29083       hjd0=2453565.3853      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=14.118 observed but never included in zb08_master"
+# OGLE-LMC-ECL-17660      05:30:22.13      -69:14:52.0       seq=       priority=6      mV=14.266      P=6.22909       hjd0=2453575.7547      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=14.429 observed but never included in zb08_master"
+# OGLE-LMC-ECL-18794      05:32:47.74      -68:37:26.6       seq=       priority=6      mV=13.194      P=5.946846      hjd0=2453577.3724      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=13.397 observed but never included in zb08_master"
+# OGLE-LMC-ECL-21568      05:38:58.08      -69:30:11.3       seq=       priority=6      mV=14.125      P=3.22545       hjd0=2453578.5489      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=14.212 observed but never included in zb08_master"
+# OGLE-LMC-ECL-22270      05:40:47.31      -69:20:28.3       seq=       priority=6      mV=14.029      P=5.414011      hjd0=2453578.8126      pi=dgraczyk      sciprog=deb_et_lmc      comment="mI=14.022 observed but never included in zb08_master"
+# OGLE-LMC-ECL-08397      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-08933      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-12167      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-15924      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-16468      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-16595      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-17411      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-17943      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-20299      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-21603      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-21905      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-23176      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-23358      comment="observed but never included in zb08_master"
+# OGLE-LMC-ECL-33609      comment="observed but never included in zb08_master"
+#
+#
+#
 # # EB Nikki
 #
 # #Target  RA  Dec  Period  Vmag  Priority  Eclipse start  Eclipse mid  Eclipse end  Eclipse type
@@ -423,102 +454,6 @@ GY_Sge                  19:35:13.63        +19:12:08.6        seq=2/B/9,2/V/2,2/
 # HD_219869  23:19:22.09  -08:52:13.53  P=-99.99  mV=10.242  priority=4  comment="2460113.760  2460113.884  P"
 # HD_149946  16:39:03.40  -28:47:13.43  P=-99.99  mV=9.85    priority=4  comment="2460114.465  2460114.697  S"
 # HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460115.654  2460115.896  P"
-#
-#
-#
-# #CCcep - Piotrek's list
-#
-# #RA  DEC  Period  Vmag  Priority  comment
-# AC_Mon 07:00:59.8200543168  -08:42:32.370161148  P=8.0149308   mV=10.574  priority=4
-# AD_Cam 03:29:25.9697779560  +60:26:47.271788232  P=11.2630484  mV=13.209  priority=4
-# AE_Vel 09:36:51.4663897536  -53:01:58.067940900  P=7.1339448   mV=10.769  priority=4
-# AG_Cru 12:41:26.0297456208  -59:47:39.041772000  P=3.8372760   mV=8.457   priority=4
-# AO_Aur 05:47:45.0531412200  +32:00:52.720358040  P=6.7623732   mV=11.264  priority=4
-# AQ_Car 10:21:22.9751846448  -61:04:26.737119948  P=9.7695137   mV=9.224   priority=4
-# AQ_Pup 07:58:22.0887499032  -29:07:48.338631084  P=30.1496599  mV=9.284   priority=4
-# AT_Pup 08:12:22.4030911320  -36:56:37.533017184  P=6.6649973   mV=8.338   priority=4
-# AY_Cen 11:25:05.7551260584  -60:44:04.635548844  P=5.3094716   mV=9.241   priority=4
-# CD_Cyg 20:04:26.5612467720  +34:06:44.187399612  P=17.0785209  mV=9.540   priority=4
-# CE_Pup 08:14:08.0392196400  -42:34:05.359343268  P=49.3224331  mV=12.475  priority=4
-# CN_Car 10:15:32.8660401840  -58:10:28.019154540  P=4.9326581   mV=11.129  priority=4
-# CP_Cep 21:57:52.6912593888  +56:09:50.041033668  P=17.8661365  mV=11.312  priority=4
-# CV_Mon 06:37:04.8449178072  +03:03:50.274557532  P=5.3786737   mV=10.869  priority=4
-# CU_Car 10:57:50.6715944880  -60:44:31.525313712  P=4.2659148   mV=10.123  priority=4
-# DR_Vel 09:31:40.9749230568  -49:39:18.022694328  P=11.1993194  mV=10.143  priority=4
-# DX_Pyx 08:34:26.0724708552  -35:59:06.641269692  P=3.7372519   mV=12.084  priority=4
-# EK_Mon 06:52:46.1709659400  -02:27:29.630511684  P=3.9579526   mV=11.538  priority=4
-# ER_Aur 05:13:09.9828742752  +41:59:25.889361216  P=15.7002656  mV=11.995  priority=4
-# EU_Tau 05:45:40.5288555072  +18:39:24.819950988  P=2.1023243   mV=8.331   priority=4
-# FM_Aql 19:09:15.9900952128  +10:33:08.961371208  P=6.1142663   mV=8.817   priority=4
-# FN_Aql 19:12:47.3148920688  +03:33:26.703677448  P=9.4815651   mV=8.990   priority=4
-# GH_Cyg 19:59:10.7971620912  +29:27:02.684677680  P=7.8163294   mV=10.475  priority=4
-# GQ_Ori 06:11:13.5830023776  +09:36:44.985287232  P=8.6165158   mV=9.335   priority=4
-# GX_Car 09:55:26.1599386608  -58:25:46.924744440  P=7.1968800   mV=9.759   priority=4
-# GY_Sge 19:35:13.6269237552  +19:12:08.669232720  P=51.8140890  mV=11.179  priority=4
-# HQ_Per 04:43:57.8808060360  +40:50:05.208755244  P=8.6387834   mV=12.106  priority=4
-# HW_Car 10:39:20.3292448776  -61:09:08.795099088  P=9.1992766   mV=9.512   priority=4
-# IT_Car 11:12:10.1250345216  -61:45:17.551690488  P=7.5330469   mV=8.460   priority=4
-# KN_Cen 13:36:36.8950655064  -64:33:29.914949592  P=34.0213123  mV=10.492  priority=4
-# KQ_Sco 16:51:38.5473559392  -45:25:36.101286516  P=28.7030114  mV=10.637  priority=4
-# QY_Cen 14:08:17.1303436344  -61:44:11.133188844  P=17.7542664  mV=12.685  priority=4
-# RY_Vel 10:20:41.0315888064  -55:19:17.028180084  P=28.1341673  mv=8.847   priority=4
-# SS_Sct 18:43:43.5111680040  -07:43:51.957172704  P=3.6713516   mV=8.665   priority=4
-# ST_Tau 05:45:03.1603367712  +13:34:34.903715808  P=4.0343040   mV=8.574   priority=4
-# S_Vul  19:48:23.8063718736  +27:17:11.428754460  P=68.6510481  mV=9.804   priority=4
-# SV_Vel 10:44:56.3467134168  -56:17:22.395598872  P=14.0980332  mV=8.983   priority=4
-# SW_Vel 08:43:38.6903528472  -47:24:11.200999464  P=23.4069247  mV=8.609   priority=4
-# SX_Car 10:46:05.8412346072  -57:32:51.122540256  P=4.8600155   mV=9.412   priority=4
-# SX_Vel 08:44:53.4685905720  -46:20:34.736412696  P=9.5506149   mV=8.673   priority=4
-# SZ_Aql 19:04:39.4158230832  +01:18:22.158826524  P=17.1413213  mV=9.238   priority=4
-# T_Ant  09:33:50.8595432664  -36:36:56.745725940  P=5.8983587   mV=9.572   priority=4
-# TW_CMa 07:22:02.3794130112  -14:19:05.498697540  P=6.9955097   mV=9.974   priority=4
-# TX_Cen 14:35:11.8543629192  -60:59:52.691735364  P=17.0979569  mV=11.236  priority=4
-# U_Nor  15:42:20.9185773096  -55:18:42.939346104  P=12.6452592  mV=9.920   priority=4
-# UX_Car 10:29:11.2428781344  -57:36:48.246072156  P=3.6821720   mV=8.556   priority=4
-# UY_Car 10:32:04.4208946632  -61:46:57.459716400  P=5.5437621   mV=9.217   priority=4
-# UZ_Car 10:36:17.8234128504  -61:00:45.250017804  P=5.2046310   mV=9.654   priority=4
-# V1162_Aql 19:52:20.9909317  -11:22:00.754130100  P=5.3757961   mV=8.239   priority=4
-# V1496_Aql 18:54:59.5330009  -00:04:36.367589460  P=65.7307917  mV=11.185  priority=4
-# V1803_Aql 19:20:06.9535772  +12:47:43.013113872  P=8.6279483   mV=11.179  priority=4
-# V336_Aql 19:01:19.72992990  +00:08:49.236131040  P=7.3041815   mV=10.428  priority=4
-# V496_Cen 13:03:10.68465299  -60:52:38.876795256  P=4.4241128   mV=10.432  priority=4
-# V600_Aql 19:21:02.34577199  +08:30:58.805711244  P=7.2388599   mV=10.682  priority=4
-# V733_Aql 19:57:33.02235594  +11:02:37.243005648  P=6.1787826   mV=10.323  priority=4
-# VW_Cru 12:33:18.6685630272  -63:30:22.913163396  P=5.2651814   mV=10.220  priority=4
-# VZ_Pup 07:38:35.2380326136  -28:29:58.597431036  P=23.1752288  mV=10.120  priority=4
-# WZ_Car 10:55:18.7271183664  -60:56:23.951331672  P=23.0180376  mV=9.755   priority=4
-# WZ_Sgr 18:16:59.7160721616  -19:04:32.989734840  P=21.8532997  mV=8.693   priority=4
-# X_Cru  12:46:22.2791657112  -59:07:29.015649480  P=6.2201526   mV=8.787   priority=4
-# X_Pup  07:32:47.0329137816  -20:54:34.884361152  P=25.9722922  mV=9.036   priority=4
-# X_Vul  19:57:28.6054979616  +26:33:23.284943352  P=6.3196496   mV=9.513   priority=4
-# XX_Car 10:57:09.2149863144  -65:08:05.119320336  P=15.7070571  mV=9.800   priority=4
-# XX_Cen 13:40:18.6439597656  -57:36:47.440376532  P=10.9526746  mV=8.304   priority=4
-# XX_Sgr 18:24:44.5009232352  -16:47:49.818126264  P=6.4243335   mV=9.378   priority=4
-# XY_Car 11:02:16.0643370000  -64:15:46.467535392  P=12.4360971  mV=9.823   priority=4
-# XZ_Car 11:04:13.4721922680  -60:58:47.732442924  P=16.6528143  mV=9.079   priority=4
-# YZ_Car 10:28:16.8452893296  -59:21:00.678355560  P=18.1677926  mV=9.163   priority=4
-# SV_Vul 19:51:30.9059845128  +27:27:36.837672012  P=44.8942247  mV=7.912   priority=4
-# AV_Sgr 18:04:48.7861680960  -22:43:56.639297172  P=15.4117020  mV=12.231  priority=4
-# RT_Mus 11:44:32.8830577944  -67:18:18.886853664  P=3.0861175   mV=9.351   priority=4
-# RU_Sct 18:41:56.3818572048  -04:06:38.376404820  P=19.7042782  mV=10.221  priority=4
-# VW_Cen 13:33:59.0300715216  -64:03:19.999348524  P=15.0368116  mV=10.785  priority=4
-# YZ_Sgr 18:49:28.5890872992  -16:43:22.896000948  P=9.5537875   mV=7.886   priority=4
-# FN_Vel 09:48:41.4894764448  -55:31:10.350795792  P=5.3241672   mV=10.812  priority=4
-# RZ_CMa 07:21:32.8571936928  -16:41:13.998801084  P=4.2550780   mV=10.113  priority=4
-# SU_Cru 12:18:16.992216      -63:16:48.44820      P=12.8491103  mV=10.556  priority=4
-# U_Aql  19:29:21.3614645376  -07:02:38.662110240  P=7.0249035   mV=6.949   priority=4
-# UW_Car 10:26:50.8788022224  -59:40:10.377831792  P=5.3458320   mV=9.762   priority=4
-# V496_Aql 19:08:20.77074356  -07:26:15.879957540  P=6.8070785   mV=8.272   priority=4
-# WW_Car 10:51:35.7678373728  -59:23:06.014351904  P=4.6768391   mV=10.131  priority=4
-# BB_Sgr 18:50:59.8729954248  -20:17:42.829838520  P=6.6360805   mV=7.448   priority=4
-# BF_Oph 17:06:05.4979834752  -26:34:50.029842576  P=4.0675349   mV=7.682   priority=4
-# BG_Vel 09:08:15.7484971776  -51:26:10.606123248  P=6.9237971   mV=8.051   priority=4
-# RY_Sco 17:50:52.3447976064  -33:42:20.412288432  P=20.3223325  mV=8.619   priority=4
-# RZ_Vel 08:37:01.3028699904  -44:06:52.846248456  P=20.4009397  mV=7.360   priority=4
-# S_Nor  16:18:51.8316855000  -57:53:59.256000852  P=9.7544164   mV=6.675   priority=4
-# TT_Aql 19:08:13.7497129848  +01:17:55.147982640  P=13.7547268  mV=7.773   priority=4
-# U_Sgr  18:31:53.3323107600  -19:07:30.261459540  P=6.745226    mV=7.090   priority=4
-# V_Cen  14:32:33.0833481288  -56:53:15.774129600  P=5.4940002   mV=7.294   priority=4
 #
 #
 #

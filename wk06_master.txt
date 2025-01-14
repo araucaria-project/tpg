@@ -227,7 +227,7 @@ BC_Oct                  23:38:08.067       -81:21:18.381      seq=1x(2/B/2.5,2/V
 
 # SMC early-type eclipsing binaries
 # SCIPROG deb_et_smc
-# PI ghajdu
+# PI dgraczyk
 
 # Primary + secondary eclipses
 
