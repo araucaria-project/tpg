@@ -62,11 +62,19 @@ TYC_8104-969-1      06:42:25.35      -45:09:12.38      seq=1/u_s/40,1/v_s/15,1/b
 
 
 
-# Glaxies (Grzesiek) SLOW readout 0.1 MHz 16bit
-# Exposure times 360s divided: 3x120s
-IC1613-center      01:04:48      +02:07:10      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)      cycle=0      priority=12      read_mod=5      comment="Gal. 0.1 MHz. Twice (or even 3 times) per night"
-WLM-center         00:01:58      -15:27:50      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)      cycle=0      priority=12      read_mod=5      comment="Gal. 0.1 MHz"
-# NGC247           00:47:08      -20:45:37      seq=3x(3/g/120,3/r/120,3/i/120,3/V/120)      priority=5   read_mod=5       comment="Gal. 0.1 MHz"
+# Monitoring of nearby galaxies
+# PI: gpietrzynski
+# SCIPROG: near_gal
+# SLOW readout 0.1 MHz 18bit (read_mod=5)
+
+IC1613-center      01:04:48      +02:07:10      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)      cycle=0      priority=12      read_mod=5      comment="Twice (or even 3 times) per night, incl. Landolt std"
+WLM-center         00:01:58      -15:27:50      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)      cycle=0      priority=12      read_mod=5      comment="incl. Landolt std"
+#NGC300            comment="incl. Landolt std"
+#Fornax-center     comment="incl. Landolt std"
+#Carina-center     comment="incl. Landolt std"
+# NGC247           00:47:08      -20:45:37      seq=3x(3/g/120,3/r/120,3/i/120,3/V/120)      priority=5   read_mod=5       comment="incl. Landolt std"
+
+
 
 # grouptoplan bluesmc -s"3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100" -p10 -c"Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
 # Group: bluesmc [ECL]
