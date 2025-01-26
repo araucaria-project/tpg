@@ -12,6 +12,8 @@ class telescope_plan_generator():
         self.flags = []
         self.done = done_uobi
         self.loud = loud
+
+
         self.msg = ""
 
         with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
@@ -23,7 +25,7 @@ class telescope_plan_generator():
         self.tel = tel
         if len(date) == 1:
             self.flags.append("start_at_sunset")
-            self.date = date[0] + " 16:00:00"
+            self.date = date[0] + " 12:00:00"
             txt = f'start at sunset\n'
         elif len(date) == 2:
             self.date = date[0] + " " + date[1]
@@ -42,8 +44,7 @@ class telescope_plan_generator():
         self.msg = self.msg + txt
 
         # --------------- MAIN SCRIPT --------------
-
-
+    def go(self):
         self.Initiate()  # initiate script variables
         self.LoadObjects()  # loads objects to observe
         self.MakeTime()  # prepares time variable
@@ -57,7 +58,6 @@ class telescope_plan_generator():
         self.RandomizeList()  # randomize listo of objects to observev
         self.allocate()  # SCHEDULING OBJECTS
         self.export()  # export plan
-
 
     def Initiate(self):
 
@@ -282,6 +282,7 @@ class telescope_plan_generator():
             if self.loud: sys.stderr.write(txt)
             self.msg = self.msg + txt
 
+        self.start_time = t
         while t < self.sunrise:
             t = t + 1 * ephem.minute  # time resolution : 1 minute
             self.nightTime.append(t)

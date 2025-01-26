@@ -21,6 +21,7 @@ class main:
     args = argparser.parse_args()
 
     p = tpg(args.tel,args.date,wind=args.wind,loud=args.loud,done_uobi=[])
+    p.go()
     for x in p.plan:
         print(x)
 ####### SCRIPT RUN
