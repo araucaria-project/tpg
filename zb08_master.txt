@@ -1,3 +1,7 @@
+#############################
+######## ZB08 MASTER ########
+#############################
+
 #format of each line should be as following:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
 # example1  21:24:00.2421    +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30        priority=4    P=2.4121         mV=9.21      comment="binary and dusty envelope"
@@ -12,16 +16,16 @@
 
 # Landolt standard fields
 
-TPHE       00:30:16      -46:27:55      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment=" standard field "    mV=12.33
-SA92       00:56:08      +01:04:29      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=11.81
-SA95       03:53:04      +00:03:12      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=12.68
-SA98       06:52:05      -00:19:18      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=12.27
-RU149      07:24:14      -00:31:41      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=11.48
-RU152      07:29:56      -02:05:39      seq=2x(1/B/25,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=13.01
-SA104      12:42:21      -00:33:12      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=11.67
-SA110      18:42:45      +00:07:42      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=12.43
-SA113      21:41:00      +00:27:21      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=10.88
-SA114      22:41:37      +01:08:14      seq=2x(1/B/30,3/V/15,2/Ic/15)      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"      mV=10.88      
+TPHE       00:30:16      -46:27:55      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=12.33      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"
+SA92       00:56:08      +01:04:29      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=11.81      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field" 
+SA95       03:53:04      +00:03:12      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=12.68      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field" 
+SA98       06:52:05      -00:19:18      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=12.27      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field" 
+RU149      07:24:14      -00:31:41      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=11.48      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field" 
+RU152      07:29:56      -02:05:39      seq=2x(1/B/25,3/V/15,2/Ic/15)      mV=13.01      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field" 
+SA104      12:42:21      -00:33:12      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=11.67      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field" 
+SA110      18:42:45      +00:07:42      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=12.43      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field" 
+SA113      21:41:00      +00:27:21      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=10.88      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field" 
+SA114      22:41:37      +01:08:14      seq=2x(1/B/30,3/V/15,2/Ic/15)      mV=10.88      priority=10      sciprog=cal      pi=ocm      tag=std_landolt      comment="standard field"       
 
 
 
@@ -399,67 +403,6 @@ GY_Sge                  19:35:13.63        +19:12:08.6        seq=2/B/9,2/V/2,2/
 #
 #
 #
-# # EB Nikki
-#
-# #Target  RA  Dec  Period  Vmag  Priority  Eclipse start  Eclipse mid  Eclipse end  Eclipse type
-# HD_187669       19:52:22.09  -32:33:39.7  P=-99.99  mV=8.88   priority=2  comment="2460084.38326  2460091.01225  2460097.64124  Secondary"
-# TV_Nor          16:04:09.25  -51:32:40.1  P=-99.99  mV=9.06   priority=3  comment="2460089.41241  2460089.66814  2460089.92387  Primary"
-# EPIC_219394517  19:15:24.66  -16:51:22.3  P=-99.99  mV=11.34  priority=2  comment="2460089.68985  2460089.82039  2460089.95093  Secondary"
-# V501_Her        17:35:43.45  +30:38:35.0  P=-99.99  mV=10.93  priority=1  comment="2460093.34053  2460093.59846  2460093.85639  Primary"
-# V501_Her        17:35:43.45  +30:38:35.0  P=-99.99  mV=10.93  priority=1  comment="2460097.45968  2460097.71761  2460097.97554  Secondary"
-# EPIC_219394517  19:15:24.66  -16:51:22.3  P=-99.99  mV=11.34  priority=2  comment="2460099.48056  2460099.61110  2460099.74164  Primary"
-# LL_Aqr          22:34:42.15  -03:35:58.2  P=-99.99  mV=9.32   priority=2  comment="2460102.47048  2460102.77316  2460103.07583  Primary"
-# EPIC_219394517  19:15:24.66  -16:51:22.3  P=-99.99  mV=11.34  priority=2  comment="2460102.74412  2460102.87467  2460103.00521  Secondary"
-# TV_Nor          16:04:09.25  -51:32:40.1  P=-99.99  mV=9.06   priority=3  comment="2460106.46119  2460106.71692  2460106.97265  Primary"
-# V501_Her        17:35:43.45  +30:38:35.0  P=-99.99  mV=10.93  priority=1  comment="2460110.53590  2460110.79383  2460111.05176  Primary"
-# EPIC_219394517  19:15:24.66  -16:51:22.3  P=-99.99  mV=11.34  priority=2  comment="2460112.53483  2460112.66538  2460112.79592  Primary"
-# TV_Nor          16:04:09.25  -51:32:40.1  P=-99.99  mV=9.06   priority=3  comment="2460119.24778  2460119.50351  2460119.75924  Secondary"
-# BK_Peg          23:47:08.47  +26:34:00.0  P=-99.99  mV=9.98   priority=2  comment="2460121.52887  2460121.66612  2460121.80337  Primary"
-# V501_Her        17:35:43.45  +30:38:35.0  P=-99.99  mV=10.93  priority=1  comment="2460123.25274  2460123.51067  2460123.76860  Secondary"
-# TV_Nor          16:04:09.25  -51:32:40.1  P=-99.99  mV=9.06   priority=3  comment="2460123.50997  2460123.76571  2460124.02144  Primary"
-# EPIC_219394517  19:15:24.66  -16:51:22.3  P=-99.99  mV=11.34  priority=2  comment="2460125.58911  2460125.71965  2460125.85020  Primary"
-# HD_187669       19:52:22.09  -32:33:39.7  P=-99.99  mV=8.88   priority=2  comment="2460128.57651  2460135.20550  2460141.83449  Primary"
-# BK_Peg          23:47:08.47  +26:34:00.0  P=-99.99  mV=9.98   priority=2  comment="2460129.75056  2460129.88781  2460130.02506  Secondary"
-# BK_Peg          23:47:08.47  +26:34:00.0  P=-99.99  mV=9.98   priority=2  comment="2460132.50869  2460132.64594  2460132.78319  Primary"
-# TV_Nor          16:04:09.25  -51:32:40.1  P=-99.99  mV=9.06   priority=3  comment="2460136.29656  2460136.55229  2460136.80802  Secondary"
-# V501_Her        17:35:43.45  +30:38:35.0  P=-99.99  mV=10.93  priority=1  comment="2460136.32896  2460136.58689  2460136.84482  Primary"
-# EPIC_219394517  19:15:24.66  -16:51:22.3  P=-99.99  mV=11.34  priority=2  comment="2460138.64339  2460138.77393  2460138.90447  Primary"
-# V501_Her        17:35:43.45  +30:38:35.0  P=-99.99  mV=10.93  priority=1  comment="2460140.44812  2460140.70605  2460140.96398  Secondary"
-# TV_Nor          16:04:09.25  -51:32:40.1  P=-99.99  mV=09.06  priority=3  comment="2460140.55876  2460140.81449  2460141.07022  Primary"
-# BK_Peg          23:47:08.47  +26:34:00.0  P=-99.99  mV=9.98   priority=2  comment="2460140.73038  2460140.86763  2460141.00488  Secondary"
-# BK_Peg          23:47:08.47  +26:34:00.0  P=-99.99  mV=9.98   priority=2  comment="2460143.48851  2460143.62576  2460143.76301  Primary"
-# EPIC_219394517  19:15:24.66  -16:51:22.3  P=-99.99  mV=11.34  priority=2  comment="2460148.43410  2460148.56464  2460148.69518  Secondary"
-# LL_Aqr          22:34:42.15  -03:35:58.2  P=-99.99  mV=9.32   priority=2  comment="2460149.24383  2460149.54651  2460149.84918  Secondary"
-# EPIC_219394517  19:15:24.66  -16:51:22.3  P=-99.99  mV=11.34  priority=2  comment="2460151.69767  2460151.82821  2460151.95875  Primary"
-# BK_Peg          23:47:08.47  +26:34:00.0  P=-99.99  mV=9.98   priority=2  comment="2460151.71020  2460151.84745  2460151.98470  Secondary"
-# TV_Nor          16:04:09.25  -51:32:40.1  P=-99.99  mV=9.06   priority=3  comment="2460153.34534  2460153.60107  2460153.85681  Secondary"
-# V501_Her        17:35:43.45  +30:38:35.0  P=-99.99  mV=10.93  priority=1  comment="2460153.52434  2460153.78227  2460154.04020  Primary"
-# BK_Peg          23:47:08.47  +26:34:00.0  P=-99.99  mV=9.98   priority=2  comment="2460154.46833  2460154.60558  2460154.74283  Primary"
-# TV_Nor          16:04:09.25  -51:32:40.1  P=-99.99  mV=9.06   priority=3  comment="2460157.60754  2460157.86327  2460158.11900  Primary"
-#
-#
-#
-# # EB Darek
-#
-# #name  RA  DEC  Period  Vmag  priority  T_begin  T_end  comment
-# VZ_PsA     22:38:51.46  -33:04:52.84  P=-99.99  mV=5.66    priority=4  comment="2460087.708  2460087.921  S"
-# HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460089.569  2460089.896  P"
-# HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460092.518  2460092.595  S"
-# HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460094.786  2460094.896  P"
-# VZ_PsA     22:38:51.46  -33:04:52.84  P=-99.99  mV=5.66    priority=4  comment="2460095.708  2460095.921  P"
-# HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460097.518  2460097.812  S"
-# HD_149946  16:39:03.40  -28:47:13.43  P=-99.99  mV=9.85    priority=4  comment="2460102.465  2460102.875  P"
-# HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460102.611  2460102.896  S"
-# HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460105.518  2460105.637  P"
-# HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460110.518  2460110.854  P"
-# VZ_PsA     22:38:51.46  -33:04:52.84  P=-99.99  mV=5.66    priority=4  comment="2460110.708  2460110.921  S"
-# HD_219869  23:19:22.09  -08:52:13.53  P=-99.99  mV=10.242  priority=4  comment="2460110.760  2460110.848  S"
-# HD_219869  23:19:22.09  -08:52:13.53  P=-99.99  mV=10.242  priority=4  comment="2460113.760  2460113.884  P"
-# HD_149946  16:39:03.40  -28:47:13.43  P=-99.99  mV=9.85    priority=4  comment="2460114.465  2460114.697  S"
-# HD_159246  17:34:21.1   -18:36:21.62  P=-99.99  mV=9.88    priority=4  comment="2460115.654  2460115.896  P"
-#
-#
-#
 # # Paulina
 #
 # U_Aql     19:29:21.361  -07:02:38.662  P=7.0235  mV=6.6  priority=4  comment="ugri  8.4  B9.8V  Evans1992  too bright?"
@@ -481,4 +424,3 @@ GY_Sge                  19:35:13.63        +19:12:08.6        seq=2/B/9,2/V/2,2/
 #
 # # Temporary object for Czarek (30 days starting 15.03)
 # V840_Cen  13:20:49.462  -55:50:14.559  seq=2/V/110,2/Ic/90  p=8.1 mV=14.2 priority=6
-#
