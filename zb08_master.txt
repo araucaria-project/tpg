@@ -9,7 +9,7 @@
 # example3  07:24:14         -00:31:41     seq=INFx(1/B/60,1/V/30,1/Ic/30)  priority=6    t_start=00:20    t_end=10:00
 # example4  07:24:14         -00:31:41     seq=2x(1/B/36)                   priority=7    P=0.1    ph_start=0.8    ph_end=0.1    hjd0=2460310.5
 
-# testpwy obiekt do sprawdzania fazy
+# testowy obiekt do sprawdzania fazy
 # OGLE-GD-CEP-0127  07:45:11.79  -36:58:29.1  ph_mk=2/Ic/0.05  seq=2/B/42  P=13.7677045  mV=12.79  priority=5
 
 
@@ -498,6 +498,29 @@ V493_Aql                18:57:24.27        -00:43:48.9        seq=2/B/9,2/V/3,2/
 V493_Aql                18:57:24.27        -00:43:48.9        seq=2/B/9,2/V/3,2/Ic/3,2/g/5,2/r/2.5,2/i/2.5,2/z/7                  priority=6      cycle=0.02    ph_mk=2/V/0.007     ph_start=0.804         ph_end=0.009         uobi=7ed6e865      sciprog=ccep_mw       pi=ghajdu        tag=ccep,ascending_branch    P=2.9877424     comment="T1CepF"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     mV=11.0
 V916_Aql                19:10:00.41        +12:32:11.5        seq=2/B/16,2/V/3.5,2/Ic/2,2/g/9,2/r/1.4,2/i/1.2,2/z/6               priority=6      cycle=0.13    ph_mk=4/V/0.02      uobi=13cdbd09      sciprog=ccep_mw       pi=ghajdu        tag=ccep          P=13.4433646    comment="T1CepF"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      mV=10.9
 GY_Sge                  19:35:13.63        +19:12:08.6        seq=2/B/9,2/V/2,2/Ic/0.5,2/g/5,2/r/0.6,2/i/0.5,2/z/1.6              priority=8      cycle=0.5    ph_mk=4/V/0.02      uobi=0cfd3739      sciprog=ccep_mw       pi=ghajdu        tag=ccep          P=51.814089     comment="T1CepF"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                mV=9.9
+
+
+
+# RR Lyrae stars with companions from speckle observations
+# SCIPROG rrl_speckle
+# PI rsalinas
+
+# Minimum light in all bands
+AT_Vir     12:55:10.51     -05:27:31.78     seq=2/u/60,2/g/9,2/r/6,2/i/9,2/z/30,2/Ic/14,2/V/9   P=0.5257931   ph_start=0.65   ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456891.34522220
+BB_Vir     13:51:40.78     +06:25:51.39     seq=2/u/60,2/g/9,2/r/6,2/i/9,2/z/30,2/Ic/14,2/V/9   P=0.4711082   ph_start=0.65   ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456900.056150540
+
+# Minimum light RRL with companions
+IK_Hya     12:04:47.18     -27:40:44.28     seq=2/u/28,2/g/2     P=0.65029     ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456888.77215520
+V0445_Oph  16:24:41.21     -06:32:29.79     seq=2/u/42,2/g/6     P=0.397025    ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456910.17750320
+IU_Car     06:53:07.52     -59:35:43.42     seq=2/u/76,2/g/14    P=0.7369909   ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2454387.837   
+WZ_Hya     10:13:24.10     -13:08:17.57     seq=2/u/24,2/g/2.5   P=0.53772     ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456961.68003120
+
+# Minimum light RRL without companions
+WY_Ant     10:16:04.91     -29:43:42.00     seq=2/u/26,2/g/3.8   P=0.5743427   ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456864.11970520
+V675_Sgr   08:13:35.41     -34:19:02.01     seq=2/u/22,2/g/2.6   P=0.6422935   ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456943.52772820
+V0674_Cen  14:03:24.10     -36:24:20.00     seq=2/u/52,2/g/8     P=0.4939896   ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456898.70248520
+S_Ara      17:59:10.69     -49:26:00.15     seq=2/u/26,2/g/3.5   P=0.451848    ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456906.52048720
+AM_Vir     13:23:33.30     -16:39:57.90     seq=2/u/54,2/g/9     P=0.615085    ph_start=0.65    ph_end=0.70   priority=5   sciprog=rrl_speckle   pi=rsalinas   hjd0=2456895.82467620
 
 
 
