@@ -38,9 +38,9 @@ ASASSN-14cc             21:39:48.25        -59:59:32.85       seq=2/V/300       
 # SCIPROG agn
 # PI fpozo
 
-Fairall9                01:23:45.76        -58:48:20.8089     seq=1/Ic/60,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/600        mV=13.8   priority=10     cycle=0.2       sciprog=agn     pi=fpozo     comment="AGN observe twice per night"
-WPVS48                  09:59:42.645       -31:12:58.4910     seq=1/Ic/120,1/y_s/150,1/v_s/240,1/b_s/240,1/u_s/600    mV=14.8   priority=8      cycle=0.2       sciprog=agn     pi=fpozo     comment="AGN observe twice per night"
-NGC3783                 11:39:01.71        -37:44:19.01       seq=1/Ic/60,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/600        mV=13.4   priority=10     cycle=0.0001    sciprog=agn     pi=fpozo     comment="AGN observe continuously for 2 weeks, dark sky"
+Fairall9                01:23:45.76        -58:48:20.8089     seq=1/Ic/60,1/y_s/60,1/v_s/90,1/b_s/90,2/u_s/300        mV=13.8   priority=10     cycle=0.3       sciprog=agn     pi=fpozo     comment="AGN observe twice per night"
+WPVS48                  09:59:42.645       -31:12:58.4910     seq=1/Ic/150,1/y_s/150,1/v_s/240,1/b_s/240,4/u_s/300    mV=14.8   priority=8      cycle=0.3       sciprog=agn     pi=fpozo     comment="AGN observe twice per night"
+#NGC3783                 11:39:01.71        -37:44:19.01       seq=1/Ic/60,1/y_s/60,1/v_s/90,1/b_s/90,2/u_s/300        mV=13.4   priority=10     cycle=0.0001    sciprog=agn     pi=fpozo     comment="AGN observe continuously for 2 weeks, dark sky"
 
 
 # Cepheids in open clusters
