@@ -283,3 +283,4 @@ OGLE-SMC-ECL-3378       00:56:17.60        -72:19:54.2        seq=1x(2/B/48,2/V/
 OGLE-SMC-ECL-4440       01:02:01.37        -72:29:07.5        seq=1x(2/B/60,2/V/80,2/Ic/225)        priority=2      sciprog=deb_blue_smc    pi=ghajdu        tag=random_phase    P=9.0179343     hjd0=2460653.90    comment="SMC, out of ecl"                                                                                                                                                                                                                                                                   mV=14.95
 
 
+
