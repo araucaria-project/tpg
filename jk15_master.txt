@@ -82,8 +82,8 @@ ASASSN-15kf         15:38:38.2026    -30:35:50.2189    seq=2/V/120       priorit
 #IC1613-center     01:04:48      +02:07:10      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)       cycle=0      priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="2-3 times per night, incl. Landolt std"
 #IC1613-center     01:04:48      +02:07:10      seq=1x(3/V/120,3/Ic/120)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
 
-Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/g/200,3/r/200,3/i/200)               cycle=0.2    priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="2-3 times per night, incl. Landolt std"
-Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/V/200,3/Ic/200)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
+#Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/g/200,3/r/200,3/i/200)               cycle=0.2    priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="2-3 times per night, incl. Landolt std"
+#Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/V/200,3/Ic/200)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
 
 Carina-center      06:41:36.70   -50:57:58.0    seq=1x(3/g/200,3/r/200,3/i/200)               cycle=0.2    priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="2-3 times per night, incl. Landolt std"
 Carina-center      06:41:36.70   -50:57:58.0    seq=1x(3/V/200,3/Ic/200)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
