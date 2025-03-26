@@ -62,7 +62,7 @@ TYC_8104-969-1      06:42:25.35      -45:09:12.38      seq=1/u_s/40,1/v_s/15,1/b
 # SCIPROG amcvn
 # PI kbakowska
 
-ASASSN-15kf         15:38:38.2026    -30:35:50.2189    seq=2/V/120       priority=10     sciprog=amcvn         pi=kbakowska     mV=15      comment="Karolina's cataclysmic variable, mV=15-17"
+ASASSN-15kf         15:38:38.2026    -30:35:50.2189    seq=2/V/180       priority=10     sciprog=amcvn         pi=kbakowska     mV=17      comment="Karolina's cataclysmic variable, mV=15-17"
 
 
 
