@@ -4,52 +4,52 @@
 
 #format of each line should be as follows:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
-# example1  21:24:00.2421       +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30    P=2.4121             mV=9.21  priority=4     comment="binary and dusty envelope" read_mod=5
-# example2  07:24:14   -00:31:41  seq=10x(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=08:20 t_end=10:00 read_mod=5
-# example3  07:24:14   -00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=00:20 t_end=10:00 read_mod=5
-# example4  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5 read_mod=5
+# example1  21:24:00.2421       +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30    P=2.4121             mV=9.21  priority=4     comment="binary and dusty envelope" read_mod=3
+# example2  07:24:14   -00:31:41  seq=10x(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=08:20 t_end=10:00 read_mod=3
+# example3  07:24:14   -00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=00:20 t_end=10:00 read_mod=3
+# example4  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5 read_mod=3
 
 
 
 # Test object for checking phase
-# OGLE-GD-CEP-0127      07:45:11.79      -36:58:29.1      ph_mk=2/Ic/0.05      seq=2/B/42      P=13.7677045      mV=12.79      priority=5      read_mod=5      comment="Test object for checking phase"
+# OGLE-GD-CEP-0127      07:45:11.79      -36:58:29.1      ph_mk=2/Ic/0.05      seq=2/B/42      P=13.7677045      mV=12.79      priority=5      read_mod=3      comment="Test object for checking phase"
 
 
 
 # Landolt standard fields
-TPHE         00:30:16      -46:27:55      seq=1/B/40,1/V/20,1/Ic/20      P=-99.99      mV=12.33      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-SA92         00:56:08      +01:04:29      seq=1/B/30,1/V/15,1/Ic/15      P=-99.99      mV=11.81      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-SA95         03:53:04      +00:03:12      seq=1/B/40,1/V/20,1/Ic/20      P=-99.99      mV=12.68      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-SA98         06:52:05      -00:19:18      seq=1/B/30,1/V/15,1/Ic/15      P=-99.99      mV=12.27      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-RU149        07:24:14      -00:31:41      seq=1/B/30,1/V/15,1/Ic/15      P=-99.99      mV=11.48      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-RU152        07:29:56      -02:05:39      seq=1/B/50,1/V/25,1/Ic/25      P=-99.99      mV=13.01      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-SA104        12:42:21      -00:33:12      seq=1/B/30,1/V/15,1/Ic/15      P=-99.99      mV=11.67      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-SA110        18:42:45      +00:07:42      seq=1/B/40,1/V/20,1/Ic/20      P=-99.99      mV=12.43      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-SA113        21:41:00      +00:27:21      seq=1/B/20,1/V/10,1/Ic/10      P=-99.99      mV=10.88      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
-SA114        22:41:37      +01:08:14      seq=1/B/20,1/V/10,1/Ic/10      P=-99.99      mV=10.88      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=5      comment="Landolt standard field"
+TPHE         00:30:16      -46:27:55      seq=1/B/40,1/V/20,1/Ic/20      P=-99.99      mV=12.33      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+SA92         00:56:08      +01:04:29      seq=1/B/30,1/V/15,1/Ic/15      P=-99.99      mV=11.81      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+SA95         03:53:04      +00:03:12      seq=1/B/40,1/V/20,1/Ic/20      P=-99.99      mV=12.68      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+SA98         06:52:05      -00:19:18      seq=1/B/30,1/V/15,1/Ic/15      P=-99.99      mV=12.27      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+RU149        07:24:14      -00:31:41      seq=1/B/30,1/V/15,1/Ic/15      P=-99.99      mV=11.48      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+RU152        07:29:56      -02:05:39      seq=1/B/50,1/V/25,1/Ic/25      P=-99.99      mV=13.01      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+SA104        12:42:21      -00:33:12      seq=1/B/30,1/V/15,1/Ic/15      P=-99.99      mV=11.67      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+SA110        18:42:45      +00:07:42      seq=1/B/40,1/V/20,1/Ic/20      P=-99.99      mV=12.43      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+SA113        21:41:00      +00:27:21      seq=1/B/20,1/V/10,1/Ic/10      P=-99.99      mV=10.88      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
+SA114        22:41:37      +01:08:14      seq=1/B/20,1/V/10,1/Ic/10      P=-99.99      mV=10.88      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      read_mod=3      comment="Landolt standard field"
 
 
 
 # Stromgren standards (Hauck & Mermilliod 1998; Paunzen 2015)
 # D64           WTF?
-HD_3417       00:36:52.25      -34:16:50.40      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.98      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard A8V"
-HD_12756      02:04:18.52      -30:24:25.69      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.94       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard F5V"
-HD_22610      03:34:45.29      -62:27:24.60      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.43       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard K2V"
-HD_57568      07:21:22.68      -12:38:14.05      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.03      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard K3V"
-HD_58489      07:24:04.61      -40:02:45.84      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.74       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard K3.5V"
-HD_66020      08:00:02.15      -40:02:21.90      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.62       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard K5V"
+HD_3417       00:36:52.25      -34:16:50.40      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.98      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard A8V"
+HD_12756      02:04:18.52      -30:24:25.69      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.94       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard F5V"
+HD_22610      03:34:45.29      -62:27:24.60      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.43       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard K2V"
+HD_57568      07:21:22.68      -12:38:14.05      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.03      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard K3V"
+HD_58489      07:24:04.61      -40:02:45.84      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.74       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard K3.5V"
+HD_66020      08:00:02.15      -40:02:21.90      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.62       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard K5V"
 
 # Additional Stromgren standards from Tycho catalog
 
-TYC_7547-711-1      01:24:12.51      -44:27:00.05      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.92      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard CD-45 460"
-TYC_7548-698-1      01:36:08.99      -44:05:23.41      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.68       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard A7V"
-TYC_7583-1011-1     04:11:44.76      -44:49:02.23      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.84       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard F7/8V"
-TYC_8033-906-1      01:20:00.79      -45:27:31.97      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.64       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard A1V"
-TYC_8104-856-1      06:40:10.80      -45:06:03.33      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.77       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard CD-44 2834"
-TYC_8104-969-1      06:42:25.35      -45:09:12.38      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.95       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard CD-45 2690"
-#TYC_7626-763-1     06:31:04.53      -43:43:01.43      seq=1/u_s/40,1/v_s/5,1/b_s/5,1/y_s/5        mV=6.68       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard G8III, too bright for jk15"
-#TYC_7583-1622-1    04:07:24.68      -44:00:00.70      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.62       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard A2/3III SB"
-#TYC_8067-207-1     03:55:04.24      -47:10:10.27      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.14       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=5      comment="Stromgren standard CD-47 1197 long-per var"
+TYC_7547-711-1      01:24:12.51      -44:27:00.05      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.92      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard CD-45 460"
+TYC_7548-698-1      01:36:08.99      -44:05:23.41      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.68       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard A7V"
+TYC_7583-1011-1     04:11:44.76      -44:49:02.23      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.84       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard F7/8V"
+TYC_8033-906-1      01:20:00.79      -45:27:31.97      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.64       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard A1V"
+TYC_8104-856-1      06:40:10.80      -45:06:03.33      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.77       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard CD-44 2834"
+TYC_8104-969-1      06:42:25.35      -45:09:12.38      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.95       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard CD-45 2690"
+#TYC_7626-763-1     06:31:04.53      -43:43:01.43      seq=1/u_s/40,1/v_s/5,1/b_s/5,1/y_s/5        mV=6.68       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard G8III, too bright for jk15"
+#TYC_7583-1622-1    04:07:24.68      -44:00:00.70      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.62       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard A2/3III SB"
+#TYC_8067-207-1     03:55:04.24      -47:10:10.27      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.14       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      read_mod=3      comment="Stromgren standard CD-47 1197 long-per var"
 
 
 # Sloan standards
@@ -61,35 +61,33 @@ TYC_8104-969-1      06:42:25.35      -45:09:12.38      seq=1/u_s/40,1/v_s/15,1/b
 # SCIPROG amcvn
 # PI kbakowska
 
-ASASSN-15kf         15:38:38.2026    -30:35:50.2189    seq=2/V/240       priority=10     sciprog=amcvn         pi=kbakowska     mV=17      comment="Karolina's cataclysmic variable, mV=15-17"
+ASASSN-15kf         15:38:38.2026    -30:35:50.2189    seq=2/V/240       priority=10     cycle=0.8    sciprog=amcvn         pi=kbakowska     mV=17      comment="Karolina's cataclysmic variable, mV=15-17"
 
 
 
 # Monitoring of nearby galaxies
 # PI: gpietrzynski
 # SCIPROG: near_gal
-# INFO slow readout 0.1 MHz 18bit (read_mod=5)
 
-#NGC247            00:47:08      -20:45:37      seq=3x(3/g/120,3/r/120,3/i/120,3/V/120)       cycle=1      priority=5       pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="incl. Landolt std"
+#NGC247-center     00:47:08      -20:45:37      seq=3x(3/g/120,3/r/120,3/i/120,3/V/120)                         cycle=0.8     priority=5       pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="incl. Landolt std"
+      
+#WLM-center        00:01:58      -15:27:50      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)                         cycle=0       priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="1 per night, incl. Landolt std"
+#WLM-center        00:01:58      -15:27:50      seq=1x(3/V/120,3/Ic/120,3/g/120,3/r/120,3/i/120,3/V/120)        cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
+      
+#NGC300-center     00:54:53.5    -37:41:04.0    seq=1x(3/g/200,3/r/200,3/i/200,3/V/200)                         cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="every night, incl. Landolt std"
+#NGC300-center     00:54:53.5    -37:41:04.0    seq=1x(3/V/200,3/Ic/200,3/g/200,3/r/200,3/i/200,3/V/200)        cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
+      
+#IC1613-center     01:04:48      +02:07:10      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)                         cycle=0       priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="2-3 times per night, incl. Landolt std"
+#IC1613-center     01:04:48      +02:07:10      seq=1x(3/V/120,3/Ic/120,3/g/120,3/r/120,3/i/120,3/V/120)        cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
+      
+#Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/g/200,3/r/200,3/i/200)                                cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="2-3 times per night, incl. Landolt std"
+#Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/V/200,3/Ic/200,3/g/200,3/r/200,3/i/200)               cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
+      
+Carina-center      06:41:36.70   -50:57:58.0    seq=1x(3/g/200,3/r/200,3/i/200)                                 cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="2-3 times per night, incl. Landolt std"
+Carina-center      06:41:36.70   -50:57:58.0    seq=1x(3/V/200,3/Ic/200,3/g/200,3/r/200,3/i/200)                cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
 
-#WLM-center        00:01:58      -15:27:50      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)       cycle=0      priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="1 per night, incl. Landolt std"
-#WLM-center        00:01:58      -15:27:50      seq=1x(3/V/120,3/Ic/120)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
-
-#NGC300-center     00:54:53.5    -37:41:04.0    seq=1x(3/g/200,3/r/200,3/i/200,3/V/200)       cycle=0.2    priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="every night, incl. Landolt std"
-#NGC300-center     00:54:53.5    -37:41:04.0    seq=1x(3/V/200,3/Ic/200)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
-
-#IC1613-center     01:04:48      +02:07:10      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)       cycle=0      priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="2-3 times per night, incl. Landolt std"
-#IC1613-center     01:04:48      +02:07:10      seq=1x(3/V/120,3/Ic/120)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
-
-#Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/g/200,3/r/200,3/i/200)               cycle=0.2    priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="2-3 times per night, incl. Landolt std"
-#Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/V/200,3/Ic/200)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
-
-Carina-center      06:41:36.70   -50:57:58.0    seq=1x(3/g/200,3/r/200,3/i/200)               cycle=0.2    priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="2-3 times per night, incl. Landolt std"
-Carina-center      06:41:36.70   -50:57:58.0    seq=1x(3/V/200,3/Ic/200)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
-
-NGC3109-center     10:03:06.88   -26:09:34.7    seq=1x(4/g/200,4/r/200,4/i/200)               cycle=0.2    priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="2-3 times per night, incl. Landolt std"
-NGC3109-center     10:03:06.88   -26:09:34.7    seq=1x(4/V/200,4/Ic/200)                      cycle=12     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=5      comment="sporadically"
-
+NGC3109-center    10:03:06.88    -26:09:34.7    seq=3x(4/g/200,4/r/200,4/i/200)                                   cycle=0.2   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="fast 1MHz, 2-3 times per night, incl. Landolt std"
+NGC3109-center    10:03:06.88    -26:09:34.7    seq=3x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="fast 1MHz, sporadically, incl. Landolt std"
 
 
 # Monitoring globular clusters
@@ -97,70 +95,79 @@ NGC3109-center     10:03:06.88   -26:09:34.7    seq=1x(4/V/200,4/Ic/200)        
 # SCIPROG: var_gclu
 # INFO fast readout 1 MHz 18bit (read_mod=3)
 
-NGC3201           10:17:36.82    -46:24:44.9    seq=1x(2/g/30,2/r/30,2/i/30,2/z/30,2/g/30,2/r/30,2/i/30,2/B/30,2/g/30,2/r/30,2/i/30,2/V/30,2/g/30,2/r/30,2/i/30,2/Ic/30) cycle=0.1   priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3     comment="fast 1MHz"
-NGC3109-center    10:03:06.88    -26:09:34.7    seq=1x(4/g/200,4/r/200,4/i/200,4/V/200,4/Ic/200)   cycle=0.1   priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz"
-oCen-N            13:26:48.0     -47:12:30.0    seq=1x(2/g/25,2/r/25,2/i/25)                       cycle=1     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, test exp."
-oCen-W            13:25:17.0     -47:27:00.0    seq=1x(2/g/25,2/r/25,2/i/25)                       cycle=1     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, test exp."
-oCen-S            13:26:47.0     -47:43:20.0    seq=1x(2/g/25,2/r/25,2/i/25)                       cycle=1     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, test exp."
-oCen-E            13:28:19.0     -47:29:00.0    seq=1x(2/g/25,2/r/25,2/i/25)                       cycle=1     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, test exp."
-NGC5904-center    15:18:33.2     +02:04:51.7    seq=1x(2/g/30,2/r/30,2/i/30)                       cycle=1     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="M5, fast 1MHz, test exp."
+NGC3201           10:17:36.82    -46:24:44.9    seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30  cycle=0.1   priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3     comment="fast 1MHz, dense coverage"
+
+oCen-N            13:26:48.0     -47:12:30.0    seq=2/g/25,2/r/25,2/i/25                        cycle=0.8    priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+oCen-N            13:26:48.0     -47:12:30.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+
+oCen-W            13:25:17.0     -47:27:00.0    seq=2/g/25,2/r/25,2/i/25                        cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+oCen-W            13:25:17.0     -47:27:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+
+oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25                        cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+
+oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25                        cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+
+NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/g/30,2/r/30,2/i/30                        cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="M5, fast 1MHz, dense coverage"
+NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/g/30,2/r/30,2/i/30,2/z/30,2/B/30,2/V/30,2/Ic/30  cycle=4.5      priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="M5, fast 1MHz, dense coverage"
 
 
 
 # SMC blue early-type eclipsig binaries
 # SCIPROG deb_blue_smc
 # PI dgraczyk + mtaormina
-# INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std, slow readout 0.1 MHz 18bit (read_mod=5)
+# INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std
 
-OGLE-SMC-ECL-0720      00:44:08.8       -73:14:18.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.3       P=6.05213       hjd0=2450628.07158      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-SMC-ECL-1068      00:46:31.7       -73:26:45.5      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=16.1       P=1.74107       hjd0=2450624.8629       sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-SMC-ECL-1708      00:49:39.5       -73:00:21.7      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=15.9       P=8.05104       hjd0=2450474.20881      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-SMC-ECL-2347      00:52:05.3       -72:45:21.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=15.2       P=10.97765      hjd0=2450466.88188      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-SMC-ECL-2770      00:53:33.5       -72:56:23.6      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.9       P=3.94603       hjd0=2450473.26734      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-SMC-ECL-4592      01:02:54.0       -72:06:45.4      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.7       P=2.98654       hjd0=2450628.36738      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
+OGLE-SMC-ECL-0720      00:44:08.8       -73:14:18.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.3       P=6.05213       hjd0=2450628.07158      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-SMC-ECL-1068      00:46:31.7       -73:26:45.5      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=16.1       P=1.74107       hjd0=2450624.8629       sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-SMC-ECL-1708      00:49:39.5       -73:00:21.7      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=15.9       P=8.05104       hjd0=2450474.20881      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-SMC-ECL-2347      00:52:05.3       -72:45:21.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=15.2       P=10.97765      hjd0=2450466.88188      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-SMC-ECL-2770      00:53:33.5       -72:56:23.6      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.9       P=3.94603       hjd0=2450473.26734      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-SMC-ECL-4592      01:02:54.0       -72:06:45.4      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.7       P=2.98654       hjd0=2450628.36738      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
 
 
 
 # LMC blue early-type eclipsig binaries
 # SCIPROG deb_blue_lmc
 # PI dgraczyk + mtaormina
-# INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std, slow readout 0.1 MHz 18bit (read_mod=5)
+# INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std
 
 # High priority
-OGLE-LMC-ECL-22270     05:40:47.31      -69:20:28.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.029    mI=14.022      P=5.414011      hjd0=2453578.8126      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-LMC-ECL-06782     05:04:59.05      -70:31:13.9      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=13.714    mI=13.913      P=4.270776      hjd0=2453560.7368      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-LMC-ECL-21568     05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-LMC-ECL-17660     05:30:22.13      -69:14:52.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.266    mI=14.429      P=6.22909       hjd0=2453575.7547      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-LMC-ECL-18794     05:32:47.74      -68:37:26.6      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=13.194    mI=13.397      P=5.946846      hjd0=2453577.3724      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-LMC-ECL-05764     05:02:40.77      -68:24:21.4      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.231    mI=14.371      P=5.725912      hjd0=2453570.9054      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
+OGLE-LMC-ECL-22270     05:40:47.31      -69:20:28.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.029    mI=14.022      P=5.414011      hjd0=2453578.8126      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-LMC-ECL-06782     05:04:59.05      -70:31:13.9      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=13.714    mI=13.913      P=4.270776      hjd0=2453560.7368      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-LMC-ECL-21568     05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-LMC-ECL-17660     05:30:22.13      -69:14:52.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.266    mI=14.429      P=6.22909       hjd0=2453575.7547      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-LMC-ECL-18794     05:32:47.74      -68:37:26.6      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=13.194    mI=13.397      P=5.946846      hjd0=2453577.3724      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-LMC-ECL-05764     05:02:40.77      -68:24:21.4      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.231    mI=14.371      P=5.725912      hjd0=2453570.9054      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
 
 # Normal priority
-OGLE-LMC-ECL-07641     05:06:51.94      -68:25:46.5      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.039    mI=14.25       P=6.33001       hjd0=2453570.6569      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-LMC-ECL-16675     05:28:23.98      -69:12:26.2      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.867    mI=14.046      P=3.74864       hjd0=2453564.9887      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-OGLE-LMC-ECL-17198     05:29:24.63      -68:42:13.1      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.926    mI=14.118      P=3.29083       hjd0=2453565.3853      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
-#OGLE-LMC-ECL-21568    05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=5
+OGLE-LMC-ECL-07641     05:06:51.94      -68:25:46.5      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.039    mI=14.25       P=6.33001       hjd0=2453570.6569      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-LMC-ECL-16675     05:28:23.98      -69:12:26.2      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.867    mI=14.046      P=3.74864       hjd0=2453564.9887      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+OGLE-LMC-ECL-17198     05:29:24.63      -68:42:13.1      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.926    mI=14.118      P=3.29083       hjd0=2453565.3853      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
+#OGLE-LMC-ECL-21568    05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"      read_mod=3
 
 
 
 # grouptoplan bluelmc_old -s"3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100" -p10 -c"Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
 # Group: bluelmc_old [ECL] - mikolaj commented out because old?
-# OGLE-LMC-ECL-09217    5.1746222 -69.346639  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.764  P=3.773452  hjd0=2453562.8651  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-09433    5.18411113333 -69.219333  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.021  P=2.15292  hjd0=2453562.01  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-12378    5.30779446667 -69.629222  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.196  P=1.40379  hjd0=2453539.5542  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-10003    5.21015553333 -69.292111  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.301  P=2.301265  hjd0=2453560.8939  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-10165    5.2172722 -69.327722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.603  P=4.502421  hjd0=2453566.6386  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-10320    5.2232972 -69.380306  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.746  P=2.63659  hjd0=2453565.1248  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-10409    5.2267278 -69.378167  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.249  P=2.10873  hjd0=2453561.9957  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-10450    5.22813213333 -69.545944  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.504  P=5.457331  hjd0=2453571.1636  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-11676    5.27900553333 -69.542556  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.784  P=5.603515  hjd0=2453542.0941  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-11797    5.28399166667 -69.456694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.398  P=1.860482  hjd0=2453538.738  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-11963    5.29165833333 -69.466250  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.826  P=4.42282  hjd0=2453543.7348  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-12009    5.29375 -69.527722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.128  P=6.9776  hjd0=2453549.2791  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-12696    5.31994166667 -69.706889  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.38  P=2.727111  hjd0=2453543.5498  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-12782    5.32359446667 -69.644944  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.5  P=6.01626  hjd0=2453549.9448  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-12953    5.33086386667 -69.667389  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.51  P=1.323983  hjd0=2453542.3272  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-13005    5.33279166667 -69.473306  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.088  P=1.33831  hjd0=2453534.7902  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-13703    5.3621222 -69.411694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.216  P=3.388133  hjd0=2453538.6174  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-13953    5.37108333333 -69.736889  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.228  P=1.954384  hjd0=2453542.0656  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-14106    5.37648333333 -69.528694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.643  P=2.18336  hjd0=2453566.8426  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
-# OGLE-LMC-ECL-14186    5.37895 -69.528722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.59  P=2.150526  hjd0=2453564.0208  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=5
+# OGLE-LMC-ECL-09217    5.1746222 -69.346639  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.764  P=3.773452  hjd0=2453562.8651  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-09433    5.18411113333 -69.219333  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.021  P=2.15292  hjd0=2453562.01  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-12378    5.30779446667 -69.629222  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.196  P=1.40379  hjd0=2453539.5542  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-10003    5.21015553333 -69.292111  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.301  P=2.301265  hjd0=2453560.8939  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-10165    5.2172722 -69.327722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.603  P=4.502421  hjd0=2453566.6386  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-10320    5.2232972 -69.380306  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.746  P=2.63659  hjd0=2453565.1248  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-10409    5.2267278 -69.378167  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.249  P=2.10873  hjd0=2453561.9957  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-10450    5.22813213333 -69.545944  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.504  P=5.457331  hjd0=2453571.1636  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-11676    5.27900553333 -69.542556  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.784  P=5.603515  hjd0=2453542.0941  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-11797    5.28399166667 -69.456694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.398  P=1.860482  hjd0=2453538.738  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-11963    5.29165833333 -69.466250  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.826  P=4.42282  hjd0=2453543.7348  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-12009    5.29375 -69.527722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.128  P=6.9776  hjd0=2453549.2791  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-12696    5.31994166667 -69.706889  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.38  P=2.727111  hjd0=2453543.5498  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-12782    5.32359446667 -69.644944  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.5  P=6.01626  hjd0=2453549.9448  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-12953    5.33086386667 -69.667389  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.51  P=1.323983  hjd0=2453542.3272  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-13005    5.33279166667 -69.473306  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.088  P=1.33831  hjd0=2453534.7902  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-13703    5.3621222 -69.411694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.216  P=3.388133  hjd0=2453538.6174  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-13953    5.37108333333 -69.736889  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.228  P=1.954384  hjd0=2453542.0656  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-14106    5.37648333333 -69.528694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.643  P=2.18336  hjd0=2453566.8426  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
+# OGLE-LMC-ECL-14186    5.37895 -69.528722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.59  P=2.150526  hjd0=2453564.0208  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards" read_mod=3
