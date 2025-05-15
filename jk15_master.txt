@@ -53,8 +53,15 @@ TYC_8104-969-1      06:42:25.35      -45:09:12.38      seq=1/u_s/40,1/v_s/15,1/b
 
 
 # Sloan standards
-# TBD. Smith et al. 2006? https://www-star.fnal.gov/Southern_ugriz/New/Smith-20061127.pdf
+# Smith et al. 2006? https://www-star.fnal.gov/Southern_ugriz/New/Smith-20061127.pdf
 
+smith10-30  10:00:00 -30:00:00   seq=2x(1/g/25,1/r/15,1/i/15,1/z/20)    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=11.2”   
+smith12-30  11:59:56 -29:54:30   seq=2x(1/g/25,1/r/15,1/i/15,1/z/20)    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=11.4”   
+smith14-30  14:00:00 -30:00:00   seq=2x(1/g/25,1/r/15,1/i/15,1/z/20)    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=10.8”   
+smith16-30  16:01:00 -30:00:30   seq=2x(1/g/25,1/r/15,1/i/15,1/z/20)    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=10.8”   
+SA109       17:44:10 -00:23:00   seq=2x(1/g/25,1/r/15,1/i/15,1/z/20)    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=11.05”   
+SA112       20:42:33 +00:10:00   seq=2x(1/g/15,1/r/9,1/i/9,1/z/12)      priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=9.5”   
+SA114       22:41:35 +01:06:00   seq=2x(1/g/30,1/r/18,1/i/18,1/z/24)    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=12.33”   
 
 
 # Karolina's cataclysmic variable
@@ -69,50 +76,79 @@ ASASSN-15kf         15:38:38.2026    -30:35:50.2189    seq=2/V/240       priorit
 # PI: gpietrzynski
 # SCIPROG: near_gal
 
-#NGC247-center     00:47:08      -20:45:37      seq=3x(3/g/120,3/r/120,3/i/120,3/V/120)                         cycle=0.8     priority=5       pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="incl. Landolt std"
+#WLM-center       00:01:58      -15:27:50      seq=1x(3/g/120,3/r/120,3/i/120)                                   cycle=0       priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 1 per night, incl. Landolt std"
+#WLM-center       00:01:58      -15:27:50      seq=1x(3/B/120,3/Ic/120,3/g/120,3/r/120,3/i/120,3/z/120,3/V/120)  cycle=4.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically"
       
-#WLM-center        00:01:58      -15:27:50      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)                         cycle=0       priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="1 per night, incl. Landolt std"
-#WLM-center        00:01:58      -15:27:50      seq=1x(3/V/120,3/Ic/120,3/g/120,3/r/120,3/i/120,3/V/120)        cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
-      
-#NGC300-center     00:54:53.5    -37:41:04.0    seq=1x(3/g/200,3/r/200,3/i/200,3/V/200)                         cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="every night, incl. Landolt std"
-#NGC300-center     00:54:53.5    -37:41:04.0    seq=1x(3/V/200,3/Ic/200,3/g/200,3/r/200,3/i/200,3/V/200)        cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
-      
-#IC1613-center     01:04:48      +02:07:10      seq=1x(3/g/120,3/r/120,3/i/120,3/V/120)                         cycle=0       priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="2-3 times per night, incl. Landolt std"
-#IC1613-center     01:04:48      +02:07:10      seq=1x(3/V/120,3/Ic/120,3/g/120,3/r/120,3/i/120,3/V/120)        cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
-      
-#Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/g/200,3/r/200,3/i/200)                                cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="2-3 times per night, incl. Landolt std"
-#Fornax-center      02:39:59.3    -34:26:57.0    seq=1x(3/V/200,3/Ic/200,3/g/200,3/r/200,3/i/200)               cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
-      
-Carina-center      06:41:36.70   -50:57:58.0    seq=1x(3/g/200,3/r/200,3/i/200)                                 cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="2-3 times per night, incl. Landolt std"
-Carina-center      06:41:36.70   -50:57:58.0    seq=1x(3/V/200,3/Ic/200,3/g/200,3/r/200,3/i/200)                cycle=7.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="sporadically"
+NGC45-center      00:14:04.00   -23:10:55.13   seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2   priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+NGC45-center      00:14:04.00   -23:10:55.13   seq=1x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
 
-NGC3109-center    10:03:06.88    -26:09:34.7    seq=3x(4/g/200,4/r/200,4/i/200)                                   cycle=0.2   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="fast 1MHz, 2-3 times per night, incl. Landolt std"
-NGC3109-center    10:03:06.88    -26:09:34.7    seq=3x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="fast 1MHz, sporadically, incl. Landolt std"
+NGC55-center      00:14:53.6    -39:11:47.86   seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2   priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+NGC55-center      00:14:53.6    -39:11:47.86   seq=1x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
+
+#NGC247-center    00:47:08      -20:45:37      seq=1x(3/g/120,3/r/120,3/i/120)                                   cycle=0.8     priority=5       pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, incl. Landolt std"
+#NGC247-center    00:47:08      -20:45:37      seq=1x(4/B/120,4/Ic/120,4/g/120,4/r/120,4/i/120,4/z/120,4/V/120)  cycle=4.5     priority=5       pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, incl. Landolt std"
+      
+NGC253-center     00:47:33.13   -25:17:19.7    seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2   priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+NGC253-center     00:47:33.13   -25:17:19.7    seq=1x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
+
+#NGC300-center    00:54:53.5    -37:41:04.0    seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every night, incl. Landolt std"
+#NGC300-center    00:54:53.5    -37:41:04.0    seq=1x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically"
+
+Sculptor-center   01:00:09.4    -33:42:32      seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2   priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+Sculptor-center   01:00:09.4    -33:42:32      seq=1x(3/i/200,3/r/200,3/g/200,3/z/200,3/B/200,3/V/200,3/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
+
+#IC1613-center    01:04:48      +02:07:10      seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+#IC1613-center    01:04:48      +02:07:10      seq=1x(3/B/200,3/Ic/200,3/g/200,3/r/200,3/i/200,3/z/200,3/V/200)  cycle=4.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically"
+      
+#Fornax-center    02:39:59.3    -34:26:57.0    seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+#Fornax-center    02:39:59.3    -34:26:57.0    seq=1x(3/i/200,3/r/200,3/g/200,3/z/200,3/B/200,3/V/200,3/Ic/200)  cycle=4.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically"
+      
+Carina-center     06:41:36.70   -50:57:58.0    seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+Carina-center     06:41:36.70   -50:57:58.0    seq=1x(3/i/200,3/r/200,3/g/200,3/z/200,3/B/200,3/V/200,3/Ic/200)  cycle=4.5     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically"
+
+NGC3109-center    10:03:06.88   -26:09:34.7    seq=3x(4/g/200,4/r/200,4/i/200)                                   cycle=0.2   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+NGC3109-center    10:03:06.88   -26:09:34.7    seq=1x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  Cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
+
+M83-center        13:37:00.92   -29:51:56.74   seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2   priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+M83-center        13:37:00.92   -29:51:56.74   seq=3x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
+
+NGC5253-center    13:39:56.0    -31:38:24.1    seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2   priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+NGC5253-center    13:39:56.0    -31:38:24.1    seq=3x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
+
+NGC6822-center    19:44:56.2    -14:47:51.3    seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2   priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+NGC6822-center    19:44:56.2    -14:47:51.3    seq=3x(3/i/200,3/r/200,3/g/200,3/z/200,3/B/200,3/V/200,3/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
+
+NGC7793-center    23:57:49.754  -32:35:27.7    seq=1x(3/g/200,3/r/200,3/i/200)                                   cycle=0.2   priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per night, incl. Landolt std"
+NGC7793-center    23:57:49.754  -32:35:27.7    seq=3x(4/i/200,4/r/200,4/g/200,4/z/200,4/B/200,4/V/200,4/Ic/200)  cycle=4.5   priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, sporadically, incl. Landolt std"
+
 
 
 # Monitoring globular clusters
 # PI: ghajdu
 # SCIPROG: var_gclu
 # INFO fast readout 1 MHz 18bit (read_mod=3)
+# Cycle through targets multiple times per night, change the order of clusters in a cycle night after night
 
-NGC3201           10:17:36.82    -46:24:44.9    seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30  cycle=0.1   priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3     comment="fast 1MHz, dense coverage"
+NGC3201           10:17:36.82    -46:24:44.9    seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30  cycle=0.1   priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3     comment="dense coverage"
 
-oCen-N            13:26:48.0     -47:12:30.0    seq=2/g/25,2/r/25,2/i/25                        cycle=0.8    priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
-oCen-N            13:26:48.0     -47:12:30.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+oCen-N            13:26:48.0     -47:12:30.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8    priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
+oCen-N            13:26:48.0     -47:12:30.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
+oCen-W            13:25:17.0     -47:27:00.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
+oCen-W            13:25:17.0     -47:27:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
+oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
+oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
+oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
+oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
 
-oCen-W            13:25:17.0     -47:27:00.0    seq=2/g/25,2/r/25,2/i/25                        cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
-oCen-W            13:25:17.0     -47:27:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
+NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/g/30,2/r/30,2/i/30                                cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="M5, dense coverage"
+NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/g/30,2/r/30,2/i/30,2/z/30,2/B/30,2/V/30,2/Ic/30   cycle=4.5      priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="M5, dense coverage"
 
-oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25                        cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
-oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
-
-oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25                        cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
-oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="fast 1MHz, sparse coverage"
-
-NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/g/30,2/r/30,2/i/30                        cycle=0.8     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="M5, fast 1MHz, dense coverage"
-NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/g/30,2/r/30,2/i/30,2/z/30,2/B/30,2/V/30,2/Ic/30  cycle=4.5      priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="M5, fast 1MHz, dense coverage"
-
-
+NGC6101-center    16:25:48.12    -72:12:07.9    seq=1/g/90,1/r/90,1/i/90,1/z/90,1/B/90,1/V/90,1/Ic/90,1/g/90,1/r/90,1/i/90,1/z/90,1/B/90,1/V/90,1/Ic/90   priority=5   pi=ghajdu    sciprog=var_gclu   comment="test exposure"
+NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55   priority=5   pi=ghajdu    sciprog=var_gclu   comment="texp verified"
+NGC6333-center    17:19:11.78    -18:30:58.5    seq=1/g/75,1/r/75,1/i/75,1/z/75,1/B/75,1/V/75,1/Ic/75,1/g/75,1/r/75,1/i/75,1/z/75,1/B/75,1/V/75,1/Ic/75   priority=5   pi=ghajdu    sciprog=var_gclu   comment="test exposure"
+NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65   priority=5   pi=ghajdu    sciprog=var_gclu   comment="texp verified, alt > 38"
+NGC6402-center    17:37:36.1     -03:14:45.3    seq=1/g/180,1/r/180,1/i/180,1/z/180,1/B/180,1/V/180,1/Ic/180,1/g/180,1/r/180,1/i/180,1/z/180,1/B/180,1/V/180,1/Ic/180   priority=5   pi=ghajdu    sciprog=var_gclu   comment="test exposure"
+NGC6584-center    18:18:37.6     -52:12:56.8    seq=1/g/90,1/r/90,1/i/90,1/z/90,1/B/90,1/V/90,1/Ic/90,1/g/90,1/r/90,1/i/90,1/z/90,1/B/90,1/V/90,1/Ic/90   priority=5   pi=ghajdu    sciprog=var_gclu   comment="test exposure"
 
 # SMC blue early-type eclipsig binaries
 # SCIPROG deb_blue_smc
