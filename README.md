@@ -75,6 +75,29 @@ SW_Tau        04:24:32.97     +04:07:24.08  seq=2/Ic/3.4,2/V/1.8   ph_mk=2/Ic/0.
 * cycle and phase coverage are not implemented here, because observation database is not yet configured.   
 * phase masking: object is masked if in defined `phase_bin` are already `no_of_obs` points for `band_light_curve`
 
+### How it works
+Each object specified in the master file has multiple atributes. Objects are divided in to different *priority* groups, and each object has specific visibility and scheduling conditions. For each object for specified night and geographical location it's altitude is calculated for each minute of specified night. Based on this array, the *visibility* array is created, where *True* value is assigned if object altitude is above *hmin* and below *hmax* atributes. This base visibility array then is masked with additinal atributes, like *t_star*, *t_end*, *ph_start*, *ph_end* and *ph_mk*.  
+
+Additionaly, *visibility* can be masked for wind direction (based on calculated azimuth for each night minute), and distance from the moon.
+The reuslt is the finall *visibility* array.
+
+In the next step, for each object the *predicted execution time* is calculated with *ctc*, based on specified *sequence*. 
+Object allocation is sequential, that is for each minute of the night, starting from specified sun altitude, one object is alocated for observing slot equal to its *predicted execution time*. Next object is allocated afterwards, repeatong untill specified end of the night - sun altitude for sunrise. Objects alocation works like this: From all objects, objects with highest priorities are selected, and one of them is selected randomly if it's visibility conditions are true for all it's *predicted execution time*. Random selection is weighted with it's total voisibility time for particular night - there is higer chance for selecting object with shorter visibility. If object is allocated, it's removced from the list of potential objects to allocate, and the time marker is moved to the end of it's observing slot (*predicted execution time*). Hovewer, if for this particular object, *cycle* atribute is specified, than instead of removing the object from the potential objects for allocation, it's *visibility* array is masked *False* from actual time marker (allocation time), untill *cycle* part of 24h. If no object of particular *priority* is avialable for the slot, the priority is lowered and precess is repeted for objects with lower priority. 
+
+#### Simplified schema:
+-> Loading objects from master file 
+
+
+-> visibility is calclated for all nigh, based on it's alititude 
+
+
+-> visibility is masked based on additional atributes 
+
+
+-> objects are allocated, starting from the highest priority, randomizing selection within priority group. 
+
+
+-> time marker is shifted and object for next slot is selected. 
 
 
 
