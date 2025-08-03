@@ -72,7 +72,7 @@ SA114        22:41:37      +01:08:14      seq=1/B/20,1/V/10,1/Ic/10      mV=10.8
 # SCIPROG amcvn
 # PI kbakowska
 
-ASASSN-15kf         15:38:38.2026    -30:35:50.2189    seq=2/V/240       priority=10     cycle=0.8    sciprog=amcvn         pi=kbakowska     mV=17      comment="Karolina's cataclysmic variable, mV=15-17"
+ASASSN-15kf         15:38:38.2026    -30:35:50.2189    seq=2/V/240       priority=6     cycle=0.8    sciprog=amcvn         pi=kbakowska     mV=17      comment="Karolina's cataclysmic variable, mV=15-17"
 
 
 
