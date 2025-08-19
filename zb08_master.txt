@@ -2,6 +2,8 @@
 ######## ZB08 MASTER ########
 #############################
 
+
+
 #format of each line should be as following:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
 # example1  21:24:00.2421    +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30        priority=4    P=2.4121         mV=9.21      comment="binary and dusty envelope"
@@ -592,8 +594,8 @@ OGLE-SMC-ECL-5890        01:16:26.11   -73:15:01.3    seq=1x(2/B/36,2/V/48,2/Ic/
 # Young open clusters
 # SCIPROG oclu_young
 # PI apigulski
-NGC6604                 18:18:03.0         -12:14:30.12       seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90     priority=9      cycle=0.05    sciprog=oclu_young    pi=apigulski     comment="every 1h"
-NGC6531                 18:04:08.8032      -22:31:12.3797     seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90     priority=9      cycle=0.05    sciprog=oclu_young    pi=apigulski     comment="every 1h, M21"
+#NGC6604                 18:18:03.0         -12:14:30.12       seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90     priority=9      cycle=0.05    sciprog=oclu_young    pi=apigulski     comment="every 1h"
+#NGC6531                 18:04:08.8032      -22:31:12.3797     seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90     priority=9      cycle=0.05    sciprog=oclu_young    pi=apigulski     comment="every 1h, M21"
 
 
 
