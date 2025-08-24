@@ -2,6 +2,8 @@
 ######## JK15 MASTER ########
 #############################
 
+
+
 #format of each line should be as follows:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
 # example1  21:24:00.2421       +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30    P=2.4121             mV=9.21  priority=4     comment="binary and dusty envelope" read_mod=3
@@ -155,30 +157,32 @@ oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,
 oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8     priority=6  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
 oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
 
-NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/20,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu     comment="repeat sequence as many times as possible"
+NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/20,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   comment="repeat sequence as many times as possible"
 
-NGC6101-center    16:25:48.12    -72:12:07.9    seq=2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110,2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110   priority=6   cycle=5.8    pi=ghajdu    sciprog=var_gclu
-NGC6101-center    16:25:48.12    -72:12:07.9    seq=2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110,2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110   priority=5   cycle=0.12   pi=ghajdu    sciprog=var_gclu
+NGC6101-center    16:25:48.12    -72:12:07.9    seq=2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110,2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110                priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
+NGC6101-center    16:25:48.12    -72:12:07.9    seq=2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110,2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110                priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
 
-NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55       priority=6   cycle=5.8    pi=ghajdu    sciprog=var_gclu
-NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55       priority=5   cycle=0.12   pi=ghajdu    sciprog=var_gclu
+NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55                    priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
+NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55                    priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
 
-NGC6333-center    17:19:11.78    -18:30:58.5    seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70     priority=6   cycle=5.8    pi=ghajdu    sciprog=var_gclu
-NGC6333-center    17:19:11.78    -18:30:58.5    seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70     priority=5   cycle=0.12   pi=ghajdu    sciprog=var_gclu
+NGC6333-center    17:19:11.78    -18:30:58.5    seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70                  priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
+NGC6333-center    17:19:11.78    -18:30:58.5    seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70                  priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
 
-NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65       priority=6   cycle=5.8    pi=ghajdu    sciprog=var_gclu   comment="alt > 38"
-NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65       priority=5   cycle=0.12   pi=ghajdu    sciprog=var_gclu   comment="alt > 38"
+NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   comment="alt > 38"
+NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   comment="alt > 38"
 
-NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110   priority=6   cycle=5.8    pi=ghajdu    sciprog=var_gclu
-NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110   priority=5   cycle=0.12   pi=ghajdu    sciprog=var_gclu
+NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110                priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
+NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110                priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
 
-NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13,2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13       priority=7   cycle=3.5    pi=ghajdu    sciprog=var_gclu   comment="texp for brighter stars"
-NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130   priority=6   cycle=5.8    pi=ghajdu    sciprog=var_gclu
-NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130   priority=5   cycle=0.12   pi=ghajdu    sciprog=var_gclu
+NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13,2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13                    priority=7   cycle=3.5   pi=ghajdu    sciprog=var_gclu   comment="texp for brighter stars"
+NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130      priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
+NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130      priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
 
-NGC7078-center    21:30:00.5     +12:09:22.1    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu     comment="repeat sequence as many times as possible"
+NGC7078-center    21:30:00.5     +12:09:22.1    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   comment="repeat sequence as many times as possible"
 
-NGC1851-center    05:14:06.76    -40:02:47.6    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu     comment="repeat sequence as many times as possible"
+NGC1851-center    05:14:06.76    -40:02:47.6    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   comment="repeat sequence as many times as possible"
+
+NGC362-center     01:03:14.3     -70:50:55.6    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   comment="repeat sequence as many times as possible"
 
 
 

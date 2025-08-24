@@ -4,7 +4,7 @@
 
 
 
-#format of each line should be as following:
+#format of each line should be as follows:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
 # example1  21:24:00.2421    +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30        priority=4    P=2.4121         mV=9.21      comment="binary and dusty envelope"
 # example2  07:24:14         -00:31:41     seq=10x(1/B/60,1/V/30,1/Ic/30)   priority=6    t_start=08:20    t_end=10:00
