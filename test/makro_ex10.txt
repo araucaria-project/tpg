@@ -1,0 +1,6 @@
+OBJECT exaple10 dupa1
+OBJECT dupa2
+WAIT sec=100
+
+
+

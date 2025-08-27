@@ -51,6 +51,7 @@ class telescope_plan_generator():
         self.CalcObject()  # calculates visibilities for all objects
         self.MaskMoon()
         self.MaskWind()
+        self.MaskCycle()
         self.MaskPhase()
         self.MaskStartEnd()  # mask visibilite base on t_start and t_end
         self.MaskPhaseStartEnd()  # mask visibilite base on t_start and t_end
@@ -69,6 +70,7 @@ class telescope_plan_generator():
         self.nightFree = []  # Bool marker of allocation
         self.nightObChange = []    # Bool marker to indicate ob change
 
+        self.ob = []
         # objects to obserrve
         self.name = []
         self.ra = []
@@ -81,6 +83,9 @@ class telescope_plan_generator():
         self.tend = []  #
         self.obflag = []  #
         self.uobi = []
+
+        self.hmin = []
+        self.hmax = []
 
         self.pstart = []
         self.pend = []
@@ -119,6 +124,7 @@ class telescope_plan_generator():
 
         plik = open(self.cfg[self.tel]["master_file"], 'r')
         for line in plik:
+            tmp_ob = dict()
             line = line.strip()
             if line:  # no empty lines
                 if line.strip()[0] != "#":
@@ -130,6 +136,8 @@ class telescope_plan_generator():
                     overhead = self.cfg[self.tel]["overhead"]
                     ts = False
                     te = False
+                    hmax = False
+                    hmin = False
                     ps = False
                     pe = False
                     period = False
@@ -160,6 +168,12 @@ class telescope_plan_generator():
                     if "t_end=" in line:
                         te = line.split("t_end=")[1].split()[0]
 
+                    if "h_min=" in line:
+                        hmin = line.split("h_min=")[1].split()[0]
+
+                    if "h_max=" in line:
+                        hmax = line.split("h_max=")[1].split()[0]
+
                     if "ph_start=" in line and "ph_end=" in line:
                         ps = line.split("ph_start=")[1].split()[0]
                         pe = line.split("ph_end=")[1].split()[0]
@@ -179,6 +193,17 @@ class telescope_plan_generator():
                     if "read_mod=" in line:
                         read_mod = line.split("read_mod=")[1].split()[0]
 
+                    if "min_moon_dist" in line:
+                        tmp_ob["min_moon_dist"] = float(line.split("min_moon_dist=")[1].split()[0])
+
+                    if "max_moon_phase" in line:
+                        tmp_ob["max_moon_phase"] = float(line.split("max_moon_phase=")[1].split()[0])
+
+                    if "obs_data" in line:
+                        tmp_ob["obs_data"] = (line.split("obs_data=")[1].split()[0])
+
+                    if "makro" in line:
+                        tmp_ob["makro"] = (line.split("makro=")[1].split()[0])
 
                     for i, tmp in enumerate(line.split()):
 
@@ -189,47 +214,55 @@ class telescope_plan_generator():
                         elif i == 2:
                             dec = line.split()[2]
 
-                    slotTime = 10
-                    k = 1
-                    if "x(" in seq and ")" in seq:
-                        k = seq.split("x")[0]
-                        if k == "INF":
-                            k = 1
-                            flag = "inf"
-                        k = int(k)
-
-                        seq0 = seq.split("x(")[1].split(")")[0]
+                    if "ob_time" in line:
+                        tmp_ob["ob_time"] = float(line.split("ob_time=")[1].split()[0])
+                        slotTime = tmp_ob["ob_time"]
+                        txt = f'{name} ob_time included: {slotTime}\n'
+                        if self.loud: sys.stderr.write(txt)
+                        self.msg = self.msg + txt
                     else:
-                        seq0 = seq
-                    for x_seq in seq0.split(","):
-                        slotTime = slotTime + (
-                                    float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
-                    slotTime = (k * slotTime) / 60.
+                        slotTime = 10
+                        k = 1
+                        if "x(" in seq and ")" in seq:
+                            k = seq.split("x")[0]
+                            if k == "INF":
+                                k = 1
+                                flag = "inf"
+                            k = int(k)
 
-                    if "INF" in seq:
-                        tmp = seq.replace("INF","1")
-                    else:
-                        tmp = seq
+                            seq0 = seq.split("x(")[1].split(")")[0]
+                        else:
+                            seq0 = seq
+                        for x_seq in seq0.split(","):
+                            slotTime = slotTime + (
+                                        float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
+                        slotTime = (k * slotTime) / 60.
 
-                    program = f"OBJECT  {name} {ra} {dec} seq={tmp}"
-                    if read_mod is not None:
-                        program = program + f" read_mod={read_mod}"
+                        if "INF" in seq:
+                            tmp = seq.replace("INF","1")
+                        else:
+                            tmp = seq
 
-                    if self.ctc_active:
-                        self.ctc.reset_time()
-                        ctc_ob_time = self.ctc.calc_time(program)/60.
-                        slotTime = ctc_ob_time
-                        txt = f'{name} CTC slot time: {slotTime}'
-                    else:
-                        slotTime = calc_slot_time(program,overhead)/60.
-                        txt = f'{name} TPG slot time: {slotTime}\n'
+                        program = f"OBJECT  {name} {ra} {dec} seq={tmp}"
+                        if read_mod is not None:
+                            program = program + f" read_mod={read_mod}"
 
-                    if self.loud: sys.stderr.write(txt)
-                    self.msg = self.msg + txt
+                        if self.ctc_active:
+                            self.ctc.reset_time()
+                            ctc_ob_time = self.ctc.calc_time(program)/60.
+                            slotTime = ctc_ob_time
+                            txt = f'{name} CTC slot time: {slotTime}'
+                        else:
+                            slotTime = calc_slot_time(program,overhead)/60.
+                            txt = f'{name} TPG slot time: {slotTime}\n'
+
+                        if self.loud: sys.stderr.write(txt)
+                        self.msg = self.msg + txt
 
                     if uobi and uobi in self.done:
                         pass
                     else:
+                        self.ob.append(tmp_ob)
                         self.name.append(name)
                         self.ra.append(ra)
                         self.dec.append(dec)
@@ -240,6 +273,8 @@ class telescope_plan_generator():
                         self.priority.append(priority)
                         self.tstart.append(ts)
                         self.tend.append(te)
+                        self.hmin.append(hmin)
+                        self.hmax.append(hmax)
                         self.pstart.append(ps)
                         self.pend.append(pe)
                         self.period.append(period)
@@ -299,7 +334,13 @@ class telescope_plan_generator():
             s._dec = self.dec[n]
             self.oca.date = self.nightTime[0]
 
-            self.oca.horizon = str(self.cfg[self.tel]["hmin"])
+            if self.hmin[n]:
+                self.oca.horizon = float(self.hmin[n])
+                txt = f'{self.name[n]} h_min supported\n'
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
+            else:
+                self.oca.horizon = str(self.cfg[self.tel]["hmin"])
             try:
                 tr = self.oca.next_rising(s)
                 ts = self.oca.next_setting(s)
@@ -313,7 +354,15 @@ class telescope_plan_generator():
             except ephem.AlwaysUpError:
                 vis1 = [True for _ in range(len(self.nightTime))]
 
-            self.oca.horizon = str(self.cfg[self.tel]["hmax"])
+
+            if self.hmax[n]:
+                self.oca.horizon = float(self.hmax[n])
+                txt = f'{self.name[n]} h_max supported\n'
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
+            else:
+                self.oca.horizon = str(self.cfg[self.tel]["hmax"])
+
             try:
                 tr = self.oca.next_rising(s)
                 ts = self.oca.next_setting(s)
@@ -347,15 +396,30 @@ class telescope_plan_generator():
                 self.oca.date = time[0]
                 moon.compute(self.oca)
                 s.compute(self.oca)
+                phase = float(moon.phase)
                 sep = ephem.separation(s,moon) * 180/ephem.pi
-                if sep < float(self.cfg[self.tel]["moon_dist"]):
+
+                if "min_moon_dist" in self.ob[n].keys():
+                    moon_dist = float(self.ob[n]["min_moon_dist"])
+                    txt = f'{self.name[n]} moon_dist included\n'
+                    if self.loud: sys.stderr.write(txt)
+                    self.msg = self.msg + txt
+                else:
+                    moon_dist = float(self.cfg[self.tel]["moon_dist"])
+
+                if sep < moon_dist:
                     # mask everything for faster calculation
                     self.visibility[n] = [False for _ in range(len(self.nightTime))]
-                    txt = f'{self.name[n]} masked because of MOON\n'
+                    txt = f'{self.name[n]} masked because of MOON distance\n'
                     if self.loud: sys.stderr.write(txt)
                     self.msg = self.msg + txt
 
-
+                if "max_moon_phase" in self.ob[n].keys():
+                    if phase > float(self.ob[n]["max_moon_phase"]):
+                        self.visibility[n] = [False for _ in range(len(self.nightTime))]
+                        txt = f'{self.name[n]} masked because of MOON phase\n'
+                        if self.loud: sys.stderr.write(txt)
+                        self.msg = self.msg + txt
 
     def MaskWind(self):
         if self.wind:
@@ -506,7 +570,13 @@ class telescope_plan_generator():
                             if self.uobi[k]:
                                 txt = txt + f" uobi={self.uobi[k]}"
                             if len(self.comment[k]) > 0: txt = txt + f"    comment=\"{self.comment[k]}\""
-                            self.plan.append(txt)
+                            if "makro" in self.ob[k]:
+                                with open(self.ob[k]["makro"], "r", encoding="utf-8") as makro_file:
+                                    for line in makro_file:
+                                        if line.strip():
+                                            self.plan.append(line.strip())
+                            else:
+                                self.plan.append(txt)
                 prev = int(self.nightObject[n])
 
     def MaskStartEnd(self):  # Masks visibility based on t_start t_end
@@ -598,7 +668,13 @@ class telescope_plan_generator():
                     jd = []
                     try:
                         filter = self.ph_mask[n].split("/")[1]
-                        file = self.cfg[self.tel]["data_file"] + self.name[n].lower() + "/" + filter + "/light-curve/" + self.name[n].lower() + "_" + filter + "_diff_light_curve.txt"
+                        if "obs_data" in self.ob[n].keys():
+                            file = self.ob[n]["obs_data"]
+                            txt = f'{self.name[n]} obs_data included: {file}\n'
+                            if self.loud: sys.stderr.write(txt)
+                            self.msg = self.msg + txt
+                        else:
+                            file = self.cfg[self.tel]["data_file"] + self.name[n].lower() + "/" + filter + "/light-curve/" + self.name[n].lower() + "_" + filter + "_diff_light_curve.txt"
                         with open(file, "r") as plik:
                             if plik != None:
                                 for line in plik:
@@ -632,6 +708,60 @@ class telescope_plan_generator():
                                 ZNACZNIK = True
                 if ZNACZNIK:
                     txt = f'{self.name[n]} masked for observed data\n'
+                    if self.loud: sys.stderr.write(txt)
+                    self.msg = self.msg + txt
+
+    def MaskCycle(self):  # mask cycle covarage
+        if True:
+            for n, tmp in enumerate(self.name):
+                ZNACZNIK = False
+                if self.cycle[n]:
+                    jd = []
+                    try:
+                        if "obs_data" in self.ob[n].keys():
+                            file = self.ob[n]["obs_data"]
+                            txt = f'{self.name[n]} obs_data included: {file}\n'
+                            if self.loud: sys.stderr.write(txt)
+                            self.msg = self.msg + txt
+                        else:
+                            filter = self.seq[n].split("/")[1]
+                            file = self.cfg[self.tel]["data_file"] + self.name[n].lower() + "/" + filter + "/light-curve/" + self.name[n].lower() + "_" + filter + "_diff_light_curve.txt"
+                        with open(file, "r") as plik:
+                            if plik != None:
+                                for line in plik:
+                                    if len(line.strip()) > 0:
+                                        try:
+                                            if len(line.split())>9:
+                                                if int(line.split()[9]) < 2:
+                                                    jd.append(float(line.split()[3]))
+                                            else:
+                                                jd.append(float(line.split()[3]))
+                                        except ValueError:
+                                            pass
+
+                    except (FileNotFoundError, ValueError) as e:
+                        pass
+
+                    last_jd = False
+                    try:
+                        last_jd = max(jd)
+                    except:
+                        pass
+                    if last_jd:
+                        vis_tmp = numpy.array(self.visibility[n])
+                        for i, t in enumerate(self.nightTime):
+                            if self.visibility[n][i]:
+                                jd = ephem.julian_date(ephem.Date(t))
+                                if (jd - last_jd) < float(self.cycle[n]):
+                                    self.visibility[n][i] = False
+                                    ZNACZNIK = True
+                                else:
+                                    pass
+                if ZNACZNIK:
+                    vis = numpy.array(self.visibility[n])
+                    t1 = len(vis_tmp[vis_tmp])
+                    t2 = len(vis[vis])
+                    txt = f'{self.name[n]} masked for cycle {self.cycle[n]} data visibility {t1} -> {t2}\n'
                     if self.loud: sys.stderr.write(txt)
                     self.msg = self.msg + txt
 

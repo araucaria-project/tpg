@@ -13,7 +13,7 @@ from telescope_plan_generator import telescope_plan_generator as tpg
 class main:
 
     argparser = argparse.ArgumentParser(description=__doc__)
-    argparser.add_argument("tel", type=str, choices=['wk06', 'zb08', 'jk15'], help='Telescope id')
+    argparser.add_argument("tel", type=str, choices=['wk06', 'zb08', 'jk15', 'test'], help='Telescope id')
     argparser.add_argument("date", nargs="+", type=str, help='date of observation')
     argparser.add_argument("--wind", type=float, default=None, help='wind direction (to avoid)')
     argparser.add_argument("--loud", action="store_true", help="Enable loud mode")
