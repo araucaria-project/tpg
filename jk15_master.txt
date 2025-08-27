@@ -83,7 +83,7 @@ ASASSN-15kf      15:38:08.2026    -30:35:50.2189    seq=2/V/240       priority=6
 # SCIPROG agn
 # PI fpozo
 
-HE_0413-4031     04:15:14.4634     -40:23:41.139    seq=1/Ic/200,1/y_s/300,1/v_s/300,1/b_s/300,2/u_s/300       priority=8    cycle=6.8   sciprog=agn    pi=fpozo    mV=16.5 comment="AGN, observe every 7 days"
+# HE_0413-4031     04:15:14.4634     -40:23:41.139    seq=1/Ic/200,1/y_s/300,1/v_s/300,1/b_s/300,2/u_s/300       priority=8    cycle=6.8   sciprog=agn    pi=fpozo    mV=16.5 comment="AGN, observe every 7 days"
 
 
 
