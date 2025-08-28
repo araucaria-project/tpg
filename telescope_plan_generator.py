@@ -33,6 +33,9 @@ class telescope_plan_generator():
         else:
             txt = f'date missing\n'
 
+        if "/" not in date[0]:
+            print("wrong date format: yyyy/mm/dd")
+            sys.exit(0)
         if len(date[0].split("/")[0])<3:
             print("wrong date format: yyyy/mm/dd")
             sys.exit(0)
