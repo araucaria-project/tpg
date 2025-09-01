@@ -6,10 +6,10 @@
 
 #format of each line should be as follows:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
-# example1  21:24:00.2421       +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30    P=2.4121             mV=9.21  priority=4     comment="binary and dusty envelope" read_mod=3
-# example2  07:24:14   -00:31:41  seq=10x(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=08:20 t_end=10:00 read_mod=3
-# example3  07:24:14   -00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=00:20 t_end=10:00 read_mod=3
-# example4  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5 read_mod=3
+# example1  21:24:00.2421       +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30    P=2.4121             mV=9.21  priority=4     comment="binary and dusty envelope" 
+# example2  07:24:14   -00:31:41  seq=10x(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=08:20 t_end=10:00 
+# example3  07:24:14   -00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=00:20 t_end=10:00 
+# example4  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5  read_mod=3
 
 
 # Test object for checking phase
@@ -19,55 +19,39 @@
 
 # Landolt standard fields
 
-TPHE         00:30:16      -46:27:55      seq=1/B/40,1/V/20,1/Ic/20      mV=12.33      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-SA95         03:53:04      +00:03:12      seq=1/B/40,1/V/20,1/Ic/20      mV=12.68      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-SA98         06:52:05      -00:19:18      seq=1/B/30,1/V/15,1/Ic/15      mV=12.27      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-RU149        07:24:14      -00:31:41      seq=1/B/30,1/V/15,1/Ic/15      mV=11.48      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-RU152        07:29:56      -02:05:39      seq=1/B/50,1/V/25,1/Ic/25      mV=13.01      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
+TPHE         00:30:16      -46:27:55      seq=1/B/12,1/V/10,1/Ic/10      mV=12.33      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
+SA95         03:53:04      +00:03:12      seq=1/B/12,1/V/10,1/Ic/10      mV=12.68      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
+SA98         06:52:05      -00:19:18      seq=1/B/12,1/V/10,1/Ic/10      mV=12.27      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
+RU149        07:24:14      -00:31:41      seq=1/B/12,1/V/10,1/Ic/10      mV=11.48      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
+RU152        07:29:56      -02:05:39      seq=1/B/12,1/V/10,1/Ic/10      mV=13.01      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
 #LSE44        13:52:41      -48:08:20      seq=1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12
 #LSE259       16:53:55      -56:01:55      seq=1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12
-SA110        18:42:45      +00:07:42      seq=1/B/40,1/V/20,1/Ic/20      mV=12.43      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-SA113        21:41:00      +00:27:21      seq=1/B/20,1/V/10,1/Ic/10      mV=10.88      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-
+SA110        18:42:45      +00:07:42      seq=1/B/18,1/V/15,1/Ic/15      mV=12.43      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
+SA113        21:41:00      +00:27:21      seq=1/B/12,1/V/10,1/Ic/10      mV=10.88      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
 
 
 
 # Stromgren standards (Hauck & Mermilliod 1998; Paunzen 2015)
 
-#HD_3417       00:36:52.25      -34:16:50.40      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.98      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard A8V"
-#HD_12756      02:04:18.52      -30:24:25.69      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.94       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard F5V"
-#HD_22610      03:34:45.29      -62:27:24.60      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.43       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard K2V"
-#HD_57568      07:21:22.68      -12:38:14.05      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.03      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard K3V"
-#HD_58489      07:24:04.61      -40:02:45.84      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.74       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard K3.5V"
-#HD_66020      08:00:02.15      -40:02:21.90      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.62       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard K5V"
+#HD_3417      00:36:52.25   -34:16:50.40     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=10.98     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard A8V"
+#HD_12756     02:04:18.52   -30:24:25.69     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.94      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard F5V"
+#HD_22610     03:34:45.29   -62:27:24.60     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.43      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard K2V"
+#HD_57568     07:21:22.68   -12:38:14.05     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=10.03     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard K3V"
+#HD_58489     07:24:04.61   -40:02:45.84     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.74      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard K3.5V"
+#HD_66020     08:00:02.15   -40:02:21.90     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.62      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard K5V"
 
 # Additional Stromgren standards from Tycho catalog
 # INFO Not introduced to objects.txt
 
-#TYC7547-711-1      01:24:12.51      -44:27:00.05      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=10.92      priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard CD-45 460"
-#TYC7548-698-1      01:36:08.99      -44:05:23.41      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.68       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard A7V"
-#TYC7583-1011-1     04:11:44.76      -44:49:02.23      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.84       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard F7/8V"
-#TYC8033-906-1      01:20:00.79      -45:27:31.97      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.64       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard A1V"
-#TYC8104-856-1      06:40:10.80      -45:06:03.33      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.77       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard CD-44 2834"
-#TYC8104-969-1      06:42:25.35      -45:09:12.38      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.95       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard CD-45 2690"
-#TYC7626-763-1      06:31:04.53      -43:43:01.43      seq=1/u_s/40,1/v_s/5,1/b_s/5,1/y_s/5        mV=6.68       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard G8III, too bright for jk15"
-#TYC7583-1622-1     04:07:24.68      -44:00:00.70      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.62       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard A2/3III SB"
-#TYC8067-207-1      03:55:04.24      -47:10:10.27      seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5      mV=9.14       priority=10      sciprog=cal      pi=ocm       tag=std_stromgren      comment="Stromgren standard CD-47 1197 long-per var"
-
-
-
-# Sloan standards
-# Smith et al. 2006? https://www-star.fnal.gov/Southern_ugriz/New/Smith-20061127.pdf
-#
-# Untested exposure times!
-#
-#smith10-30  10:00:00 -30:00:00   seq=1/g/25,1/r/15,1/i/15,1/z/20    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=11.2”   
-#smith12-30  11:59:56 -29:54:30   seq=1/g/25,1/r/15,1/i/15,1/z/20    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=11.4”   
-#smith14-30  14:00:00 -30:00:00   seq=1/g/25,1/r/15,1/i/15,1/z/20    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=10.8”   
-#smith16-30  16:01:00 -30:00:30   seq=1/g/25,1/r/15,1/i/15,1/z/20    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=10.8”   
-#SA109       17:44:10 -00:23:00   seq=1/g/25,1/r/15,1/i/15,1/z/20    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=11.05”   
-#SA112       20:42:33 +00:10:00   seq=1/g/15,1/r/9,1/i/9,1/z/12      priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=9.5”   
-#SA114       22:41:35 +01:06:00   seq=1/g/30,1/r/18,1/i/18,1/z/24    priority=10   sciprog=cal   pi=ocm   tag=std_sloan   comment=“Sloan standard field, mr=12.33”   
+#TYC7547-711-1      01:24:12.51   -44:27:00.05     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=10.92     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard CD-45 460"
+#TYC7548-698-1      01:36:08.99   -44:05:23.41     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.68      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard A7V"
+#TYC7583-1011-1     04:11:44.76   -44:49:02.23     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.84      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard F7/8V"
+#TYC8033-906-1      01:20:00.79   -45:27:31.97     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.64      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard A1V"
+#TYC8104-856-1      06:40:10.80   -45:06:03.33     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.77      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard CD-44 2834"
+#TYC8104-969-1      06:42:25.35   -45:09:12.38     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.95      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard CD-45 2690"
+#TYC7626-763-1      06:31:04.53   -43:43:01.43     seq=1/u_s/40,1/v_s/5,1/b_s/5,1/y_s/5       mV=6.68      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard G8III, too bright for jk15"
+#TYC7583-1622-1     04:07:24.68   -44:00:00.70     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.62      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard A2/3III SB"
+#TYC8067-207-1      03:55:04.24   -47:10:10.27     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.14      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren     comment="Stromgren standard CD-47 1197 long-per var"
 
 
 
@@ -75,7 +59,7 @@ SA113        21:41:00      +00:27:21      seq=1/B/20,1/V/10,1/Ic/10      mV=10.8
 # SCIPROG amcvn
 # PI kbakowska
 
-ASASSN-15kf      15:38:08.2026    -30:35:50.2189    seq=2/V/240       priority=6     cycle=0.8    sciprog=amcvn         pi=kbakowska     mV=17      comment="Karolina's cataclysmic variable, mV=15-17"
+#ASASSN-15kf     15:38:08.2026   -30:35:50.2189     seq=2/V/240     priority=6     cycle=0.8     sciprog=amcvn   pi=kbakowska     mV=17     comment="Karolina's cataclysmic variable, mV=15-17"
 
 
 
@@ -83,7 +67,7 @@ ASASSN-15kf      15:38:08.2026    -30:35:50.2189    seq=2/V/240       priority=6
 # SCIPROG agn
 # PI fpozo
 
-# HE_0413-4031     04:15:14.4634     -40:23:41.139    seq=1/Ic/200,1/y_s/300,1/v_s/300,1/b_s/300,2/u_s/300       priority=8    cycle=6.8   sciprog=agn    pi=fpozo    mV=16.5 comment="AGN, observe every 7 days"
+# HE_0413-4031     04:15:14.4634   -40:23:41.139     seq=1/Ic/200,1/y_s/300,1/v_s/300,1/b_s/300,2/u_s/300     priority=8     cycle=6.8     sciprog=agn   pi=fpozo     mV=16.5     comment="AGN, observe every 7 days"
 
 
 
@@ -91,53 +75,38 @@ ASASSN-15kf      15:38:08.2026    -30:35:50.2189    seq=2/V/240       priority=6
 # PI: gpietrzynski
 # SCIPROG: near_gal
 
-#WLM-center       00:01:58      -15:27:50      seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#WLM-center       00:01:58      -15:27:50      seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
+WLM-center       00:01:58      -15:27:50      seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/wlm-center_check1/r/light-curve/wlm-center_check1_r_diff_light_curve.txt             comment="seeing < 1.5, 2-3 times per week"
+WLM-center       00:01:58      -15:27:50      seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/wlm-center_check1/V/light-curve/wlm-center_check1_V_diff_light_curve.txt             comment="seeing < 1.5, every 2 weeks"
+
+NGC247-center    00:47:08      -20:45:37      seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc247-center_check1/r/light-curve/ngc247-center_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
+NGC247-center    00:47:08      -20:45:37      seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc247-center_check1/V/light-curve/ngc247-center_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
+
+NGC253-makro     00:48:07.21   -25:10:56.9    makro=./makro/jk15_ngc253.txt        ob_time=2880  cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc253-se_check1/r/light-curve/ngc253-se_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
+NGC253-makro     00:48:07.21   -25:10:56.9    makro=./makro/jk15_ngc253V.txt       ob_time=3840  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc253-se_check1/V/light-curve/ngc253-se_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
+
+NGC300-center    00:54:53.5    -37:41:04.0    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc300-center_check1/r/light-curve/ngc300-center_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
+NGC300-center    00:54:53.5    -37:41:04.0    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc300-center_check1/V/light-curve/ngc300-center_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
+
+Sculptor-center  01:00:09.4    -33:42:32      seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/sculptor-center_check1/r/light-curve/sculptor-center_check1_r_diff_light_curve.txt   comment="seeing < 1.5, 2-3 times per week"
+Sculptor-center  01:00:09.4    -33:42:32      seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/sculptor-center_check1/V/light-curve/sculptor-center_check1_V_diff_light_curve.txt   comment="seeing < 1.5, every 2 weeks"
+
+IC1613-center    01:04:48      +02:07:10      seq=3/g/200,3/r/200,3/i/200          cycle=0.8     priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ic1613-center_check1/r/light-curve/ic1613-center_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 1 time per night"
+IC1613-center    01:04:48      +02:07:10      seq=3/V/200,3/g/200,3/r/200,3/i/200  cycle=13      priority=9      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ic1613-center_check1/V/light-curve/ic1613-center_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
       
-#NGC45-center     00:14:04.00   -23:10:55.13   seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=1      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#NGC45-center     00:14:04.00   -23:10:55.13   seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=1      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-
-##NGC55-center    00:14:53.6    -39:11:47.86   seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=1      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-##NGC55-center    00:14:53.6    -39:11:47.86   seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=1      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-
-#NGC247-center    00:47:08      -20:45:37      seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#NGC247-center    00:47:08      -20:45:37      seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
+Fornax-center    02:39:59.3    -34:26:57.0    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/fornax-center_check1/r/light-curve/fornax-center_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
+Fornax-center    02:39:59.3    -34:26:57.0    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/fornax-center_check1/V/light-curve/fornax-center_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
       
-#NGC253-NW        00:48:07.21   -25:10:56.9    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#NGC253-NW        00:48:07.21   -25:10:56.9    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
+Carina-center    06:41:36.70   -50:57:58.0    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/carina-center_check1/r/light-curve/carina-center_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
+Carina-center    06:41:36.70   -50:57:58.0    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/carina-center_check1/V/light-curve/carina-center_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
 
-#NGC253-SE        00:46:54.54   -25:23:37.9    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#NGC253-SE        00:46:54.54   -25:23:37.9    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
+NGC3109-center   10:03:06.88   -26:09:34.7    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc3109-center_check1/r/light-curve/ngc3109-center_check1_r_diff_light_curve.txt     comment="seeing < 1.5, 2-3 times per week"
+NGC3109-center   10:03:06.88   -26:09:34.7    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc3109-center_check1/V/light-curve/ngc3109-center_check1_V_diff_light_curve.txt     comment="seeing < 1.5, every 2 weeks"
 
-#NGC300-center    00:54:53.5    -37:41:04.0    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#NGC300-center    00:54:53.5    -37:41:04.0    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
+NGC6822-center   19:44:56.2    -14:47:51.3    seq=3/g/200,3/r/200,3/i/200          cycle=0.8     priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc6822-center_check1/r/light-curve/ngc6822-center_check1_r_diff_light_curve.txt     comment="seeing < 1.5, 1 time per night"
+NGC6822-center   19:44:56.2    -14:47:51.3    seq=3/V/200,3/g/200,3/r/200,3/i/200  cycle=13      priority=9      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc6822-center_check1/V/light-curve/ngc6822-center_check1_V_diff_light_curve.txt     comment="seeing < 1.5, every 2 weeks"
 
-#Sculptor-center  01:00:09.4    -33:42:32      seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#Sculptor-center  01:00:09.4    -33:42:32      seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-
-#IC1613-center    01:04:48      +02:07:10      seq=3/g/200,3/r/200,3/i/200          cycle=0.8     priority=8      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 1 time per night"
-#IC1613-center    01:04:48      +02:07:10      seq=3/V/200,3/g/200,3/r/200,3/i/200  cycle=13      priority=9      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-      
-#Fornax-center    02:39:59.3    -34:26:57.0    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#Fornax-center    02:39:59.3    -34:26:57.0    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-      
-#Carina-center    06:41:36.70   -50:57:58.0    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#Carina-center    06:41:36.70   -50:57:58.0    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-
-NGC3109-center    10:03:06.88   -26:09:34.7    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-NGC3109-center    10:03:06.88   -26:09:34.7    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-
-#M83-center       13:37:00.92   -29:51:56.74   seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#M83-center       13:37:00.92   -29:51:56.74   seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=6      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-
-#NGC5253-center   13:39:56.0    -31:38:24.1    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=5      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#NGC5253-center   13:39:56.0    -31:38:24.1    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=6      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-
-NGC6822-center    19:44:56.2    -14:47:51.3    seq=3/g/200,3/r/200,3/i/200          cycle=0.8     priority=8      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 1 time per night"
-NGC6822-center    19:44:56.2    -14:47:51.3    seq=3/V/200,3/g/200,3/r/200,3/i/200  cycle=13      priority=9      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
-
-#NGC7793-center   23:57:49.754  -32:35:27.7    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, 2-3 times per week"
-#NGC7793-center   23:57:49.754  -32:35:27.7    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal    read_mod=3      comment="seeing < 1.5, every 2 weeks"
+NGC7793-center   23:57:49.754  -32:35:27.7    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc7793-center_check1/r/light-curve/ngc7793-center_check1_r_diff_light_curve.txt     comment="seeing < 1.5, 2-3 times per week"
+NGC7793-center   23:57:49.754  -32:35:27.7    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc7793-center_check1/V/light-curve/ngc7793-center_check1_V_diff_light_curve.txt     comment="seeing < 1.5, every 2 weeks"
 
 
 
@@ -146,43 +115,37 @@ NGC6822-center    19:44:56.2    -14:47:51.3    seq=3/V/200,3/g/200,3/r/200,3/i/2
 # SCIPROG: var_gclu
 # Cycle through targets multiple times per night, change the order of clusters in a cycle night after night
 
-NGC3201           10:17:36.82    -46:24:44.9    seq=3x(2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30)  cycle=0.6   priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3     comment="dense coverage"
+NGC3201           10:17:36.82    -46:24:44.9    seq=3x(2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30)  cycle=0.6   priority=7  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ngc3201_check1/r/light-curve/ngc3201_check1_r_diff_light_curve.txt     comment="dense coverage"
 
-oCen-N            13:26:48.0     -47:12:30.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8     priority=6  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
-oCen-N            13:26:48.0     -47:12:30.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
-oCen-W            13:25:17.0     -47:27:00.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8     priority=6  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
-oCen-W            13:25:17.0     -47:27:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
-oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8     priority=6  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
-oCen-S            13:26:47.0     -47:43:20.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
-oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25                                cycle=0.8     priority=6  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
-oCen-E            13:28:19.0     -47:29:00.0    seq=2/g/25,2/r/25,2/i/25,2/z/25,2/B/25,2/V/25,2/Ic/25   cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu   read_mod=3    comment="sparse coverage"
+oCen-makro        13:26:48.0     -47:12:30.0    makro=./makro/jk15_ocen.txt     ob_time=390        cycle=0.8     priority=6  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ocen-n_check1/r/light-curve/ocen-n_check1_r_diff_light_curve.txt     comment="sparse coverage"
+oCen-makro        13:26:48.0     -47:12:30.0    makro=./makro/jk15_ocenV.txt    ob_time=910        cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ocen-n_check1/V/light-curve/ocen-n_check1_V_diff_light_curve.txt     comment="sparse coverage"
 
-NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/20,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   comment="repeat sequence as many times as possible"
+NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/20,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc5904-center_check1/r/light-curve/ngc5904-center_check1_r_diff_light_curve.txt   comment="repeat sequence as many times as possible"
 
-NGC6101-center    16:25:48.12    -72:12:07.9    seq=2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110,2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110                priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
-NGC6101-center    16:25:48.12    -72:12:07.9    seq=2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110,2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110                priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
+NGC6101-center    16:25:48.12    -72:12:07.9    seq=2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110,2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110                priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6101-center_check1/r/light-curve/ngc6101-center_check1_r_diff_light_curve.txt
+NGC6101-center    16:25:48.12    -72:12:07.9    seq=2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110,2/g/60,2/r/60,2/i/90,2/z/180,2/B/85,2/V/80,2/Ic/110                priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6101-center_check1/r/light-curve/ngc6101-center_check1_r_diff_light_curve.txt
 
-NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55                    priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
-NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55                    priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
+NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55                    priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6171-center_check1/r/light-curve/ngc6171-center_check1_r_diff_light_curve.txt
+NGC6171-center    16:32:31.86    -13:03:13.6    seq=2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55,2/g/40,2/r/30,2/i/45,2/z/80,2/B/60,2/V/40,2/Ic/55                    priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6171-center_check1/r/light-curve/ngc6171-center_check1_r_diff_light_curve.txt
 
-NGC6333-center    17:19:11.78    -18:30:58.5    seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70                  priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
-NGC6333-center    17:19:11.78    -18:30:58.5    seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70                  priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
+NGC6333-center    17:19:11.78    -18:30:58.5    seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70                  priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6333-center_check1/r/light-curve/ngc6333-center_check1_r_diff_light_curve.txt
+NGC6333-center    17:19:11.78    -18:30:58.5    seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70                  priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6333-center_check1/r/light-curve/ngc6333-center_check1_r_diff_light_curve.txt
 
-NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   comment="alt > 38"
-NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   comment="alt > 38"
+NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6362-center_check1/r/light-curve/ngc6362-center_check1_r_diff_light_curve.txt   h_min=39
+NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6362-center_check1/r/light-curve/ngc6362-center_check1_r_diff_light_curve.txt   h_min=39
 
-NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110                priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
-NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110                priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
+NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110                priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6584-center_check1/r/light-curve/ngc6584-center_check1_r_diff_light_curve.txt
+NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110                priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6584-center_check1/r/light-curve/ngc6584-center_check1_r_diff_light_curve.txt
 
-NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13,2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13                    priority=7   cycle=3.5   pi=ghajdu    sciprog=var_gclu   comment="texp for brighter stars"
-NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130      priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu
-NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130      priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu
+NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13,2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13                    priority=7   cycle=3.5   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6402-center_check1/r/light-curve/ngc6402-center_check1_r_diff_light_curve.txt   comment="texp for brighter stars"
+NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130      priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6402-center_check1/r/light-curve/ngc6402-center_check1_r_diff_light_curve.txt
+NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130      priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6402-center_check1/r/light-curve/ngc6402-center_check1_r_diff_light_curve.txt
 
-NGC7078-center    21:30:00.5     +12:09:22.1    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   comment="repeat sequence as many times as possible"
+NGC7078-center    21:30:00.5     +12:09:22.1    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc7078-center_check1/r/light-curve/ngc7078-center_check1_r_diff_light_curve.txt   comment="repeat sequence as many times as possible"
 
-NGC1851-center    05:14:06.76    -40:02:47.6    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   comment="repeat sequence as many times as possible"
+NGC1851-center    05:14:06.76    -40:02:47.6    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc1851-center_check1/r/light-curve/ngc1851-center_check1_r_diff_light_curve.txt   comment="repeat sequence as many times as possible"
 
-NGC362-center     01:03:14.3     -70:50:55.6    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   comment="repeat sequence as many times as possible"
+NGC362-center     01:03:14.3     -70:50:55.6    seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc362-center_check1/r/light-curve/ngc362-center_check1_r_diff_light_curve.txt     comment="repeat sequence as many times as possible"
 
 
 
@@ -191,12 +154,12 @@ NGC362-center     01:03:14.3     -70:50:55.6    seq=2/g/20,2/r/25,2/i/50,2/z/80,
 # PI dgraczyk + mtaormina
 # INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std
 # 
-#OGLE-SMC-ECL-1708      00:49:39.5    -73:00:21.7      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=15.9       P=8.05104       hjd0=2450474.20881      sciprog=deb_blue_smc      pi=dgraczyk      comment="in the field of 1557, seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-SMC-ECL-1068      00:46:31.7    -73:26:45.5      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=16.1       P=1.74107       hjd0=2450624.8629       sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-SMC-ECL-4592      01:02:54.0    -72:06:45.4      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.7       P=2.98654       hjd0=2450628.36738      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-SMC-ECL-0720      00:44:08.8    -73:14:18.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.3       P=6.05213       hjd0=2450628.07158      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-SMC-ECL-2347      00:52:05.3    -72:45:21.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=15.2       P=10.97765      hjd0=2450466.88188      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-SMC-ECL-2770      00:53:33.5    -72:56:23.6      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.9       P=3.94603       hjd0=2450473.26734      sciprog=deb_blue_smc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
+#OGLE-SMC-ECL-1708     00:49:39.5   -73:00:21.7     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=15.9     P=8.05104      hjd0=2450474.20881     max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="in the field of 1557, seeing<1.5”, incl. Stromgren std"
+#OGLE-SMC-ECL-1068     00:46:31.7   -73:26:45.5     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=16.1     P=1.74107      hjd0=2450624.8629      max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-SMC-ECL-4592     01:02:54.0   -72:06:45.4     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=14.7     P=2.98654      hjd0=2450628.36738     max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-SMC-ECL-0720     00:44:08.8   -73:14:18.0     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=14.3     P=6.05213      hjd0=2450628.07158     max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-SMC-ECL-2347     00:52:05.3   -72:45:21.0     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=15.2     P=10.97765     hjd0=2450466.88188     max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-SMC-ECL-2770     00:53:33.5   -72:56:23.6     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=13.9     P=3.94603      hjd0=2450473.26734     max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="seeing<1.5”, incl. Stromgren std"
 
 
 
@@ -204,22 +167,22 @@ NGC362-center     01:03:14.3     -70:50:55.6    seq=2/g/20,2/r/25,2/i/50,2/z/80,
 # SCIPROG deb_blue_lmc
 # PI dgraczyk + mtaormina
 # INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std
-
-OGLE-LMC-ECL-02851      04:55:02.53   -67:09:51.7   P=2.7403866   hjd0=2457000.1277   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.584   comment="mI=14.833, SNR 100"
-OGLE-LMC-ECL-12167      05:18:04.71   -69:48:18.9   P=3.1070304   hjd0=2457001.3483   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.589   comment="mI=14.738, SNR 100"
-OGLE-LMC-ECL-20299      05:36:10.74   -69:32:02.2   P=2.8414596   hjd0=2457000.5446   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.498   comment="mI=14.627, SNR 100"
-OGLE-LMC-ECL-23358      05:43:39.33   -69:15:54.9   P=1.7860501   hjd0=2457000.9298   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.650   comment="mI=14.644, SNR 100"
-
+#
+#OGLE-LMC-ECL-02851      04:55:02.53   -67:09:51.7   P=2.7403866   hjd0=2457000.1277   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.584   comment="mI=14.833, SNR 100"
+#OGLE-LMC-ECL-12167      05:18:04.71   -69:48:18.9   P=3.1070304   hjd0=2457001.3483   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.589   comment="mI=14.738, SNR 100"
+#OGLE-LMC-ECL-20299      05:36:10.74   -69:32:02.2   P=2.8414596   hjd0=2457000.5446   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.498   comment="mI=14.627, SNR 100"
+#OGLE-LMC-ECL-23358      05:43:39.33   -69:15:54.9   P=1.7860501   hjd0=2457000.9298   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.650   comment="mI=14.644, SNR 100"
+#
 # High priority
-#OGLE-LMC-ECL-22270     05:40:47.31      -69:20:28.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.029    mI=14.022      P=5.414011      hjd0=2453578.8126      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-LMC-ECL-06782     05:04:59.05      -70:31:13.9      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=13.714    mI=13.913      P=4.270776      hjd0=2453560.7368      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-LMC-ECL-21568     05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-LMC-ECL-17660     05:30:22.13      -69:14:52.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.266    mI=14.429      P=6.22909       hjd0=2453575.7547      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-LMC-ECL-18794     05:32:47.74      -68:37:26.6      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=13.194    mI=13.397      P=5.946846      hjd0=2453577.3724      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-LMC-ECL-05764     05:02:40.77      -68:24:21.4      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=10     mV=14.231    mI=14.371      P=5.725912      hjd0=2453570.9054      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
+#OGLE-LMC-ECL-22270     05:40:47.31      -69:20:28.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=14.029    mI=14.022      P=5.414011      hjd0=2453578.8126      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-06782     05:04:59.05      -70:31:13.9      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=13.714    mI=13.913      P=4.270776      hjd0=2453560.7368      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-21568     05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-17660     05:30:22.13      -69:14:52.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=14.266    mI=14.429      P=6.22909       hjd0=2453575.7547      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-18794     05:32:47.74      -68:37:26.6      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=13.194    mI=13.397      P=5.946846      hjd0=2453577.3724      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-05764     05:02:40.77      -68:24:21.4      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=14.231    mI=14.371      P=5.725912      hjd0=2453570.9054      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
 #
 # Normal priority
-#OGLE-LMC-ECL-07641     05:06:51.94      -68:25:46.5      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.039    mI=14.25       P=6.33001       hjd0=2453570.6569      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-LMC-ECL-16675     05:28:23.98      -69:12:26.2      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.867    mI=14.046      P=3.74864       hjd0=2453564.9887      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-LMC-ECL-17198     05:29:24.63      -68:42:13.1      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.926    mI=14.118      P=3.29083       hjd0=2453565.3853      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
-#OGLE-LMC-ECL-21568    05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, dark/gray sky (u), z>1.5, Stromgren std"
+#OGLE-LMC-ECL-07641     05:06:51.94      -68:25:46.5      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.039    mI=14.25       P=6.33001       hjd0=2453570.6569      max_moon_phase=0.65      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-16675     05:28:23.98      -69:12:26.2      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.867    mI=14.046      P=3.74864       hjd0=2453564.9887      max_moon_phase=0.65      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-17198     05:29:24.63      -68:42:13.1      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.926    mI=14.118      P=3.29083       hjd0=2453565.3853      max_moon_phase=0.65      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-21568     05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489       max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
