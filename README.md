@@ -89,7 +89,8 @@ example20   07:24:14         -00:31:41     makro=./test/makro_ex10.txt   priorit
 ```WAIT ut=12:45:34``` with the `ut` for the next object
 * comment has to be enclosed with **" "** characters 
 * phase masking: object is masked if in defined `phase_bin` are already `no_of_obs` points for `band_light_curve`
-* for `cycle` full funcionality, obs data are required, and for this the filter has to be specified. If `ph_mk` is not specified, it will take first filter defined in `seq`.
+* for `cycle` full functionality, obs data are required, and for this the filter has to be specified. If `ph_mk` is not specified, it will take first filter defined in `seq`.
+* since version 0.1.2 there is `makro` funcionality, so previous function of splitting long (>10) sequences to multiple shorter sequences was removed. 
 
 ### How it works
 Each object specified in the master file has multiple atributes. Objects are divided in to different *priority* groups, and each object has specific visibility and scheduling conditions. For each object for specified night and geographical location it's altitude is calculated for each minute of specified night. Based on this array, the *visibility* array is created, where *True* value is assigned if object altitude is above *hmin* and below *hmax* atributes. This base visibility array then is masked with additinal atributes, like *t_star*, *t_end*, *ph_start*, *ph_end* and *ph_mk*.  

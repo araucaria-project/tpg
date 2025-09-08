@@ -3,6 +3,12 @@
 # Following settings may be moved to global config:
 # overhead, hsun, wind_dist, moon_dist
 
+
+local_config: "~/.config/tpg/config.yaml"
+params_2_remove:  ["priority","cycle","ph_mk","ph_start","ph_end","t_start","t_end","h_min","h_max","tag","P","hjd0","min_moon_dist","max_moon_phase","obs_data","ob_time","makro","other"]
+
+
+
 wk06:
   master_file: /home/observer/src/tpg/wk06_master.txt        # file with OB definitions
   data_file: /data/fits/wk06/processed-ofp/targets/          # directory with observations
@@ -16,8 +22,8 @@ wk06:
 
 
 zb08:
-  #master_file: zb08_master.txt
-  master_file: /home/observer/src/tpg/zb08_master.txt
+  master_file: zb08_master.txt
+  #master_file: /home/observer/src/tpg/zb08_master.txt
   data_file: /data/fits/zb08/processed-ofp/targets/
   def_read_mode: 2
   overhead: 15
