@@ -22,8 +22,7 @@ wk06:
 
 
 zb08:
-  master_file: zb08_master.txt
-  #master_file: /home/observer/src/tpg/zb08_master.txt
+  master_file: /home/observer/src/tpg/zb08_master.txt
   data_file: /data/fits/zb08/processed-ofp/targets/
   def_read_mode: 2
   overhead: 15
@@ -34,8 +33,7 @@ zb08:
   moon_dist: 40
 
 jk15:
-#  master_file: /home/observer/src/tpg/jk15_master.txt
-  master_file: jk15_master.txt
+  master_file: /home/observer/src/tpg/jk15_master.txt
   data_file: /data/fits/jk15/processed-ofp/targets/
   def_read_mode: 5
   overhead: 60
