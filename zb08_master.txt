@@ -573,7 +573,6 @@ V355_Sge                19:35:44.75        +18:56:42.5        seq=2/B/15,2/V/4,2
 # PI dgraczyk + ghajdu
 # INFO other targets from this program on WK06 and JK15
 #
-# Random phases for now
 OGLE-SMC-ECL-1557       00:49:21.20        -73:03:15.1        seq=1x(2/B/48,2/V/64,2/Ic/180)        priority=5      sciprog=deb_blue_smc    pi=ghajdu        tag=random_phase    P=2.3894223     hjd0=2457000.0362    comment="1708, 1557 in field, mI=15.2-15.9"                                                                                                      
 OGLE-SMC-ECL-1557       00:49:21.20        -73:03:15.1        seq=1x(2/B/48,2/V/64,2/Ic/180)        priority=6      cycle=0.0007    ph_mk=2/V/0.005     ph_start=0.44          ph_end=0.55          sciprog=deb_blue_smc    pi=ghajdu        tag=primary       P=2.3894223     hjd0=2457000.0362    comment="1708, 1557 in field, mI=15.2-15.9"                                                                                                                                      
 OGLE-SMC-ECL-1557       00:49:21.20        -73:03:15.1        seq=1x(2/B/48,2/V/64,2/Ic/180)        priority=6      cycle=0.0007    ph_mk=2/V/0.005     ph_start=0.925         ph_end=0.045         sciprog=deb_blue_smc    pi=ghajdu        tag=secondary     P=2.3894223     hjd0=2457000.0362    comment="1708, 1557 in field, mI=15.2-15.9"                                                                                                                                  
@@ -617,42 +616,11 @@ OGLE-SMC-ECL-5890       01:16:26.11        -73:15:01.3        seq=1x(2/B/36,2/V/
 # Young open clusters
 # SCIPROG oclu_young
 # PI apigulski
-NGC6604                 18:18:03.0         -12:14:30.12       seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=7      cycle=0.05    sciprog=oclu_young    pi=apigulski     comment="every 1h"                                                                                                                                          
-NGC6531                 18:04:08.8032      -22:31:12.3797     seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=7      cycle=0.05    sciprog=oclu_young    pi=apigulski     comment="every 1h, M21"                                                                                                                                
+NGC6604                 18:18:03.0         -12:14:30.12       seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90     priority=7      cycle=0.04    sciprog=oclu_young    pi=apigulski     comment="every 1h"
+NGC6531                 18:04:08.8032      -22:31:12.3797     seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90     priority=7      cycle=0.04    sciprog=oclu_young    pi=apigulski     comment="every 1h, M21"
 
 
 
-# LMC early-type eclipsing binaries
-# SCIPROG deb_blue_lmc
-# PI dgraczyk + mtaormina
-#
-# OGLE-LMC-ECL-05764    05:02:40.77   -68:24:21.4       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=14.231      P=5.725912      hjd0=2453570.9054      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.371, random phases, SNR 200"
-# OGLE-LMC-ECL-06782    05:04:59.05   -70:31:13.9       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=13.714      P=4.270776      hjd0=2453560.7368      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=13.913, random phases, SNR 200"
-# OGLE-LMC-ECL-07641    05:06:51.94   -68:25:46.5       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=14.039      P=6.33001       hjd0=2453570.6569      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.250, random phases, SNR 200"
-# OGLE-LMC-ECL-16675    05:28:23.98   -69:12:26.2       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=13.867      P=3.74864       hjd0=2453564.9887      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.046, random phases, SNR 200"
-# OGLE-LMC-ECL-17198    05:29:24.63   -68:42:13.1       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=13.926      P=3.29083       hjd0=2453565.3853      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.118, random phases, SNR 200"
-# OGLE-LMC-ECL-17660    05:30:22.13   -69:14:52.0       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=14.266      P=6.22909       hjd0=2453575.7547      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.429, random phases, SNR 200"
-# OGLE-LMC-ECL-18794    05:32:47.74   -68:37:26.6       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=13.194      P=5.946846      hjd0=2453577.3724      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=13.397, random phases, SNR 200"
-# OGLE-LMC-ECL-21568    05:38:58.08   -69:30:11.3       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=14.125      P=3.22545       hjd0=2453578.5489      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.212, random phases, SNR 200"
-# OGLE-LMC-ECL-22270    05:40:47.31   -69:20:28.3       seq=2/B/???,2/V/???,2/Ic/???       priority=6      mV=14.029      P=5.414011      hjd0=2453578.8126      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.022, random phases, SNR 200"
-#
-# OGLE-LMC-ECL-08397    05:08:38.89   -68:45:45.7   seq=??    P=3.1318509   hjd0=2457000.3498   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc    comment="mI=14.664"
-# OGLE-LMC-ECL-08933    05:09:54.79   -68:54:39.2   seq=??    P=3.6914323   hjd0=2457001.7316   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.523   comment="mI=14.687"
-# OGLE-LMC-ECL-12167    05:18:04.71	  -69:48:18.9   seq=??    P=3.1070304   hjd0=2457001.3483   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.589   comment="mI=14.738"
-# OGLE-LMC-ECL-15924    05:26:53.12   -68:52:07.3   seq=??    P=9.4682301   hjd0=2457007.7530   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.391   comment="mI=14.551"
-# OGLE-LMC-ECL-16468    05:27:58.75   -69:07:00.9   seq=??    P=11.5538607  hjd0=2457008.1562   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.680   comment="mI=14.837"
-# OGLE-LMC-ECL-16595    05:28:15.06   -69:08:11.7   seq=??    P=2.2201542   hjd0=2457000.3560   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.728   comment="mI=14.880"
-# OGLE-LMC-ECL-17411    05:29:52.31   -69:09:22.6   seq=??    P=5.3352175   hjd0=2457001.9753   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.656   comment="mI=14.782"
-# OGLE-LMC-ECL-17943    05:30:56.54   -69:01:28.0   seq=??    P=5.6804604   hjd0=2457003.3128   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.609   comment="mI=14.741"
-# OGLE-LMC-ECL-20299    05:36:10.74   -69:32:02.2   seq=??    P=2.8414596   hjd0=2457000.5446   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.498   comment="mI=14.627"
-# OGLE-LMC-ECL-21603    05:39:04.89   -69:29:37.7   seq=??    P=1.7811207   hjd0=2457001.2441   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.659   comment="mI=14.698"
-# OGLE-LMC-ECL-21905    05:39:54.51   -68:25:43.2   seq=??    P=5.3449703   hjd0=2457003.4284   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.569   comment="mI=14.794"
-# OGLE-LMC-ECL-23176    05:43:06.67   -69:45:35.5   seq=??    P=4.8731605   hjd0=2457004.8516   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=13.784   comment="mI=13.678"
-# OGLE-LMC-ECL-23358    05:43:39.33   -69:15:54.9   seq=??    P=1.7860501   hjd0=2457000.9298   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.650   comment="mI=14.644"
-# OGLE-LMC-ECL-33609    05:27:30.35   -67:28:44.3   seq=??    P=3.1582003   hjd0=2457001.4764   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.411   comment="mI=14.551"
-# OGLE-LMC-ECL-02851    04:55:02.53   -67:09:51.7   seq=??    P=2.7403866   hjd0=2457000.1277   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.584   comment="mI=14.833"
-#
-#
 ############
 ## HALTED ##
 ############
@@ -661,18 +629,18 @@ NGC6531                 18:04:08.8032      -22:31:12.3797     seq=2/g/3,2/g/30,2
 # PI: Paulina
 # SCIPROG: ccep_loops
 # 
-# U_Aql     19:29:21.361  -07:02:38.662  P=7.0235  mV=6.6  priority=4  comment="ugri  8.4  B9.8V  Evans1992  too bright?"
-# eta_Aql   19:52:28.369  +01:00:20.372  P=7.1772  mV=3.8  priority=4  comment="ugri  5.1  B9.8V  Evans1992  too bright?"
-# V659_Cen  13:31:33.411  -61:34:56.519  P=5.6234  mV=6.5  priority=4  comment="ugri  7.6  B6V  Evans1992  too bright?"
-# AX_Cir    14:52:35.259  -63:48:35.357  P=5.2735  mV=5.9  priority=4  comment="ugri  -  -  Evans1992  too bright?"
-# BP_Cir    14:46:41.981  -61:27:42.991  P=2.3981  mV=7.5  priority=4  comment="ugri  -  B6V  Evans1992  too bright?"
-# SU_Cyg    19:44:48.734  +29:15:52.895  P=3.8456  mV=6.4  priority=4  comment="ugri  7.1  B8V  Evans1992  too bright?"
-# S_Mus     12:12:47.020  -70:09:06.439  P=9.6593  mV=8.3  priority=4  comment="ugri  7.6  B5V  Evans1992  too bright?"
-# S_Nor     16:18:51.832  -57:53:59.256  P=9.7544  mV=6.5  priority=4  comment="ugri  8.1  -  Evans1992  too bright?"
-# AW_Per    04:47:46.315  +36:43:22.034  P=6.4635  mV=7.5  priority=4  comment="ugri  -  B6  Evans1992  too bright?"
-# W_Sgr     18:05:01.226  -29:34:48.322  P=7.5954  mV=4.7  priority=4  comment="ugri  6.0  -  Evans1992  too bright?"
-# V350_Sgr  18:45:17.497  -20:38:50.553  P=5.1539  mV=7.4  priority=4  comment="ugri  -  -  Evans1992  too bright?"
-# AZ_Cen    11:25:12.985  -61:22:08.969  P=3.2118  mV=8.4  priority=4  comment="ugri  -    Gieren+1982  Spectroscopic binary, strongly opened loop, FO"
+# U_Aql     19:29:21.361  -07:02:38.662  seq=???   P=7.0235  mV=6.6  priority=4  comment="ugri  8.4  B9.8V  Evans1992  too bright?"
+# eta_Aql   19:52:28.369  +01:00:20.372  seq=???   P=7.1772  mV=3.8  priority=4  comment="ugri  5.1  B9.8V  Evans1992  too bright?"
+# V659_Cen  13:31:33.411  -61:34:56.519  seq=???   P=5.6234  mV=6.5  priority=4  comment="ugri  7.6  B6V  Evans1992  too bright?"
+# AX_Cir    14:52:35.259  -63:48:35.357  seq=???   P=5.2735  mV=5.9  priority=4  comment="ugri  -  -  Evans1992  too bright?"
+# BP_Cir    14:46:41.981  -61:27:42.991  seq=???   P=2.3981  mV=7.5  priority=4  comment="ugri  -  B6V  Evans1992  too bright?"
+# SU_Cyg    19:44:48.734  +29:15:52.895  seq=???   P=3.8456  mV=6.4  priority=4  comment="ugri  7.1  B8V  Evans1992  too bright?"
+# S_Mus     12:12:47.020  -70:09:06.439  seq=???   P=9.6593  mV=8.3  priority=4  comment="ugri  7.6  B5V  Evans1992  too bright?"
+# S_Nor     16:18:51.832  -57:53:59.256  seq=???   P=9.7544  mV=6.5  priority=4  comment="ugri  8.1  -  Evans1992  too bright?"
+# AW_Per    04:47:46.315  +36:43:22.034  seq=???   P=6.4635  mV=7.5  priority=4  comment="ugri  -  B6  Evans1992  too bright?"
+# W_Sgr     18:05:01.226  -29:34:48.322  seq=???   P=7.5954  mV=4.7  priority=4  comment="ugri  6.0  -  Evans1992  too bright?"
+# V350_Sgr  18:45:17.497  -20:38:50.553  seq=???   P=5.1539  mV=7.4  priority=4  comment="ugri  -  -  Evans1992  too bright?"
+# AZ_Cen    11:25:12.985  -61:22:08.969  seq=???   P=3.2118  mV=8.4  priority=4  comment="ugri  -    Gieren+1982  Spectroscopic binary, strongly opened loop, FO"
 #
 #
 #
@@ -709,3 +677,35 @@ NGC6531                 18:04:08.8032      -22:31:12.3797     seq=2/g/3,2/g/30,2
 # V674_Cen                14:03:24.10        -36:24:20.00       seq=2/u/52,2/g/5                      priority=7      cycle=0.167    ph_mk=2/u/0.02      sciprog=rrl_speckle    pi=rsalinas      P=0.4939896     hjd0=2456898.70248520                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 # S_Ara                   17:59:10.69        -49:26:00.15       seq=2/u/26,2/g/3.5                    priority=7      cycle=0.167    ph_mk=2/u/0.02      sciprog=rrl_speckle    pi=rsalinas      P=0.451848      hjd0=2456906.52048720                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 # AM_Vir                  13:23:33.30        -16:39:57.90       seq=2/u/54,2/g/5                      priority=7      cycle=0.167    ph_mk=2/u/0.02      sciprog=rrl_speckle    pi=rsalinas      P=0.615085      hjd0=2456895.82467620
+#
+#
+#
+# LMC early-type eclipsing binaries
+# SCIPROG deb_blue_lmc
+# PI dgraczyk + mtaormina
+#
+# OGLE-LMC-ECL-05764    05:02:40.77   -68:24:21.4   seq=??    priority=6      mV=14.231      P=5.725912      hjd0=2453570.9054      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.371, random phases, SNR 200"
+# OGLE-LMC-ECL-06782    05:04:59.05   -70:31:13.9   seq=??    priority=6      mV=13.714      P=4.270776      hjd0=2453560.7368      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=13.913, random phases, SNR 200"
+# OGLE-LMC-ECL-07641    05:06:51.94   -68:25:46.5   seq=??    priority=6      mV=14.039      P=6.33001       hjd0=2453570.6569      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.250, random phases, SNR 200"
+# OGLE-LMC-ECL-16675    05:28:23.98   -69:12:26.2   seq=??    priority=6      mV=13.867      P=3.74864       hjd0=2453564.9887      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.046, random phases, SNR 200"
+# OGLE-LMC-ECL-17198    05:29:24.63   -68:42:13.1   seq=??    priority=6      mV=13.926      P=3.29083       hjd0=2453565.3853      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.118, random phases, SNR 200"
+# OGLE-LMC-ECL-17660    05:30:22.13   -69:14:52.0   seq=??    priority=6      mV=14.266      P=6.22909       hjd0=2453575.7547      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.429, random phases, SNR 200"
+# OGLE-LMC-ECL-18794    05:32:47.74   -68:37:26.6   seq=??    priority=6      mV=13.194      P=5.946846      hjd0=2453577.3724      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=13.397, random phases, SNR 200"
+# OGLE-LMC-ECL-21568    05:38:58.08   -69:30:11.3   seq=??    priority=6      mV=14.125      P=3.22545       hjd0=2453578.5489      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.212, random phases, SNR 200"
+# OGLE-LMC-ECL-22270    05:40:47.31   -69:20:28.3   seq=??    priority=6      mV=14.029      P=5.414011      hjd0=2453578.8126      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.022, random phases, SNR 200"
+#
+# OGLE-LMC-ECL-08397    05:08:38.89   -68:45:45.7   seq=??    P=3.1318509   hjd0=2457000.3498   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc    comment="mI=14.664"
+# OGLE-LMC-ECL-08933    05:09:54.79   -68:54:39.2   seq=??    P=3.6914323   hjd0=2457001.7316   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.523   comment="mI=14.687"
+# OGLE-LMC-ECL-12167    05:18:04.71	  -69:48:18.9   seq=??    P=3.1070304   hjd0=2457001.3483   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.589   comment="mI=14.738"
+# OGLE-LMC-ECL-15924    05:26:53.12   -68:52:07.3   seq=??    P=9.4682301   hjd0=2457007.7530   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.391   comment="mI=14.551"
+# OGLE-LMC-ECL-16468    05:27:58.75   -69:07:00.9   seq=??    P=11.5538607  hjd0=2457008.1562   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.680   comment="mI=14.837"
+# OGLE-LMC-ECL-16595    05:28:15.06   -69:08:11.7   seq=??    P=2.2201542   hjd0=2457000.3560   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.728   comment="mI=14.880"
+# OGLE-LMC-ECL-17411    05:29:52.31   -69:09:22.6   seq=??    P=5.3352175   hjd0=2457001.9753   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.656   comment="mI=14.782"
+# OGLE-LMC-ECL-17943    05:30:56.54   -69:01:28.0   seq=??    P=5.6804604   hjd0=2457003.3128   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.609   comment="mI=14.741"
+# OGLE-LMC-ECL-20299    05:36:10.74   -69:32:02.2   seq=??    P=2.8414596   hjd0=2457000.5446   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.498   comment="mI=14.627"
+# OGLE-LMC-ECL-21603    05:39:04.89   -69:29:37.7   seq=??    P=1.7811207   hjd0=2457001.2441   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.659   comment="mI=14.698"
+# OGLE-LMC-ECL-21905    05:39:54.51   -68:25:43.2   seq=??    P=5.3449703   hjd0=2457003.4284   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.569   comment="mI=14.794"
+# OGLE-LMC-ECL-23176    05:43:06.67   -69:45:35.5   seq=??    P=4.8731605   hjd0=2457004.8516   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=13.784   comment="mI=13.678"
+# OGLE-LMC-ECL-23358    05:43:39.33   -69:15:54.9   seq=??    P=1.7860501   hjd0=2457000.9298   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.650   comment="mI=14.644"
+# OGLE-LMC-ECL-33609    05:27:30.35   -67:28:44.3   seq=??    P=3.1582003   hjd0=2457001.4764   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.411   comment="mI=14.551"
+# OGLE-LMC-ECL-02851    04:55:02.53   -67:09:51.7   seq=??    P=2.7403866   hjd0=2457000.1277   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.584   comment="mI=14.833"
