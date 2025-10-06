@@ -19,16 +19,16 @@
 # Standard stars for photometric system Johnson-Cousins
 # Source of JC standards: Pancino et al. 2022 (https://www.aanda.org/articles/aa/abs/2022/08/aa43939-22/aa43939-22.html)
 
-TPHE         00:30:33   -46:28:30    seq=1/B/36,1/V/30,1/Ic/30     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
-SA95         03:53:32   -00:00:50    seq=1/B/36,1/V/30,1/Ic/30     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
-SA98         06:52:11   -00:19:18    seq=1/B/36,1/V/30,1/Ic/30     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
-RU149        07:24:14   -00:31:41    seq=1/B/36,1/V/30,1/Ic/30     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
-RU152        07:29:56   -02:05:39    seq=1/B/36,1/V/30,1/Ic/30     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
-SF0841-022   08:43:52   -02:25:15    seq=1/B/54,1/V/45,1/Ic/45     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst., new field"
-LSE44        13:52:52   -48:08:50    seq=1/B/18,1/V/15,1/Ic/15     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst., new field"
-LSE259       16:53:56   -56:00:30    seq=1/B/18,1/V/15,1/Ic/15     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst., new field"
-SA110        18:42:51   +00:05:40    seq=1/B/54,1/V/45,1/Ic/45     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
-SA113_F1     21:36:02   -00:30:25    seq=1/B/36,1/V/30,1/Ic/30     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst., new subfield"
+TPHE         00:30:33   -46:28:30    seq=1/B/23,1/V/18,1/Ic/18     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
+SA95         03:53:32   -00:00:50    seq=1/B/23,1/V/18,1/Ic/18     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
+SA98         06:52:11   -00:19:18    seq=1/B/23,1/V/18,1/Ic/18     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
+RU149        07:24:14   -00:31:41    seq=1/B/23,1/V/18,1/Ic/18     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
+RU152        07:29:56   -02:05:39    seq=1/B/23,1/V/18,1/Ic/18     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
+SF0841-022   08:43:52   -02:25:15    seq=1/B/31,1/V/25,1/Ic/25     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst., new field"
+LSE44        13:52:52   -48:08:50    seq=1/B/11,1/V/9,1/Ic/9       priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst., new field"
+LSE259       16:53:56   -56:00:30    seq=1/B/11,1/V/9,1/Ic/9       priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst., new field"
+SA110        18:42:51   +00:05:40    seq=1/B/31,1/V/25,1/Ic/25     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst."
+SA113-F1     21:36:02   -00:30:25    seq=1/B/21,1/V/17,1/Ic/17     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC    comment="standard field for Johnson-Cousins phot. syst., new subfield"
 
 
 

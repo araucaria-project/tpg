@@ -11,7 +11,6 @@
 # example3  07:24:14   -00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=00:20 t_end=10:00 
 # example4  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5  read_mod=3
 
-
 # Test object for checking phase
 # OGLE-GD-CEP-0127      07:45:11.79      -36:58:29.1      ph_mk=2/Ic/0.05      seq=2/B/42      P=13.7677045      mV=12.79      priority=5      comment="Test object for checking phase"
 
@@ -30,8 +29,19 @@ SF0841-022   08:43:52   -02:25:15    seq=1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i
 LSE44        13:52:52   -48:08:50    seq=1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12          priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst., new field"
 LSE259       16:53:56   -56:00:30    seq=1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12          priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst., new field"
 SA110        18:42:51   +00:05:40    seq=1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36    priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
-SA113_F1     21:36:02   -00:30:25    seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst., new subfield"
+SA113-F1     21:36:02   -00:30:25    seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst., new subfield"
 
+# With the addition of u filter
+#TPHE         00:30:33   -46:28:30    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/tphe_2/u/light-curve/tphe_2_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+#SA95         03:53:32   -00:00:50    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sa95_l15/u/light-curve/sa95_l15_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+#SA98         06:52:11   -00:19:18    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sa98_2/u/light-curve/sa98_2_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+#RU149        07:24:14   -00:31:41    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/ru149_2/u/light-curve/ru149_2_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+#RU152        07:29:56   -02:05:39    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/ru152_2/u/light-curve/ru152_2_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+#SF0841-022   08:43:52   -02:25:15    seq=1/u/72,1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36    priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sf0841-022_6/u/light-curve/sf0841-022_6_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst., new field"
+#LSE44        13:52:52   -48:08:50    seq=1/u/24,1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12          priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/lse44_6/u/light-curve/lse44_6_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst., new field"
+#LSE259       16:53:56   -56:00:30    seq=1/u/24,1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12          priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/lse259_5/u/light-curve/lse259_5_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst., new field"
+#SA110        18:42:51   +00:05:40    seq=1/u/72,1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36    priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sa110_l246/u/light-curve/sa110_l246_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+#SA113-F1     21:36:02   -00:30:25    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sa113-f1_4/u/light-curve/sa113-f1_4_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst., new subfield"
 
 
 # Stromgren standards (Hauck & Mermilliod 1998; Paunzen 2015)
@@ -255,7 +265,6 @@ OGLE-LMC-ECL-23358      05:43:39.34      -69:15:54.9    seq=1/u_s/300,1/v_s/100,
 # LMC Cepheids for p-factor
 # SCIPROG cep_lmc
 # PI bpilecki
-# INTO sequences are not ready, need a exposure time calculator!
 # 
 #OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=seq=1/V/180,1/Ic/140        sciprog=cep_lmc      pi=bpilecki     priority=10    mv=15.291   P=309.669   hjd0=2455221.68   tag=before_eclipse  cycle=0.15  t_start=2025/10/01T23:59:00  t_end=2025/10/08T08:40:00
 #OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=seq=1/V/180,1/Ic/140        sciprog=cep_lmc      pi=bpilecki     priority=10    mv=15.291   P=309.669   hjd0=2455221.68   tag=eclipse         cycle=0.08  t_start=2025/10/08T23:59:00  t_end=2025/10/27T08:40:00
