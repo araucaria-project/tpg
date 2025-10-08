@@ -90,6 +90,8 @@ example20   07:24:14         -00:31:41     makro=./test/makro_ex10.txt   priorit
 * comment has to be enclosed with **" "** characters 
 * phase masking: object is masked if in defined `phase_bin` are already `no_of_obs` points for `band_light_curve`
 * for `cycle` full funcionality, obs data are required, and for this the filter has to be specified. If `ph_mk` is not specified, it will take first filter defined in `seq`.
+* makro file must have *exactly* these elements in each line: OBJECT name RA Dec seq pi sciprog
+  Additionally, in the master plan must also have pi and sciprog parameters in each line, so pi and sciprog parameters appear twice for a target with makro: in the master file and in the makro file.
 
 ### How it works
 Each object specified in the master file has multiple atributes. Objects are divided in to different *priority* groups, and each object has specific visibility and scheduling conditions. For each object for specified night and geographical location it's altitude is calculated for each minute of specified night. Based on this array, the *visibility* array is created, where *True* value is assigned if object altitude is above *hmin* and below *hmax* atributes. This base visibility array then is masked with additinal atributes, like *t_star*, *t_end*, *ph_start*, *ph_end* and *ph_mk*.  
