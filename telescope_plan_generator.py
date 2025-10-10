@@ -37,8 +37,9 @@ class telescope_plan_generator():
                 self.msg = self.msg + txt
 
 
+
         self.tel = tel
-        if len(date) == 1:
+        if len(date) == 1:          # bo to lista
             self.flags.append("start_at_sunset")
             self.date = date[0] + " 12:00:00"
             txt = f'start at sunset\n'
@@ -49,11 +50,11 @@ class telescope_plan_generator():
             txt = f'date missing\n'
 
         if "/" in date[0]:
-            if len(date[0].split("/")[0])<3:
+            if len(date[0].split("/"))<3:
                 print("wrong date format: yyyy/mm/dd")
                 sys.exit(0)
         elif "-" in date[0]:
-            if len(date[0].split("-")[0]) < 3:
+            if len(date[0].split("-")) < 3:
                 print("wrong date format: yyyy/mm/dd")
                 sys.exit(0)
         else:
@@ -359,6 +360,7 @@ class telescope_plan_generator():
 
     def CalcObject(self):  # Colculate visibility for all objects
         for n, tmp in enumerate(self.ob):
+
             if self.ob[n].get("ra", False) and self.ob[n].get("dec", False) and self.ob[n].get("name", False):
                 self.ob[n]["visibility"] = dict()
 
@@ -665,6 +667,9 @@ class telescope_plan_generator():
 
                 for nk, tmp in enumerate(self.random_index_list):
                     k = self.random_index_list[nk]
+                    # wbrew pozorom ta funkcja przeszukuje caly zbior, ale wybiera pierwsz obiekt
+                    # z listy random_index_list ( bo jest > priormax, a nie >= )
+                    # moze to nie jest najbardziej optymalny kod
                     if int(self.ob[k]["priority"]) > priormax and int(self.ob[k]["priority"]) > -50:
                         visibility = self.ob[k]["visibility"]["all"]
                         slots = float((self.ob[k]["slotTime"])) / 1.
@@ -693,18 +698,33 @@ class telescope_plan_generator():
                     self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
                     self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
                     self.nightObChange[bfin[0]] = True
-                    q = self.random_index_list[done]
-                    if self.ob[q]["cycle"] != False:
-                        dn = int(1440 * float(self.ob[q]["cycle"]))  # 1440 minut ma doba
-                        if dn > len(self.ob[q]["visibility"]["all"][nn:]):
-                            dn = len(self.ob[q]["visibility"]["all"][nn:])
-                        self.ob[q]["visibility"]["all"][nn:nn+dn] = [False] * dn
-                    else:
-                        self.random_index_list = numpy.delete(self.random_index_list, done)
+
                     if "inf" in self.ob[kfin]["flag"]:
                         self.ob[kfin]["seq"] = self.ob[kfin]["seq"].replace("INFx", f"{loops}x")
 
+                    # usuwanie juz zaalocowanych
+                    q = self.random_index_list[done]
 
+                    if d_ver(self.ob[q], ["uobi"]):
+                        uobi_tmp = self.ob[q]["uobi"]
+                        if len(uobi_tmp.strip()) > 0:
+                            indeksy = [i for i, item in enumerate(self.ob) if item["uobi"] == uobi_tmp]
+                            ni = [j for j, val in enumerate(self.random_index_list) if val in indeksy]
+                    else:
+                        ni = [done]
+
+                    del_list = []
+                    for ki in ni:
+                        q = self.random_index_list[ki]
+                        if self.ob[q]["cycle"] != False:
+                            dn = int(1440 * float(self.ob[q]["cycle"]))  # 1440 minut ma doba
+                            if dn > len(self.ob[q]["visibility"]["all"][nn:]):
+                                dn = len(self.ob[q]["visibility"]["all"][nn:])
+                            self.ob[q]["visibility"]["all"][nn:nn+dn] = [False] * dn
+                        else:
+                            del_list.append(ki)
+
+                    self.random_index_list = numpy.delete(self.random_index_list, del_list)
 
     def export(self):
         if True:
@@ -732,7 +752,10 @@ class telescope_plan_generator():
                                             self.plan.append(line.strip())
                         else:
                             txt = self.ob[k]["line"]
-                            for x in self.cfg["params_2_remove"]:
+                            par2remove = self.cfg["params_2_remove"]
+                            if d_ver(self.ob[k], ["uobi","cycle"]):
+                                par2remove.append("uobi")  # bo nie powinno sie powtarzac uobi
+                            for x in par2remove:
                                 if x+"=" in txt:
                                     ab = txt.split(x+"=")
                                     a = ab[0]

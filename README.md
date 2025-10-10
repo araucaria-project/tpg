@@ -1,7 +1,6 @@
 # tpg - telescope plan generator
 version: 0.1.3
 
-
 Script for generating observing plans for **wk06**, **zb08** and **jk15** telescopes. 
 Script allocates time based on priority and visibility. Calculates slot time based on 
 specification ``seq`` of each object. Creates files readable by *TOI* and *TEXTUI*.
@@ -74,6 +73,7 @@ ex2    07:24:14       -00:31:41     seq=2/Ic/3.4         priority=11 makro=./tes
 * `cycle=3` - object will be observed if last observation was more than 3 days ago.
 
   `cycle=0.3` - object can be repeted during night 0.3*24h after last planed scheduling.
+* `uobi=34dfg` - unique observing block identifier. If some objects have the same uobi, all of them will be removed from the observing list if one of them will be allocated.
 *  `ph_mk=2/Ic/0.05` - parameters for phase masking:  no_of_obs/band_light_curve/phase_bin
 *  `obs_data=./test/obs_data/example5.txt` - data file if cycle or phase data file is different then object name
 * `t_start=2024/01/09T1:20:05` - date and ut  for start
@@ -105,6 +105,7 @@ ex2    07:24:14       -00:31:41     seq=2/Ic/3.4         priority=11 makro=./tes
 * phase masking: object is masked if in defined `phase_bin` are already `no_of_obs` points for `band_light_curve`
 * for `cycle` full functionality, **obs data** are required, and for this the filter has to be specified. If `ph_mk` is not specified, it will take first filter defined in `seq`.
 * since version 0.1.2 there is `makro` functionality, so previous function of splitting long (>10) sequences to multiple shorter sequences was removed. 
+* since version 0.1.4 `uobi` parameter will not be exported if there is also `cycle` parameter for this ob. 
 
 ### How it works
 Each object specified in the master file has multiple atributes. 
