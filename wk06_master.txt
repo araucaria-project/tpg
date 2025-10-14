@@ -72,8 +72,8 @@ SA113-F1                21:36:02           -00:30:25          seq=1/B/21,1/V/17,
 #WPVS48      09:59:42.645    -31:12:58.4910     seq=1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300      priority=9    cycle=0.15    sciprog=agn    pi=fpozo    comment="AGN observe twice per night"       mV=14.8
 #NGC3783     11:39:01.71     -37:44:19.01       seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300       priority=8    cycle=0.0001  sciprog=agn    pi=fpozo    comment="AGN observe continuously for 2 weeks, dark sky"      mV=13.4
 #NGC6814     19:42:40.59     -10:19:25.11       seq=3x(1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300)  priority=8    cycle=0.14    sciprog=agn    pi=fpozo    comment="AGN observe twice per night"  mV=14.2
-Mrk509                  20:44:09.75        -10:43:24.73       seq=1/Ic/30,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/200                    priority=9    cycle=0.8    sciprog=agn    pi=fpozo    mV=13.2    comment="AGN observe once per night" 
-Mrk1014                 01:59:50.25        +00:23:40.86       seq=1/Ic/120,1/y_s/220,1/v_s/300,1/b_s/300,3/u_s/300                priority=9    cycle=0.8    sciprog=agn    pi=fpozo    mV=15.9    comment="AGN observe once per night" 
+Mrk509       20:44:09.75     -10:43:24.73       seq=1/Ic/30,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/200        priority=9    cycle=0.8    sciprog=agn    pi=fpozo    mV=13.2    comment="AGN observe once per night" 
+Mrk1014      01:59:50.25     +00:23:40.86       seq=1/Ic/120,1/y_s/220,1/v_s/300,1/b_s/300,3/u_s/300    priority=9    cycle=0.8    sciprog=agn    pi=fpozo    mV=15.9    comment="AGN observe once per night" 
 
 
 # Eclipsing binaries to calibrate the sufrace brightness-color relation (sbcr)
@@ -258,11 +258,11 @@ OGLE-SMC-ECL-4440       01:02:01.37        -72:29:07.5        seq=2/B/60,2/V/80,
 OGLE-SMC-ECL-4440       01:02:01.37        -72:29:07.5        seq=2/B/60,2/V/80,2/Ic/225            priority=7    cycle=0.0007    ph_mk=2/V/0.002    ph_start=0.44    ph_end=0.55    sciprog=deb_blue_smc    pi=ghajdu    tag=sec_ecl    P=9.0179343    hjd0=2460653.90    mV=14.95    comment="SMC, sec ecl" 
 
 # Out of eclipses
-OGLE-SMC-ECL-0720       00:44:08.67        -73:14:18.5        seq=2/B/36,2/V/48,2/Ic/120            priority=2    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=6.0522822    hjd0=2460657.52    mV=14.32    comment="SMC, out of ecl" 
-OGLE-SMC-ECL-2770       00:53:33.35        -72:56:24.5        seq=2/B/30,2/V/40,2/Ic/100            priority=2    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=3.9460493    hjd0=2460658.06    mV=13.93    comment="SMC, out of ecl" 
-OGLE-SMC-ECL-3378       00:56:17.60        -72:19:54.2        seq=2/B/48,2/V/64,2/Ic/180            priority=2    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=4.4803698    hjd0=2460658.10    mV=14.61    comment="SMC, out of ecl, 3417 in field" 
-OGLE-SMC-ECL-3417       00:56:17.60        -72:19:54.2        seq=2/B/48,2/V/64,2/Ic/180            priority=2    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=2.3200554    hjd0=2457001.7493    mV=14.61    comment="SMC, out of ecl, 3378 in field" 
-OGLE-SMC-ECL-4440       01:02:01.37        -72:29:07.5        seq=2/B/60,2/V/80,2/Ic/225            priority=2    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=9.0179343    hjd0=2460653.90    mV=14.95    comment="SMC, out of ecl" 
+OGLE-SMC-ECL-0720       00:44:08.67        -73:14:18.5        seq=2/B/36,2/V/48,2/Ic/120            priority=4    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=6.0522822    hjd0=2460657.52    mV=14.32    comment="SMC, out of ecl" 
+OGLE-SMC-ECL-2770       00:53:33.35        -72:56:24.5        seq=2/B/30,2/V/40,2/Ic/100            priority=4    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=3.9460493    hjd0=2460658.06    mV=13.93    comment="SMC, out of ecl" 
+OGLE-SMC-ECL-3378       00:56:17.60        -72:19:54.2        seq=2/B/48,2/V/64,2/Ic/180            priority=4    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=4.4803698    hjd0=2460658.10    mV=14.61    comment="SMC, out of ecl, 3417 in field" 
+OGLE-SMC-ECL-3417       00:56:17.60        -72:19:54.2        seq=2/B/48,2/V/64,2/Ic/180            priority=4    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=2.3200554    hjd0=2457001.7493    mV=14.61    comment="SMC, out of ecl, 3378 in field" 
+OGLE-SMC-ECL-4440       01:02:01.37        -72:29:07.5        seq=2/B/60,2/V/80,2/Ic/225            priority=4    cycle=0.25    ph_mk=2/V/0.02    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=9.0179343    hjd0=2460653.90    mV=14.95    comment="SMC, out of ecl" 
 
 
 
