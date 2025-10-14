@@ -4,7 +4,7 @@
 #        Marek Gorski
 #=============================
 
-# ./tpg.py zb08 2019/08/20 [--ut --wind]  >| plan.txt
+# ./tpg.py zb08 2019/08/20  >| plan.txt
 
 import argparse
 from telescope_plan_generator import telescope_plan_generator as tpg

@@ -1,5 +1,5 @@
 # tpg - telescope plan generator
-version: 0.1.3
+version: 1.0.0
 
 Script for generating observing plans for **wk06**, **zb08** and **jk15** telescopes. 
 Script allocates time based on priority and visibility. Calculates slot time based on 
@@ -13,7 +13,7 @@ date: YYYY/MM/DD [hh:mm:ss]
 
 ```example
 poetry run tpg zb08 2023/08/1  >| zb08_230810.txt
-poetry run tpg wko6 2023/08/1 03:45  --wind 124
+poetry run tpg wko6 2023/08/1 03:45:00  --wind 124
 poetry run tpg wko6 2023/08/1 --seed 101010
 poetry run tpg wko6 2023/08/1 --loud
 ```
@@ -100,7 +100,6 @@ ex2    07:24:14       -00:31:41     seq=2/Ic/3.4         priority=11 makro=./tes
 * If there is no object to observe, it will allocate:
 ```WAIT ut=12:45:34``` with the `ut` for the next object
 * comment has to be enclosed with **" "** characters 
-* `--wind` option only accounts for masking relative to the **current azimuth** for specified time, not the predicted azimuth at the time of observation.
 * `min_moon_dist`, `max_moon_phase` are calculated at the begining of the visibility of the object - only once per all night!
 * phase masking: object is masked if in defined `phase_bin` are already `no_of_obs` points for `band_light_curve`
 * for `cycle` full functionality, **obs data** are required, and for this the filter has to be specified. If `ph_mk` is not specified, it will take first filter defined in `seq`.
@@ -137,19 +136,19 @@ If no object of particular *priority* is available for the slot, the priority is
 lowered and precess is repeted for objects with lower priority. 
 
 #### Simplified schema:
--> Loading objects from master file 
+--> Loading objects from master file 
 
 
--> visibility is calculated for all nigh, based on it's altitude 
+--> visibility is calculated for all nigh, based on it's altitude 
 
 
--> visibility is masked based on additional attributes 
+--> visibility is masked based on additional attributes 
 
 
--> objects are allocated, starting from the highest priority, randomizing selection within priority group. 
+--> objects are allocated, starting from the highest priority, randomizing selection within priority group. 
 
 
--> time marker is shifted and object for next slot is selected. 
+--> time marker is shifted and object for next slot is selected. 
 
 
 

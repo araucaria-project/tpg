@@ -9,14 +9,12 @@ from ctc import CycleTimeCalc
 
 class telescope_plan_generator():
     def __init__(self,tel,date,wind=None,loud=False,seed=None,done_uobi=[]):
-
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
         self.done = done_uobi
         self.loud = loud
         self.seed = seed
-
 
         self.msg = ""
 
@@ -47,14 +45,21 @@ class telescope_plan_generator():
             self.date = date[0] + " " + date[1]
             txt = f'start at {self.date}\n'
         else:
-            txt = f'date missing\n'
+            print("date missing: yyyy/mm/dd")
+            sys.exit(0)
 
         if "/" in date[0]:
             if len(date[0].split("/"))<3:
                 print("wrong date format: yyyy/mm/dd")
                 sys.exit(0)
+            if len(date[0].split("/")[0])<4:
+                print("wrong date format: yyyy/mm/dd")
+                sys.exit(0)
         elif "-" in date[0]:
             if len(date[0].split("-")) < 3:
+                print("wrong date format: yyyy/mm/dd")
+                sys.exit(0)
+            if len(date[0].split("-")[0])<4:
                 print("wrong date format: yyyy/mm/dd")
                 sys.exit(0)
         else:
@@ -96,14 +101,11 @@ class telescope_plan_generator():
                     txt = txt+ "    "+str(minutes)
                 else:
                     txt = txt + "    --"
-            #if "waga" in self.ob[n].keys():
-            #    txt = txt + f' waga={self.ob[n]["waga"]}'
 
             txt = txt + "\n"
 
         if self.loud: sys.stderr.write(txt)
         self.msg = self.msg + txt
-
 
         self.export()  # export plan
 
@@ -442,22 +444,39 @@ class telescope_plan_generator():
         if self.wind:
             for n, tmp in enumerate(self.ob):
                 if d_ver(self.ob[n], ["name", "ra", "dec","visibility"]):
+                    self.ob[n]["visibility"]["wind"] = self.ob[n]["visibility"]["all"].copy()
                     s = ephem.FixedBody()
                     s._ra = self.ob[n]["ra"]
                     s._dec = self.ob[n]["dec"]
-                    tmp = numpy.array(self.nightTime)
-                    time = tmp[numpy.array(self.ob[n]["visibility"]["all"])]
-                    if len(time)>0:
-                        self.oca.date = time[0]
-                        s.compute(self.oca)
-                        az = s.az * 180/ephem.pi
-                        dist = numpy.abs(self.wind - az)
-                        if dist > 180:
-                            dist = 360. - dist
-                        if dist < float(self.cfg[self.tel]["wind_dist"]):
-                            self.ob[n]["visibility"]["all"] = [False for _ in range(len(self.nightTime))]
-                            self.ob[n]["visibility"]["wind"] = [False for _ in range(len(self.nightTime))]
-                            # masked for all night because of calc time
+
+                    time = numpy.array(self.nightTime)
+
+                    for t,tmp in enumerate(time):
+                        if self.ob[n]["visibility"]["all"][t]:
+                            self.oca.date = time[t]
+                            s.compute(self.oca)
+                            az = s.az * 180/ephem.pi
+                            dist = numpy.abs(self.wind - az)
+                            if dist > 180:
+                                dist = 360. - dist
+                            if dist < float(self.cfg[self.tel]["wind_dist"]):
+                                self.ob[n]["visibility"]["all"][t] = False
+                                self.ob[n]["visibility"]["wind"][t] = False
+
+                    # # DUPA2
+                    # tmp = numpy.array(self.nightTime)
+                    # time = tmp[numpy.array(self.ob[n]["visibility"]["all"])]
+                    # if len(time)>0:
+                    #     self.oca.date = time[0]
+                    #     s.compute(self.oca)
+                    #     az = s.az * 180/ephem.pi
+                    #     dist = numpy.abs(self.wind - az)
+                    #     if dist > 180:
+                    #         dist = 360. - dist
+                    #     if dist < float(self.cfg[self.tel]["wind_dist"]):
+                    #         self.ob[n]["visibility"]["all"] = [False for _ in range(len(self.nightTime))]
+                    #         self.ob[n]["visibility"]["wind"] = [False for _ in range(len(self.nightTime))]
+                    #         # masked for all night because of calc time
 
 
     def MaskCycle(self):  # mask cycle covarage
@@ -835,7 +854,6 @@ def d_ver(slownik,klucze):
             else:
                 result = False
     return result
-
 
 
 def calc_slot_time(program, overhed):
