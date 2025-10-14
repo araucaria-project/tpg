@@ -1,0 +1,37 @@
+wk06:
+  master_file: ./wk06_master.txt       
+  data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/wk06/targets/
+  def_read_mode: 2
+  overhead: 15                                               # overhead for time slot calculation
+  hmin: 35                                                   # min altitude to observe
+  hmax: 91                                                   # max altitude to observe
+  hsun: -18                                                  # Sun alt to start and stop obs
+  wind_dist: 95                                              # wind distance to avoid in azimuth
+  moon_dist: 40   
+
+zb08:
+  master_file: ./zb08_master.txt
+  data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/zb08/targets/
+  def_read_mode: 2
+  overhead: 15
+  hmin: 35
+  hmax: 80
+  hsun: -18
+  wind_dist: 95
+  moon_dist: 40
+
+
+jk15:
+  master_file: ./jk15_master.txt
+  data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/jk15/targets/
+  def_read_mode: 5
+  overhead: 60
+  hmin: 35
+  hmax: 80
+  hsun: -18
+  wind_dist: 95
+  moon_dist: 40
+
+
+
+

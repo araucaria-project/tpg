@@ -1,6 +1,8 @@
 OBJECT exaple10 dupa1
 OBJECT dupa2
 WAIT sec=100
+OBJECT V971_Aql                19:26:04.79        -10:54:30.93       seq=2/Ic/12,2/V/10,2/B/17,2/g/11,2/r/7,2/i/10,2/z/30                         uobi=ed98ea9f       pi=pwielgorski    tag=t2cep,ascending_branch
+STOP
 
 
 
