@@ -11,24 +11,37 @@
 # example3  07:24:14   -00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=00:20 t_end=10:00 
 # example4  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5  read_mod=3
 
-
 # Test object for checking phase
 # OGLE-GD-CEP-0127      07:45:11.79      -36:58:29.1      ph_mk=2/Ic/0.05      seq=2/B/42      P=13.7677045      mV=12.79      priority=5      comment="Test object for checking phase"
 
 
 
-# Landolt standard fields
+# Standard stars for photometric system Johnson-Cousins & Sloan/SDSS
+# Source of JC standards: Pancino et al. 2022 (https://www.aanda.org/articles/aa/abs/2022/08/aa43939-22/aa43939-22.html)
+# Source of Sloan/SDSS standards: Gaia synthetic photometry catalog
 
-TPHE         00:30:16      -46:27:55      seq=1/B/12,1/V/10,1/Ic/10      mV=12.33      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-SA95         03:53:04      +00:03:12      seq=1/B/12,1/V/10,1/Ic/10      mV=12.68      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-SA98         06:52:05      -00:19:18      seq=1/B/12,1/V/10,1/Ic/10      mV=12.27      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-RU149        07:24:14      -00:31:41      seq=1/B/12,1/V/10,1/Ic/10      mV=11.48      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-RU152        07:29:56      -02:05:39      seq=1/B/12,1/V/10,1/Ic/10      mV=13.01      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-#LSE44        13:52:41      -48:08:20      seq=1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12
-#LSE259       16:53:55      -56:01:55      seq=1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12
-SA110        18:42:45      +00:07:42      seq=1/B/18,1/V/15,1/Ic/15      mV=12.43      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
-SA113        21:41:00      +00:27:21      seq=1/B/12,1/V/10,1/Ic/10      mV=10.88      priority=10      sciprog=cal      pi=ocm       tag=std_landolt      comment="Landolt standard field"
+#TPHE         00:30:33   -46:28:30    seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+#SA95         03:53:32   -00:00:50    seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+#SA98         06:52:11   -00:19:18    seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+#RU149        07:24:14   -00:31:41    seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+#RU152        07:29:56   -02:05:39    seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+#SF0841-022   08:43:52   -02:25:15    seq=1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36    priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst., new field"
+#LSE44        13:52:52   -48:08:50    seq=1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12          priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst., new field"
+#LSE259       16:53:56   -56:00:30    seq=1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12          priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst., new field"
+#SA110        18:42:51   +00:05:40    seq=1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36    priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+#SA113-F1     21:36:02   -00:30:25    seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst., new subfield"
 
+# With the addition of u filter
+TPHE         00:30:33   -46:28:30    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/tphe_2/u/light-curve/tphe_2_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+SA95         03:53:32   -00:00:50    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sa95_l15/u/light-curve/sa95_l15_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+SA98         06:52:11   -00:19:18    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sa98_2/u/light-curve/sa98_2_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+RU149        07:24:14   -00:31:41    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/ru149_2/u/light-curve/ru149_2_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+RU152        07:29:56   -02:05:39    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/ru152_2/u/light-curve/ru152_2_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+SF0841-022   08:43:52   -02:25:15    seq=1/u/72,1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36    priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sf0841-022_6/u/light-curve/sf0841-022_6_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst., new field"
+LSE44        13:52:52   -48:08:50    seq=1/u/24,1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12          priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/lse44_6/u/light-curve/lse44_6_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst., new field"
+LSE259       16:53:56   -56:00:30    seq=1/u/24,1/B/6,1/V/5,1/Ic/5,1/g/5,1/r/4,1/i/5,1/z/12          priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/lse259_5/u/light-curve/lse259_5_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst., new field"
+SA110        18:42:51   +00:05:40    seq=1/u/72,1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36    priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sa110_l246/u/light-curve/sa110_l246_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst."
+SA113-F1     21:36:02   -00:30:25    seq=1/u/48,1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/8,1/i/10,1/z/24     priority=10     sciprog=cal     pi=ocm     cycle=11     obs_data=/data/fits/jk15/processed-ofp/targets/sa113-f1_4/u/light-curve/sa113-f1_4_u_diff_light_curve.txt      tag=std_landolt,std_JC,std_Sloan_u    comment="standard field for Johnson-Cousins and Sloan with u band phot. syst., new subfield"
 
 
 # Stromgren standards (Hauck & Mermilliod 1998; Paunzen 2015)
@@ -67,7 +80,7 @@ SA113        21:41:00      +00:27:21      seq=1/B/12,1/V/10,1/Ic/10      mV=10.8
 # SCIPROG agn
 # PI fpozo
 
-# HE_0413-4031     04:15:14.4634   -40:23:41.139     seq=1/Ic/200,1/y_s/300,1/v_s/300,1/b_s/300,2/u_s/300     priority=8     cycle=6.8     sciprog=agn   pi=fpozo     mV=16.5     comment="AGN, observe every 7 days"
+HE_0413-4031     04:15:14.4634   -40:23:41.139     seq=1/Ic/200,1/y_s/300,1/v_s/300,1/b_s/300,2/u_s/300     priority=9     cycle=6.8     sciprog=agn   pi=fpozo     mV=16.5     comment="AGN, observe every 7 days"
 
 
 
@@ -81,8 +94,8 @@ WLM-center       00:01:58      -15:27:50      seq=4/V/200,4/g/200,4/r/200,4/i/20
 NGC247-center    00:47:08      -20:45:37      seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc247-center_check1/r/light-curve/ngc247-center_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
 NGC247-center    00:47:08      -20:45:37      seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc247-center_check1/V/light-curve/ngc247-center_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
 
-NGC253-makro     00:48:07.21   -25:10:56.9    makro=./makro/jk15_ngc253.txt        ob_time=2880  cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc253-se_check1/r/light-curve/ngc253-se_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
-NGC253-makro     00:48:07.21   -25:10:56.9    makro=./makro/jk15_ngc253V.txt       ob_time=3840  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc253-se_check1/V/light-curve/ngc253-se_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
+NGC253-makro     00:48:07.21   -25:10:56.9    makro=/home/observer/src/tpg/makro/jk15_ngc253.txt        ob_time=2880  cycle=1.2     priority=6      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc253-se_check1/r/light-curve/ngc253-se_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
+NGC253-makro     00:48:07.21   -25:10:56.9    makro=/home/observer/src/tpg/makro/jk15_ngc253V.txt       ob_time=3840  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc253-se_check1/V/light-curve/ngc253-se_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
 
 NGC300-center    00:54:53.5    -37:41:04.0    seq=4/g/200,4/r/200,4/i/200          cycle=1.2     priority=7      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc300-center_check1/r/light-curve/ngc300-center_check1_r_diff_light_curve.txt       comment="seeing < 1.5, 2-3 times per week"
 NGC300-center    00:54:53.5    -37:41:04.0    seq=4/V/200,4/g/200,4/r/200,4/i/200  cycle=13      priority=8      pi=gpietrzynski    sciprog=near_gal     max_moon_phase=0.65     obs_data=/data/fits/jk15/processed-ofp/targets/ngc300-center_check1/V/light-curve/ngc300-center_check1_V_diff_light_curve.txt       comment="seeing < 1.5, every 2 weeks"
@@ -115,10 +128,10 @@ NGC7793-center   23:57:49.754  -32:35:27.7    seq=4/V/200,4/g/200,4/r/200,4/i/20
 # SCIPROG: var_gclu
 # Cycle through targets multiple times per night, change the order of clusters in a cycle night after night
 
-NGC3201           10:17:36.82    -46:24:44.9    seq=3x(2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30)  cycle=0.6   priority=7  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ngc3201_check1/r/light-curve/ngc3201_check1_r_diff_light_curve.txt     comment="dense coverage"
+NGC3201-center    10:17:36.82    -46:24:44.9    seq=3x(2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30)  cycle=0.6   priority=7  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ngc3201_check1/r/light-curve/ngc3201_check1_r_diff_light_curve.txt     comment="dense coverage"
 
-oCen-makro        13:26:48.0     -47:12:30.0    makro=./makro/jk15_ocen.txt     ob_time=390        cycle=0.8     priority=6  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ocen-n_check1/r/light-curve/ocen-n_check1_r_diff_light_curve.txt     comment="sparse coverage"
-oCen-makro        13:26:48.0     -47:12:30.0    makro=./makro/jk15_ocenV.txt    ob_time=910        cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ocen-n_check1/V/light-curve/ocen-n_check1_V_diff_light_curve.txt     comment="sparse coverage"
+oCen-makro        13:26:48.0     -47:12:30.0    makro=/home/observer/src/tpg/makro/jk15_ocen.txt     ob_time=390        cycle=0.8     priority=6  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ocen-n_check1/r/light-curve/ocen-n_check1_r_diff_light_curve.txt     comment="sparse coverage"
+oCen-makro        13:26:48.0     -47:12:30.0    makro=/home/observer/src/tpg/makro/jk15_ocenV.txt    ob_time=910        cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ocen-n_check1/V/light-curve/ocen-n_check1_V_diff_light_curve.txt     comment="sparse coverage"
 
 NGC5904-center    15:18:33.2     +02:04:51.7    seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/20,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc5904-center_check1/r/light-curve/ngc5904-center_check1_r_diff_light_curve.txt   comment="repeat sequence as many times as possible"
 
@@ -137,8 +150,7 @@ NGC6362-center    17:31:55.0     -67:02:54.0    seq=2/g/20,2/r/25,2/i/50,2/z/80,
 NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110                priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6584-center_check1/r/light-curve/ngc6584-center_check1_r_diff_light_curve.txt
 NGC6584-center    18:18:37.6     -52:12:56.8    seq=2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110,2/g/50,2/r/60,2/i/90,2/z/180,2/B/80,2/V/70,2/Ic/110                priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6584-center_check1/r/light-curve/ngc6584-center_check1_r_diff_light_curve.txt
 
-NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13,2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13                    priority=7   cycle=3.5   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6402-center_check1/r/light-curve/ngc6402-center_check1_r_diff_light_curve.txt   comment="texp for brighter stars"
-NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130      priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6402-center_check1/r/light-curve/ngc6402-center_check1_r_diff_light_curve.txt
+NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13,2/g/15,2/r/10,2/i/11,2/z/18,2/B/16,2/V/15,2/Ic/13      priority=6   cycle=5.8   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6402-center_check1/r/light-curve/ngc6402-center_check1_r_diff_light_curve.txt
 NGC6402-center    17:37:36.1     -03:14:45.3    seq=2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130,2/g/150,2/r/100,2/i/110,2/z/180,2/B/160,2/V/150,2/Ic/130      priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc6402-center_check1/r/light-curve/ngc6402-center_check1_r_diff_light_curve.txt
 
 NGC7078-center    21:30:00.5     +12:09:22.1    seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.1   pi=ghajdu    sciprog=var_gclu   obs_data=/data/fits/jk15/processed-ofp/targets/ngc7078-center_check1/r/light-curve/ngc7078-center_check1_r_diff_light_curve.txt   comment="repeat sequence as many times as possible"
@@ -149,6 +161,125 @@ NGC362-center     01:03:14.3     -70:50:55.6    seq=2/g/20,2/r/25,2/i/50,2/z/80,
 
 
 
+# LMC late-type eclipsig binaries
+# SCIPROG deb_late_lmc
+# PI dgraczyk
+# INTO sequences are not ready, need an exposure time calculator!
+#
+# Primary
+#OGLE-LMC-ECL-01242     04:49:42.84    -68:51:43.0   seq=V,g,r   mV=18.488   priority=9   P=97.79303530   hjd0=2460038.8980   tag=primary   ph_start=0.960  ph_end=0.040   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk  
+#OGLE-LMC-ECL-02197     04:53:14.68    -67:33:59.0   seq=V,g,r   mV=17.830   priority=9   P=199.7710624   hjd0=2460098.6256   tag=primary   ph_start=0.975  ph_end=0.025   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk  
+#OGLE-LMC-ECL-02889     04:55:10.05    -68:50:43.5   seq=V,g,r   mV=18.324   priority=9   P=130.3123457   hjd0=2460101.6450   tag=primary   ph_start=0.979  ph_end=0.021   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-05542     05:02:06.74    -66:51:41.6   seq=V,g,r   mV=18.468   priority=9   P=256.4062048   hjd0=2460007.5683   tag=primary   ph_start=0.975  ph_end=0.025   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-06117     05:03:29.42    -70:22:59.7   seq=V,g,r   mV=18.568   priority=9   P=66.7544000    hjd0=2460060.4260   tag=primary   ph_start=0.957  ph_end=0.043   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-13795     05:22:01.87    -69:47:42.5   seq=V,g,r   mV=18.054   priority=9   P=121.3593706   hjd0=2460120.8850   tag=primary   ph_start=0.925  ph_end=0.075   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-15098     05:25:01.33    -70:07:17.4   seq=V,g,r   mV=18.401   priority=9   P=328.5800000   hjd0=2460245.9823   tag=primary   ph_start=0.986  ph_end=0.014   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk       
+#OGLE-LMC-ECL-17072     05:29:11.78    -69:52:50.0   seq=V,g,r   mV=17.652   priority=9   P=89.4340000    hjd0=2460013.1036   tag=primary   ph_start=0.965  ph_end=0.035   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-21206     05:38:11.86    -68:09:11.8   seq=V,g,r   mV=18.193   priority=9   P=85.4183234    hjd0=2460074.9150   tag=primary   ph_start=0.962  ph_end=0.038   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   
+#OGLE-LMC-ECL-21584     05:39:01.02    -69:47:20.9   seq=V,g,r   mV=17.725   priority=5   P=444.0253951   hjd0=2460203.5565   tag=primary   ph_start=0.981  ph_end=0.019   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk     comment="long period"
+#OGLE-LMC-ECL-23231     05:43:15.19    -68:19:45.8   seq=V,g,r   mV=18.688   priority=9   P=81.2300174    hjd0=2460066.9396   tag=primary   ph_start=0.922  ph_end=0.078   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-23655     05:44:48.48    -71:03:01.9   seq=V,g,r   mV=18.359   priority=9   P=302.2050961   hjd0=2460029.2894   tag=primary   ph_start=0.976  ph_end=0.024   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-29293     05:05:37.37    -65:17:13.5   seq=V,g,r   mV=17.449   priority=9   P=123.1760703   hjd0=2460008.1612   tag=primary   ph_start=0.962  ph_end=0.038   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   
+#OGLE-LMC-ECL-31991     05:20:40.54    -69:04:50.1   seq=V,g,r   mV=17.890   priority=5   P=710.1768340   hjd0=2460649.1075   tag=primary   ph_start=0.990  ph_end=0.010   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk     comment="long period"
+#OGLE-LMC-ECL-38848     05:53:28.64    -67:11:20.2   seq=V,g,r   mV=18.345   priority=9   P=56.7715897    hjd0=2460000.1324   tag=primary   ph_start=0.954  ph_end=0.046   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   
+#OGLE-LMC-ECL-54327     05:47:08.27    -68:04:12.0   seq=V,g,r   mV=17.478   priority=5   P=133.1616436   hjd0=2460026.5596   tag=primary   ph_start=0.962  ph_end=0.038   cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk     comment="LMC554.19.81"
+# Secondary
+#OGLE-LMC-ECL-01242     04:49:42.84    -68:51:43.0   seq=V,g,r   mV=18.488   priority=9   P=97.79303530   hjd0=2460038.8980   tag=secondary  ph_start=0.460  ph_end=0.540  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-02197     04:53:14.68    -67:33:59.0   seq=V,g,r   mV=17.830   priority=9   P=199.7710624   hjd0=2460098.6256   tag=secondary  ph_start=0.488  ph_end=0.557  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-02889     04:55:10.05    -68:50:43.5   seq=V,g,r   mV=18.324   priority=9   P=130.3123457   hjd0=2460101.6450   tag=secondary  ph_start=0.412  ph_end=0.482  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-05542     05:02:06.74    -66:51:41.6   seq=V,g,r   mV=18.468   priority=9   P=256.4062048   hjd0=2460007.5683   tag=secondary  ph_start=0.393  ph_end=0.439  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-06117     05:03:29.42    -70:22:59.7   seq=V,g,r   mV=18.568   priority=9   P=66.7544000    hjd0=2460060.4260   tag=secondary  ph_start=0.457  ph_end=0.543  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-13795     05:22:01.87    -69:47:42.5   seq=V,g,r   mV=18.054   priority=9   P=121.3593706   hjd0=2460120.8850   tag=secondary  ph_start=0.425  ph_end=0.575  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-15098     05:25:01.33    -70:07:17.4   seq=V,g,r   mV=18.401   priority=9   P=328.5800000   hjd0=2460245.9823   tag=secondary  ph_start=0.486  ph_end=0.512  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk      
+#OGLE-LMC-ECL-17072     05:29:11.78    -69:52:50.0   seq=V,g,r   mV=17.652   priority=9   P=89.4340000    hjd0=2460013.1036   tag=secondary  ph_start=0.465  ph_end=0.535  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-21206     05:38:11.86    -68:09:11.8   seq=V,g,r   mV=18.193   priority=9   P=85.4183234    hjd0=2460074.9150   tag=secondary  ph_start=0.262  ph_end=0.538  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk  
+#OGLE-LMC-ECL-21584     05:39:01.02    -69:47:20.9   seq=V,g,r   mV=17.725   priority=5   P=444.0253951   hjd0=2460203.5565   tag=secondary  ph_start=0.716  ph_end=0.745  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk    comment="long period"
+#OGLE-LMC-ECL-23231     05:43:15.19    -68:19:45.8   seq=V,g,r   mV=18.688   priority=9   P=81.2300174    hjd0=2460066.9396   tag=secondary  ph_start=0.422  ph_end=0.578  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-23655     05:44:48.48    -71:03:01.9   seq=V,g,r   mV=18.359   priority=9   P=302.2050961   hjd0=2460029.2894   tag=secondary  ph_start=0.476  ph_end=0.524  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-29293     05:05:37.37    -65:17:13.5   seq=V,g,r   mV=17.449   priority=9   P=123.1760703   hjd0=2460008.1612   tag=secondary  ph_start=0.462  ph_end=0.538  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk  
+#OGLE-LMC-ECL-31991     05:20:40.54    -69:04:50.1   seq=V,g,r   mV=17.890   priority=5   P=710.1768340   hjd0=2460649.1075   tag=secondary  ph_start=0.460  ph_end=0.487  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk    comment="long period"
+#OGLE-LMC-ECL-38848     05:53:28.64    -67:11:20.2   seq=V,g,r   mV=18.345   priority=9   P=56.7715897    hjd0=2460000.1324   tag=secondary  ph_start=0.423  ph_end=0.509  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk  
+#OGLE-LMC-ECL-54327     05:47:08.27    -68:04:12.0   seq=V,g,r   mV=17.478   priority=5   P=133.1616436   hjd0=2460026.5596   tag=secondary  ph_start=0.462  ph_end=0.538  cycle=0.1    ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk    comment="LMC554.19.81"
+# Random phase
+#OGLE-LMC-ECL-01242     04:49:42.84    -68:51:43.0   seq=V,g,r   mV=18.488   priority=5   P=97.79303530   hjd0=2460038.8980    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-02197     04:53:14.68    -67:33:59.0   seq=V,g,r   mV=17.830   priority=5   P=199.7710624   hjd0=2460098.6256    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk 
+#OGLE-LMC-ECL-02889     04:55:10.05    -68:50:43.5   seq=V,g,r   mV=18.324   priority=5   P=130.3123457   hjd0=2460101.6450    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-05542     05:02:06.74    -66:51:41.6   seq=V,g,r   mV=18.468   priority=5   P=256.4062048   hjd0=2460007.5683    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-06117     05:03:29.42    -70:22:59.7   seq=V,g,r   mV=18.568   priority=5   P=66.7544000    hjd0=2460060.4260    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-13795     05:22:01.87    -69:47:42.5   seq=V,g,r   mV=18.054   priority=5   P=121.3593706   hjd0=2460120.8850    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-15098     05:25:01.33    -70:07:17.4   seq=V,g,r   mV=18.401   priority=5   P=328.5800000   hjd0=2460245.9823    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk      
+#OGLE-LMC-ECL-17072     05:29:11.78    -69:52:50.0   seq=V,g,r   mV=17.652   priority=5   P=89.4340000    hjd0=2460013.1036    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-21206     05:38:11.86    -68:09:11.8   seq=V,g,r   mV=18.193   priority=5   P=85.4183234    hjd0=2460074.9150    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk  
+#OGLE-LMC-ECL-21584     05:39:01.02    -69:47:20.9   seq=V,g,r   mV=17.725   priority=5   P=444.0253951   hjd0=2460203.5565    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk    comment="long period"
+#OGLE-LMC-ECL-23231     05:43:15.19    -68:19:45.8   seq=V,g,r   mV=18.688   priority=5   P=81.2300174    hjd0=2460066.9396    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-23655     05:44:48.48    -71:03:01.9   seq=V,g,r   mV=18.359   priority=5   P=302.2050961   hjd0=2460029.2894    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk
+#OGLE-LMC-ECL-29293     05:05:37.37    -65:17:13.5   seq=V,g,r   mV=17.449   priority=5   P=123.1760703   hjd0=2460008.1612    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk  
+#OGLE-LMC-ECL-31991     05:20:40.54    -69:04:50.1   seq=V,g,r   mV=17.890   priority=5   P=710.1768340   hjd0=2460649.1075    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk    comment="long period"
+#OGLE-LMC-ECL-38848     05:53:28.64    -67:11:20.2   seq=V,g,r   mV=18.345   priority=5   P=56.7715897    hjd0=2460000.1324    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk  
+#OGLE-LMC-ECL-54327     05:47:08.27    -68:04:12.0   seq=V,g,r   mV=17.478   priority=5   P=133.1616436   hjd0=2460026.5596    tag=random_phase   cycle=0.3    ph_mk=2/V/0.05     sciprog=deb_late_lmc     pi=dgraczyk    comment="LMC554.19.81"
+#
+# Reserve primary
+#OGLE-LMC-ECL-02400     04:53:54.32    -67:35:18.5   seq=V,g,r   mV=18.132  priority=3  P=169.6700000  hjd0=2460066.2213   tag=reserve,primary     ph_start=0.983    ph_end=0.017    cycle=0.08   ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   comment="apsidal_motion/period_changes?"
+#OGLE-LMC-ECL-18772     05:32:44.11    -69:30:25.8   seq=V,g,r   mV=18.311  priority=3  P=537.9096606  hjd0=2460064.4320   tag=reserve,primary     ph_start=0.977    ph_end=0.023    cycle=0.08   ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   comment="long period"
+#OGLE-LMC-ECL-26520     04:42:58.80    -70:55:42.1   seq=V,g,r   mV=17.500  priority=3  P=198.1740250  hjd0=2460007.3188   tag=reserve,primary     ph_start=0.970    ph_end=0.030    cycle=0.08   ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   comment="significant spots?"
+# Reserve secondary
+#OGLE-LMC-ECL-02400     04:53:54.32    -67:35:18.5   seq=V,g,r   mV=18.132  priority=3  P=169.6700000  hjd0=2460066.2213   tag=reserve,secondary   ph_start=0.448    ph_end=0.490    cycle=0.08   ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   comment="apsidal_motion/period_changes?"
+#OGLE-LMC-ECL-18772     05:32:44.11    -69:30:25.8   seq=V,g,r   mV=18.311  priority=3  P=537.9096606  hjd0=2460064.4320   tag=reserve,secondary   ph_start=0.490    ph_end=0.505    cycle=0.08   ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   comment="long period"
+#OGLE-LMC-ECL-26520     04:42:58.80    -70:55:42.1   seq=V,g,r   mV=17.500  priority=3  P=198.1740250  hjd0=2460007.3188   tag=reserve,secondary   ph_start=0.470    ph_end=0.530    cycle=0.08   ph_mk=2/V/0.005     sciprog=deb_late_lmc     pi=dgraczyk   comment="significant spots?"
+# Reserve random phase
+#OGLE-LMC-ECL-02400     04:53:54.32    -67:35:18.5   seq=V,g,r   mV=18.132  priority=2  P=169.6700000  hjd0=2460066.2213   tag=reserve,random_phase   ph_mk=2/V/0.05   cycle=0.3     sciprog=deb_late_lmc     pi=dgraczyk   comment="apsidal_motion/period_changes?"
+#OGLE-LMC-ECL-18772     05:32:44.11    -69:30:25.8   seq=V,g,r   mV=18.311  priority=2  P=537.9096606  hjd0=2460064.4320   tag=reserve,random_phase   ph_mk=2/V/0.05   cycle=0.3     sciprog=deb_late_lmc     pi=dgraczyk   comment="long period"
+#OGLE-LMC-ECL-26520     04:42:58.80    -70:55:42.1   seq=V,g,r   mV=17.500  priority=2  P=198.1740250  hjd0=2460007.3188   tag=reserve,random_phase   ph_mk=2/V/0.05   cycle=0.3     sciprog=deb_late_lmc     pi=dgraczyk   comment="significant spots?"
+
+
+
+# LMC blue early-type eclipsig binaries
+# SCIPROG deb_blue_lmc
+# PI dgraczyk + mtaormina
+# INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std, but Stromgren std. are not ready!
+#
+# Primary eclispes
+OGLE-LMC-ECL-02851      04:55:02.52      -67:09:51.8    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.584   P=2.7403695  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460000.8225   ph_start=0.900   ph_end=0.100  tag=primary    max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-12167      05:18:04.71      -69:48:18.9    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.589   P=3.1070289  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2461046.734    ph_start=0.909   ph_end=0.091  tag=primary    max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-17660      05:30:22.13      -69:14:52.0    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.254   P=6.2291091  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460001.2276   ph_start=0.93    ph_end=0.07   tag=primary    max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-18794      05:32:47.74      -68:37:26.6    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=13.416   P=5.9468207  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460005.9302   ph_start=0.90    ph_end=0.10   tag=primary    max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-20299      05:36:10.74      -69:32:02.2    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.493   P=5.4139949  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460005.2472   ph_start=0.89    ph_end=0.11   tag=primary    max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-23358      05:43:39.34      -69:15:54.9    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.653   P=1.7860458  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460269.3937   ph_start=0.88    ph_end=0.12   tag=primary    max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+# Secondary eclispes
+OGLE-LMC-ECL-02851      04:55:02.52      -67:09:51.8    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.584   P=2.7403695  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460000.8225   ph_start=0.400   ph_end=0.600  tag=secondary  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-12167      05:18:04.71      -69:48:18.9    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.589   P=3.1070289  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2461046.734    ph_start=0.387   ph_end=0.563  tag=secondary  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-17660      05:30:22.13      -69:14:52.0    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.254   P=6.2291091  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460001.2276   ph_start=0.395   ph_end=0.545  tag=secondary  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-18794      05:32:47.74      -68:37:26.6    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=13.416   P=5.9468207  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460005.9302   ph_start=0.37    ph_end=0.57   tag=secondary  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-20299      05:36:10.74      -69:32:02.2    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.493   P=5.4139949  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460005.2472   ph_start=0.395   ph_end=0.615  tag=secondary  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-23358      05:43:39.34      -69:15:54.9    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=9     mV=14.653   P=1.7860458  cycle=0.0007    ph_mk=2/v_s/0.005    hjd0=2460269.3937   ph_start=0.48    ph_end=0.62   tag=secondary  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+# Random phase
+OGLE-LMC-ECL-02851      04:55:02.52      -67:09:51.8    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=7     mV=14.584   P=2.7403695  cycle=0.2    ph_mk=2/v_s/0.05    tag=random_phase  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-12167      05:18:04.71      -69:48:18.9    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=7     mV=14.589   P=3.1070289  cycle=0.2    ph_mk=2/v_s/0.05    tag=random_phase  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-17660      05:30:22.13      -69:14:52.0    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=7     mV=14.254   P=6.2291091  cycle=0.2    ph_mk=2/v_s/0.05    tag=random_phase  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-18794      05:32:47.74      -68:37:26.6    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=7     mV=13.416   P=5.9468207  cycle=0.2    ph_mk=2/v_s/0.05    tag=random_phase  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-20299      05:36:10.74      -69:32:02.2    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=7     mV=14.493   P=5.4139949  cycle=0.2    ph_mk=2/v_s/0.05    tag=random_phase  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+OGLE-LMC-ECL-23358      05:43:39.34      -69:15:54.9    seq=1/u_s/300,1/v_s/100,1/b_s/100,1/y_s/100     priority=7     mV=14.653   P=1.7860458  cycle=0.2    ph_mk=2/v_s/0.05    tag=random_phase  max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+
+
+
+# LMC Cepheids for p-factor
+# SCIPROG cep_lmc
+# PI bpilecki
+# 
+#OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=seq=1/V/180,1/Ic/140        sciprog=cep_lmc      pi=bpilecki     priority=10    mv=15.291   P=309.669   hjd0=2455221.68   tag=before_eclipse  cycle=0.15  t_start=2025/10/01T23:59:00  t_end=2025/10/08T08:40:00
+#OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=seq=1/V/180,1/Ic/140        sciprog=cep_lmc      pi=bpilecki     priority=10    mv=15.291   P=309.669   hjd0=2455221.68   tag=eclipse         cycle=0.08  t_start=2025/10/08T23:59:00  t_end=2025/10/27T08:40:00
+#OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=seq=1/V/180,1/Ic/140        sciprog=cep_lmc      pi=bpilecki     priority=10    mv=15.291   P=309.669   hjd0=2455221.68   tag=after_eclipse   cycle=0.15  t_start=2025/10/27T23:59:00  t_end=2025/11/02T08:40:00
+#
+#OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/225,1/Ic/180            sciprog=cep_lmc      pi=bpilecki     priority=10    mv=16.647   P=551.776   hjd0=2455445.207  tag=before_eclipse  cycle=0.15  t_start=2025/10/03T23:59:00  t_end=2025/10/10T08:40:00
+#OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/225,1/Ic/180            sciprog=cep_lmc      pi=bpilecki     priority=10    mv=16.647   P=551.776   hjd0=2455445.207  tag=eclipse         cycle=0.06  t_start=2025/10/10T23:59:00  t_end=2025/10/18T08:40:00
+#OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/225,1/Ic/180            sciprog=cep_lmc      pi=bpilecki     priority=10    mv=16.647   P=551.776   hjd0=2455445.207  tag=after_eclipse   cycle=0.15  t_start=2025/10/18T23:59:00  t_end=2025/10/25T08:40:00
+
+
+
+############
+## HALTED ##
+############
+#
 # SMC blue early-type eclipsig binaries
 # SCIPROG deb_blue_smc
 # PI dgraczyk + mtaormina
@@ -160,29 +291,19 @@ NGC362-center     01:03:14.3     -70:50:55.6    seq=2/g/20,2/r/25,2/i/50,2/z/80,
 #OGLE-SMC-ECL-0720     00:44:08.8   -73:14:18.0     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=14.3     P=6.05213      hjd0=2450628.07158     max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="seeing<1.5”, incl. Stromgren std"
 #OGLE-SMC-ECL-2347     00:52:05.3   -72:45:21.0     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=15.2     P=10.97765     hjd0=2450466.88188     max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="seeing<1.5”, incl. Stromgren std"
 #OGLE-SMC-ECL-2770     00:53:33.5   -72:56:23.6     seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100     priority=5     mV=13.9     P=3.94603      hjd0=2450473.26734     max_moon_phase=0.65     sciprog=deb_blue_smc   pi=dgraczyk     comment="seeing<1.5”, incl. Stromgren std"
-
-
-
+#
+#
+#
 # LMC blue early-type eclipsig binaries
 # SCIPROG deb_blue_lmc
 # PI dgraczyk + mtaormina
 # INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std
+# INFO once done on JK15, last time on March 2025, but not anymore. Why? -> Asked Darek, waiting for the answer
 #
-#OGLE-LMC-ECL-02851      04:55:02.53   -67:09:51.7   P=2.7403866   hjd0=2457000.1277   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.584   comment="mI=14.833, SNR 100"
-#OGLE-LMC-ECL-12167      05:18:04.71   -69:48:18.9   P=3.1070304   hjd0=2457001.3483   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.589   comment="mI=14.738, SNR 100"
-#OGLE-LMC-ECL-20299      05:36:10.74   -69:32:02.2   P=2.8414596   hjd0=2457000.5446   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.498   comment="mI=14.627, SNR 100"
-#OGLE-LMC-ECL-23358      05:43:39.33   -69:15:54.9   P=1.7860501   hjd0=2457000.9298   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.650   comment="mI=14.644, SNR 100"
-#
-# High priority
-#OGLE-LMC-ECL-22270     05:40:47.31      -69:20:28.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=14.029    mI=14.022      P=5.414011      hjd0=2453578.8126      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#OGLE-LMC-ECL-06782     05:04:59.05      -70:31:13.9      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=13.714    mI=13.913      P=4.270776      hjd0=2453560.7368      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#OGLE-LMC-ECL-21568     05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#OGLE-LMC-ECL-17660     05:30:22.13      -69:14:52.0      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=14.266    mI=14.429      P=6.22909       hjd0=2453575.7547      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#OGLE-LMC-ECL-18794     05:32:47.74      -68:37:26.6      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=13.194    mI=13.397      P=5.946846      hjd0=2453577.3724      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#OGLE-LMC-ECL-05764     05:02:40.77      -68:24:21.4      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=9      mV=14.231    mI=14.371      P=5.725912      hjd0=2453570.9054      max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#
-# Normal priority
-#OGLE-LMC-ECL-07641     05:06:51.94      -68:25:46.5      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.039    mI=14.25       P=6.33001       hjd0=2453570.6569      max_moon_phase=0.65      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#OGLE-LMC-ECL-16675     05:28:23.98      -69:12:26.2      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.867    mI=14.046      P=3.74864       hjd0=2453564.9887      max_moon_phase=0.65      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#OGLE-LMC-ECL-17198     05:29:24.63      -68:42:13.1      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=13.926    mI=14.118      P=3.29083       hjd0=2453565.3853      max_moon_phase=0.65      sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
-#OGLE-LMC-ECL-21568     05:38:58.08      -69:30:11.3      seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100      priority=5      mV=14.125    mI=14.212      P=3.22545       hjd0=2453578.5489       max_moon_phase=0.65     sciprog=deb_blue_lmc      pi=dgraczyk      comment="seeing<1.5”, incl. Stromgren std"
+#OGLE-LMC-ECL-05764    05:02:40.77   -68:24:21.4   seq=u_s,v_s,b_s,y_s    priority=6      mV=14.231      P=5.725912      hjd0=2453570.9054      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.371, random phases, SNR 200"
+#OGLE-LMC-ECL-06782    05:04:59.05   -70:31:13.9   seq=u_s,v_s,b_s,y_s    priority=6      mV=13.714      P=4.270776      hjd0=2453560.7368      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=13.913, random phases, SNR 200"
+#OGLE-LMC-ECL-17660    05:30:22.13   -69:14:52.0   seq=u_s,v_s,b_s,y_s    priority=6      mV=14.266      P=6.22909       hjd0=2453575.7547      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.429, random phases, SNR 200"
+#OGLE-LMC-ECL-18794    05:32:47.74   -68:37:26.6   seq=u_s,v_s,b_s,y_s    priority=6      mV=13.194      P=5.946846      hjd0=2453577.3724      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=13.397, random phases, SNR 200"
+#OGLE-LMC-ECL-21568    05:38:58.08   -69:30:11.3   seq=u_s,v_s,b_s,y_s    priority=6      mV=14.125      P=3.22545       hjd0=2453578.5489      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.212, random phases, SNR 200"
+#OGLE-LMC-ECL-21603    05:39:04.89   -69:29:37.7   seq=u_s,v_s,b_s,y_s    priority=5      mV=14.659      P=1.7811207     hjd0=2457001.2441      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.698, random phases, SNR 200"
+#OGLE-LMC-ECL-22270    05:40:47.31   -69:20:28.3   seq=u_s,v_s,b_s,y_s    priority=6      mV=14.029      P=5.414011      hjd0=2453578.8126      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.022, random phases, SNR 200"
