@@ -783,7 +783,7 @@ class telescope_plan_generator():
                                     w = " ".join(r[1:])
                                     q = a.strip() + " " + w.strip()
                                     txt = "   ".join(q.split())
-                            self.plan.append(txt)
+                            self.plan.append(f'OBJECT {txt}')
 
     def export_back(self):
         if True:
