@@ -89,7 +89,7 @@ ex2    07:24:14       -00:31:41     seq=2/Ic/3.4         priority=11 makro=./tes
 * `h_min=20` - object can be observed if more than 20 deg above horizon
 * `h_max=70` - object can be observed if less than 70 deg above horizon
 * `min_moon_dist=30` - object can be observed if more than 30 deg from the moon
-* `max_moon_phase=0.7` - object can be observed if moon phase is less than 0.7 
+* `max_moon_phase=70` - object can be observed if moon phase is less than 70 percent 
 * `ob_time=120` - slot time will be set as 120 seconds (not calculated by tpg)
 * `makro=./test/makro_ex10.txt` - if scheduled file makro_ex10.txt will be included in the plan, instead of ob line
   `makro=./test/makro_ex10.txt priority=10 cycle=5 ob_time=300 obs_data=./test/obs_data/example5.txt` - should work
