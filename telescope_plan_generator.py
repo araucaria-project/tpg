@@ -486,14 +486,19 @@ class telescope_plan_generator():
                             if plik != None:
                                 lc_tab = Table.read(plik, format="ascii")
                                 jd = lc_tab["jd_obs"]
-                                
+
                                 txt = f'{self.ob[n]["name"]} data loaded.\n'
                                 if self.loud: sys.stderr.write(txt)
                                 self.msg = self.msg + txt
 
 
-                    except (FileNotFoundError, ValueError) as e:
+                    except (FileNotFoundError) as e:
                         pass
+                    except (ValueError) as e:
+                        txt = f'ERROR loading {file}\n'
+                        if self.loud: sys.stderr.write(txt)
+                        self.msg = self.msg + txt
+
 
                     last_jd = False
                     try:
