@@ -34,8 +34,6 @@ class telescope_plan_generator():
                 if self.loud: sys.stderr.write(txt)
                 self.msg = self.msg + txt
 
-
-
         self.tel = tel
         if len(date) == 1:          # bo to lista
             self.flags.append("start_at_sunset")
@@ -142,6 +140,10 @@ class telescope_plan_generator():
             self.ctc_active = True
         else:
             self.ctc_active = False
+
+        txt = f'ctc active: {self.ctc_active}\n'
+        if self.loud: sys.stderr.write(txt)
+        self.msg = self.msg + txt
 
         file = open(self.cfg[self.tel]["master_file"], 'r')
         for line in file:
