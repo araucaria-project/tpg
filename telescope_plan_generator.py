@@ -466,22 +466,6 @@ class telescope_plan_generator():
                                 self.ob[n]["visibility"]["all"][t] = False
                                 self.ob[n]["visibility"]["wind"][t] = False
 
-                    # # DUPA2
-                    # tmp = numpy.array(self.nightTime)
-                    # time = tmp[numpy.array(self.ob[n]["visibility"]["all"])]
-                    # if len(time)>0:
-                    #     self.oca.date = time[0]
-                    #     s.compute(self.oca)
-                    #     az = s.az * 180/ephem.pi
-                    #     dist = numpy.abs(self.wind - az)
-                    #     if dist > 180:
-                    #         dist = 360. - dist
-                    #     if dist < float(self.cfg[self.tel]["wind_dist"]):
-                    #         self.ob[n]["visibility"]["all"] = [False for _ in range(len(self.nightTime))]
-                    #         self.ob[n]["visibility"]["wind"] = [False for _ in range(len(self.nightTime))]
-                    #         # masked for all night because of calc time
-
-
     def MaskCycle(self):  # mask cycle covarage
         for n, tmp in enumerate(self.ob):
             if d_ver(self.ob[n], ["name","cycle", "visibility"]):
@@ -491,14 +475,22 @@ class telescope_plan_generator():
                     try:
                         if d_ver(self.ob[n], ["obs_data"]):
                             file = self.ob[n]["obs_data"]
+                            txt = f'{self.ob[n]["name"]} data source: {file}\n'
+                            if self.loud: sys.stderr.write(txt)
+                            self.msg = self.msg + txt
+
                         else:
                             filter = self.ob[n]["seq"].split("/")[1]
                             file = self.cfg[self.tel]["data_file"] + self.ob[n]["name"].lower() + "/" + filter + "/light-curve/" + self.ob[n]["name"].lower() + "_" + filter + "_diff_light_curve.txt"
                         with open(file, "r") as plik:
                             if plik != None:
-
                                 lc_tab = Table.read(plik, format="ascii")
                                 jd = lc_tab["jd_obs"]
+                                
+                                txt = f'{self.ob[n]["name"]} data loaded.\n'
+                                if self.loud: sys.stderr.write(txt)
+                                self.msg = self.msg + txt
+
 
                     except (FileNotFoundError, ValueError) as e:
                         pass
