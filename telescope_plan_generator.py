@@ -709,6 +709,8 @@ class telescope_plan_generator():
 
                         if k == 8:
                             print(nk, k, self.ob[k]["name"])
+                            print(self.nightFree[bounds[0]:bounds[1] + 1])
+                            print(visibility[bounds[0]:bounds[1] + 1])
                         if all(self.nightFree[bounds[0]:bounds[1] + 1]) and all(visibility[bounds[0]:bounds[1] + 1]):
                             priormax = int(self.ob[k]["priority"])
                             bfin = bounds
