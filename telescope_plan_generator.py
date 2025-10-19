@@ -676,6 +676,9 @@ class telescope_plan_generator():
         numpy.random.seed(self.seed)
         self.random_index_list = numpy.random.choice(mozliwosci, len(mozliwosci), replace=False, p=probability)
 
+        for n in self.random_index_list:
+            print(n)
+
     def allocate(self):
         for nn, tmp in enumerate(self.nightTime):
             if self.nightFree[nn]:
