@@ -687,8 +687,6 @@ class telescope_plan_generator():
                 for nk, tmp in enumerate(self.random_index_list):
                     k = self.random_index_list[nk]
 
-                    if k == 8:
-                        print(nk,k, self.ob[k]["name"])
                     # wbrew pozorom ta funkcja przeszukuje caly zbior, ale wybiera pierwsz obiekt
                     # z listy random_index_list ( bo jest > priormax, a nie >= )
                     # moze to nie jest najbardziej optymalny kod
@@ -709,12 +707,16 @@ class telescope_plan_generator():
                         slots = int(slots)
                         bounds = (nn, nn + slots)
 
+                        if k == 8:
+                            print(nk, k, self.ob[k]["name"])
                         if all(self.nightFree[bounds[0]:bounds[1] + 1]) and all(visibility[bounds[0]:bounds[1] + 1]):
                             priormax = int(self.ob[k]["priority"])
                             bfin = bounds
                             kfin = k
                             OK = True
                             done = nk
+                            if k == 8:
+                                print("OK!")
 
                 if OK:
                     self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
