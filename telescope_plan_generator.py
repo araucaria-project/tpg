@@ -482,14 +482,10 @@ class telescope_plan_generator():
                         else:
                             filter = self.ob[n]["seq"].split("/")[1]
                             file = self.cfg[self.tel]["data_file"] + self.ob[n]["name"].lower() + "/" + filter + "/light-curve/" + self.ob[n]["name"].lower() + "_" + filter + "_diff_light_curve.txt"
-                        with open(file, "r") as plik:
-                            if plik != None:
-                                lc_tab = Table.read(plik, format="ascii")
-                                jd = lc_tab["jd_obs"]
 
-                                txt = f'{self.ob[n]["name"]} data loaded.\n'
-                                if self.loud: sys.stderr.write(txt)
-                                self.msg = self.msg + txt
+                        lc_tab = Table.read(file, format="ascii")
+                        jd = lc_tab["jd_obs"]
+
 
 
                     except (FileNotFoundError) as e:
@@ -510,7 +506,7 @@ class telescope_plan_generator():
                         for i, t in enumerate(self.nightTime):
                             if self.ob[n]["visibility"]["all"][i]:
                                 jd = ephem.julian_date(ephem.Date(t))
-                                if (jd - last_jd) < float(self.cycle[n]):
+                                if (jd - last_jd) < float(self.ob[n]["cycle"]):
                                     self.ob[n]["visibility"]["all"][i] = False
                                     ZNACZNIK = True
                                 else:
@@ -613,13 +609,18 @@ class telescope_plan_generator():
                             file = self.ob[n]["obs_data"]
                         else:
                             file = self.cfg[self.tel]["data_file"] + self.ob[n]["name"].lower() + "/" + filter + "/light-curve/" + self.ob[n]["name"].lower() + "_" + filter + "_diff_light_curve.txt"
-                        with open(file, "r") as plik:
-                            if plik != None:
-                                lc_tab = Table.read(plik, format="ascii")
-                                jd = lc_tab["jd_obs"]
 
-                    except (FileNotFoundError, ValueError) as e:
+                        lc_tab = Table.read(file, format="ascii")
+                        jd = lc_tab["jd_obs"]
+
+                    except (FileNotFoundError) as e:
                         pass
+                    except (ValueError) as e:
+                        txt = f'ERROR loading {file}\n'
+                        if self.loud: sys.stderr.write(txt)
+                        self.msg = self.msg + txt
+
+
                     P = self.ob[n]["period"]
                     hjd0 = self.ob[n]["hjd0"]
                     if P and len(jd)>0:
