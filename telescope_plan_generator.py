@@ -94,6 +94,7 @@ class telescope_plan_generator():
         txt = "name    "+"    ".join(vis_list) + "\n"
         for n,ob in enumerate(self.ob):
             txt = txt + self.ob[n]["name"]
+            txt = txt + f'  ({self.ob[n]["slotTime"]:.0f})m'
             for k in vis_list:
                 if k in self.ob[n]["visibility"].keys():
                     vis = numpy.array(self.ob[n]["visibility"][k])
@@ -707,18 +708,13 @@ class telescope_plan_generator():
                         slots = int(slots)
                         bounds = (nn, nn + slots)
 
-                        if k == 8:
-                            print(nk, k, self.ob[k]["name"])
-                            print(self.nightFree[bounds[0]:bounds[1] + 1])
-                            print(visibility[bounds[0]:bounds[1] + 1])
                         if all(self.nightFree[bounds[0]:bounds[1] + 1]) and all(visibility[bounds[0]:bounds[1] + 1]):
                             priormax = int(self.ob[k]["priority"])
                             bfin = bounds
                             kfin = k
                             OK = True
                             done = nk
-                            if k == 8:
-                                print("OK!")
+
 
                 if OK:
                     self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
