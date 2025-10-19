@@ -676,9 +676,6 @@ class telescope_plan_generator():
         numpy.random.seed(self.seed)
         self.random_index_list = numpy.random.choice(mozliwosci, len(mozliwosci), replace=False, p=probability)
 
-        for n in self.random_index_list:
-            print(n,self.ob[n]["name"],self.ob[n]["priority"])
-
     def allocate(self):
         for nn, tmp in enumerate(self.nightTime):
             if self.nightFree[nn]:
@@ -689,6 +686,9 @@ class telescope_plan_generator():
 
                 for nk, tmp in enumerate(self.random_index_list):
                     k = self.random_index_list[nk]
+
+                    if k == 8:
+                        print(nk,k, self.ob[k]["name"])
                     # wbrew pozorom ta funkcja przeszukuje caly zbior, ale wybiera pierwsz obiekt
                     # z listy random_index_list ( bo jest > priormax, a nie >= )
                     # moze to nie jest najbardziej optymalny kod
