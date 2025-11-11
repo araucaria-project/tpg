@@ -225,13 +225,15 @@ OGLE-LMC-ECL-26520     04:42:58.80    -70:55:42.1   seq=1/V/260,1/g/230,1/r/210 
 # SCIPROG cep_lmc
 # PI bpilecki
 # 
-OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=1/V/180,1/Ic/140     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=15.291   P=309.669   hjd0=2455221.68   tag=before_eclipse  cycle=0.12  t_start=2025/10/01T23:59:00  t_end=2025/10/08T08:40:00
-OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=1/V/180,1/Ic/140     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=15.291   P=309.669   hjd0=2455221.68   tag=eclipse         cycle=0.12  t_start=2025/10/08T23:59:00  t_end=2025/10/27T08:40:00
-OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=1/V/180,1/Ic/140     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=15.291   P=309.669   hjd0=2455221.68   tag=after_eclipse   cycle=0.12  t_start=2025/10/27T23:59:00  t_end=2025/11/02T08:40:00
-
-OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/225,1/Ic/180     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=before_eclipse  cycle=0.12  t_start=2025/10/03T23:59:00  t_end=2025/10/10T08:40:00
-OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/225,1/Ic/180     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=eclipse         cycle=0.05  t_start=2025/10/10T23:59:00  t_end=2025/10/18T08:40:00
-OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/225,1/Ic/180     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=after_eclipse   cycle=0.12  t_start=2025/10/18T23:59:00  t_end=2025/10/25T08:40:00
+#OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=1/V/180,1/Ic/180,1/B/180     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=15.291   P=309.669   hjd0=2455221.68   tag=before_eclipse  cycle=0.12  t_start=2025/10/01T23:59:00  t_end=2025/10/08T08:40:00
+#OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=1/V/180,1/Ic/180,1/B/180     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=15.291   P=309.669   hjd0=2455221.68   tag=eclipse         cycle=0.12  t_start=2025/10/08T23:59:00  t_end=2025/10/27T08:40:00
+#OGLE-LMC-CEP-0227       04:52:15.69      -70:14:31.3   seq=1/V/180,1/Ic/180,1/B/180     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=15.291   P=309.669   hjd0=2455221.68   tag=after_eclipse   cycle=0.12  t_start=2025/10/27T23:59:00  t_end=2025/11/02T08:40:00
+#OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/260,1/Ic/260,1/B/260     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=before_eclipse  cycle=0.12  t_start=2025/10/03T23:59:00  t_end=2025/10/10T08:40:00
+#OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/260,1/Ic/260,1/B/260     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=eclipse         cycle=0.05  t_start=2025/10/10T23:59:00  t_end=2025/10/18T08:40:00
+#OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/260,1/Ic/260,1/B/260     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=after_eclipse   cycle=0.12  t_start=2025/10/18T23:59:00  t_end=2025/10/25T08:40:00
+# Random phase
+OGLE-LMC-CEP-0227        04:52:15.69      -70:14:31.3   seq=1/V/180,1/Ic/180,1/B/180     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=15.291   P=309.669   hjd0=2455221.68   tag=random_phase    obs_data=/data/fits/jk15/processed-ofp/targets/ogle-lmc-cep-0227/V/light-curve/ogle-lmc-cep-0227_V_diff_light_curve.txt
+OGLE-LMC-CEP-1812        05:23:07.70      -69:33:49.9   seq=1/V/260,1/Ic/260,1/B/260     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=random_phase    cycle=1.5   obs_data=/data/fits/jk15/processed-ofp/targets/ogle-lmc-cep-1812/V/light-curve/ogle-lmc-cep-1812_V_diff_light_curve.txt
 
 
 
