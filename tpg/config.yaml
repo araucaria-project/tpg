@@ -35,7 +35,7 @@ zb08:
 jk15:
   master_file: /home/observer/src/tpg/jk15_master.txt
   data_file: /data/fits/jk15/processed-ofp/targets/
-  def_read_mode: 5
+  def_read_mode: 3
   overhead: 60
   hmin: 35
   hmax: 80

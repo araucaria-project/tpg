@@ -34,8 +34,6 @@ class telescope_plan_generator():
                 if self.loud: sys.stderr.write(txt)
                 self.msg = self.msg + txt
 
-
-
         self.tel = tel
         if len(date) == 1:          # bo to lista
             self.flags.append("start_at_sunset")
@@ -142,6 +140,10 @@ class telescope_plan_generator():
             self.ctc_active = True
         else:
             self.ctc_active = False
+
+        txt = f'ctc active: {self.ctc_active}\n'
+        if self.loud: sys.stderr.write(txt)
+        self.msg = self.msg + txt
 
         file = open(self.cfg[self.tel]["master_file"], 'r')
         for line in file:
@@ -412,6 +414,15 @@ class telescope_plan_generator():
 
     def MaskMoon(self):
         moon = ephem.Moon()
+        self.oca.date = self.nightTime[0]
+        self.oca.horizon = 0
+        tr = self.oca.next_rising(moon)
+        ts = self.oca.next_setting(moon)
+        if tr < ts:
+            moonvis = [not (x > tr and x < ts) for x in self.nightTime]
+        else:
+            moonvis = [(x > tr or x < ts) for x in self.nightTime]
+
         for n, tmp in enumerate(self.ob):
             if d_ver(self.ob[n],["name","ra","dec"]):
                 s = ephem.FixedBody()
@@ -438,8 +449,8 @@ class telescope_plan_generator():
 
                     if d_ver(self.ob[n], ["max_moon_phase"]):
                         if float(phase) > float(self.ob[n]["max_moon_phase"]):
-                            self.ob[n]["visibility"]["all"] = [False for _ in range(len(self.nightTime))]
-                            self.ob[n]["visibility"]["max_moon_phase"] = [False for _ in range(len(self.nightTime))]
+                            self.ob[n]["visibility"]["all"] = moonvis
+                            self.ob[n]["visibility"]["max_moon_phase"] = moonvis
 
     def MaskWind(self):  # cala noc, jeden kierunek
         if self.wind:
@@ -464,22 +475,6 @@ class telescope_plan_generator():
                                 self.ob[n]["visibility"]["all"][t] = False
                                 self.ob[n]["visibility"]["wind"][t] = False
 
-                    # # DUPA2
-                    # tmp = numpy.array(self.nightTime)
-                    # time = tmp[numpy.array(self.ob[n]["visibility"]["all"])]
-                    # if len(time)>0:
-                    #     self.oca.date = time[0]
-                    #     s.compute(self.oca)
-                    #     az = s.az * 180/ephem.pi
-                    #     dist = numpy.abs(self.wind - az)
-                    #     if dist > 180:
-                    #         dist = 360. - dist
-                    #     if dist < float(self.cfg[self.tel]["wind_dist"]):
-                    #         self.ob[n]["visibility"]["all"] = [False for _ in range(len(self.nightTime))]
-                    #         self.ob[n]["visibility"]["wind"] = [False for _ in range(len(self.nightTime))]
-                    #         # masked for all night because of calc time
-
-
     def MaskCycle(self):  # mask cycle covarage
         for n, tmp in enumerate(self.ob):
             if d_ver(self.ob[n], ["name","cycle", "visibility"]):
@@ -489,17 +484,26 @@ class telescope_plan_generator():
                     try:
                         if d_ver(self.ob[n], ["obs_data"]):
                             file = self.ob[n]["obs_data"]
+                            txt = f'{self.ob[n]["name"]} data source: {file}\n'
+                            if self.loud: sys.stderr.write(txt)
+                            self.msg = self.msg + txt
+
                         else:
                             filter = self.ob[n]["seq"].split("/")[1]
                             file = self.cfg[self.tel]["data_file"] + self.ob[n]["name"].lower() + "/" + filter + "/light-curve/" + self.ob[n]["name"].lower() + "_" + filter + "_diff_light_curve.txt"
-                        with open(file, "r") as plik:
-                            if plik != None:
 
-                                lc_tab = Table.read(plik, format="ascii")
-                                jd = lc_tab["jd_obs"]
+                        lc_tab = Table.read(file, format="ascii")
+                        jd = lc_tab["jd_obs"]
 
-                    except (FileNotFoundError, ValueError) as e:
+
+
+                    except (FileNotFoundError) as e:
                         pass
+                    except (ValueError) as e:
+                        txt = f'ERROR loading {file}\n'
+                        if self.loud: sys.stderr.write(txt)
+                        self.msg = self.msg + txt
+
 
                     last_jd = False
                     try:
@@ -511,7 +515,7 @@ class telescope_plan_generator():
                         for i, t in enumerate(self.nightTime):
                             if self.ob[n]["visibility"]["all"][i]:
                                 jd = ephem.julian_date(ephem.Date(t))
-                                if (jd - last_jd) < float(self.cycle[n]):
+                                if (jd - last_jd) < float(self.ob[n]["cycle"]):
                                     self.ob[n]["visibility"]["all"][i] = False
                                     ZNACZNIK = True
                                 else:
@@ -614,13 +618,18 @@ class telescope_plan_generator():
                             file = self.ob[n]["obs_data"]
                         else:
                             file = self.cfg[self.tel]["data_file"] + self.ob[n]["name"].lower() + "/" + filter + "/light-curve/" + self.ob[n]["name"].lower() + "_" + filter + "_diff_light_curve.txt"
-                        with open(file, "r") as plik:
-                            if plik != None:
-                                lc_tab = Table.read(plik, format="ascii")
-                                jd = lc_tab["jd_obs"]
 
-                    except (FileNotFoundError, ValueError) as e:
+                        lc_tab = Table.read(file, format="ascii")
+                        jd = lc_tab["jd_obs"]
+
+                    except (FileNotFoundError) as e:
                         pass
+                    except (ValueError) as e:
+                        txt = f'ERROR loading {file}\n'
+                        if self.loud: sys.stderr.write(txt)
+                        self.msg = self.msg + txt
+
+
                     P = self.ob[n]["period"]
                     hjd0 = self.ob[n]["hjd0"]
                     if P and len(jd)>0:
