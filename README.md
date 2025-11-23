@@ -2,6 +2,7 @@
 version: 1.1.0
 
 star i end makro files
+tag
 
 
 Script for generating observing plans for **wk06**, **zb08** and **jk15** telescopes. 

@@ -8,10 +8,12 @@ from ctc import CycleTimeCalc
 
 
 class telescope_plan_generator():
-    def __init__(self,tel,date,wind=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,done_uobi=[]):
+    def __init__(self,tel,date,tag=None,wind=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
+        self.tag = tag
+        self.wind = wind
         self.done = done_uobi
         self.loud = loud
         self.seed = seed
@@ -66,7 +68,6 @@ class telescope_plan_generator():
             print("wrong date format: yyyy/mm/dd")
             sys.exit(0)
 
-        self.wind = wind
         self.plan = []
 
         if self.loud: sys.stderr.write(txt)
@@ -152,14 +153,23 @@ class telescope_plan_generator():
             if line.strip():
                 if len(line.split()) > 0:  # no empty lines
                     if line.strip()[0] != "#":
-                        tmp_ob = self.parseObjects(line)
-                        self.ob.append(tmp_ob)
+                        ok = True
+                        if self.tag:
+                            ok = False
+                            if "tag=" in line:
+                                ob_tag = line.split("tag=")[1].split()[0]
+                                if self.tag in ob_tag:
+                                    ok = True
+                        if ok:
+                            tmp_ob = self.parseObjects(line)
+                            self.ob.append(tmp_ob)
 
 
     def parseObjects(self,line):
         tmp_ob = dict()
         line = line.strip()
         if line:  # no empty lines
+
             if line.strip()[0] != "#":
                 flag = []
                 seq = "1/Ic/30"
@@ -654,17 +664,21 @@ class telescope_plan_generator():
 
 
     def Waga(self):  #
-        for n, tmp in enumerate(self.ob):
-            if d_ver(self.ob[n], ["name", "visibility"]):
-                maska = numpy.array(self.ob[n]["visibility"]["all"])
-                maska = maska[maska]
-                allminutes = len(self.nightTime)
-                if len(maska) == 0:
-                    waga = 0
-                else:
-                    waga = 1. - float(len(maska)) / float(allminutes)
-                if waga < 0.3 and len(maska) != 0: waga = 0.3
-                self.ob[n]["waga"] = waga
+        if len(self.ob) > 0:
+            for n, tmp in enumerate(self.ob):
+                if d_ver(self.ob[n], ["name", "visibility"]):
+                    maska = numpy.array(self.ob[n]["visibility"]["all"])
+                    maska = maska[maska]
+                    allminutes = len(self.nightTime)
+                    if len(maska) == 0:
+                        waga = 0
+                    else:
+                        waga = 1. - float(len(maska)) / float(allminutes)
+                    if waga < 0.3 and len(maska) != 0: waga = 0.3
+                    self.ob[n]["waga"] = waga
+        else:
+            raise ValueError(f"No observable objects!")
+
 
     # tutaj mozna dodac opcje wylaczenia losowania
     def RandomizeList(self):  # randomize listo of objects to observev
