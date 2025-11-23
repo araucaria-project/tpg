@@ -549,14 +549,16 @@ class telescope_plan_generator():
                     if "T" in ts:
                         ts = ts.replace("T", " ")
                     if "/" not in ts:
-                        date = self.date.split()[0]
-                        if int(ts.split(":")[0]) < 16:
+                        date = str(self.start_time).split()[0]
+
+                        if int(str(self.start_time).split()[1].split(":")[0]) > 16 and int(ts.split(":")[0]) < 16:
                             date = ephem.Date(date) + 1
                             date = str(ephem.Date(date)).split()[0]
                         ts = date + " " + ts
                     ts = ephem.Date(ts)
                     time_s = ts
-                    if time_s or time_e:
+
+                    if time_s:
                         for i, tmp in enumerate(self.nightTime):
                             if float(self.nightTime[i]) < float(time_s) and self.ob[n]["visibility"]["all"][i] and time_s:
                                 self.ob[n]["visibility"]["all"][i] = False
@@ -569,22 +571,23 @@ class telescope_plan_generator():
                     if "T" in te:
                         te = te.replace("T", " ")
                     if "/" not in te:
-                        date = self.date.split()[0]
-                        if int(te.split(":")[0]) < 16:
+                        date = str(self.start_time).split()[0]
+
+                        if int(str(self.start_time).split()[1].split(":")[0]) > 16 and int(te.split(":")[0]) < 16:
                             date = ephem.Date(date) + 1
                             date = str(ephem.Date(date)).split()[0]
                         te = date + " " + te
                     te = ephem.Date(te)
                     time_e = te
-                    if time_e < time_s:
-                        time_e = time_e + ephem.day
 
-                    if time_s or time_e:
+                    if time_e:
                         for i, tmp in enumerate(self.nightTime):
                             if float(self.nightTime[i]) > float(time_e) and self.ob[n]["visibility"]["all"][i] and time_e:
                                 self.ob[n]["visibility"]["all"][i] = False
                                 ZNACZNIK = True
                 self.ob[n]["visibility"]["t_end"] = self.ob[n]["visibility"]["all"].copy()
+                print(ts,te)
+
 
     def MaskPhaseStartEnd(self):  # Masks visibility based on pstart and pend
         for n, tmp in enumerate(self.ob):

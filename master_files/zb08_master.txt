@@ -10,10 +10,11 @@
 # example2  07:24:14         -00:31:41     seq=10x(1/B/60,1/V/30,1/Ic/30)   priority=6    t_start=08:20    t_end=10:00
 # example3  07:24:14         -00:31:41     seq=INFx(1/B/60,1/V/30,1/Ic/30)  priority=6    t_start=00:20    t_end=10:00
 # example4  07:24:14         -00:31:41     seq=2x(1/B/36)                   priority=7    P=0.1    ph_start=0.8    ph_end=0.1    hjd0=2460310.5
+# example5 01:24:14         -00:31:41   priority=10 t_start=04:00:00 t_end=07:00:00
+# example6 01:24:14         -00:31:41   priority=10 t_start=2025/11/23T04:00:00 t_end=2025/11/23T07:00:00
 
 # Test object for checking phase
 # OGLE-GD-CEP-0127  07:45:11.79  -36:58:29.1  ph_mk=2/Ic/0.05  seq=2/B/42  P=13.7677045  mV=12.79  priority=5
-
 
 
 # Standard stars for photometric system Johnson-Cousins & Sloan/SDSS
@@ -599,7 +600,7 @@ OGLE-SMC-ECL-4809       01:03:10.81        -72:01:58.6        seq=1x(2/B/48,2/V/
 OGLE-SMC-ECL-4809       01:03:10.81        -72:01:58.6        seq=1x(2/B/48,2/V/64,2/Ic/180)        priority=6    cycle=0.0007    ph_mk=2/V/0.005    ph_start=0.925    ph_end=0.045    sciprog=deb_blue_smc    pi=ghajdu    tag=secondary    P=2.137756    hjd0=2457000.9154    comment="4510, 4566, 4608, 4711, 4809 in field" 
 OGLE-SMC-ECL-5890       01:16:26.11        -73:15:01.3        seq=1x(2/B/36,2/V/48,2/Ic/120)        priority=5    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=2.2660139    hjd0=2457000.0838    comment="mI=15.4" 
 OGLE-SMC-ECL-5890       01:16:26.11        -73:15:01.3        seq=1x(2/B/36,2/V/48,2/Ic/120)        priority=6    cycle=0.0007    ph_mk=2/V/0.005    ph_start=0.43    ph_end=0.57    sciprog=deb_blue_smc    pi=ghajdu    tag=primary    P=2.2660139    hjd0=2457000.0838    comment="mI=15.4" 
-OGLE-SMC-ECL-5890       01:16:26.11        -73:15:01.3        seq=1x(2/B/36,2/V/48,2/Ic/120)        priority=6    cycle=0.0007    ph_mk=2/V/0.005    ph_start=0.925    ph_end=0.045    sciprog=deb_blue_smc    pi=ghajdu    tag=secondary    P=2.2660139    hjd0=2457000.0838    comment="mI=15.4" 
+OGLE-SMC-ECL-5890       01:16:26.11        -73:15:01.3        seq=1x(2/B/36,2/V/48,2/Ic/120)        priority=6    cycle=0.0007    ph_mk=2/V/0.005    ph_start=0.925    ph_end=0.045    sciprog=deb_blue_smc    pi=ghajdu    tag=secondary    P=2.2660139    hjd0=2457000.0838    comment="mI=15.4"
 
 
 
