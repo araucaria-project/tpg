@@ -8,13 +8,15 @@ from ctc import CycleTimeCalc
 
 
 class telescope_plan_generator():
-    def __init__(self,tel,date,wind=None,loud=False,seed=None,done_uobi=[]):
+    def __init__(self,tel,date,wind=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
         self.done = done_uobi
         self.loud = loud
         self.seed = seed
+        self.add_start_makro = add_start_makro
+        self.add_end_makro = add_end_makro
 
         self.msg = ""
 
@@ -757,6 +759,8 @@ class telescope_plan_generator():
 
                     self.random_index_list = numpy.delete(self.random_index_list, del_list)
 
+
+
     def export(self):
         if True:
             ZNACZNIK = False
@@ -797,65 +801,49 @@ class telescope_plan_generator():
                                     txt = "   ".join(q.split())
                             self.plan.append(f'OBJECT {txt}')
 
-    def export_back(self):
-        if True:
-            prev = -100
-            ZNACZNIK = False
-            if "start_at_sunset" in self.flags:
-                txt = f'WAIT sunset={str(self.cfg[self.tel]["hsun"])}'
+
+        if self.add_start_makro and d_ver(self.cfg[self.tel],["start_makro"]):
+            start_plan = []
+            ok = False
+            if os.path.exists(self.cfg[self.tel]["start_makro"]):
+                with open(self.cfg[self.tel]["start_makro"], "r", encoding="utf-8") as makro_file:
+                    for line in makro_file:
+                        if line.strip():
+                            start_plan.append(line.strip())
+                            ok = True
+            if ok:
+                self.plan = start_plan + self.plan
+                txt = f"start_makro added\n"
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
             else:
-                txt = f'WAIT ut={str(ephem.Date(self.nightTime[0])).split()[1]}'
-            self.plan.append(txt)
-            for n, tmp in enumerate(self.nightTime):
-                if self.nightFree[n]:
-                    ZNACZNIK = True
-                if self.nightObChange[n]:
-                    if ZNACZNIK:
-                        ZNACZNIK = False
-                        self.oca.date = ephem.Date(self.nightTime[n])
-                        txt = "WAIT ut=" + str(self.oca.date).split()[1]
-                        self.plan.append(txt)
-                    if True:
-                        k = int(self.nightObject[n])
+                txt = f"NO start_makro FILE\n"
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
 
-                        if "x" in self.ob[k]["seq"]:
-                            q = self.ob[k]["seq"].split("x")[0]
-                            r = self.ob[k]["seq"].split("x")[1]
-                            if int(q) > 10:
-                                self.ob[k]["seq"] = f"10x{r}"
-                                for _ in range(int(int(q)/10)):
-                                    txt = f'OBJECT  {self.ob[k]["name"]} {self.ob[k]["ra"]} {self.ob[k]["dec"]}      seq={self.ob[k]["seq"]}'
-                                    if len(self.ob[k]["comment"]) > 0: txt = txt + f'    comment=\"{self.ob[k]["comment"]}\"'
-                                    self.plan.append(txt)
-                                z = int(q)-10*int(int(q)/10)
-                                if z != 0:
-                                    self.ob[k]["seq"] = f"{z}x{r}"
-                                    txt = f'OBJECT  {self.ob[k]["name"]} {self.ob[k]["ra"]} {self.ob[k]["dec"]}      seq={self.ob[k]["seq"]}'
-                                    if len(self.ob[k]["comment"]) > 0: txt = txt + f'    comment=\"{self.ob[k]["comment"]}\"'
-                                    self.plan.append(txt)
-                            else:
-                                txt = f'OBJECT  {self.ob[k]["name"]} {self.ob[k]["ra"]} {self.ob[k]["dec"]}      seq={self.ob[k]["seq"]}'
-                                if len(self.ob[k]["comment"]) > 0: txt = txt + f'    comment=\"{self.ob[k]["comment"]}\"'
-                                if self.ob[k]["uobi"]:
-                                    txt = txt + f' uobi={self.ob[k]["uobi"]}'
-                                self.plan.append(txt)
-                        else:
-                            txt = f'OBJECT  {self.ob[k]["name"]} {self.ob[k]["ra"]} {self.ob[k]["dec"]}      seq={self.ob[k]["seq"]}'
-                            if self.ob[k]["uobi"]:
-                                txt = txt + f' uobi={self.ob[k]["uobi"]}'
-                            if len(self.ob[k]["comment"]) > 0: txt = txt + f'    comment=\"{self.ob[k]["comment"]}\"'
-                            if d_ver(self.ob[k], ["name", "makro"]):
-                                with open(self.ob[k]["makro"], "r", encoding="utf-8") as makro_file:
-                                    for line in makro_file:
-                                        if line.strip():
-                                            self.plan.append(line.strip())
-                            else:
-                                self.plan.append(txt)
-                prev = int(self.nightObject[n])
-
+        if self.add_end_makro and d_ver(self.cfg[self.tel],["end_makro"]):
+            end_plan = []
+            ok = False
+            if os.path.exists(self.cfg[self.tel]["end_makro"]):
+                with open(self.cfg[self.tel]["end_makro"], "r", encoding="utf-8") as makro_file:
+                    for line in makro_file:
+                        if line.strip():
+                            end_plan.append(line.strip())
+                            ok = True
+            if ok:
+                self.plan = self.plan + end_plan
+                txt = f"end_makro added\n"
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
+            else:
+                txt = f"NO end_makro FILE\n"
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
 
 
 def d_ver(slownik,klucze):
+    if not isinstance(klucze, (list, tuple)):
+        raise TypeError(f'klucze should be a list or tuple, not {type(klucze)}')
     result = True
     for k in klucze:
         if k not in slownik.keys():

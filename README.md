@@ -1,5 +1,8 @@
 # tpg - telescope plan generator
-version: 1.0.0
+version: 1.1.0
+
+star i end makro files
+
 
 Script for generating observing plans for **wk06**, **zb08** and **jk15** telescopes. 
 Script allocates time based on priority and visibility. Calculates slot time based on 
@@ -40,7 +43,9 @@ specified parameters will be overwritten.
 
 ```plainttext
 wk06:                                                        # telescope
-  master_file: /home/observer/src/tpg/wk06_master.txt        # file with OB definitions
+  master_file: /home/observer/src/tpg/zb0806_master.txt        # file with OB definitions
+  start_makro: /home/observer/src/tpg/master_files/zb08_start_makro.txt # start_makro
+  end_makro: /home/observer/src/tpg/master_files/zb08_end_makro.txt # end makro
   data_file: /data/fits/wk06/processed-ofp/targets/          # directory with observations
   overhead: 15                                               # overhead for time slot calculation
   hmin: 35                                                   # min altitude to observe
