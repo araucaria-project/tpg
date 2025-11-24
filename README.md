@@ -118,8 +118,8 @@ example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=11   mak
 * phase masking: object is masked if in defined `phase_bin` are already `no_of_obs` points for `band_light_curve`
 * for `cycle` full functionality, **obs data** are required, and for this the filter has to be specified. If `ph_mk` is not specified, it will take first filter defined in `seq`.
 * since version 0.1.2 there is `makro` functionality. This replaces the OB entry with the contents of the file, allowing  
-custom complex observing blocks, calibrations, or engineering sequences.
-Previous function of splitting long (>10) sequences to multiple shorter sequences was removed. 
+custom complex observing blocks, calibrations, or engineering sequences. The makro file should be **TOI readable** (OBJECT at the beginning), as it will be just inserted in the final plan. Previous function of splitting long (>10) sequences to multiple shorter sequences was removed. 
+* since version 1.0.0 there are `start_makro` and `end_makro` that are inserted at the beginning and end of the plan. Both files should be **TOI readable**.
 * since version 0.1.4 `uobi` parameter will not be exported if there is also `cycle` parameter for this ob.
 * Objects sharing the same `uobi` are treated as a single observing block.
 If any of them is allocated, all others are considered as observed according to theirs specification. 
