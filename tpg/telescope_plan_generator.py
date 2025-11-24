@@ -719,7 +719,7 @@ class telescope_plan_generator():
                     # wbrew pozorom ta funkcja przeszukuje caly zbior, ale wybiera pierwsz obiekt
                     # z listy random_index_list ( bo jest > priormax, a nie >= )
                     # moze to nie jest najbardziej optymalny kod
-                    if int(self.ob[k]["priority"]) > priormax and int(self.ob[k]["priority"]) > -50:
+                    if int(self.ob[k]["priority"]) > priormax and int(self.ob[k]["priority"]) > -1:
                         visibility = self.ob[k]["visibility"]["all"]
                         slots = float((self.ob[k]["slotTime"])) / 1.
                         if "inf" in self.ob[k]["flag"]:
