@@ -196,9 +196,9 @@ After allocation:
 
 #### Summary flowchart
 
-Objects → Compute altitude → Base visibility  
-→ Masking (cycle/phase/moon/wind/time)  
-→ Predicted slot time  
+Objects → Predicted slot time 
+→ Compute altitude and visibility
+→ Masking (cycle/phase/moon/wind/time)   
 → Priority-based randomized scheduling  
 → Insert macros → Output plan
 
