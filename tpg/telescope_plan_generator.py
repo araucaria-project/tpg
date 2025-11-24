@@ -90,7 +90,7 @@ class telescope_plan_generator():
         self.allocate()  # SCHEDULING OBJECTS
 
         # wypisuje log
-        vis_list = ["h_min", "h_max", "min_moon_dist", "max_moon_phase", "wind","cycle", "t_start", "t_end",
+        vis_list = ["tag", "h_min", "h_max", "min_moon_dist", "max_moon_phase", "wind","cycle", "t_start", "t_end",
                     "ph_start","ph_end","ph_mk","all"]
         txt = "name    "+"    ".join(vis_list) + "\n"
         for n,ob in enumerate(self.ob):
@@ -124,7 +124,7 @@ class telescope_plan_generator():
         self.ob = []
 
         # additional
-        self.random_index_list = []  # list with random roder of object indices to oberve
+        self.random_index_list = []  # list with random order of object indices to oberve
         self.pliki_hjd = []  # files with phase coverage for objects
 
     def LoadObjects(self):  # Load Object file
@@ -153,16 +153,8 @@ class telescope_plan_generator():
             if line.strip():
                 if len(line.split()) > 0:  # no empty lines
                     if line.strip()[0] != "#":
-                        ok = True
-                        if self.tag:
-                            ok = False
-                            if "tag=" in line:
-                                ob_tag = line.split("tag=")[1].split()[0]
-                                if self.tag in ob_tag:
-                                    ok = True
-                        if ok:
-                            tmp_ob = self.parseObjects(line)
-                            self.ob.append(tmp_ob)
+                        tmp_ob = self.parseObjects(line)
+                        self.ob.append(tmp_ob)
 
 
     def parseObjects(self,line):
@@ -177,6 +169,7 @@ class telescope_plan_generator():
                 comment = ""
 
                 overhead = self.cfg[self.tel]["overhead"]
+                tags = ""
                 ts = False
                 te = False
                 hmax = False
@@ -211,6 +204,9 @@ class telescope_plan_generator():
 
                 if "priority=" in line:
                     priority = line.split("priority=")[1].split()[0]
+
+                if "tag=" in line:
+                    tags = line.split("tag=")[1].split()[0]
 
                 if "t_start=" in line:
                     ts = line.split("t_start=")[1].split()[0]
@@ -314,6 +310,7 @@ class telescope_plan_generator():
                     tmp_ob["slotTime"] = slotTime
                     tmp_ob["line"] = line
                     tmp_ob["priority"] = priority
+                    tmp_ob["tag"] = tags
                     tmp_ob["t_start"] = ts
                     tmp_ob["t_end"] = te
                     tmp_ob["h_min"] = hmin
@@ -381,48 +378,66 @@ class telescope_plan_generator():
             if self.ob[n].get("ra", False) and self.ob[n].get("dec", False) and self.ob[n].get("name", False):
                 self.ob[n]["visibility"] = dict()
 
-                s = ephem.FixedBody()
-                s._ra = self.ob[n]["ra"]
-                s._dec = self.ob[n]["dec"]
-                self.oca.date = self.nightTime[0]
+                # sprawdzanie opcji tag
+                ok = True
+                if self.tag:
+                    ok = False
+                    if d_ver(self.ob[n],["tag"]):
+                        if self.tag in self.ob[n]["tag"]:
+                            ok = True
+                if ok:
+                    vis = [True for _ in range(len(self.nightTime))]
 
-                if self.ob[n].get("h_min",False):
-                    self.oca.horizon = float(self.ob[n]["h_min"])
                 else:
-                    self.oca.horizon = str(self.cfg[self.tel]["hmin"])
-                try:
-                    tr = self.oca.next_rising(s)
-                    ts = self.oca.next_setting(s)
-                    if tr < ts:
-                        vis1 = [x > tr and x < ts for x in self.nightTime]
+                    vis = [False for _ in range(len(self.nightTime))]
+
+                self.ob[n]["visibility"]["all"] = vis.copy()
+                self.ob[n]["visibility"]["tag"] = vis.copy()
+
+                # sprawdzanie widocznosci
+                if all(self.ob[n]["visibility"]["all"]):
+                    s = ephem.FixedBody()
+                    s._ra = self.ob[n]["ra"]
+                    s._dec = self.ob[n]["dec"]
+                    self.oca.date = self.nightTime[0]
+
+                    if self.ob[n].get("h_min",False):
+                        self.oca.horizon = float(self.ob[n]["h_min"])
                     else:
-                        vis1 = [x < ts or x > tr for x in self.nightTime]
-                except ephem.NeverUpError:
-                    vis1 = [False for _ in range(len(self.nightTime))]
-                except ephem.AlwaysUpError:
-                    vis1 = [True for _ in range(len(self.nightTime))]
+                        self.oca.horizon = str(self.cfg[self.tel]["hmin"])
+                    try:
+                        tr = self.oca.next_rising(s)
+                        ts = self.oca.next_setting(s)
+                        if tr < ts:
+                            vis1 = [x > tr and x < ts for x in self.nightTime]
+                        else:
+                            vis1 = [x < ts or x > tr for x in self.nightTime]
+                    except ephem.NeverUpError:
+                        vis1 = [False for _ in range(len(self.nightTime))]
+                    except ephem.AlwaysUpError:
+                        vis1 = [True for _ in range(len(self.nightTime))]
 
-                if self.ob[n].get("h_max",False):
-                    self.oca.horizon = float(self.ob[n]["h_max"])
-                else:
-                    self.oca.horizon = str(self.cfg[self.tel]["hmax"])
-
-                try:
-                    tr = self.oca.next_rising(s)
-                    ts = self.oca.next_setting(s)
-                    if tr < ts:
-                        vis2 = [not (x > tr and x < ts) for x in self.nightTime]
+                    if self.ob[n].get("h_max",False):
+                        self.oca.horizon = float(self.ob[n]["h_max"])
                     else:
-                        vis2 = [not (x < ts or x > tr) for x in self.nightTime]
-                except ephem.NeverUpError:
-                    vis2 = [True for _ in range(len(self.nightTime))]
-                except ephem.AlwaysUpError:
-                    vis2 = [False for _ in range(len(self.nightTime))]
+                        self.oca.horizon = str(self.cfg[self.tel]["hmax"])
 
-                self.ob[n]["visibility"]["h_min"] = vis1
-                vis = [a and b for a,b in zip(vis1,vis2)]
-                self.ob[n]["visibility"]["h_max"] = vis.copy()
-                self.ob[n]["visibility"]["all"] = vis
+                    try:
+                        tr = self.oca.next_rising(s)
+                        ts = self.oca.next_setting(s)
+                        if tr < ts:
+                            vis2 = [not (x > tr and x < ts) for x in self.nightTime]
+                        else:
+                            vis2 = [not (x < ts or x > tr) for x in self.nightTime]
+                    except ephem.NeverUpError:
+                        vis2 = [True for _ in range(len(self.nightTime))]
+                    except ephem.AlwaysUpError:
+                        vis2 = [False for _ in range(len(self.nightTime))]
+
+                    self.ob[n]["visibility"]["h_min"] = vis1
+                    vis = [a and b for a,b in zip(vis1,vis2)]
+                    self.ob[n]["visibility"]["h_max"] = vis.copy()
+                    self.ob[n]["visibility"]["all"] = vis
 
     def MaskMoon(self):
         moon = ephem.Moon()
@@ -667,7 +682,8 @@ class telescope_plan_generator():
 
 
     def Waga(self):  #
-        if len(self.ob) > 0:
+        no_obj = False
+        if True:
             for n, tmp in enumerate(self.ob):
                 if d_ver(self.ob[n], ["name", "visibility"]):
                     maska = numpy.array(self.ob[n]["visibility"]["all"])
@@ -676,10 +692,11 @@ class telescope_plan_generator():
                     if len(maska) == 0:
                         waga = 0
                     else:
+                        no_obj = True
                         waga = 1. - float(len(maska)) / float(allminutes)
                     if waga < 0.3 and len(maska) != 0: waga = 0.3
                     self.ob[n]["waga"] = waga
-        else:
+        if not no_obj:
             raise ValueError(f"No observable objects!")
 
 
