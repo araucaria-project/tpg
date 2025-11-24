@@ -7,7 +7,7 @@ from astropy.table import Table
 from ctc import CycleTimeCalc
 
 
-class telescope_plan_generator():
+class TelescopePlanGenerator():
     def __init__(self,tel,date,tag=None,wind=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
