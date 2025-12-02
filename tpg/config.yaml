@@ -10,7 +10,9 @@ params_2_remove:  ["priority","cycle","ph_mk","ph_start","ph_end","t_start","t_e
 
 
 wk06:
-  master_file: /home/observer/src/tpg/wk06_master.txt        # file with OB definitions
+  master_file: /home/observer/src/tpg/master_files/wk06_master.txt        # file with OB definitions
+  start_makro: /home/observer/src/tpg/master_files/wk06_start_makro.txt
+  end_makro: /home/observer/src/tpg/master_files/wk06_end_makro.txt
   data_file: /data/fits/wk06/processed-ofp/targets/          # directory with observations
   def_read_mode: 2
   overhead: 15                                               # overhead for time slot calculation
@@ -22,7 +24,9 @@ wk06:
 
 
 zb08:
-  master_file: /home/observer/src/tpg/zb08_master.txt
+  master_file: /home/observer/src/tpg/master_files/zb08_master.txt        # file with OB definitions
+  start_makro: /home/observer/src/tpg/master_files/zb08_start_makro.txt
+  end_makro: /home/observer/src/tpg/master_files/zb08_end_makro.txt
   data_file: /data/fits/zb08/processed-ofp/targets/
   def_read_mode: 2
   overhead: 15
@@ -33,7 +37,9 @@ zb08:
   moon_dist: 40
 
 jk15:
-  master_file: /home/observer/src/tpg/jk15_master.txt
+  master_file: /home/observer/src/tpg/master_files/jk15_master.txt        # file with OB definitions
+  start_makro: /home/observer/src/tpg/master_files/jk15_start_makro.txt
+  end_makro: /home/observer/src/tpg/master_files/jk15_end_makro.txt
   data_file: /data/fits/jk15/processed-ofp/targets/
   def_read_mode: 3
   overhead: 60
