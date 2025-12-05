@@ -68,14 +68,14 @@ SA113-F1                21:36:02           -00:30:25          seq=1/B/21,1/V/17,
 # SCIPROG agn
 # PI fpozo
 
-#Fairall9    01:23:45.76     -58:48:20.8089     seq=1/Ic/60,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/300        priority=9    sciprog=agn    pi=fpozo    mV=13.8        cycle=0.25     comment="AGN observe twice per night"
-#WPVS48      09:59:42.645    -31:12:58.4910     seq=1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300      priority=9    sciprog=agn    pi=fpozo    mV=14.8        cycle=0.15     comment="AGN observe twice per night"
-#NGC3783     11:39:01.71     -37:44:19.01       seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300       priority=8    sciprog=agn    pi=fpozo    mV=13.4        cycle=0.0001   comment="AGN observe continuously for 2 weeks, dark sky"
-#NGC6814     19:42:40.59     -10:19:25.11       seq=3x(1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300)  priority=8    sciprog=agn    pi=fpozo    mV=14.2        cycle=0.14     comment="AGN observe twice per night"
-Mrk509                  20:44:09.75        -10:43:24.73       seq=1/Ic/30,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/200                    priority=9    sciprog=agn    pi=fpozo    mV=13.2    comment="AGN observe once per night" 
-Mrk1014                 01:59:50.25        +00:23:40.86       seq=1/Ic/120,1/y_s/220,1/v_s/300,1/b_s/300,3/u_s/300                priority=9    sciprog=agn    pi=fpozo    mV=15.9    comment="AGN observe once per night" 
-Ark120                  05:16:11.41        -00:08:59.15       seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300                   priority=8    sciprog=agn    pi=fpozo    mV=13.9    comment="AGN observe once per night" 
-NGC2617                 08:35:38.80        -04:05:17.90       seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300                   priority=8    cycle=0.11    sciprog=agn    pi=fpozo    mV=13.6    comment="AGN observe 2-3 times per night" 
+#Fairall9    01:23:45.76        -58:48:20.8089     seq=1/Ic/60,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/300                    priority=9    sciprog=agn    pi=fpozo    mV=13.8        cycle=0.25     comment="AGN observe twice per night"
+#WPVS48      09:59:42.645       -31:12:58.4910     seq=1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300                  priority=9    sciprog=agn    pi=fpozo    mV=14.8        cycle=0.15     comment="AGN observe twice per night"
+#NGC3783     11:39:01.71        -37:44:19.01       seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300                   priority=8    sciprog=agn    pi=fpozo    mV=13.4        cycle=0.0001   comment="AGN observe continuously for 2 weeks, dark sky"
+#NGC6814     19:42:40.59        -10:19:25.11       seq=3x(1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300)              priority=8    sciprog=agn    pi=fpozo    mV=14.2        cycle=0.14     comment="AGN observe twice per night"
+Mrk509       20:44:09.75        -10:43:24.73       seq=1/Ic/30,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/200                    priority=9    sciprog=agn    pi=fpozo    mV=13.2    comment="AGN observe once per night" 
+Mrk1014      01:59:50.25        +00:23:40.86       seq=1/Ic/120,1/y_s/220,1/v_s/300,1/b_s/300,3/u_s/300                priority=9    sciprog=agn    pi=fpozo    mV=15.9    comment="AGN observe once per night" 
+Ark120       05:16:11.41        -00:08:59.15       seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300                   priority=8    sciprog=agn    pi=fpozo    mV=13.9    comment="AGN observe once per night" 
+NGC2617      08:35:38.80        -04:05:17.90       seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300                   priority=8    cycle=0.11    sciprog=agn    pi=fpozo    mV=13.6    comment="AGN observe 2-3 times per night" 
 
 
 # Eclipsing binaries to calibrate the sufrace brightness-color relation (sbcr)
@@ -244,7 +244,7 @@ TYC5829-1047-1          23:32:17.1         -09:50:41          seq=2/B/13,2/V/8,2
 
 # SMC blue early-type eclipsing binaries
 # SCIPROG deb_blue_smc
-# PI ghajdu + dgraczyk
+# PI ghajdu (+dgraczyk)
 # INFO other targets from this program on ZB08 and JK15
 
 # Primary + secondary eclipses
@@ -270,13 +270,14 @@ OGLE-SMC-ECL-4440       01:02:01.37        -72:29:07.5        seq=2/B/60,2/V/80,
 
 # LMC blue early-type eclipsig binaries
 # SCIPROG deb_blue_lmc
-# PI dgraczyk + mtaormina
+# PI dgraczyk (+mtaormina)
+# INFO The very same targets are prepared for JK15 but first we will see if the light curves from WK06 are good. If not -> move to JK15.
 # incl. Stromgren std when possible, but Stromgren std. are not ready!
 
 # Primary eclispes
 OGLE-LMC-ECL-02851      04:55:02.52        -67:09:51.8        seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.900    ph_end=0.100    sciprog=deb_blue_lmc    pi=dgraczyk    tag=prim_ecl,good_seeing    P=2.7403695    hjd0=2460000.8225    max_moon_phase=65    mV=14.584    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-12167      05:18:04.71        -69:48:18.9        seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.909    ph_end=0.091    sciprog=deb_blue_lmc    pi=dgraczyk    tag=prim_ecl,good_seeing    P=3.1070289    hjd0=2461046.734    max_moon_phase=65    mV=14.589    comment="incl. Stromgren std" 
-OGLE-LMC-ECL-17660      05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.93    ph_end=0.07    sciprog=deb_blue_lmc    pi=dgraczyk    tag=prim_ecl,good_seeing    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="incl. Stromgren std" 
+#OGLE-LMC-ECL-17660      05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.93    ph_end=0.07    sciprog=deb_blue_lmc    pi=dgraczyk    tag=prim_ecl,good_seeing    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="Darek said no need to observe anymore" 
 OGLE-LMC-ECL-18794      05:32:47.74        -68:37:26.6        seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60                           priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.90    ph_end=0.10    sciprog=deb_blue_lmc    pi=dgraczyk    tag=prim_ecl,good_seeing    P=5.9468207    hjd0=2460005.9302    max_moon_phase=65    mV=13.416    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-20299      05:36:10.74        -69:32:02.2        seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.89    ph_end=0.11    sciprog=deb_blue_lmc    pi=dgraczyk    tag=prim_ecl,good_seeing    P=5.4139949    hjd0=2460005.2472    max_moon_phase=65    mV=14.493    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-23358      05:43:39.34        -69:15:54.9        seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.88    ph_end=0.12    sciprog=deb_blue_lmc    pi=dgraczyk    tag=prim_ecl,good_seeing    P=1.7860458    hjd0=2460269.3937    max_moon_phase=65    mV=14.653    comment="incl. Stromgren std" 
@@ -286,7 +287,7 @@ OGLE-LMC-ECL-22270      05:40:47.31        -69:20:28.3        seq=4/u_s/300,1/v_
 # Secondary eclispes
 OGLE-LMC-ECL-02851      04:55:02.52        -67:09:51.8        seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.400    ph_end=0.600    sciprog=deb_blue_lmc    pi=dgraczyk    tag=sec_ecl,good_seeing    P=2.7403695    hjd0=2460000.8225    max_moon_phase=65    mV=14.584    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-12167      05:18:04.71        -69:48:18.9        seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.387    ph_end=0.563    sciprog=deb_blue_lmc    pi=dgraczyk    tag=sec_ecl,good_seeing    P=3.1070289    hjd0=2461046.734    max_moon_phase=65    mV=14.589    comment="incl. Stromgren std" 
-OGLE-LMC-ECL-17660      05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.395    ph_end=0.545    sciprog=deb_blue_lmc    pi=dgraczyk    tag=sec_ecl,good_seeing    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="incl. Stromgren std" 
+#OGLE-LMC-ECL-17660      05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.395    ph_end=0.545    sciprog=deb_blue_lmc    pi=dgraczyk    tag=sec_ecl,good_seeing    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="Darek said no need to observe anymore" 
 OGLE-LMC-ECL-18794      05:32:47.74        -68:37:26.6        seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60                           priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.37    ph_end=0.57    sciprog=deb_blue_lmc    pi=dgraczyk    tag=sec_ecl,good_seeing    P=5.9468207    hjd0=2460005.9302    max_moon_phase=65    mV=13.416    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-20299      05:36:10.74        -69:32:02.2        seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.395    ph_end=0.615    sciprog=deb_blue_lmc    pi=dgraczyk    tag=sec_ecl,good_seeing    P=5.4139949    hjd0=2460005.2472    max_moon_phase=65    mV=14.493    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-23358      05:43:39.34        -69:15:54.9        seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160                         priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.48    ph_end=0.62    sciprog=deb_blue_lmc    pi=dgraczyk    tag=sec_ecl,good_seeing    P=1.7860458    hjd0=2460269.3937    max_moon_phase=65    mV=14.653    comment="incl. Stromgren std" 
@@ -296,7 +297,7 @@ OGLE-LMC-ECL-22270      05:40:47.31        -69:20:28.3        seq=4/u_s/300,1/v_
 # Random phase
 OGLE-LMC-ECL-02851      04:55:02.52        -67:09:51.8        seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160                         priority=4    cycle=0.12    ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    tag=random_phase,good_seeing    P=2.7403695    max_moon_phase=65    mV=14.584    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-12167      05:18:04.71        -69:48:18.9        seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160                         priority=4    cycle=0.12    ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    tag=random_phase,good_seeing    P=3.1070289    max_moon_phase=65    mV=14.589    comment="incl. Stromgren std" 
-OGLE-LMC-ECL-17660      05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100                         priority=4    cycle=0.12    ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    tag=random_phase,good_seeing    P=6.2291091    max_moon_phase=65    mV=14.254    comment="incl. Stromgren std" 
+#OGLE-LMC-ECL-17660      05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100                         priority=4    cycle=0.12    ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    tag=random_phase,good_seeing    P=6.2291091    max_moon_phase=65    mV=14.254    comment="Darek said no need to observe anymore" 
 OGLE-LMC-ECL-20299      05:36:10.74        -69:32:02.2        seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160                         priority=4    cycle=0.12    ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    tag=random_phase,good_seeing    P=5.4139949    max_moon_phase=65    mV=14.493    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-23358      05:43:39.34        -69:15:54.9        seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160                         priority=4    cycle=0.12    ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    tag=random_phase,good_seeing    P=1.7860458    max_moon_phase=65    mV=14.653    comment="incl. Stromgren std" 
 OGLE-LMC-ECL-18794      05:32:47.74        -68:37:26.6        seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60                           priority=4    cycle=0.12    ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    tag=random_phase,good_seeing    P=5.9468207    max_moon_phase=65    mV=13.416    comment="incl. Stromgren std, SNR 200, 3rd light" 
@@ -363,6 +364,10 @@ OGLE-LMC-ECL-22270      05:40:47.31        -69:20:28.3        seq=4/u_s/300,1/v_
 #GY_Sge                  19:35:13.63        +19:12:08.6        seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=6      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=51.7900       comment="FeH=0.29"               mV=10.2
 #
 #
+#
+##################
+## WAITING LIST ##
+##################
 #
 # Blue LMC eclipsing binaries intended for FLAMES
 # PI dgraczyk

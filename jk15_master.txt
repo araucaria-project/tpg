@@ -240,6 +240,7 @@ OGLE-LMC-CEP-1812       05:23:07.70        -69:33:49.9        seq=1/V/260,1/Ic/2
 # LMC blue early-type eclipsig binaries
 # SCIPROG deb_blue_lmc
 # PI dgraczyk + mtaormina
+# INFO the very same objects are now observed on WK06, because their brightness 14-15 mag allows for it, but maybe WK06's pixel is too big. We'll see
 # INFO seeing<1.5", z>1.5, dark/gray sky (for u band), incl. Stromgren std, but Stromgren std. are not ready!
 #
 # Primary eclispes
