@@ -77,7 +77,7 @@ example3  07:24:14       -00:31:41     seq=10x(1/B/60)         priority=6    t_s
 example4  07:24:14       -00:31:41     seq=2x(1/B/36)          priority=7    P=0.1   ph_start=0.8  ph_end=0.1  hjd0=2460310.5
 example5  07:45:11.79    -36:58:29.1   seq=1/V/36              priority=7    ph_mk=2/Ic/0.05  P=13.7677045 
 example6  07:24:14       -00:31:41     seq=2/Ic/3              priority=10   cycle=5 obs_data=home/user/obs_data/example5.txt  
-example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=11   makro=/home/user/makro/makro_ex10.txt  ob_time=300    
+example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=11   makro=/home/user/makro/makro_ex10.txt  ob_time=5    
 ```
 
 #### Specification:
@@ -103,9 +103,9 @@ example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=11   mak
 * `h_max=70` - object can be observed if less than 70 deg above horizon
 * `min_moon_dist=30` - object can be observed if more than 30 deg from the moon
 * `max_moon_phase=70` - object can be observed if moon phase is less than 70 percent, and the moon is up.
-* `ob_time=120` - slot time will be set as 120 seconds (not calculated by tpg)
+* `ob_time=12` - slot time will be set as 12 minutes (not calculated by tpg)
 * `makro=/home/user/makro_ex10.txt` - if scheduled file makro_ex10.txt will be included in the plan, instead of ob line
-  `makro=/home/user/makro_ex10.txt priority=10 cycle=5 ob_time=300 obs_data=./test/obs_data/example5.txt` - should work
+  `makro=/home/user/makro_ex10.txt priority=10 cycle=5 ob_time=5 obs_data=./test/obs_data/example5.txt` - should work
 * `sciprog=cal`   - just for plan management    
 * `pi=ocm` - just for plan management 
 
