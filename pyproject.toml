@@ -22,7 +22,7 @@ pyaraucaria = {git = "https://github.com/araucaria-project/pyaraucaria.git"}
 
 
 [tool.poetry.scripts]
-tpg = "tpg:main"
+tpg = "tpg.tpg:main"
 chexp = "chexp:main"
 group2master = "group2master:main"
 

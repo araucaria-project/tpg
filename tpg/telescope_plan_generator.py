@@ -7,14 +7,18 @@ from astropy.table import Table
 from ctc import CycleTimeCalc
 
 
-class telescope_plan_generator():
-    def __init__(self,tel,date,wind=None,loud=False,seed=None,done_uobi=[]):
+class TelescopePlanGenerator():
+    def __init__(self,tel,date,tag=None,wind=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
+        self.tag = tag
+        self.wind = wind
         self.done = done_uobi
         self.loud = loud
         self.seed = seed
+        self.add_start_makro = add_start_makro
+        self.add_end_makro = add_end_makro
 
         self.msg = ""
 
@@ -64,7 +68,6 @@ class telescope_plan_generator():
             print("wrong date format: yyyy/mm/dd")
             sys.exit(0)
 
-        self.wind = wind
         self.plan = []
 
         if self.loud: sys.stderr.write(txt)
@@ -87,7 +90,7 @@ class telescope_plan_generator():
         self.allocate()  # SCHEDULING OBJECTS
 
         # wypisuje log
-        vis_list = ["h_min", "h_max", "min_moon_dist", "max_moon_phase", "wind","cycle", "t_start", "t_end",
+        vis_list = ["tag", "h_min", "h_max", "min_moon_dist", "max_moon_phase", "wind","cycle", "t_start", "t_end",
                     "ph_start","ph_end","ph_mk","all"]
         txt = "name    "+"    ".join(vis_list) + "\n"
         for n,ob in enumerate(self.ob):
@@ -121,7 +124,7 @@ class telescope_plan_generator():
         self.ob = []
 
         # additional
-        self.random_index_list = []  # list with random roder of object indices to oberve
+        self.random_index_list = []  # list with random order of object indices to oberve
         self.pliki_hjd = []  # files with phase coverage for objects
 
     def LoadObjects(self):  # Load Object file
@@ -158,6 +161,7 @@ class telescope_plan_generator():
         tmp_ob = dict()
         line = line.strip()
         if line:  # no empty lines
+
             if line.strip()[0] != "#":
                 flag = []
                 seq = "1/Ic/30"
@@ -165,6 +169,7 @@ class telescope_plan_generator():
                 comment = ""
 
                 overhead = self.cfg[self.tel]["overhead"]
+                tags = ""
                 ts = False
                 te = False
                 hmax = False
@@ -199,6 +204,9 @@ class telescope_plan_generator():
 
                 if "priority=" in line:
                     priority = line.split("priority=")[1].split()[0]
+
+                if "tag=" in line:
+                    tags = line.split("tag=")[1].split()[0]
 
                 if "t_start=" in line:
                     ts = line.split("t_start=")[1].split()[0]
@@ -302,6 +310,7 @@ class telescope_plan_generator():
                     tmp_ob["slotTime"] = slotTime
                     tmp_ob["line"] = line
                     tmp_ob["priority"] = priority
+                    tmp_ob["tag"] = tags
                     tmp_ob["t_start"] = ts
                     tmp_ob["t_end"] = te
                     tmp_ob["h_min"] = hmin
@@ -369,51 +378,78 @@ class telescope_plan_generator():
             if self.ob[n].get("ra", False) and self.ob[n].get("dec", False) and self.ob[n].get("name", False):
                 self.ob[n]["visibility"] = dict()
 
-                s = ephem.FixedBody()
-                s._ra = self.ob[n]["ra"]
-                s._dec = self.ob[n]["dec"]
-                self.oca.date = self.nightTime[0]
+                # sprawdzanie opcji tag
+                ok = True
+                if self.tag:
+                    ok = False
+                    if d_ver(self.ob[n],["tag"]):
+                        if self.tag in self.ob[n]["tag"]:
+                            ok = True
+                if ok:
+                    vis = [True for _ in range(len(self.nightTime))]
 
-                if self.ob[n].get("h_min",False):
-                    self.oca.horizon = float(self.ob[n]["h_min"])
                 else:
-                    self.oca.horizon = str(self.cfg[self.tel]["hmin"])
-                try:
-                    tr = self.oca.next_rising(s)
-                    ts = self.oca.next_setting(s)
-                    if tr < ts:
-                        vis1 = [x > tr and x < ts for x in self.nightTime]
+                    vis = [False for _ in range(len(self.nightTime))]
+
+                self.ob[n]["visibility"]["all"] = vis.copy()
+                self.ob[n]["visibility"]["tag"] = vis.copy()
+
+                # sprawdzanie widocznosci
+                if all(self.ob[n]["visibility"]["all"]):
+                    s = ephem.FixedBody()
+                    s._ra = self.ob[n]["ra"]
+                    s._dec = self.ob[n]["dec"]
+                    self.oca.date = self.nightTime[0]
+
+                    if self.ob[n].get("h_min",False):
+                        self.oca.horizon = float(self.ob[n]["h_min"])
                     else:
-                        vis1 = [x < ts or x > tr for x in self.nightTime]
-                except ephem.NeverUpError:
-                    vis1 = [False for _ in range(len(self.nightTime))]
-                except ephem.AlwaysUpError:
-                    vis1 = [True for _ in range(len(self.nightTime))]
+                        self.oca.horizon = str(self.cfg[self.tel]["hmin"])
+                    try:
+                        tr = self.oca.next_rising(s)
+                        ts = self.oca.next_setting(s)
+                        if tr < ts:
+                            vis1 = [x > tr and x < ts for x in self.nightTime]
+                        else:
+                            vis1 = [x < ts or x > tr for x in self.nightTime]
+                    except ephem.NeverUpError:
+                        vis1 = [False for _ in range(len(self.nightTime))]
+                    except ephem.AlwaysUpError:
+                        vis1 = [True for _ in range(len(self.nightTime))]
 
-                if self.ob[n].get("h_max",False):
-                    self.oca.horizon = float(self.ob[n]["h_max"])
-                else:
-                    self.oca.horizon = str(self.cfg[self.tel]["hmax"])
-
-                try:
-                    tr = self.oca.next_rising(s)
-                    ts = self.oca.next_setting(s)
-                    if tr < ts:
-                        vis2 = [not (x > tr and x < ts) for x in self.nightTime]
+                    if self.ob[n].get("h_max",False):
+                        self.oca.horizon = float(self.ob[n]["h_max"])
                     else:
-                        vis2 = [not (x < ts or x > tr) for x in self.nightTime]
-                except ephem.NeverUpError:
-                    vis2 = [True for _ in range(len(self.nightTime))]
-                except ephem.AlwaysUpError:
-                    vis2 = [False for _ in range(len(self.nightTime))]
+                        self.oca.horizon = str(self.cfg[self.tel]["hmax"])
 
-                self.ob[n]["visibility"]["h_min"] = vis1
-                vis = [a and b for a,b in zip(vis1,vis2)]
-                self.ob[n]["visibility"]["h_max"] = vis.copy()
-                self.ob[n]["visibility"]["all"] = vis
+                    try:
+                        tr = self.oca.next_rising(s)
+                        ts = self.oca.next_setting(s)
+                        if tr < ts:
+                            vis2 = [not (x > tr and x < ts) for x in self.nightTime]
+                        else:
+                            vis2 = [not (x < ts or x > tr) for x in self.nightTime]
+                    except ephem.NeverUpError:
+                        vis2 = [True for _ in range(len(self.nightTime))]
+                    except ephem.AlwaysUpError:
+                        vis2 = [False for _ in range(len(self.nightTime))]
+
+                    self.ob[n]["visibility"]["h_min"] = vis1
+                    vis = [a and b for a,b in zip(vis1,vis2)]
+                    self.ob[n]["visibility"]["h_max"] = vis.copy()
+                    self.ob[n]["visibility"]["all"] = vis
 
     def MaskMoon(self):
         moon = ephem.Moon()
+        self.oca.date = self.nightTime[0]
+        self.oca.horizon = 0
+        tr = self.oca.next_rising(moon)
+        ts = self.oca.next_setting(moon)
+        if tr < ts:
+            moonvis = [not (x > tr and x < ts) for x in self.nightTime]
+        else:
+            moonvis = [(x > tr or x < ts) for x in self.nightTime]
+
         for n, tmp in enumerate(self.ob):
             if d_ver(self.ob[n],["name","ra","dec"]):
                 s = ephem.FixedBody()
@@ -440,8 +476,8 @@ class telescope_plan_generator():
 
                     if d_ver(self.ob[n], ["max_moon_phase"]):
                         if float(phase) > float(self.ob[n]["max_moon_phase"]):
-                            self.ob[n]["visibility"]["all"] = [False for _ in range(len(self.nightTime))]
-                            self.ob[n]["visibility"]["max_moon_phase"] = [False for _ in range(len(self.nightTime))]
+                            self.ob[n]["visibility"]["all"] = moonvis
+                            self.ob[n]["visibility"]["max_moon_phase"] = moonvis
 
     def MaskWind(self):  # cala noc, jeden kierunek
         if self.wind:
@@ -528,14 +564,16 @@ class telescope_plan_generator():
                     if "T" in ts:
                         ts = ts.replace("T", " ")
                     if "/" not in ts:
-                        date = self.date.split()[0]
-                        if int(ts.split(":")[0]) < 16:
+                        date = str(self.start_time).split()[0]
+
+                        if int(str(self.start_time).split()[1].split(":")[0]) > 16 and int(ts.split(":")[0]) < 16:
                             date = ephem.Date(date) + 1
                             date = str(ephem.Date(date)).split()[0]
                         ts = date + " " + ts
                     ts = ephem.Date(ts)
                     time_s = ts
-                    if time_s or time_e:
+
+                    if time_s:
                         for i, tmp in enumerate(self.nightTime):
                             if float(self.nightTime[i]) < float(time_s) and self.ob[n]["visibility"]["all"][i] and time_s:
                                 self.ob[n]["visibility"]["all"][i] = False
@@ -548,22 +586,23 @@ class telescope_plan_generator():
                     if "T" in te:
                         te = te.replace("T", " ")
                     if "/" not in te:
-                        date = self.date.split()[0]
-                        if int(te.split(":")[0]) < 16:
+                        date = str(self.start_time).split()[0]
+
+                        if int(str(self.start_time).split()[1].split(":")[0]) > 16 and int(te.split(":")[0]) < 16:
                             date = ephem.Date(date) + 1
                             date = str(ephem.Date(date)).split()[0]
                         te = date + " " + te
                     te = ephem.Date(te)
                     time_e = te
-                    if time_e < time_s:
-                        time_e = time_e + ephem.day
 
-                    if time_s or time_e:
+                    if time_e:
                         for i, tmp in enumerate(self.nightTime):
                             if float(self.nightTime[i]) > float(time_e) and self.ob[n]["visibility"]["all"][i] and time_e:
                                 self.ob[n]["visibility"]["all"][i] = False
                                 ZNACZNIK = True
                 self.ob[n]["visibility"]["t_end"] = self.ob[n]["visibility"]["all"].copy()
+                print(ts,te)
+
 
     def MaskPhaseStartEnd(self):  # Masks visibility based on pstart and pend
         for n, tmp in enumerate(self.ob):
@@ -643,17 +682,23 @@ class telescope_plan_generator():
 
 
     def Waga(self):  #
-        for n, tmp in enumerate(self.ob):
-            if d_ver(self.ob[n], ["name", "visibility"]):
-                maska = numpy.array(self.ob[n]["visibility"]["all"])
-                maska = maska[maska]
-                allminutes = len(self.nightTime)
-                if len(maska) == 0:
-                    waga = 0
-                else:
-                    waga = 1. - float(len(maska)) / float(allminutes)
-                if waga < 0.3 and len(maska) != 0: waga = 0.3
-                self.ob[n]["waga"] = waga
+        no_obj = False
+        if True:
+            for n, tmp in enumerate(self.ob):
+                if d_ver(self.ob[n], ["name", "visibility"]):
+                    maska = numpy.array(self.ob[n]["visibility"]["all"])
+                    maska = maska[maska]
+                    allminutes = len(self.nightTime)
+                    if len(maska) == 0:
+                        waga = 0
+                    else:
+                        no_obj = True
+                        waga = 1. - float(len(maska)) / float(allminutes)
+                    if waga < 0.3 and len(maska) != 0: waga = 0.3
+                    self.ob[n]["waga"] = waga
+        if not no_obj:
+            raise ValueError(f"No observable objects!")
+
 
     # tutaj mozna dodac opcje wylaczenia losowania
     def RandomizeList(self):  # randomize listo of objects to observev
@@ -691,7 +736,7 @@ class telescope_plan_generator():
                     # wbrew pozorom ta funkcja przeszukuje caly zbior, ale wybiera pierwsz obiekt
                     # z listy random_index_list ( bo jest > priormax, a nie >= )
                     # moze to nie jest najbardziej optymalny kod
-                    if int(self.ob[k]["priority"]) > priormax and int(self.ob[k]["priority"]) > -50:
+                    if int(self.ob[k]["priority"]) > priormax and int(self.ob[k]["priority"]) > -1:
                         visibility = self.ob[k]["visibility"]["all"]
                         slots = float((self.ob[k]["slotTime"])) / 1.
                         if "inf" in self.ob[k]["flag"]:
@@ -748,6 +793,8 @@ class telescope_plan_generator():
 
                     self.random_index_list = numpy.delete(self.random_index_list, del_list)
 
+
+
     def export(self):
         if True:
             ZNACZNIK = False
@@ -788,65 +835,49 @@ class telescope_plan_generator():
                                     txt = "   ".join(q.split())
                             self.plan.append(f'OBJECT {txt}')
 
-    def export_back(self):
-        if True:
-            prev = -100
-            ZNACZNIK = False
-            if "start_at_sunset" in self.flags:
-                txt = f'WAIT sunset={str(self.cfg[self.tel]["hsun"])}'
+
+        if self.add_start_makro and d_ver(self.cfg[self.tel],["start_makro"]):
+            start_plan = []
+            ok = False
+            if os.path.exists(self.cfg[self.tel]["start_makro"]):
+                with open(self.cfg[self.tel]["start_makro"], "r", encoding="utf-8") as makro_file:
+                    for line in makro_file:
+                        if line.strip():
+                            start_plan.append(line.strip())
+                            ok = True
+            if ok:
+                self.plan = start_plan + self.plan
+                txt = f"start_makro added\n"
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
             else:
-                txt = f'WAIT ut={str(ephem.Date(self.nightTime[0])).split()[1]}'
-            self.plan.append(txt)
-            for n, tmp in enumerate(self.nightTime):
-                if self.nightFree[n]:
-                    ZNACZNIK = True
-                if self.nightObChange[n]:
-                    if ZNACZNIK:
-                        ZNACZNIK = False
-                        self.oca.date = ephem.Date(self.nightTime[n])
-                        txt = "WAIT ut=" + str(self.oca.date).split()[1]
-                        self.plan.append(txt)
-                    if True:
-                        k = int(self.nightObject[n])
+                txt = f"NO start_makro FILE\n"
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
 
-                        if "x" in self.ob[k]["seq"]:
-                            q = self.ob[k]["seq"].split("x")[0]
-                            r = self.ob[k]["seq"].split("x")[1]
-                            if int(q) > 10:
-                                self.ob[k]["seq"] = f"10x{r}"
-                                for _ in range(int(int(q)/10)):
-                                    txt = f'OBJECT  {self.ob[k]["name"]} {self.ob[k]["ra"]} {self.ob[k]["dec"]}      seq={self.ob[k]["seq"]}'
-                                    if len(self.ob[k]["comment"]) > 0: txt = txt + f'    comment=\"{self.ob[k]["comment"]}\"'
-                                    self.plan.append(txt)
-                                z = int(q)-10*int(int(q)/10)
-                                if z != 0:
-                                    self.ob[k]["seq"] = f"{z}x{r}"
-                                    txt = f'OBJECT  {self.ob[k]["name"]} {self.ob[k]["ra"]} {self.ob[k]["dec"]}      seq={self.ob[k]["seq"]}'
-                                    if len(self.ob[k]["comment"]) > 0: txt = txt + f'    comment=\"{self.ob[k]["comment"]}\"'
-                                    self.plan.append(txt)
-                            else:
-                                txt = f'OBJECT  {self.ob[k]["name"]} {self.ob[k]["ra"]} {self.ob[k]["dec"]}      seq={self.ob[k]["seq"]}'
-                                if len(self.ob[k]["comment"]) > 0: txt = txt + f'    comment=\"{self.ob[k]["comment"]}\"'
-                                if self.ob[k]["uobi"]:
-                                    txt = txt + f' uobi={self.ob[k]["uobi"]}'
-                                self.plan.append(txt)
-                        else:
-                            txt = f'OBJECT  {self.ob[k]["name"]} {self.ob[k]["ra"]} {self.ob[k]["dec"]}      seq={self.ob[k]["seq"]}'
-                            if self.ob[k]["uobi"]:
-                                txt = txt + f' uobi={self.ob[k]["uobi"]}'
-                            if len(self.ob[k]["comment"]) > 0: txt = txt + f'    comment=\"{self.ob[k]["comment"]}\"'
-                            if d_ver(self.ob[k], ["name", "makro"]):
-                                with open(self.ob[k]["makro"], "r", encoding="utf-8") as makro_file:
-                                    for line in makro_file:
-                                        if line.strip():
-                                            self.plan.append(line.strip())
-                            else:
-                                self.plan.append(txt)
-                prev = int(self.nightObject[n])
-
+        if self.add_end_makro and d_ver(self.cfg[self.tel],["end_makro"]):
+            end_plan = []
+            ok = False
+            if os.path.exists(self.cfg[self.tel]["end_makro"]):
+                with open(self.cfg[self.tel]["end_makro"], "r", encoding="utf-8") as makro_file:
+                    for line in makro_file:
+                        if line.strip():
+                            end_plan.append(line.strip())
+                            ok = True
+            if ok:
+                self.plan = self.plan + end_plan
+                txt = f"end_makro added\n"
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
+            else:
+                txt = f"NO end_makro FILE\n"
+                if self.loud: sys.stderr.write(txt)
+                self.msg = self.msg + txt
 
 
 def d_ver(slownik,klucze):
+    if not isinstance(klucze, (list, tuple)):
+        raise TypeError(f'klucze should be a list or tuple, not {type(klucze)}')
     result = True
     for k in klucze:
         if k not in slownik.keys():

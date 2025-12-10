@@ -1,5 +1,7 @@
 wk06:
-  master_file: ./wk06_master.txt       
+  master_file: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/wk06_master.txt
+  start_makro: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/wk06_start_makro.txt
+  end_makro: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/wk06_end_makro.txt
   data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/wk06/targets/
   def_read_mode: 2
   overhead: 15                                               # overhead for time slot calculation
@@ -10,7 +12,9 @@ wk06:
   moon_dist: 40   
 
 zb08:
-  master_file: ./zb08_master.txt
+  master_file: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/zb08_master.txt
+  start_makro: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/zb08_start_makro.txt
+  end_makro: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/zb08_end_makro.txt
   data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/zb08/targets/
   def_read_mode: 2
   overhead: 15
@@ -22,7 +26,9 @@ zb08:
 
 
 jk15:
-  master_file: ./jk15_master.txt
+  master_file: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/jk15_master.txt
+  start_makro: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/jk15_start_makro.txt
+  end_makro: /Users/mgorski/DEVELOPER/GITHUB/tpg/master_files/jk15_end_makro.txt
   data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/jk15/targets/
   def_read_mode: 5
   overhead: 60
