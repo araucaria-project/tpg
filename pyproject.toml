@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tpg"
-version = "1.0.2"
+version = "1.0.3"
 description = "telescope plan generator"
 authors = ["mgorski <mgorski@camk.edu.pl>"]
 license = "MIT"
