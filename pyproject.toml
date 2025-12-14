@@ -12,8 +12,8 @@ include = ['config.yaml']
 python = "^3.10"
 pyyaml = "^6.0"
 ephem = "^4.1.4"
-numpy = "^1.24.1"
-# astropy = ">=5.0.4,<5.1.0"  # conficting with ocabox dependecy on astropy ^6.0.0.
+numpy = ">=1.24.1"
+astropy = ">=5.0.4"  # conficting with ocabox dependecy on astropy ^6.0.0.
 
 
 ctc = {git = "https://github.com/araucaria-project/ctc.git"}
