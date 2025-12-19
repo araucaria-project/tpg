@@ -35,25 +35,25 @@ SA113-F1                21:36:02           -00:30:25          seq=1/B/12,1/V/10,
 
 # Stromgren standards (Hauck & Mermilliod 1998; Paunzen 2015)
 
-#HD_3417      00:36:52.25   -34:16:50.40     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=10.98     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard A8V"
-#HD_12756     02:04:18.52   -30:24:25.69     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.94      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard F5V"
-#HD_22610     03:34:45.29   -62:27:24.60     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.43      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard K2V"
-#HD_57568     07:21:22.68   -12:38:14.05     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=10.03     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard K3V"
-#HD_58489     07:24:04.61   -40:02:45.84     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.74      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard K3.5V"
-#HD_66020     08:00:02.15   -40:02:21.90     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.62      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard K5V"
+#HD_3417      00:36:52.25   -34:16:50.40     seq=1/u_s/160,1/v_s/20,1/b_s/20,1/y_s/15    mV=10.98     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard A8V"
+#HD_12756     02:04:18.52   -30:24:25.69     seq=1/u_s/80,1/v_s/10,1/b_s/10,1/y_s/7      mV=9.94      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard F5V"
+#HD_22610     03:34:45.29   -62:27:24.60     seq=1/u_s/50,1/v_s/8,1/b_s/8,1/y_s/5        mV=9.43      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard K2V"
+#HD_57568     07:21:22.68   -12:38:14.05     seq=1/u_s/80,1/v_s/15,1/b_s/15,1/y_s/7      mV=10.03     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard K3V"
+#HD_58489     07:24:04.61   -40:02:45.84     seq=1/u_s/80,1/v_s/10,1/b_s/10,1/y_s/7      mV=9.74      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard K3.5V"
+#HD_66020     08:00:02.15   -40:02:21.90     seq=1/u_s/50,1/v_s/10,1/b_s/10,1/y_s/5      mV=9.62      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard K5V"
 
 # Additional Stromgren standards from Tycho catalog
 # INFO Not introduced to objects.txt
 
-#TYC7547-711-1      01:24:12.51   -44:27:00.05     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=10.92     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard CD-45 460"
-#TYC7548-698-1      01:36:08.99   -44:05:23.41     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.68      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard A7V"
-#TYC7583-1011-1     04:11:44.76   -44:49:02.23     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.84      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard F7/8V"
-#TYC8033-906-1      01:20:00.79   -45:27:31.97     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.64      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard A1V"
-#TYC8104-856-1      06:40:10.80   -45:06:03.33     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.77      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard CD-44 2834"
-#TYC8104-969-1      06:42:25.35   -45:09:12.38     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.95      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard CD-45 2690"
-#TYC7626-763-1      06:31:04.53   -43:43:01.43     seq=1/u_s/40,1/v_s/5,1/b_s/5,1/y_s/5       mV=6.68      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard G8III, too bright for jk15"
-#TYC7583-1622-1     04:07:24.68   -44:00:00.70     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.62      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard A2/3III SB"
-#TYC8067-207-1      03:55:04.24   -47:10:10.27     seq=1/u_s/40,1/v_s/15,1/b_s/10,1/y_s/5     mV=9.14      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard CD-47 1197 long-per var"
+#TYC8033-906-1      01:20:00.79   -45:27:31.97     seq=1/u_s/60,1/v_s/10,1/b_s/10,1/y_s/7     mV=9.64      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard A1V"
+#TYC7547-711-1      01:24:12.51   -44:27:00.05     seq=1/u_s/180,1/v_s/25,1/b_s/25,1/y_s/15   mV=10.92     priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard CD-45 460"
+#TYC7548-698-1      01:36:08.99   -44:05:23.41     seq=1/u_s/60,1/v_s/10,1/b_s/10,1/y_s/7     mV=9.68      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard A7V"
+#TYC8067-207-1      03:55:04.24   -47:10:10.27     seq=1/u_s/40,1/v_s/5,1/b_s/5,1/y_s/5       mV=9.14      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard CD-47 1197 long-per var"
+#TYC7583-1622-1     04:07:24.68   -44:00:00.70     seq=1/u_s/60,1/v_s/10,1/b_s/10,1/y_s/7     mV=9.62      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard A2/3III SB"
+#TYC7583-1011-1     04:11:44.76   -44:49:02.23     seq=1/u_s/60,1/v_s/10,1/b_s/10,1/y_s/7     mV=9.84      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard F7/8V"
+#TYC8104-856-1      06:40:10.80   -45:06:03.33     seq=1/u_s/60,1/v_s/10,1/b_s/10,1/y_s/7     mV=9.77      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard CD-44 2834"
+#TYC8104-969-1      06:42:25.35   -45:09:12.38     seq=1/u_s/90,1/v_s/15,1/b_s/15,1/y_s/9     mV=9.95      priority=10     sciprog=cal   pi=ocm     tag=std_stromgren       comment="Stromgren standard CD-45 2690"
+
 
 
 
@@ -233,8 +233,8 @@ OGLE-LMC-ECL-26520      04:42:58.80        -70:55:42.1        seq=1/V/260,1/g/23
 #OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/260,1/Ic/260,1/B/260     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=eclipse         cycle=0.05  t_start=2025/10/10T23:59:00  t_end=2025/10/18T08:40:00
 #OGLE-LMC-CEP-1812       05:23:07.70      -69:33:49.9   seq=1/V/260,1/Ic/260,1/B/260     sciprog=cep_lmc      pi=bpilecki     priority=10    mV=16.647   P=551.776   hjd0=2455445.207  tag=after_eclipse   cycle=0.12  t_start=2025/10/18T23:59:00  t_end=2025/10/25T08:40:00
 # Random phase
-OGLE-LMC-CEP-0227       04:52:15.69        -70:14:31.3        seq=1/V/180,1/Ic/180,1/B/180          priority=10    sciprog=cep_lmc    pi=bpilecki    tag=random_phase    P=309.669    hjd0=2455221.68    obs_data=/data/fits/jk15/processed-ofp/targets/ogle-lmc-cep-0227/V/light-curve/ogle-lmc-cep-0227_V_diff_light_curve.txt    mV=15.291    
-OGLE-LMC-CEP-1812       05:23:07.70        -69:33:49.9        seq=1/V/260,1/Ic/260,1/B/260          priority=10    cycle=1.5    sciprog=cep_lmc    pi=bpilecki    tag=random_phase    P=551.776    hjd0=2455445.207    obs_data=/data/fits/jk15/processed-ofp/targets/ogle-lmc-cep-1812/V/light-curve/ogle-lmc-cep-1812_V_diff_light_curve.txt    mV=16.647    
+OGLE-LMC-CEP-0227       04:52:15.69        -70:14:31.3        seq=1/V/180,1/Ic/180,1/B/180          priority=9    sciprog=cep_lmc    pi=bpilecki    tag=random_phase    P=309.669    hjd0=2455221.68    obs_data=/data/fits/jk15/processed-ofp/targets/ogle-lmc-cep-0227/V/light-curve/ogle-lmc-cep-0227_V_diff_light_curve.txt    mV=15.291    
+OGLE-LMC-CEP-1812       05:23:07.70        -69:33:49.9        seq=1/V/260,1/Ic/260,1/B/260          priority=9    cycle=1.5    sciprog=cep_lmc    pi=bpilecki    tag=random_phase    P=551.776    hjd0=2455445.207    obs_data=/data/fits/jk15/processed-ofp/targets/ogle-lmc-cep-1812/V/light-curve/ogle-lmc-cep-1812_V_diff_light_curve.txt    mV=16.647    
 
 
 
