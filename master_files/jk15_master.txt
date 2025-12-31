@@ -142,7 +142,7 @@ NGC362-center      01:03:14.3     -70:50:55.6   seq=2/g/20,2/r/25,2/i/50,2/z/80,
 
 NGC1851-center     05:14:06.76    -40:02:47.6   seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35    priority=6    cycle=0.1    uobi=d17f590f    sciprog=var_gclu    pi=ghajdu    obs_data=/data/fits/jk15/processed-ofp/targets/ngc1851-center_check1/r/light-curve/ngc1851-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible" 
 
-NGC4590-center     12:39:28.0     -26:44:38.6   seq=1/g/25,1/r/30,1/i/35,1/z/70,1/B/30,1/V/30,1/Ic/50     priority=6    cycle=0.1    uobi=d17f590f    sciprog=var_gclu    pi=ghajdu    obs_data=/data/fits/jk15/processed-ofp/targets/ngc4590-center_check1/r/light-curve/ngc4590-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"
+NGC4590-center     12:39:28.0     -26:44:38.6   seq=2/g/25,2/r/30,2/i/35,2/z/70,2/g/25,2/r/30,2/i/35,2/B/30,2/g/25,2/r/30,2/i/35,2/V/30,2/g/25,2/r/30,2/i/35,2/Ic/50     priority=6    cycle=0.1    uobi=d17f590f    sciprog=var_gclu    pi=ghajdu    obs_data=/data/fits/jk15/processed-ofp/targets/ngc4590-center_check1/r/light-curve/ngc4590-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"
 
 #NGC3201-center    10:17:36.82    -46:24:44.9   seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30  cycle=0.6   priority=6  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ngc3201_check1/r/light-curve/ngc3201_check1_r_diff_light_curve.txt     uobi=6c942bee     comment="dense coverage"
 
