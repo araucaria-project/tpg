@@ -601,7 +601,7 @@ class TelescopePlanGenerator():
                                 self.ob[n]["visibility"]["all"][i] = False
                                 ZNACZNIK = True
                 self.ob[n]["visibility"]["t_end"] = self.ob[n]["visibility"]["all"].copy()
-                print(ts,te)
+
 
 
     def MaskPhaseStartEnd(self):  # Masks visibility based on pstart and pend
