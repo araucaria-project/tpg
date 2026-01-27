@@ -642,6 +642,23 @@ NGC2362                 07:18:41.0         -24:57:14          seq=2/g/3,2/g/30,2
 
 
 
+# RR Lyrae stars with companions from speckle observations
+# SCIPROG rrl_speckle
+# PI rsalinas
+#
+# Random phase for u-band calibrations
+AT_Vir     12:55:10.51    -05:27:31.78     seq=2/u/60,2/g/6,2/r/4,2/i/6,2/z/20           priority=9   sciprog=rrl_speckle  pi=rsalinas
+BB_Vir     13:51:40.78    +06:25:51.39     seq=2/u/60,2/g/5,2/r/4,2/i/6,2/z/30           priority=9   sciprog=rrl_speckle  pi=rsalinas
+AM_Vir     13:23:33.30    -16:39:57.90     seq=2/u/54,2/g/6.3,2/r/4.3,2/i/8,2/z/30       priority=9   sciprog=rrl_speckle  pi=rsalinas
+V445_Oph   16:24:41.21    -06:32:29.79     seq=2/u/42,2/g/3.3,2/r/3,2/i/5,2/z/21         priority=9   sciprog=rrl_speckle  pi=rsalinas
+V675_Sgr   18:13:35.41    -34:19:01.85     seq=2/u/22,2/g/1.5,2/r/1.2,2/i/2.3,2/z/11     priority=9   sciprog=rrl_speckle  pi=rsalinas
+WY_Ant     10:16:04.91    -29:43:42.00     seq=2/u/26,2/g/2.9                            priority=9   sciprog=rrl_speckle  pi=rsalinas
+WZ_Hya     10:13:24.10    -13:08:17.57     seq=2/u/24,2/g/2.9                            priority=9   sciprog=rrl_speckle  pi=rsalinas
+IK_Hya     12:04:47.18    -27:40:44.28     seq=2/u/28,2/g/2                              priority=9   sciprog=rrl_speckle  pi=rsalinas
+IU_Car     06:53:07.52    -59:35:43.42     seq=2/u/76,2/g/7                     
+
+
+
 ############
 ## HALTED ##
 ############
@@ -668,17 +685,6 @@ NGC2362                 07:18:41.0         -24:57:14          seq=2/g/3,2/g/30,2
 # RR Lyrae stars with companions from speckle observations
 # SCIPROG rrl_speckle
 # PI rsalinas
-#
-# Random phase for u-band calibrations
-AT_Vir     12:55:10.51    -05:27:31.78     seq=2/u/60,2/g/6,2/r/4,2/i/6,2/z/20           priority=9   sciprog=rrl_speckle  pi=rsalinas
-BB_Vir     13:51:40.78    +06:25:51.39     seq=2/u/60,2/g/5,2/r/4,2/i/6,2/z/30           priority=9   sciprog=rrl_speckle  pi=rsalinas
-AM_Vir     13:23:33.30    -16:39:57.90     seq=2/u/54,2/g/6.3,2/r/4.3,2/i/8,2/z/30       priority=9   sciprog=rrl_speckle  pi=rsalinas
-V445_Oph   16:24:41.21    -06:32:29.79     seq=2/u/42,2/g/3.3,2/r/3,2/i/5,2/z/21         priority=9   sciprog=rrl_speckle  pi=rsalinas
-V675_Sgr   08:13:35.41    -34:19:02.01     seq=2/u/22,2/g/1.5,2/r/1.2,2/i/2.3,2/z/11     priority=9   sciprog=rrl_speckle  pi=rsalinas
-WY_Ant     10:16:04.91    -29:43:42.00     seq=2/u/26,2/g/2.9                            priority=9   sciprog=rrl_speckle  pi=rsalinas
-WZ_Hya     10:13:24.10    -13:08:17.57     seq=2/u/24,2/g/2.9                            priority=9   sciprog=rrl_speckle  pi=rsalinas
-IK_Hya     12:04:47.18    -27:40:44.28     seq=2/u/28,2/g/2                              priority=9   sciprog=rrl_speckle  pi=rsalinas
-IU_Car     06:53:07.52    -59:35:43.42     seq=2/u/76,2/g/7                              priority=9   sciprog=rrl_speckle  pi=rsalinas
 #
 # Minimum light in all bands
 # AT_Vir                  12:55:10.51        -05:27:31.78       seq=2/u/60,2/g/6,2/r/4,2/i/6,2/z/20,2/Ic/10,2/V/9                   priority=7      cycle=0.167    ph_mk=2/u/0.02      sciprog=rrl_speckle    pi=rsalinas      P=0.5257931     hjd0=2456891.345222200
