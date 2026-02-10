@@ -13,8 +13,7 @@
 
 
 
-# Hawarden standard stars
-# TBD
+# Standard stars won't be observed for now, we'll use 2MASS stars for calibration
 
 
 
