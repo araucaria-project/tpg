@@ -680,15 +680,28 @@ NGC2362                 07:18:41.0         -24:57:14          seq=2/g/3,2/g/30,2
 
 
 
-# LMC late-type eclipsig binaries
+# LMC late-type eclipsig binaries, the brigther targets complementing the fainter targets observed on JK15
 # SCIPROG deb_late_lmc
 # PI dgraczyk
 #
-OGLE-LMC-ECL-45368               05:09:56.53     -65:43:34.0    seq=1/V/300,1/g/270,1/r/250     mV=16.399    P=485.559116     sciprog=deb_late_lmc   pi=dgraczyk
-OGLE-LMC-ECL-33491               05:27:00.64     -67:29:09.9    seq=1/V/300,1/g/270,1/r/250     mV=16.806    P=949.206453     sciprog=deb_late_lmc   pi=dgraczyk
-OGLE-LMC-ECL-37120               05:41:41.08     -65:05:08.3    seq=1/V/300,1/g/270,1/r/250     mV=17.364    P=72.624695      sciprog=deb_late_lmc   pi=dgraczyk
-OGLE-LMC-ECL-38401               05:49:35.72     -67:12:40.8    seq=1/V/300,1/g/270,1/r/250     mV=17.297    P=412.271417     sciprog=deb_late_lmc   pi=dgraczyk
-OGLE-LMC-ECL-25304               05:54:19.45     -70:50:24.0    seq=1/V/300,1/g/270,1/r/250     mV=17.266    P=194.517900     sciprog=deb_late_lmc   pi=dgraczyk
+# Primary eclipse
+OGLE-LMC-ECL-45368        05:09:56.53  -65:43:34.0    seq=1/V/180,1/g/300,1/r/120     mV=16.399    P=485.559116    sciprog=deb_late_lmc   pi=dgraczyk    h0=2460281.3842  ph_start=0.969  ph_end=0.031  cycle=0.4    ph_mk=2/V/0.001   priority=7    tag=primary
+OGLE-LMC-ECL-33491        05:27:00.64  -67:29:09.9    seq=1/V/260,2/g/300,1/r/150     mV=16.806    P=949.206453    sciprog=deb_late_lmc   pi=dgraczyk    h0=2460732.4087  ph_start=0.977  ph_end=0.023  cycle=0.8    ph_mk=2/V/0.001   priority=7    tag=primary
+OGLE-LMC-ECL-37120        05:41:41.08  -65:05:08.3    seq=1/V/300,2/g/300,1/r/180     mV=17.364    P=72.624695     sciprog=deb_late_lmc   pi=dgraczyk    h0=2460002.1186  ph_start=0.948  ph_end=0.052  cycle=0.07   ph_mk=2/V/0.001   priority=7    tag=primary
+OGLE-LMC-ECL-38401        05:49:35.72  -67:12:40.8    seq=1/V/300,2/g/300,1/r/180     mV=17.297    P=412.271417    sciprog=deb_late_lmc   pi=dgraczyk    h0=2460175.9495  ph_start=0.969  ph_end=0.031  cycle=0.4    ph_mk=2/V/0.001   priority=7    tag=primary
+OGLE-LMC-ECL-25304        05:54:19.45  -70:50:24.0    seq=1/V/300,2/g/300,1/r/180     mV=17.266    P=194.517900    sciprog=deb_late_lmc   pi=dgraczyk    h0=2453645.2212  ph_start=0.962  ph_end=0.038  cycle=0.18   ph_mk=2/V/0.001   priority=7    tag=primary
+# Secondary eclipse
+OGLE-LMC-ECL-45368        05:09:56.53  -65:43:34.0    seq=1/V/180,1/g/300,1/r/120     mV=16.399    P=485.559116    sciprog=deb_late_lmc   pi=dgraczyk    h0=2460281.3842  ph_start=0.616  ph_end=0.668  cycle=0.4    ph_mk=2/V/0.001   priority=7    tag=secondary
+OGLE-LMC-ECL-33491        05:27:00.64  -67:29:09.9    seq=1/V/260,2/g/300,1/r/150     mV=16.806    P=949.206453    sciprog=deb_late_lmc   pi=dgraczyk    h0=2460732.4087  ph_start=0.619  ph_end=0.651  cycle=0.8    ph_mk=2/V/0.001   priority=7    tag=secondary
+OGLE-LMC-ECL-37120        05:41:41.08  -65:05:08.3    seq=1/V/300,2/g/300,1/r/180     mV=17.364    P=72.624695     sciprog=deb_late_lmc   pi=dgraczyk    h0=2460002.1186  ph_start=0.448  ph_end=0.548  cycle=0.07   ph_mk=2/V/0.001   priority=7    tag=secondary
+OGLE-LMC-ECL-38401        05:49:35.72  -67:12:40.8    seq=1/V/300,2/g/300,1/r/180     mV=17.297    P=412.271417    sciprog=deb_late_lmc   pi=dgraczyk    h0=2460175.9495  ph_start=0.581  ph_end=0.674  cycle=0.4    ph_mk=2/V/0.001   priority=7    tag=secondary
+OGLE-LMC-ECL-25304        05:54:19.45  -70:50:24.0    seq=1/V/300,2/g/300,1/r/180     mV=17.266    P=194.517900    sciprog=deb_late_lmc   pi=dgraczyk    h0=2453645.2212  ph_start=0.534  ph_end=0.596  cycle=0.18   ph_mk=2/V/0.001   priority=7    tag=secondary
+# Random phase
+OGLE-LMC-ECL-45368        05:09:56.53  -65:43:34.0    seq=1/V/180,1/g/300,1/r/120     mV=16.399    P=485.559116    sciprog=deb_late_lmc   pi=dgraczyk    cycle=9.5    ph_mk=2/V/0.05    obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-45368/r/light-curve/ogle-lmc-ecl-45368_V_diff_light_curve.txt     priority=7    tag=random_phase
+OGLE-LMC-ECL-33491        05:27:00.64  -67:29:09.9    seq=1/V/260,2/g/300,1/r/150     mV=16.806    P=949.206453    sciprog=deb_late_lmc   pi=dgraczyk    cycle=3.7    ph_mk=2/V/0.05    obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-33491/r/light-curve/ogle-lmc-ecl-33491_V_diff_light_curve.txt     priority=7    tag=random_phase
+OGLE-LMC-ECL-37120        05:41:41.08  -65:05:08.3    seq=1/V/300,2/g/300,1/r/180     mV=17.364    P=72.624695     sciprog=deb_late_lmc   pi=dgraczyk    cycle=1.4    ph_mk=2/V/0.05    obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-37120/r/light-curve/ogle-lmc-ecl-37120_V_diff_light_curve.txt     priority=7    tag=random_phase
+OGLE-LMC-ECL-38401        05:49:35.72  -67:12:40.8    seq=1/V/300,2/g/300,1/r/180     mV=17.297    P=412.271417    sciprog=deb_late_lmc   pi=dgraczyk    cycle=8.0    ph_mk=2/V/0.05    obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-38401/r/light-curve/ogle-lmc-ecl-38401_V_diff_light_curve.txt     priority=7    tag=random_phase
+OGLE-LMC-ECL-25304        05:54:19.45  -70:50:24.0    seq=1/V/300,2/g/300,1/r/180     mV=17.266    P=194.517900    sciprog=deb_late_lmc   pi=dgraczyk    cycle=3.7    ph_mk=2/V/0.05    obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-25304/r/light-curve/ogle-lmc-ecl-25304_V_diff_light_curve.txt     priority=7    tag=random_phase
 
 
 
