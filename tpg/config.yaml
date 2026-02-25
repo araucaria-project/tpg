@@ -49,6 +49,19 @@ jk15:
   wind_dist: 95
   moon_dist: 40
 
+iris:
+  master_file: /home/observer/src/tpg/master_files/iris_master.test.txt        # file with OB definitions
+  start_makro: /home/observer/src/tpg/master_files/iris_start_makro.txt
+  end_makro: /home/observer/src/tpg/master_files/iris_end_makro.txt
+  data_file: /data/fits/jk15/processed-ofp/targets/
+  def_read_mode: 3
+  overhead: 60
+  hmin: 35
+  hmax: 80
+  hsun: -18
+  wind_dist: 95
+  moon_dist: 40
+
 test:
   master_file: ./test/test_master.txt
   data_file: /home/observer/src/tpg/test/targets/
