@@ -371,7 +371,7 @@ OGLE-LMC-ECL-22270      05:40:47.31        -69:20:28.3        seq=4/u_s/300,1/v_
 # 10 targets to be observed at leat once per night (higher priority)
 OGLE-GD-CEP-1884    15:35:46.70  -55:56:56.3   seq=2/B/300,2/V/40,2/Ic/5    P=78.1401185    ph_mk=1/V/0.01    priority=8   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.8 BP-RP=5.2"
 OGLE-GD-CEP-1859    13:45:14.13  -63:34:15.6   seq=2/B/150,2/V/20,2/Ic/5    P=67.5057177    ph_mk=1/V/0.01    priority=8   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.5 BP-RP=4.2"
-OGLE-GD-CEP-0568    10:43:18.97  -59:11:29.6   seq=2/B/80,2/V/10,2/Ic/5     P=45.4390549    ph_mk=1/V/0.01    priority=8   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.2 BP-RP=3.5"
+#OGLE-GD-CEP-0568    10:43:18.97  -59:11:29.6   seq=2/B/80,2/V/10,2/Ic/5     P=45.4390549    ph_mk=1/V/0.01    priority=8   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.2 BP-RP=3.5, has already been observed on zb08"
 OGLE-GD-CEP-0889    13:13:50.57  -64:26:28.3   seq=2/B/100,2/V/20,2/Ic/7    P=45.1536783    ph_mk=1/V/0.01    priority=8   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=13.2 BP-RP=3.0"
 OGLE-GD-CEP-1252    18:54:19.14  +00:39:18.3   seq=3/B/300,2/V/70,2/Ic/5    P=44.4575841    ph_mk=1/V/0.01    priority=8   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=13.8 BP-RP=5.7"
 OGLE-GD-CEP-1018    15:06:15.72  -59:41:44.7   seq=2/B/200,2/V/50,2/Ic/7    P=42.7230657    ph_mk=1/V/0.01    priority=8   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=13.8 BP-RP=3.9"
@@ -383,7 +383,7 @@ OGLE-GD-CEP-0898    13:17:38.50  -64:05:28.9   seq=2/B/300,2/V/120,2/Ic/20  P=39
 # The same 10 targets to be observed more frequently during the night if possible (lower priority)
 OGLE-GD-CEP-1884    15:35:46.70  -55:56:56.3   seq=2/B/300,2/V/40,2/Ic/5    P=78.1401185    ph_mk=1/V/0.01   cycle=0.1   priority=5   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.8 BP-RP=5.2"
 OGLE-GD-CEP-1859    13:45:14.13  -63:34:15.6   seq=2/B/150,2/V/20,2/Ic/5    P=67.5057177    ph_mk=1/V/0.01   cycle=0.1   priority=5   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.5 BP-RP=4.2"
-OGLE-GD-CEP-0568    10:43:18.97  -59:11:29.6   seq=2/B/80,2/V/10,2/Ic/5     P=45.4390549    ph_mk=1/V/0.01   cycle=0.1   priority=5   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.2 BP-RP=3.5"
+#OGLE-GD-CEP-0568    10:43:18.97  -59:11:29.6   seq=2/B/80,2/V/10,2/Ic/5     P=45.4390549    ph_mk=1/V/0.01   cycle=0.1   priority=5   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.2 BP-RP=3.5, has already been observed on zb08"
 OGLE-GD-CEP-0889    13:13:50.57  -64:26:28.3   seq=2/B/100,2/V/20,2/Ic/7    P=45.1536783    ph_mk=1/V/0.01   cycle=0.1   priority=5   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=13.2 BP-RP=3.0"
 OGLE-GD-CEP-1252    18:54:19.14  +00:39:18.3   seq=3/B/300,2/V/70,2/Ic/5    P=44.4575841    ph_mk=1/V/0.01   cycle=0.1   priority=5   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=13.8 BP-RP=5.7"
 OGLE-GD-CEP-1018    15:06:15.72  -59:41:44.7   seq=2/B/200,2/V/50,2/Ic/7    P=42.7230657    ph_mk=1/V/0.01   cycle=0.1   priority=5   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=13.8 BP-RP=3.9"
