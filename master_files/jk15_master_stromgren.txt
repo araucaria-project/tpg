@@ -17,6 +17,13 @@
 
 
 # Stromgren standards (Hauck & Mermilliod 1998; Paunzen 2015)
+# If texp<10s in fields with single stars these stars should be located closer to the corner of the image (*), not the center (x), to not be affeced by the shutter
+#  –––––––
+# |   |   |
+#  –––x–––
+# | * |   |
+#  –––––––
+
 # Beginning of night
 # Middle of night
 # End of night
