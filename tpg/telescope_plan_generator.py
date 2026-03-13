@@ -4,7 +4,11 @@ import time
 
 from astropy.table import Table
 
-from ctc import CycleTimeCalc
+try:
+    from ctc import CycleTimeCalc
+    CTC_AVAILABLE = True
+except ImportError:
+    CTC_AVAILABLE = False
 
 
 class TelescopePlanGenerator():
@@ -136,7 +140,7 @@ class TelescopePlanGenerator():
                 sys.stderr.write('Check config.yaml file\n')
                 sys.exit()
 
-        if os.path.exists(self.cfg["ctc"]["ctc_base_folder"]):
+        if os.path.exists(self.cfg["ctc"]["ctc_base_folder"]) and CTC_AVAILABLE:
             self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"], tpg=True)
             self.ctc.set_rm_modes(self.cfg["ctc"]["rm_modes_mhz"])
             self.ctc.set_start_rmode(self.cfg[self.tel]["def_read_mode"])

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tpg"
-version = "1.0.0"
+version = "1.0.3"
 description = "telescope plan generator"
 authors = ["mgorski <mgorski@camk.edu.pl>"]
 license = "MIT"
@@ -14,9 +14,9 @@ pyyaml = "^6.0"
 ephem = "^4.1.4"
 numpy = "^1.24.1"
 
-ctc = {git = "https://github.com/araucaria-project/ctc.git"}
-pyaraucaria = {git = "https://github.com/araucaria-project/pyaraucaria.git"}
-
+#ctc = {git = "https://github.com/araucaria-project/ctc.git"}
+#pyaraucaria = {git = "https://github.com/araucaria-project/pyaraucaria.git"}
+#pyaraucaria = { path = "./../pyaraucaria", develop = true }
 
 
 [tool.poetry.scripts]
