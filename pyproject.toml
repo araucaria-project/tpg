@@ -16,7 +16,7 @@ numpy = "^1.24.1"
 
 #ctc = {git = "https://github.com/araucaria-project/ctc.git"}
 #pyaraucaria = {git = "https://github.com/araucaria-project/pyaraucaria.git"}
-#pyaraucaria = { path = "./../pyaraucaria", develop = true }
+pyaraucaria = { path = "./../pyaraucaria", develop = true }
 
 
 [tool.poetry.scripts]

@@ -560,7 +560,7 @@ class TelescopePlanGenerator():
                     t2 = len(vis[vis])
 
     def MaskStartEnd(self):  # Masks visibility based on t_start t_end
-        for n, tmp in enumerate(self.ob):
+        for n, tmp_ob in enumerate(self.ob):
             ZNACZNIK = False
             if d_ver(self.ob[n], ["name", "t_start", "visibility"]):
                 ts = self.ob[n]["t_start"]
@@ -578,7 +578,7 @@ class TelescopePlanGenerator():
                     time_s = ts
 
                     if time_s:
-                        for i, tmp in enumerate(self.nightTime):
+                        for i, tmp_nt in enumerate(self.nightTime):
                             if float(self.nightTime[i]) < float(time_s) and self.ob[n]["visibility"]["all"][i] and time_s:
                                 self.ob[n]["visibility"]["all"][i] = False
                                 ZNACZNIK = True
@@ -600,12 +600,12 @@ class TelescopePlanGenerator():
                     time_e = te
 
                     if time_e:
-                        for i, tmp in enumerate(self.nightTime):
+                        for i, tmp_nt in enumerate(self.nightTime):
                             if float(self.nightTime[i]) > float(time_e) and self.ob[n]["visibility"]["all"][i] and time_e:
                                 self.ob[n]["visibility"]["all"][i] = False
                                 ZNACZNIK = True
                 self.ob[n]["visibility"]["t_end"] = self.ob[n]["visibility"]["all"].copy()
-                print(ts,te)
+                #print(ts,te)
 
 
     def MaskPhaseStartEnd(self):  # Masks visibility based on pstart and pend
