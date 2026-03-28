@@ -342,7 +342,7 @@ class TelescopePlanGenerator():
                     tmp = seq.replace("INF", "1")
                 else:
                     tmp = seq
-                program = f"OBJECT  {ob["name"]} {ob["ra"]} {ob["dec"]} seq={tmp}"
+                program = f'OBJECT  {ob["name"]} {ob["ra"]} {ob["dec"]} seq={tmp}'
                 if "read_mod" in ob.keys():
                     read_mod = ob["read_mod"]
                     program = program + f" read_mod={read_mod}"
