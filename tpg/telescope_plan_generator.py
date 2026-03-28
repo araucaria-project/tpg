@@ -4,6 +4,9 @@ import time
 
 from astropy.table import Table
 
+from pyaraucaria.obs_plan.obs_plan_parser import ObsPlanParser
+from pyaraucaria.ob_validator import ObsValidator
+
 try:
     from ctc import CycleTimeCalc
     CTC_AVAILABLE = True
@@ -158,181 +161,203 @@ class TelescopePlanGenerator():
                 if len(line.split()) > 0:  # no empty lines
                     if line.strip()[0] != "#":
                         tmp_ob = self.parseObjects(line)
-                        self.ob.append(tmp_ob)
+                        if tmp_ob:
+                            self.ob.append(tmp_ob)
 
 
     def parseObjects(self,line):
-        tmp_ob = dict()
-        line = line.strip()
-        if line:  # no empty lines
 
-            if line.strip()[0] != "#":
-                flag = []
-                seq = "1/Ic/30"
-                priority = 0
-                comment = ""
+        # tmp_ob = dict()
+        # line = line.strip()
+        # if line:  # no empty lines
+            # if line.strip()[0] != "#":
+            #     #flag = []
+            #     seq = "1/Ic/30"
+            #     priority = 0
+            #     comment = ""
+            #
+            #     overhead = self.cfg[self.tel]["overhead"]
+            #     tags = ""
+            #     ts = False
+            #     te = False
+            #     hmax = False
+            #     hmin = False
+            #     ps = False
+            #     pe = False
+            #     period = False
+            #     hjd0 = 2460000
+            #     ph_mk = False
+            #     cycle = False
+            #     read_mod = None
+            #     uobi = False
+            #     makro = False
+            #     obs_data = False
+            #     max_moon_phase = False
+            #     min_moon_dist = False
+            #
+            #
+            #
+            #     if "comment=" in line:
+            #         tmp = line.split("comment=")[1]
+            #         if "\"" in line:
+            #             comment = tmp.split("\"")[1]
+            #         if "\'" in line:
+            #             comment = tmp.split("\'")[1]
+            #
+            #     if "uobi=" in line:
+            #         uobi = line.split("uobi=")[1].split()[0]
+            #
+            #     if "seq=" in line:
+            #         seq = line.split("seq=")[1].split()[0]
+            #
+            #     if "priority=" in line:
+            #         priority = line.split("priority=")[1].split()[0]
+            #
+            #     if "tag=" in line:
+            #         tags = line.split("tag=")[1].split()[0]
+            #
+            #     if "t_start=" in line:
+            #         ts = line.split("t_start=")[1].split()[0]
+            #
+            #     if "t_end=" in line:
+            #         te = line.split("t_end=")[1].split()[0]
+            #
+            #     if "h_min=" in line:
+            #         hmin = line.split("h_min=")[1].split()[0]
+            #
+            #     if "h_max=" in line:
+            #         hmax = line.split("h_max=")[1].split()[0]
+            #
+            #     if "ph_start=" in line and "ph_end=" in line:
+            #         ps = line.split("ph_start=")[1].split()[0]
+            #         pe = line.split("ph_end=")[1].split()[0]
+            #
+            #     if "P=" in line:
+            #         period = line.split("P=")[1].split()[0]
+            #
+            #     if "hjd0=" in line:
+            #         hjd0 = line.split("hjd0=")[1].split()[0]
+            #
+            #     if "ph_mk=" in line:
+            #         ph_mk = line.split("ph_mk=")[1].split()[0]
+            #
+            #     if "cycle=" in line:
+            #         cycle = line.split("cycle=")[1].split()[0]
+            #
+            #     if "read_mod=" in line:
+            #         read_mod = line.split("read_mod=")[1].split()[0]
+            #
+            #     if "min_moon_dist" in line:
+            #         min_moon_dist = float(line.split("min_moon_dist=")[1].split()[0])
+            #
+            #     if "max_moon_phase" in line:
+            #         max_moon_phase = float(line.split("max_moon_phase=")[1].split()[0])
+            #
+            #     if "obs_data" in line:
+            #         obs_data = (line.split("obs_data=")[1].split()[0])
+            #
+            #     if "makro" in line:
+            #         makro = (line.split("makro=")[1].split()[0])
+            #
+            #     for i, tmp in enumerate(line.split()):
+            #
+            #         if i == 0:
+            #             name = line.split()[0]
+            #         elif i == 1:
+            #             ra = line.split()[1]
+            #         elif i == 2:
+            #             dec = line.split()[2]
+            #
+            #     if uobi and uobi in self.done:
+            #         pass
+            #     else:
+            #
+            #         tmp_ob["name"] = name
+            #         tmp_ob["ra"] = ra
+            #         tmp_ob["dec"] = dec
+            #         tmp_ob["seq"] = seq
+            #         tmp_ob["comment"] = comment
+            #         #tmp_ob["slotTime"] = slotTime
+            #         tmp_ob["line"] = line
+            #         tmp_ob["priority"] = priority
+            #         tmp_ob["tag"] = tags
+            #         tmp_ob["t_start"] = ts
+            #         tmp_ob["t_end"] = te
+            #         tmp_ob["h_min"] = hmin
+            #         tmp_ob["h_max"] = hmax
+            #         tmp_ob["ph_start"] = ps
+            #         tmp_ob["ph_end"] = pe
+            #         tmp_ob["period"] = period
+            #         tmp_ob["hjd0"] = hjd0
+            #         tmp_ob["ph_mk"] = ph_mk
+            #         tmp_ob["cycle"] = cycle
+            #         tmp_ob["uobi"] = uobi
+            #         tmp_ob["makro"] = makro
+            #         tmp_ob["obs_data"] = obs_data
+            #         tmp_ob["max_moon_phase"] = max_moon_phase
+            #         tmp_ob["min_moon_dist"] = min_moon_dist
+            #         #tmp_ob["flag"] = flag
 
+        ob = None
+        if len(line.strip()) > 0:
+            if len(line.split()) > 0:
+                if "#" not in line.split()[0]:
+                    txt = f'OBJECT {line}'
+                    ob_tmp = ObsPlanParser.convert_from_string(txt)
+
+                    if ob_tmp is None:
+                        print("*** parser error ***")
+                        print(line)
+                    else:
+                        ob = ObsValidator.convert_to_obdict(ob_tmp)
+
+        if ob != None:
+
+            # uzupelnienie do liczenia fazowania
+            if "P" in ob.keys() and "hjd0" not in ob.keys():
+                ob["hjd0"] = 2460000
+
+            # slotTime calculation
+            if "ob_time" in ob.keys():
+                ob["slotTime"] = ob["ob_time"]
+            elif "seq" in ob.keys():
                 overhead = self.cfg[self.tel]["overhead"]
-                tags = ""
-                ts = False
-                te = False
-                hmax = False
-                hmin = False
-                ps = False
-                pe = False
-                period = False
-                hjd0 = 2460000
-                ph_mk = False
-                cycle = False
-                read_mod = None
-                uobi = False
-                makro = False
-                obs_data = False
-                max_moon_phase = False
-                min_moon_dist = False
-
-
-
-                if "comment=" in line:
-                    tmp = line.split("comment=")[1]
-                    if "\"" in line:
-                        comment = tmp.split("\"")[1]
-                    if "\'" in line:
-                        comment = tmp.split("\'")[1]
-
-                if "uobi=" in line:
-                    uobi = line.split("uobi=")[1].split()[0]
-
-                if "seq=" in line:
-                    seq = line.split("seq=")[1].split()[0]
-
-                if "priority=" in line:
-                    priority = line.split("priority=")[1].split()[0]
-
-                if "tag=" in line:
-                    tags = line.split("tag=")[1].split()[0]
-
-                if "t_start=" in line:
-                    ts = line.split("t_start=")[1].split()[0]
-
-                if "t_end=" in line:
-                    te = line.split("t_end=")[1].split()[0]
-
-                if "h_min=" in line:
-                    hmin = line.split("h_min=")[1].split()[0]
-
-                if "h_max=" in line:
-                    hmax = line.split("h_max=")[1].split()[0]
-
-                if "ph_start=" in line and "ph_end=" in line:
-                    ps = line.split("ph_start=")[1].split()[0]
-                    pe = line.split("ph_end=")[1].split()[0]
-
-                if "P=" in line:
-                    period = line.split("P=")[1].split()[0]
-
-                if "hjd0=" in line:
-                    hjd0 = line.split("hjd0=")[1].split()[0]
-
-                if "ph_mk=" in line:
-                    ph_mk = line.split("ph_mk=")[1].split()[0]
-
-                if "cycle=" in line:
-                    cycle = line.split("cycle=")[1].split()[0]
-
-                if "read_mod=" in line:
-                    read_mod = line.split("read_mod=")[1].split()[0]
-
-                if "min_moon_dist" in line:
-                    min_moon_dist = float(line.split("min_moon_dist=")[1].split()[0])
-
-                if "max_moon_phase" in line:
-                    max_moon_phase = float(line.split("max_moon_phase=")[1].split()[0])
-
-                if "obs_data" in line:
-                    obs_data = (line.split("obs_data=")[1].split()[0])
-
-                if "makro" in line:
-                    makro = (line.split("makro=")[1].split()[0])
-
-                for i, tmp in enumerate(line.split()):
-
-                    if i == 0:
-                        name = line.split()[0]
-                    elif i == 1:
-                        ra = line.split()[1]
-                    elif i == 2:
-                        dec = line.split()[2]
-
-                if "ob_time" in line:
-                    ob_time = float(line.split("ob_time=")[1].split()[0])
-                    slotTime = ob_time
+                seq = ob["seq"]
+                slotTime = 10
+                k = 1
+                if "x(" in seq and ")" in seq:
+                    k = seq.split("x")[0]
+                    if k == "INF":
+                        k = 1
+                        flag = "inf"
+                    k = int(k)
+                    seq0 = seq.split("x(")[1].split(")")[0]
                 else:
-                    slotTime = 10
-                    k = 1
-                    if "x(" in seq and ")" in seq:
-                        k = seq.split("x")[0]
-                        if k == "INF":
-                            k = 1
-                            flag = "inf"
-                        k = int(k)
-
-                        seq0 = seq.split("x(")[1].split(")")[0]
-                    else:
-                        seq0 = seq
-                    for x_seq in seq0.split(","):
-                        slotTime = slotTime + (
-                                float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
-                    slotTime = (k * slotTime) / 60.
-
-                    if "INF" in seq:
-                        tmp = seq.replace("INF", "1")
-                    else:
-                        tmp = seq
-
-                    program = f"OBJECT  {name} {ra} {dec} seq={tmp}"
-                    if read_mod is not None:
-                        program = program + f" read_mod={read_mod}"
-
-                    if self.ctc_active:
-                        self.ctc.reset_time()
-                        ctc_ob_time = self.ctc.calc_time(program) / 60.
-                        slotTime = ctc_ob_time
-                    else:
-                        slotTime = calc_slot_time(program, overhead) / 60.
-
-
-                if uobi and uobi in self.done:
-                    pass
+                    seq0 = seq
+                for x_seq in seq0.split(","):
+                    slotTime = slotTime + (
+                            float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
+                slotTime = (k * slotTime) / 60.
+                if "INF" in seq:
+                    tmp = seq.replace("INF", "1")
                 else:
+                    tmp = seq
+                program = f"OBJECT  {ob["name"]} {ob["ra"]} {ob["dec"]} seq={tmp}"
+                if "read_mod" in ob.keys():
+                    read_mod = ob["read_mod"]
+                    program = program + f" read_mod={read_mod}"
+                if self.ctc_active:
+                    self.ctc.reset_time()
+                    ctc_ob_time = self.ctc.calc_time(program) / 60.
+                    slotTime = ctc_ob_time
+                else:
+                    slotTime = calc_slot_time(program, overhead) / 60.
+                ob["slotTime"] = slotTime
 
-                    tmp_ob["name"] = name
-                    tmp_ob["ra"] = ra
-                    tmp_ob["dec"] = dec
-                    tmp_ob["seq"] = seq
-                    tmp_ob["comment"] = comment
-                    tmp_ob["slotTime"] = slotTime
-                    tmp_ob["line"] = line
-                    tmp_ob["priority"] = priority
-                    tmp_ob["tag"] = tags
-                    tmp_ob["t_start"] = ts
-                    tmp_ob["t_end"] = te
-                    tmp_ob["h_min"] = hmin
-                    tmp_ob["h_max"] = hmax
-                    tmp_ob["ph_start"] = ps
-                    tmp_ob["ph_end"] = pe
-                    tmp_ob["period"] = period
-                    tmp_ob["hjd0"] = hjd0
-                    tmp_ob["ph_mk"] = ph_mk
-                    tmp_ob["cycle"] = cycle
-                    tmp_ob["uobi"] = uobi
-                    tmp_ob["makro"] = makro
-                    tmp_ob["obs_data"] = obs_data
-                    tmp_ob["max_moon_phase"] = max_moon_phase
-                    tmp_ob["min_moon_dist"] = min_moon_dist
-                    tmp_ob["flag"] = flag
+            else:
+                ob["slotTime"] = 0
 
-        return tmp_ob
+        return ob
 
 
     def MakeTime(self):  # Make observing time
@@ -614,7 +639,7 @@ class TelescopePlanGenerator():
             if d_ver(self.ob[n], ["name", "ph_start","ph_end", "visibility"]):
                 ps = self.ob[n]["ph_start"]
                 pe = self.ob[n]["ph_end"]
-                period = self.ob[n]["period"]
+                period = self.ob[n]["P"]
                 hjd0 = self.ob[n]["hjd0"]
 
                 if True:
@@ -664,7 +689,7 @@ class TelescopePlanGenerator():
                         self.msg = self.msg + txt
 
 
-                    P = self.ob[n]["period"]
+                    P = self.ob[n]["P"]
                     hjd0 = self.ob[n]["hjd0"]
                     if P and len(jd)>0:
                         ph = (numpy.array(jd) - float(hjd0)) / float(P) % 1
@@ -743,17 +768,17 @@ class TelescopePlanGenerator():
                     if int(self.ob[k]["priority"]) > priormax and int(self.ob[k]["priority"]) > -1:
                         visibility = self.ob[k]["visibility"]["all"]
                         slots = float((self.ob[k]["slotTime"])) / 1.
-                        if "inf" in self.ob[k]["flag"]:
-                            loops = 1
-                            go = True
-                            while go:
-                                if all(visibility[nn:(nn + int(loops * slots)) + 2]) and len(visibility[nn:]) > int(
-                                        loops * slots) + 1:
-                                    loops = loops + 1
-                                else:
-                                    go = False
-                            loops = loops
-                            slots = int(slots * loops)
+                        # if "inf" in self.ob[k]["flag"]:
+                        #     loops = 1
+                        #     go = True
+                        #     while go:
+                        #         if all(visibility[nn:(nn + int(loops * slots)) + 2]) and len(visibility[nn:]) > int(
+                        #                 loops * slots) + 1:
+                        #             loops = loops + 1
+                        #         else:
+                        #             go = False
+                        #     loops = loops
+                        #     slots = int(slots * loops)
                         slots = int(slots)
                         bounds = (nn, nn + slots)
 
@@ -770,8 +795,8 @@ class TelescopePlanGenerator():
                     self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
                     self.nightObChange[bfin[0]] = True
 
-                    if "inf" in self.ob[kfin]["flag"]:
-                        self.ob[kfin]["seq"] = self.ob[kfin]["seq"].replace("INFx", f"{loops}x")
+                    # if "inf" in self.ob[kfin]["flag"]:
+                    #     self.ob[kfin]["seq"] = self.ob[kfin]["seq"].replace("INFx", f"{loops}x")
 
                     # usuwanie juz zaalocowanych
                     q = self.random_index_list[done]
@@ -779,7 +804,7 @@ class TelescopePlanGenerator():
                     if d_ver(self.ob[q], ["uobi"]):
                         uobi_tmp = self.ob[q]["uobi"]
                         if len(uobi_tmp.strip()) > 0:
-                            indeksy = [i for i, item in enumerate(self.ob) if item["uobi"] == uobi_tmp]
+                            indeksy = [i for i, item in enumerate(self.ob) if item.get("uobi") == uobi_tmp]
                             ni = [j for j, val in enumerate(self.random_index_list) if val in indeksy]
                     else:
                         ni = [done]
@@ -787,7 +812,7 @@ class TelescopePlanGenerator():
                     del_list = []
                     for ki in ni:
                         q = self.random_index_list[ki]
-                        if self.ob[q]["cycle"] != False:
+                        if self.ob[q].get("cycle",None):
                             dn = int(1440 * float(self.ob[q]["cycle"]))  # 1440 minut ma doba
                             if dn > len(self.ob[q]["visibility"]["all"][nn:]):
                                 dn = len(self.ob[q]["visibility"]["all"][nn:])
@@ -824,20 +849,30 @@ class TelescopePlanGenerator():
                                         if line.strip():
                                             self.plan.append(line.strip())
                         else:
-                            txt = self.ob[k]["line"]
-                            par2remove = self.cfg["params_2_remove"]
-                            if d_ver(self.ob[k], ["uobi","cycle"]):
-                                par2remove.append("uobi")  # bo nie powinno sie powtarzac uobi
-                            for x in par2remove:
-                                if x+"=" in txt:
-                                    ab = txt.split(x+"=")
-                                    a = ab[0]
-                                    b = ab[1]
-                                    r = b.split()
-                                    w = " ".join(r[1:])
-                                    q = a.strip() + " " + w.strip()
-                                    txt = "   ".join(q.split())
-                            self.plan.append(f'OBJECT {txt}')
+
+                            #par2remove = list(self.cfg["params_2_remove"])
+                            schema = ObsValidator.load_schema("command_rules")["OBJECT"]
+                            allowed = set(schema["allowed"])
+                            filtered = {
+                                k: v for k, v in self.ob[k].items()
+                                if k in allowed
+                            }
+
+                            txt = ObsValidator.convert_from_obdict(filtered)
+
+                            # par2remove = self.cfg["params_2_remove"]
+                            # if d_ver(self.ob[k], ["uobi","cycle"]):
+                            #     par2remove.append("uobi")  # bo nie powinno sie powtarzac uobi
+                            # for x in par2remove:
+                            #     if x+"=" in txt:
+                            #         ab = txt.split(x+"=")
+                            #         a = ab[0]
+                            #         b = ab[1]
+                            #         r = b.split()
+                            #         w = " ".join(r[1:])
+                            #         q = a.strip() + " " + w.strip()
+                            #         txt = "   ".join(q.split())
+                            self.plan.append(txt)
 
 
         if self.add_start_makro and d_ver(self.cfg[self.tel],["start_makro"]):
