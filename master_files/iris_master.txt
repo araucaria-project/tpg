@@ -16,6 +16,29 @@
 
 
 
+# Focus fields
+# At the beginning of the night
+foc01_NGC288          00:52:46.37   -26:34:58.7     seq=1/Ks/600      tag=focus     priority=10   t_end=01:22:00    uobi=c53847fd     h_min=55   h_max=75  comment="focus"
+foc05_NGC1851         05:14:06.53   -40:02:48.8     seq=1/Ks/600      tag=focus     priority=10   t_end=01:22:00    uobi=c53847fd     h_min=55   h_max=75  comment="focus"
+foc09_NGC2808         09:12:03.05   -64:51:48.6     seq=1/Ks/600      tag=focus     priority=10   t_end=01:22:00    uobi=c53847fd     h_min=55   h_max=75  comment="focus"
+foc10_NGC3201         10:17:36.82   -46:24:44.9     seq=1/Ks/600      tag=focus     priority=10   t_end=01:22:00    uobi=c53847fd     h_min=55   h_max=75  comment="focus"
+foc12_M68             12:39:28.00   -26:44:38.6     seq=1/Ks/600      tag=focus     priority=10   t_end=01:22:00    uobi=c53847fd     h_min=55   h_max=75  comment="focus"
+foc15_NGC5927         15:28:00.69   -50:40:22.5     seq=1/Ks/600      tag=focus     priority=10   t_end=01:22:00    uobi=c53847fd     h_min=55   h_max=75  comment="focus"
+foc18_NGC6544         18:07:20.58   -24:59:50.7     seq=1/Ks/600      tag=focus     priority=10   t_end=01:22:00    uobi=c53847fd     h_min=55   h_max=75  comment="focus"
+foc21_M30             21:40:22.12   -23:10:47.5     seq=1/Ks/600      tag=focus     priority=10   t_end=01:22:00    uobi=c53847fd     h_min=55   h_max=75  comment="focus"
+
+# In the middle of the night
+foc01_NGC288          00:52:46.37   -26:34:58.7     seq=1/Ks/600      tag=focus     priority=10   t_start=04:00:00   t_end=05:00:00    uobi=b8d82f8c    h_min=55   h_max=75   comment="focus"
+foc05_NGC1851         05:14:06.53   -40:02:48.8     seq=1/Ks/600      tag=focus     priority=10   t_start=04:00:00   t_end=05:00:00    uobi=b8d82f8c    h_min=55   h_max=75   comment="focus"
+foc09_NGC2808         09:12:03.05   -64:51:48.6     seq=1/Ks/600      tag=focus     priority=10   t_start=04:00:00   t_end=05:00:00    uobi=b8d82f8c    h_min=55   h_max=75   comment="focus"
+foc10_NGC3201         10:17:36.82   -46:24:44.9     seq=1/Ks/600      tag=focus     priority=10   t_start=04:00:00   t_end=05:00:00    uobi=b8d82f8c    h_min=55   h_max=75   comment="focus"
+foc12_M68             12:39:28.00   -26:44:38.6     seq=1/Ks/600      tag=focus     priority=10   t_start=04:00:00   t_end=05:00:00    uobi=b8d82f8c    h_min=55   h_max=75   comment="focus"
+foc15_NGC5927         15:28:00.69   -50:40:22.5     seq=1/Ks/600      tag=focus     priority=10   t_start=04:00:00   t_end=05:00:00    uobi=b8d82f8c    h_min=55   h_max=75   comment="focus"
+foc18_NGC6544         18:07:20.58   -24:59:50.7     seq=1/Ks/600      tag=focus     priority=10   t_start=04:00:00   t_end=05:00:00    uobi=b8d82f8c    h_min=55   h_max=75   comment="focus"
+foc21_M30             21:40:22.12   -23:10:47.5     seq=1/Ks/600      tag=focus     priority=10   t_start=04:00:00   t_end=05:00:00    uobi=b8d82f8c    h_min=55   h_max=75   comment="focus"
+
+
+
 # Milky Way eclipsing binaries in TESS and Kepler fields for calibration of the SBCR
 # SCIPROG deb_sbcr_gaia
 # PI dgraczyk
