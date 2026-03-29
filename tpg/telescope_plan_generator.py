@@ -15,12 +15,13 @@ except ImportError:
 
 
 class TelescopePlanGenerator():
-    def __init__(self,tel,date,tag=None,wind=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,done_uobi=[]):
+    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
         self.tag = tag
         self.wind = wind
+        self.fwhm = fwhm
         self.done = done_uobi
         self.loud = loud
         self.seed = seed
@@ -85,6 +86,7 @@ class TelescopePlanGenerator():
         self.Initiate()  # initiate script variables
         self.LoadObjects()  # loads objects to observe
         self.MakeTime()  # prepares time variable
+        self.ObjectMask() # maskowanie tag, fwhm, status
         self.CalcObject()  # calculates visibilities for all objects
         self.MaskMoon()
         self.MaskWind()
@@ -360,6 +362,7 @@ class TelescopePlanGenerator():
         return ob
 
 
+
     def MakeTime(self):  # Make observing time
         self.oca = ephem.Observer()
         self.oca.date = self.date
@@ -400,28 +403,52 @@ class TelescopePlanGenerator():
             self.nightObChange.append(False)
             self.nightFree.append(True)
 
+    def ObjectMask(self):
+
+        for n, tmp in enumerate(self.ob):
+
+            self.ob[n]["visibility"] = dict()
+            self.ob[n]["visibility"]["all"] = [True for _ in range(len(self.nightTime))]
+
+            # sprawdzanie statusu
+            if "status" in self.ob[n].keys():
+                if self.ob[n]["status"] in ["finished", "waiting", "halted", "inactive"]:
+                    vis = [False for _ in range(len(self.nightTime))]
+                    self.ob[n]["visibility"]["all"] = vis.copy()
+                    self.ob[n]["visibility"]["status"] = vis.copy()
+
+            # sprawdzanie opcji tag
+            ok = True
+            if self.tag:
+                ok = False
+                if d_ver(self.ob[n], ["tag"]):
+                    if self.tag in self.ob[n]["tag"]:
+                        ok = True
+            if ok:
+                pass
+            else:
+                vis = [False for _ in range(len(self.nightTime))]
+                self.ob[n]["visibility"]["tag"] = vis.copy()
+                self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["tag"].copy()
+
+            if "max_fwhm" in self.ob[n].keys() and self.fwhm is not None:
+                if float(self.ob[n]["max_fwhm"]) > float(self.fwhm):
+                    vis = [False for _ in range(len(self.nightTime))]
+                    self.ob[n]["visibility"]["max_fwhm"] = vis.copy()
+                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["max_fwhm"].copy()
+
+            if "min_fwhm" in self.ob[n].keys() and self.fwhm is not None:
+                if float(self.ob[n]["min_fwhm"]) < float(self.fwhm):
+                    vis = [False for _ in range(len(self.nightTime))]
+                    self.ob[n]["visibility"]["min_fwhm"] = vis.copy()
+                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["min_fwhm"].copy()
+
+
 
     def CalcObject(self):  # Colculate visibility for all objects
         for n, tmp in enumerate(self.ob):
 
             if self.ob[n].get("ra", False) and self.ob[n].get("dec", False) and self.ob[n].get("name", False):
-                self.ob[n]["visibility"] = dict()
-
-                # sprawdzanie opcji tag
-                ok = True
-                if self.tag:
-                    ok = False
-                    if d_ver(self.ob[n],["tag"]):
-                        if self.tag in self.ob[n]["tag"]:
-                            ok = True
-                if ok:
-                    vis = [True for _ in range(len(self.nightTime))]
-
-                else:
-                    vis = [False for _ in range(len(self.nightTime))]
-
-                self.ob[n]["visibility"]["all"] = vis.copy()
-                self.ob[n]["visibility"]["tag"] = vis.copy()
 
                 # sprawdzanie widocznosci
                 if all(self.ob[n]["visibility"]["all"]):

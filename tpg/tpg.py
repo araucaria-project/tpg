@@ -17,6 +17,7 @@ class main:
     argparser.add_argument("date", nargs="+", type=str, help='yyyy/mm/dd date of observation')
     argparser.add_argument("--tag", type=str, default=None, help='tag required to allocate')
     argparser.add_argument("--wind", type=float, default=None, help='wind direction (to avoid)')
+    argparser.add_argument("--fwhm", type=float, default=None, help='fwhm (to apply limits)')
     argparser.add_argument("--seed", type=int, default=None, help='seed to randomize list')
     argparser.add_argument("--loud", action="store_true", help="Enable loud mode")
     argparser.add_argument("--no_start_makro", action="store_false", help='add makro at the plan beginning')
@@ -27,6 +28,7 @@ class main:
     p = tpg(args.tel,args.date,
             tag=args.tag,
             wind=args.wind,
+            fwhm=args.fwhm,
             loud=args.loud,
             seed=args.seed,
             add_start_makro=args.no_start_makro,
