@@ -98,10 +98,10 @@ BC_Oct             23:38:08.1       -81:21:18         seq=1/Jn/420,1/Ks/420     
 ## Primary and secondary eclipses - to be added from "Lista_II_Darek_IRIS.txt"
 
 
+
 # PLATO benchmark eclipsing binaries
 # SCIPROG deb_plano
 # PI dgraczyk (+pmaxted)
-# INFO only secondary eclipses
 
 HD_4875          00:50:39.99       -18:30:21.3        seq=1/Hn/420,1/Ks/420      tag=primary      cycle=0.0001    ph_start=0.976   ph_end=0.024    hjd0=2458738.6177  priority=9     pi=dgraczyk     sciprog=deb_plato     P=13.635561       mK=7.5
 HD_4875          00:50:39.99       -18:30:21.3        seq=1/Hn/420,1/Ks/420      tag=secondary    cycle=0.0001    ph_start=0.447   ph_end=0.481    hjd0=2458738.6177  priority=9     pi=dgraczyk     sciprog=deb_plato     P=13.635561       mK=7.5
