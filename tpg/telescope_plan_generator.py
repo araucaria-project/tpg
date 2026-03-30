@@ -88,8 +88,10 @@ class TelescopePlanGenerator():
         self.MakeTime()  # prepares time variable
         self.ObjectMask() # maskowanie tag, fwhm, status
         self.CalcObject()  # calculates visibilities for all objects
+        self.MaskVisibility()
         self.MaskMoon()
         self.MaskWind()
+        self.MaskTwilight()
         self.MaskCycle()
         self.MaskStartEnd()  # mask visibilite base on t_start and t_end
         self.MaskPhaseStartEnd()  # mask visibilite base on t_start and t_end
@@ -361,9 +363,62 @@ class TelescopePlanGenerator():
 
         return ob
 
+    def MakeTime(self):
+        self.oca = ephem.Observer()
+        self.oca.date = self.date
+        self.oca.lon = str(-70.1963)
+        self.oca.lat = str(-24.598)
+        self.oca.elev = 2817
+        self.oca.horizon = str(self.cfg[self.tel]["hsun"])
+
+        sun = ephem.Sun()
+
+        t0 = ephem.Date(self.date)
+
+        #  sunrise = następny wschód po t0
+        self.oca.date = t0
+        self.sunrise = self.oca.next_rising(sun, use_center=True)
+
+        #  sunset = poprzedni zachód przed t0
+        self.oca.date = t0
+        self.sunset = self.oca.previous_setting(sun, use_center=True)
+
+        #  jeśli tryb "start_at_sunset"
+        if "start_at_sunset" in self.flags:
+            t = self.sunset
+            txt = f'start at sunset: {self.sunset}\n'
+        else:
+            t = t0
+            txt = f'start at {t0}\n'
+
+        if self.loud:
+            sys.stderr.write(txt)
+        self.msg += txt
+
+        txt = f'sunset: {self.sunset}\n'
+        if self.loud: sys.stderr.write(txt)
+        self.msg += txt
+
+        txt = f'sunrise: {self.sunrise}\n'
+        if self.loud: sys.stderr.write(txt)
+        self.msg += txt
+
+        self.start_time = t
+
+        self.nightTime = []
+        self.nightObject = []
+        self.nightObChange = []
+        self.nightFree = []
+
+        while t < self.sunrise:
+            t = t + ephem.minute
+            self.nightTime.append(t)
+            self.nightObject.append(-100)
+            self.nightObChange.append(False)
+            self.nightFree.append(True)
 
 
-    def MakeTime(self):  # Make observing time
+    def MakeTime_old(self):  # Make observing time
         self.oca = ephem.Observer()
         self.oca.date = self.date
         self.oca.lon = str(-70.1963)
@@ -443,9 +498,149 @@ class TelescopePlanGenerator():
                     self.ob[n]["visibility"]["min_fwhm"] = vis.copy()
                     self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["min_fwhm"].copy()
 
+    def CalcObject(self):
+        moon = ephem.Moon()
+
+        for ob in self.ob:
+            if not d_ver(ob, ["name", "ra", "dec"]):
+                continue
+
+            s = ephem.FixedBody()
+            s._ra = ob["ra"]
+            s._dec = ob["dec"]
+
+            alt = []
+            az = []
+            moon_sep = []
+            moon_phase = []
+
+            for x in self.nightTime:
+                self.oca.date = x
+
+                s.compute(self.oca)
+                moon.compute(self.oca)
+
+                alt.append(float(s.alt) * 180.0 / ephem.pi)
+                az.append(float(s.az) * 180.0 / ephem.pi)
+                moon_sep.append(float(ephem.separation(s, moon)) * 180.0 / ephem.pi)
+                moon_phase.append(float(moon.phase))
+
+            ob["calc"] = {
+                "alt": alt,
+                "az": az,
+                "moon_sep": moon_sep,
+                "moon_phase": moon_phase
+            }
+
+    def MaskVisibility(self):
+        for ob in self.ob:
+            if "calc" not in ob:
+                continue
+
+            alt = ob["calc"]["alt"]
+
+            hmin = float(ob.get("h_min", self.cfg[self.tel]["hmin"]))
+            hmax = float(ob.get("h_max", self.cfg[self.tel]["hmax"]))
+
+            vis = [(a >= hmin and a <= hmax) for a in alt]
+
+            ob["visibility"]["h_min"] = [a >= hmin for a in alt]
+            ob["visibility"]["h_max"] = vis.copy()
+            ob["visibility"]["all"] = vis
+
+    def MaskMoon(self):
+        for ob in self.ob:
+            if "calc" not in ob:
+                continue
+
+            sep = ob["calc"]["moon_sep"]
+            phase = ob["calc"]["moon_phase"]
+
+            moon_dist = float(ob.get("min_moon_dist", self.cfg[self.tel]["moon_dist"]))
+            max_phase = ob.get("max_moon_phase", None)
+
+            vis = ob["visibility"]["all"]
+
+            new_vis = []
+
+            for i in range(len(vis)):
+                ok = vis[i]
+
+                if ok:
+                    if sep[i] < moon_dist:
+                        ok = False
+                    if max_phase and phase[i] > float(max_phase):
+                        ok = False
+
+                new_vis.append(ok)
+
+            ob["visibility"]["min_moon_dist"] = new_vis.copy()
+            ob["visibility"]["max_moon_phase"] = new_vis.copy()
+            ob["visibility"]["all"] = new_vis
+
+    def MaskWind(self):
+        if not self.wind:
+            return
+
+        for ob in self.ob:
+            if "calc" not in ob:
+                continue
+
+            az = ob["calc"]["az"]
+            vis = ob["visibility"]["all"]
+
+            wind_dist = float(self.cfg[self.tel]["wind_dist"])
+
+            new_vis = []
+
+            for i in range(len(vis)):
+                ok = vis[i]
+
+                if ok:
+                    dist = abs(self.wind - az[i])
+                    if dist > 180:
+                        dist = 360 - dist
+
+                    if dist < wind_dist:
+                        ok = False
+
+                new_vis.append(ok)
+
+            ob["visibility"]["wind"] = new_vis.copy()
+            ob["visibility"]["all"] = new_vis
+
+    def MaskTwilight(self):
+        for ob in self.ob:
+            if "visibility" not in ob:
+                continue
+
+            vis = ob["visibility"]["all"]
+
+            # parametry (w godzinach → dni)
+            after_sunset = float(ob.get("sunset_dt", 0.0)) / 24.0
+            before_sunrise = float(ob.get("sunrise_dt", 0.0)) / 24.0
+
+            new_vis = []
+
+            for i, t in enumerate(self.nightTime):
+                ok = vis[i]
+
+                if ok:
+                    # za wcześnie po zachodzie
+                    if after_sunset > 0 and t < self.sunset + after_sunset:
+                        ok = False
+
+                    # za późno przed wschodem
+                    if before_sunrise > 0 and t > self.sunrise - before_sunrise:
+                        ok = False
+
+                new_vis.append(ok)
+
+            ob["visibility"]["twilight"] = new_vis.copy()
+            ob["visibility"]["all"] = new_vis
 
 
-    def CalcObject(self):  # Colculate visibility for all objects
+    def CalcObject_old(self):  # ten kod jest jednak bardzo podatny na bledy...
         for n, tmp in enumerate(self.ob):
 
             if self.ob[n].get("ra", False) and self.ob[n].get("dec", False) and self.ob[n].get("name", False):
@@ -495,7 +690,7 @@ class TelescopePlanGenerator():
                     self.ob[n]["visibility"]["h_max"] = vis.copy()
                     self.ob[n]["visibility"]["all"] = vis
 
-    def MaskMoon(self):
+    def MaskMoon_old(self):
         moon = ephem.Moon()
         self.oca.date = self.nightTime[0]
         self.oca.horizon = 0
@@ -535,7 +730,7 @@ class TelescopePlanGenerator():
                             self.ob[n]["visibility"]["all"] = moonvis
                             self.ob[n]["visibility"]["max_moon_phase"] = moonvis
 
-    def MaskWind(self):  # cala noc, jeden kierunek
+    def MaskWind_old(self):  # cala noc, jeden kierunek
         if self.wind:
             for n, tmp in enumerate(self.ob):
                 if d_ver(self.ob[n], ["name", "ra", "dec","visibility"]):

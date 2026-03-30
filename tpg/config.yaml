@@ -50,10 +50,10 @@ jk15:
   moon_dist: 40
 
 iris:
-  master_file: /home/observer/src/tpg/master_files/iris_master.test.txt        # file with OB definitions
+  master_file: /home/observer/src/tpg/master_files/iris_master.txt        # file with OB definitions
   start_makro: /home/observer/src/tpg/master_files/iris_start_makro.txt
   end_makro: /home/observer/src/tpg/master_files/iris_end_makro.txt
-  data_file: /data/fits/jk15/processed-ofp/targets/
+  data_file: /data/fits/iris/processed-ofp/targets/
   def_read_mode: 3
   overhead: 60
   hmin: 35
