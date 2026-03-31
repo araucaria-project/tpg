@@ -16,7 +16,7 @@ except ImportError:
 
 
 class TelescopePlanGenerator():
-    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,done_uobi=[]):
+    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
@@ -29,6 +29,7 @@ class TelescopePlanGenerator():
         self.seed = seed
         self.add_start_makro = add_start_makro
         self.add_end_makro = add_end_makro
+        self.save_plan = bool(save_plan)
 
         self.msg = ""
 
@@ -389,6 +390,9 @@ class TelescopePlanGenerator():
 
             else:
                 ob["slotTime"] = 0
+
+        else:
+            ob = False
 
         return ob
 
@@ -1234,53 +1238,54 @@ class TelescopePlanGenerator():
 
     def SavePlan(self):
 
-            # tworzenie nazwy pliku z planem
-            try:
-                if not os.path.exists(self.cfg["plan_catalog"]):
-                    os.makedirs(self.cfg["plan_catalog"])  # tworzy wszystkie brakujące katalogi w ścieżce
-            except PermissionError:
-                self.log(f'No permission to create directory: {self.cfg["plan_catalog"]}')
-                #raise PermissionError(f"No permission to create directory: {self.cfg["plan_catalog"]}")
+            if self.save_plan:
+                # tworzenie nazwy pliku z planem
+                try:
+                    if not os.path.exists(self.cfg["plan_catalog"]):
+                        os.makedirs(self.cfg["plan_catalog"])  # tworzy wszystkie brakujące katalogi w ścieżce
+                except PermissionError:
+                    self.log(f'No permission to create directory: {self.cfg["plan_catalog"]}')
+                    #raise PermissionError(f"No permission to create directory: {self.cfg["plan_catalog"]}")
 
-            sunset_date = str(ephem.Date(self.sunset)).split()[0].split("/")
-            yyyymmdd = f"{sunset_date[0]}{sunset_date[1].zfill(2)}{sunset_date[2].zfill(2)}"
+                sunset_date = str(ephem.Date(self.sunset)).split()[0].split("/")
+                yyyymmdd = f"{sunset_date[0]}{sunset_date[1].zfill(2)}{sunset_date[2].zfill(2)}"
 
-            # sprawdzamy czy sa juz takie pliki
-            files = os.listdir(self.cfg["plan_catalog"])
-            nums = []
-            prefix = f"{self.tel}_{yyyymmdd}_"
-            suffix = ".txt"
-            for f in files:
-                if f.startswith(prefix) and f.endswith(suffix):
-                    try:
-                        n = int(f[len(prefix):-len(suffix)])
-                        nums.append(n)
-                    except ValueError:
-                        pass
-            nr = max(nums) + 1 if nums else 1
-            filename = f"{self.tel}_{yyyymmdd}_{nr}.txt"
-            logname = f"{self.tel}_{yyyymmdd}_{nr}_log.txt"
+                # sprawdzamy czy sa juz takie pliki
+                files = os.listdir(self.cfg["plan_catalog"])
+                nums = []
+                prefix = f"{self.tel}_{yyyymmdd}_"
+                suffix = ".txt"
+                for f in files:
+                    if f.startswith(prefix) and f.endswith(suffix):
+                        try:
+                            n = int(f[len(prefix):-len(suffix)])
+                            nums.append(n)
+                        except ValueError:
+                            pass
+                nr = max(nums) + 1 if nums else 1
+                filename = f"{self.tel}_{yyyymmdd}_{nr}.txt"
+                logname = f"{self.tel}_{yyyymmdd}_{nr}_log.txt"
 
-            self.plan_filename = os.path.join(self.cfg["plan_catalog"], filename)
-            self.log_filename = os.path.join(self.cfg["plan_catalog"], logname)
+                self.plan_filename = os.path.join(self.cfg["plan_catalog"], filename)
+                self.log_filename = os.path.join(self.cfg["plan_catalog"], logname)
 
-            # zapisujemy
-            try:
-                with open(self.plan_filename, "w") as plan_file:
-                    for txt in tqdm(self.plan,desc=f'Saving plan to file {self.plan_filename}'):
-                        plan_file.write(txt+"\n")
+                # zapisujemy
+                try:
+                    with open(self.plan_filename, "w") as plan_file:
+                        for txt in tqdm(self.plan,desc=f'Saving plan to file {self.plan_filename}'):
+                            plan_file.write(txt+"\n")
 
-            except Exception as e:
-                print(f"ERROR saving plan: {e}")
-                self.log(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+                except Exception as e:
+                    print(f"ERROR saving plan: {e}")
+                    self.log(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
 
-            try:
-                with open(self.log_filename, "w") as log_file:
-                    log_file.write(self.msg)
+                try:
+                    with open(self.log_filename, "w") as log_file:
+                        log_file.write(self.msg)
 
-            except Exception as e:
-                print(f"ERROR saving log: {e}")
-                self.log(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+                except Exception as e:
+                    print(f"ERROR saving log: {e}")
+                    self.log(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
 
 
 def d_ver(slownik,klucze):
