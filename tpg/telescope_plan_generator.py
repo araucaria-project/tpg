@@ -859,18 +859,20 @@ class TelescopePlanGenerator():
             if d_ver(ob, ["name", "t_start"]):
                 ts = ob["t_start"]
                 if ts:
-                    ts = ts.replace("T", " ")  # zamień T na spację
-                    if "/" not in ts:  # tylko godzina
-                        date = str(self.start_time).split()[0]
-                        start_hour = int(str(self.start_time).split()[1].split(":")[0])
-                        ts_hour = int(ts.split(":")[0])
-                        if start_hour > 16 and ts_hour < 16:
-                            date = str(ephem.Date(date) + 1).split()[0]
-                        ts = date + " " + ts
+                    ts = ts.replace("T", " ")
+                    # jeśli ts podana jest tylko godzina
+                    if "/" not in ts:
+                        date_str = str(ephem.Date(self.start_time)).split()[0]
+                        ts = f"{date_str} {ts}"
+
                     ts = ephem.Date(ts)
 
-                    mask_start = nt >= float(ts)  # True = obserwowalne
-                    t_all = t_all & mask_start  # nałóż maskę
+                    # jeśli ts przed startem nocy, dodaj 1 dzień
+                    if ts < self.start_time:
+                        ts += 1
+
+                    mask_start = nt >= float(ts)
+                    t_all = t_all & mask_start
                     ob["visibility"]["t_start"] = t_all.copy()
 
             # ---- Mask t_end ----
@@ -879,13 +881,14 @@ class TelescopePlanGenerator():
                 if te:
                     te = te.replace("T", " ")
                     if "/" not in te:
-                        date = str(self.start_time).split()[0]
-                        start_hour = int(str(self.start_time).split()[1].split(":")[0])
-                        te_hour = int(te.split(":")[0])
-                        if start_hour > 16 and te_hour < 16:
-                            date = str(ephem.Date(date) + 1).split()[0]
-                        te = date + " " + te
+                        date_str = str(ephem.Date(self.start_time)).split()[0]
+                        te = f"{date_str} {te}"
+
                     te = ephem.Date(te)
+
+                    # jeśli te przed startem nocy, dodaj 1 dzień
+                    if te < self.start_time:
+                        te += 1
 
                     mask_end = nt <= float(te)
                     t_all = t_all & mask_end
@@ -1236,7 +1239,8 @@ class TelescopePlanGenerator():
                 if not os.path.exists(self.cfg["plan_catalog"]):
                     os.makedirs(self.cfg["plan_catalog"])  # tworzy wszystkie brakujące katalogi w ścieżce
             except PermissionError:
-                raise PermissionError(f"No permission to create directory: {self.cfg["plan_catalog"]}")
+                self.log(f'No permission to create directory: {self.cfg["plan_catalog"]}')
+                #raise PermissionError(f"No permission to create directory: {self.cfg["plan_catalog"]}")
 
             sunset_date = str(ephem.Date(self.sunset)).split()[0].split("/")
             yyyymmdd = f"{sunset_date[0]}{sunset_date[1].zfill(2)}{sunset_date[2].zfill(2)}"
