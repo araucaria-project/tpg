@@ -1260,6 +1260,7 @@ class TelescopePlanGenerator():
             self.plan_filename = os.path.join(self.cfg["plan_catalog"], filename)
             self.log_filename = os.path.join(self.cfg["plan_catalog"], logname)
 
+            # zapisujemy
             try:
                 with open(self.plan_filename, "w") as plan_file:
                     for txt in tqdm(self.plan,desc=f'Saving plan to file {self.plan_filename}'):
