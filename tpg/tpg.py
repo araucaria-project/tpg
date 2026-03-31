@@ -35,8 +35,7 @@ class main:
             add_end_makro=args.no_end_makro,
             done_uobi=[])
     p.go()
-    for x in p.plan:
-        print(x)
+
 ####### SCRIPT RUN
     
 if __name__ == "__main__":

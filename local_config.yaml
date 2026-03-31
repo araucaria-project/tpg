@@ -1,3 +1,5 @@
+plan_catalog: "~/tpg_plans/"
+
 wk06:
   master_file: /home/mgorski/src/tpg/master_files/wk06_master.txt
   start_makro: /home/mgorski/src/tpg/master_files/wk06_start_makro.txt
