@@ -34,7 +34,7 @@ class TelescopePlanGenerator():
 
         with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
             self.cfg = yaml.safe_load(cfg_file)
-            txt = f'config loaded from {self.script_dir}/config.yaml\n'
+            txt = f'config loaded from {self.script_dir}/config.yaml'
             self.log(txt)
 
         local_config_file = self.cfg["local_config"]
@@ -43,7 +43,7 @@ class TelescopePlanGenerator():
             with open(local_config_file) as f:
                 local_cfg = yaml.safe_load(f) or {}
                 self.cfg.update(local_cfg)
-                txt = f'local config loaded from {local_config_file}\n'
+                txt = f'local config loaded from {local_config_file}'
                 self.log(txt)
 
         if len(date) == 1:          # bo to lista
@@ -104,7 +104,10 @@ class TelescopePlanGenerator():
     def log(self,txt,loud=True):
         if loud:
             print(txt)
-        self.msg = self.msg + txt
+        else:
+            if self.loud:
+                print(txt)
+        self.msg = self.msg + txt + "\n"
 
     def _printObjectLog(self):
         txt = ""
@@ -125,7 +128,7 @@ class TelescopePlanGenerator():
                 txt = txt + f'  {kw}: {hours_visible:.1f}'
 
             txt = txt + "\n"
-        self.log(txt)
+        self.log(txt,loud=False)
 
 
     def Initiate(self):
@@ -489,7 +492,7 @@ class TelescopePlanGenerator():
 
     def ObjectMask(self):
 
-        for n, tmp in enumerate(self.ob):
+        for n, tmp in enumerate(tqdm(self.ob, desc="Selecting objects")):
 
             self.ob[n]["visibility"] = dict()
             self.ob[n]["visibility"]["all"] = [True for _ in range(len(self.nightTime))]
@@ -557,7 +560,7 @@ class TelescopePlanGenerator():
             ob["calc"] = {"alt": alt,"az": az,"moon_sep": moon_sep,"moon_phase": moon_phase}
 
     def MaskVisibility(self):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="Masking visibility"):
             if "calc" not in ob:
                 continue
 
@@ -575,7 +578,7 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = all_mask
 
     def MaskMoon(self):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="Masking Moon"):
             if "calc" not in ob:
                 continue
 
@@ -610,7 +613,7 @@ class TelescopePlanGenerator():
         if not self.wind:
             return
 
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="Masking Wind"):
             if "calc" not in ob:
                 continue
 
@@ -1196,11 +1199,11 @@ class TelescopePlanGenerator():
                             ok = True
             if ok:
                 self.plan = start_plan + self.plan
-                txt = f"start_makro added\n"
+                txt = f"start_makro added"
                 if self.loud: sys.stderr.write(txt)
                 self.log(txt)
             else:
-                txt = f"NO start_makro FILE\n"
+                txt = f"NO start_makro FILE"
                 if self.loud: sys.stderr.write(txt)
                 self.log(txt)
 
@@ -1217,11 +1220,11 @@ class TelescopePlanGenerator():
                             ok = True
             if ok:
                 self.plan = self.plan + end_plan
-                txt = f"end_makro added\n"
+                txt = f"end_makro added"
                 if self.loud: sys.stderr.write(txt)
                 self.log(txt)
             else:
-                txt = f"NO end_makro FILE\n"
+                txt = f"NO end_makro FILE"
                 if self.loud: sys.stderr.write(txt)
                 self.log(txt)
 
@@ -1252,8 +1255,10 @@ class TelescopePlanGenerator():
                         pass
             nr = max(nums) + 1 if nums else 1
             filename = f"{self.tel}_{yyyymmdd}_{nr}.txt"
+            logname = f"{self.tel}_{yyyymmdd}_{nr}_log.txt"
 
             self.plan_filename = os.path.join(self.cfg["plan_catalog"], filename)
+            self.log_filename = os.path.join(self.cfg["plan_catalog"], logname)
 
             try:
                 with open(self.plan_filename, "w") as plan_file:
@@ -1263,6 +1268,15 @@ class TelescopePlanGenerator():
             except Exception as e:
                 print(f"ERROR saving plan: {e}")
                 self.log(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+
+            try:
+                with open(self.log_filename, "w") as log_file:
+                    log_file.write(self.msg)
+
+            except Exception as e:
+                print(f"ERROR saving log: {e}")
+                self.log(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+
 
 def d_ver(slownik,klucze):
     if not isinstance(klucze, (list, tuple)):
