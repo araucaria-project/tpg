@@ -177,8 +177,7 @@ class TelescopePlanGenerator():
             fname = self.cfg[self.tel]["master_file"]
         try:
             with open(fname, 'r') as file:
-                #for line in tqdm(file, desc="Loading objects"):
-                for line in file:
+                for line in tqdm(file, desc="Loading objects"):
 
                     line = line.strip()
                     if not line or line.startswith("#"):
@@ -337,8 +336,7 @@ class TelescopePlanGenerator():
 
     def ObjectMask(self):
 
-        #for n, tmp in enumerate(tqdm(self.ob, desc="Selecting objects")):
-        for n, tmp in enumerate(self.ob):
+        for n, tmp in enumerate(tqdm(self.ob, desc="Selecting objects")):
 
             self.ob[n]["visibility"] = dict()
             self.ob[n]["visibility"]["all"] = [True for _ in range(len(self.nightTime))]
@@ -380,8 +378,7 @@ class TelescopePlanGenerator():
     def CalcObject(self):
         moon = ephem.Moon()
 
-        #for ob in tqdm(self.ob, desc="calculating objects"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="calculating objects"):
             if not d_ver(ob, ["name", "ra", "dec"]):
                 continue
 
@@ -408,8 +405,7 @@ class TelescopePlanGenerator():
             ob["calc"] = {"alt": alt,"az": az,"moon_sep": moon_sep,"moon_phase": moon_phase}
 
     def MaskVisibility(self):
-        #for ob in tqdm(self.ob, desc="Masking visibility"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="Masking visibility"):
             if "calc" not in ob.keys():
                 continue
 
@@ -427,8 +423,7 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = all_mask
 
     def MaskMoon(self):
-        #for ob in tqdm(self.ob, desc="Masking Moon"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="Masking Moon"):
             if "calc" not in ob.keys():
                 continue
 
@@ -463,8 +458,7 @@ class TelescopePlanGenerator():
         if not self.wind:
             return
 
-        #for ob in tqdm(self.ob, desc="Masking Wind"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="Masking Wind"):
             if "calc" not in ob.keys():
                 continue
 
@@ -492,8 +486,7 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = new_vis
 
     def MaskTwilight(self):
-        #for ob in tqdm(self.ob, desc="masking sunset_dt and sunrise_dt"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="masking sunset_dt and sunrise_dt"):
             if "visibility" not in ob.keys():
                 continue
 
@@ -529,8 +522,7 @@ class TelescopePlanGenerator():
 
 
     def MaskCycle(self):
-        #for ob in tqdm(self.ob, desc="masking cycle"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="masking cycle"):
             last_jd = None
             if not d_ver(ob, ["name", "cycle", "visibility"]):
                 continue
@@ -587,8 +579,7 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = all_mask
 
     def MaskStartEnd(self):
-        #for ob in tqdm(self.ob, desc="masking start and end time"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="masking start and end time"):
             if "visibility" not in ob:
                 continue
 
@@ -638,8 +629,7 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = t_all
 
     def MaskPhaseStartEnd(self):
-        #for ob in tqdm(self.ob, desc="masking phase start and end"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="masking phase start and end"):
             if not d_ver(ob, ["name", "ph_start", "ph_end", "visibility", "P", "hjd0"]):
                 continue
 
@@ -689,8 +679,7 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = t_all
 
     def MaskPhase(self):
-        #for ob in tqdm(self.ob, desc="masking phase coverage"):
-        for ob in self.ob:
+        for ob in tqdm(self.ob, desc="masking phase coverage"):
             if not d_ver(ob, ["name", "ph_mk", "visibility", "P", "hjd0"]):
                 continue
 
@@ -723,7 +712,14 @@ class TelescopePlanGenerator():
                     jd = jd[mask_quality]
                 if len(jd) == 0:
                     continue
-            except (FileNotFoundError, ValueError):
+
+            except FileNotFoundError:
+                txt = f'[{ob["name"]}] no data file {file}'
+                self.log_msg(txt,always_loud=False)
+                continue
+            except ValueError:
+                txt = f'[{ob["name"]}] ERROR loading {file}\n'
+                self.log_msg(txt,always_loud=False)
                 continue
 
             P = float(ob["P"])
@@ -791,9 +787,7 @@ class TelescopePlanGenerator():
             self.seed = random.randrange(0, 2 ** 32)
 
         txt = f"random seed: {self.seed}\n"
-        if getattr(self, "loud", False):
-            sys.stderr.write(txt)
-        self.log_msg(getattr(self, "msg", "") + txt)
+        self.log_msg(txt)
 
         numpy.random.seed(self.seed)
 
@@ -986,23 +980,20 @@ class TelescopePlanGenerator():
                 # zapisujemy
                 try:
                     with open(self.plan_filename, "w") as plan_file:
-                        #for txt in tqdm(self.plan, desc=f'Saving plan to file {self.plan_filename}'):
-                        for txt in self.plan:
+                        for txt in tqdm(self.plan, desc=f'Saving plan to file {self.plan_filename}'):
                             plan_file.write(txt+"\n")
 
                 except Exception as e:
-                    pass
-                    #print(f"ERROR saving plan: {e}")
-                    #self.log_msg(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+                    txt = f"ERROR saving plan: {e}"
+                    self.log_msg(txt)
 
                 try:
                     with open(self.log_filename, "w") as log_file:
                         log_file.write(self.msg)
 
                 except Exception as e:
-                    pass
-                    #print(f"ERROR saving log: {e}")
-                    #self.log_msg(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+                    txt = f"ERROR saving log: {e}"
+                    self.log_msg(txt)
 
 
 def d_ver(slownik,klucze):
