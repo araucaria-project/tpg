@@ -177,7 +177,9 @@ class TelescopePlanGenerator():
             fname = self.cfg[self.tel]["master_file"]
         try:
             with open(fname, 'r') as file:
-                for line in tqdm(file, desc="Loading objects"):
+                #for line in tqdm(file, desc="Loading objects"):
+                for line in file:
+
                     line = line.strip()
                     if not line or line.startswith("#"):
                         continue
@@ -335,7 +337,8 @@ class TelescopePlanGenerator():
 
     def ObjectMask(self):
 
-        for n, tmp in enumerate(tqdm(self.ob, desc="Selecting objects")):
+        #for n, tmp in enumerate(tqdm(self.ob, desc="Selecting objects")):
+        for n, tmp in enumerate(self.ob):
 
             self.ob[n]["visibility"] = dict()
             self.ob[n]["visibility"]["all"] = [True for _ in range(len(self.nightTime))]
@@ -377,7 +380,8 @@ class TelescopePlanGenerator():
     def CalcObject(self):
         moon = ephem.Moon()
 
-        for ob in tqdm(self.ob, desc="calculating objects"):
+        #for ob in tqdm(self.ob, desc="calculating objects"):
+        for ob in self.ob:
             if not d_ver(ob, ["name", "ra", "dec"]):
                 continue
 
@@ -404,7 +408,8 @@ class TelescopePlanGenerator():
             ob["calc"] = {"alt": alt,"az": az,"moon_sep": moon_sep,"moon_phase": moon_phase}
 
     def MaskVisibility(self):
-        for ob in tqdm(self.ob, desc="Masking visibility"):
+        #for ob in tqdm(self.ob, desc="Masking visibility"):
+        for ob in self.ob:
             if "calc" not in ob.keys():
                 continue
 
@@ -422,7 +427,8 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = all_mask
 
     def MaskMoon(self):
-        for ob in tqdm(self.ob, desc="Masking Moon"):
+        #for ob in tqdm(self.ob, desc="Masking Moon"):
+        for ob in self.ob:
             if "calc" not in ob.keys():
                 continue
 
@@ -457,7 +463,8 @@ class TelescopePlanGenerator():
         if not self.wind:
             return
 
-        for ob in tqdm(self.ob, desc="Masking Wind"):
+        #for ob in tqdm(self.ob, desc="Masking Wind"):
+        for ob in self.ob:
             if "calc" not in ob.keys():
                 continue
 
@@ -485,7 +492,8 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = new_vis
 
     def MaskTwilight(self):
-        for ob in tqdm(self.ob, desc="masking sunset_dt and sunrise_dt"):
+        #for ob in tqdm(self.ob, desc="masking sunset_dt and sunrise_dt"):
+        for ob in self.ob:
             if "visibility" not in ob.keys():
                 continue
 
@@ -521,7 +529,8 @@ class TelescopePlanGenerator():
 
 
     def MaskCycle(self):
-        for ob in tqdm(self.ob, desc="masking cycle"):
+        #for ob in tqdm(self.ob, desc="masking cycle"):
+        for ob in self.ob:
             last_jd = None
             if not d_ver(ob, ["name", "cycle", "visibility"]):
                 continue
@@ -578,7 +587,8 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = all_mask
 
     def MaskStartEnd(self):
-        for ob in tqdm(self.ob, desc="masking start and end time"):
+        #for ob in tqdm(self.ob, desc="masking start and end time"):
+        for ob in self.ob:
             if "visibility" not in ob:
                 continue
 
@@ -628,7 +638,8 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = t_all
 
     def MaskPhaseStartEnd(self):
-        for ob in tqdm(self.ob, desc="masking phase start and end"):
+        #for ob in tqdm(self.ob, desc="masking phase start and end"):
+        for ob in self.ob:
             if not d_ver(ob, ["name", "ph_start", "ph_end", "visibility", "P", "hjd0"]):
                 continue
 
@@ -678,7 +689,8 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = t_all
 
     def MaskPhase(self):
-        for ob in tqdm(self.ob, desc="masking phase coverage"):
+        #for ob in tqdm(self.ob, desc="masking phase coverage"):
+        for ob in self.ob:
             if not d_ver(ob, ["name", "ph_mk", "visibility", "P", "hjd0"]):
                 continue
 
@@ -978,16 +990,18 @@ class TelescopePlanGenerator():
                             plan_file.write(txt+"\n")
 
                 except Exception as e:
+                    pass
                     #print(f"ERROR saving plan: {e}")
-                    self.log_msg(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+                    #self.log_msg(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
 
                 try:
                     with open(self.log_filename, "w") as log_file:
                         log_file.write(self.msg)
 
                 except Exception as e:
+                    pass
                     #print(f"ERROR saving log: {e}")
-                    self.log_msg(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+                    #self.log_msg(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
 
 
 def d_ver(slownik,klucze):
