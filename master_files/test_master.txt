@@ -1,0 +1,77 @@
+#############################
+######## JK15 MASTER ########
+#############################
+
+
+
+#format of each line should be as follows:
+#name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
+# example1  21:24:00.2421       +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30    P=2.4121             mV=9.21  priority=4     comment="binary and dusty envelope"
+# example2  07:24:14   -00:31:41  seq=10x(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=08:20 t_end=10:00
+# example3  07:24:14   -00:31:41  seq=INFx(1/B/60,1/V/30,1/Ic/30)    priority=6 t_start=00:20 t_end=10:00
+# example4  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5  read_mod=3
+
+# example5  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1  read_mod=3
+# example6  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 hjd0=2460310.5  read_mod=3
+# example7  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5  read_mod=3
+# example8   -00:31:41  seq=2x(1/B/36)    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5  read_mod=3
+example9  07:24:14   -00:31:41  seq=2dupa    priority=7 ph_start=0.8 ph_end=0.1 P=0.1 hjd0=2460310.5  read_mod=3
+example10  07:24:14   -00:31:41  seq=2x(1/B/36)    priority=2 ph_start=dupa ph_end=0.1 P=0.1
+
+
+
+# Test object for checking phase
+# OGLE-GD-CEP-0127      07:45:11.79      -36:58:29.1      ph_mk=2/Ic/0.05      seq=2/B/42      P=13.7677045      mV=12.79      priority=5      comment="Test object for checking phase"
+
+# Standard stars for photometric system Johnson-Cousins & Sloan/SDSS
+# Source of JC standards: Pancino et al. 2022 (https://www.aanda.org/articles/aa/abs/2022/08/aa43939-22/aa43939-22.html)
+# Source of Sloan/SDSS standards: Gaia synthetic photometry catalog
+# Beginning of night
+# TPHE                    00:30:33           -46:28:30          seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/10,1/z/24        t_start=00:00:00   t_end=01:22:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+# SA98                    06:52:11           -00:19:18          seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/10,1/z/24        t_start=00:00:00   t_end=01:22:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+# RU149                   07:24:14           -00:31:41          seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/10,1/z/24        t_start=00:00:00   t_end=01:22:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+# RU152                   07:29:56           -02:05:39          seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/10,1/z/24        t_start=00:00:00   t_end=01:22:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+# SA110                   18:42:51           +00:05:40          seq=1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36        t_start=00:00:00   t_end=01:22:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+
+# End of night
+# TPHE                    00:30:33           -46:28:30          seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/10,1/z/24        t_start=07:55:00   t_end=10:02:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+# SA98                    06:52:11           -00:19:18          seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/10,1/z/24        t_start=07:55:00   t_end=10:02:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+# RU149                   07:24:14           -00:31:41          seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/10,1/z/24        t_start=07:55:00   t_end=10:02:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+# RU152                   07:29:56           -02:05:39          seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/10,1/z/24        t_start=07:55:00   t_end=10:02:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+# SA110                   18:42:51           +00:05:40          seq=1/B/18,1/V/15,1/Ic/15,1/g/15,1/r/12,1/i/15,1/z/36        t_start=07:55:00   t_end=10:02:00       priority=6    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst."
+
+# Stromgren standards are in jk15_master_stromgren.txt
+
+# Karolina's cataclysmic variable
+# SCIPROG amcvn
+# PI kbakowska
+
+#ASASSN-15kf     15:38:08.2026   -30:35:50.2189     seq=2/V/240     priority=6     cycle=0.8     sciprog=amcvn   pi=kbakowska     mV=17       comment="Karolina's cataclysmic variable, mV=15-17"
+
+# Monitoring of nearby galaxies
+# PI: gpietrzynski
+# SCIPROG: near_gal
+
+WLM-center              00:01:58           -15:27:50          seq=4/g/200,4/r/200,4/i/200           priority=8    cycle=1.2   h_min=45    uobi=d28580ab    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=/data/fits/jk15/processed-ofp/targets/wlm-center_check1/r/light-curve/wlm-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 2-3 times per week" 
+WLM-center              00:01:58           -15:27:50          seq=4/V/200,4/g/200,4/r/200,4/i/200   priority=9    cycle=7     h_min=45    uobi=d28580ab    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=/data/fits/jk15/processed-ofp/targets/wlm-center_check1/V/light-curve/wlm-center_check1_V_diff_light_curve.txt    comment="seeing < 1.5, every 2 weeks" 
+
+NGC247-center           00:47:08           -20:45:37          seq=4/g/200,4/r/200,4/i/200           priority=8    cycle=1.2   h_min=45    uobi=4babe45c    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=/data/fits/jk15/processed-ofp/targets/ngc247-center_check1/r/light-curve/ngc247-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 2-3 times per week" 
+NGC247-center           00:47:08           -20:45:37          seq=4/V/200,4/g/200,4/r/200,4/i/200   priority=9    cycle=7     h_min=45    uobi=4babe45c    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=/data/fits/jk15/processed-ofp/targets/ngc247-center_check1/V/light-curve/ngc247-center_check1_V_diff_light_curve.txt    comment="seeing < 1.5, every 2 weeks"
+
+# Monitoring globular clusters
+# PI: ghajdu
+# SCIPROG: var_gclu
+# INFO: cycle through targets multiple times per night, change the order of clusters in a cycle night after night
+
+#NGC362-center      01:03:14.3     -70:50:55.6   seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65    priority=6    cycle=0.1    uobi=841e6056    sciprog=var_gclu    pi=ghajdu    obs_data=/data/fits/jk15/processed-ofp/targets/ngc362-center_check1/r/light-curve/ngc362-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"
+NGC1851-center     05:14:06.76    -40:02:47.6   seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35    priority=6    cycle=0.04    uobi=d17f590f    sciprog=var_gclu    pi=ghajdu    obs_data=/data/fits/jk15/processed-ofp/targets/ngc1851-center_check1/r/light-curve/ngc1851-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"
+NGC3201-center    10:17:36.82    -46:24:44.9   seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30  cycle=0.08   priority=5  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ngc3201_check1/r/light-curve/ngc3201_check1_r_diff_light_curve.txt     uobi=6c942bee     comment="dense coverage"
+
+
+# LMC late-type eclipsig binaries
+# SCIPROG deb_late_lmc
+# PI dgraczyk
+#
+# Primary
+OGLE-LMC-ECL-01242      04:49:42.84        -68:51:43.0        seq=1/V/300,1/g/270,1/r/250           priority=7    cycle=0.2    ph_mk=2/V/0.005    ph_start=0.960    ph_end=0.040    sciprog=deb_late_lmc    pi=dgraczyk    tag=primary    P=97.79303530    hjd0=2460038.8980    obs_data=/data/fits/jk15/processed-ofp/targets/ogle-lmc-ecl-01242/V/light-curve/ogle-lmc-ecl-01242_V_diff_light_curve.txt    mV=18.488    
+OGLE-LMC-ECL-02197      04:53:14.68        -67:33:59.0        seq=1/V/280,1/g/250,1/r/230           priority=7    cycle=0.5    ph_mk=2/V/0.005    ph_start=0.975    ph_end=0.025    sciprog=deb_late_lmc    pi=dgraczyk    tag=primary    P=199.7710624    hjd0=2460098.6256    obs_data=/data/fits/jk15/processed-ofp/targets/ogle-lmc-ecl-02197/V/light-curve/ogle-lmc-ecl-02197_V_diff_light_curve.txt    mV=17.830    

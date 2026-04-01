@@ -3,6 +3,9 @@
 # Following settings may be moved to global config:
 # overhead, hsun, wind_dist, moon_dist
 
+obs_lat: -24.598
+obs_lon: -70.1963
+obs_elev: 2817
 
 local_config: "~/.config/tpg/local_config.yaml"
 plan_catalog: "~/tpg_plans/"

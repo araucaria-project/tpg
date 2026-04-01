@@ -1,6 +1,7 @@
 import sys,os,yaml,numpy,ephem
 import random
 import time
+import copy
 
 from astropy.table import Table
 from tqdm import tqdm
@@ -16,7 +17,7 @@ except ImportError:
 
 
 class TelescopePlanGenerator():
-    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, done_uobi=[]):
+    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, master_file=None, done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.flags = []
@@ -30,13 +31,14 @@ class TelescopePlanGenerator():
         self.add_start_makro = add_start_makro
         self.add_end_makro = add_end_makro
         self.save_plan = bool(save_plan)
+        self.master_file = master_file
 
         self.msg = ""
 
         with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
             self.cfg = yaml.safe_load(cfg_file)
             txt = f'config loaded from {self.script_dir}/config.yaml'
-            self.log(txt)
+            self.log_msg(txt)
 
         local_config_file = self.cfg["local_config"]
         local_config_file = os.path.expanduser(local_config_file)
@@ -45,7 +47,7 @@ class TelescopePlanGenerator():
                 local_cfg = yaml.safe_load(f) or {}
                 self.cfg.update(local_cfg)
                 txt = f'local config loaded from {local_config_file}'
-                self.log(txt)
+                self.log_msg(txt)
 
         if len(date) == 1:          # bo to lista
             self.flags.append("start_at_sunset")
@@ -78,7 +80,7 @@ class TelescopePlanGenerator():
 
         self.plan = []
 
-        self.log(txt)
+        self.log_msg(txt)
 
         # --------------- MAIN SCRIPT --------------
     def go(self):
@@ -102,8 +104,9 @@ class TelescopePlanGenerator():
         self.export()  # export plan
         self.SavePlan()
 
-    def log(self,txt,loud=True):
-        if loud:
+
+    def log_msg(self,txt,always_loud=True):
+        if always_loud:
             print(txt)
         else:
             if self.loud:
@@ -121,7 +124,7 @@ class TelescopePlanGenerator():
                 slot = f'{slot:.0f}'
             except:
                 pass
-            txt = txt + f'{cm} {name} (slot time: {slot}m)'
+            txt = txt + f'{cm} {name} [{slot}m]'
 
             for kw, vis in ob["visibility"].items():
                 vis_array = numpy.array(vis)
@@ -129,7 +132,7 @@ class TelescopePlanGenerator():
                 txt = txt + f'  {kw}: {hours_visible:.1f}'
 
             txt = txt + "\n"
-        self.log(txt,loud=False)
+        self.log_msg(txt,always_loud=False)
 
 
     def Initiate(self):
@@ -153,8 +156,8 @@ class TelescopePlanGenerator():
         if not os.path.isfile(self.cfg[self.tel]["master_file"]):
             self.cfg[self.tel]["master_file"] = os.path.join(self.script_dir, self.cfg[self.tel]["master_file"])
             if not os.path.isfile(self.cfg[self.tel]["master_file"]):
-                sys.stderr.write(f'No Objects Catalog file {self.cfg[self.tel]["master_file"]}\n')
-                sys.stderr.write('Check config.yaml file\n')
+                self.log_msg(f'No Objects Catalog file {self.cfg[self.tel]["master_file"]}')
+                self.log_msg('Check config.yaml file')
                 sys.exit()
 
         if os.path.exists(self.cfg["ctc"]["ctc_base_folder"]) and CTC_AVAILABLE:
@@ -166,152 +169,35 @@ class TelescopePlanGenerator():
             self.ctc_active = False
 
         txt = f'ctc active: {self.ctc_active}\n'
-        self.log(txt)
+        self.log_msg(txt)
 
-        file = open(self.cfg[self.tel]["master_file"], 'r')
-        for line in tqdm(file, desc="Loading objects"):
-            if line.strip():
-                if len(line.split()) > 0:  # no empty lines
-                    if line.strip()[0] != "#":
-                        tmp_ob = self.parseObjects(line)
-                        if tmp_ob:
-                            self.ob.append(tmp_ob)
+        if self.master_file:
+            fname = self.master_file
+        else:
+            fname = self.cfg[self.tel]["master_file"]
+        try:
+            with open(fname, 'r') as file:
+                for line in tqdm(file, desc="Loading objects"):
+                    line = line.strip()
+                    if not line or line.startswith("#"):
+                        continue
+                    tmp_ob = self.parseObjects(line)
+                    if tmp_ob:
+                        self.ob.append(tmp_ob)
+
+        except FileNotFoundError:
+            self.log_msg(f"File not found: {fname}")
+            sys.exit(1)
+
 
 
     def parseObjects(self,line):
 
-        # tmp_ob = dict()
-        # line = line.strip()
-        # if line:  # no empty lines
-            # if line.strip()[0] != "#":
-            #     #flag = []
-            #     seq = "1/Ic/30"
-            #     priority = 0
-            #     comment = ""
-            #
-            #     overhead = self.cfg[self.tel]["overhead"]
-            #     tags = ""
-            #     ts = False
-            #     te = False
-            #     hmax = False
-            #     hmin = False
-            #     ps = False
-            #     pe = False
-            #     period = False
-            #     hjd0 = 2460000
-            #     ph_mk = False
-            #     cycle = False
-            #     read_mod = None
-            #     uobi = False
-            #     makro = False
-            #     obs_data = False
-            #     max_moon_phase = False
-            #     min_moon_dist = False
-            #
-            #
-            #
-            #     if "comment=" in line:
-            #         tmp = line.split("comment=")[1]
-            #         if "\"" in line:
-            #             comment = tmp.split("\"")[1]
-            #         if "\'" in line:
-            #             comment = tmp.split("\'")[1]
-            #
-            #     if "uobi=" in line:
-            #         uobi = line.split("uobi=")[1].split()[0]
-            #
-            #     if "seq=" in line:
-            #         seq = line.split("seq=")[1].split()[0]
-            #
-            #     if "priority=" in line:
-            #         priority = line.split("priority=")[1].split()[0]
-            #
-            #     if "tag=" in line:
-            #         tags = line.split("tag=")[1].split()[0]
-            #
-            #     if "t_start=" in line:
-            #         ts = line.split("t_start=")[1].split()[0]
-            #
-            #     if "t_end=" in line:
-            #         te = line.split("t_end=")[1].split()[0]
-            #
-            #     if "h_min=" in line:
-            #         hmin = line.split("h_min=")[1].split()[0]
-            #
-            #     if "h_max=" in line:
-            #         hmax = line.split("h_max=")[1].split()[0]
-            #
-            #     if "ph_start=" in line and "ph_end=" in line:
-            #         ps = line.split("ph_start=")[1].split()[0]
-            #         pe = line.split("ph_end=")[1].split()[0]
-            #
-            #     if "P=" in line:
-            #         period = line.split("P=")[1].split()[0]
-            #
-            #     if "hjd0=" in line:
-            #         hjd0 = line.split("hjd0=")[1].split()[0]
-            #
-            #     if "ph_mk=" in line:
-            #         ph_mk = line.split("ph_mk=")[1].split()[0]
-            #
-            #     if "cycle=" in line:
-            #         cycle = line.split("cycle=")[1].split()[0]
-            #
-            #     if "read_mod=" in line:
-            #         read_mod = line.split("read_mod=")[1].split()[0]
-            #
-            #     if "min_moon_dist" in line:
-            #         min_moon_dist = float(line.split("min_moon_dist=")[1].split()[0])
-            #
-            #     if "max_moon_phase" in line:
-            #         max_moon_phase = float(line.split("max_moon_phase=")[1].split()[0])
-            #
-            #     if "obs_data" in line:
-            #         obs_data = (line.split("obs_data=")[1].split()[0])
-            #
-            #     if "makro" in line:
-            #         makro = (line.split("makro=")[1].split()[0])
-            #
-            #     for i, tmp in enumerate(line.split()):
-            #
-            #         if i == 0:
-            #             name = line.split()[0]
-            #         elif i == 1:
-            #             ra = line.split()[1]
-            #         elif i == 2:
-            #             dec = line.split()[2]
-            #
-            #     if uobi and uobi in self.done:
-            #         pass
-            #     else:
-            #
-            #         tmp_ob["name"] = name
-            #         tmp_ob["ra"] = ra
-            #         tmp_ob["dec"] = dec
-            #         tmp_ob["seq"] = seq
-            #         tmp_ob["comment"] = comment
-            #         #tmp_ob["slotTime"] = slotTime
-            #         tmp_ob["line"] = line
-            #         tmp_ob["priority"] = priority
-            #         tmp_ob["tag"] = tags
-            #         tmp_ob["t_start"] = ts
-            #         tmp_ob["t_end"] = te
-            #         tmp_ob["h_min"] = hmin
-            #         tmp_ob["h_max"] = hmax
-            #         tmp_ob["ph_start"] = ps
-            #         tmp_ob["ph_end"] = pe
-            #         tmp_ob["period"] = period
-            #         tmp_ob["hjd0"] = hjd0
-            #         tmp_ob["ph_mk"] = ph_mk
-            #         tmp_ob["cycle"] = cycle
-            #         tmp_ob["uobi"] = uobi
-            #         tmp_ob["makro"] = makro
-            #         tmp_ob["obs_data"] = obs_data
-            #         tmp_ob["max_moon_phase"] = max_moon_phase
-            #         tmp_ob["min_moon_dist"] = min_moon_dist
-            #         #tmp_ob["flag"] = flag
+        BASE_SCHEMA = ObsValidator.load_schema("base_schema.yaml")
+        TPG_SCHEMA = ObsValidator.load_schema("tpg_schema.yaml")
 
-        self.schema = ObsValidator.load_schema("tpg_schema.yaml")
+        self.schema = merge_schemas(BASE_SCHEMA, TPG_SCHEMA)
+
         self.plan_rules = ObsValidator.load_schema("command_rules.yaml")
         self.validator = ObsValidator(self.schema, self.plan_rules)
 
@@ -329,7 +215,7 @@ class TelescopePlanGenerator():
 
                     if ob_tmp is None:
                         txt = f'** parser error \n * {line}'
-                        self.log(txt)
+                        self.log_msg(txt)
                     else:
                         ob = ObsValidator.convert_to_obdict(ob_tmp)
                         validator_result = self.validator.validate_ob(ob)
@@ -342,7 +228,7 @@ class TelescopePlanGenerator():
                                 if not value:
                                     txt = txt + f'{key} '
                             txt = txt + "\n" + f'* {line}'
-                            self.log(txt)
+                            self.log_msg(txt)
 
 
         if ob != None and ob_ok:
@@ -361,9 +247,6 @@ class TelescopePlanGenerator():
                 k = 1
                 if "x(" in seq and ")" in seq:
                     k = seq.split("x")[0]
-                    if k == "INF":
-                        k = 1
-                        flag = "inf"
                     k = int(k)
                     seq0 = seq.split("x(")[1].split(")")[0]
                 else:
@@ -372,11 +255,8 @@ class TelescopePlanGenerator():
                     slotTime = slotTime + (
                             float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
                 slotTime = (k * slotTime) / 60.
-                if "INF" in seq:
-                    tmp = seq.replace("INF", "1")
-                else:
-                    tmp = seq
-                program = f'OBJECT  {ob["name"]} {ob["ra"]} {ob["dec"]} seq={tmp}'
+
+                program = f'OBJECT  {ob["name"]} {ob["ra"]} {ob["dec"]} seq={seq}'
                 if "read_mod" in ob.keys():
                     read_mod = ob["read_mod"]
                     program = program + f" read_mod={read_mod}"
@@ -398,9 +278,9 @@ class TelescopePlanGenerator():
 
     def MakeTime(self):
         self.oca = ephem.Observer()
-        self.oca.lon = str(-70.1963)
-        self.oca.lat = str(-24.598)
-        self.oca.elev = 2817
+        self.oca.lon = str(self.cfg["obs_lon"])
+        self.oca.lat = str(self.cfg["obs_lat"])
+        self.oca.elev = float(self.cfg["obs_elev"])
         self.oca.horizon = str(self.cfg[self.tel]["hsun"])
 
         sun = ephem.Sun()
@@ -453,47 +333,6 @@ class TelescopePlanGenerator():
             self.nightObChange.append(False)
             self.nightFree.append(True)
 
-
-    def MakeTime_old(self):  # Make observing time
-        self.oca = ephem.Observer()
-        self.oca.date = self.date
-        self.oca.lon = str(-70.1963)
-        self.oca.lat = str(-24.598)
-        self.oca.elev = 2817
-        self.oca.horizon = str(self.cfg[self.tel]["hsun"])  # altitude of sun to start and stop observations
-
-        if "start_at_sunset" in self.flags:
-            self.sunset = self.oca.next_setting(ephem.Sun(), use_center=True)
-
-            txt = f'sunset: {self.sunset}\n'
-            if self.loud: sys.stderr.write(txt)
-            self.msg = self.msg + txt
-
-            t = self.sunset
-            self.oca.date = self.sunset
-            self.sunrise = self.oca.next_rising(ephem.Sun(), use_center=True)
-
-            txt = f'sunrise: {self.sunrise}\n'
-            if self.loud: sys.stderr.write(txt)
-            self.msg = self.msg + txt
-
-        else:
-            t = ephem.Date(self.date)
-            self.oca.date = t
-            self.sunrise = self.oca.next_rising(ephem.Sun(), use_center=True)
-
-            txt = f'sunrise: {self.sunrise}\n'
-            if self.loud: sys.stderr.write(txt)
-            self.msg = self.msg + txt
-
-        self.start_time = t
-        while t < self.sunrise:
-            t = t + 1 * ephem.minute  # time resolution : 1 minute
-            self.nightTime.append(t)
-            self.nightObject.append(-100)
-            self.nightObChange.append(False)
-            self.nightFree.append(True)
-
     def ObjectMask(self):
 
         for n, tmp in enumerate(tqdm(self.ob, desc="Selecting objects")):
@@ -522,6 +361,7 @@ class TelescopePlanGenerator():
                 self.ob[n]["visibility"]["tag"] = vis.copy()
                 self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["tag"].copy()
 
+            # sprawdzanie fwhm
             if "max_fwhm" in self.ob[n].keys() and self.fwhm is not None:
                 if float(self.ob[n]["max_fwhm"]) > float(self.fwhm):
                     vis = [False for _ in range(len(self.nightTime))]
@@ -565,7 +405,7 @@ class TelescopePlanGenerator():
 
     def MaskVisibility(self):
         for ob in tqdm(self.ob, desc="Masking visibility"):
-            if "calc" not in ob:
+            if "calc" not in ob.keys():
                 continue
 
             alt = ob["calc"]["alt"]
@@ -583,7 +423,7 @@ class TelescopePlanGenerator():
 
     def MaskMoon(self):
         for ob in tqdm(self.ob, desc="Masking Moon"):
-            if "calc" not in ob:
+            if "calc" not in ob.keys():
                 continue
 
             sep = ob["calc"]["moon_sep"]
@@ -618,7 +458,7 @@ class TelescopePlanGenerator():
             return
 
         for ob in tqdm(self.ob, desc="Masking Wind"):
-            if "calc" not in ob:
+            if "calc" not in ob.keys():
                 continue
 
             az = ob["calc"]["az"]
@@ -646,7 +486,7 @@ class TelescopePlanGenerator():
 
     def MaskTwilight(self):
         for ob in tqdm(self.ob, desc="masking sunset_dt and sunrise_dt"):
-            if "visibility" not in ob:
+            if "visibility" not in ob.keys():
                 continue
 
             base_vis = ob["visibility"]["all"]
@@ -680,119 +520,6 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = all_mask
 
 
-    def CalcObject_old(self):  # ten kod jest jednak bardzo podatny na bledy...
-        for n, tmp in enumerate(self.ob):
-
-            if self.ob[n].get("ra", False) and self.ob[n].get("dec", False) and self.ob[n].get("name", False):
-
-                # sprawdzanie widocznosci
-                if all(self.ob[n]["visibility"]["all"]):
-                    s = ephem.FixedBody()
-                    s._ra = self.ob[n]["ra"]
-                    s._dec = self.ob[n]["dec"]
-                    self.oca.date = self.nightTime[0]
-
-                    if self.ob[n].get("h_min",False):
-                        self.oca.horizon = float(self.ob[n]["h_min"])
-                    else:
-                        self.oca.horizon = str(self.cfg[self.tel]["hmin"])
-                    try:
-                        tr = self.oca.next_rising(s)
-                        ts = self.oca.next_setting(s)
-                        if tr < ts:
-                            vis1 = [x > tr and x < ts for x in self.nightTime]
-                        else:
-                            vis1 = [x < ts or x > tr for x in self.nightTime]
-                    except ephem.NeverUpError:
-                        vis1 = [False for _ in range(len(self.nightTime))]
-                    except ephem.AlwaysUpError:
-                        vis1 = [True for _ in range(len(self.nightTime))]
-
-                    if self.ob[n].get("h_max",False):
-                        self.oca.horizon = float(self.ob[n]["h_max"])
-                    else:
-                        self.oca.horizon = str(self.cfg[self.tel]["hmax"])
-
-                    try:
-                        tr = self.oca.next_rising(s)
-                        ts = self.oca.next_setting(s)
-                        if tr < ts:
-                            vis2 = [not (x > tr and x < ts) for x in self.nightTime]
-                        else:
-                            vis2 = [not (x < ts or x > tr) for x in self.nightTime]
-                    except ephem.NeverUpError:
-                        vis2 = [True for _ in range(len(self.nightTime))]
-                    except ephem.AlwaysUpError:
-                        vis2 = [False for _ in range(len(self.nightTime))]
-
-                    self.ob[n]["visibility"]["h_min"] = vis1
-                    vis = [a and b for a,b in zip(vis1,vis2)]
-                    self.ob[n]["visibility"]["h_max"] = vis.copy()
-                    self.ob[n]["visibility"]["all"] = vis
-
-    def MaskMoon_old(self):
-        moon = ephem.Moon()
-        self.oca.date = self.nightTime[0]
-        self.oca.horizon = 0
-        tr = self.oca.next_rising(moon)
-        ts = self.oca.next_setting(moon)
-        if tr < ts:
-            moonvis = [not (x > tr and x < ts) for x in self.nightTime]
-        else:
-            moonvis = [(x > tr or x < ts) for x in self.nightTime]
-
-        for n, tmp in enumerate(self.ob):
-            if d_ver(self.ob[n],["name","ra","dec"]):
-                s = ephem.FixedBody()
-                s._ra = self.ob[n]["ra"]
-                s._dec = self.ob[n]["dec"]
-                tmp = numpy.array(self.nightTime)
-                time = tmp[numpy.array(self.ob[n]["visibility"]["all"])]
-                if len(time)>0:
-                    self.oca.date = time[0]
-                    moon.compute(self.oca)
-                    s.compute(self.oca)
-                    phase = float(moon.phase)
-                    sep = ephem.separation(s,moon) * 180/ephem.pi
-
-                    if d_ver(self.ob[n], ["min_moon_dist"]):
-                        moon_dist = float(self.ob[n]["min_moon_dist"])
-                    else:
-                        moon_dist = float(self.cfg[self.tel]["moon_dist"])
-
-                    if float(sep) < float(moon_dist):
-                        # mask everything for faster calculation
-                        self.ob[n]["visibility"]["all"] = [False for _ in range(len(self.nightTime))]
-                        self.ob[n]["visibility"]["min_moon_dist"] = [False for _ in range(len(self.nightTime))]
-
-                    if d_ver(self.ob[n], ["max_moon_phase"]):
-                        if float(phase) > float(self.ob[n]["max_moon_phase"]):
-                            self.ob[n]["visibility"]["all"] = moonvis
-                            self.ob[n]["visibility"]["max_moon_phase"] = moonvis
-
-    def MaskWind_old(self):  # cala noc, jeden kierunek
-        if self.wind:
-            for n, tmp in enumerate(self.ob):
-                if d_ver(self.ob[n], ["name", "ra", "dec","visibility"]):
-                    self.ob[n]["visibility"]["wind"] = self.ob[n]["visibility"]["all"].copy()
-                    s = ephem.FixedBody()
-                    s._ra = self.ob[n]["ra"]
-                    s._dec = self.ob[n]["dec"]
-
-                    time = numpy.array(self.nightTime)
-
-                    for t,tmp in enumerate(time):
-                        if self.ob[n]["visibility"]["all"][t]:
-                            self.oca.date = time[t]
-                            s.compute(self.oca)
-                            az = s.az * 180/ephem.pi
-                            dist = numpy.abs(self.wind - az)
-                            if dist > 180:
-                                dist = 360. - dist
-                            if dist < float(self.cfg[self.tel]["wind_dist"]):
-                                self.ob[n]["visibility"]["all"][t] = False
-                                self.ob[n]["visibility"]["wind"][t] = False
-
     def MaskCycle(self):
         for ob in tqdm(self.ob, desc="masking cycle"):
             last_jd = None
@@ -805,11 +532,11 @@ class TelescopePlanGenerator():
             jd_list = []
             try:
                 if d_ver(ob, ["obs_data"]):
-                    file = ob["obs_data"]
-                    txt = f'{ob["name"]} data source: {file}\n'
-                    #if self.loud:
-                    #    sys.stderr.write(txt)
-                    #self.msg += txt
+                    if "/" == self.cfg[self.tel]["data_file"][-1] or ob["obs_data"][0]:
+                        separator = ""
+                    else:
+                        separator = "/"
+                    file = self.cfg[self.tel]["data_file"]+separator+ob["obs_data"]
                 else:
                     filtr = ob["seq"].split("/")[1]
                     file = (self.cfg[self.tel]["data_file"] + ob["name"].lower() + "/" + filtr + "/light-curve/" + ob["name"].lower() + "_" + filtr + "_diff_light_curve.txt")
@@ -825,12 +552,11 @@ class TelescopePlanGenerator():
                 last_jd = max(jd)
 
             except FileNotFoundError:
-                pass
+                txt = f'[{ob["name"]}] no data file {file}'
+                self.log_msg(txt,always_loud=False)
             except ValueError:
-                txt = f'ERROR loading {file}\n'
-                #if self.loud:
-                #    sys.stderr.write(txt)
-                #self.msg += txt
+                txt = f'[{ob["name"]}] ERROR loading {file}\n'
+                self.log_msg(txt,always_loud=False)
 
             base_vis = ob["visibility"]["all"]
 
@@ -913,8 +639,8 @@ class TelescopePlanGenerator():
 
             # --- Obsługa jakości danych (opcjonalna) ---
             jd_good = None
-            if "obs_data" in ob:
-                file = ob["obs_data"]
+            if d_ver(ob, ["obs_data"]):
+                file = self.cfg[self.tel]["data_file"] + "/" + ob["obs_data"]
                 try:
                     lc_tab = Table.read(file, format="ascii")
                     jd = numpy.array(lc_tab["jd_obs"])
@@ -970,20 +696,10 @@ class TelescopePlanGenerator():
 
             # --- wczytanie danych i filtr jakości ---
             jd = None
-            if "obs_data" in ob:
-                file = ob["obs_data"]
+            if d_ver(ob, ["obs_data"]):
+                file = self.cfg[self.tel]["data_file"] + "/" + ob["obs_data"]
             else:
-                file = (
-                        self.cfg[self.tel]["data_file"]
-                        + ob["name"].lower()
-                        + "/"
-                        + filt
-                        + "/light-curve/"
-                        + ob["name"].lower()
-                        + "_"
-                        + filt
-                        + "_diff_light_curve.txt"
-                )
+                file = (self.cfg[self.tel]["data_file"] + ob["name"].lower() + "/" + filt + "/light-curve/" + ob["name"].lower() + "_" + filt + "_diff_light_curve.txt")
 
             try:
                 lc_tab = Table.read(file, format="ascii")
@@ -1065,7 +781,7 @@ class TelescopePlanGenerator():
         txt = f"random seed: {self.seed}\n"
         if getattr(self, "loud", False):
             sys.stderr.write(txt)
-        self.log(getattr(self, "msg", "") + txt)
+        self.log_msg(getattr(self, "msg", "") + txt)
 
         numpy.random.seed(self.seed)
 
@@ -1089,17 +805,6 @@ class TelescopePlanGenerator():
                     if int(self.ob[k]["priority"]) > priormax and int(self.ob[k]["priority"]) > -1:
                         visibility = self.ob[k]["visibility"]["all"]
                         slots = float((self.ob[k]["slotTime"])) / 1.
-                        # if "inf" in self.ob[k]["flag"]:
-                        #     loops = 1
-                        #     go = True
-                        #     while go:
-                        #         if all(visibility[nn:(nn + int(loops * slots)) + 2]) and len(visibility[nn:]) > int(
-                        #                 loops * slots) + 1:
-                        #             loops = loops + 1
-                        #         else:
-                        #             go = False
-                        #     loops = loops
-                        #     slots = int(slots * loops)
                         slots = int(slots)
                         bounds = (nn, nn + slots)
 
@@ -1115,9 +820,6 @@ class TelescopePlanGenerator():
                     self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
                     self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
                     self.nightObChange[bfin[0]] = True
-
-                    # if "inf" in self.ob[kfin]["flag"]:
-                    #     self.ob[kfin]["seq"] = self.ob[kfin]["seq"].replace("INFx", f"{loops}x")
 
                     # usuwanie juz zaalocowanych
                     q = self.random_index_list[done]
@@ -1148,11 +850,11 @@ class TelescopePlanGenerator():
     def export(self):
 
         tmp = f'sunset: {self.sunset}'
-        self.log(tmp)
+        self.log_msg(tmp)
         tmp = f'sunrise: {self.sunrise}'
-        self.log(tmp)
+        self.log_msg(tmp)
         tmp = f'plan begining: {ephem.Date(self.nightTime[0])}'
-        self.log(tmp)
+        self.log_msg(tmp)
 
         ZNACZNIK = False
         if "start_at_sunset" in self.flags:
@@ -1160,7 +862,7 @@ class TelescopePlanGenerator():
         else:
             txt = f'WAIT ut={str(ephem.Date(self.nightTime[0])).split()[1]}'
         self.plan.append(txt)
-        self.log(txt)
+        self.log_msg(txt)
         for n, tmp in enumerate(self.nightTime):
             if self.nightFree[n]:
                 ZNACZNIK = True
@@ -1170,7 +872,7 @@ class TelescopePlanGenerator():
                     self.oca.date = ephem.Date(self.nightTime[n])
                     txt = "WAIT ut=" + str(self.oca.date).split()[1]
                     self.plan.append(txt)
-                    self.log(txt)
+                    self.log_msg(txt)
                 if True:
                     k = int(self.nightObject[n])
                     if d_ver(self.ob[k], ["name", "makro"]):
@@ -1178,7 +880,7 @@ class TelescopePlanGenerator():
                                 for line in makro_file:
                                     if line.strip():
                                         self.plan.append(line.strip())
-                                        self.log(txt)
+                                        self.log_msg(txt)
                     else:
 
                         #par2remove = list(self.cfg["params_2_remove"])
@@ -1192,7 +894,7 @@ class TelescopePlanGenerator():
                         txt = ObsValidator.convert_from_obdict(filtered)
 
                         self.plan.append(txt)
-                        self.log(txt)
+                        self.log_msg(txt)
 
 
         if self.add_start_makro and d_ver(self.cfg[self.tel],["start_makro"]):
@@ -1208,11 +910,11 @@ class TelescopePlanGenerator():
                 self.plan = start_plan + self.plan
                 txt = f"start_makro added"
                 if self.loud: sys.stderr.write(txt)
-                self.log(txt)
+                self.log_msg(txt)
             else:
                 txt = f"NO start_makro FILE"
                 if self.loud: sys.stderr.write(txt)
-                self.log(txt)
+                self.log_msg(txt)
 
 
 
@@ -1229,11 +931,11 @@ class TelescopePlanGenerator():
                 self.plan = self.plan + end_plan
                 txt = f"end_makro added"
                 if self.loud: sys.stderr.write(txt)
-                self.log(txt)
+                self.log_msg(txt)
             else:
                 txt = f"NO end_makro FILE"
                 if self.loud: sys.stderr.write(txt)
-                self.log(txt)
+                self.log_msg(txt)
 
 
     def SavePlan(self):
@@ -1244,7 +946,7 @@ class TelescopePlanGenerator():
                     if not os.path.exists(self.cfg["plan_catalog"]):
                         os.makedirs(self.cfg["plan_catalog"])  # tworzy wszystkie brakujące katalogi w ścieżce
                 except PermissionError:
-                    self.log(f'No permission to create directory: {self.cfg["plan_catalog"]}')
+                    self.log_msg(f'No permission to create directory: {self.cfg["plan_catalog"]}')
                     #raise PermissionError(f"No permission to create directory: {self.cfg["plan_catalog"]}")
 
                 sunset_date = str(ephem.Date(self.sunset)).split()[0].split("/")
@@ -1276,16 +978,16 @@ class TelescopePlanGenerator():
                             plan_file.write(txt+"\n")
 
                 except Exception as e:
-                    print(f"ERROR saving plan: {e}")
-                    self.log(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+                    #print(f"ERROR saving plan: {e}")
+                    self.log_msg(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
 
                 try:
                     with open(self.log_filename, "w") as log_file:
                         log_file.write(self.msg)
 
                 except Exception as e:
-                    print(f"ERROR saving log: {e}")
-                    self.log(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
+                    #print(f"ERROR saving log: {e}")
+                    self.log_msg(getattr(self, "msg", "") + f"ERROR saving plan: {e}\n")
 
 
 def d_ver(slownik,klucze):
@@ -1319,3 +1021,23 @@ def calc_slot_time(program, overhed):
     except:
         slotTime = 0
     return slotTime
+
+def merge_schemas(base: dict, extra: dict) -> dict:
+    merged = base.copy()
+
+    # properties
+    merged.setdefault("properties", {})
+    merged["properties"].update(extra.get("properties", {}))
+
+    # required (jeśli masz)
+    if "required" in base or "required" in extra:
+        merged["required"] = list(set(base.get("required", []) + extra.get("required", [])))
+
+    # additionalProperties – ostrożnie (tu przykład: AND)
+    if "additionalProperties" in base or "additionalProperties" in extra:
+        merged["additionalProperties"] = (
+            base.get("additionalProperties", True)
+            and extra.get("additionalProperties", True)
+        )
+
+    return merged

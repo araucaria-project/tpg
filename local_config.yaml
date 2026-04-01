@@ -1,10 +1,11 @@
-plan_catalog: "~/tpg_plans/"
+plan_catalog: "/home/mgorski/src/tpg/plans"
+
 
 wk06:
   master_file: /home/mgorski/src/tpg/master_files/wk06_master.txt
   start_makro: /home/mgorski/src/tpg/master_files/wk06_start_makro.txt
   end_makro: /home/mgorski/src/tpg/master_files/wk06_end_makro.txt
-  data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/wk06/targets/
+  data_file: /work/vela/oca/fits/wk06/processed-ofp/targets/
   def_read_mode: 2
   overhead: 15                                               # overhead for time slot calculation
   hmin: 35                                                   # min altitude to observe
@@ -17,7 +18,7 @@ zb08:
   master_file: /home/mgorski/src/tpg/master_files/zb08_master.txt
   start_makro: /home/mgorski/src/tpg/master_files/zb08_start_makro.txt
   end_makro: /home/mgorski/src/tpg/master_files/zb08_end_makro.txt
-  data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/zb08/targets/
+  data_file: /work/vela/oca/fits/zb08/processed-ofp/targets/
   def_read_mode: 2
   overhead: 15
   hmin: 35
@@ -31,7 +32,7 @@ jk15:
   master_file: /home/mgorski/src/tpg/master_files/jk15_master.txt
   start_makro: /home/mgorski/src/tpg/master_files/jk15_start_makro.txt
   end_makro: /home/mgorski/src/tpg/master_files/jk15_end_makro.txt
-  data_file: /Users/mgorski/DEVELOPER/obs_manager/obs_data/jk15/targets/
+  data_file: /work/vela/oca/fits/jk15/processed-ofp/targets/
   def_read_mode: 5
   overhead: 60
   hmin: 35
@@ -41,10 +42,10 @@ jk15:
   moon_dist: 40
 
 iris:
-  master_file: /home/mgorski/src/tpg/master_files/iris_master.test.txt        # file with OB definitions
+  master_file: /home/mgorski/src/tpg/master_files/iris_master.txt        # file with OB definitions
   start_makro: /home/mgorski/src/tpg/master_files/iris_start_makro.txt
   end_makro: /home/mgorski/src/tpg/master_files/iris_end_makro.txt
-  data_file: /data/fits/jk15/processed-ofp/targets/
+  data_file: /work/vela/oca/fits/iris/processed-ofp/targets/
   def_read_mode: 3
   overhead: 60
   hmin: 35
@@ -53,4 +54,16 @@ iris:
   wind_dist: 95
   moon_dist: 40
 
+test:
+  master_file: /home/mgorski/src/tpg/master_files/test_master.txt
+  start_makro: /home/mgorski/src/tpg/master_files/test_start_makro.txt
+  end_makro: /home/mgorski/src/tpg/master_files/test_end_makro.txt
+  data_file: /work/vela/oca/fits/test/processed-ofp/targets/
+  def_read_mode: 2
+  overhead: 15
+  hmin: 35
+  hmax: 80
+  hsun: -18
+  wind_dist: 95
+  moon_dist: 40
 

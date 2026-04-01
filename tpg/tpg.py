@@ -20,9 +20,10 @@ class main:
     argparser.add_argument("--fwhm", type=float, default=None, help='fwhm (to apply limits)')
     argparser.add_argument("--seed", type=int, default=None, help='seed to randomize list')
     argparser.add_argument("--loud", action="store_true", help="Enable loud mode")
-    argparser.add_argument("--no_save_plan", action="store_false", help='do not save telescope plan')
+    argparser.add_argument("--no_save", action="store_false", help='do not save telescope plan')
     argparser.add_argument("--no_start_makro", action="store_false", help='add makro at the plan beginning')
     argparser.add_argument("--no_end_makro", action="store_false", help='add makro at the plan end')
+    argparser.add_argument("--master_file", type=str, default=None, help='specify master file')
 
 
 
@@ -33,9 +34,10 @@ class main:
             fwhm=args.fwhm,
             loud=args.loud,
             seed=args.seed,
-            save_plan=args.no_save_plan,
+            save_plan=args.no_save,
             add_start_makro=args.no_start_makro,
             add_end_makro=args.no_end_makro,
+            master_file=args.master_file,
             done_uobi=[])
     p.go()
 
