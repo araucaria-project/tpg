@@ -104,7 +104,8 @@ NGC2617                 08:35:38.80        -04:05:17.90       seq=1/Ic/30,1/y_s/
 # Eclipsing binaries to calibrate the sufrace brightness-color relation (sbcr)
 # PI dgraczyk
 # SCIPROG deb_sbcr
-# INFO Efemerydy  0.125*czas_trwania_zacmienia odjete i dodane do faz poczatku i konca zacmienia
+# INFO Efemerydy = 0.125*czas_trwania_zacmienia odjete i dodane do faz poczatku i konca zacmienia
+# Monitorować przez 3 lata - zapytaj Darka czy nadal tego chce
 
 ## Primary + secondary eclipses (descr. in tags)
 TYC20-893-1             01:17:26.4         +00:40:46          seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48                priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9870    ph_end=0.0033    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=8.36117    hjd0=2456807.200    mV=11.8    comment="Darek EB prim ecl, gaia, BVI" 
