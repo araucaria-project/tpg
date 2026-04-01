@@ -634,6 +634,7 @@ OGLE-SMC-ECL-4510       01:03:10.81        -72:01:58.6        seq=1x(2/B/48,2/V/
 OGLE-SMC-ECL-5890       01:16:26.11        -73:15:01.3        seq=1x(2/B/36,2/V/48,2/Ic/120)        priority=4    cycle=0.1    sciprog=deb_blue_smc    pi=ghajdu    tag=random_phase    P=2.2660139    hjd0=2457000.0838    comment="mI=15.4" 
 
 
+
 # Young open clusters
 # SCIPROG oclu_young
 # PI apigulski
@@ -649,7 +650,6 @@ Pismis11                09:15:53.0         -50:01:00          seq=2/g/60,2/g/180
 #NGC6231
 #Tuc_47
 #NGC 288
-
 
 # Finished
 #NGC2362                 07:18:41.0         -24:57:14          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="DONE, every 1h" 
@@ -668,29 +668,29 @@ Pismis11                09:15:53.0         -50:01:00          seq=2/g/60,2/g/180
 #AT_Vir     12:55:10.51    -05:27:31.78     seq=2/u/60,2/g/6,2/r/4,2/i/6,2/z/20           priority=9   sciprog=rrl_speckle  pi=rsalinas   comment="DONE"
 #BB_Vir     13:51:40.78    +06:25:51.39     seq=2/u/60,2/g/5,2/r/4,2/i/6,2/z/30           priority=9   sciprog=rrl_speckle  pi=rsalinas   comment="DONE"
 #AM_Vir     13:23:33.30    -16:39:57.90     seq=2/u/54,2/g/6.3,2/r/4.3,2/i/8,2/z/30       priority=9   sciprog=rrl_speckle  pi=rsalinas   comment="DONE"
-V445_Oph   16:24:41.21    -06:32:29.79     seq=2/u/42,2/g/3.3,2/r/3,2/i/5,2/z/21         priority=9   sciprog=rrl_speckle  pi=rsalinas   comment="resumed in April"
-V675_Sgr   18:13:35.41    -34:19:01.85     seq=2/u/22,2/g/1.5,2/r/1.2,2/i/2.3,2/z/11     priority=9   sciprog=rrl_speckle  pi=rsalinas   comment="resumed in April"
+V445_Oph   16:24:41.21    -06:32:29.79     seq=2/u/42,2/g/3.3,2/r/3,2/i/5,2/z/21         priority=8   sciprog=rrl_speckle  pi=rsalinas   comment="resumed in April"
+V675_Sgr   18:13:35.41    -34:19:01.85     seq=2/u/22,2/g/1.5,2/r/1.2,2/i/2.3,2/z/11     priority=8   sciprog=rrl_speckle  pi=rsalinas   comment="resumed in April"
 
 
 
-## Metal-rich RR Lyrae stars, possibly binaries
-## SCIPROG rrl_metal_rich_mw
-## PI rsalinas
-##
-#HY_Tel                          20:08:13.42  -55:14:02.08      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.4027262     sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=13.10
-#UW_Oct                          21:44:38.21  -80:33:44.22      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.4444868     sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.63
-#Gaia_DR3_4203591935506305408    18:58:33.04  -09:04:27.77      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.75562       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.13
-#Gaia_DR3_5352984420098880768    10:45:38.79  -54:54:22.90      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.43656       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.10
-#Gaia_DR3_6210360364551400192    15:35:03.85  -28:09:04.90      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.58357       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.51
-#Gaia_DR3_4035521829393903744    17:57:38.65  -40:33:27.22      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.49225       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.91
-#Gaia_DR3_5431789686933763456    09:42:12.08  -39:25:51.81      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.51657       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.95
-#Gaia_DR3_4118543955178309376    17:48:48.88  -21:52:51.612     seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.52397       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.67
-#Gaia_DR3_3143813565573130880    07:48:57.06  +05:38:11.21      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.55051       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.72
-#Gaia_DR3_5403461869352675584    11:11:48.21  -32:22:53.74      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.52647       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.63
-#Gaia_DR3_4113122954864169600    17:02:23.18  -24:21:59.21      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.461137      sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.76
-#Gaia_DR3_3326852328563919744    06:35:37.913 +09:43:33.33      seq=2/B/,1/V/,1/Ic/,2/u/,2/g/,2/r/,2/i/,2/z/       P=0.524830      sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=14.31 
-##RR_Gru                          21:38:03.56  -44:41:12.09      P=0.5524528     sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.08   comment="Already in the program rrl_mw"
-##Gaia_DR3_6005656897473385600    15:22:25.38  -40:55:36.23      P=0.48417       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=9.05    comment="Already in the program rrl_mw under name FW_Lup"
+# Metal-rich RR Lyrae stars, possibly binaries
+# SCIPROG rrl_metal_rich_mw
+# PI rsalinas
+#
+Gaia_DR3_3326852328563919744    06:35:37.913 +09:43:33.33      seq=2/B/200,2/V/80,2/Ic/87,2/g/150,2/r/60,2/i/83,2/z/300              P=0.524830     priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=14.31 
+Gaia_DR3_3143813565573130880    07:48:57.06  +05:38:11.21      seq=2/B/6.5,2/V/4.3,2/Ic/9,2/u/135,2/g/4,2/r/3,2/i/6,2/z/34           P=0.55051      priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.72
+Gaia_DR3_5431789686933763456    09:42:12.08  -39:25:51.81      seq=2/B/8.3,2/V/5,2/Ic/9.5,2/u/190,2/g/5,2/r/3.5,2/i/6.7,2/z/35       P=0.51657      priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.95
+Gaia_DR3_5352984420098880768    10:45:38.79  -54:54:22.90      seq=2/B/20,2/V/7,2/Ic/7,2/u/300,2/g/12,2/r/4,2/i/5,2/z/19             P=0.43656      priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.10
+Gaia_DR3_5403461869352675584    11:11:48.21  -32:22:53.74      seq=2/B/5.4,2/V/3.5,2/Ic/7.3,2/u/115,2/g/3.2,2/r/2.4,2/i/5,2/z/26     P=0.52647      priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.63
+Gaia_DR3_6210360364551400192    15:35:03.85  -28:09:04.90      seq=2/B/6,2/V/4,2/Ic/7,2/u/140,2/g/4,2/r/3,2/i/5,2/z/25               P=0.58357      priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.51
+Gaia_DR3_4113122954864169600    17:02:23.18  -24:21:59.21      seq=2/B/6.4,2/V/3.7,2/Ic/6.6,2/u/153,2/g/3.8,2/r/2.5,2/i/4.6,2/z/23   P=0.461137     priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.76
+Gaia_DR3_4118543955178309376    17:48:48.88  -21:52:51.612     seq=2/B/9,2/V/4.3,2/Ic/6,2/u/260,2/g/5.4,2/r/2.7,2/i/4.3,2/z/20       P=0.52397      priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.67
+Gaia_DR3_4035521829393903744    17:57:38.65  -40:33:27.22      seq=2/B/5,2/V/4,2/Ic/7,2/u/110,2/g/3,2/r/2.5,2/i/4.3,2/z/23           P=0.49225      priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.91
+Gaia_DR3_4203591935506305408    18:58:33.04  -09:04:27.77      seq=2/B/8,2/V/5,2/Ic/10,2/u/170,2/g/5,2/r/4,2/i/7,2/z/36              P=0.75562      priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.13
+HY_Tel                          20:08:13.42  -55:14:02.08      seq=2/B/12,2/V/8,2/Ic/16,2/u/235,2/g/7,2/r/6,2/i/12,2/z/64            P=0.4027262    priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=13.10
+UW_Oct                          21:44:38.21  -80:33:44.22      seq=2/B/7,2/V/4,2/Ic/7,2/u/150,2/g/4,2/r/3,2/i/5,2/z/25               P=0.4444868    priority=6    cycle=0.05   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.63
+#RR_Gru                          21:38:03.56  -44:41:12.09      P=0.5524528     sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.08   comment="Already in the program rrl_mw"
+#Gaia_DR3_6005656897473385600    15:22:25.38  -40:55:36.23      P=0.48417       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=9.05    comment="Already in the program rrl_mw under name FW_Lup"
 
 
 
