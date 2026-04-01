@@ -986,7 +986,8 @@ class TelescopePlanGenerator():
                 # zapisujemy
                 try:
                     with open(self.plan_filename, "w") as plan_file:
-                        for txt in tqdm(self.plan,desc=f'Saving plan to file {self.plan_filename}'):
+                        #for txt in tqdm(self.plan, desc=f'Saving plan to file {self.plan_filename}'):
+                        for txt in self.plan:
                             plan_file.write(txt+"\n")
 
                 except Exception as e:
