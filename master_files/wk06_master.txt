@@ -16,6 +16,11 @@
 
 
 
+# Priorities in the programs: BW, PLR, EB, galaxies
+# All other programs have lower priorities
+
+
+
 # Standard stars for photometric system Johnson-Cousins
 # Source of JC standards: Pancino et al. 2022 (https://www.aanda.org/articles/aa/abs/2022/08/aa43939-22/aa43939-22.html)
 # Beginning of night
