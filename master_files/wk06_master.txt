@@ -449,7 +449,7 @@ OGLE-GD-CEP-0932   13:35:43.4966 -62:40:02.877   seq=2/B/160,2/V/40    priority=
 # SCIPROG tt_mw
 # PI wogloza
 #
-OBJECT Gaia_DR3_5606987823911441152   06:55:58.1676   -32:33:42.3994   seq=26x(1/B/120,1/V/130,1/Ic/300)   priority=4   pi=wogloza sciprog=tt_mw   comment="many OBs to execute continuously for > 4h"
+Gaia_DR3_5606987823911441152   06:55:58.1676   -32:33:42.3994   seq=26x(1/B/120,1/V/130,1/Ic/300)   priority=4   pi=wogloza sciprog=tt_mw   comment="many OBs to execute continuously for > 4h"
 
 
 
