@@ -681,19 +681,19 @@ V675_Sgr   18:13:35.41    -34:19:01.85     seq=2/u/22,2/g/1.5,2/r/1.2,2/i/2.3,2/
 # SCIPROG rrl_metal_rich_mw
 # PI rsalinas
 #
-# High priority once a night
-Gaia_DR3_3326852328563919744    06:35:37.913 +09:43:33.33      seq=2/B/200,2/V/80,2/Ic/87,2/g/150,2/r/60,2/i/83,2/z/300              P=0.524830     priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=14.31 
-Gaia_DR3_3143813565573130880    07:48:57.06  +05:38:11.21      seq=2/B/6.5,2/V/4.3,2/Ic/9,2/u/135,2/g/4,2/r/3,2/i/6,2/z/34           P=0.55051      priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.72
-Gaia_DR3_5431789686933763456    09:42:12.08  -39:25:51.81      seq=2/B/8.3,2/V/5,2/Ic/9.5,2/u/190,2/g/5,2/r/3.5,2/i/6.7,2/z/35       P=0.51657      priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.95
-Gaia_DR3_5352984420098880768    10:45:38.79  -54:54:22.90      seq=2/B/20,2/V/7,2/Ic/7,2/u/300,2/g/12,2/r/4,2/i/5,2/z/19             P=0.43656      priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.10
-Gaia_DR3_5403461869352675584    11:11:48.21  -32:22:53.74      seq=2/B/5.4,2/V/3.5,2/Ic/7.3,2/u/115,2/g/3.2,2/r/2.4,2/i/5,2/z/26     P=0.52647      priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.63
-Gaia_DR3_6210360364551400192    15:35:03.85  -28:09:04.90      seq=2/B/6,2/V/4,2/Ic/7,2/u/140,2/g/4,2/r/3,2/i/5,2/z/25               P=0.58357      priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.51
-Gaia_DR3_4113122954864169600    17:02:23.18  -24:21:59.21      seq=2/B/6.4,2/V/3.7,2/Ic/6.6,2/u/153,2/g/3.8,2/r/2.5,2/i/4.6,2/z/23   P=0.461137     priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.76
-Gaia_DR3_4118543955178309376    17:48:48.88  -21:52:51.612     seq=2/B/9,2/V/4.3,2/Ic/6,2/u/260,2/g/5.4,2/r/2.7,2/i/4.3,2/z/20       P=0.52397      priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.67
-Gaia_DR3_4035521829393903744    17:57:38.65  -40:33:27.22      seq=2/B/5,2/V/4,2/Ic/7,2/u/110,2/g/3,2/r/2.5,2/i/4.3,2/z/23           P=0.49225      priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.91
-Gaia_DR3_4203591935506305408    18:58:33.04  -09:04:27.77      seq=2/B/8,2/V/5,2/Ic/10,2/u/170,2/g/5,2/r/4,2/i/7,2/z/36              P=0.75562      priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.13
-HY_Tel                          20:08:13.42  -55:14:02.08      seq=2/B/12,2/V/8,2/Ic/16,2/u/235,2/g/7,2/r/6,2/i/12,2/z/64            P=0.4027262    priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=13.10
-UW_Oct                          21:44:38.21  -80:33:44.22      seq=2/B/7,2/V/4,2/Ic/7,2/u/150,2/g/4,2/r/3,2/i/5,2/z/25               P=0.4444868    priority=7    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.63
+# High priority once per night
+Gaia_DR3_3326852328563919744    06:35:37.913 +09:43:33.33      seq=2/B/200,2/V/80,2/Ic/87,2/g/150,2/r/60,2/i/83,2/z/300              P=0.524830     priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=14.31 
+Gaia_DR3_3143813565573130880    07:48:57.06  +05:38:11.21      seq=2/B/6.5,2/V/4.3,2/Ic/9,2/u/135,2/g/4,2/r/3,2/i/6,2/z/34           P=0.55051      priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.72
+Gaia_DR3_5431789686933763456    09:42:12.08  -39:25:51.81      seq=2/B/8.3,2/V/5,2/Ic/9.5,2/u/190,2/g/5,2/r/3.5,2/i/6.7,2/z/35       P=0.51657      priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.95
+Gaia_DR3_5352984420098880768    10:45:38.79  -54:54:22.90      seq=2/B/20,2/V/7,2/Ic/7,2/u/300,2/g/12,2/r/4,2/i/5,2/z/19             P=0.43656      priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.10
+Gaia_DR3_5403461869352675584    11:11:48.21  -32:22:53.74      seq=2/B/5.4,2/V/3.5,2/Ic/7.3,2/u/115,2/g/3.2,2/r/2.4,2/i/5,2/z/26     P=0.52647      priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.63
+Gaia_DR3_6210360364551400192    15:35:03.85  -28:09:04.90      seq=2/B/6,2/V/4,2/Ic/7,2/u/140,2/g/4,2/r/3,2/i/5,2/z/25               P=0.58357      priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.51
+Gaia_DR3_4113122954864169600    17:02:23.18  -24:21:59.21      seq=2/B/6.4,2/V/3.7,2/Ic/6.6,2/u/153,2/g/3.8,2/r/2.5,2/i/4.6,2/z/23   P=0.461137     priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.76
+Gaia_DR3_4118543955178309376    17:48:48.88  -21:52:51.612     seq=2/B/9,2/V/4.3,2/Ic/6,2/u/260,2/g/5.4,2/r/2.7,2/i/4.3,2/z/20       P=0.52397      priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.67
+Gaia_DR3_4035521829393903744    17:57:38.65  -40:33:27.22      seq=2/B/5,2/V/4,2/Ic/7,2/u/110,2/g/3,2/r/2.5,2/i/4.3,2/z/23           P=0.49225      priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.91
+Gaia_DR3_4203591935506305408    18:58:33.04  -09:04:27.77      seq=2/B/8,2/V/5,2/Ic/10,2/u/170,2/g/5,2/r/4,2/i/7,2/z/36              P=0.75562      priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.13
+HY_Tel                          20:08:13.42  -55:14:02.08      seq=2/B/12,2/V/8,2/Ic/16,2/u/235,2/g/7,2/r/6,2/i/12,2/z/64            P=0.4027262    priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=13.10
+UW_Oct                          21:44:38.21  -80:33:44.22      seq=2/B/7,2/V/4,2/Ic/7,2/u/150,2/g/4,2/r/3,2/i/5,2/z/25               P=0.4444868    priority=8    ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=11.63
 #
 # Lower priority a few times per night
 Gaia_DR3_3326852328563919744    06:35:37.913 +09:43:33.33      seq=2/B/200,2/V/80,2/Ic/87,2/g/150,2/r/60,2/i/83,2/z/300              P=0.524830     priority=5    cycle=0.1   ph_mk=2/V/0.01    sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=14.31 
