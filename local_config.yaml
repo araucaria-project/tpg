@@ -1,24 +1,24 @@
-plan_catalog: "/home/mgorski/src/tpg/plans"
+plan_catalog: "/home/observer/src/tpg/plans"
 
 
 wk06:
-  master_file: /home/mgorski/src/tpg/master_files/wk06_master.txt
-  start_makro: /home/mgorski/src/tpg/master_files/wk06_start_makro.txt
-  end_makro: /home/mgorski/src/tpg/master_files/wk06_end_makro.txt
-  data_file: /work/vela/oca/fits/wk06/processed-ofp/targets/
+  master_file: /home/observer/src/tpg/master_files/wk06_master.txt
+  start_makro: /home/observer/src/tpg/master_files/wk06_start_makro.txt
+  end_makro: /home/observer/src/tpg/master_files/wk06_end_makro.txt
+  data_file: /data/fits/wk06/processed-ofp/targets/
   def_read_mode: 2
   overhead: 15                                               # overhead for time slot calculation
   hmin: 35                                                   # min altitude to observe
-  hmax: 91                                                   # max altitude to observe
+  hmax: 85                                                   # max altitude to observe
   hsun: -18                                                  # Sun alt to start and stop obs
-  wind_dist: 95                                              # wind distance to avoid in azimuth
+  wind_dist: 30                                              # wind distance to avoid in azimuth
   moon_dist: 40   
 
 zb08:
-  master_file: /home/mgorski/src/tpg/master_files/zb08_master.txt
-  start_makro: /home/mgorski/src/tpg/master_files/zb08_start_makro.txt
-  end_makro: /home/mgorski/src/tpg/master_files/zb08_end_makro.txt
-  data_file: /work/vela/oca/fits/zb08/processed-ofp/targets/
+  master_file: /home/observer/src/tpg/master_files/zb08_master.txt
+  start_makro: /home/observer/src/tpg/master_files/zb08_start_makro.txt
+  end_makro: /home/observer/src/tpg/master_files/zb08_end_makro.txt
+  data_file: /data/fits/zb08/processed-ofp/targets/
   def_read_mode: 2
   overhead: 15
   hmin: 35
@@ -29,10 +29,10 @@ zb08:
 
 
 jk15:
-  master_file: /home/mgorski/src/tpg/master_files/jk15_master.txt
-  start_makro: /home/mgorski/src/tpg/master_files/jk15_start_makro.txt
-  end_makro: /home/mgorski/src/tpg/master_files/jk15_end_makro.txt
-  data_file: /work/vela/oca/fits/jk15/processed-ofp/targets/
+  master_file: /home/observer/src/tpg/master_files/jk15_master.txt
+  start_makro: /home/observer/src/tpg/master_files/jk15_start_makro.txt
+  end_makro: /home/observer/src/tpg/master_files/jk15_end_makro.txt
+  data_file: /data/fits/jk15/processed-ofp/targets/
   def_read_mode: 5
   overhead: 60
   hmin: 35
@@ -42,10 +42,10 @@ jk15:
   moon_dist: 40
 
 iris:
-  master_file: /home/mgorski/src/tpg/master_files/iris_master.txt        # file with OB definitions
-  start_makro: /home/mgorski/src/tpg/master_files/iris_start_makro.txt
-  end_makro: /home/mgorski/src/tpg/master_files/iris_end_makro.txt
-  data_file: /work/vela/oca/fits/iris/processed-ofp/targets/
+  master_file: /home/observer/src/tpg/master_files/iris_master.txt        # file with OB definitions
+  start_makro: /home/observer/src/tpg/master_files/iris_start_makro.txt
+  end_makro: /home/observer/src/tpg/master_files/iris_end_makro.txt
+  data_file: /data/fits/iris/processed-ofp/targets/
   def_read_mode: 3
   overhead: 60
   hmin: 35
@@ -55,10 +55,10 @@ iris:
   moon_dist: 40
 
 test:
-  master_file: /home/mgorski/src/tpg/master_files/test_master.txt
-  start_makro: /home/mgorski/src/tpg/master_files/test_start_makro.txt
-  end_makro: /home/mgorski/src/tpg/master_files/test_end_makro.txt
-  data_file: /work/vela/oca/fits/test/processed-ofp/targets/
+  master_file: ./test/test_master.txt
+  start_makro: ./test/test_start_makro.txt
+  end_makro: ./test/test_end_makro.txt
+  data_file: ./test/
   def_read_mode: 2
   overhead: 15
   hmin: 35
