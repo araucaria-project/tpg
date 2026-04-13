@@ -16,6 +16,11 @@
 
 
 
+# Priorities in the programs: BW, PLR, EB, galaxies
+# All other programs have lower priorities
+
+
+
 # Standard stars for photometric system Johnson-Cousins & Sloan/SDSS
 # Source of JC standards: Pancino et al. 2022 (https://www.aanda.org/articles/aa/abs/2022/08/aa43939-22/aa43939-22.html)
 # Source of Sloan/SDSS standards: Gaia synthetic photometry catalog
@@ -106,9 +111,9 @@ Carina-center           06:41:36.70        -50:57:58.0        seq=3/g/200,3/r/20
 Carina-center           06:41:36.70        -50:57:58.0        seq=3/g/200,3/r/200,3/i/200           priority=8    cycle=1.2    h_min=45    uobi=176a58ed    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=carina-center_check1/r/light-curve/carina-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 2-3 times per week"
 Carina-center           06:41:36.70        -50:57:58.0        seq=3/V/200,3/g/200,3/r/200,4/i/200   priority=9    cycle=7      h_min=45    uobi=176a58ed    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=carina-center_check1/V/light-curve/carina-center_check1_V_diff_light_curve.txt    comment="seeing < 1.5, every 2 weeks"
 
-NGC3109-center          10:03:06.88        -26:09:34.7        seq=4/g/200,4/r/200,4/i/200           priority=5    cycle=0.15   h_min=45                     sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=ngc3109-center_check1/r/light-curve/ngc3109-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 2 times per night if nothing more urgent"
-NGC3109-center          10:03:06.88        -26:09:34.7        seq=4/g/200,4/r/200,4/i/200           priority=8    cycle=1.2    h_min=45    uobi=f94754ac    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=ngc3109-center_check1/r/light-curve/ngc3109-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 2-3 times per week"
-NGC3109-center          10:03:06.88        -26:09:34.7        seq=4/V/200,4/g/200,4/r/200,4/i/200   priority=9    cycle=7      h_min=45    uobi=f94754ac    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=ngc3109-center_check1/V/light-curve/ngc3109-center_check1_V_diff_light_curve.txt    comment="seeing < 1.5, every 2 weeks"
+NGC3109-center          10:03:06.88        -26:09:34.7        seq=4/g/200,4/r/200,4/i/200           priority=5    cycle=0.15   h_min=45                     sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=/data/fits/jk15/processed-ofp/targets/ngc3109-center_check1/r/light-curve/ngc3109-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 2 times per night if nothing more urgent" 
+NGC3109-center          10:03:06.88        -26:09:34.7        seq=4/g/200,4/r/200,4/i/200           priority=8    cycle=0.8    h_min=45    uobi=f94754ac    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=/data/fits/jk15/processed-ofp/targets/ngc3109-center_check1/r/light-curve/ngc3109-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 2-3 times per week" 
+NGC3109-center          10:03:06.88        -26:09:34.7        seq=4/V/200,4/g/200,4/r/200,4/i/200   priority=9    cycle=7      h_min=45    uobi=f94754ac    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=/data/fits/jk15/processed-ofp/targets/ngc3109-center_check1/V/light-curve/ngc3109-center_check1_V_diff_light_curve.txt    comment="seeing < 1.5, every 2 weeks" 
 
 NGC6822-center          19:44:56.2         -14:47:51.3        seq=3/g/200,3/r/200,3/i/200           priority=6    cycle=0.15   h_min=40                     sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=ngc6822-center_check1/r/light-curve/ngc6822-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 2 times per night if nothing more urgent"
 NGC6822-center          19:44:56.2         -14:47:51.3        seq=3/g/200,3/r/200,3/i/200           priority=9                 h_min=40    uobi=56f0d2f1    sciprog=near_gal    pi=gpietrzynski    fwhm_max=1.55    max_moon_phase=65    obs_data=ngc6822-center_check1/r/light-curve/ngc6822-center_check1_r_diff_light_curve.txt    comment="seeing < 1.5, 1 time per night"
@@ -129,11 +134,12 @@ NGC7793-center          23:57:49.754       -32:35:27.7        seq=4/V/200,4/g/20
 
 NGC1851-center     05:14:06.76    -40:02:47.6   seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35    priority=6    cycle=0.04    uobi=d17f590f    sciprog=var_gclu    pi=ghajdu    obs_data=ngc1851-center_check1/r/light-curve/ngc1851-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"
 
-NGC3201-center    10:17:36.82    -46:24:44.9   seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30  cycle=0.08   priority=5  pi=ghajdu   sciprog=var_gclu     obs_data=ngc3201_check1/r/light-curve/ngc3201_check1_r_diff_light_curve.txt     uobi=6c942bee     comment="dense coverage"
+NGC3201-center    10:17:36.82    -46:24:44.9   seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30  cycle=0.08   priority=5  pi=ghajdu   sciprog=var_gclu     obs_data=/data/fits/jk15/processed-ofp/targets/ngc3201-center_check1/r/light-curve/ngc3201-center_check1_r_diff_light_curve.txt     uobi=6c942bee     comment="dense coverage"
 
 NGC4590-center     12:39:28.0     -26:44:38.6   seq=2/g/25,2/r/30,2/i/35,2/z/70,2/g/25,2/r/30,2/i/35,2/B/30,2/g/25,2/r/30,2/i/35,2/V/30,2/g/25,2/r/30,2/i/35,2/Ic/50     priority=6    cycle=0.04    uobi=d17f590f    sciprog=var_gclu    pi=ghajdu    obs_data=ngc4590-center_check1/r/light-curve/ngc4590-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"
 
-NGC5286-SE        13:46:49.0     -51:26:35.0   seq=2/g/70,2/r/45,2/i/50,2/z/85,2/g/70,2/r/45,2/i/50,2/B/90,2/g/70,2/r/45,2/i/50,2/V/65,2/g/70,2/r/45,2/i/50,2/Ic/60   cycle=0.04   priority=6  pi=ghajdu   sciprog=var_gclu    uobi=60731311   comment="dense coverage"
+NGC5286-SE        13:46:49.0     -51:26:35.0   seq=2/g/70,2/r/45,2/i/50,2/z/85,2/g/70,2/r/45,2/i/50,2/B/90,2/g/70,2/r/45,2/i/50,2/V/65,2/g/70,2/r/45,2/i/50,2/Ic/60   cycle=0.2   priority=6  pi=ghajdu   sciprog=var_gclu    ibs_data=/data/fits/jk15/processed-ofp/targets/ngc5286-se_check1/g/light-curve/ngc5286-se_check1_g_diff_light_curve.txt    comment="dense coverage"
+NGC5286-SE        13:46:49.0     -51:26:35.0   seq=2/g/70,2/r/45,2/i/50,2/z/85,2/g/70,2/r/45,2/i/50,2/B/90,2/g/70,2/r/45,2/i/50,2/V/65,2/g/70,2/r/45,2/i/50,2/Ic/60   cycle=0.04  priority=4  pi=ghajdu   sciprog=var_gclu    ibs_data=/data/fits/jk15/processed-ofp/targets/ngc5286-se_check1/g/light-curve/ngc5286-se_check1_g_diff_light_curve.txt    comment="dense coverage"
 
 #oCen-makro        13:26:48.0     -47:12:30.0   makro=/home/observer/src/tpg/makro/jk15_ocen.txt     ob_time=7        cycle=0.5     priority=6  pi=ghajdu   sciprog=var_gclu     obs_data=ocen-n_check1/r/light-curve/ocen-n_check1_r_diff_light_curve.txt     uobi=ca31fe1f     comment="sparse coverage"
 #oCen-makro        13:26:48.0     -47:12:30.0   makro=/home/observer/src/tpg/makro/jk15_ocenV.txt    ob_time=15.2     cycle=4.5     priority=7  pi=ghajdu   sciprog=var_gclu     obs_data=ocen-n_check1/V/light-curve/ocen-n_check1_V_diff_light_curve.txt     uobi=ca31fe1f     comment="sparse coverage"
