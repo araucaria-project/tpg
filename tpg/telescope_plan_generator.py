@@ -151,15 +151,7 @@ class TelescopePlanGenerator():
         self.random_index_list = []  # list with random order of object indices to observe
         self.pliki_hjd = []  # files with phase coverage for objects
 
-    def LoadObjects(self):  # Load Object file
-        # first try patch as it is, if file not found, take base path form __FILE__ and append config file path using os.path.join
-        if not os.path.isfile(self.cfg[self.tel]["master_file"]):
-            self.cfg[self.tel]["master_file"] = os.path.join(self.script_dir, self.cfg[self.tel]["master_file"])
-            if not os.path.isfile(self.cfg[self.tel]["master_file"]):
-                self.log_msg(f'No Objects Catalog file {self.cfg[self.tel]["master_file"]}')
-                self.log_msg('Check config.yaml file')
-                sys.exit()
-
+    def init_ctc(self):
         if os.path.exists(self.cfg["ctc"]["ctc_base_folder"]) and CTC_AVAILABLE:
             self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"], tpg=True)
             self.ctc.set_rm_modes(self.cfg["ctc"]["rm_modes_mhz"])
@@ -170,6 +162,18 @@ class TelescopePlanGenerator():
 
         txt = f'ctc active: {self.ctc_active}\n'
         self.log_msg(txt)
+
+    def LoadObjects(self):  # Load Object file
+        # first try patch as it is, if file not found, take base path form __FILE__ and append config file path using os.path.join
+        if not os.path.isfile(self.cfg[self.tel]["master_file"]):
+            self.cfg[self.tel]["master_file"] = os.path.join(self.script_dir, self.cfg[self.tel]["master_file"])
+            if not os.path.isfile(self.cfg[self.tel]["master_file"]):
+                self.log_msg(f'No Objects Catalog file {self.cfg[self.tel]["master_file"]}')
+                self.log_msg('Check config.yaml file')
+                sys.exit()
+
+        self.init_ctc()
+
 
         if self.master_file:
             fname = self.master_file
