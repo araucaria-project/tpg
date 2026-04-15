@@ -138,6 +138,7 @@ class TelescopePlanGenerator():
     def Initiate(self):
 
         self.ctc_active = True
+        self.plan_saved = False
 
         # plan                      # 1 minute resolution
         self.nightTime = []  # time in ephem.Date format
@@ -986,6 +987,7 @@ class TelescopePlanGenerator():
                     with open(self.plan_filename, "w") as plan_file:
                         for txt in tqdm(self.plan, desc=f'Saving plan to file {self.plan_filename}'):
                             plan_file.write(txt+"\n")
+                        self.plan_saved = True
 
                 except Exception as e:
                     txt = f"ERROR saving plan: {e}"
