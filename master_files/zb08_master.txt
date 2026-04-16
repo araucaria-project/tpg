@@ -24,6 +24,9 @@
 # Standard stars for photometric system Johnson-Cousins & Sloan/SDSS
 # Source of JC standards: Pancino et al. 2022 (https://www.aanda.org/articles/aa/abs/2022/08/aa43939-22/aa43939-22.html)
 # Source of Sloan/SDSS standards: Gaia synthetic photometry catalog
+# SCIPROG cal
+# PI ocm
+
 # Beginning of night
 TPHE                    00:30:33           -46:28:30          seq=1/B/23,1/V/18,1/Ic/18,1/u/200,1/g/18,1/r/14,1/i/18,1/z/42       t_end=01:20:00     priority=5    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst." 
 SA95                    03:53:32           -00:00:50          seq=1/B/23,1/V/18,1/Ic/18,1/u/200,1/g/18,1/r/14,1/i/18,1/z/42       t_end=01:20:00     priority=5    sciprog=cal    pi=ocm    tag=std_landolt,std_JC,std_Sloan    comment="standard field for Johnson-Cousins and Sloan phot. syst." 
