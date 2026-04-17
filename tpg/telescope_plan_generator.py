@@ -20,6 +20,7 @@ class TelescopePlanGenerator():
     def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, master_file=None, done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
+        self.arg_date = date
         self.flags = []
         self.tel = tel
         self.tag = tag
@@ -34,53 +35,6 @@ class TelescopePlanGenerator():
         self.master_file = master_file
 
         self.msg = ""
-
-        with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
-            self.cfg = yaml.safe_load(cfg_file)
-            txt = f'config loaded from {self.script_dir}/config.yaml'
-            self.log_msg(txt)
-
-        local_config_file = self.cfg["local_config"]
-        local_config_file = os.path.expanduser(local_config_file)
-        if os.path.exists(local_config_file):
-            with open(local_config_file) as f:
-                local_cfg = yaml.safe_load(f) or {}
-                self.cfg.update(local_cfg)
-                txt = f'local config loaded from {local_config_file}'
-                self.log_msg(txt)
-
-        if len(date) == 1:          # bo to lista
-            self.flags.append("start_at_sunset")
-            self.date = date[0] + " 12:00:00"
-            txt = f'start at sunset\n'
-        elif len(date) == 2:
-            self.date = date[0] + " " + date[1]
-            txt = f'start at {self.date}\n'
-        else:
-            print("date missing: yyyy/mm/dd")
-            sys.exit(0)
-
-        if "/" in date[0]:
-            if len(date[0].split("/"))<3:
-                print("wrong date format: yyyy/mm/dd")
-                sys.exit(0)
-            if len(date[0].split("/")[0])<4:
-                print("wrong date format: yyyy/mm/dd")
-                sys.exit(0)
-        elif "-" in date[0]:
-            if len(date[0].split("-")) < 3:
-                print("wrong date format: yyyy/mm/dd")
-                sys.exit(0)
-            if len(date[0].split("-")[0])<4:
-                print("wrong date format: yyyy/mm/dd")
-                sys.exit(0)
-        else:
-            print("wrong date format: yyyy/mm/dd")
-            sys.exit(0)
-
-        self.plan = []
-
-        self.log_msg(txt)
 
         # --------------- MAIN SCRIPT --------------
     def go(self):
@@ -134,8 +88,59 @@ class TelescopePlanGenerator():
             txt = txt + "\n"
         self.log_msg(txt,always_loud=False)
 
+    def _get_config(self):
+
+        with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
+            self.cfg = yaml.safe_load(cfg_file)
+            txt = f'config loaded from {self.script_dir}/config.yaml'
+            self.log_msg(txt)
+
+        local_config_file = self.cfg["local_config"]
+        local_config_file = os.path.expanduser(local_config_file)
+        if os.path.exists(local_config_file):
+            with open(local_config_file) as f:
+                local_cfg = yaml.safe_load(f) or {}
+                self.cfg.update(local_cfg)
+                txt = f'local config loaded from {local_config_file}'
+                self.log_msg(txt)
+
+    def _parse_date(self):
+
+        if len(self.arg_date) == 1:          # bo to lista
+            self.flags.append("start_at_sunset")
+            self.date = self.arg_date[0] + " 12:00:00"
+            txt = f'start at sunset\n'
+        elif len(self.arg_date) == 2:
+            self.date = self.arg_date[0] + " " + self.arg_date[1]
+            txt = f'start at {self.date}\n'
+        else:
+            print("date missing: yyyy/mm/dd")
+            sys.exit(0)
+
+        if "/" in self.arg_date[0]:
+            if len(self.arg_date[0].split("/"))<3:
+                print("wrong date format: yyyy/mm/dd")
+                sys.exit(0)
+            if len(self.arg_date[0].split("/")[0])<4:
+                print("wrong date format: yyyy/mm/dd")
+                sys.exit(0)
+        elif "-" in self.arg_date[0]:
+            if len(self.arg_date[0].split("-")) < 3:
+                print("wrong date format: yyyy/mm/dd")
+                sys.exit(0)
+            if len(self.arg_date[0].split("-")[0])<4:
+                print("wrong date format: yyyy/mm/dd")
+                sys.exit(0)
+        else:
+            print("wrong date format: yyyy/mm/dd")
+            sys.exit(0)
+
+        self.log_msg(txt)
 
     def Initiate(self):
+
+        self._get_config()
+        self._parse_date()
 
         self.ctc_active = True
         self.plan_saved = False
@@ -147,6 +152,7 @@ class TelescopePlanGenerator():
         self.nightObChange = []    # Bool marker to indicate ob change
 
         self.ob = []
+        self.plan = []
 
         # additional
         self.random_index_list = []  # list with random order of object indices to observe
@@ -180,7 +186,7 @@ class TelescopePlanGenerator():
             fname = self.master_file
         else:
             fname = self.cfg[self.tel]["master_file"]
-        try:
+        #try:
             with open(fname, 'r') as file:
                 for line in tqdm(file, desc="Loading objects"):
 
@@ -191,9 +197,9 @@ class TelescopePlanGenerator():
                     if tmp_ob:
                         self.ob.append(tmp_ob)
 
-        except FileNotFoundError:
-            self.log_msg(f"File not found: {fname}")
-            sys.exit(1)
+        # except FileNotFoundError:
+        #     self.log_msg(f"File not found: {fname}")
+        #     sys.exit(1)
 
 
 
@@ -204,7 +210,7 @@ class TelescopePlanGenerator():
 
         self.schema = merge_schemas(BASE_SCHEMA, TPG_SCHEMA)
 
-        self.plan_rules = ObsValidator.load_schema("command_rules.yaml")
+        self.plan_rules = ObsValidator.load_schema("base_rules.yaml")
         self.validator = ObsValidator(self.schema, self.plan_rules)
 
         ob = None
@@ -895,7 +901,7 @@ class TelescopePlanGenerator():
                     else:
 
                         #par2remove = list(self.cfg["params_2_remove"])
-                        schema = ObsValidator.load_schema("command_rules")["OBJECT"]
+                        schema = ObsValidator.load_schema("base_rules")["OBJECT"]
                         allowed = set(schema["allowed"])
                         filtered = {
                             k: v for k, v in self.ob[k].items()
