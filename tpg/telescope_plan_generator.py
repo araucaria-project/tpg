@@ -218,12 +218,7 @@ class TelescopePlanGenerator():
         if len(line.strip()) > 0:
             if len(line.split()) > 0:
                 if "#" not in line.split()[0]:
-                    # DUPA !!!!
-                    if "OBJECT" in line.split()[0]:
-                        txt = line
-                    else:
-                        txt = f'OBJECT {line}'
-                    ob_tmp = ObsPlanParser.convert_from_string(txt)
+                    ob_tmp = ObsPlanParser.convert_from_string(line)
 
                     if ob_tmp is None:
                         txt = f'** parser error \n * {line}'
