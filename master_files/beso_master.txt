@@ -1,0 +1,20 @@
+#############################
+######## BESO MASTER ########
+#############################
+
+# Stars in this file are just to be stored and will be selected by hand
+
+# RV standards from Gaia catalog 
+# SCIPROG cal
+# PI ocm
+#
+
+
+
+# Metal-rich RR Lyrae stars, possibly binaries
+# SCIPROG rrl_metal_rich_mw
+# PI rsalinas
+# INFO nf = no filter
+#
+IK_Hya 12:04:47.273  -27:40:43.27   seq=1/nf/900     sciprog=rrl_metal_rich_mw   pi=rsalinas    mV=10.23    comment="expose for 15 min in total"
+AN_Ser 15:53:31.035  12:57:40.11    seq=2/nf/600     sciprog=rrl_metal_rich_mw   pi=rsalinas    mV=10.93    comment="expose for 20 min in total"
