@@ -456,35 +456,35 @@ OBJECT Gaia_DR3_5606987823911441152 06:55:58.1676 -32:33:42.3994 seq=20x(1/B/120
 # SCIPROG ukirt_sstd
 # PI mgorski
 
-OBJECT FS001	0:33:54.46	-12:07:58.78 seq=1/B/140,1/V/90,1/Ic/100  priority=1 pi=mgorski
-OBJECT FS001	0:33:54.46	-12:07:58.78 seq=2/v_s/300,2/b_s/150,2/y_s/90  priority=1 pi=mgorski
+OBJECT FS001 0:33:54.46 -12:07:58.78 seq=1/B/140,1/V/90,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS001 0:33:54.46 -12:07:58.78 seq=2/v_s/300,2/b_s/150,2/y_s/90 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
 # OBJECT FS002
 #
-OBJECT FS011	4:52:58.86	-0:14:41.17 seq=1/B/30,1/V/18,1/Ic/22  priority=1 pi=mgorski
-OBJECT FS011	4:52:58.86	-0:14:41.17 seq=1/B/120,1/V/80,1/Ic/100  priority=1 pi=mgorski
-OBJECT FS011	4:52:58.86	-0:14:41.17 seq=2/v_s/300,2/b_s/150,2/y_s/80  priority=1 pi=mgorski
+OBJECT FS011 4:52:58.86 -0:14:41.17 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS011 4:52:58.86 -0:14:41.17 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS011 4:52:58.86 -0:14:41.17 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
-OBJECT FS014	7:24:14.37	-0:33:04.16 seq=1/B/30,1/V/18,1/Ic/22  priority=1 pi=mgorski
-OBJECT FS014	7:24:14.37	-0:33:04.16 seq=1/B/120,1/V/80,1/Ic/100  priority=1 pi=mgorski
-OBJECT FS014	7:24:14.37	-0:33:04.16 seq=2/v_s/300,2/b_s/150,2/y_s/80  priority=1 pi=mgorski
+OBJECT FS014 7:24:14.37 -0:33:04.16 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS014 7:24:14.37 -0:33:04.16 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS014 7:24:14.37 -0:33:04.16 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
 # OBJECT FS015	8:51:05.76	11:43:46.97
 #
-OBJECT FS017	8:51:19.69	11:52:10.75 seq=1/B/30,1/V/18,1/Ic/22  priority=1 pi=mgorski
-OBJECT FS017	8:51:19.69	11:52:10.75 seq=1/B/120,1/V/80,1/Ic/100  priority=1 pi=mgorski
-OBJECT FS017	8:51:19.69	11:52:10.75 seq=2/v_s/300,2/b_s/150,2/y_s/80  priority=1 pi=mgorski
+OBJECT FS017 8:51:19.69 11:52:10.75 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS017 8:51:19.69 11:52:10.75 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS017 8:51:19.69 11:52:10.75 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
 # OBJECT FS018-s05888
 #
 # OBJECT FS030	22:41:44.70	1:12:36.37
 #
-OBJECT FS034	20:42:34.75	-20:04:35.93 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski
-OBJECT FS034	20:42:34.75	-20:04:35.93 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski
+OBJECT FS034 20:42:34.75 -20:04:35.93 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS034 20:42:34.75 -20:04:35.93 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
-OBJECT FS035	18:27:13.50	4:03:09.80 seq=1/B/30,1/V/18,1/Ic/22  priority=1 pi=mgorski
-OBJECT FS035	18:27:13.50	4:03:09.80 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski
-OBJECT FS035	18:27:13.50	4:03:09.80 seq=2/v_s/300,2/b_s/150,2/y_s/80  priority=1 pi=mgorski
+OBJECT FS035 18:27:13.50 4:03:09.80 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS035 18:27:13.50 4:03:09.80 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS035 18:27:13.50 4:03:09.80 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
 # OBJECT FS110	3:41:02.22	6:56:16.43
 #
@@ -492,21 +492,21 @@ OBJECT FS035	18:27:13.50	4:03:09.80 seq=2/v_s/300,2/b_s/150,2/y_s/80  priority=1
 #
 # OBJECT FS114	4:19:41.73	16:45:22.05
 #
-OBJECT FS121	6:59:46.77	-4:54:33.67 seq=1/B/30,1/V/18,1/Ic/22  priority=1 pi=mgorski
-OBJECT FS121	6:59:46.77	-4:54:33.67 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski
-OBJECT FS121	6:59:46.77	-4:54:33.67 seq=2/v_s/300,2/b_s/150,2/y_s/80  priority=1 pi=mgorski
+OBJECT FS121 6:59:46.77 -4:54:33.67 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS121 6:59:46.77 -4:54:33.67 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS121 6:59:46.77 -4:54:33.67 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
 # OBJECT FS124
 #
 # OBJECT FS126	9:19:18.75	10:55:51.10
 #
-OBJECT FS152	22:27:16.14	19:16:55.41 seq=1/B/30,1/V/18,1/Ic/22  priority=1 pi=mgorski
-OBJECT FS152	22:27:16.14	19:16:55.41 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski
-OBJECT FS152	22:27:16.14	19:16:55.41 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski
+OBJECT FS152 22:27:16.14 19:16:55.41 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS152 22:27:16.14 19:16:55.41 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS152 22:27:16.14 19:16:55.41 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
-OBJECT FS153	23:02:32.08	-3:58:53.03 seq=1/B/30,1/V/18,1/Ic/22  priority=1 pi=mgorski
-OBJECT FS153	23:02:32.08	-3:58:53.03 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski
-OBJECT FS153	23:02:32.08	-3:58:53.03 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski
+OBJECT FS153 23:02:32.08 -3:58:53.03 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS153 23:02:32.08 -3:58:53.03 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=mgorski sciprog=ukirt_sstd
+OBJECT FS153 23:02:32.08 -3:58:53.03 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
 # OBJECT FS154	23:18:10.02	0:32:56.09
 

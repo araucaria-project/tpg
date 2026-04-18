@@ -186,20 +186,19 @@ class TelescopePlanGenerator():
             fname = self.master_file
         else:
             fname = self.cfg[self.tel]["master_file"]
-        #try:
+        try:
             with open(fname, 'r') as file:
                 for line in tqdm(file, desc="Loading objects"):
 
-                    line = line.strip()
-                    if not line or line.startswith("#"):
+                    if not line or line.strip().startswith("#"):
                         continue
                     tmp_ob = self.parseObjects(line)
                     if tmp_ob:
                         self.ob.append(tmp_ob)
 
-        # except FileNotFoundError:
-        #     self.log_msg(f"File not found: {fname}")
-        #     sys.exit(1)
+        except FileNotFoundError:
+            self.log_msg(f"File not found: {fname}")
+            sys.exit(1)
 
 
 
@@ -263,7 +262,7 @@ class TelescopePlanGenerator():
                             float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
                 slotTime = (k * slotTime) / 60.
 
-                program = f'OBJECT  {ob["name"]} {ob["ra"]} {ob["dec"]} seq={seq}'
+                program = f'{ob["command_name"]} {ob["name"]} {ob["ra"]} {ob["dec"]} seq={seq}'
                 if "read_mod" in ob.keys():
                     read_mod = ob["read_mod"]
                     program = program + f" read_mod={read_mod}"
