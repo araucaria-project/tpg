@@ -817,7 +817,6 @@ class TelescopePlanGenerator():
                         slots = float((self.ob[k]["slotTime"])) / 1.
                         slots = int(slots)
                         bounds = (nn, nn + slots)
-                        print(self.ob[k]["name"])
 
                         if all(self.nightFree[bounds[0]:bounds[1] + 1]) and all(visibility[bounds[0]:bounds[1] + 1]):
                             priormax = int(self.ob[k]["priority"])
