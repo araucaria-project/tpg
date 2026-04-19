@@ -181,6 +181,14 @@ class TelescopePlanGenerator():
 
         self.init_ctc()
 
+        BASE_SCHEMA = ObsValidator.load_schema("base_schema.yaml")
+        TPG_SCHEMA = ObsValidator.load_schema("tpg_schema.yaml")
+
+        self.schema = merge_schemas(BASE_SCHEMA, TPG_SCHEMA)
+
+        self.plan_rules = ObsValidator.load_schema("base_rules.yaml")
+        self.validator = ObsValidator(self.schema, self.plan_rules)
+
 
         if self.master_file:
             fname = self.master_file
@@ -189,12 +197,16 @@ class TelescopePlanGenerator():
         try:
             with open(fname, 'r') as file:
                 for line in tqdm(file, desc="Loading objects"):
-
+                    t0 = time.time()
                     if not line or line.strip().startswith("#"):
                         continue
+                    t1 = time.time()
                     tmp_ob = self.parseObjects(line)
+                    t2 = time.time()
                     if tmp_ob:
                         self.ob.append(tmp_ob)
+                    t3 = time.time()
+                    print(t3-t2,t2-t1,t1-t0)
 
         except FileNotFoundError:
             self.log_msg(f"File not found: {fname}")
@@ -203,14 +215,6 @@ class TelescopePlanGenerator():
 
 
     def parseObjects(self,line):
-
-        BASE_SCHEMA = ObsValidator.load_schema("base_schema.yaml")
-        TPG_SCHEMA = ObsValidator.load_schema("tpg_schema.yaml")
-
-        self.schema = merge_schemas(BASE_SCHEMA, TPG_SCHEMA)
-
-        self.plan_rules = ObsValidator.load_schema("base_rules.yaml")
-        self.validator = ObsValidator(self.schema, self.plan_rules)
 
         ob = None
         ob_ok = None
