@@ -21,7 +21,7 @@ class main:
     argparser.add_argument("--seed", type=int, default=None, help='seed to randomize list')
     argparser.add_argument("--loud", action="store_true", help="Enable loud mode")
     argparser.add_argument("--no_save", action="store_false", help='do not save telescope plan')
-    argparser.add_argument("--no_ctc", action="store_true", help='do not use ctc')
+    argparser.add_argument("--no_ctc", action="store_false", help='do not use ctc')
     argparser.add_argument("--no_start_makro", action="store_false", help='add makro at the plan beginning')
     argparser.add_argument("--no_end_makro", action="store_false", help='add makro at the plan end')
     argparser.add_argument("--master_file", type=str, default=None, help='specify master file')
@@ -37,7 +37,7 @@ class main:
             loud=args.loud,
             seed=args.seed,
             save_plan=args.no_save,
-            ignore_ctc = args.no_ctc,
+            use_ctc = args.no_ctc,
             add_start_makro=args.no_start_makro,
             add_end_makro=args.no_end_makro,
             master_file=args.master_file,

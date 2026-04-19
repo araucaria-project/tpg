@@ -17,7 +17,7 @@ except ImportError:
 
 
 class TelescopePlanGenerator():
-    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, ignore_ctc=False, master_file=None, done_uobi=[]):
+    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, use_ctc=True, master_file=None, done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.arg_date = date
@@ -32,7 +32,7 @@ class TelescopePlanGenerator():
         self.add_start_makro = add_start_makro
         self.add_end_makro = add_end_makro
         self.save_plan = bool(save_plan)
-        self.ignore_ctc = bool(ignore_ctc)
+        self.use_ctc = bool(use_ctc)
         self.master_file = master_file
 
         self.msg = ""
@@ -168,7 +168,7 @@ class TelescopePlanGenerator():
         self.validator = ObsValidator(self.schema, self.plan_rules)
 
     def init_ctc(self):
-        if self.ignore_ctc:
+        if not self.use_ctc:
             self.ctc_active = False
             return
         if os.path.exists(self.cfg["ctc"]["ctc_base_folder"]) and CTC_AVAILABLE:
