@@ -17,7 +17,7 @@ except ImportError:
 
 
 class TelescopePlanGenerator():
-    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, master_file=None, done_uobi=[]):
+    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, ignore_ctc=False, master_file=None, done_uobi=[]):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.arg_date = date
@@ -32,6 +32,7 @@ class TelescopePlanGenerator():
         self.add_start_makro = add_start_makro
         self.add_end_makro = add_end_makro
         self.save_plan = bool(save_plan)
+        self.ignore_ctc = bool(ignore_ctc)
         self.master_file = master_file
 
         self.msg = ""
@@ -167,6 +168,9 @@ class TelescopePlanGenerator():
         self.validator = ObsValidator(self.schema, self.plan_rules)
 
     def init_ctc(self):
+        if self.ignore_ctc:
+            self.ctc_active = False
+            return
         if os.path.exists(self.cfg["ctc"]["ctc_base_folder"]) and CTC_AVAILABLE:
             self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"], tpg=True)
             self.ctc.set_rm_modes(self.cfg["ctc"]["rm_modes_mhz"])
@@ -274,7 +278,7 @@ class TelescopePlanGenerator():
                 ob["slotTime"] = slotTime
 
             else:
-                ob["slotTime"] = 0
+                ob["slotTime"] = 10
 
         else:
             ob = False
