@@ -197,16 +197,12 @@ class TelescopePlanGenerator():
         try:
             with open(fname, 'r') as file:
                 for line in tqdm(file, desc="Loading objects"):
-                    t0 = time.time()
                     if not line or line.strip().startswith("#"):
                         continue
-                    t1 = time.time()
                     tmp_ob = self.parseObjects(line)
-                    t2 = time.time()
                     if tmp_ob:
                         self.ob.append(tmp_ob)
-                    t3 = time.time()
-                    print(t3-t2,t2-t1,t1-t0)
+
 
         except FileNotFoundError:
             self.log_msg(f"File not found: {fname}")
