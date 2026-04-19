@@ -158,6 +158,14 @@ class TelescopePlanGenerator():
         self.random_index_list = []  # list with random order of object indices to observe
         self.pliki_hjd = []  # files with phase coverage for objects
 
+        BASE_SCHEMA = ObsValidator.load_schema("base_schema.yaml")
+        TPG_SCHEMA = ObsValidator.load_schema("tpg_schema.yaml")
+
+        self.schema = merge_schemas(BASE_SCHEMA, TPG_SCHEMA)
+
+        self.plan_rules = ObsValidator.load_schema("base_rules.yaml")
+        self.validator = ObsValidator(self.schema, self.plan_rules)
+
     def init_ctc(self):
         if os.path.exists(self.cfg["ctc"]["ctc_base_folder"]) and CTC_AVAILABLE:
             self.ctc = CycleTimeCalc(telescope=self.tel,base_folder=self.cfg["ctc"]["ctc_base_folder"], tpg=True)
@@ -180,15 +188,6 @@ class TelescopePlanGenerator():
                 sys.exit()
 
         self.init_ctc()
-
-        BASE_SCHEMA = ObsValidator.load_schema("base_schema.yaml")
-        TPG_SCHEMA = ObsValidator.load_schema("tpg_schema.yaml")
-
-        self.schema = merge_schemas(BASE_SCHEMA, TPG_SCHEMA)
-
-        self.plan_rules = ObsValidator.load_schema("base_rules.yaml")
-        self.validator = ObsValidator(self.schema, self.plan_rules)
-
 
         if self.master_file:
             fname = self.master_file
