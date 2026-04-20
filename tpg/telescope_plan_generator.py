@@ -109,10 +109,10 @@ class TelescopePlanGenerator():
 
         if len(self.arg_date) == 1:          # bo to lista
             self.flags.append("start_at_sunset")
-            self.date = self.arg_date[0] + " 12:00:00"
+            self.date = str(self.arg_date[0]) + " 12:00:00"
             txt = f'start at sunset\n'
         elif len(self.arg_date) == 2:
-            self.date = self.arg_date[0] + " " + self.arg_date[1]
+            self.date = str(self.arg_date[0]) + " " + str(self.arg_date[1])
             txt = f'start at {self.date}\n'
         else:
             print("date missing: yyyy/mm/dd")
@@ -145,6 +145,10 @@ class TelescopePlanGenerator():
 
         self.ctc_active = True
         self.plan_saved = False
+
+        self.next_sunset = None
+        self.next_sunrise = None
+        self.start_time = None
 
         # plan                      # 1 minute resolution
         self.nightTime = []  # time in ephem.Date format
@@ -286,6 +290,7 @@ class TelescopePlanGenerator():
         return ob
 
     def MakeTime(self):
+
         self.oca = ephem.Observer()
         self.oca.lon = str(self.cfg["obs_lon"])
         self.oca.lat = str(self.cfg["obs_lat"])
@@ -293,40 +298,18 @@ class TelescopePlanGenerator():
         self.oca.horizon = str(self.cfg[self.tel]["hsun"])
 
         sun = ephem.Sun()
-        t0 = ephem.Date(self.date)
-        self.oca.date = t0
 
-        # zachód i wschód tej nocy
-        next_sunset = self.oca.next_setting(sun, use_center=True)
-        next_sunrise = self.oca.next_rising(sun, use_center=True)
-        mid_night = (next_sunset + next_sunrise) / 2
-
-        now = ephem.now()
-
-        if now < next_sunset:
-            # przed zachodem → bierzemy dzisiejszy zachód
-            self.sunset = next_sunset
-            self.oca.date = self.sunset
-            self.sunrise = next_sunrise
-        elif now < mid_night:
-            # po zachodzie, ale przed środkiem nocy → bierzemy poprzedni zachód
-            self.sunset = self.oca.previous_setting(sun, use_center=True)
-            self.oca.date = self.sunset
-            self.sunrise = self.oca.next_rising(sun, use_center=True)
-        else:
-            # po środku nocy → bierzemy kolejny zachód
-            self.oca.date = now
-            self.sunset = self.oca.next_setting(sun, use_center=True)
-            self.oca.date = self.sunset
-            self.sunrise = self.oca.next_rising(sun, use_center=True)
-
-        # ustaw start nocy
         if "start_at_sunset" in self.flags:
-            t = self.sunset
+            self.oca.date = ephem.Date(self.date)
+            self.next_sunset = self.oca.next_setting(sun, use_center=True)
+            self.next_sunrise = self.oca.next_rising(sun, use_center=True)
+            t0 = self.next_sunset
         else:
-            t = t0
+            self.oca.date = ephem.Date(self.date)
+            t0 = ephem.Date(self.date)
+            self.next_sunrise = self.oca.next_rising(sun, use_center=True)
 
-        self.start_time = t
+        self.start_time = t0
 
         # generowanie listy minut nocy
         self.nightTime = []
@@ -334,8 +317,8 @@ class TelescopePlanGenerator():
         self.nightObChange = []
         self.nightFree = []
 
-        current = t
-        while current < self.sunrise:
+        current = self.start_time
+        while current < self.next_sunrise:
             current = current + ephem.minute
             self.nightTime.append(current)
             self.nightObject.append(-100)
@@ -863,11 +846,12 @@ class TelescopePlanGenerator():
 
     def export(self):
 
-        tmp = f'sunset: {self.sunset}'
+        if self.next_sunset:
+            tmp = f'sunset: {self.next_sunset}'
         self.log_msg(tmp)
-        tmp = f'sunrise: {self.sunrise}'
+        tmp = f'plan beginning: {ephem.Date(self.start_time)}'
         self.log_msg(tmp)
-        tmp = f'plan begining: {ephem.Date(self.nightTime[0])}'
+        tmp = f'sunrise: {self.next_sunrise}'
         self.log_msg(tmp)
 
         ZNACZNIK = False
