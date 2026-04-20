@@ -146,8 +146,8 @@ class TelescopePlanGenerator():
         self.ctc_active = True
         self.plan_saved = False
 
-        self.next_sunset = None
-        self.next_sunrise = None
+        self.sunset = None
+        self.sunrise = None
         self.start_time = None
 
         # plan                      # 1 minute resolution
@@ -298,16 +298,19 @@ class TelescopePlanGenerator():
         self.oca.horizon = str(self.cfg[self.tel]["hsun"])
 
         sun = ephem.Sun()
+        self.oca.date = ephem.Date(self.date)
+        self.sunset = self.oca.next_setting(sun, use_center=True)
+        self.sunrise = self.oca.next_rising(sun, use_center=True)
 
         if "start_at_sunset" in self.flags:
-            self.oca.date = ephem.Date(self.date)
-            self.next_sunset = self.oca.next_setting(sun, use_center=True)
-            self.next_sunrise = self.oca.next_rising(sun, use_center=True)
-            t0 = self.next_sunset
+            t0 = self.sunset
         else:
-            self.oca.date = ephem.Date(self.date)
             t0 = ephem.Date(self.date)
-            self.next_sunrise = self.oca.next_rising(sun, use_center=True)
+            self.sunrise = self.oca.next_rising(sun, use_center=True)
+
+        if self.sunset > self.sunrise:
+            self.oca.date = (ephem.Date(self.date) - ephem.minute * 1440)
+            self.sunset = self.oca.next_setting(sun, use_center=True)
 
         self.start_time = t0
 
@@ -318,7 +321,7 @@ class TelescopePlanGenerator():
         self.nightFree = []
 
         current = self.start_time
-        while current < self.next_sunrise:
+        while current < self.sunrise:
             current = current + ephem.minute
             self.nightTime.append(current)
             self.nightObject.append(-100)
@@ -846,12 +849,12 @@ class TelescopePlanGenerator():
 
     def export(self):
 
-        if self.next_sunset:
-            tmp = f'sunset: {self.next_sunset}'
+        if self.sunset:
+            tmp = f'sunset: {self.sunset}'
             self.log_msg(tmp)
         tmp = f'plan beginning: {ephem.Date(self.start_time)}'
         self.log_msg(tmp)
-        tmp = f'sunrise: {self.next_sunrise}'
+        tmp = f'sunrise: {self.sunrise}'
         self.log_msg(tmp)
 
         ZNACZNIK = False
