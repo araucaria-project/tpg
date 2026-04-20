@@ -848,7 +848,7 @@ class TelescopePlanGenerator():
 
         if self.next_sunset:
             tmp = f'sunset: {self.next_sunset}'
-        self.log_msg(tmp)
+            self.log_msg(tmp)
         tmp = f'plan beginning: {ephem.Date(self.start_time)}'
         self.log_msg(tmp)
         tmp = f'sunrise: {self.next_sunrise}'
