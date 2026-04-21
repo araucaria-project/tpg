@@ -357,17 +357,17 @@ class TelescopePlanGenerator():
                 self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["tag"].copy()
 
             # sprawdzanie fwhm
-            if "max_fwhm" in self.ob[n].keys() and self.fwhm is not None:
-                if float(self.ob[n]["max_fwhm"]) > float(self.fwhm):
+            if "fwhm_max" in self.ob[n].keys() and self.fwhm is not None:
+                if float(self.ob[n]["fwhm_max"]) < float(self.fwhm):
                     vis = [False for _ in range(len(self.nightTime))]
-                    self.ob[n]["visibility"]["max_fwhm"] = vis.copy()
-                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["max_fwhm"].copy()
+                    self.ob[n]["visibility"]["fwhm_max"] = vis.copy()
+                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["fwhm_max"].copy()
 
-            if "min_fwhm" in self.ob[n].keys() and self.fwhm is not None:
-                if float(self.ob[n]["min_fwhm"]) < float(self.fwhm):
+            if "fwhm_min" in self.ob[n].keys() and self.fwhm is not None:
+                if float(self.ob[n]["fwhm_min"]) > float(self.fwhm):
                     vis = [False for _ in range(len(self.nightTime))]
-                    self.ob[n]["visibility"]["min_fwhm"] = vis.copy()
-                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["min_fwhm"].copy()
+                    self.ob[n]["visibility"]["fwhm_min"] = vis.copy()
+                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["fwhm_min"].copy()
 
     def CalcObject(self):
         moon = ephem.Moon()
@@ -403,6 +403,8 @@ class TelescopePlanGenerator():
             if "calc" not in ob.keys():
                 continue
 
+            base_vis = ob["visibility"]["all"]
+
             alt = ob["calc"]["alt"]
 
             hmin = float(ob.get("h_min", self.cfg[self.tel]["hmin"]))
@@ -410,7 +412,9 @@ class TelescopePlanGenerator():
 
             hmin_mask = [a >= hmin for a in alt]
             hmax_mask = [a <= hmax for a in alt]
-            all_mask = [m1 and m2 for m1, m2 in zip(hmin_mask, hmax_mask)]
+
+            h_mask = [m1 and m2 for m1, m2 in zip(hmin_mask, hmax_mask)]
+            all_mask = [m1 and m2 for m1, m2 in zip(h_mask, base_vis)]
 
             ob["visibility"]["h_min"] = hmin_mask
             ob["visibility"]["h_max"] = hmax_mask
