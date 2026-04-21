@@ -467,7 +467,7 @@ class TelescopePlanGenerator():
                 ok = vis[i]
 
                 if ok:
-                    dist = abs(self.wind - az[i])
+                    dist = abs(self.wind - float(az[i]))
                     if dist > 180:
                         dist = 360 - dist
 
@@ -632,25 +632,44 @@ class TelescopePlanGenerator():
             period = float(ob["P"])
             hjd0 = float(ob["hjd0"])
 
-            # --- Obsługa jakości danych (opcjonalna) ---
-            jd_good = None
+            # rozpakowanie ph_mk: "min_count/filter/phase_width"
+            try:
+                ph_parts = ob["ph_mk"].split("/")
+                min_count = int(ph_parts[0])
+                filt = ph_parts[1]
+                phase_width = float(ph_parts[2])
+            except:
+                continue  # zła specyfikacja ph_mk
+
+            # --- wczytanie danych i filtr jakości ---
+            jd = None
             if d_ver(ob, ["obs_data"]):
                 file = self.cfg[self.tel]["data_file"] + "/" + ob["obs_data"]
-                try:
-                    lc_tab = Table.read(file, format="ascii")
-                    jd = numpy.array(lc_tab["jd_obs"])
-                    jd = jd[~numpy.isnan(jd)]
-                    if "quality" in lc_tab.colnames:
-                        quality = numpy.array(lc_tab["quality"])
-                        mask_quality = quality < 2
-                        jd = jd[mask_quality]
-                    if len(jd) > 0:
-                        jd_good = jd
-                except (FileNotFoundError, ValueError):
-                    pass
+            else:
+                file = (self.cfg[self.tel]["data_file"] + ob["name"].lower() + "/" + filt + "/light-curve/" + ob["name"].lower() + "_" + filt + "_diff_light_curve.txt")
+
+            try:
+                lc_tab = Table.read(file, format="ascii")
+                jd = numpy.array(lc_tab["jd_obs"])
+                jd = jd[~numpy.isnan(jd)]
+                if "quality" in lc_tab.colnames:
+                    quality = numpy.array(lc_tab["quality"])
+                    mask_quality = quality < 2
+                    jd = jd[mask_quality]
+                if len(jd) == 0:
+                    continue
+
+            except FileNotFoundError:
+                txt = f'[{ob["name"]}] no data file {file}'
+                self.log_msg(txt,always_loud=False)
+                continue
+            except ValueError:
+                txt = f'[{ob["name"]}] ERROR loading {file}\n'
+                self.log_msg(txt,always_loud=False)
+                continue
 
             # Jeśli brak dobrych danych, pomijamy maskę
-            if jd_good is None:
+            if jd is None:
                 continue
 
             t_all = numpy.array(ob["visibility"]["all"])
@@ -714,6 +733,9 @@ class TelescopePlanGenerator():
             except ValueError:
                 txt = f'[{ob["name"]}] ERROR loading {file}\n'
                 self.log_msg(txt,always_loud=False)
+                continue
+
+            if jd is None:
                 continue
 
             P = float(ob["P"])
