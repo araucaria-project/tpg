@@ -210,8 +210,9 @@ class TelescopePlanGenerator():
                     if tmp_ob:
                         self.ob.append(tmp_ob)
                     else:
-                        txt = f'Line ERROR: {line}'
-                        self.log_msg(txt)
+                        if line.strip():
+                            txt = f'Line ERROR: {line}'
+                            self.log_msg(txt)
 
         except FileNotFoundError:
             self.log_msg(f"File not found: {fname}")
@@ -1029,3 +1030,23 @@ def d_ver(slownik,klucze):
             else:
                 result = False
     return result
+
+def merge_schemas(base: dict, extra: dict) -> dict:
+    merged = base.copy()
+
+    # properties
+    merged.setdefault("properties", {})
+    merged["properties"].update(extra.get("properties", {}))
+
+    # required (jeśli masz)
+    if "required" in base or "required" in extra:
+        merged["required"] = list(set(base.get("required", []) + extra.get("required", [])))
+
+    # additionalProperties – ostrożnie (tu przykład: AND)
+    if "additionalProperties" in base or "additionalProperties" in extra:
+        merged["additionalProperties"] = (
+            base.get("additionalProperties", True)
+            and extra.get("additionalProperties", True)
+        )
+
+    return merged
