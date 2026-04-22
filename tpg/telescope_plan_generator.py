@@ -209,7 +209,9 @@ class TelescopePlanGenerator():
                     tmp_ob = self.parseObjects(line)
                     if tmp_ob:
                         self.ob.append(tmp_ob)
-
+                    else:
+                        txt = f'Line ERROR: {line}'
+                        self.log_msg(txt)
 
         except FileNotFoundError:
             self.log_msg(f"File not found: {fname}")
@@ -254,20 +256,13 @@ class TelescopePlanGenerator():
             if "ob_time" in ob.keys():
                 ob["slotTime"] = ob["ob_time"]
             elif "seq" in ob.keys():
+                ctc_time = None
                 overhead = self.cfg[self.tel]["overhead"]
                 seq = ob["seq"]
-                slotTime = 10
-                k = 1
-                if "x(" in seq and ")" in seq:
-                    k = seq.split("x")[0]
-                    k = int(k)
-                    seq0 = seq.split("x(")[1].split(")")[0]
-                else:
-                    seq0 = seq
-                for x_seq in seq0.split(","):
-                    slotTime = slotTime + (
-                            float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhead)))
-                slotTime = (k * slotTime) / 60.
+
+                t_seq = ObsValidator.calc_seq_time(seq,overhead=overhead,base_time=5, filter_overhead=2, auto_time=5)
+
+                slotTime = t_seq
 
                 program = f'{ob["command_name"]} {ob["name"]} {ob["ra"]} {ob["dec"]} seq={seq}'
                 if "read_mod" in ob.keys():
@@ -275,14 +270,17 @@ class TelescopePlanGenerator():
                     program = program + f" read_mod={read_mod}"
                 if self.ctc_active:
                     self.ctc.reset_time()
-                    ctc_ob_time = self.ctc.calc_time(program) / 60.
-                    slotTime = ctc_ob_time
-                else:
-                    slotTime = calc_slot_time(program, overhead) / 60.
-                ob["slotTime"] = slotTime
+                    ctc_ob_time = self.ctc.calc_time(program)
+                    ctc_time = ctc_ob_time
+
+                if ctc_time:
+                    if ctc_time > 0:
+                        slotTime = ctc_time
+
+                ob["slotTime"] = slotTime / 60.
 
             else:
-                ob["slotTime"] = 10
+                ob = False
 
         else:
             ob = False
@@ -1031,41 +1029,3 @@ def d_ver(slownik,klucze):
             else:
                 result = False
     return result
-
-
-def calc_slot_time(program, overhed):
-    slotTime = 10
-    k = 1
-    seq = program.split("seq=")[1].split()[0]
-    try:
-        if "x(" in seq and ")" in seq:
-            k = int(seq.split("x")[0])
-            seq = seq.split("x(")[1].split(")")[0]
-        for x_seq in seq.split(","):
-            if "a" in x_seq:
-                x_seq = x_seq.replace("/a", "/5")
-            slotTime = slotTime + (float(x_seq.split("/")[0]) * (float(x_seq.split("/")[2]) + float(overhed)))
-        slotTime = k * slotTime
-    except:
-        slotTime = 0
-    return slotTime
-
-def merge_schemas(base: dict, extra: dict) -> dict:
-    merged = base.copy()
-
-    # properties
-    merged.setdefault("properties", {})
-    merged["properties"].update(extra.get("properties", {}))
-
-    # required (jeśli masz)
-    if "required" in base or "required" in extra:
-        merged["required"] = list(set(base.get("required", []) + extra.get("required", [])))
-
-    # additionalProperties – ostrożnie (tu przykład: AND)
-    if "additionalProperties" in base or "additionalProperties" in extra:
-        merged["additionalProperties"] = (
-            base.get("additionalProperties", True)
-            and extra.get("additionalProperties", True)
-        )
-
-    return merged
