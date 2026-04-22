@@ -334,16 +334,10 @@ class TelescopePlanGenerator():
             self.ob[n]["visibility"] = dict()
             self.ob[n]["visibility"]["all"] = [True for _ in range(len(self.nightTime))]
 
-            # sprawdzanie statusu
-            if "status" in self.ob[n].keys():
-                if self.ob[n]["status"] in ["finished", "waiting", "halted", "inactive"]:
-                    vis = [False for _ in range(len(self.nightTime))]
-                    self.ob[n]["visibility"]["all"] = vis.copy()
-                    self.ob[n]["visibility"]["status"] = vis.copy()
-
             # sprawdzanie opcji tag
             ok = True
             if self.tag:
+
                 ok = False
                 if d_ver(self.ob[n], ["tag"]):
                     if self.tag in self.ob[n]["tag"]:
