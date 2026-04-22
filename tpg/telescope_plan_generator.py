@@ -340,6 +340,7 @@ class TelescopePlanGenerator():
 
                 ok = False
                 if d_ver(self.ob[n], ["tag"]):
+                    print(self.tag in self.ob[n]["tag"])
                     if self.tag in self.ob[n]["tag"]:
                         ok = True
             if ok:
