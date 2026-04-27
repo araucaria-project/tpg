@@ -184,7 +184,7 @@ class TelescopePlanGenerator():
             self.ctc_active = False
 
         txt = f'ctc active: {self.ctc_active}\n'
-        self.log_msg(txt)
+        self.log_msg(txt, always_loud=False)
 
     def LoadObjects(self):  # Load Object file
         # first try patch as it is, if file not found, take base path form __FILE__ and append config file path using os.path.join
@@ -221,7 +221,6 @@ class TelescopePlanGenerator():
 
 
     def parseObjects(self,line):
-
         ob = None
         ob_ok = None
         if len(line.strip()) > 0:
@@ -329,6 +328,15 @@ class TelescopePlanGenerator():
 
     def ObjectMask(self):
 
+        if self.tag:
+            txt = f'TAG selection: {self.tag}\n'
+            self.log_msg(txt, always_loud=False)
+
+        if self.fwhm:
+            txt = f'FWHM condition: {self.fwhm}\n'
+            self.log_msg(txt, always_loud=False)
+
+
         for n, tmp in enumerate(tqdm(self.ob, desc="Selecting objects")):
 
             self.ob[n]["visibility"] = dict()
@@ -340,7 +348,6 @@ class TelescopePlanGenerator():
 
                 ok = False
                 if d_ver(self.ob[n], ["tag"]):
-                    print(self.tag in self.ob[n]["tag"])
                     if self.tag in self.ob[n]["tag"]:
                         ok = True
             if ok:
@@ -449,6 +456,10 @@ class TelescopePlanGenerator():
     def MaskWind(self):
         if not self.wind:
             return
+
+
+        txt = f'WIND condition: {self.wind}\n'
+        self.log_msg(txt, always_loud=False)
 
         for ob in tqdm(self.ob, desc="Masking Wind"):
             if "calc" not in ob.keys():
@@ -758,6 +769,9 @@ class TelescopePlanGenerator():
 
     def Waga(self):
         any_observable = False
+
+        if len(self.ob)==0:
+            raise ValueError("No observable objects!")
 
         for ob in self.ob:
             if not d_ver(ob, ["name", "visibility"]):
