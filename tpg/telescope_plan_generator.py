@@ -478,7 +478,7 @@ class TelescopePlanGenerator():
                 if ok:
                     dist = abs(self.wind - float(az[i]))
                     if dist > 180:
-                        dist = 360 - dist
+                        dist = abs(360 - dist)
 
                     if dist < wind_dist:
                         ok = False
