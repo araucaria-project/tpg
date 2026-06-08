@@ -364,7 +364,7 @@ class TelescopePlanGenerator():
                 if self.ob[n]["status"] in self.inactive_statuses:
                     vis = [False for _ in range(len(self.nightTime))]
                     self.ob[n]["visibility"]["status"] = vis.copy()
-                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["fwhm_min"].copy()
+                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["status"].copy()
 
 
             # sprawdzanie fwhm
