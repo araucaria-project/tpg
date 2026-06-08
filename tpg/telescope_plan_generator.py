@@ -171,6 +171,8 @@ class TelescopePlanGenerator():
         self.plan_rules = ObsValidator.load_schema("base_rules.yaml")
         self.validator = ObsValidator(self.schema, self.plan_rules)
 
+        self.inactive_statuses = ["finished", "inactive"]
+
     def init_ctc(self):
         if not self.use_ctc:
             self.ctc_active = False
@@ -356,6 +358,14 @@ class TelescopePlanGenerator():
                 vis = [False for _ in range(len(self.nightTime))]
                 self.ob[n]["visibility"]["tag"] = vis.copy()
                 self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["tag"].copy()
+
+            # sprawdzanie statusu
+            if "status" in self.ob[n].keys():
+                if self.ob[n]["status"] in self.inactive_statuses:
+                    vis = [False for _ in range(len(self.nightTime))]
+                    self.ob[n]["visibility"]["status"] = vis.copy()
+                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["fwhm_min"].copy()
+
 
             # sprawdzanie fwhm
             if "fwhm_max" in self.ob[n].keys() and self.fwhm is not None:
