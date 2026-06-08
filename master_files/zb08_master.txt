@@ -652,8 +652,8 @@ OBJECT Z_Sct 18:42:57.27 -05:49:15.3 seq=2/B/3.5,2/V/1,2/Ic/0.8,2/g/2,2/r/0.6,2/
 
 #vdBergh92               07:03:55.0         -11:34:30          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
 #NGC2546A                08:12:19.7         -37:39:40          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90            tag=Nwind    priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
-OBJECT Pismis11 09:15:53.0 -50:01:00 seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=10 cycle=0.15 sciprog=oclu_young pi=apigulski comment="every 3h" status=finished
-OBJECT Pismis11 09:15:53.0 -50:01:00 seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=10 cycle=0.04 sciprog=oclu_young pi=apigulski comment="filler with lower priority, every 1h" status=finished
+OBJECT Pismis11 09:15:53.0 -50:01:00 seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=8 cycle=0.15 sciprog=oclu_young pi=apigulski comment="every 3h" last_jd=2461012.8265984766
+OBJECT Pismis11 09:15:53.0 -50:01:00 seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=4 cycle=0.04 sciprog=oclu_young pi=apigulski comment="filler with lower priority, every 1h" last_jd=2461012.8265984766
 #NGC6604                 18:18:03.0         -12:14:30          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
 #NGC6531                 18:04:08.8         -22:31:12          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h, M21"
 #NGC6293
