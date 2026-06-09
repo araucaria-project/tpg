@@ -274,26 +274,27 @@ OBJECT TYC6484-426-1 05:31:13.65 -27:09:04.2 seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/
 # SMC blue early-type eclipsing binaries
 # SCIPROG deb_blue_smc
 # PI ghajdu + dgraczyk
-# INFO other targets from this program on ZB08 and JK15
+# INFO other targets from this program on ZB08
+# INFO project halted by request of Grzesiek on both telescopes WK06 and ZB08
 
 # Primary + secondary eclipses
-OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.93 ph_end=0.1 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, prim ecl"
-OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.4 ph_end=0.60 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, sec ecl"
-OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.83 ph_end=0.157 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, prim ecl"
-OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.38 ph_end=0.61 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, sec ecl"
-OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.921 ph_end=0.044 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, prim ecl, 3417 in field"
-OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.288 ph_end=0.391 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, prim ecl, 3417 in field"
-OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.9 ph_end=0.09 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, prim ecl, 3378 in field"
-OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.411 ph_end=0.57 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, sec ecl, 3378 in field"
-OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.95 ph_end=0.06 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, prim ecl"
-OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.44 ph_end=0.55 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, sec ecl"
+#OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.93 ph_end=0.1 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, prim ecl"
+#OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.4 ph_end=0.60 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, sec ecl"
+#OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.83 ph_end=0.157 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, prim ecl"
+#OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.38 ph_end=0.61 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, sec ecl"
+#OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.921 ph_end=0.044 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, prim ecl, 3417 in field"
+#OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.288 ph_end=0.391 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, prim ecl, 3417 in field"
+#OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.9 ph_end=0.09 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, prim ecl, 3378 in field"
+#OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.411 ph_end=0.57 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, sec ecl, 3378 in field"
+#OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.95 ph_end=0.06 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, prim ecl"
+#OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.44 ph_end=0.55 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, sec ecl"
 
 # Out of eclipses
-OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=5 cycle=0.15 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=d1584415 tag=random_phase fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, out of ecl"
-OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=5 cycle=0.1 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=07fcf4e5 tag=random_phase fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, out of ecl"
-OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.15 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=5426f048 tag=random_phase fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, out of ecl, 3417 in field"
-OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.075 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=9a51a4ab tag=random_phase fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, out of ecl, 3378 in field"
-OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=5 cycle=0.2 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=af01c7f3 tag=random_phase fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, out of ecl"
+#OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=5 cycle=0.15 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=d1584415 tag=random_phase fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, out of ecl"
+#OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=5 cycle=0.1 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=07fcf4e5 tag=random_phase fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, out of ecl"
+#OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.15 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=5426f048 tag=random_phase fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, out of ecl, 3417 in field"
+#OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.075 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=9a51a4ab tag=random_phase fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, out of ecl, 3378 in field"
+#OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=5 cycle=0.2 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=af01c7f3 tag=random_phase fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, out of ecl"
 
 
 

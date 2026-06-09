@@ -602,7 +602,8 @@ OBJECT Z_Sct 18:42:57.27 -05:49:15.3 seq=2/B/3.5,2/V/1,2/Ic/0.8,2/g/2,2/r/0.6,2/
 # SMC early-type eclipsing binaries
 # SCIPROG deb_blue_smc
 # PI dgraczyk + ghajdu
-# INFO other targets from this program on WK06 and JK15
+# INFO other targets from this program on WK06
+# INFO project halted by request of Grzesiek on both telescopes WK06 and ZB08
 #
 # Primary + secondary eclipses
 # OBJECT OGLE-SMC-ECL-1557 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.419 ph_end=0.6 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.3894223 hjd0=2457000.0362 comment="1708, 1557 in field, mI=15.2-15.9"
