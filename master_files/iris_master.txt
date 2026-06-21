@@ -5,20 +5,42 @@
 
 # Exposures in 1 filter take in total 8 min 20 s = 500 s (info from Bartek, who has it from Marek)
 
-#format of each line should be as follows:
-#name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
+# format of each line should be as follows:
+# name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
 # example1  21:24:00.2421    +18:16:43.77  seq=1/Jn/500,1/Hn/500,1/Ks/500        priority=4    P=2.4121         mV=9.21      comment="binary and dusty envelope"
 # example2  07:24:14         -00:31:41     seq=10x(1/Jn/500,1/Hn/500,1/Ks/500)   priority=6    t_start=08:20    t_end=10:00
 # example4  07:24:14         -00:31:41     seq=2x(1/Ks/500)                      priority=7    P=0.1    ph_start=0.8    ph_end=0.1    hjd0=2460310.5
 
 
 
-# Standard stars won't be observed for now, we'll use 2MASS stars for calibration
+# Standard stars aren't observed, we use 2MASS stars for calibration
+
+
+
+# Field for making DARK
+# INFO coordinates are fake, they are here so that the object can be selected, and are modified in the next step
+# INFO exposure time is fake, it is here so that TPG can allocate a more less accurate time slots
+#
+OBJECT DARK 00:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 02:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 04:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 06:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 08:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 10:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 12:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 14:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 16:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 18:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 20:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+OBJECT DARK 22:00:00.00 00:00:00.0 seq=1/F/1300.000 priority=11 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=1eaec556 comment="dark"
+
 
 
 # Focus fields
+# INFO exposure time is fake, it is here so that TPG can allocate a more less accurate time slots
+#
 # At the beginning of the night
-
+#
 OBJECT foc10_NGC3201 10:17:36.82 -46:24:44.9 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm sunset_dt=2 uobi=c53847fd h_min=50 comment="focus"
 OBJECT foc01_NGC288 00:52:46.37 -26:34:58.7 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_end=01:22:00 uobi=c53847fd h_min=50 h_max=75 comment="focus"
 OBJECT foc03_NGC1261 03:12:16.21 -55:12:59.2 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_end=01:22:00 uobi=c53847fd h_min=50 h_max=75 comment="focus"
@@ -29,26 +51,28 @@ OBJECT foc12_M68 12:39:28.00 -26:44:38.6 seq=1/Ks/830 tag=focus priority=10 scip
 OBJECT foc15_NGC5927 15:28:00.69 -50:40:22.5 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_end=01:22:00 uobi=c53847fd h_min=50 h_max=75 comment="focus"
 OBJECT foc18_NGC6544 18:07:20.58 -24:59:50.7 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_end=01:22:00 uobi=c53847fd h_min=50 h_max=75 comment="focus"
 OBJECT foc21_M30 21:40:22.12 -23:10:47.5 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_end=01:22:00 uobi=c53847fd h_min=50 h_max=75 comment="focus"
-
-
+#
 # In the middle of the night
-OBJECT foc01_NGC288 00:52:46.37 -26:34:58.7 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
-OBJECT foc03_NGC1261 03:12:16.21 -55:12:59.2 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
-OBJECT foc05_NGC1851 05:14:06.53 -40:02:48.8 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
-OBJECT foc07_M93 07:44:34.6 -23:51:22.0 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
-OBJECT foc10_NGC3201 10:17:36.82 -46:24:44.9 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
-OBJECT foc12_M68 12:39:28.00 -26:44:38.6 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
-OBJECT foc15_NGC5927 15:28:00.69 -50:40:22.5 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
-OBJECT foc18_NGC6544 18:07:20.58 -24:59:50.7 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
-OBJECT foc21_M30 21:40:22.12 -23:10:47.5 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#
+#OBJECT foc01_NGC288 00:52:46.37 -26:34:58.7 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#OBJECT foc03_NGC1261 03:12:16.21 -55:12:59.2 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#OBJECT foc05_NGC1851 05:14:06.53 -40:02:48.8 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#OBJECT foc07_M93 07:44:34.6 -23:51:22.0 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#OBJECT foc10_NGC3201 10:17:36.82 -46:24:44.9 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#OBJECT foc12_M68 12:39:28.00 -26:44:38.6 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#OBJECT foc15_NGC5927 15:28:00.69 -50:40:22.5 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#OBJECT foc18_NGC6544 18:07:20.58 -24:59:50.7 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+#OBJECT foc21_M30 21:40:22.12 -23:10:47.5 seq=1/Ks/830 tag=focus priority=10 sciprog=cal pi=ocm t_start=04:00:00 t_end=05:00:00 uobi=b8d82f8c h_min=50 h_max=75 comment="focus"
+
 
 
 
 # Milky Way eclipsing binaries in TESS and Kepler fields for calibration of the SBCR
 # SCIPROG deb_sbcr
 # PI dgraczyk
-
-## Random phase
+# INFO exposure time is fake, it is here so that TPG can allocate a more less accurate time slots
+#
+# Random phase
 OBJECT V338_Vir 13:11:17.407 -11:06:21.26 seq=1/Jn/500,1/Ks/500 h_min=43 h_max=80 tag=random_phase,list1 priority=5 pi=dgraczyk sciprog=deb_sbcr mK=7.94 comment="5 epochs outside the eclipses throughout the year"
 OBJECT AD_Boo 14:35:12.780 +24:38:21.34 seq=1/Jn/500,1/Ks/500 h_min=43 h_max=80 tag=random_phase,list1 priority=5 pi=dgraczyk sciprog=deb_sbcr mK=8.11 comment="5 epochs outside the eclipses throughout the year"
 OBJECT XY_Cet 02:59:33.532 +03:31:03.25 seq=1/Jn/500,1/Ks/500 h_min=43 h_max=80 tag=random_phase,list1 priority=5 pi=dgraczyk sciprog=deb_sbcr mK=8.12 comment="5 epochs outside the eclipses throughout the year"
@@ -123,28 +147,14 @@ OBJECT E_246098758 23:16:12.9 -07:10:05 seq=1/Jn/500,1/Ks/500 h_min=43 h_max=80 
 OBJECT TYC5829-1047-1 23:32:17.1 -09:50:41 seq=1/Jn/500,1/Ks/500 h_min=43 h_max=80 tag=random_phase,list2 priority=5 pi=dgraczyk sciprog=deb_sbcr mK=10.42 P=8.375554 comment="5 epochs outside the eclipses throughout the year"
 OBJECT BC_Oct 23:38:08.1 -81:21:18 seq=1/Jn/500,1/Ks/500 h_min=43 h_max=80 tag=random_phase,list2 priority=5 pi=dgraczyk sciprog=deb_sbcr mK=8.83 P=26.459420 comment="5 epochs outside the eclipses throughout the year"
 
-## Primary and secondary eclipses - to be added from "Lista_II_Darek_IRIS.txt"
-
-
-
-# PLATO benchmark eclipsing binaries
-# SCIPROG deb_plano
-# PI dgraczyk (+pmaxted)
-
-OBJECT HD_4875 00:50:39.99 -18:30:21.3 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=primary cycle=0.0001 ph_start=0.976 ph_end=0.024 hjd0=2458738.6177 priority=9 pi=dgraczyk sciprog=deb_plato P=13.635561 mK=7.5
-OBJECT HD_4875 00:50:39.99 -18:30:21.3 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=secondary cycle=0.0001 ph_start=0.447 ph_end=0.481 hjd0=2458738.6177 priority=9 pi=dgraczyk sciprog=deb_plato P=13.635561 mK=7.5
-OBJECT HD_287990 05:31:04.20 +01:11:15.5 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=primary cycle=0.0001 ph_start=0.977 ph_end=0.023 hjd0=2459177.7552 priority=9 pi=dgraczyk sciprog=deb_plato P=12.937630 mK=8.8
-OBJECT HD_287990 05:31:04.20 +01:11:15.5 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=secondary cycle=0.0001 ph_start=0.268 ph_end=0.315 hjd0=2459177.7552 priority=9 pi=dgraczyk sciprog=deb_plato P=12.937630 mK=8.8
-OBJECT BD-08_1175 05:36:55.83 -08:47:57.6 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=primary cycle=0.0001 ph_start=0.986 ph_end=0.015 hjd0=2458834.0343 priority=8 pi=dgraczyk sciprog=deb_plato P=17.703251 mK=8.7
-OBJECT BD-08_1175 05:36:55.83 -08:47:57.6 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=secondary cycle=0.0001 ph_start=0.365 ph_end=0.405 hjd0=2458834.0343 priority=8 pi=dgraczyk sciprog=deb_plato P=17.703251 mK=8.7
-OBJECT CD-27_2812 06:12:59.66 -27:52:49.4 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=primary cycle=0.0001 ph_start=0.966 ph_end=0.035 hjd0=2458767.3708 priority=7 pi=dgraczyk sciprog=deb_plato P=7.835742 mK=8.5
-OBJECT CD-27_2812 06:12:59.66 -27:52:49.4 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=secondary cycle=0.0001 ph_start=0.504 ph_end=0.568 hjd0=2458767.3708 priority=7 pi=dgraczyk sciprog=deb_plato P=7.835742 mK=8.5
+# Primary and secondary eclipses - to be added from "Lista_II_Darek_IRIS.txt"
 
 
 
 # RR Lyrae in the Milky Way for PLRs, LC templates, BW, metallicity
 # SCIPROG rrl_mw
 # PI bzgirski
+# INFO exposure time is fake, it is here so that TPG can allocate a more less accurate time slots
 
 # RRab - highest priority
 OBJECT SV_Eri 03:11:52.1074 -11:21:14.067 seq=1/Jn/500,1/Hn/500,1/Ks/500 h_min=43 h_max=80 cycle=0.08 P=0.713877 mV=9.96 priority=7 sciprog=rrl_mw pi=bzgirski tag=RRab,random_phase comment="mK=8.572, BV=0.38"
@@ -185,3 +195,23 @@ OBJECT LS_Her 16:02:03.7914 +17:28:50.415 seq=1/Jn/500,1/Hn/500,1/Ks/500 h_min=4
 OBJECT S_Ara 17:59:10.7333 -49:26:00.456 seq=1/Jn/500,1/Hn/500,1/Ks/500 h_min=43 h_max=80 cycle=0.08 P=0.451848 mV=10.73 priority=5 sciprog=rrl_mw pi=bzgirski tag=blazhko,random_phase comment="mK=9.507, BV=0.28"
 OBJECT V4424_Sgr 19:54:01.9093 -30:15:10.438 seq=1/Jn/500,1/Hn/500,1/Ks/500 h_min=43 h_max=80 cycle=0.08 P=0.4245034 mV=10.19 priority=5 sciprog=rrl_mw pi=bzgirski tag=blazhko,random_phase comment="mK=8.884, BV=0.39"
 OBJECT BH_Peg 22:53:01.0370 +15:47:16.609 seq=1/Jn/500,1/Hn/500,1/Ks/500 h_min=43 h_max=80 cycle=0.08 P=0.640993 mV=10.36 priority=5 sciprog=rrl_mw pi=bzgirski tag=blazhko,random_phase comment="mK=9.215, BV=0.52"
+
+
+
+############
+## HALTED ##
+############
+#
+# PLATO benchmark eclipsing binaries
+# SCIPROG deb_plano
+# PI dgraczyk (+pmaxted)
+# INFO exposure time is fake, it is here so that TPG can allocate a more less accurate time slots
+#
+#OBJECT HD_4875 00:50:39.99 -18:30:21.3 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=primary cycle=0.0001 ph_start=0.976 ph_end=0.024 hjd0=2458738.6177 priority=9 pi=dgraczyk sciprog=deb_plato P=13.635561 mK=7.5
+#OBJECT HD_4875 00:50:39.99 -18:30:21.3 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=secondary cycle=0.0001 ph_start=0.447 ph_end=0.481 hjd0=2458738.6177 priority=9 pi=dgraczyk sciprog=deb_plato P=13.635561 mK=7.5
+#OBJECT HD_287990 05:31:04.20 +01:11:15.5 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=primary cycle=0.0001 ph_start=0.977 ph_end=0.023 hjd0=2459177.7552 priority=9 pi=dgraczyk sciprog=deb_plato P=12.937630 mK=8.8
+#OBJECT HD_287990 05:31:04.20 +01:11:15.5 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=secondary cycle=0.0001 ph_start=0.268 ph_end=0.315 hjd0=2459177.7552 priority=9 pi=dgraczyk sciprog=deb_plato P=12.937630 mK=8.8
+#OBJECT BD-08_1175 05:36:55.83 -08:47:57.6 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=primary cycle=0.0001 ph_start=0.986 ph_end=0.015 hjd0=2458834.0343 priority=8 pi=dgraczyk sciprog=deb_plato P=17.703251 mK=8.7
+#OBJECT BD-08_1175 05:36:55.83 -08:47:57.6 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=secondary cycle=0.0001 ph_start=0.365 ph_end=0.405 hjd0=2458834.0343 priority=8 pi=dgraczyk sciprog=deb_plato P=17.703251 mK=8.7
+#OBJECT CD-27_2812 06:12:59.66 -27:52:49.4 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=primary cycle=0.0001 ph_start=0.966 ph_end=0.035 hjd0=2458767.3708 priority=7 pi=dgraczyk sciprog=deb_plato P=7.835742 mK=8.5
+#OBJECT CD-27_2812 06:12:59.66 -27:52:49.4 seq=1/Hn/500,1/Ks/500 h_min=43 h_max=80 tag=secondary cycle=0.0001 ph_start=0.504 ph_end=0.568 hjd0=2458767.3708 priority=7 pi=dgraczyk sciprog=deb_plato P=7.835742 mK=8.5
