@@ -6,13 +6,13 @@
 
 #format of each line should be as follows:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
-# example1  21:24:00.2421    +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30        priority=4    P=2.4121         mV=9.21      comment="binary and dusty envelope"
-# example2  07:24:14         -00:31:41     seq=10x(1/B/60,1/V/30,1/Ic/30)   priority=6    t_start=08:20    t_end=10:00
-# example3  07:24:14         -00:31:41     seq=INFx(1/B/60,1/V/30,1/Ic/30)  priority=6    t_start=00:20    t_end=10:00
-# example4  07:24:14         -00:31:41     seq=2x(1/B/36)                   priority=7    P=0.1    ph_start=0.8    ph_end=0.1    hjd0=2460310.5
+# OBJECT example1  21:24:00.2421    +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30        priority=4    P=2.4121         mV=9.21      comment="binary and dusty envelope"
+# OBJECT example2  07:24:14         -00:31:41     seq=10x(1/B/60,1/V/30,1/Ic/30)   priority=6    t_start=08:20    t_end=10:00
+# OBJECT example3  07:24:14         -00:31:41     seq=INFx(1/B/60,1/V/30,1/Ic/30)  priority=6    t_start=00:20    t_end=10:00
+# OBJECT example4  07:24:14         -00:31:41     seq=2x(1/B/36)                   priority=7    P=0.1    ph_start=0.8    ph_end=0.1    hjd0=2460310.5
 
 # Test object for checking phase
-# OGLE-GD-CEP-0127  07:45:11.79  -36:58:29.1  ph_mk=2/Ic/0.05  seq=2/B/42  P=13.7677045  mV=12.79  priority=5
+# OBJECT OGLE-GD-CEP-0127  07:45:11.79  -36:58:29.1  ph_mk=2/Ic/0.05  seq=2/B/42  P=13.7677045  mV=12.79  priority=5
 
 
 
@@ -241,14 +241,14 @@ OBJECT U_Lep 04:56:17.98 -21:13:02.02 seq=2/Ic/5,2/V/2.3,2/g/2.3,2/r/1.7,2/i/3.3
 # U_Pic                 04:50:06.62        -50:39:25.23       seq=2/Ic/8.9,2/V/3.9,2/g/4.1,2/r/2.8,2/i/5.3,2/z/25                 priority=5    cycle=0.03    ph_mk=2/g/0.006    ph_start=0.090    ph_end=0.231    uobi=4b5ca2a6    sciprog=rrl_mw    pi=bzgirski    tag=rrl,ascending_branch    P=0.4403750    mV=11.26    comment="finished" 
 OBJECT UU_Cet 00:04:05.12 -16:59:51.54 seq=2/Ic/15.8,2/V/6.9,2/g/7.7,2/r/4.9,2/i/9.1,2/z/41 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.871 ph_end=0.675 uobi=0825d0c7 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.6060736 mV=11.95
 OBJECT UU_Cet 00:04:05.12 -16:59:51.54 seq=2/Ic/15.8,2/V/6.9,2/g/7.7,2/r/4.9,2/i/9.1,2/z/41 priority=6 cycle=0.04 ph_mk=3/g/0.002 ph_start=0.838 ph_end=0.880 uobi=b22985e2 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6060736 mV=11.95
-OBJECT V341_Aql 20:32:31.55 +00:35:07.04 seq=2/Ic/6.2,2/V/2.7,2/g/2.8,2/r/2,2/i/3.8,2/z/18 priority=4 cycle=0.08 ph_mk=2/g/0.02 ph_start=0.843 ph_end=0.698 uobi=0c7baebe sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.5780230 mV=10.83
-OBJECT V341_Aql 20:32:31.55 +00:35:07.04 seq=2/Ic/6.2,2/V/2.7,2/g/2.8,2/r/2,2/i/3.8,2/z/18 priority=5 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.698 ph_end=0.843 uobi=7a7d2ff9 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.5780230 mV=10.83
+OBJECT V341_Aql 20:32:31.55 +00:35:07.04 seq=2/Ic/6,2/V/2,2/g/1.4,2/r/1.4,2/i/3,2/z/14 priority=4 cycle=0.08 ph_mk=2/g/0.02 ph_start=0.843 ph_end=0.698 uobi=0c7baebe sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.5780230 mV=10.83
+OBJECT V341_Aql 20:32:31.55 +00:35:07.04 seq=2/Ic/6,2/V/2,2/g/1.4,2/r/1.4,2/i/3,2/z/14 priority=5 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.698 ph_end=0.843 uobi=7a7d2ff9 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.5780230 mV=10.83
 OBJECT V4424_Sgr 19:54:01.90 -30:15:10.43 seq=2/Ic/2,2/V/0.9,2/g/0.7,2/r/0.7,2/i/1.3,2/z/10 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.980 ph_end=0.739 uobi=5d7e2dd2 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4245034 mV=10.32
 OBJECT V4424_Sgr 19:54:01.90 -30:15:10.43 seq=2/Ic/2,2/V/0.9,2/g/0.7,2/r/0.7,2/i/1.3,2/z/10 priority=5 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.739 ph_end=0.980 uobi=e890e865 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4245034 mV=10.32
 OBJECT V675_Sgr 18:13:35.40 -34:19:01.85 seq=2/Ic/3.6,2/V/1.6,2/g/1.5,2/r/1.2,2/i/2.3,2/z/11 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.273 ph_end=0.124 uobi=bcc9ac2d sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.6422935 mV=10.18
 OBJECT V675_Sgr 18:13:35.40 -34:19:01.85 seq=2/Ic/3.6,2/V/1.6,2/g/1.5,2/r/1.2,2/i/2.3,2/z/11 priority=6 cycle=0.04 ph_mk=3/g/0.004 ph_start=0.124 ph_end=0.273 uobi=7081537f sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6422935 mV=10.18
-OBJECT V_Ind 21:11:29.90 -45:04:28.39 seq=2/Ic/2,2/V/0.8,2/g/0.8,2/r/0.7,2/i/1.8,2/z/9 priority=5 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.651 ph_end=0.437 uobi=698d5f76 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4796017 mV=10.21
-OBJECT V_Ind 21:11:29.90 -45:04:28.39 seq=2/Ic/2,2/V/0.8,2/g/0.8,2/r/0.7,2/i/1.8,2/z/9 priority=6 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.437 ph_end=0.651 uobi=b3116a61 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4796017 mV=10.21
+OBJECT V_Ind 21:11:29.90 -45:04:28.39 seq=2/Ic/2,2/V/0.8,2/g/0.5,2/r/0.5,2/i/1.2,2/z/7 priority=5 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.651 ph_end=0.437 uobi=698d5f76 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4796017 mV=10.21
+OBJECT V_Ind 21:11:29.90 -45:04:28.39 seq=2/Ic/2,2/V/0.8,2/g/0.5,2/r/0.5,2/i/1.2,2/z/7 priority=6 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.437 ph_end=0.651 uobi=b3116a61 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4796017 mV=10.21
 # VW_Scl                01:18:14.97        -39:12:44.84       seq=2/Ic/8.2,2/V/3.6,2/g/3.8,2/r/2.6,2/i/5,2/z/23                   priority=4    cycle=0.08    ph_mk=2/g/0.02    ph_start=0.145    ph_end=0.010    uobi=eafdc0b0    sciprog=rrl_mw    pi=bzgirski    tag=rrl,random_phase    P=0.5109117    mV=11.17    comment="finished" 
 OBJECT VW_Scl 01:18:14.97 -39:12:44.84 seq=2/Ic/7,2/V/1.8,2/g/1.8,2/r/1.5,2/i/5,2/z/18 priority=7 cycle=0.02 ph_mk=3/g/0.004 ph_start=0.010 ph_end=0.145 uobi=952ebbdd sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.5109117 mV=11.17
 # W_Tuc                 00:58:09.70        -63:23:44.36       seq=2/Ic/8.6,2/V/3.8,2/g/4,2/r/2.8,2/i/5.2,2/z/24                   priority=4    cycle=0.08    ph_mk=2/g/0.02    ph_start=0.414    ph_end=0.246    uobi=08deb864    sciprog=rrl_mw    pi=bzgirski    tag=rrl,random_phase    P=0.6422382    mV=11.23    comment="finished" 
@@ -263,8 +263,8 @@ OBJECT X_Ret 03:25:20.09 -65:03:18.61 seq=2/Ic/15,2/V/6.5,2/g/7.3,2/r/4.7,2/i/8.
 # XZ_Gru                22:47:34.68        -39:03:33.00       seq=2/Ic/6,2/V/2.6,2/g/2.7,2/r/1.9,2/i/3.7,2/z/17                   priority=5    cycle=0.04    ph_mk=2/g/0.006    ph_start=0.673    ph_end=0.956    uobi=75bd8300    sciprog=rrl_mw    pi=bzgirski    tag=rrl,ascending_branch    P=0.8831035    mV=10.79    comment="finished" 
 OBJECT Z_Mic 21:16:22.70 -30:17:03.06 seq=2/Ic/11.2,2/V/4.9,2/g/5.3,2/r/3.5,2/i/6.6,2/z/30 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.846 ph_end=0.661 uobi=3a9bc0ed sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.5869258 mV=11.54
 OBJECT Z_Mic 21:16:22.70 -30:17:03.06 seq=2/Ic/11.2,2/V/4.9,2/g/5.3,2/r/3.5,2/i/6.6,2/z/30 priority=5 cycle=0.04 ph_mk=3/g/0.003 ph_start=0.661 ph_end=0.846 uobi=b57b1801 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.5869258 mV=11.54
-OBJECT AE_Boo 14:47:35.26 +16:50:43.55 seq=2/Ic/7,2/V/3,2/g/2.8,2/r/2.2,2/i/4.5,2/z/20 priority=4 cycle=0.02 ph_mk=2/Ic/0.015 uobi=f3ad5406 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3148921 mV=10.62 comment="RRc"
-OBJECT CS_Eri 02:37:05.75 -42:57:48.03 seq=2/Ic/2,2/V/1,2/g/0.9,2/r/0.7,2/i/1.5,2/z/6 priority=4 cycle=0.08 ph_mk=3/Ic/0.015 uobi=a736fbb6 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.311331 mV=9.47 comment="RRc"
+OBJECT AE_Boo 14:47:35.26 +16:50:43.55 seq=2/Ic/6,2/V/3,2/g/2.8,2/r/1.5,2/i/3,2/z/14 priority=4 cycle=0.02 ph_mk=2/Ic/0.015 uobi=f3ad5406 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3148921 mV=10.62 comment="RRc"
+OBJECT CS_Eri 02:37:05.75 -42:57:48.03 seq=2/Ic/2,2/V/1,2/g/0.5,2/r/0.5,2/i/1,2/z/6 priority=4 cycle=0.08 ph_mk=3/Ic/0.015 uobi=a736fbb6 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.311331 mV=9.47 comment="RRc"
 OBJECT EV_Psc 23:54:08.12 +00:57:49.08 seq=2/Ic/5.9,2/V/2.6,2/g/2.6,2/r/1.9,2/i/3.7,2/z/15 priority=4 cycle=0.08 ph_mk=3/Ic/0.02 uobi=d76f4c7b sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3062573 mV=10.64 comment="RRc"
 OBJECT IY_Eri 02:07:28.15 -57:52:09.96 seq=2/Ic/8.1,2/V/3.6,2/g/3.8,2/r/2.6,2/i/4.9,2/z/20 priority=4 cycle=0.03 ph_mk=2/V/0.015 uobi=bd1d5f2b sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.375026 mV=11.16 comment="RRc"
 OBJECT LS_Her 16:02:03.79 +17:28:50.41 seq=2/Ic/6,2/V/3,2/g/2,2/r/2,2/i/2,2/z/12 priority=4 cycle=0.04 ph_mk=2/Ic/0.02 uobi=1463a38b sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.230808 mV=10.93 comment="RRc"
@@ -351,8 +351,8 @@ OBJECT AM_Vir 13:23:33.33 -16:39:58.57 seq=2/Ic/13,2/V/6,2/g/6.3,2/r/4.3,2/i/8,2
 OBJECT AM_Vir 13:23:33.33 -16:39:58.57 seq=2/Ic/13,2/V/6,2/g/6.3,2/r/4.3,2/i/8,2/z/30 priority=5 cycle=0.02 ph_mk=3/Ic/0.003 ph_start=0.076 ph_end=0.290 uobi=b442c4dd sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.615085 mV=11.45 comment="RRab"
 OBJECT V499_Cen 13:55:14.78 -43:14:25.18 seq=2/Ic/8,2/V/3.6,2/g/3.8,2/r/2.6,2/i/5,2/z/26 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.709 ph_end=0.572 uobi=52152364 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.521208 mV=11.17 comment="RRab"
 OBJECT V499_Cen 13:55:14.78 -43:14:25.18 seq=2/Ic/8,2/V/3.6,2/g/3.8,2/r/2.6,2/i/5,2/z/26 priority=6 cycle=0.03 ph_mk=3/g/0.003 ph_start=0.572 ph_end=0.709 uobi=0d09f60d sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.521208 mV=11.17 comment="RRab"
-OBJECT V674_Cen 14:03:24.01 -36:24:20.52 seq=2/Ic/9.8,2/V/4.3,2/g/4.6,2/r/3.1,2/i/6,2/z/30 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.042 ph_end=0.765 uobi=90a512d1 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4939896 mV=11.38 comment="RRab"
-OBJECT V674_Cen 14:03:24.01 -36:24:20.52 seq=2/Ic/9.8,2/V/4.3,2/g/4.6,2/r/3.1,2/i/6,2/z/30 priority=5 cycle=0.03 ph_mk=3/g/0.003 ph_start=0.765 ph_end=0.042 uobi=93042133 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4939896 mV=11.38 comment="RRab"
+OBJECT V674_Cen 14:03:24.01 -36:24:20.52 seq=2/Ic/5,2/V/2,2/g/2,2/r/2,2/i/4,2/z/20 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.042 ph_end=0.765 uobi=90a512d1 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4939896 mV=11.38 comment="RRab"
+OBJECT V674_Cen 14:03:24.01 -36:24:20.52 seq=2/Ic/5,2/V/2,2/g/2,2/r/2,2/i/4,2/z/20 priority=5 cycle=0.03 ph_mk=3/g/0.003 ph_start=0.765 ph_end=0.042 uobi=93042133 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4939896 mV=11.38 comment="RRab"
 OBJECT ST_Vir 14:27:39.07 -00:54:06.07 seq=2/Ic/9,2/V/3,2/g/3,2/r/3,2/i/4,2/z/30 priority=4 cycle=0.08 ph_mk=2/Ic/0.015 ph_start=0.171 ph_end=1.0 uobi=ace4e104 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4109 mV=11.77
 OBJECT ST_Vir 14:27:39.07 -00:54:06.07 seq=2/Ic/9,2/V/3,2/g/3,2/r/3,2/i/4,2/z/30 priority=4 cycle=0.02 ph_mk=3/Ic/0.003 ph_start=0.0 ph_end=0.171 uobi=bdf66ee4 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4109 mV=11.77
 OBJECT TY_Aps 14:48:49.89 -71:19:41.78 seq=2/Ic/14,2/V/6.4,2/g/7.1,2/r/4.6,2/i/8.5,2/z/40 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.655 ph_end=0.455 uobi=941d4251 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.5016788 mV=11.86
@@ -400,7 +400,7 @@ OBJECT SW_Aqr 21:15:17.81 +00:04:34.00 seq=2/Ic/8.4,2/V/3.7,2/g/3.9,2/r/2.7,2/i/
 OBJECT NSVS_17246509 21:23:48.85 -07:32:05.39 seq=2/Ic/24,2/V/10,2/g/12.3,2/r/7.4,2/i/13.5,2/z/60 priority=4 cycle=0.08 ph_mk=2/Ic/0.015 ph_start=0.035 ph_end=0.825 uobi=92fb70b6 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.7974628 mV=12.46
 OBJECT NSVS_17246509 21:23:48.85 -07:32:05.39 seq=2/Ic/24,2/V/10,2/g/12.3,2/r/7.4,2/i/13.5,2/z/60 priority=5 cycle=0.02 ph_mk=2/Ic/0.004 ph_start=0.825 ph_end=0.035 uobi=a3c0d31d sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.7974628 mV=12.46
 # YY_Tuc                23:11:00.58        -58:20:07.61       seq=2/Ic/16,2/V/7,2/g/8,2/r/5,2/i/9.3,2/z/50                        priority=4    cycle=0.08    ph_mk=2/g/0.02    ph_start=1.0    ph_end=0.824    uobi=9069b2dc    sciprog=rrl_mw    pi=bzgirski    tag=rrl,random_phase    P=0.6348982    mV=11.98    comment="finished" 
-OBJECT YY_Tuc 23:11:00.58 -58:20:07.61 seq=2/Ic/16,2/V/7,2/g/8,2/r/5,2/i/9.3,2/z/50 priority=5 cycle=0.04 ph_mk=3/g/0.003 ph_start=0.824 ph_end=1.0 uobi=43898053 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6348982 mV=11.98
+OBJECT YY_Tuc 23:11:00.58 -58:20:07.61 seq=2/Ic/14,2/V/4,2/g/4,2/r/3,2/i/8,2/z/40 priority=5 cycle=0.04 ph_mk=3/g/0.003 ph_start=0.824 ph_end=1.0 uobi=43898053 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6348982 mV=11.98
 OBJECT DH_Peg 22:15:25.66 +06:49:21.43 seq=2/Ic/2.4,2/V/1.1,2/g/1,2/r/0.5,2/i/1.6,2/z/8 priority=4 cycle=0.08 ph_mk=2/Ic/0.015 uobi=62266d0e sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.25551 mV=9.58, comment="RRc"
 OBJECT BV_Aqr 22:02:54.00 -21:31:32.46 seq=2/Ic/8,2/V/3.8,2/g/4.2,2/r/2.7,2/i/5,2/z/20 priority=4 cycle=0.08 ph_mk=2/Ic/0.015 uobi=faaf5cdb sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3637032 mV=11.11 comment="RRc"
 OBJECT YZ_Cap 21:19:32.40 -15:07:01.43 seq=2/Ic/9,2/V/4,2/g/4.2,2/r/2.9,2/i/5.4,2/z/29 priority=4 cycle=0.08 ph_mk=2/g/0.015 uobi=19bba56f sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.2734529 mV=11.28 comment="RRc"
@@ -419,7 +419,7 @@ OBJECT V701_Pup 08:19:32.85 -23:58:10.49 seq=2/Ic/4.5,2/V/2,2/g/1.8,2/r/1.4,2/i/
 OBJECT ASAS_J081012-2903.0 08:10:12.06 -29:03:00.69 seq=2/Ic/2.2,2/V/0.9,2/g/0.8,2/r/0.7,2/i/1.4,2/z/6 priority=4 cycle=0.08 ph_mk=3/Ic/0.015 uobi=0b9b3124 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.229656 mV=9.67 comment="RRc"
 OBJECT RW_Ari 02:16:03.71 +17:31:58.75 seq=2/Ic/19,2/V/8,2/g/9,2/r/6.8,2/i/11,2/z/50 priority=4 cycle=0.08 ph_mk=3/Ic/0.015 uobi=fd862148 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3542971 mV=12.3 comment="RRc"
 OBJECT AW_Mic 21:19:05.92 -33:55:07.92 seq=2/Ic/1.2,2/V/0.5,2/g/0.5,2/r/0.5,2/i/0.5,2/z/4 priority=6 cycle=0.08 ph_mk=2/Ic/0.02 uobi=bd7b2075 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.30563 mV=9.05 comment="RRc, BV=0.24"
-OBJECT SV_Hya 12:30:30.50 -26:02:51.11 seq=2/Ic/4.5,2/V/1.9,2/g/1.8,2/r/1.4,2/i/2.8,2/z/12 priority=4 cycle=0.08 ph_mk=2/Ic/0.02 uobi=61bed96d sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4785428 mV=10.54 comment="blazhko, BV=0.28"
+OBJECT SV_Hya 12:30:30.50 -26:02:51.11 seq=2/Ic/4,2/V/1.2,2/g/1,2/r/1,2/i/2,2/z/10 priority=4 cycle=0.08 ph_mk=2/Ic/0.02 uobi=61bed96d sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4785428 mV=10.54 comment="blazhko, BV=0.28"
 OBJECT UY_Boo 13:58:46.34 +12:57:06.46 seq=2/Ic/6,2/V/2.5,2/g/2.4,2/r/1.8,2/i/3.6,2/z/16 priority=5 cycle=0.08 ph_mk=2/Ic/0.02 uobi=27c25dfc sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.65083 mV=10.81 comment="blazhko, BV=0.37"
 
 # Objects with too large declination, not visible from OCM
@@ -599,69 +599,22 @@ OBJECT Z_Sct     18:42:57.27 -05:49:15.3 seq=2/B/2.5,2/V/0.7,2/Ic/0.6,2/g/1,2/r/
 
 
 
-# SMC early-type eclipsing binaries
-# SCIPROG deb_blue_smc
-# PI dgraczyk + ghajdu
-# INFO other targets from this program on WK06
-# INFO project halted by request of Grzesiek on both telescopes WK06 and ZB08
-#
-# Primary + secondary eclipses
-# OBJECT OGLE-SMC-ECL-1557 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.419 ph_end=0.6 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.3894223 hjd0=2457000.0362 comment="1708, 1557 in field, mI=15.2-15.9"
-# OBJECT OGLE-SMC-ECL-1557 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.074 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=2.3894223 hjd0=2457000.0362 comment="1708, 1557 in field, mI=15.2-15.9"
-# OBJECT OGLE-SMC-ECL-1708 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=8.0510592 hjd0=2467005.7644 comment="1708, 1557 in field, mI=15.2-15.9"
-# OBJECT OGLE-SMC-ECL-1708 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.587 ph_end=0.721 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=8.0510592 hjd0=2467005.7644 comment="1708, 1557 in field, mI=15.2-15.9"
-# OBJECT OGLE-SMC-ECL-2347 00:52:06.23 -72:45:14.7 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=7 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.59 ph_end=0.71 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=10.9779016 hjd0=2457009.5734 comment="mI=15.2"
-# OBJECT OGLE-SMC-ECL-2347 00:52:06.23 -72:45:14.7 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=7 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=10.9779016 hjd0=2457009.5734 comment="mI=15.2"
-# OBJECT OGLE-SMC-ECL-2430 00:52:23.80 -71:44:37.4 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.408 ph_end=0.608 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=3.7666483 hjd0=2457001.4529 comment="mI=15.3"
-# OBJECT OGLE-SMC-ECL-2430 00:52:23.80 -71:44:37.4 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.104 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=3.7666483 hjd0=2457001.4529 comment="mI=15.3"
-# OBJECT OGLE-SMC-ECL-3025 00:54:33.21 -73:10:39.7 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.432 ph_end=0.541 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=5.7096863 hjd0=2457001.1852 comment="mI=15.8"
-# OBJECT OGLE-SMC-ECL-3025 00:54:33.21 -73:10:39.7 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=5.7096863 hjd0=2457001.1852 comment="mI=15.8"
-# OBJECT OGLE-SMC-ECL-3927 00:59:04.79 -72:11:03.0 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=7 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=11.8334093 hjd0=2457007.3431 comment="mI=15.4"
-# OBJECT OGLE-SMC-ECL-3927 00:59:04.79 -72:11:03.0 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.109 ph_end=0.175 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=11.8334093 hjd0=2457007.3431 comment="mI=15.4"
-# OBJECT OGLE-SMC-ECL-4107 00:59:42.00 -71:42:30.0 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=5 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.393 ph_end=0.541 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.5627137 hjd0=2457000.5556 comment="mI=15.8, different coords to move the 6-mag star out of image"
-# OBJECT OGLE-SMC-ECL-4107 00:59:42.00 -71:42:30.0 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.915 ph_end=0.087 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=2.5627137 hjd0=2457000.5556 comment="mI=15.8, different coords to move the 6-mag star out of image"
-# OBJECT OGLE-SMC-ECL-4352 01:01:33.45 -73:01:22.2 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.915 ph_end=0.064 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=5.748246 hjd0=2457000.879 comment="mI=15.7"
-# OBJECT OGLE-SMC-ECL-4352 01:01:33.45 -73:01:22.2 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=6 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.610 ph_end=0.704 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=5.748246 hjd0=2457000.879 comment="mI=15.7"
-# OBJECT OGLE-SMC-ECL-4510 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.53 ph_end=0.721 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=3.3245338 hjd0=2457002.7186 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-4510 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.045 ph_end=0.212 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=3.3245338 hjd0=2457002.7186 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-4566 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.354 ph_end=0.531 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=4.8018636 hjd0=2457003.4804 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-4566 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.925 ph_end=0.101 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=4.8018636 hjd0=2457003.4804 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-4608 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.87 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=3.0193869 hjd0=2457000.9255 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-4711 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.96 ph_end=0.075 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=5.0294178 hjd0=2457000.7422 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-4711 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.726 ph_end=0.842 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=5.0294178 hjd0=2457000.7422 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-4809 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.397 ph_end=0.593 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.137756 hjd0=2457000.9154 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-4809 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.925 ph_end=0.082 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=2.137756 hjd0=2457000.9154 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-5890 01:16:26.11 -73:15:01.3 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.415 ph_end=0.592 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.2660139 hjd0=2457000.0838 comment="mI=15.4"
-# OBJECT OGLE-SMC-ECL-5890 01:16:26.11 -73:15:01.3 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.9 ph_end=0.121 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=2.2660139 hjd0=2457000.0838 comment="mI=15.4"
-
-# Random phase
-# OBJECT OGLE-SMC-ECL-1557 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=2.3894223 hjd0=2457000.0362 comment="1708, 1557 in field, mI=15.2-15.9"
-# OBJECT OGLE-SMC-ECL-2347 00:52:06.23 -72:45:14.7 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=10.9779016 hjd0=2457009.5734 comment="mI=15.2"
-# OBJECT OGLE-SMC-ECL-2430 00:52:23.80 -71:44:37.4 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=3.7666483 hjd0=2457001.4529 comment="mI=15.3"
-# OBJECT OGLE-SMC-ECL-3025 00:54:33.21 -73:10:39.7 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=5.7096863 hjd0=2457001.1852 comment="mI=15.8"
-# OBJECT OGLE-SMC-ECL-3927 00:59:04.79 -72:11:03.0 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=11.8334093 hjd0=2457007.3431 comment="mI=15.4"
-# OBJECT OGLE-SMC-ECL-4107 00:59:42.00 -71:42:30.0 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=2.5627137 hjd0=2457000.5556 comment="mI=15.8, different coords to move the 6-mag star out of image"
-# OBJECT OGLE-SMC-ECL-4352 01:01:33.45 -73:01:22.2 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=5.748246 hjd0=2457000.879 comment="mI=15.7"
-# OBJECT OGLE-SMC-ECL-4510 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=3.3245338 hjd0=2457002.7186 comment="4510, 4566, 4608, 4711, 4809 in field"
-# OBJECT OGLE-SMC-ECL-5890 01:16:26.11 -73:15:01.3 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=2.2660139 hjd0=2457000.0838 comment="mI=15.4"
-
-
-
 # Young open clusters
 # SCIPROG oclu_young
 # PI apigulski
 
-#vdBergh92               07:03:55.0         -11:34:30          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
-#NGC2546A                08:12:19.7         -37:39:40          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90            tag=Nwind    priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
-OBJECT Pismis11 09:15:53.0 -50:01:00 seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=8 cycle=0.15 sciprog=oclu_young pi=apigulski comment="every 3h" last_jd=2461012.8265984766 status=finished
+OBJECT 47_Tuc   00:24:05.359 -72:04:53.20   seq=1/B/120,1/V/90,1/Ic/60    priority=2  cycle=0.01  tag=Nwind   pi=apigulski   sciprog=oclu_young  comment="good for wind from N"
+OBJECT NGC288   00:52:45.24  -26:34:57.4    seq=1/200/B,1/V/150,1/Ic/100  priority=2  cycle=0.01  tag=Nwind   pi=apigulski   sciprog=oclu_young  comment="good for wind from N"
+#OBJECT vdBergh92    07:03:55.0     -11:34:30     seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
+#OBJECT NGC2546A     08:12:19.7     -37:39:40     seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90            tag=Nwind    priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
+OBJECT Pismis11 09:15:53.0 -50:01:00 seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=8 cycle=0.2 sciprog=oclu_young pi=apigulski comment="every 3h" last_jd=2461012.8265984766 status=finished
 OBJECT Pismis11 09:15:53.0 -50:01:00 seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=4 cycle=0.04 sciprog=oclu_young pi=apigulski comment="filler with lower priority, every 1h" last_jd=2461012.8265984766 status=finished
-#NGC6604                 18:18:03.0         -12:14:30          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
+OBJECT NGC6604  18:18:03.0 -12:14:30 seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90 tag=Nwind priority=8    cycle=0.2    sciprog=oclu_young    pi=apigulski
+OBJECT NGC6604  18:18:03.0 -12:14:30 seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90 tag=Nwind priority=4    cycle=0.04   sciprog=oclu_young    pi=apigulski
 #NGC6531                 18:04:08.8         -22:31:12          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h, M21"
 #NGC6293
 #NGC4755
 #NGC6231
-#Tuc_47
-#NGC 288
 
 # Finished
 #OBJECT NGC2362          07:18:41.0         -24:57:14          seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="DONE, every 1h" 
@@ -790,6 +743,54 @@ OBJECT OGLE-LMC-ECL-25304 05:54:19.45 -70:50:24.0 seq=1/V/300,2/g/300,1/r/180 mV
 # V674_Cen                14:03:24.10        -36:24:20.00       seq=2/u/52,2/g/5                      priority=7      cycle=0.167    ph_mk=2/u/0.02      sciprog=rrl_speckle    pi=rsalinas      P=0.4939896     hjd0=2456898.70248520
 # S_Ara                   17:59:10.69        -49:26:00.15       seq=2/u/26,2/g/3.5                    priority=7      cycle=0.167    ph_mk=2/u/0.02      sciprog=rrl_speckle    pi=rsalinas      P=0.451848      hjd0=2456906.52048720
 # AM_Vir                  13:23:33.30        -16:39:57.90       seq=2/u/54,2/g/5                      priority=7      cycle=0.167    ph_mk=2/u/0.02      sciprog=rrl_speckle    pi=rsalinas      P=0.615085      hjd0=2456895.82467620
+#
+#
+#
+# SMC early-type eclipsing binaries
+# SCIPROG deb_blue_smc
+# PI dgraczyk + ghajdu
+# INFO other targets from this program on WK06
+# INFO project halted by request of Grzesiek on both telescopes WK06 and ZB08
+#
+# Primary + secondary eclipses
+# OBJECT OGLE-SMC-ECL-1557 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.419 ph_end=0.6 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.3894223 hjd0=2457000.0362 comment="1708, 1557 in field, mI=15.2-15.9"
+# OBJECT OGLE-SMC-ECL-1557 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.074 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=2.3894223 hjd0=2457000.0362 comment="1708, 1557 in field, mI=15.2-15.9"
+# OBJECT OGLE-SMC-ECL-1708 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=8.0510592 hjd0=2467005.7644 comment="1708, 1557 in field, mI=15.2-15.9"
+# OBJECT OGLE-SMC-ECL-1708 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.587 ph_end=0.721 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=8.0510592 hjd0=2467005.7644 comment="1708, 1557 in field, mI=15.2-15.9"
+# OBJECT OGLE-SMC-ECL-2347 00:52:06.23 -72:45:14.7 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=7 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.59 ph_end=0.71 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=10.9779016 hjd0=2457009.5734 comment="mI=15.2"
+# OBJECT OGLE-SMC-ECL-2347 00:52:06.23 -72:45:14.7 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=7 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=10.9779016 hjd0=2457009.5734 comment="mI=15.2"
+# OBJECT OGLE-SMC-ECL-2430 00:52:23.80 -71:44:37.4 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.408 ph_end=0.608 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=3.7666483 hjd0=2457001.4529 comment="mI=15.3"
+# OBJECT OGLE-SMC-ECL-2430 00:52:23.80 -71:44:37.4 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.104 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=3.7666483 hjd0=2457001.4529 comment="mI=15.3"
+# OBJECT OGLE-SMC-ECL-3025 00:54:33.21 -73:10:39.7 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.432 ph_end=0.541 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=5.7096863 hjd0=2457001.1852 comment="mI=15.8"
+# OBJECT OGLE-SMC-ECL-3025 00:54:33.21 -73:10:39.7 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=5.7096863 hjd0=2457001.1852 comment="mI=15.8"
+# OBJECT OGLE-SMC-ECL-3927 00:59:04.79 -72:11:03.0 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=7 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.925 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=11.8334093 hjd0=2457007.3431 comment="mI=15.4"
+# OBJECT OGLE-SMC-ECL-3927 00:59:04.79 -72:11:03.0 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.109 ph_end=0.175 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=11.8334093 hjd0=2457007.3431 comment="mI=15.4"
+# OBJECT OGLE-SMC-ECL-4107 00:59:42.00 -71:42:30.0 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=5 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.393 ph_end=0.541 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.5627137 hjd0=2457000.5556 comment="mI=15.8, different coords to move the 6-mag star out of image"
+# OBJECT OGLE-SMC-ECL-4107 00:59:42.00 -71:42:30.0 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.915 ph_end=0.087 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=2.5627137 hjd0=2457000.5556 comment="mI=15.8, different coords to move the 6-mag star out of image"
+# OBJECT OGLE-SMC-ECL-4352 01:01:33.45 -73:01:22.2 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.915 ph_end=0.064 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=5.748246 hjd0=2457000.879 comment="mI=15.7"
+# OBJECT OGLE-SMC-ECL-4352 01:01:33.45 -73:01:22.2 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=6 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.610 ph_end=0.704 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=5.748246 hjd0=2457000.879 comment="mI=15.7"
+# OBJECT OGLE-SMC-ECL-4510 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.53 ph_end=0.721 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=3.3245338 hjd0=2457002.7186 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-4510 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.045 ph_end=0.212 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=3.3245338 hjd0=2457002.7186 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-4566 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.354 ph_end=0.531 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=4.8018636 hjd0=2457003.4804 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-4566 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.925 ph_end=0.101 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=4.8018636 hjd0=2457003.4804 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-4608 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.87 ph_end=0.045 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=3.0193869 hjd0=2457000.9255 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-4711 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.96 ph_end=0.075 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=5.0294178 hjd0=2457000.7422 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-4711 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=6 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.726 ph_end=0.842 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=5.0294178 hjd0=2457000.7422 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-4809 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.397 ph_end=0.593 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.137756 hjd0=2457000.9154 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-4809 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.925 ph_end=0.082 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=2.137756 hjd0=2457000.9154 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-5890 01:16:26.11 -73:15:01.3 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.415 ph_end=0.592 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.2660139 hjd0=2457000.0838 comment="mI=15.4"
+# OBJECT OGLE-SMC-ECL-5890 01:16:26.11 -73:15:01.3 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=5 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.9 ph_end=0.121 sciprog=deb_blue_smc pi=ghajdu tag=sec_ecl P=2.2660139 hjd0=2457000.0838 comment="mI=15.4"
+#
+# Random phase
+# OBJECT OGLE-SMC-ECL-1557 00:49:21.20 -73:03:15.1 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=2.3894223 hjd0=2457000.0362 comment="1708, 1557 in field, mI=15.2-15.9"
+# OBJECT OGLE-SMC-ECL-2347 00:52:06.23 -72:45:14.7 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=10.9779016 hjd0=2457009.5734 comment="mI=15.2"
+# OBJECT OGLE-SMC-ECL-2430 00:52:23.80 -71:44:37.4 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=3.7666483 hjd0=2457001.4529 comment="mI=15.3"
+# OBJECT OGLE-SMC-ECL-3025 00:54:33.21 -73:10:39.7 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=5.7096863 hjd0=2457001.1852 comment="mI=15.8"
+# OBJECT OGLE-SMC-ECL-3927 00:59:04.79 -72:11:03.0 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=11.8334093 hjd0=2457007.3431 comment="mI=15.4"
+# OBJECT OGLE-SMC-ECL-4107 00:59:42.00 -71:42:30.0 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=2.5627137 hjd0=2457000.5556 comment="mI=15.8, different coords to move the 6-mag star out of image"
+# OBJECT OGLE-SMC-ECL-4352 01:01:33.45 -73:01:22.2 seq=1x(2/B/60,2/V/80,2/Ic/225) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=5.748246 hjd0=2457000.879 comment="mI=15.7"
+# OBJECT OGLE-SMC-ECL-4510 01:03:10.81 -72:01:58.6 seq=1x(2/B/48,2/V/64,2/Ic/180) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=3.3245338 hjd0=2457002.7186 comment="4510, 4566, 4608, 4711, 4809 in field"
+# OBJECT OGLE-SMC-ECL-5890 01:16:26.11 -73:15:01.3 seq=1x(2/B/36,2/V/48,2/Ic/120) priority=4 cycle=0.1 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=2.2660139 hjd0=2457000.0838 comment="mI=15.4"
 #
 #
 #
