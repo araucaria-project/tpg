@@ -133,11 +133,11 @@ OBJECT NGC7793-center 23:57:49.754 -32:35:27.7 seq=4/g/200,4/r/200,4/i/200,4/V/2
 # SCIPROG: var_gclu
 # INFO: cycle through targets multiple times per night, change the order of clusters in a cycle night after night
 
-#NGC362-center      01:03:14.3     -70:50:55.6   seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65    priority=6    cycle=0.1    uobi=841e6056    sciprog=var_gclu    pi=ghajdu    obs_data=ngc362-center_check1/r/light-curve/ngc362-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"
+NGC362-center      01:03:14.3     -70:50:55.6   seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65    priority=6    cycle=0.04    uobi=841e6056    sciprog=var_gclu    pi=ghajdu    obs_data=ngc362-center_check1/r/light-curve/ngc362-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"
 
 #OBJECT NGC1851-center 05:14:06.76 -40:02:47.6 seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35 priority=6 cycle=0.04 uobi=d17f590f sciprog=var_gclu pi=ghajdu obs_data=ngc1851-center_check1/r/light-curve/ngc1851-center_check1_r_diff_light_curve.txt comment="repeat sequence as many times as possible"
 
-OBJECT NGC3201-center 10:17:36.82 -46:24:44.9 seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30 cycle=0.03 priority=6 pi=ghajdu sciprog=var_gclu obs_data=ngc3201-center_check1/r/light-curve/ngc3201-center_check1_r_diff_light_curve.txt uobi=6c942bee comment="dense coverage"
+#OBJECT NGC3201-center 10:17:36.82 -46:24:44.9 seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/30,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30 cycle=0.03 priority=6 pi=ghajdu sciprog=var_gclu obs_data=ngc3201-center_check1/r/light-curve/ngc3201-center_check1_r_diff_light_curve.txt uobi=6c942bee comment="dense coverage"
 
 OBJECT NGC4590-center 12:39:28.0 -26:44:38.6 seq=2/g/25,2/r/30,2/i/35,2/z/70,2/g/25,2/r/30,2/i/35,2/B/30,2/g/25,2/r/30,2/i/35,2/V/30,2/g/25,2/r/30,2/i/35,2/Ic/50 priority=5 cycle=0.04 uobi=d17f590f sciprog=var_gclu pi=ghajdu obs_data=ngc4590-center_check1/r/light-curve/ngc4590-center_check1_r_diff_light_curve.txt comment="repeat sequence as many times as possible"
 
