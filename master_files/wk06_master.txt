@@ -4,6 +4,11 @@
 
 
 
+# Priorities in the programs: BW, PLR, EB, galaxies
+# All other programs have lower priorities
+
+
+
 #format of each line should be as follows:
 #name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
 # example1 21:24:00.2421      +18:16:43.77 seq=1/Ic/10,1/V/45,1/B/30    P=2.4121            mV=9.21 priority=4     comment="binary and dusty envelope"
@@ -16,13 +21,9 @@
 
 
 
-# Priorities in the programs: BW, PLR, EB, galaxies
-# All other programs have lower priorities
-
-
-
 # Standard stars for photometric system Johnson-Cousins
 # Source of JC standards: Pancino et al. 2022 (https://www.aanda.org/articles/aa/abs/2022/08/aa43939-22/aa43939-22.html)
+
 # Beginning of night
 OBJECT TPHE 00:30:33 -46:28:30 seq=1/B/23,1/V/18,1/Ic/18 t_end=01:28:00 priority=5 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
 OBJECT SA95 03:53:32 -00:00:50 seq=1/B/23,1/V/18,1/Ic/18 t_end=01:28:00 priority=5 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
@@ -34,6 +35,7 @@ OBJECT LSE44 13:52:52 -48:08:50 seq=1/B/11,1/V/9,1/Ic/9 t_end=01:28:00 priority=
 OBJECT LSE259 16:53:56 -56:00:30 seq=1/B/11,1/V/9,1/Ic/9 t_end=01:28:00 priority=5 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst., new field"
 OBJECT SA110 18:42:51 +00:05:40 seq=1/B/31,1/V/25,1/Ic/25 t_end=01:28:00 priority=5 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
 OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/21,1/V/17,1/Ic/17 t_end=01:28:00 priority=5 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst., new subfield"
+
 # Middle of night
 OBJECT TPHE 00:30:33 -46:28:30 seq=1/B/23,1/V/18,1/Ic/18 t_start=04:20:00 t_end=04:40:00 priority=10 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
 OBJECT SA95 03:53:32 -00:00:50 seq=1/B/23,1/V/18,1/Ic/18 t_start=04:20:00 t_end=04:40:00 priority=10 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
@@ -45,6 +47,7 @@ OBJECT LSE44 13:52:52 -48:08:50 seq=1/B/11,1/V/9,1/Ic/9 t_start=04:20:00 t_end=0
 OBJECT LSE259 16:53:56 -56:00:30 seq=1/B/11,1/V/9,1/Ic/9 t_start=04:20:00 t_end=04:40:00 priority=10 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst., new field"
 OBJECT SA110 18:42:51 +00:05:40 seq=1/B/31,1/V/25,1/Ic/25 t_start=04:20:00 t_end=04:40:00 priority=10 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
 OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/21,1/V/17,1/Ic/17 t_start=04:20:00 t_end=04:40:00 priority=10 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst., new subfield"
+
 # End of night
 OBJECT TPHE 00:30:33 -46:28:30 seq=1/B/23,1/V/18,1/Ic/18 t_start=07:50:00 priority=5 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
 OBJECT SA95 03:53:32 -00:00:50 seq=1/B/23,1/V/18,1/Ic/18 t_start=07:50:00 priority=5 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
@@ -83,22 +86,10 @@ OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/21,1/V/17,1/Ic/17 t_start=07:50:00 pr
 
 
 
-# Karolina's cataclysmic variable
-# SCIPROG amcvn
-# PI kbakowska
-
-#ASASSN-14cc             21:39:48.25        -59:59:32.85       seq=2/V/300       priority=10     sciprog=amcvn         pi=kbakowska     comment="Karolina's cataclysmic variable, mV=12-15"       mV=12
-
-
-
 # AGN
 # SCIPROG agn
 # PI fpozo
 
-#Fairall9      01:23:45.76    -58:48:20.8089     seq=1/Ic/60,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/300                    priority=9    sciprog=agn    pi=fpozo    mV=13.8        cycle=0.25     comment="FINISHED, AGN observe twice per night"
-#WPVS48        09:59:42.645   -31:12:58.4910     seq=1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300                  priority=9    sciprog=agn    pi=fpozo    mV=14.8        cycle=0.15     comment="AGN observe twice per night"
-#NGC3783       11:39:01.71    -37:44:19.01       seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300                   priority=8    sciprog=agn    pi=fpozo    mV=13.4        cycle=0.0001   comment="AGN observe continuously for 2 weeks, dark sky"
-#NGC6814       19:42:40.59    -10:19:25.11       seq=3x(1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300)              priority=8    sciprog=agn    pi=fpozo    mV=14.2        cycle=0.14     comment="AGN observe twice per night"
 OBJECT Mrk1014 01:59:50.25 +00:23:40.86 seq=1/Ic/120,1/y_s/220,1/v_s/300,1/b_s/300,3/u_s/300 priority=9 sciprog=agn pi=fpozo mV=15.9 comment="AGN observe once per night"
 OBJECT Ark120  05:16:11.41 -00:08:59.15 seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300 priority=8 sciprog=agn pi=fpozo mV=13.9 comment="AGN observe once per night"
 OBJECT NGC2617 08:35:38.80 -04:05:17.90 seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300 priority=8 sciprog=agn pi=fpozo mV=13.6 cycle=0.09 comment="AGN observe 2-3 times per night"
@@ -112,33 +103,18 @@ OBJECT Mrk509  20:44:09.75 -10:43:24.73 seq=1/Ic/30,1/y_s/60,1/v_s/90,1/b_s/90,1
 # INFO Efemerydy = 0.125*czas_trwania_zacmienia odjete i dodane do faz poczatku i konca zacmienia
 # Monitorować przez 3 lata - zapytaj Darka czy nadal tego chce
 
-## Primary + secondary eclipses (descr. in tags)
+# Primary + secondary eclipses (descr. in tags)
 OBJECT TYC20-893-1 01:17:26.4 +00:40:46 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9870 ph_end=0.0033 sciprog=deb_sbcr pi=dgraczyk tag=primary P=8.36117 hjd0=2456807.200 mV=11.8 comment="Darek EB prim ecl, gaia, BVI"
-#TYC20-893-1             01:17:26.4         +00:40:46          seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48                priority=9    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.5380    ph_end=0.562    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=8.36117    hjd0=2456807.200    mV=11.8    comment="Darek EB sec ecl, gaia, BVI" 
 OBJECT E_220471927 01:29:09.7 +06:07:46 seq=2/B/44,2/V/27,2/Ic/33 priority=8 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9906 ph_end=0.9968 sciprog=deb_sbcr pi=dgraczyk tag=primary P=19.8828 hjd0=2456805.128 mV=13.4 comment="Darek EB prim ecl, gaia, BVI"
 OBJECT E_220471927 01:29:09.7 +06:07:46 seq=2/B/44,2/V/27,2/Ic/33 priority=9 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.3212 ph_end=0.3350 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=19.8828 hjd0=2456805.128 mV=13.4 comment="Darek EB sec ecl, gaia, BVI"
 OBJECT TYC1257-132-1 03:56:22.1 +18:52:13 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=9 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.0163 ph_end=0.0325 sciprog=deb_sbcr pi=dgraczyk tag=primary P=9.37395 hjd0=2457611.387 mV=11.8 comment="Darek EB prim ecl, gaia, BVI"
-#TYC1257-132-1           03:56:22.1         +18:52:13          seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48                priority=9    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.5390    ph_end=0.5830    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=9.37395    hjd0=2457611.387    mV=11.8    comment="Darek EB sec ecl, gaia, BVI" 
-#CD-41_1394              04:22:35.2         -41:29:00          seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16            priority=8    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9916    ph_end=0.0118    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=17.5547    hjd0=2454935.8574    mV=10.7    comment="DONE, Darek EB prim ecl, gaia, vby/BVI?" 
-#CD-41_1394              04:22:35.2         -41:29:00          seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16            priority=9    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.15    ph_end=0.1780    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=17.5547    hjd0=2454935.8574    mV=10.7    comment="DONE, Darek EB sec ecl, gaia, vby/BVI?" 
 OBJECT E_246891964 04:43:27.3 +16:40:33 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=9 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9800 ph_end=0.0200 sciprog=deb_sbcr pi=dgraczyk tag=primary P=30.44006 hjd0=2456830.746 mV=11.8 comment="Darek EB prim ecl, gaia, slow_apsidal_motion, BVI"
 OBJECT E_246891964 04:43:27.3 +16:40:33 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=9 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.6710 ph_end=0.6850 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=30.44006 hjd0=2456830.746 mV=11.8 comment="Darek EB sec ecl, gaia, slow_apsidal_motion, BVI"
-#CPD-64_390              04:56:28.16        -64:29:15.1        seq=2/B/2.3,2/V/1.4,2/Ic/1.7,2/y_s/4.3,2/v_s/12,2/b_s/12            priority=9    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9910    ph_end=0.0084    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=31.114765    hjd0=2458347.587    mV=10.2    comment="DONE, Darek EB prim ecl, gaia, vby" 
-#CPD-64_390              04:56:28.16        -64:29:15.1        seq=2/B/2.3,2/V/1.4,2/Ic/1.7,2/y_s/4.3,2/v_s/12,2/b_s/12            priority=9    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.5360    ph_end=0.5486    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=31.114765    hjd0=2458347.587    mV=10.2    comment="DONE, Darek EB sec ecl, gaia, vby" 
 OBJECT E_246887507 05:11:51.0 +16:37:57 seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80 priority=8 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.0000 ph_end=0.0094 sciprog=deb_sbcr pi=dgraczyk tag=primary P=11.46055 hjd0=2456813.968 mV=12.4 comment="Darek EB prim ecl, gaia, BVI"
-#E_246887507             05:11:51.0         +16:37:57          seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80                         priority=8    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.2916    ph_end=0.3310    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=11.46055    hjd0=2456813.968    mV=12.4    comment="Darek EB sec ecl, gaia, BVI" 
-#TYC735-1315-1           06:17:27.35        11:00:17.5         seq=2/B/6,2/V/4,2/Ic/4.8,2/y_s/12,2/v_s/32,2/b_s/32                 priority=8    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9875    ph_end=0.0125    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=15.71975    hjd0=2458483.786    mV=11.3    comment="DONE,Darek EB prim ecl, gaia, BVI" 
-#TYC735-1315-1           06:17:27.35        11:00:17.5         seq=2/B/6,2/V/4,2/Ic/4.8,2/y_s/12,2/v_s/32,2/b_s/32                 priority=8    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.3071    ph_end=0.3350    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=15.71975    hjd0=2458483.786    mV=11.3    comment="DONE,Darek EB sec ecl, gaia, BVI" 
 OBJECT E_202086627 06:25:55.9 +15:36:13 seq=2/B/8,2/V/5,2/Ic/6,2/y_s/16,2/v_s/42,2/b_s/42 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9813 ph_end=0.0187 sciprog=deb_sbcr pi=dgraczyk tag=primary P=7.149794 hjd0=2456806.281 mV=11.6 comment="Darek EB prim ecl, gaia, BVI"
-#E_202086627             06:25:55.9         +15:36:13          seq=2/B/8,2/V/5,2/Ic/6,2/y_s/16,2/v_s/42,2/b_s/42                   priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4849    ph_end=0.518    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=7.149794    hjd0=2456806.281    mV=11.6    comment="Darek EB sec ecl, gaia, BVI" 
 OBJECT TYC6511-1799-1 06:29:26.36 -25:13:29.4 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35 priority=9 cycle=0.0007 ph_mk=2/V/0.0005 ph_start=0.9930 ph_end=0.0031 sciprog=deb_sbcr pi=dgraczyk tag=primary P=26.3815 hjd0=2458473.34 mV=11.4 comment="Darek EB prim ecl, gaia, BVI"
 OBJECT TYC6511-1799-1 06:29:26.36 -25:13:29.4 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35 priority=9 cycle=0.0007 ph_mk=2/V/0.0007 ph_start=0.3593 ph_end=0.3719 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=26.3815 hjd0=2458473.34 mV=11.4 comment="Darek EB sec ecl, gaia, BVI"
-#TYC8547-1509-1          06:33:56.45        -59:57:37.9        seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26                 priority=7      cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9762        ph_end=0.0249        sciprog=deb_sbcr      pi=dgraczyk      tag=primary      P=7.14020       hjd0=2458646.3474        comment="DONE, Darek EB prim ecl, gaia, vby/BVI?"    mV=11.1
-#TYC8547-1509-1          06:33:56.45        -59:57:37.9        seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26                 priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4747    ph_end=0.5252    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=7.14020    hjd0=2458646.3474    mV=11.1    comment="DONE, Darek EB sec ecl, gaia, vby/BVI?" 
-#V400_Gem                06:37:36.0         +17:47:33          seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35                 priority=8    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9786    ph_end=0.0214    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=11.305257    hjd0=2456805.5283    mV=11.4    comment="DONE, Darek EB prim ecl, gaia, BVI" 
-#V400_Gem                06:37:36.0         +17:47:33          seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35                 priority=8    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4793    ph_end=0.5230    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=11.305257    hjd0=2456805.5283    mV=11.4    comment="DONE, Darek EB sec ecl, gaia, BVI" 
 OBJECT TYC1392-886-1 08:36:07.0 +17:25:38 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.9875 ph_end=0.0000 sciprog=deb_sbcr pi=dgraczyk tag=primary P=6.764156 hjd0=2456814.550 mV=11.4 comment="Darek EB prim ecl, gaia, BVI"
-#TYC1392-886-1           08:36:07.0         +17:25:38          seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35                 priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.475    ph_end=0.525    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=6.764156    hjd0=2456814.550    mV=11.4    comment="Darek EB sec ecl, gaia, BVI" 
 OBJECT TYC1396-393-1 08:44:06.6 +18:30:40 seq=2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9894 ph_end=0.0106 sciprog=deb_sbcr pi=dgraczyk tag=primary P=8.79464 hjd0=2456816.2882 mV=12.3 comment="Darek EB prim ecl, gaia, BVI"
 OBJECT TYC1396-393-1 08:44:06.6 +18:30:40 seq=2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.4828 ph_end=0.525 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=8.79464 hjd0=2456816.2882 mV=12.3 comment="Darek EB sec ecl, gaia, BVI"
 OBJECT TYC246-1159-1 10:28:03.4 +01:47:50 seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24 priority=8 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9892 ph_end=0.0010 sciprog=deb_sbcr pi=dgraczyk tag=primary P=16.77565 hjd0=2456834.876 mV=11.0 comment="Darek EB prim ecl, gaia, vby/BVI?"
@@ -147,50 +123,22 @@ OBJECT E_248912952 10:34:40.2 +13:39:15 seq=2/B/52,2/V/33,2/Ic/40 priority=7 cyc
 OBJECT E_248912952 10:34:40.2 +13:39:15 seq=2/B/52,2/V/33,2/Ic/40 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.5156 ph_end=0.5470 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=3.139174 hjd0=2457934.967 mV=13.6 comment="Darek EB sec ecl, gaia, BVI"
 OBJECT SWASPJ104335.88 10:43:35.859 -43:40:15.2 seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.0031 ph_end=0.0100 sciprog=deb_sbcr pi=dgraczyk tag=primary P=9.65706 hjd0=2458550.9467 mV=12.4 comment="Darek EB prim ecl, gaia, BVI"
 OBJECT SWASPJ104335.88 10:43:35.859 -43:40:15.2 seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.4218 ph_end=0.4312 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=9.65706 hjd0=2458550.9467 mV=12.4 comment="Darek EB sec ecl, gaia, BVI"
-#TYC852-1050-1           10:45:42.3         +12:47:00          seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13            priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.9556    ph_end=0.0444    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=3.1427839    hjd0=2456832.5513    mV=10.3    comment="DONE, Darek EB prim ecl, gaia, vby" 
-#TYC852-1050-1           10:45:42.3         +12:47:00          seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13            priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4556    ph_end=0.5444    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=3.1427839    hjd0=2456832.5513    mV=10.3    comment="DONE, Darek EB sec ecl, gaia, vby" 
 OBJECT TYC4930-128-1 11:30:03.2 -00:50:04 seq=2/B/8,2/V/5,2/Ic/6,2/y_s/15,2/v_s/40,2/b_s/40 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9880 ph_end=0.0000 sciprog=deb_sbcr pi=dgraczyk tag=primary P=8.48188 hjd0=2457615.7932 mV=11.5 comment="Darek EB prim ecl, gaia, slow_apsidal_motion, BVI"
 OBJECT TYC4930-128-1 11:30:03.2 -00:50:04 seq=2/B/8,2/V/5,2/Ic/6,2/y_s/15,2/v_s/40,2/b_s/40 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.6135 ph_end=0.6340 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=8.48188 hjd0=2457615.7932 mV=11.5 comment="Darek EB sec ecl, gaia, slow_apsidal_motion, BVI"
-#E_201253025             11:57:19.8         -03:09:43          seq=2/B/30,2/V/19,2/Ic/23,2/y_s/57                                  priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9746    ph_end=0.0254    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=6.78641    hjd0=2456851.124    mV=13.0    comment="Darek EB prim ecl, gaia, BVI" 
 OBJECT E_201253025 11:57:19.8 -03:09:43 seq=2/B/30,2/V/19,2/Ic/23,2/y_s/57 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.4671 ph_end=0.5227 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=6.78641 hjd0=2456851.124 mV=13.0 comment="Darek EB sec ecl, gaia, BVI"
-#BD-04_3206              12:06:20.8         -04:54:50          seq=2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20                priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9740    ph_end=0.0260    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=5.422527    hjd0=2457618.388    mV=10.8    comment="Darek EB prim ecl, gaia, vby/BVI?" 
 OBJECT BD-04_3206 12:06:20.8 -04:54:50 seq=2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.4737 ph_end=0.5263 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=5.422527 hjd0=2457618.388 mV=10.8 comment="Darek EB sec ecl, gaia, vby/BVI?"
 OBJECT TYC4951-933-1 12:30:18.2 -04:02:51 seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24 priority=8 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9937 ph_end=0.0110 sciprog=deb_sbcr pi=dgraczyk tag=primary P=15.28954 hjd0=2457579.870 mV=11.0 comment="Darek EB prim ecl, gaia, vby/BVI?"
 OBJECT TYC4951-933-1 12:30:18.2 -04:02:51 seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24 priority=8 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.1953 ph_end=0.2031 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=15.28954 hjd0=2457579.870 mV=11.0 comment="Darek EB sec ecl, gaia, vby/BVI?"
 OBJECT E_212707624 13:18:53.4 -08:04:17 seq=2/B/40,2/V/25,2/Ic/30 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9797 ph_end=0.0203 sciprog=deb_sbcr pi=dgraczyk tag=primary P=7.210726 hjd0=2457233.7727 mV=13.3 comment="Darek EB prim ecl, gaia, BVI"
 OBJECT E_212707624 13:18:53.4 -08:04:17 seq=2/B/40,2/V/25,2/Ic/30 priority=9 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.4863 ph_end=0.5093 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=7.210726 hjd0=2457233.7727 mV=13.3 comment="Darek EB sec ecl, gaia, BVI"
-#LP_Lib                  15:13:38.475       -20:26:32.116      seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35                 priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9672    ph_end=0.0328    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=4.88418    hjd0=2458012.7289    mV=11.4    comment="DONE, Darek EB prim ecl, gaia, BVI" 
-#LP_Lib                  15:13:38.475       -20:26:32.116      seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35                 priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4669    ph_end=0.5331    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=4.88418    hjd0=2458012.7289    mV=11.4    comment="DONE, Darek EB sec ecl, gaia, BVI" 
-#E_204321014             15:57:53.4         -22:47:45          seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80                         priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.97    ph_end=0.0315    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=3.79213    hjd0=2456814.4278    mV=12.4    comment="DONE, Darek EB prim ecl, gaia, BVI" 
-#E_204321014             15:57:53.4         -22:47:45          seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80                         priority=9    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.466    ph_end=0.477    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=3.79213    hjd0=2456814.4278    mV=12.4    comment="DONE, Darek EB sec ecl, gaia, BVI" 
-#TYC6780-1523-1          16:08:51.0         -23:51:01          seq=2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20                priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.9449    ph_end=0.002    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=4.6601    hjd0=2456814.6264    mV=10.8    comment="DONE, Darek EB prim ecl, gaia, vby/BVI?" 
-#TYC6780-1523-1          16:08:51.0         -23:51:01          seq=2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20                priority=7      cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4449        ph_end=0.5551        sciprog=deb_sbcr      pi=dgraczyk      tag=secondary       P=4.6601        hjd0=2456814.6264        comment="DONE, Darek EB sec ecl, gaia, vby/BVI?"   mV=10.8
-#TYC6206-1374-1          16:19:01.1         -17:16:24          seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48                priority=8    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9875    ph_end=0.0125    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=15.5854    hjd0=2456795.2723    mV=11.8    comment="Darek EB prim ecl, gaia, BVI" 
 OBJECT TYC6206-1374-1 16:19:01.1 -17:16:24 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=8 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.6367 ph_end=0.6425 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=15.5854 hjd0=2456795.2723 mV=11.8 comment="Darek EB sec ecl, gaia, BVI"
-#TYC6240-759-1           17:08:50.4         -18:51:51          seq=2/B/9,2/V/6,2/Ic/7,2/y_s/17,2/v_s/45,2/b_s/45                   priority=8    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.99    ph_end=0.010    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=13.6336    hjd0=2457712.055    mV=11.7    comment="DONE, Darek EB prim ecl, gaia, BVI" 
-#TYC6240-759-1           17:08:50.4         -18:51:51          seq=2/B/9,2/V/6,2/Ic/7,2/y_s/17,2/v_s/45,2/b_s/45                   priority=8    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.1336    ph_end=0.1583    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=13.6336    hjd0=2457712.055    mV=11.7    comment="DONE, Darek EB sec ecl, gaia, BVI" 
-#BD-19_4582              17:17:49.7         -19:15:16          seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24                priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.0    ph_end=0.035    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=3.13694    hjd0=2457748.538    mV=11.0    comment="DONE, Darek EB prim ecl, gaia, vby/BVI?" 
-#BD-19_4582              17:17:49.7         -19:15:16          seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24                priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.513    ph_end=0.5520    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=3.13694    hjd0=2457748.538    mV=11.0    comment="DONE, Darek EB sec ecl, gaia, vby/BVI?" 
-#BD-18_4532              17:27:47.1         -18:34:55          seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16            priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.99    ph_end=0.006    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=9.1274    hjd0=2456816.892    mV=10.7    comment="Darek EB prim ecl, vby/BVI?" 
 OBJECT BD-18_4532 17:27:47.1 -18:34:55 seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.8,2/v_s/18,2/b_s/18 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.73 ph_end=0.75 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=9.1274 hjd0=2456816.892 mV=10.7 comment="Darek EB sec ecl, vby/BVI?"
 OBJECT TYC6247-420-1 17:31:40.6 -20:46:33 seq=2/B/14,2/V/9,2/Ic/11,2/y_s/27,2/v_s/60,2/b_s/60 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9687 ph_end=0.9781 sciprog=deb_sbcr pi=dgraczyk tag=primary P=6.38382 hjd0=2457704.996 comment="Darek EB prim ecl, gaia, BVI" mV=12.2
-#TYC6247-420-1           17:31:40.6         -20:46:33          seq=2/B/14,2/V/9,2/Ic/11,2/y_s/27,2/v_s/60,2/b_s/60                 priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.50    ph_end=0.5313    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=6.38382    hjd0=2457704.996    mV=12.2    comment="Darek EB sec ecl, gaia, BVI" 
 OBJECT E_218070138 18:49:00.7 -19:27:50 seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54 priority=8 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9859 ph_end=0.9906 sciprog=deb_sbcr pi=dgraczyk tag=primary P=15.102 hjd0=2456804.9364 mV=12.1 comment="Darek EB prim ecl, gaia, BVI"
-#E_218070138             18:49:00.7         -19:27:50          seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54                 priority=9    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.823    ph_end=0.852    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=15.102    hjd0=2456804.9364    mV=12.1    comment="Darek EB sec ecl, gaia, BVI" 
 OBJECT TYC6306-1822-1 19:30:47.8 -19:36:30 seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9863 ph_end=0.0137 sciprog=deb_sbcr pi=dgraczyk tag=primary P=6.4907 hjd0=2457616.60 mV=11.1 comment="Darek EB prim ecl, gaia, vby/BVI?"
 OBJECT TYC6306-1822-1 19:30:47.8 -19:36:30 seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.4620 ph_end=0.4781 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=6.4907 hjd0=2457616.60 mV=11.1 comment="Darek EB sec ecl, gaia, vby/BVI?"
-#GN_Aqr                  22:22:18.697       -04:12:22.596      seq=2/B/9,2/V/6,2/Ic/7,2/y_s/18,2/v_s/48,2/b_s/48                   priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9625    ph_end=1.0    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=4.4043915    hjd0=2456814.423    mV=11.7    comment="DONE, Darek EB prim ecl, gaia, BVI" 
-#GN_Aqr                  22:22:18.697       -04:12:22.596      seq=2/B/9,2/V/6,2/Ic/7,2/y_s/18,2/v_s/48,2/b_s/48                   priority=7    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4625    ph_end=0.485    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=4.4043915    hjd0=2456814.423    mV=11.7    comment="DONE, Darek EB sec ecl, gaia, BVI" 
-#CD-24_17223             22:33:51.4         -23:51:53          seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16            priority=8    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.985    ph_end=0.0336    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=10.351663    hjd0=2458370.4114    mV=10.7    comment="DONE, Darek EB prim ecl, gaia, vby/BVI?" 
-#CD-24_17223             22:33:51.4         -23:51:53          seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16            priority=8    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4826    ph_end=0.512    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=10.351663    hjd0=2458370.4114    mV=10.7    comment="DONE, Darek EB sec ecl, gaia, vby/BVI?" 
 OBJECT TYC5239-1149-1 22:36:00.5 -06:04:50 seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54 priority=9 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9935 ph_end=0.0125 sciprog=deb_sbcr pi=dgraczyk tag=primary P=21.19382 hjd0=2456811.828 mV=12.1 comment="Darek EB prim ecl, gaia, BVI"
 OBJECT TYC5239-1149-1 22:36:00.5 -06:04:50 seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54 priority=9 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.4711 ph_end=0.4750 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=21.19382 hjd0=2456811.828 mV=12.1 comment="Darek EB sec ecl, gaia, BVI"
-#E_206134477            22:53:24.2         -11:11:53          seq=2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72          priority=7      ph_start=0.9562        ph_end=0.0438        sciprog=scbr          pi=dgraczyk      tag=primary,done    P=4.236594      hjd0=2456814.076    mV=12.3       comment="DONE, Darek EB prim ecl, gaia, BVI"
-#E_206134477            22:53:24.2         -11:11:53          seq=2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72          priority=7      ph_start=0.4562        ph_end=0.5438        sciprog=scbr          pi=dgraczyk      tag=secondary,done    P=4.236594      hjd0=2456814.076    mV=12.3       comment="DONE, Darek EB sec ecl, gaia, BVI"
-#E_246098758             23:16:12.9         -07:10:05          seq=2/B/57,2/V/36,2/Ic/43                                     priority=7      ph_start=0.9812        ph_end=0.0188        sciprog=scbr          pi=dgraczyk      tag=primary      P=7.390488      hjd0=2457793.890    mV=13.7       comment="DONE, Darek EB prim ecl, gaia, BVI"
-#E_246098758             23:16:12.9         -07:10:05          seq=2/B/57,2/V/36,2/Ic/43             priority=9    cycle=0.0007    ph_mk=1/V/0.0007    ph_start=0.4812    ph_end=0.5188    sciprog=deb_sbcr    pi=dgraczyk    tag=secondary    P=7.390488    hjd0=2457793.890    mV=13.7    comment="DONE, Darek EB sec ecl, BVI" 
-#TYC5829-1047-1          23:32:17.1         -09:50:41          seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54                 priority=7    cycle=0.0007    ph_mk=1/V/0.0005    ph_start=0.9786    ph_end=0.0214    sciprog=deb_sbcr    pi=dgraczyk    tag=primary    P=8.375554    hjd0=2457775.8396    mV=12.1    comment="DONE, Darek EB prim ecl, gaia, BVI" 
-#TYC5829-1047-1          23:32:17.1         -09:50:41          seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54           priority=7      ph_start=0.4786        ph_end=0.5214        sciprog=scbr          pi=dgraczyk      tag=secondary       P=8.375554      hjd0=2457775.8396    mV=12.1       comment="DONE, Darek EB sec ecl, gaia, BVI"
 
 # Objects with orbital periods close to unity
 OBJECT TYC1243-402-1 03:41:14.3 +20:12:54 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9808 ph_end=0.0192 sciprog=deb_sbcr pi=dgraczyk tag=primary P=8.074682 hjd0=2456813.845 mV=11.4 comment="Darek EB prim ecl, BVI"
@@ -200,101 +148,35 @@ OBJECT TYC266-718-1 11:11:33.5 +02:47:13 seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,
 OBJECT TYC6484-426-1 05:31:13.65 -27:09:04.2 seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16 priority=7 cycle=0.0007 ph_mk=1/V/0.0005 ph_start=0.9720 ph_end=0.0280 sciprog=deb_sbcr pi=dgraczyk tag=primary P=7.056725 hjd0=2458469.462 mV=10.7 comment="Darek EB prim ecl, vby/BVI?"
 OBJECT TYC6484-426-1 05:31:13.65 -27:09:04.2 seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16 priority=7 cycle=0.0007 ph_mk=1/V/0.0007 ph_start=0.488 ph_end=0.491 sciprog=deb_sbcr pi=dgraczyk tag=secondary P=7.056725 hjd0=2458469.462 comment="Darek EB sec ecl, vby/BVI?" mV=10.7
 
-# Objects always below alt = 35 deg
-# RV_Hyi                  01:20:52.3         -80:19:00.63       seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26         priority=2      ph_start=0.975         ph_end=0.025         sciprog=deb_sbcr      pi=dgraczyk      tag=primary,no_vis    P=7.195053      hjd0=2458351.626        comment="Darek EB prim ecl, gaia, slow_apsidal_motion, vby/BVI?"   mV=11.1
-# RV_Hyi                  01:20:52.3         -80:19:00.63       seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26         priority=2      ph_start=0.5759        ph_end=0.6416        sciprog=deb_sbcr      pi=dgraczyk      tag=secondary,no_vis    P=7.195053      hjd0=2458351.626        comment="Darek EB sec ecl, gaia, slow_apsidal_motion, vby/BVI?"     mV=11.1
-# BC_Oct                  23:38:08.067       -81:21:18.381      seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13    priority=2      ph_start=0.9881        ph_end=0.0119        sciprog=deb_sbcr      pi=dgraczyk      tag=primary      P=26.45942      hjd0=2458346.1226        comment="Darek EB prim ecl, gaia, vby" mV=10.3
-# BC_Oct                  23:38:08.067       -81:21:18.381      seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13    priority=2      ph_start=0.3229        ph_end=0.3576        sciprog=deb_sbcr      pi=dgraczyk      tag=secondary       P=26.45942      hjd0=2458346.1226        comment="Darek EB sec ecl, gaia, vby"     mV=10.3
-
-# Objects too bright
-# V365_Pup               07:19:06.5         -35:11:03          seq=1/B/2,1/V/3,1/Ic/0.7                                     priority=2      P=12.87155      hjd0=2459220.7057       ph_start=0.986       ph_end=0.014         mV=7.8      tag=primary       sciprog=deb_sbcr      pi=dgraczyk          comment="Darek EB, prim ecl, vby"
-# V365_Pup               07:19:06.5         -35:11:03          seq=1/B/2,1/V/3,1/Ic/0.7                                     priority=2      P=12.87155      hjd0=2459220.7057       ph_start=0.645       ph_end=0.688         mV=7.8      tag=secondary        sciprog=deb_sbcr      pi=dgraczyk          comment="Darek EB, sec ecl, vby"
-# PX_Hya                 10:33:30.7         -20:10:52          seq=1/B/2,1/V/3,1/Ic/0.7                                     priority=2      P=36.1555       hjd0=2454536.308        ph_start=0.9917      ph_end=0.0083        mV=8.4      tag=primary       sciprog=deb_sbcr      pi=dgraczyk          comment="Darek EB, prim ecl, vby"
-# PX_Hya                 10:33:30.7         -20:10:52          seq=1/B/2,1/V/3,1/Ic/0.7                                     priority=2      P=36.1555       hjd0=2454536.308        ph_start=0.1943      ph_end=0.2250        mV=8.4      tag=secondary        sciprog=deb_sbcr      pi=dgraczyk          comment="Darek EB, sec ecl, vby"
-# LQ_Mus                 12:52:08.2         -68:54:01          seq=1/B/2,1/V/3,1/Ic/0.7                                     priority=2      P=7.506404      hjd0=2452712.7448       ph_start=0.9771      ph_end=0.0229        mV=7.5      tag=primary       sciprog=deb_sbcr      pi=dgraczyk          comment="Darek EB, prim ecl, vby"
-# LQ_Mus                 12:52:08.2         -68:54:01          seq=1/B/2,1/V/3,1/Ic/0.7                                     priority=2      P=7.506404      hjd0=2452712.7448       ph_start=0.4771      ph_end=0.5229        mV=7.5      tag=secondary        sciprog=deb_sbcr      pi=dgraczyk          comment="Darek EB, sec ecl, vby"
-
-## Out of eclipses
+# Out of eclipses
 OBJECT TYC20-893-1 01:17:26.4 +00:40:46 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=0aa16149 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=8.36117 hjd0=2456807.200 mV=11.8 comment="out of ecl, gaia, BVI"
 OBJECT E_220471927 01:29:09.7 +06:07:46 seq=2/B/44,2/V/27,2/Ic/33 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=d01ff272 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=19.8828 hjd0=2456805.128 mV=13.4 comment="out of ecl, gaia, BVI"
 OBJECT TYC1257-132-1 03:56:22.1 +18:52:13 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=dbe3131a sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=9.37395 hjd0=2457611.387 mV=11.8 comment="out of ecl, gaia, BVI"
-#CD-41_1394              04:22:35.2         -41:29:00          seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16            priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=3e5db9d9    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=17.5547    hjd0=2454935.8574    mV=10.7    comment="DONE, out of ecl, gaia, vby/BVI?" 
 OBJECT E_246891964 04:43:27.3 +16:40:33 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=5bffc840 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=30.44006 hjd0=2456830.746 mV=11.8 comment="out of ecl, gaia, slow_apsidal_motion, BVI"
-#CPD-64_390              04:56:28.16        -64:29:15.1        seq=2/B/2.3,2/V/1.4,2/Ic/1.7,2/y_s/4.3,2/v_s/12,2/b_s/12            priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=089c39ad    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=31.114765    hjd0=2458347.587    mV=10.2    comment="DONE, out of ecl, gaia, vby" 
 OBJECT E_246887507 05:11:51.0 +16:37:57 seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=d7bcc47d sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=11.46055 hjd0=2456813.968 mV=12.4 comment="out of ecl, gaia, BVI"
-#TYC735-1315-1           06:17:27.35        11:00:17.5         seq=2/B/6,2/V/4,2/Ic/4.8,2/y_s/12,2/v_s/32,2/b_s/32                 priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=8370630c    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=15.71975    hjd0=2458483.786    mV=11.3    comment="DONE, out of ecl, gaia, BVI" 
 OBJECT E_202086627 06:25:55.9 +15:36:13 seq=2/B/8,2/V/5,2/Ic/6,2/y_s/16,2/v_s/42,2/b_s/42 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=96e9403b sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=7.149794 hjd0=2456806.281 mV=11.6 comment="out of ecl, gaia, BVI"
 OBJECT TYC6511-1799-1 06:29:26.36 -25:13:29.4 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=ec5ef985 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=26.3815 hjd0=2458473.34 mV=11.4 comment="out of ecl, gaia, BVI"
-#TYC8547-1509-1          06:33:56.45        -59:57:37.9        seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26                 priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=caf06f2f    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=7.14020    hjd0=2458646.3474    mV=11.1    comment="DONE, out of ecl, gaia, vby/BVI?" 
-#V400_Gem                06:37:36.0         +17:47:33          seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35                 priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=474dc2fb    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=11.305257    hjd0=2456805.5283    mV=11.4    comment="DONE, out of ecl, gaia, BVI" 
 OBJECT TYC1392-886-1 08:36:07.0 +17:25:38 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=3db2cdf1 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=6.764156 hjd0=2456814.550 mV=11.4 comment="out of ecl, gaia, BVI"
 OBJECT TYC1396-393-1 08:44:06.6 +18:30:40 seq=2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=09371c2f sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=8.79464 hjd0=2456816.2882 mV=12.3 comment="out of ecl, gaia, BVI"
 OBJECT TYC246-1159-1 10:28:03.4 +01:47:50 seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=e91aa5c8 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=16.77565 hjd0=2456834.876 mV=11.0 comment="out of ecl, gaia, vby/BVI?"
 OBJECT E_248912952 10:34:40.2 +13:39:15 seq=2/B/52,2/V/33,2/Ic/40 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=934c8d3f sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=3.139174 hjd0=2457934.967 mV=13.6 comment="out of ecl, gaia, BVI"
 OBJECT SWASPJ104335.88 10:43:35.859 -43:40:15.2 seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=5867dc79 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=9.65706 hjd0=2458550.9467 mV=12.4 comment="out of ecl, gaia, BVI"
-#TYC852-1050-1           10:45:42.3         +12:47:00          seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13            priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=dc1c28dc    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=3.1427839    hjd0=2456832.5513    mV=10.3    comment="DONE, out of ecl, gaia, vby" 
 OBJECT TYC4930-128-1 11:30:03.2 -00:50:04 seq=2/B/8,2/V/5,2/Ic/6,2/y_s/15,2/v_s/40,2/b_s/40 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=7e78b7f8 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=8.48188 hjd0=2457615.7932 mV=11.5 comment="out of ecl, gaia, slow_apsidal_motion, BVI"
 OBJECT E_201253025 11:57:19.8 -03:09:43 seq=2/B/30,2/V/19,2/Ic/23,2/y_s/57 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=e82eed2e sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=6.78641 hjd0=2456851.124 mV=13.0 comment="out of ecl, gaia, BVI"
 OBJECT BD-04_3206 12:06:20.8 -04:54:50 seq=2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=45eed6f1 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=5.422527 hjd0=2457618.388 mV=10.8 comment="out of ecl, gaia, vby/BVI?"
 OBJECT TYC4951-933-1 12:30:18.2 -04:02:51 seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=5cc47407 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=15.28954 hjd0=2457579.870 mV=11.0 comment="out of ecl, gaia, vby/BVI?"
 OBJECT E_212707624 13:18:53.4 -08:04:17 seq=2/B/40,2/V/25,2/Ic/30 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=6efad192 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=7.210726 hjd0=2457233.7727 mV=13.3 comment="out of ecl, gaia, BVI"
-#LP_Lib                  15:13:38.475       -20:26:32.116      seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35                 priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=967d5028    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=4.88418    hjd0=2458012.7289    mV=11.4    comment="DONE, out of ecl, gaia, BVI" 
-#E_204321014             15:57:53.4         -22:47:45          seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80                         priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=ed0232b6    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=3.79213    hjd0=2456814.4278    mV=12.4    comment="DONE, out of ecl, gaia, BVI" 
-#TYC6780-1523-1          16:08:51.0         -23:51:01          seq=2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20                priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=ae54cb13    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=4.6601    hjd0=2456814.6264    mV=10.8    comment="DONE, out of ecl, gaia, vby/BVI?" 
 OBJECT TYC6206-1374-1 16:19:01.1 -17:16:24 seq=2/B/10,2/V/6,2/Ic/7.5,2/y_s/19,2/v_s/48,2/b_s/48 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=26271d87 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=15.5854 hjd0=2456795.2723 mV=11.8 comment="out of ecl, gaia, BVI"
-#TYC6240-759-1           17:08:50.4         -18:51:51          seq=2/B/9,2/V/6,2/Ic/7,2/y_s/17,2/v_s/45,2/b_s/45                   priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=6510eb86    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=13.6336    hjd0=2457712.055    mV=11.7    comment="DONE, out of ecl, gaia, BVI" 
-#BD-19_4582              17:17:49.7         -19:15:16          seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24                priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=200b97d6    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=3.13694    hjd0=2457748.538    mV=11.0    comment="DONE, out of ecl, gaia, vby/BVI?" 
 OBJECT BD-18_4532 17:27:47.1 -18:34:55 seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=b782f1f7 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=9.1274 hjd0=2456816.892 mV=10.7 comment="out of ecl, vby/BVI?"
 OBJECT TYC6247-420-1 17:31:40.6 -20:46:33 seq=2/B/14,2/V/9,2/Ic/11,2/y_s/27,2/v_s/60,2/b_s/60 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=bedde055 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=6.38382 hjd0=2457704.996 mV=12.2 comment="out of ecl, gaia, BVI"
 OBJECT E_218070138 18:49:00.7 -19:27:50 seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=c7c8808f sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=15.102 hjd0=2456804.9364 mV=12.1 comment="out of ecl, gaia, BVI"
 OBJECT TYC6306-1822-1 19:30:47.8 -19:36:30 seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=2066d8f8 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=6.4907 hjd0=2457616.60 mV=11.1 comment="out of ecl, gaia, vby/BVI?"
-#GN_Aqr                  22:22:18.697       -04:12:22.596      seq=2/B/9,2/V/6,2/Ic/7,2/y_s/18,2/v_s/48,2/b_s/48                   priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=1f99ac6d    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=4.4043915    hjd0=2456814.423    mV=11.7    comment="DONE, out of ecl, gaia, BVI" 
-#CD-24_17223             22:33:51.4         -23:51:53          seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16            priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=70b8d81e    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=10.351663    hjd0=2458370.4114    mV=10.7    comment="DONE, out of ecl, gaia, vby/BVI?" 
 OBJECT TYC5239-1149-1 22:36:00.5 -06:04:50 seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54 priority=2 cycle=0.25 ph_mk=2/V/0.015 uobi=aa26d109 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=21.19382 hjd0=2456811.828 mV=12.1 comment="out of ecl, gaia, BVI"
-#E_206134477             22:53:24.2         -11:11:53          seq=2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72                priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=ba01a744    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=4.236594    hjd0=2456814.076    mV=12.3    comment="DONE, out of ecl, gaia, BVI" 
-#E_246098758             23:16:12.9         -07:10:05          seq=2/B/57,2/V/36,2/Ic/43             priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=a72fb421    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=7.390488    hjd0=2457793.890    mV=13.7    comment="DONE, out of ecl, gaia, BVI" 
-#TYC5829-1047-1          23:32:17.1         -09:50:41          seq=2/B/13,2/V/8,2/Ic/10,2/y_s/25,2/v_s/54,2/b_s/54                 priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=513e0de7    sciprog=deb_sbcr    pi=dgraczyk    tag=random_phase    P=8.375554    hjd0=2457775.8396    mV=12.1    comment="DONE, out of ecl, gaia, BVI" 
 
 # Objects with orbital periods close to unity
 OBJECT TYC1243-402-1 03:41:14.3 +20:12:54 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35 priority=2 cycle=0.25 ph_mk=2/V/0.02 uobi=c6902611 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=8.074682 hjd0=2456813.845 mV=11.4 comment="out of ecl, BVI"
 OBJECT TYC266-718-1 11:11:33.5 +02:47:13 seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13 priority=2 cycle=0.25 ph_mk=2/V/0.02 uobi=5772028b sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=35.024018 hjd0=2456813.790 mV=10.3 comment="out of ecl, vby"
 OBJECT TYC6484-426-1 05:31:13.65 -27:09:04.2 seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/6.6,2/v_s/16,2/b_s/16 priority=2 cycle=0.25 ph_mk=2/V/0.02 uobi=460c5464 sciprog=deb_sbcr pi=dgraczyk tag=random_phase P=7.056725 hjd0=2458469.462 mV=10.7 comment="out of ecl, vby/BVI?"
-
-# Objects always below alt = 35 deg
-# RV_Hyi                01:20:52.3         -80:19:00.63       seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26            priority=2      cycle=0.1    ph_mk=2/V/0.01      uobi=c3a45d42      sciprog=deb_sbcr      pi=dgraczyk      tag=random_phase    P=7.195053      hjd0=2458351.626        comment="out of ecl, gaia, slow_apsidal_motion, vby/BVI?"     mV=11.1
-# BC_Oct                23:38:08.067       -81:21:18.381      seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13       priority=2      cycle=0.1    ph_mk=2/V/0.01      uobi=b6f242e5      sciprog=deb_sbcr      pi=dgraczyk      tag=random_phase    P=26.45942      hjd0=2458346.1226        comment="out of ecl, gaia, vby"                         mV=10.3
-
-# Objects too bright
-# V365_Pup               07:19:06.5         -35:11:03          seq=1/B/2,1/V/3,1/Ic/0.7     mV=7.8                           priority=2      uobi=052c06a0      sciprog=deb_sbcr      pi=dgraczyk      tag=random_phase    P=12.87155      hjd0=2459220.7057       comment="out of ecl, sbcr, vby"
-# PX_Hya                 10:33:30.7         -20:10:52          seq=1/B/2,1/V/3,1/Ic/0.7     mV=8.4                           priority=2      uobi=4affa7fa      sciprog=deb_sbcr      pi=dgraczyk      tag=random_phase    P=36.1555       hjd0=2454536.308        comment="out of ecl, sbcr, vby"
-# LQ_Mus                 12:52:08.2         -68:54:01          seq=1/B/2,1/V/3,1/Ic/0.7     mV=7.5                           priority=2      uobi=8d209b63      sciprog=deb_sbcr      pi=dgraczyk      tag=random_phase    P=7.506404      hjd0=2452712.7448       comment="out of ecl, sbcr/benchmark, vby"
-
-
-
-# SMC blue early-type eclipsing binaries
-# SCIPROG deb_blue_smc
-# PI ghajdu + dgraczyk
-# INFO other targets from this program on ZB08
-# INFO project halted by request of Grzesiek on both telescopes WK06 and ZB08
-
-# Primary + secondary eclipses
-#OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.93 ph_end=0.1 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, prim ecl"
-#OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.4 ph_end=0.60 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, sec ecl"
-#OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.83 ph_end=0.157 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, prim ecl"
-#OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.38 ph_end=0.61 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, sec ecl"
-#OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.921 ph_end=0.044 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, prim ecl, 3417 in field"
-#OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.288 ph_end=0.391 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, prim ecl, 3417 in field"
-#OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.9 ph_end=0.09 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, prim ecl, 3378 in field"
-#OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.411 ph_end=0.57 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, sec ecl, 3378 in field"
-#OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.95 ph_end=0.06 sciprog=deb_blue_smc pi=ghajdu tag=primary fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, prim ecl"
-#OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.44 ph_end=0.55 sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, sec ecl"
-
-# Out of eclipses
-#OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5 seq=2/B/36,2/V/48,2/Ic/120 priority=5 cycle=0.15 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=d1584415 tag=random_phase fwhm_max=1.55 P=6.0522822 hjd0=2460657.52 mV=14.32 comment="SMC, out of ecl"
-#OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5 seq=2/B/30,2/V/40,2/Ic/100 priority=5 cycle=0.1 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=07fcf4e5 tag=random_phase fwhm_max=1.55 P=3.9460493 hjd0=2460658.06 mV=13.93 comment="SMC, out of ecl"
-#OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.15 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=5426f048 tag=random_phase fwhm_max=1.55 P=4.4803698 hjd0=2460658.10 mV=14.61 comment="SMC, out of ecl, 3417 in field"
-#OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2 seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.075 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=9a51a4ab tag=random_phase fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, out of ecl, 3378 in field"
-#OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5 seq=2/B/60,2/V/80,2/Ic/225 priority=5 cycle=0.2 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=af01c7f3 tag=random_phase fwhm_max=1.55 P=9.0179343 hjd0=2460653.90 mV=14.95 comment="SMC, out of ecl"
 
 
 
@@ -307,27 +189,26 @@ OBJECT TYC6484-426-1 05:31:13.65 -27:09:04.2 seq=2/B/3.6,2/V/2.2,2/Ic/2.7,2/y_s/
 # Primary eclispes
 OBJECT OGLE-LMC-ECL-02851 04:55:02.52 -67:09:51.8 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.900 ph_end=0.100 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=2.7403695 hjd0=2460000.8225 max_moon_phase=65 mV=14.584
 OBJECT OGLE-LMC-ECL-12167 05:18:04.71 -69:48:18.9 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.909 ph_end=0.091 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=3.1070289 hjd0=2461046.734 max_moon_phase=65 mV=14.589
-#OGLE-LMC-ECL-17660     05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.93     ph_end=0.07     sciprog=deb_blue_lmc    pi=dgraczyk    tag=primary    fwhm_max=1.55    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
 OBJECT OGLE-LMC-ECL-18794 05:32:47.74 -68:37:26.6 seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.90 ph_end=0.10 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=5.9468207 hjd0=2460005.9302 max_moon_phase=65 mV=13.416
 OBJECT OGLE-LMC-ECL-20299 05:36:10.74 -69:32:02.2 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.89 ph_end=0.11 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=5.4139949 hjd0=2460005.2472 max_moon_phase=65 mV=14.493
 OBJECT OGLE-LMC-ECL-23358 05:43:39.34 -69:15:54.9 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.88 ph_end=0.12 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=1.7860458 hjd0=2460269.3937 max_moon_phase=65 mV=14.653
 OBJECT OGLE-LMC-ECL-05764 05:02:40.77 -68:24:21.4 seq=3/u_s/300,2/v_s/200,1/b_s/250,1/y_s/180 priority=4 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.9 ph_end=0.1 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=5.7258613 hjd0=2460004.3137 max_moon_phase=65 mV=14.231 comment="mI=14.371, SNR 200, 3rd light"
 OBJECT OGLE-LMC-ECL-06782 05:04:59.05 -70:31:13.9 seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100 priority=4 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.91 ph_end=0.09 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=4.2708193 hjd0=2460001.1675 max_moon_phase=65 mV=13.688 comment="mI=13.913, SNR 200, 3rd light"
 OBJECT OGLE-LMC-ECL-22270 05:40:47.31 -69:20:28.3 seq=4/u_s/300,1/v_s/300,1/b_s/200,1/y_s/140 priority=4 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.86 ph_end=0.14 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=5.4139949 hjd0=2460005.2472 max_moon_phase=65 mV=14.014 comment="mI=14.022, SNR 200, 3rd light"
+
 # Secondary eclispes
 OBJECT OGLE-LMC-ECL-02851 04:55:02.52 -67:09:51.8 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.400 ph_end=0.600 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=2.7403695 hjd0=2460000.8225 max_moon_phase=65 mV=14.584
 OBJECT OGLE-LMC-ECL-12167 05:18:04.71 -69:48:18.9 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.387 ph_end=0.563 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=3.1070289 hjd0=2461046.734 max_moon_phase=65 mV=14.589
-#OGLE-LMC-ECL-17660     05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.395    ph_end=0.545    sciprog=deb_blue_lmc    pi=dgraczyk    tag=secondary  fwhm_max=1.55    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
 OBJECT OGLE-LMC-ECL-18794 05:32:47.74 -68:37:26.6 seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.37 ph_end=0.57 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=5.9468207 hjd0=2460005.9302 max_moon_phase=65 mV=13.416
 OBJECT OGLE-LMC-ECL-20299 05:36:10.74 -69:32:02.2 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.395 ph_end=0.615 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=5.4139949 hjd0=2460005.2472 max_moon_phase=65 mV=14.493
 OBJECT OGLE-LMC-ECL-23358 05:43:39.34 -69:15:54.9 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.48 ph_end=0.62 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=1.7860458 hjd0=2460269.3937 max_moon_phase=65 mV=14.653
 OBJECT OGLE-LMC-ECL-05764 05:02:40.77 -68:24:21.4 seq=3/u_s/300,2/v_s/200,1/b_s/250,1/y_s/180 priority=4 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.315 ph_end=0.533 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=5.7258613 hjd0=2460004.3137 max_moon_phase=65 mV=14.231 comment="mI=14.371, SNR 200, 3rd light"
 OBJECT OGLE-LMC-ECL-06782 05:04:59.05 -70:31:13.9 seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100 priority=4 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.375 ph_end=0.585 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=4.2708193 hjd0=2460001.1675 max_moon_phase=65 mV=13.688 comment="mI=13.913, SNR 200, 3rd light"
 OBJECT OGLE-LMC-ECL-22270 05:40:47.31 -69:20:28.3 seq=4/u_s/300,1/v_s/300,1/b_s/200,1/y_s/140 priority=4 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.37 ph_end=0.65 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=5.4139949 hjd0=2460005.2472 max_moon_phase=65 mV=14.014 comment="mI=14.022, SNR 200, 3rd light"
+
 # Random phase
 OBJECT OGLE-LMC-ECL-02851 04:55:02.52 -67:09:51.8 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=4 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=f89655c1 tag=random_phase fwhm_max=1.55 P=2.7403695 max_moon_phase=65 mV=14.584 comment="incl. Stromgren std"
 OBJECT OGLE-LMC-ECL-12167 05:18:04.71 -69:48:18.9 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=4 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=b81f70af tag=random_phase fwhm_max=1.55 P=3.1070289 max_moon_phase=65 mV=14.589 comment="incl. Stromgren std"
-#OGLE-LMC-ECL-17660     05:30:22.13        -69:14:52.0        seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=4    cycle=0.12     ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    uobi=898314b9      tag=random_phase    fwhm_max=1.55    P=6.2291091    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
 OBJECT OGLE-LMC-ECL-20299 05:36:10.74 -69:32:02.2 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=4 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=1e613ef3 tag=random_phase fwhm_max=1.55 P=5.4139949 max_moon_phase=65 mV=14.493 comment="incl. Stromgren std"
 OBJECT OGLE-LMC-ECL-23358 05:43:39.34 -69:15:54.9 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=4 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=20722bea tag=random_phase fwhm_max=1.55 P=1.7860458 max_moon_phase=65 mV=14.653 comment="incl. Stromgren std"
 OBJECT OGLE-LMC-ECL-18794 05:32:47.74 -68:37:26.6 seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60 priority=4 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=8f72d841 tag=random_phase fwhm_max=1.55 P=5.9468207 max_moon_phase=65 mV=13.416 comment="incl. Stromgren std, SNR 200, 3rd light, incl. Stromgren std"
@@ -337,48 +218,13 @@ OBJECT OGLE-LMC-ECL-22270 05:40:47.31 -69:20:28.3 seq=4/u_s/300,1/v_s/300,1/b_s/
 
 
 
-# Cycle-to-cycle variability of Cepheids in the LMC
-# SCIPROG cep_c2c_var_lmc
-# PI hnetzel
-# INFO not a season for the LMC, so commented
-#
-#OGLE-LMC-CEP-0619    05:00:08    -68:27:00    seq=2/B/10,2/V/5,2/Ic/4      P=133.779     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=30e850ac    mV=11.63     
-#OGLE-LMC-CEP-1591    05:19:31    -68:41:10    seq=2/B/10,2/V/5,2/Ic/4      P=118.624     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3598c79e    comment="mG=11.7"
-#OGLE-LMC-CEP-4629    04:56:27    -64:41:41    seq=2/B/15,2/V/7,2/Ic/6      P=108.700     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=83770a25    mV=12.02
-#OGLE-LMC-CEP-4628    04:55:41    -66:25:43    seq=2/B/15,2/V/7,2/Ic/6      P=99.200      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=948919d2    mV=11.93
-#OGLE-LMC-CEP-4689    05:43:47    -66:35:09    seq=2/B/15,2/V/7,2/Ic/6      P=78.508      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=2f0b2cf9    mV=12.02
-#OGLE-LMC-CEP-4691    05:44:51    -67:29:41    seq=2/B/17,2/V/8,2/Ic/6      P=73.897      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=8f8e2dc6    mV=12.21
-#OGLE-LMC-CEP-0992    05:07:16    -68:53:01    seq=2/B/17,2/V/8,2/Ic/8      P=52.874      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=19ca8dc3    mV=12.305
-#OGLE-LMC-CEP-2253    05:31:22    -70:57:25    seq=2/B/30,2/V/15,2/Ic/13    P=52.374      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3ebe8d6f    mV=12.806
-#OGLE-LMC-CEP-1290    05:13:54    -67:03:49    seq=2/B/17,2/V/8,2/Ic/8      P=48.384      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=7d959f8a    mV=12.21
-#OGLE-LMC-CEP-4663    05:25:08    -67:38:39    seq=2/B/17,2/V/8,2/Ic/8      P=47.956      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=180b7f26    mV=12.28
-#OGLE-LMC-CEP-0966    05:06:48    -70:02:13    seq=2/B/30,2/V/15,2/Ic/13    P=47.385      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3cf92ed9    mV=12.944
-#OGLE-LMC-CEP-0461    04:57:02    -67:59:43    seq=2/B/42,2/V/22,2/Ic/20    P=45.166      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3c7e75d0    mV=13.363
-#OGLE-LMC-CEP-0943    05:06:09    -71:15:26    seq=2/B/17,2/V/8,2/Ic/8      P=42.239      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=4c77101e    mV=12.26      
-#OGLE-LMC-CEP-0512    04:58:11    -69:56:59    seq=2/B/33,2/V/17,2/Ic/16    P=39.398      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=b712dd3c    mV=13.134     
-#OGLE-LMC-CEP-1113    05:09:20    -70:27:27    seq=2/B/25,2/V/13,2/Ic/12    P=37.559      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=7bfb03e6    mV=12.67      
-#OGLE-LMC-CEP-0510    04:58:06    -69:27:16    seq=2/B/42,2/V/22,2/Ic/20    P=36.831      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=6a1f5a31    mV=13.457     
-#OGLE-LMC-CEP-0945    05:06:15    -66:40:46    seq=2/B/17,2/V/8,2/Ic/8      P=36.580      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=6e27839f    mV=12.15      
-#OGLE-LMC-CEP-0528    04:58:33    -70:20:46    seq=2/B/33,2/V/17,2/Ic/16    P=35.731      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=b816df60    mV=13.175
-#OGLE-LMC-CEP-0328    04:54:24    -70:54:06    seq=2/B/20,2/V/10,2/Ic/10    P=34.449      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=d81f825e    mV=12.44      
-#OGLE-LMC-CEP-1637    05:20:23    -69:02:18    seq=2/B/22,2/V/16,2/Ic/23    P=31.945      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=61550fb5    mV=13.337     
-#OGLE-LMC-CEP-0590    04:59:41    -69:27:22    seq=2/B/42,2/V/22,2/Ic/20    P=31.787      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=ed766711    mV=13.470
-#OGLE-LMC-CEP-0986    05:07:08    -68:53:20    seq=2/B/42,2/V/22,2/Ic/20    P=31.061      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=5aad110e    mV=13.471
-#OGLE-LMC-CEP-4683    05:35:49    -66:42:02    seq=2/B/20,2/V/10,2/Ic/10    P=30.482      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=a9273ff5    mV=12.36      
-#OGLE-LMC-CEP-1058    05:08:18    -68:46:47    seq=2/B/50,2/V/25,2/Ic/23    P=30.400      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=8f3f26ce    mV=13.564     
-#OGLE-LMC-CEP-0434    04:56:28    -69:22:47    seq=2/B/33,2/V/17,2/Ic/16    P=30.349      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=2a5126fe    mV=13.131     
-
-
-
 # Cycle-to-cycle variability of Cepheids in the Milky Way
 # SCIPROG cep_c2c_var_mw
 # PI hnetzel
-# INFO the list is still under construction, thus commented, objects not in objects.txt
-#
+
 # 10 targets to be observed at leat once per night (higher priority)
 OBJECT OGLE-GD-CEP-1884 15:35:46.70 -55:56:56.3 seq=2/B/300,2/V/40,2/Ic/5 P=78.1401185 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=12.8 BP-RP=5.2"
 OBJECT OGLE-GD-CEP-1859 13:45:14.13 -63:34:15.6 seq=2/B/150,2/V/20,2/Ic/5 P=67.5057177 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=12.5 BP-RP=4.2"
-#OGLE-GD-CEP-0568    10:43:18.97  -59:11:29.6   seq=2/B/80,2/V/10,2/Ic/5     P=45.4390549    ph_mk=1/V/0.01    priority=8   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.2 BP-RP=3.5, has already been observed on zb08"
 OBJECT OGLE-GD-CEP-0889 13:13:50.57 -64:26:28.3 seq=2/B/100,2/V/20,2/Ic/7 P=45.1536783 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.2 BP-RP=3.0"
 OBJECT OGLE-GD-CEP-1252 18:54:19.14 +00:39:18.3 seq=3/B/300,2/V/70,2/Ic/5 P=44.4575841 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.8 BP-RP=5.7"
 OBJECT OGLE-GD-CEP-1018 15:06:15.72 -59:41:44.7 seq=2/B/200,2/V/50,2/Ic/7 P=42.7230657 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.8 BP-RP=3.9"
@@ -386,11 +232,10 @@ OBJECT OGLE-GD-CEP-1210 18:39:58.61 -05:49:54.9 seq=2/B/120,2/V/15,2/Ic/5 P=35.8
 OBJECT OGLE-GD-CEP-1542 19:22:14.30 +14:31:15.3 seq=3/B/300,2/V/60,2/Ic/5 P=34.1997265 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.7 BP-RP=5.0"
 OBJECT OGLE-GD-CEP-0924 13:30:26.50 -63:31:25.1 seq=2/B/200,2/V/70,2/Ic/15 P=33.1281047 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=14.4 BP-RP=3.2"
 OBJECT OGLE-GD-CEP-0898 13:17:38.50 -64:05:28.9 seq=2/B/300,2/V/120,2/Ic/20 P=39.2782388 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=14.8 BP-RP=4.2"
-#
+
 # The same 10 targets to be observed more frequently during the night if possible (lower priority)
 OBJECT OGLE-GD-CEP-1884 15:35:46.70 -55:56:56.3 seq=2/B/300,2/V/40,2/Ic/5 P=78.1401185 ph_mk=1/V/0.01 cycle=0.1 priority=5 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=12.8 BP-RP=5.2"
 OBJECT OGLE-GD-CEP-1859 13:45:14.13 -63:34:15.6 seq=2/B/150,2/V/20,2/Ic/5 P=67.5057177 ph_mk=1/V/0.01 cycle=0.1 priority=5 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=12.5 BP-RP=4.2"
-#OGLE-GD-CEP-0568    10:43:18.97  -59:11:29.6   seq=2/B/80,2/V/10,2/Ic/5     P=45.4390549    ph_mk=1/V/0.01   cycle=0.1   priority=5   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.2 BP-RP=3.5, has already been observed on zb08"
 OBJECT OGLE-GD-CEP-0889 13:13:50.57 -64:26:28.3 seq=2/B/100,2/V/20,2/Ic/7 P=45.1536783 ph_mk=1/V/0.01 cycle=0.1 priority=5 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.2 BP-RP=3.0"
 OBJECT OGLE-GD-CEP-1252 18:54:19.14 +00:39:18.3 seq=3/B/300,2/V/70,2/Ic/5 P=44.4575841 ph_mk=1/V/0.01 cycle=0.1 priority=5 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.8 BP-RP=5.7"
 OBJECT OGLE-GD-CEP-1018 15:06:15.72 -59:41:44.7 seq=2/B/200,2/V/50,2/Ic/7 P=42.7230657 ph_mk=1/V/0.01 cycle=0.1 priority=5 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.8 BP-RP=3.9"
@@ -398,12 +243,10 @@ OBJECT OGLE-GD-CEP-1210 18:39:58.61 -05:49:54.9 seq=2/B/120,2/V/15,2/Ic/5 P=35.8
 OBJECT OGLE-GD-CEP-1542 19:22:14.30 +14:31:15.3 seq=3/B/300,2/V/60,2/Ic/5 P=34.1997265 ph_mk=1/V/0.01 cycle=0.1 priority=5 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.7 BP-RP=5.0"
 OBJECT OGLE-GD-CEP-0924 13:30:26.50 -63:31:25.1 seq=2/B/200,2/V/70,2/Ic/15 P=33.1281047 ph_mk=1/V/0.01 cycle=0.1 priority=5 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=14.4 BP-RP=3.2"
 OBJECT OGLE-GD-CEP-0898 13:17:38.50 -64:05:28.9 seq=2/B/300,2/V/120,2/Ic/20 P=39.2782388 ph_mk=1/V/0.01 cycle=0.1 priority=5 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=14.8 BP-RP=4.2"
-#
-#
+
 # The same 10 targets to be observed even more frequently on their ascending branch (higher priority)
 OBJECT OGLE-GD-CEP-1884 15:35:46.70 -55:56:56.3 seq=2/B/300,2/V/40,2/Ic/5 P=78.1401185 hjd0=2460007.2927 ph_start=0.75 ph_end=0.99 ph_mk=1/V/0.005 cycle=0.04 priority=6 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=12.8 BP-RP=5.2"
 OBJECT OGLE-GD-CEP-1859 13:45:14.13 -63:34:15.6 seq=2/B/150,2/V/20,2/Ic/5 P=67.5057177 hjd0=2460031.8937 ph_start=0.75 ph_end=0.99 ph_mk=1/V/0.005 cycle=0.04 priority=6 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=12.5 BP-RP=4.2"
-#OGLE-GD-CEP-0568    10:43:18.97  -59:11:29.6   seq=2/B/80,2/V/10,2/Ic/5     P=45.4390549    hjd0=2460042.7840    ph_start=0.75    ph_end=0.99   ph_mk=1/V/0.005   cycle=0.04   priority=6   pi=hnetzel   sciprog=cep_c2c_var_mw   comment="mG=12.2 BP-RP=3.5, has already been observed on zb08"
 OBJECT OGLE-GD-CEP-0889 13:13:50.57 -64:26:28.3 seq=2/B/100,2/V/20,2/Ic/7 P=45.1536783 hjd0=2460022.6378 ph_start=0.75 ph_end=0.99 ph_mk=1/V/0.005 cycle=0.04 priority=6 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.2 BP-RP=3.0"
 OBJECT OGLE-GD-CEP-1252 18:54:19.14 +00:39:18.3 seq=3/B/300,2/V/70,2/Ic/5 P=44.4575841 hjd0=2460019.5889 ph_start=0.75 ph_end=0.99 ph_mk=1/V/0.005 cycle=0.04 priority=6 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.8 BP-RP=5.7"
 OBJECT OGLE-GD-CEP-1018 15:06:15.72 -59:41:44.7 seq=2/B/200,2/V/50,2/Ic/7 P=42.7230657 hjd0=2460019.4441 ph_start=0.75 ph_end=0.99 ph_mk=1/V/0.005 cycle=0.04 priority=6 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.8 BP-RP=3.9"
@@ -417,7 +260,7 @@ OBJECT OGLE-GD-CEP-0898 13:17:38.50 -64:05:28.9 seq=2/B/300,2/V/120,2/Ic/20 P=39
 # Cepheids with 0.61 mode in the Milky Way
 # SCIPROG cep_mod61_mw
 # PI hnetzel
-#
+
 # 11 targets to be observed at leat once per night (higher priority)
 OBJECT OGLE-GD-CEP-1280 06:04:49.9985 +10:21:48.513 seq=2/B/25,2/V/14 priority=7 pi=hnetzel sciprog=cep_mod61_mw mV=12.683 P=3.075 ph_mk=1/V/0.01 comment="mG=12.4 BP-RP=1.2"
 OBJECT OGLE-GD-CEP-0041 06:30:11.3449 +07:51:10.405 seq=2/B/30,2/V/14 priority=7 pi=hnetzel sciprog=cep_mod61_mw mV=12.723 P=2.497 ph_mk=1/V/0.01 comment="mG=12.2 BP-RP=1.7"
@@ -430,7 +273,7 @@ OBJECT OGLE-GD-CEP-0126 07:44:27.6336 -24:17:18.925 seq=2/B/30,2/V/12 priority=7
 OBJECT OGLE-GD-CEP-0475 10:17:26.5881 -60:19:59.563 seq=2/B/90,2/V/50 priority=7 pi=hnetzel sciprog=cep_mod61_mw mV=14.351 P=4.312 ph_mk=1/V/0.01 comment="mG=13.8 BP-RP=1.7"
 OBJECT OGLE-GD-CEP-0546 10:36:04.8352 -58:52:17.785 seq=2/B/120,2/V/30 priority=7 pi=hnetzel sciprog=cep_mod61_mw mV=14.887 P=5.179 ph_mk=1/V/0.01 comment="mG=13.0 BP-RP=3.2"
 OBJECT OGLE-GD-CEP-0932 13:35:43.4966 -62:40:02.877 seq=2/B/160,2/V/40 priority=7 pi=hnetzel sciprog=cep_mod61_mw mV=14.867 P=4.255 ph_mk=1/V/0.01 comment="mG=13.1 BP-RP=3.3"
-# 
+
 # The same 11 targets to be observed more frequently during the night if possible (lower priority)
 OBJECT OGLE-GD-CEP-1280 06:04:49.9985 +10:21:48.513 seq=2/B/25,2/V/14 priority=4 pi=hnetzel sciprog=cep_mod61_mw mV=12.683 P=3.075 cycle=0.1 ph_mk=1/V/0.01 comment="mG=12.4 BP-RP=1.2"
 OBJECT OGLE-GD-CEP-0041 06:30:11.3449 +07:51:10.405 seq=2/B/30,2/V/14 priority=4 pi=hnetzel sciprog=cep_mod61_mw mV=12.723 P=2.497 cycle=0.1 ph_mk=1/V/0.01 comment="mG=12.2 BP-RP=1.7"
@@ -521,94 +364,3 @@ OBJECT FS153 23:02:32.08 -3:58:53.03 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=m
 OBJECT FS153 23:02:32.08 -3:58:53.03 seq=2/v_s/300,2/b_s/150,2/y_s/80 priority=1 pi=mgorski sciprog=ukirt_sstd
 #
 # OBJECT FS154	23:18:10.02	0:32:56.09
-
-
-
-##############
-## FINISHED ##
-##############
-#
-# T Tauri stars
-# SCIPROG tt_mw
-# PI wogloza
-# OBJECT TW_Hya                         11:01:51.9053   -34:42:17.0332   seq=1/u_s/250,1/v_s/6,1/b_s/3,1/y_s/1.3   pi=wogloza sciprog=tt_mw   comment="copy OB to execute continuously for > 5h"
-#
-#
-#
-############
-## HALTED ##
-############
-#
-# Cepheids in open clusters
-# SCIPROG ccep_oclu
-# PI pwielgorskiski
-# INFO: project halted
-#
-# First batch
-#TW_Nor                  16:04:55.22        -51:57:12.6        seq=2/u_s/250,2/b_s/60,2/v_s/90,2/y_s/15,2/B/14,2/V/6,2/Ic/2        priority=6      cycle=0.25    ph_mk=2/V/0.04      uobi=a159c42c      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=10.78618      comment="FeH=0.27"     mV=11.5
-#V340_Ara                16:45:19.11        -51:20:33.4        seq=2/u_s/150,2/b_s/10,2/v_s/13,2/y_s/4,2/B/2.5,2/V/1,2/Ic/1        priority=6      cycle=0.25    ph_mk=2/V/0.04      uobi=633d471f      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=20.814        comment="FeH=0.33"     mV=10.2
-#KQ_Sco                  16:51:38.55        -45:25:36.1        seq=2/u_s/150,2/b_s/10,2/v_s/10,2/y_s/2,2/B/1.6,2/V/0.5,2/Ic/0.5    priority=6      cycle=0.25    ph_mk=2/V/0.04      uobi=d6f0fa2d      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=28.7805       comment="FeH=0.52"     mV=9.8
-#AV_Sgr                  18:04:48.78        -22:43:56.8        seq=2/u_s/250,2/b_s/40,2/v_s/60,2/y_s/10,2/B/10,2/V/1.5,2/Ic/1      priority=5      cycle=0.25    ph_mk=2/V/0.04      uobi=410cf813      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=15.415        comment="FeH=0.35"     mV=11.3
-#VY_Sgr                  18:12:04.57        -20:42:14.5        seq=2/u_s/250,2/b_s/40,2/v_s/80,2/y_s/15,2/B/14,2/V/3,2/Ic/2        priority=5      cycle=0.25    ph_mk=2/V/0.04      uobi=9edcbac1      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=13.5572       comment="FeH=0.33"     mV=11.3
-#V367_Sct                18:33:35.23        -10:25:38.1        seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/20,2/B/14,2/V/6,2/Ic/3        priority=4      cycle=0.16    ph_mk=2/V/0.04      uobi=a23c3b88      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=6.29307       comment="FeH=0.05"     mV=11.6
-#EV_Sct                  18:36:39.60        -08:11:05.3        seq=2/u_s/150,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2.5,2/V/1,2/Ic/0.5    priority=3      cycle=0.125    ph_mk=2/V/0.04      uobi=78cec8fb      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=3.09099       comment="FeH=0.09"    mV=10.1
-#CM_Sct                  18:42:26.82        -05:20:27.0        seq=2/u_s/140,2/b_s/26,2/v_s/26,2/y_s/10,2/B/5,2/V/3,2/Ic/1.2       priority=3      cycle=0.125    ph_mk=2/V/0.04      uobi=567af958      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=3.916977      comment="FeH=0.12"    mV=11.1
-#CN_Sct                  18:42:30.49        -04:19:50.3        seq=2/u_s/300,2/b_s/72,2/v_s/72,2/y_s/30,2/B/16,2/V/8,2/Ic/4        priority=4      cycle=0.25    ph_mk=2/V/0.04      uobi=554d15ac      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=9.9923        comment="FeH=0.30"     mV=12.4
-#
-# Second batch
-#RS_Ori                  06:22:13.19        +14:40:41.2        seq=2/u_s/20,2/b_s/2,2/v_s/4,2/y_s/0.7,2/B/2,2/V/0.5,2/Ic/0.5       priority=4      cycle=0.25    ph_mk=2/V/0.04      uobi=f65bddcc      sciprog=ccep_oclu     pi=pwielgorski      tag=ccep          P=7.566881      comment="FeH=0.11"     mV=8.4
-#CV_Mon                  06:37:04.84        +03:03:50.27       seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=5.3787        comment="FeH=0.09"         mV=10.3
-#WX_Pup                  07:41:59.00        -25:52:34.25       seq=2/u_s/30,2/b_s/50,2/v_s/50,2/y_s/1.8,2/B/1.2,2/V/1,2/Ic/1       priority=4      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=8.9371        comment="FeH=-0.15"        mV=9.1
-#WY_Pup                  07:58:05.14        -24:02:30.3        seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=5.2508        comment="FeH=-0.10"        mV=10.4
-#SX_Vel                  08:44:53.47        -46:20:34.74       seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/1             priority=4      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=9.5499        comment="FeH=-0.18"        mV=8.3
-#T_Ant                   09:33:50.86        -36:36:56.8        seq=2/u_s/30,2/b_s/50,2/v_s/50,2/y_s/1.8,2/B/1.2,2/V/1,2/Ic/1       priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=5.8985        comment="FeH=-0.20"        mV=9.2
-#CS_Vel                  09:41:10.26        -53:48:57.79       seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/8,2/Ic/7        priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=5.9047        comment="FeH=0.12"         mV=11.7
-#UX_Car                  10:29:11.24        -57:36:48.2        seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/1             priority=4      cycle=0.125    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=3.6822        comment="FeH=-0.10"       mV=8.1
-#VW_Cru                  12:33:18.67        -63:30:22.91       seq=2/u_s/40,2/b_s/60,2/v_s/60,2/y_s/2,2/B/1.4,2/V/1.2,2/Ic/1.2     priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=5.2652        comment="FeH=0.19"         mV=9.5
-#VW_Cen                  13:33:59.03        -64:03:20.0        seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=5      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=15.0362       comment="FeH=0.41"         mV=10.2
-#KN_Cen                  13:36:36.89        -64:33:29.9        seq=2/u_s/40,2/b_s/60,2/v_s/60,2/y_s/2,2/B/1.4,2/V/1.2,2/Ic/1.2     priority=6      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=34.0200       comment="FeH=0.55"         mV=9.8
-#
-# Back-up
-#CS_Ori                  06:07:25.47        +11:09:07.2        seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/6,2/Ic/4        priority=4      cycle=0.125    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=3.8894        comment="FeH=-0.25"             mV=11.3
-#TV_CMa                  07:09:15.41        -13:47:09.92       seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=4.6700        comment="FeH=0.01"               mV=10.6
-## X_Pup                 07:32:47.03        -20:54:34.88       seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/1             priority=4      cycle=0.04    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=25.9730       comment="too birght, FeH=0.02"   mV=8.5
-#V335_Pup                07:56:57.70        -22:49:31.57       seq=2/u_s/20,2/b_s/2,2/v_s/6,2/y_s/1,2/B/0.5,2/V/0.5,2/Ic/0.5       priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=4.8609        comment="too bright?, FeH=0.06"  mV=8.7
-#LS_Pup                  07:58:59.22        -29:18:28.4        seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=5      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=14.1468       comment="FeH=-0.12"              mV=10.4
-#DY_Car                  10:52:32.82        -60:31:36.36       seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/8,2/Ic/5        priority=4      cycle=0.125    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=4.6746        comment="FeH=0.04"              mV=11.3
-#WZ_Car                  10:55:18.73        -60:56:23.95       seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/1             priority=6      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=23.0180       comment="FeH=0.06"               mV=8.2
-#XZ_Car                  11:04:13.47        -60:58:47.73       seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/0.5,2/Ic/0.5         priority=5      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=16.6514       comment="too bright?, FeH=0.19"  mV=8.5
-#X_Cru                   12:46:22.28        -59:07:29.02       seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/1             priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=6.2201        comment="FeH=0.15"               mV=8.4
-#QY_Cen                  14:08:17.20        -61:44:10.4        seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/8,2/Ic/7        priority=5      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=17.7524       comment="FeH=0.24"               mV=11.7
-#SY_Nor                  15:54:42.81        -54:33:59.16       seq=2/u_s/40,2/b_s/60,2/v_s/60,2/y_s/2,2/B/1.4,2/V/1.2,2/Ic/1.2     priority=5      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=12.6452       comment="FeH=0.23"               mV=9.4
-#QZ_Nor                  16:11:20.47        -54:21:14.82       seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/0.7           priority=4      cycle=0.125    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=3.7860        comment="FeH=0.21"              mV=8.8
-#V340_Nor                16:13:17.40        -54:14:05.59       seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/1             priority=5      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=11.2888       comment="FeH=0.07"               mV=8.4
-#Y_Sct                   18:38:03.31        -08:22:08.2        seq=2/u_s/40,2/b_s/60,2/v_s/60,2/y_s/2,2/B/1.4,2/V/1.2,2/Ic/1.2     priority=4      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=10.3415       comment="FeH=0.23"               mV=9.6
-#GY_Sge                  19:35:13.63        +19:12:08.6        seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=6      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=51.7900       comment="FeH=0.29"               mV=10.2
-#
-#
-#
-# Blue LMC eclipsing binaries intended for FLAMES
-# PI dgraczyk
-# SCIPROG deb_blue_lmc
-# INFO not ready for tpg, probably should go to JK15
-#
-#OGLE-LMC-ECL-09186  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.1746222 -69.346639  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.764  P=3.773452  hjd0=2453562.8651  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-09402  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.18411113333 -69.219333  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.021  P=2.15292  hjd0=2453562.01  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-09971  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.30779446667 -69.629222  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.196  P=1.40379  hjd0=2453539.5542  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-10133  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.21015553333 -69.292111  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.301  P=2.301265  hjd0=2453560.8939  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-10288  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.2172722 -69.327722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.603  P=4.502421  hjd0=2453566.6386  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-10377  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.2232972 -69.380306  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.746  P=2.63659  hjd0=2453565.1248  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-10418  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.2267278 -69.378167  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.249  P=2.10873  hjd0=2453561.9957  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-11642  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.22813213333 -69.545944  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.504  P=5.457331  hjd0=2453571.1636  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-11763  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.27900553333 -69.542556  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.784  P=5.603515  hjd0=2453542.0941  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-11929  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.28399166667 -69.456694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.398  P=1.860482  hjd0=2453538.738  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-11975  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.29165833333 -69.466250  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.826  P=4.42282  hjd0=2453543.7348  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-12344  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.29375 -69.527722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.128  P=6.9776  hjd0=2453549.2791  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-12662  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.31994166667 -69.706889  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.38  P=2.727111  hjd0=2453543.5498  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-12748  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.32359446667 -69.644944  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.5  P=6.01626  hjd0=2453549.9448  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-12919  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.33086386667 -69.667389  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.51  P=1.323983  hjd0=2453542.3272  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-12971  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.33279166667 -69.473306  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.088  P=1.33831  hjd0=2453534.7902  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-13666  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.3621222 -69.411694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.216  P=3.388133  hjd0=2453538.6174  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-13912  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.37108333333 -69.736889  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=16.228  P=1.954384  hjd0=2453542.0656  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-14061  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.37648333333 -69.528694  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.643  P=2.18336  hjd0=2453566.8426  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
-#OGLE-LMC-ECL-14140  seq=1/u_s/???,1/b_s/???,1/v_s/???,1/y_s/???,1/Hb_w/???  5.37895 -69.528722  seq=3/u_s/300,1/v_s/30,3/v_s/100,1/b_s/30,3/b_s/100,1/y_s/30,3/y_s/100  priority=10  mV=15.59  P=2.150526  hjd0=2453564.0208  comment="Seeing < 1.5”, dar/gray sky (u). Do not observe low at z >  1.5.  + Stromgren standards"
