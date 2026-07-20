@@ -1,36 +1,46 @@
 # tpg - telescope plan generator
-version: 1.0.0
+version: 1.1.1
 
-Script for generating observing plans for **wk06**, **zb08** and **jk15** telescopes. 
+Script for generating observing plans for **wk06**, **zb08**, **jk15** and **iris** telescopes. 
 Script allocates objects in time based on priority, visibility and many other specifications. 
 The slot duration time is calculated based on specification ``seq`` of each object. 
 Script creates files readable by *TOI* and *TEXTUI*.
 
 ### RUNNING THE SCRIPT
 ```
-poetry run tpg {wk06,zb08,jk15} date [ut] [--tag TAG] [--wind WIND] [--loud] [--seed] [--no_start_makro] [--no_end_makro]
+poetry run tpg {wk06,zb08,jk15,iris,test} date [ut] [--tag TAG] [--wind WIND] [--fwhm FWHM] [--seed SEED] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file MASTER_FILE]
 date: YYYY/MM/DD [hh:mm:ss] 
 ```
 
 ```example
-poetry run tpg zb08 2023/08/1  >| zb08_230810.txt
-poetry run tpg wko6 2023/08/1 03:45:00 --no_start_makro
-poetry run tpg wko6 2023/08/1 --seed 101010  --wind 124
-poetry run tpg wko6 2023/08/1 --loud --tag stromgren
+poetry run tpg zb08 2023/08/1
+poetry run tpg wk06 2023/08/1 03:45:00 --no_start_makro
+poetry run tpg wk06 2023/08/1 --seed 101010  --wind 124
+poetry run tpg wk06 2023/08/1 --loud --tag stromgren
 ```
 If `ut` is specified, the plan will **start at UT**.
 If it's not specified, it will **start at sunset** (defined by `hsun` in ```config.yaml```)
 
-| Argument           | desription                                                                             |
-| ------------------ |----------------------------------------------------------------------------------------|
-| `tel`              | telescope name: `wk06`, `zb08`, `jk15`.                                                |
-| `date`             | observing date and ut `YYYY/MM/DD` or `YYYY/MM/DD hh:mm:ss`. If no ut, start at sunset |
-| `--tag TAG`        | **tag** reqired for objects to allocate.                                               |
-| `--wind WIND`      | wind **direction** to avoid (degrees).                                                 |
-| `--seed SEED`      | random seed for object radmoization.                                                   |
-| `--loud`           | enables “loud” mode — prints additional processing steps.                              |
-| `--no_start_makro` | disables adding **makro** at the beginning of the plan.                                |
-| `--no_end_makro`   | disables adding **makro** at the end of the plan.                                      |
+By default the generated plan is saved automatically to `plan_catalog` (see `config.yaml`) as
+`{tel}_{yyyymmdd}_{n}.txt`, with a matching `{tel}_{yyyymmdd}_{n}_log.txt` log file; use `--no_save`
+to skip this. stdout is **not** a clean plan file — it interleaves the plan's `WAIT`/`OBJECT` lines
+with diagnostic messages (config loaded, sunset/sunrise, random seed, makro status, etc.), so
+redirecting it (e.g. `>| plan.txt`) will not produce a valid TOI/TEXTUI plan.
+
+| Argument                    | desription                                                                             |
+| --------------------------- |----------------------------------------------------------------------------------------|
+| `tel`                       | telescope name: `wk06`, `zb08`, `jk15`, `iris`, `test`.                                |
+| `date`                      | observing date and ut `YYYY/MM/DD` or `YYYY/MM/DD hh:mm:ss`. If no ut, start at sunset |
+| `--tag TAG`                 | **tag** reqired for objects to allocate.                                               |
+| `--wind WIND`               | wind **direction** to avoid (degrees).                                                 |
+| `--fwhm FWHM`               | current **fwhm**, used to apply objects' `fwhm_min`/`fwhm_max` limits.                |
+| `--seed SEED`               | random seed for object radmoization.                                                   |
+| `--loud`                    | enables “loud” mode — prints additional processing steps.                              |
+| `--no_save`                 | do not save the generated plan to `plan_catalog`.                                      |
+| `--no_ctc`                  | do not use **CTC** for slot-time calculation, even if available.                       |
+| `--no_start_makro`          | disables adding **makro** at the beginning of the plan.                                |
+| `--no_end_makro`            | disables adding **makro** at the end of the plan.                                      |
+| `--master_file MASTER_FILE` | override the master file configured for `tel`.                                         |
 
 
 
@@ -97,12 +107,17 @@ example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=11   mak
   `t_start=2024/01/09` - alternative date only 
 
   `t_start=1:20:05` - alternative ut only (if tpg start time is before 24:00 and object specified before 16:00, it will be considered +1 day)
-* `ph_star=0.1 ph_end=0.3 P=7.5 hjd0=2460310.2` - phase to observe, all keys are required   
-  `ph_star=0.8 ph_end=0.1 P=7.5 hjd0=2460310.2` - yes, it is cyclic
+* `ph_start=0.1 ph_end=0.3 P=7.5 hjd0=2460310.2` - phase to observe, all keys are required   
+  `ph_start=0.8 ph_end=0.1 P=7.5 hjd0=2460310.2` - yes, it is cyclic
 * `h_min=20` - object can be observed if more than 20 deg above horizon
 * `h_max=70` - object can be observed if less than 70 deg above horizon
 * `min_moon_dist=30` - object can be observed if more than 30 deg from the moon
 * `max_moon_phase=70` - object can be observed if moon phase is less than 70 percent, and the moon is up.
+* `sunset_dt=1` - object can be observed only 1h or more after sunset
+* `sunrise_dt=1` - object can be observed only until 1h before sunrise
+* `fwhm_min=1.5` - object can be observed if current fwhm (given with `--fwhm`) is more than 1.5
+* `fwhm_max=3` - object can be observed if current fwhm (given with `--fwhm`) is less than 3
+* `status=finished` or `status=inactive` - object will never be allocated, regardless of visibility
 * `ob_time=12` - slot time will be set as 12 minutes (not calculated by tpg)
 * `makro=/home/user/makro_ex10.txt` - if scheduled file makro_ex10.txt will be included in the plan, instead of ob line
   `makro=/home/user/makro_ex10.txt priority=10 cycle=5 ob_time=5 obs_data=./test/obs_data/example5.txt` - should work
