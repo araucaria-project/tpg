@@ -77,17 +77,17 @@ wk06:                                                           # telescope
 ```      
 ### MASTER FILE (format examples)
 
-`NAME RA DEC seq=<N/filter/exp_time>  priority=<priority> [optional_parameters]` 
+`OBJECT NAME RA DEC seq=<N/filter/exp_time>  priority=<priority> [optional_parameters]` 
 
 `example_master.txt`
 ```
-example1  21:24:00.2421   18:16:43.7   seq=1/Ic/30,1/V/30      priority=4    uobi=24j65   comment="binary and dusty envelope"
-example2  07:24:14       -00:31:41     seq=3x(1/B/60,1/V/30)   priority=6    t_start=08:20:00    t_end=10:00:00
-example3  07:24:14       -00:31:41     seq=10x(1/B/60)         priority=6    t_start=2025/11/23T08:20:00  t_end=2025/11/25T10:00:00
-example4  07:24:14       -00:31:41     seq=2x(1/B/36)          priority=7    P=0.1   ph_start=0.8  ph_end=0.1  hjd0=2460310.5
-example5  07:45:11.79    -36:58:29.1   seq=1/V/36              priority=7    ph_mk=2/Ic/0.05  P=13.7677045 
-example6  07:24:14       -00:31:41     seq=2/Ic/3              priority=10   cycle=5 obs_data=home/user/obs_data/example5.txt  
-example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=11   makro=/home/user/makro/makro_ex10.txt  ob_time=5    
+OBJECT example1  21:24:00.2421   18:16:43.7   seq=1/Ic/30,1/V/30      priority=4    uobi=24j65   comment="binary and dusty envelope"
+OBJECT example2  07:24:14       -00:31:41     seq=3x(1/B/60,1/V/30)   priority=6    t_start=08:20:00    t_end=10:00:00
+OBJECT example3  07:24:14       -00:31:41     seq=10x(1/B/60)         priority=6    t_start=2025/11/23T08:20:00  t_end=2025/11/25T10:00:00
+OBJECT example4  07:24:14       -00:31:41     seq=2x(1/B/36)          priority=7    P=0.1   ph_start=0.8  ph_end=0.1  hjd0=2460310.5
+OBJECT example5  07:45:11.79    -36:58:29.1   seq=1/V/36              priority=7    ph_mk=2/Ic/0.05  P=13.7677045 
+OBJECT example6  07:24:14       -00:31:41     seq=2/Ic/3              priority=10   cycle=5 obs_data=home/user/obs_data/example5.txt  
+OBJECT example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=11   makro=/home/user/makro/makro_ex10.txt  ob_time=5    
 ```
 
 #### Specification:

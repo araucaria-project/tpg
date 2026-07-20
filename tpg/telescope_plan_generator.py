@@ -464,7 +464,7 @@ class TelescopePlanGenerator():
             ob["visibility"]["all"] = all_mask
 
     def MaskWind(self):
-        if not self.wind:
+        if self.wind is None:
             return
 
 
@@ -546,7 +546,7 @@ class TelescopePlanGenerator():
             jd_list = []
             try:
                 if d_ver(ob, ["obs_data"]):
-                    if "/" == self.cfg[self.tel]["data_file"][-1] or ob["obs_data"][0]:
+                    if self.cfg[self.tel]["data_file"].endswith("/") or ob["obs_data"].startswith("/"):
                         separator = ""
                     else:
                         separator = "/"
@@ -821,7 +821,7 @@ class TelescopePlanGenerator():
         probability = wagi / wagi.sum()
 
         # --- ustawienie ziarna ---
-        if not getattr(self, "seed", None):
+        if getattr(self, "seed", None) is None:
             self.seed = random.randrange(0, 2 ** 32)
 
         txt = f"random seed: {self.seed}\n"
@@ -851,6 +851,9 @@ class TelescopePlanGenerator():
                         slots = float((self.ob[k]["slotTime"])) / 1.
                         slots = int(slots)
                         bounds = (nn, nn + slots)
+
+                        if bounds[1] + 1 > len(self.nightFree):
+                            continue
 
                         if all(self.nightFree[bounds[0]:bounds[1] + 1]) and all(visibility[bounds[0]:bounds[1] + 1]):
                             priormax = int(self.ob[k]["priority"])
