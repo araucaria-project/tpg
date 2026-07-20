@@ -26,23 +26,20 @@ def change_exposure_factor(plan, factor, filter=None):
     Returns:
         str: Plan with the exposure times multiplied by the factor
     """
-    new_plan = []
-    for line in plan.split('\n'):
-        matches = re.findall(r'(\d+)/(\w+)/(\d+\.?\d*)', line)
-        if matches:
-            for match in matches:
-                if filter and match[1] != filter:
-                    continue
-                old_exposure = f'{match[0]}/{match[1]}/{match[2]}'
-                # clac new_exp_time - new exp time rounded to one decimal point
-                new_exposure = f'{match[0]}/{match[1]}/{round(float(match[2]) * factor, 1):g}'
-                try:
-                    c,d = new_exposure.split('.')
-                    new_exposure = f'{c}.{d[0]}'
-                except ValueError:
-                    pass
-                line = line.replace(old_exposure, new_exposure)
-        new_plan.append(line)
+    pattern = re.compile(r'(\d+)/(\w+)/(\d+\.?\d*)')
+
+    def repl(match):
+        n, filt, exp = match.group(1), match.group(2), match.group(3)
+        if filter and filt != filter:
+            return match.group(0)
+        # clac new_exp_time - new exp time rounded to one decimal point
+        new_exp = f'{round(float(exp) * factor, 1):g}'
+        if '.' in new_exp:
+            c, d = new_exp.split('.')
+            new_exp = f'{c}.{d[0]}'
+        return f'{n}/{filt}/{new_exp}'
+
+    new_plan = [pattern.sub(repl, line) for line in plan.split('\n')]
     return '\n'.join(new_plan)
 
 def main():

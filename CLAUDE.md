@@ -51,7 +51,7 @@ Two layered YAML configs, merged at runtime in `TelescopePlanGenerator._get_conf
    `start_makro`/`end_makro` paths, `data_file` archive dir, `overhead`, `hmin`/`hmax`, `hsun`,
    `wind_dist`, `moon_dist`, `def_read_mode`), plus site coordinates and the `ctc` block
    (readout-mode mapping per telescope).
-2. A local override file at the path in `local_config` (default `~/.config/tpg/config.yaml`),
+2. A local override file at the path in `local_config` (default `~/.config/tpg/local_config.yaml`),
    loaded if present and merged over the defaults via `dict.update` (shallow — a telescope key
    present locally replaces that telescope's whole block, it does not deep-merge individual
    fields). `local_config.yaml` at the repo root is a personal example of this override file, not

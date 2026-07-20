@@ -189,20 +189,20 @@ class TelescopePlanGenerator():
         self.log_msg(txt, always_loud=False)
 
     def LoadObjects(self):  # Load Object file
-        # first try patch as it is, if file not found, take base path form __FILE__ and append config file path using os.path.join
-        if not os.path.isfile(self.cfg[self.tel]["master_file"]):
-            self.cfg[self.tel]["master_file"] = os.path.join(self.script_dir, self.cfg[self.tel]["master_file"])
-            if not os.path.isfile(self.cfg[self.tel]["master_file"]):
-                self.log_msg(f'No Objects Catalog file {self.cfg[self.tel]["master_file"]}')
-                self.log_msg('Check config.yaml file')
-                sys.exit()
-
-        self.init_ctc()
-
         if self.master_file:
             fname = self.master_file
         else:
+            # first try patch as it is, if file not found, take base path form __FILE__ and append config file path using os.path.join
+            if not os.path.isfile(self.cfg[self.tel]["master_file"]):
+                self.cfg[self.tel]["master_file"] = os.path.join(self.script_dir, self.cfg[self.tel]["master_file"])
+                if not os.path.isfile(self.cfg[self.tel]["master_file"]):
+                    self.log_msg(f'No Objects Catalog file {self.cfg[self.tel]["master_file"]}')
+                    self.log_msg('Check config.yaml file')
+                    sys.exit()
             fname = self.cfg[self.tel]["master_file"]
+
+        self.init_ctc()
+
         try:
             with open(fname, 'r') as file:
                 for line in tqdm(file, desc="Loading objects"):
@@ -995,7 +995,7 @@ class TelescopePlanGenerator():
                         os.makedirs(self.cfg["plan_catalog"])  # tworzy wszystkie brakujące katalogi w ścieżce
                 except PermissionError:
                     self.log_msg(f'No permission to create directory: {self.cfg["plan_catalog"]}')
-                    #raise PermissionError(f"No permission to create directory: {self.cfg["plan_catalog"]}")
+                    return
 
                 sunset_date = str(ephem.Date(self.sunset)).split()[0].split("/")
                 yyyymmdd = f"{sunset_date[0]}{sunset_date[1].zfill(2)}{sunset_date[2].zfill(2)}"
