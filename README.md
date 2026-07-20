@@ -45,6 +45,11 @@ redirecting it (e.g. `>| plan.txt`) will not produce a valid TOI/TEXTUI plan.
 
 
 ### INSTALLATION
+Requires Python >=3.10,<3.14 (Python 3.14 is not yet supported: `scipy` does not ship a
+prebuilt wheel for it, which forces a from-source build requiring a Fortran compiler and can
+fail on a fresh machine). Once `scipy` publishes 3.14 wheels, the cap in `pyproject.toml` can
+be raised.
+
 pull from github
 ```commandline
 cd tpg
