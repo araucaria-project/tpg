@@ -70,8 +70,8 @@ OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/21,1/V/17,1/Ic/17,1/u/200,1/g/17,1/r/
 # AU_Peg                21:24:00.24        +18:16:43.77       seq=2/Ic/1,2/V/1,2/B/3,2/g/1,2/r/1,2/i/1,2/z/5                      priority=3    cycle=0.08    ph_mk=1/Ic/0.02     uobi=5e9e5412      sciprog=t2cep_mw      pi=pwielgorski    tag=t2cep,random_phase    P=2.4121           comment="for blocking filter, binary and dusty envelope"  mV=9.21
 OBJECT BL_Her 18:01:09.22 +19:14:56.69 seq=2/Ic/3,2/V/2,2/B/2.5,2/g/1.3,2/r/1,2/i/1.7,2/z/9 priority=4 cycle=0.1 ph_mk=1/Ic/0.02 ph_start=0.250 ph_end=0.0 uobi=de3491da sciprog=t2cep_mw pi=pwielgorski tag=t2cep,random_phase P=1.307445 mV=10.48
 OBJECT BL_Her 18:01:09.22 +19:14:56.69 seq=2/Ic/3,2/V/2,2/B/2.5,2/g/1.3,2/r/1,2/i/1.7,2/z/9 priority=5 cycle=0.05 ph_mk=1/Ic/0.004 ph_start=0.0 ph_end=0.250 uobi=58912aff sciprog=t2cep_mw pi=pwielgorski tag=t2cep,ascending_branch P=1.307445 mV=10.48
-OBJECT BX_Del 20:21:18.97 +18:26:16.29 seq=2/Ic/20,2/V/9,2/B/17,2/g/12,2/r/5,2/i/12,2/z/50 priority=4 cycle=0.1 ph_mk=1/Ic/0.02 ph_start=0.567 ph_end=0.341 uobi=9fc90f44 sciprog=t2cep_mw pi=pwielgorski tag=t2cep,random_phase P=1.091787 mV=12.31
-OBJECT BX_Del 20:21:18.97 +18:26:16.29 seq=2/Ic/20,2/V/9,2/B/17,2/g/12,2/r/5,2/i/12,2/z/50 priority=5 cycle=0.05 ph_mk=1/Ic/0.006 ph_start=0.341 ph_end=0.567 uobi=4d5a6db1 sciprog=t2cep_mw pi=pwielgorski tag=t2cep,ascending_branch P=1.091787 mV=12.31
+OBJECT BX_Del 20:21:18.97 +18:26:16.29 seq=2/Ic/20,2/V/9,2/B/16,2/g/12,2/r/5,2/i/12,2/z/50 priority=4 cycle=0.1 ph_mk=1/Ic/0.02 ph_start=0.567 ph_end=0.341 uobi=9fc90f44 sciprog=t2cep_mw pi=pwielgorski tag=t2cep,random_phase P=1.091787 mV=12.31
+OBJECT BX_Del 20:21:18.97 +18:26:16.29 seq=2/Ic/20,2/V/9,2/B/16,2/g/12,2/r/5,2/i/12,2/z/50 priority=5 cycle=0.05 ph_mk=1/Ic/0.006 ph_start=0.341 ph_end=0.567 uobi=4d5a6db1 sciprog=t2cep_mw pi=pwielgorski tag=t2cep,ascending_branch P=1.091787 mV=12.31
 OBJECT FM_Del 20:33:44.25 +16:16:17.52 seq=2/Ic/21,2/V/12,2/B/20,2/g/12,2/r/12,2/i/19,2/z/40 priority=4 cycle=0.1 ph_mk=1/Ic/0.02 ph_start=0.652 ph_end=0.573 uobi=50dbe209 sciprog=t2cep_mw pi=pwielgorski tag=t2cep,random_phase P=3.954 mV=12.36
 OBJECT FM_Del 20:33:44.25 +16:16:17.52 seq=2/Ic/21,2/V/12,2/B/20,2/g/12,2/r/12,2/i/19,2/z/40 priority=6 cycle=0.05 ph_mk=2/V/0.005 ph_start=0.537 ph_end=0.678 uobi=419fa4f5 sciprog=t2cep_mw pi=pwielgorski tag=t2cep,random_phase P=3.954 mV=12.36
 OBJECT RT_TrA 16:34:30.89 -63:08:00.81 seq=2/Ic/2.6,2/V/1.4,2/B/2.4,2/g/1.2,2/r/1,2/i/1.4,2/z/7 priority=4 cycle=0.1 ph_mk=1/Ic/0.02 uobi=32a34dd7 sciprog=t2cep_mw pi=pwielgorski tag=t2cep,random_phase P=1.9461124 mV=9.70
@@ -311,7 +311,7 @@ OBJECT ASAS_J025822+1540.3 02:58:21.96 +15:40:18.66 seq=2/Ic/15,2/V/6,2/g/6.3,2/
 OBJECT ASAS_J025822+1540.3 02:58:21.96 +15:40:18.66 seq=2/Ic/15,2/V/6,2/g/6.3,2/r/4.5,2/i/8.7,2/z/31 priority=5 cycle=0.02 ph_mk=3/Ic/0.003 ph_start=0.711 ph_end=0.894 uobi=b6f3adf7 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6424174 mV=11.56 comment="RRab"
 # ASAS_J002443-6949.7    00:24:42.20        -69:49:43.96       seq=2/Ic/12,2/V/5,2/g/5.1,2/r/3.7,2/i/7.3,2/z/26                    priority=4    cycle=0.08    ph_mk=2/Ic/0.02    ph_start=0.312    ph_end=0.026    uobi=5cea859c    sciprog=rrl_mw    pi=bzgirski    tag=rrl,random_phase    P=0.7279597    mV=11.33    comment="RRab, finished" 
 # ASAS_J002443-6949.7    00:24:42.20        -69:49:43.96       seq=2/Ic/12,2/V/5,2/g/5.1,2/r/3.7,2/i/7.3,2/z/26                    priority=5    cycle=0.02    ph_mk=2/Ic/0.006    ph_start=0.026    ph_end=0.312    uobi=90065143    sciprog=rrl_mw    pi=bzgirski    tag=rrl,ascending_branch    P=0.7279597    mV=11.33    comment="RRab, finished" 
-OBJECT ASAS_J031408-3446.4 03:14:08.31 -34:46:22.44 seq=2/Ic/19,2/V/7.9,2/g/8.4,2/r/5.8,2/i/11,2/z/44 priority=4 cycle=0.04 ph_mk=3/Ic/0.015 uobi=f81eb8fd sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3124235 mV=11.88 comment="RRc"
+OBJECT ASAS_J031408-3446.4 03:14:08.31 -34:46:22.44 seq=2/Ic/19,2/V/6,2/g/6,2/r/5.8,2/i/11,2/z/44 priority=4 cycle=0.04 ph_mk=3/Ic/0.015 uobi=f81eb8fd sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3124235 mV=11.88 comment="RRc"
 OBJECT U_Cae 04:53:14.43 -37:49:15.78 seq=2/Ic/18,2/V/8.4,2/g/9.5,2/r/5.9,2/i/10,2/z/50 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.749 ph_end=0.576 uobi=59e19989 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4197758 mV=12.18
 OBJECT U_Cae 04:53:14.43 -37:49:15.78 seq=2/Ic/18,2/V/8.4,2/g/9.5,2/r/5.9,2/i/10,2/z/50 priority=5 cycle=0.04 ph_mk=6/g/0.003 ph_start=0.576 ph_end=0.749 uobi=47215ded sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4197758 mV=12.18 comment="RRab"
 OBJECT SU_Col 05:07:47.04 -33:51:54.68 seq=2/Ic/25,2/V/11,2/g/13.3,2/r/7.9,2/i/14.4,2/z/70 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.78 ph_end=0.6 uobi=0c0f97cb sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4873444 mV=12.54 comment="RRab"
@@ -401,7 +401,7 @@ OBJECT NSVS_17246509 21:23:48.85 -07:32:05.39 seq=2/Ic/24,2/V/10,2/g/12.3,2/r/7.
 OBJECT NSVS_17246509 21:23:48.85 -07:32:05.39 seq=2/Ic/24,2/V/10,2/g/12.3,2/r/7.4,2/i/13.5,2/z/60 priority=5 cycle=0.02 ph_mk=2/Ic/0.004 ph_start=0.825 ph_end=0.035 uobi=a3c0d31d sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.7974628 mV=12.46
 # YY_Tuc                23:11:00.58        -58:20:07.61       seq=2/Ic/16,2/V/7,2/g/8,2/r/5,2/i/9.3,2/z/50                        priority=4    cycle=0.08    ph_mk=2/g/0.02    ph_start=1.0    ph_end=0.824    uobi=9069b2dc    sciprog=rrl_mw    pi=bzgirski    tag=rrl,random_phase    P=0.6348982    mV=11.98    comment="finished" 
 OBJECT YY_Tuc 23:11:00.58 -58:20:07.61 seq=2/Ic/14,2/V/4,2/g/4,2/r/3,2/i/8,2/z/40 priority=5 cycle=0.04 ph_mk=3/g/0.003 ph_start=0.824 ph_end=1.0 uobi=43898053 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6348982 mV=11.98
-OBJECT DH_Peg 22:15:25.66 +06:49:21.43 seq=2/Ic/2.4,2/V/0.7,2/g/1,2/r/0.5,2/i/1.6,2/z/8 priority=4 cycle=0.08 ph_mk=2/Ic/0.015 uobi=62266d0e sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.25551 mV=9.58, comment="RRc"
+OBJECT DH_Peg 22:15:25.66 +06:49:21.43 seq=2/Ic/2.4,2/V/0.7,2/g/0.7,2/r/0.5,2/i/1,2/z/8 priority=4 cycle=0.08 ph_mk=2/Ic/0.015 uobi=62266d0e sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.25551 mV=9.58, comment="RRc"
 OBJECT BV_Aqr 22:02:54.00 -21:31:32.46 seq=2/Ic/8,2/V/2.8,2/g/2.2,2/r/2.7,2/i/5,2/z/20 priority=4 cycle=0.08 ph_mk=2/Ic/0.015 uobi=faaf5cdb sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3637032 mV=11.11 comment="RRc"
 OBJECT YZ_Cap 21:19:32.40 -15:07:01.43 seq=2/Ic/9,2/V/4,2/g/4.2,2/r/2.9,2/i/5.4,2/z/29 priority=4 cycle=0.08 ph_mk=2/g/0.015 uobi=19bba56f sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.2734529 mV=11.28 comment="RRc"
 OBJECT DR_Cap 20:31:44.92 -21:58:46.70 seq=2/Ic/9,2/V/3.8,2/g/3.8,2/r/2.8,2/i/5.4,2/z/26 priority=4 cycle=0.08 ph_mk=5/Ic/0.015 uobi=16016656 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3107105 mV=11.38 comment="RRc"
@@ -442,7 +442,7 @@ OBJECT AD_Cru    12:12:59.66 -62:05:48.6 seq=2/B/15,2/V/4,2/Ic/2,2/g/7,2/r/2,2/i
 OBJECT AE_Vel    09:36:51.46 -53:01:58.0 seq=2/B/2,2/V/0.5,2/Ic/0.5,2/g/1.2,2/r/0.5,2/i/0.5,2/z/1.2      priority=5  cycle=0.167 ph_mk=2/V/0.02                             uobi=cc659545   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=7.1339448  mV=10.4    comment="T1CepF"
 OBJECT ASAS_J182714-1507.1          18:27:13.45 -15:07:04.8 seq=2/B/6,2/V/2,2/Ic/1.7,2/g/3,2/r/1,2/i/1.5,2/z/5       priority=5 cycle=0.167 ph_mk=2/V/0.02                  uobi=a71ab2f9   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=5.5458094  mV=10.7    comment="T1CepF" 
 OBJECT ASASSN-V_J080048.39-374940.5 08:00:48.38 -37:49:40.6 seq=2/B/6,2/V/2,2/Ic/2,2/g/4,2/r/1.2,2/i/1.6,2/z/6       priority=5 cycle=0.167 ph_mk=2/V/0.02                  uobi=2743e3c9   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=5.8847089  mV=11.15   comment="T1CepF"
-OBJECT ASASSN-V_J135501.09-640154.9 13:55:01.30 -64:01:55.0 seq=2/B/30,2/V/8,2/Ic/3.5,2/g/16,2/r/3.5,2/i/3.5,2/z/15  priority=5 cycle=0.167 ph_mk=2/V/0.02                                  sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=4.1693008             comment="G=11.363, Fshortmissing"
+OBJECT ASASSN-V_J135501.09-640154.9 13:55:01.30 -64:01:55.0 seq=2/B/20,2/V/8,2/Ic/3.5,2/g/10,2/r/3.5,2/i/3.5,2/z/15  priority=5 cycle=0.167 ph_mk=2/V/0.02                                  sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=4.1693008             comment="G=11.363, Fshortmissing"
 OBJECT ASASSN-V_J180946.70-182238.2 18:09:46.69 -18:22:38.3 seq=2/B/15,2/V/4,2/Ic/2,2/g/8,2/r/1.6,2/i/1.6,2/z/4      priority=5 cycle=0.167 ph_mk=2/V/0.02                  uobi=bc11f1c8   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=7.2896902  mV=11.5    comment="T1CepF" 
 OBJECT AV_Sgr    18:04:48.79 -22:43:56.7 seq=2/B/2.4,2/V/2,2/Ic/2,2/g/2,2/r/1.6,2/i/1,2/z/5              priority=7  cycle=0.167 ph_mk=2/V/0.01                             uobi=cbb9832c   sciprog=ccep_mw pi=ghajdu tag=ccep,specific_phase   P=15.411702  mV=11.5    comment="T1CepF, finished"
 #OBJECT AV_Sgr    18:04:48.79 -22:43:56.7 seq=2/B/2.4,2/V/2,2/Ic/2,2/g/2,2/r/1.6,2/i/1,2/z/5              priority=7  cycle=0.125 ph_mk=3/V/0.01 ph_start=0.785 ph_end=0.927 uobi=0fe37f0d   sciprog=ccep_mw pi=ghajdu tag=ccep,specific_phase   P=15.411702  mV=11.5    comment="T1CepF, finished"
@@ -627,9 +627,10 @@ OBJECT NGC6604  18:18:03.0 -12:14:30 seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90
 # SCIPROG rrl_metal_rich_mw
 # PI rsalinas
 #
+OBJECT V1125_Sgr 19:17:33.34 -21:46:02.79  seq=2/B/40,2/V/25,2/Ic/47,2/g/30,2/r/20,2/i/38,2/z/100  P=0.386718 hjd0=2456915.2352 priority=7 cycle=0.01  ph_mk=2/V/0.005  sciprog=rrl_metal_rich_mw pi=rsalinas status=ongoing comment="mG=13.78, very metal-rich"
+#
 # Hunting down the phase
 OBJECT HY_Tel 20:08:13.42 -55:14:02.08 seq=2/B/12,2/V/8,2/Ic/16,2/u/235,2/g/7,2/r/6,2/i/12,2/z/64  priority=8 hjd0=2460000 P=0.4027262 ph_start=0.87 ph_end=0.03 ph_mk=2/V/0.005 cycle=0.01  sciprog=rrl_metal_rich_mw pi=rsalinas mV=13.10
-OBJECT Gaia_DR3_5403461869352675584 11:11:48.21 -32:22:53.74 seq=2/B/5.4,2/V/3.5,2/Ic/7.3,2/u/115,2/g/3.2,2/r/2.4,2/i/5,2/z/26 priority=8 hjd0=2460000 P=0.52647 ph_start=0.95 ph_end=0.02 ph_mk=2/V/0.005  cycle=0.01  sciprog=rrl_metal_rich_mw pi=rsalinas mV=11.63
 OBJECT Gaia_DR3_4035521829393903744 17:57:38.65 -40:33:27.22 seq=2/B/5,2/V/4,2/Ic/7,2/u/110,2/g/3,2/r/2.5,2/i/4.3,2/z/23 priority=8 hjd0=2460000 P=0.49225 ph_start=0.18 ph_end=0.22 ph_mk=2/V/0.005  cycle=0.01  sciprog=rrl_metal_rich_mw pi=rsalinas mV=11.91
 #
 # Finished
@@ -650,9 +651,10 @@ OBJECT Gaia_DR3_4035521829393903744 17:57:38.65 -40:33:27.22 seq=2/B/5,2/V/4,2/I
 # OBJECT Gaia_DR3_6005656897473385600 15:22:25.38 -40:55:36.23      P=0.48417       sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=9.05    comment="Already in the program rrl_mw under name FW_Lup"  status=finished
 # OBJECT RR_Gru                       21:38:03.56 -44:41:12.09      P=0.5524528     sciprog=rrl_metal_rich_mw   pi=rsalinas     mV=12.08   comment="Already in the program rrl_mw"   status=finished
 # OBJECT UW_Oct 21:44:38.21 -80:33:44.22 seq=2/B/7,2/V/4,2/Ic/7,2/u/150,2/g/4,2/r/3,2/i/5,2/z/25 P=0.4444868 priority=8 ph_mk=2/V/0.005 cycle=0.01 h_min=30 sciprog=rrl_metal_rich_mw pi=rsalinas mV=11.63   comment="very low, alt 30, keep it"  status=finished
+# OBJECT Gaia_DR3_5403461869352675584 11:11:48.21 -32:22:53.74 seq=2/B/5.4,2/V/3.5,2/Ic/7.3,2/u/115,2/g/3.2,2/r/2.4,2/i/5,2/z/26 priority=8 hjd0=2460000 P=0.52647 ph_start=0.95 ph_end=0.02 ph_mk=2/V/0.005  cycle=0.01  sciprog=rrl_metal_rich_mw pi=rsalinas mV=11.63  status=finished
 #
 # Halted
-# OBJECT Gaia_DR3_3326852328563919744 06:35:37.913 +09:43:33.33 seq=2/B/200,2/V/80,2/Ic/87,2/g/150,2/r/60,2/i/83,2/z/300 P=0.524830 priority=8 ph_mk=2/V/0.01 sciprog=rrl_metal_rich_mw pi=rsalinas mV=14.31 comment="was after season when intoduced to the plan, abandoned by PI"  status=halted
+# OBJECT Gaia_DR3_3326852328563919744 06:35:37.913 +09:43:33.33 seq=2/B/200,2/V/80,2/Ic/87,2/g/150,2/r/60,2/i/83,2/z/300 P=0.524830 priority=8 ph_mk=2/V/0.01 sciprog=rrl_metal_rich_mw pi=rsalinas mV=14.31 comment="was after season when introduced to the plan, abandoned by PI"  status=halted
 
 
 
