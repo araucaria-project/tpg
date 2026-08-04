@@ -5,7 +5,7 @@
 
 
 #format of each line should be as follows:
-#name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_seqence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
+#name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_sequence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
 # OBJECT example1  21:24:00.2421    +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30        priority=4    P=2.4121         mV=9.21      comment="binary and dusty envelope"
 # OBJECT example2  07:24:14         -00:31:41     seq=10x(1/B/60,1/V/30,1/Ic/30)   priority=6    t_start=08:20    t_end=10:00
 # OBJECT example3  07:24:14         -00:31:41     seq=INFx(1/B/60,1/V/30,1/Ic/30)  priority=6    t_start=00:20    t_end=10:00
@@ -249,8 +249,8 @@ OBJECT V675_Sgr 18:13:35.40 -34:19:01.85 seq=2/Ic/3.6,2/V/1,2/g/1,2/r/1.2,2/i/2.
 OBJECT V675_Sgr 18:13:35.40 -34:19:01.85 seq=2/Ic/3.6,2/V/1,2/g/1,2/r/1.2,2/i/2.3,2/z/11 priority=6 cycle=0.04 ph_mk=3/g/0.004 ph_start=0.124 ph_end=0.273 uobi=7081537f sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6422935 mV=10.18
 OBJECT V_Ind 21:11:29.90 -45:04:28.39 seq=2/Ic/2,2/V/0.8,2/g/0.5,2/r/0.5,2/i/1.2,2/z/7 priority=5 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.651 ph_end=0.437 uobi=698d5f76 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4796017 mV=10.21
 OBJECT V_Ind 21:11:29.90 -45:04:28.39 seq=2/Ic/2,2/V/0.8,2/g/0.5,2/r/0.5,2/i/1.2,2/z/7 priority=6 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.437 ph_end=0.651 uobi=b3116a61 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4796017 mV=10.21
-# VW_Scl                01:18:14.97        -39:12:44.84       seq=2/Ic/8.2,2/V/3.6,2/g/3.8,2/r/2.6,2/i/5,2/z/23                   priority=4    cycle=0.08    ph_mk=2/g/0.02    ph_start=0.145    ph_end=0.010    uobi=eafdc0b0    sciprog=rrl_mw    pi=bzgirski    tag=rrl,random_phase    P=0.5109117    mV=11.17    comment="finished" 
-OBJECT VW_Scl 01:18:14.97 -39:12:44.84 seq=2/Ic/7,2/V/1.8,2/g/1.8,2/r/1.5,2/i/5,2/z/18 priority=7 cycle=0.02 ph_mk=3/g/0.004 ph_start=0.010 ph_end=0.145 uobi=952ebbdd sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.5109117 mV=11.17
+# OBJECT VW_Scl 01:18:14.97 -39:12:44.84 seq=2/Ic/5,2/V/1.8,2/g/1.8,2/r/1.5,2/i/5,2/z/18                   priority=4    cycle=0.08    ph_mk=2/g/0.02    ph_start=0.145    ph_end=0.010    uobi=eafdc0b0    sciprog=rrl_mw    pi=bzgirski    tag=rrl,random_phase    P=0.5109117    mV=11.17    comment="finished" 
+OBJECT VW_Scl 01:18:14.97 -39:12:44.84   seq=2/Ic/5,2/V/1.8,2/g/1.8,2/r/1.5,2/i/5,2/z/18 priority=7 cycle=0.02 ph_mk=3/g/0.004 ph_start=0.010 ph_end=0.145 uobi=952ebbdd sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.5109117 mV=11.17
 # W_Tuc                 00:58:09.70        -63:23:44.36       seq=2/Ic/8.6,2/V/3.8,2/g/4,2/r/2.8,2/i/5.2,2/z/24                   priority=4    cycle=0.08    ph_mk=2/g/0.02    ph_start=0.414    ph_end=0.246    uobi=08deb864    sciprog=rrl_mw    pi=bzgirski    tag=rrl,random_phase    P=0.6422382    mV=11.23    comment="finished" 
 # W_Tuc                 00:58:09.70        -63:23:44.36       seq=2/Ic/8.6,2/V/3.8,2/g/4,2/r/2.8,2/i/5.2,2/z/24                   priority=5    cycle=0.04    ph_mk=2/g/0.006    ph_start=0.246    ph_end=0.414    uobi=d9b7cb17    sciprog=rrl_mw    pi=bzgirski    tag=rrl,ascending_branch    P=0.6422382    mV=11.23    comment="finished" 
 OBJECT WY_Ant 10:16:04.94 -29:43:42.41 seq=2/Ic/6.4,2/V/2.8,2/g/2.9,2/r/2.1,2/i/3.1,2/z/18 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.109 ph_end=0.929 uobi=bb76618b sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.5743427 mV=10.87
@@ -675,11 +675,11 @@ OBJECT OGLE-LMC-ECL-37120 05:41:41.08 -65:05:08.3 seq=1/V/300,2/g/300,1/r/180 mV
 OBJECT OGLE-LMC-ECL-38401 05:49:35.72 -67:12:40.8 seq=1/V/300,2/g/300,1/r/180 mV=17.297 P=412.271417 sciprog=deb_late_lmc pi=dgraczyk hjd0=2460175.9495 ph_start=0.581 ph_end=0.674 cycle=0.4 ph_mk=2/V/0.001 priority=7 tag=secondary
 OBJECT OGLE-LMC-ECL-25304 05:54:19.45 -70:50:24.0 seq=1/V/300,2/g/300,1/r/180 mV=17.266 P=194.517900 sciprog=deb_late_lmc pi=dgraczyk hjd0=2453645.2212 ph_start=0.534 ph_end=0.596 cycle=0.18 ph_mk=2/V/0.001 priority=7 tag=secondary
 # Random phase
-OBJECT OGLE-LMC-ECL-45368 05:09:56.53 -65:43:34.0 seq=1/V/180,1/g/300,1/r/120 mV=16.399 P=485.559116 sciprog=deb_late_lmc pi=dgraczyk cycle=9.5 ph_mk=2/V/0.05 obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-45368/r/light-curve/ogle-lmc-ecl-45368_V_diff_light_curve.txt priority=7 tag=random_phase
-OBJECT OGLE-LMC-ECL-33491 05:27:00.64 -67:29:09.9 seq=1/V/260,2/g/300,1/r/150 mV=16.806 P=949.206453 sciprog=deb_late_lmc pi=dgraczyk cycle=3.7 ph_mk=2/V/0.05 obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-33491/r/light-curve/ogle-lmc-ecl-33491_V_diff_light_curve.txt priority=7 tag=random_phase
-OBJECT OGLE-LMC-ECL-37120 05:41:41.08 -65:05:08.3 seq=1/V/300,2/g/300,1/r/180 mV=17.364 P=72.624695 sciprog=deb_late_lmc pi=dgraczyk cycle=1.4 ph_mk=2/V/0.05 obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-37120/r/light-curve/ogle-lmc-ecl-37120_V_diff_light_curve.txt priority=7 tag=random_phase
-OBJECT OGLE-LMC-ECL-38401 05:49:35.72 -67:12:40.8 seq=1/V/300,2/g/300,1/r/180 mV=17.297 P=412.271417 sciprog=deb_late_lmc pi=dgraczyk cycle=8.0 ph_mk=2/V/0.05 obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-38401/r/light-curve/ogle-lmc-ecl-38401_V_diff_light_curve.txt priority=7 tag=random_phase
-OBJECT OGLE-LMC-ECL-25304 05:54:19.45 -70:50:24.0 seq=1/V/300,2/g/300,1/r/180 mV=17.266 P=194.517900 sciprog=deb_late_lmc pi=dgraczyk cycle=3.7 ph_mk=2/V/0.05 obs_data=/data/fits/zb08/processed-ofp/targets/ogle-lmc-ecl-25304/r/light-curve/ogle-lmc-ecl-25304_V_diff_light_curve.txt priority=7 tag=random_phase
+OBJECT OGLE-LMC-ECL-45368 05:09:56.53 -65:43:34.0 seq=1/V/180,1/g/300,1/r/120 mV=16.399 P=485.559116 sciprog=deb_late_lmc pi=dgraczyk cycle=9.5 ph_mk=2/V/0.05 obs_data=ogle-lmc-ecl-45368/r/light-curve/ogle-lmc-ecl-45368_V_diff_light_curve.txt priority=7 tag=random_phase
+OBJECT OGLE-LMC-ECL-33491 05:27:00.64 -67:29:09.9 seq=1/V/260,2/g/300,1/r/150 mV=16.806 P=949.206453 sciprog=deb_late_lmc pi=dgraczyk cycle=3.7 ph_mk=2/V/0.05 obs_data=ogle-lmc-ecl-33491/r/light-curve/ogle-lmc-ecl-33491_V_diff_light_curve.txt priority=7 tag=random_phase
+OBJECT OGLE-LMC-ECL-37120 05:41:41.08 -65:05:08.3 seq=1/V/300,2/g/300,1/r/180 mV=17.364 P=72.624695 sciprog=deb_late_lmc pi=dgraczyk cycle=1.4 ph_mk=2/V/0.05 obs_data=ogle-lmc-ecl-37120/r/light-curve/ogle-lmc-ecl-37120_V_diff_light_curve.txt priority=7 tag=random_phase
+OBJECT OGLE-LMC-ECL-38401 05:49:35.72 -67:12:40.8 seq=1/V/300,2/g/300,1/r/180 mV=17.297 P=412.271417 sciprog=deb_late_lmc pi=dgraczyk cycle=8.0 ph_mk=2/V/0.05 obs_data=ogle-lmc-ecl-38401/r/light-curve/ogle-lmc-ecl-38401_V_diff_light_curve.txt priority=7 tag=random_phase
+OBJECT OGLE-LMC-ECL-25304 05:54:19.45 -70:50:24.0 seq=1/V/300,2/g/300,1/r/180 mV=17.266 P=194.517900 sciprog=deb_late_lmc pi=dgraczyk cycle=3.7 ph_mk=2/V/0.05 obs_data=ogle-lmc-ecl-25304/r/light-curve/ogle-lmc-ecl-25304_V_diff_light_curve.txt priority=7 tag=random_phase
 
 
 
