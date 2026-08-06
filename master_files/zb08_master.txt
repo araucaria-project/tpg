@@ -627,7 +627,7 @@ OBJECT NGC6604  18:18:03.0 -12:14:30 seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90
 # SCIPROG rrl_metal_rich_mw
 # PI rsalinas
 #
-OBJECT V1125_Sgr 19:17:33.34 -21:46:02.79  seq=2/g/30,2/r/20,2/i/38,2/z/100  P=0.386718 hjd0=2456915.2352 priority=7 cycle=0.01  ph_mk=2/V/0.005  sciprog=rrl_metal_rich_mw pi=rsalinas status=ongoing comment="mG=13.78, very metal-rich"
+OBJECT V1125_Sgr 19:17:33.34 -21:46:02.79  seq=2/g/30,2/r/20,2/i/38,2/z/100  P=0.386718 hjd0=2456915.2352 ph_start=0.5 ph_end=0.72  priority=7 cycle=0.01  ph_mk=2/V/0.001  sciprog=rrl_metal_rich_mw pi=rsalinas status=ongoing comment="mG=13.78, very metal-rich"
 #
 # Hunting down the phase
 OBJECT HY_Tel 20:08:13.42 -55:14:02.08 seq=2/B/12,2/V/8,2/Ic/16,2/u/235,2/g/7,2/r/6,2/i/12,2/z/64  priority=8 hjd0=2460000 P=0.4027262 ph_start=0.87 ph_end=0.03 ph_mk=2/V/0.005 cycle=0.01  sciprog=rrl_metal_rich_mw pi=rsalinas mV=13.10
