@@ -63,10 +63,13 @@ poetry update
 ### CONFIGURATION
 `config.yaml`
 
-if local configuration file exist (in config.yaml by default: `~/.config/tpg/config.yaml`), 
-specified parameters will be overwritten. 
+if local configuration file exist (path given by `local_config` in config.yaml, by default:
+`~/.config/tpg/local_config.yaml`), specified parameters will be overwritten. The merge is
+shallow — a telescope key present locally replaces that telescope's **whole** block.
 
 ```plainttext
+plan_catalog: ~/tpg_plans/                                      # where plans and logs are saved
+
 wk06:                                                           # telescope
   master_file: /home/user/tpg/zb0806_master.txt                 # file with OB definitions
   start_makro: /home/user/tpg/master_files/zb08_start_makro.txt # start_makro
@@ -104,7 +107,9 @@ OBJECT example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=1
 * `comment="some comment"` - comment visible to observer
 * `cycle=3` - object will be observed if last observation was more than 3 days ago. Based on archival data. 
 
-  `cycle=0.3` - object can be repeated during night 0.3*24h after last planed scheduling. accounts for archival data. 
+  `cycle=0.3` - object can be repeated during night 0.3*24h after last planed scheduling. accounts for archival data.
+  The in-night interval is counted from the **start** of the previous slot, so for `cycle` shorter than
+  the slot time the object can be scheduled again right after itself.
 *  `ph_mk=2/Ic/0.05` - parameters for phase masking:  no_of_obs/band_light_curve/phase_bin
 *  `obs_data=/home/user/obs_data/example5.txt` - explicite specified data file for cycle or phase masking
 * `t_start=2024/01/09T1:20:05` - date and ut for start
@@ -126,6 +131,7 @@ OBJECT example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=1
 * `ob_time=12` - slot time will be set as 12 minutes (not calculated by tpg)
 * `makro=/home/user/makro_ex10.txt` - if scheduled file makro_ex10.txt will be included in the plan, instead of ob line
   `makro=/home/user/makro_ex10.txt priority=10 cycle=5 ob_time=5 obs_data=./test/obs_data/example5.txt` - should work
+* `read_mod=2` - readout mode, passed to **CTC** for slot-time calculation and written to the plan
 * `sciprog=cal`   - just for plan management    
 * `pi=ocm` - just for plan management 
 
@@ -140,7 +146,10 @@ OBJECT example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=1
 * since version 0.1.2 there is `makro` functionality. This replaces the OB entry with the contents of the file, allowing  
 custom complex observing blocks, calibrations, or engineering sequences. The makro file should be **TOI readable** (OBJECT at the beginning), as it will be just inserted in the final plan. Previous function of splitting long (>10) sequences to multiple shorter sequences was removed. 
 * since version 1.0.0 there are `start_makro` and `end_makro` that are inserted at the beginning and end of the plan. Both files should be **TOI readable**.
-* since version 0.1.4 `uobi` parameter will not be exported if there is also `cycle` parameter for this ob.
+* plan lines contain only the attributes allowed by the OBJECT schema (`name`, `ra`, `dec`, `seq`,
+`read_mod`, `uobi`, `sciprog`, `pi`, `comment`, ...). Scheduling attributes — `priority`, `cycle`,
+`t_start`/`t_end`, `ph_*`, `P`, `hjd0`, `h_min`/`h_max`, `min_moon_dist`, `max_moon_phase`,
+`fwhm_*`, `status`, `tag`, `obs_data`, `ob_time` — are used by tpg but are **not** written to the plan.
 * Objects sharing the same `uobi` are treated as a single observing block.
 If any of them is allocated, all others are considered as observed according to theirs specification. 
 
@@ -191,16 +200,18 @@ file is inserted directly into the plan, and `ob_time` is strongly suggested.
 #### 3. Scheduling and allocation
 The main allocation loop advances minute-by-minute through the night.
 
-1. At each moment, all **visible and eligible** objects are filtered.
-2. Objects are grouped by **priority**.
-3. Within the highest non-empty priority group, one object is selected **randomly**, with weights proportional to total visibility time (shorter visibility → higher probability).
-4. If the object fits continuously in the visibility window for its full predicted slot time, it is scheduled.
-5. After successful allocation:
+1. Before the loop starts, a **random order** of candidates is drawn **once** (reproducible with
+`--seed`), with weights favouring objects with short total visibility. Objects that are never
+visible during the night get weight 0 and are dropped.
+2. At each free minute, that fixed order is scanned and the **highest-priority** object that still
+fits is chosen (ties resolved by the drawn order).
+3. If the object fits continuously in the visibility window for its full predicted slot time, it is scheduled.
+4. After successful allocation:
    * Objects **without** `cycle` are removed from the candidate pool.
    * Objects **with** `cycle` remain, but their visibility array is masked until  
-     `allocation_time + cycle * 24h`.
-6. The time pointer moves to the end of the allocated slot.
-7. If no object fits the current time slot, the scheduler inserts:
+     `allocation_time + cycle * 24h`, where `allocation_time` is the **start** of the slot.
+5. The time pointer moves to the end of the allocated slot.
+6. If no object fits the current time slot, the scheduler inserts:
 ``WAIT ut=HH:MM:SS``
 and jumps to the next possible time.
 
@@ -212,7 +223,7 @@ After allocation:
 * optional `start_makro` and `end_makro` files are inserted  
 (unless disabled via `--no_start_makro` or `--no_end_makro`)
 * scheduled OB entries and macro expansions are written in TOI / TEXTUI format
-* optional `uobi` fields are suppressed when `cycle` is present
+* attributes not allowed by the OBJECT schema (`priority`, `cycle`, `t_start`, ...) are dropped
 
 #### Summary flowchart
 
