@@ -924,11 +924,15 @@ class TelescopePlanGenerator():
                 if True:
                     k = int(self.nightObject[n])
                     if d_ver(self.ob[k], ["name", "makro"]):
+                        if os.path.exists(self.ob[k]["makro"]):
                             with open(self.ob[k]["makro"], "r", encoding="utf-8") as makro_file:
                                 for line in makro_file:
                                     if line.strip():
                                         self.plan.append(line.strip())
                                         self.log_msg(txt)
+                        else:
+                            tmp = f'no makro: {self.ob[k]["makro"]}'
+                            self.log_msg(tmp)
                     else:
 
                         #par2remove = list(self.cfg["params_2_remove"])
