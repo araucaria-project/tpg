@@ -1034,7 +1034,8 @@ class TelescopePlanGenerator():
                             with open(self.ob[k]["makro"], "r", encoding="utf-8") as makro_file:
                                 for line in makro_file:
                                     if line.strip():
-                                        self.plan.append(line.strip())
+                                        txt = line.strip()
+                                        self.plan.append(txt)
                                         self.log_msg(txt)
                         else:
                             tmp = f'no makro: {self.ob[k]["makro"]}'
