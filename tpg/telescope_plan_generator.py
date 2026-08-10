@@ -70,7 +70,7 @@ class TelescopePlanGenerator():
 
     def _printObjectLog(self):
         txt = ""
-        for ob in self.ob:
+        for i, ob in enumerate(self.ob):
             cm = ob["command_name"]
             name = ob["name"]
             slot = ob.get("slotTime", "--")
@@ -79,7 +79,9 @@ class TelescopePlanGenerator():
                 slot = f'{slot:.0f}'
             except:
                 pass
-            txt = txt + f'{cm} {name} [{slot}m]'
+            txt = txt + (f'[idx={i}] {cm} {name} [{slot}m]'
+                         f' prio={ob.get("priority","-")} cycle={ob.get("cycle","-")}'
+                         f' uobi={ob.get("uobi","-")} waga={ob.get("waga","-")}')
 
             for kw, vis in ob["visibility"].items():
                 vis_array = numpy.array(vis)
@@ -578,6 +580,8 @@ class TelescopePlanGenerator():
             all_mask = []
 
             if last_jd is None:
+                self._diag(f'CYCLE [{ob["name"]} cycle={ob["cycle"]} uobi={ob.get("uobi","-")}] '
+                           f'brak danych archiwalnych ({file}) - maska cycle NIE zastosowana')
                 continue
 
             for i, t in enumerate(self.nightTime):
@@ -590,6 +594,11 @@ class TelescopePlanGenerator():
 
             ob["visibility"]["cycle"] = cycle_mask
             ob["visibility"]["all"] = all_mask
+
+            self._diag(f'CYCLE [{ob["name"]} cycle={ob["cycle"]} uobi={ob.get("uobi","-")}] '
+                       f'last_jd={last_jd:.5f} ({ephem.Date(last_jd - 2415020.0)}) '
+                       f'n_lc={len(jd)} widoczne min: przed={int(numpy.array(base_vis).sum())} '
+                       f'po={int(numpy.array(all_mask).sum())} plik={file}')
 
     def MaskStartEnd(self):
         for ob in tqdm(self.ob, desc="masking start and end time"):
@@ -832,7 +841,75 @@ class TelescopePlanGenerator():
         # --- losowanie indeksów ---
         self.random_index_list = numpy.random.choice(indices, size=len(indices), replace=False, p=probability)
 
+    def _diag(self, txt):
+        # diagnostyka -> zawsze do pliku _log.txt, na ekran tylko z --loud
+        self.log_msg(txt, always_loud=False)
+
+    def _diagHeader(self):
+        self._diag("\n=== ALLOCATION / CYCLE DIAGNOSTICS ===")
+        self._diag(f'code: {os.path.abspath(__file__)}')
+        try:
+            import subprocess
+            repo = os.path.dirname(self.script_dir)
+            head = subprocess.run(["git", "-C", repo, "rev-parse", "--short", "HEAD"],
+                                  capture_output=True, text=True).stdout.strip()
+            branch = subprocess.run(["git", "-C", repo, "rev-parse", "--abbrev-ref", "HEAD"],
+                                    capture_output=True, text=True).stdout.strip()
+            dirty = subprocess.run(["git", "-C", repo, "status", "--porcelain"],
+                                   capture_output=True, text=True).stdout.strip()
+            self._diag(f'git: {branch} {head} {"DIRTY" if dirty else "clean"}')
+        except Exception as e:
+            self._diag(f'git: unknown ({e})')
+
+        mf = self.cfg[self.tel].get("master_file", "?")
+        try:
+            mtime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(os.path.getmtime(mf)))
+        except Exception:
+            mtime = "?"
+        self._diag(f'master_file: {mf} (mtime {mtime})')
+        self._diag(f'telescope: {self.tel}  date: {self.date}  ctc_active: {getattr(self, "ctc_active", "?")}')
+        self._diag(f'night: {len(self.nightTime)} min, objects: {len(self.ob)}, '
+                   f'in random list: {len(self.random_index_list)}')
+
+    def _diagVisSum(self, q, nn):
+        # ile minut od chwili nn obiekt jest jeszcze obserwowalny
+        try:
+            vis = self.ob[q]["visibility"]["all"]
+            return int(numpy.array(vis[nn:], dtype=bool).sum())
+        except Exception as e:
+            return f'ERR:{e}'
+
+    def _diagOb(self, q):
+        ob = self.ob[int(q)]
+        return (f'idx={int(q)} name={ob.get("name")} uobi={ob.get("uobi","-")} '
+                f'prio={ob.get("priority","-")} cycle={ob.get("cycle","-")} '
+                f'slot={ob.get("slotTime","-")}')
+
+    def _diagAllocSummary(self):
+        self._diag("\n=== ALLOCATION SUMMARY ===")
+        for idx in sorted(self.alloc_history):
+            mins = self.alloc_history[idx]
+            ob = self.ob[idx]
+            flag = "  <<< WIELOKROTNA ALOKACJA" if len(mins) > 1 else ""
+            self._diag(f'{self._diagOb(idx)} n_alloc={len(mins)} at_min={mins}{flag}')
+
+        # ten sam obiekt (nazwa) rozbity na kilka linii master file
+        per_name = {}
+        for idx, mins in self.alloc_history.items():
+            per_name.setdefault(self.ob[idx].get("name"), []).append((idx, mins))
+        for name, entries in per_name.items():
+            total = sum(len(m) for _, m in entries)
+            if total > 1:
+                self._diag(f'NAME {name}: {total} alokacji, linie master file: '
+                           + "; ".join(f'idx={i} (cycle={self.ob[i].get("cycle","-")}, '
+                                       f'uobi={self.ob[i].get("uobi","-")}) min={m}'
+                                       for i, m in entries))
+        self._diag("=== END SUMMARY ===\n")
+
     def allocate(self):
+        self.alloc_history = {}   # idx obiektu -> lista minut startu alokacji
+        self._diagHeader()
+
         for nn, tmp in enumerate(self.nightTime):
             if self.nightFree[nn]:
 
@@ -868,16 +945,34 @@ class TelescopePlanGenerator():
                     self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
                     self.nightObChange[bfin[0]] = True
 
+                    # --- diagnostyka alokacji ---
+                    ut = str(ephem.Date(self.nightTime[bfin[0]])).split()[1]
+                    self._diag(f'ALLOC min={bfin[0]} ut={ut} block={bfin[0]}-{bfin[1]} '
+                               f'({bfin[1] - bfin[0] + 1}min) {self._diagOb(kfin)}')
+                    prev = self.alloc_history.get(int(kfin), [])
+                    if prev:
+                        cyc = self.ob[int(kfin)].get("cycle", None)
+                        wymagane = int(1440 * float(cyc)) if cyc else 0
+                        self._diag(f'  !!! POWTORNA ALOKACJA tego samego idx={int(kfin)} '
+                                   f'poprzednio min={prev[-1]}, odstep={bfin[0] - prev[-1]}min, '
+                                   f'cycle={cyc} (wymagane {wymagane}min)')
+                    self.alloc_history.setdefault(int(kfin), []).append(bfin[0])
+
                     # usuwanie juz zaalocowanych
                     q = self.random_index_list[done]
 
+                    ni = [done]   # domyslnie tylko zaalokowany obiekt
                     if d_ver(self.ob[q], ["uobi"]):
                         uobi_tmp = self.ob[q]["uobi"]
                         if len(uobi_tmp.strip()) > 0:
                             indeksy = [i for i, item in enumerate(self.ob) if item.get("uobi") == uobi_tmp]
                             ni = [j for j, val in enumerate(self.random_index_list) if val in indeksy]
+                            poza = [i for i in indeksy if i not in [int(self.random_index_list[j]) for j in ni]]
+                            self._diag(f'  grupa uobi={uobi_tmp}: idx w master={indeksy}, '
+                                       f'idx na liscie losowej={[int(self.random_index_list[j]) for j in ni]}'
+                                       + (f', POZA LISTA (nie zostana zamaskowane)={poza}' if poza else ''))
                     else:
-                        ni = [done]
+                        self._diag(f'  brak uobi -> maskowany tylko idx={int(q)}')
 
                     del_list = []
                     for ki in ni:
@@ -886,11 +981,20 @@ class TelescopePlanGenerator():
                             dn = int(1440 * float(self.ob[q]["cycle"]))  # 1440 minut ma doba
                             if dn > len(self.ob[q]["visibility"]["all"][nn:]):
                                 dn = len(self.ob[q]["visibility"]["all"][nn:])
+                            vis_przed = self._diagVisSum(q, nn)
+                            typ = type(self.ob[q]["visibility"]["all"]).__name__
                             self.ob[q]["visibility"]["all"][nn:nn+dn] = [False] * dn
+                            vis_po = self._diagVisSum(q, nn)
+                            self._diag(f'  MASK {self._diagOb(q)} dn={dn}min od min={nn} '
+                                       f'(typ vis={typ}, len={len(self.ob[q]["visibility"]["all"])}) '
+                                       f'widoczne minuty po nn: przed={vis_przed} po={vis_po}')
                         else:
                             del_list.append(ki)
+                            self._diag(f'  DROP {self._diagOb(q)} (brak cycle) - usuniety z listy losowej')
 
                     self.random_index_list = numpy.delete(self.random_index_list, del_list)
+
+        self._diagAllocSummary()
 
 
 
@@ -923,6 +1027,8 @@ class TelescopePlanGenerator():
                     self.log_msg(txt)
                 if True:
                     k = int(self.nightObject[n])
+                    self._diag(f'PLAN min={n} ut={str(ephem.Date(self.nightTime[n])).split()[1]} '
+                               f'-> {self._diagOb(k)}')
                     if d_ver(self.ob[k], ["name", "makro"]):
                         if os.path.exists(self.ob[k]["makro"]):
                             with open(self.ob[k]["makro"], "r", encoding="utf-8") as makro_file:
