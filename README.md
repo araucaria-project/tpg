@@ -70,11 +70,11 @@ shallow — a telescope key present locally replaces that telescope's **whole** 
 ```plainttext
 plan_catalog: ~/tpg_plans/                                      # where plans and logs are saved
 
-wk06:                                                           # telescope
-  master_file: /home/user/tpg/zb0806_master.txt                 # file with OB definitions
+zb08:                                                           # telescope
+  master_file: /home/user/tpg/master_files/zb08_master.txt      # file with OB definitions
   start_makro: /home/user/tpg/master_files/zb08_start_makro.txt # start_makro
   end_makro: /home/user/tpg/master_files/zb08_end_makro.txt     # end makro
-  data_file: /data/fits/wk06/processed-ofp/targets/             # directory with observations
+  data_file: /data/fits/zb08/processed-ofp/targets/             # observations root, also root for obs_data
   overhead: 15                                                  # overhead for time slot calculation
   hmin: 35                                                      # min altitude to observe
   hmax: 80                                                      # max altitude to observe
@@ -94,7 +94,7 @@ OBJECT example2  07:24:14       -00:31:41     seq=3x(1/B/60,1/V/30)   priority=6
 OBJECT example3  07:24:14       -00:31:41     seq=10x(1/B/60)         priority=6    t_start=2025/11/23T08:20:00  t_end=2025/11/25T10:00:00
 OBJECT example4  07:24:14       -00:31:41     seq=2x(1/B/36)          priority=7    P=0.1   ph_start=0.8  ph_end=0.1  hjd0=2460310.5
 OBJECT example5  07:45:11.79    -36:58:29.1   seq=1/V/36              priority=7    ph_mk=2/Ic/0.05  P=13.7677045 
-OBJECT example6  07:24:14       -00:31:41     seq=2/Ic/3              priority=10   cycle=5 obs_data=home/user/obs_data/example5.txt  
+OBJECT example6  07:24:14       -00:31:41     seq=2/Ic/3              priority=10   cycle=5 obs_data=example6/Ic/example6_Ic.txt  
 OBJECT example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=11   makro=/home/user/makro/makro_ex10.txt  ob_time=5    
 ```
 
@@ -103,28 +103,43 @@ OBJECT example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=1
   `seq=10x(1/Ic/30,2/V/45)` - (N/filter/exp_time) sequences will be repeated 10 times.   
 * `priority=5`  - script allocates higher priority first. If priority is < 0, script will never allocate object
 * `tag=photometric,standard` - if **tpg** is executed with `--tag TAG` option, only objects with this **TAG** will be allocated
-* `uobi=34dfg` - unique observing block identifier. If some objects have **the same uobi**, all of them will be removed from the observing list if one of them will be allocated.
+* `uobi=34dfg` - unique observing block identifier. If some objects have **the same uobi**, allocating one of them retires all of them: those without `cycle` are removed from the observing list, those with `cycle` are masked for their `cycle` time (as if they had been observed).
 * `comment="some comment"` - comment visible to observer
 * `cycle=3` - object will be observed if last observation was more than 3 days ago. Based on archival data. 
 
   `cycle=0.3` - object can be repeated during night 0.3*24h after last planed scheduling. accounts for archival data.
   The in-night interval is counted from the **start** of the previous slot, so for `cycle` shorter than
   the slot time the object can be scheduled again right after itself.
-*  `ph_mk=2/Ic/0.05` - parameters for phase masking:  no_of_obs/band_light_curve/phase_bin
-*  `obs_data=/home/user/obs_data/example5.txt` - explicite specified data file for cycle or phase masking
+*  `ph_mk=2/Ic/0.05` - parameters for phase masking:  no_of_obs/band_light_curve/phase_bin.
+   `phase_bin` is a **half-width**: the window checked around the current phase is `phase ± phase_bin`,
+   and it **wraps across the 0/1 seam** — phases 0.99 and 0.01 are 0.02 apart, not 0.98
+*  `obs_data=example6/Ic/example6_Ic.txt` - explicite specified data file for cycle or phase masking.
+   The path is always resolved **relative to `data_file`** of the telescope (see `config.yaml`);
+   a leading `/` does not make it absolute. Without `obs_data` the path is built automatically as
+   `<data_file>/<name>/<filter>/light-curve/<name>_<filter>_diff_light_curve.txt` (lowercased name)
 * `t_start=2024/01/09T1:20:05` - date and ut for start
 
   `t_start=2024/01/09` - alternative date only 
 
-  `t_start=1:20:05` - alternative ut only (if tpg start time is before 24:00 and object specified before 16:00, it will be considered +1 day)
+  `t_start=1:20:05` - alternative ut only. The time is first attached to the **calendar date of the plan start**;
+  if the result falls before the plan start, one day is added. So an ut smaller than the start ut always
+  means "the coming night", never "yesterday"
 * `ph_start=0.1 ph_end=0.3 P=7.5 hjd0=2460310.2` - phase to observe, all keys are required   
   `ph_start=0.8 ph_end=0.1 P=7.5 hjd0=2460310.2` - yes, it is cyclic
+
+  The phase window needs no observational data — it is computed from `P` and `hjd0` alone.
+  If `hjd0` is omitted while `P` is given, `hjd0=2460000` is assumed
 * `h_min=20` - object can be observed if more than 20 deg above horizon
 * `h_max=70` - object can be observed if less than 70 deg above horizon
 * `min_moon_dist=30` - object can be observed if more than 30 deg from the moon
-* `max_moon_phase=70` - object can be observed if moon phase is less than 70 percent, and the moon is up.
+* `max_moon_phase=70` - object can be observed if moon illumination is less than 70 percent.
+  Only the illuminated fraction is checked — the Moon's altitude is **not** taken into account,
+  so a bright but already set Moon still masks the object. Use `min_moon_dist` for the geometry.
 * `sunset_dt=1` - object can be observed only 1h or more after sunset
 * `sunrise_dt=1` - object can be observed only until 1h before sunrise
+
+  "sunset"/"sunrise" here mean the Sun crossing `hsun` (by default -18 deg), i.e. the same limits that
+  define the beginning and the end of the night
 * `fwhm_min=1.5` - object can be observed if current fwhm (given with `--fwhm`) is more than 1.5
 * `fwhm_max=3` - object can be observed if current fwhm (given with `--fwhm`) is less than 3
 * `status=finished` or `status=inactive` - object will never be allocated, regardless of visibility
@@ -140,9 +155,15 @@ OBJECT example7  07:24:14       -00:31:41     seq=2/Ic/3.4            priority=1
 * If there is no object to observe, it will allocate:
 ```WAIT ut=12:45:34``` with the `ut` for the next object
 * comment has to be enclosed with **" "** characters 
-* `min_moon_dist`, `max_moon_phase` are calculated at the begining of the visibility of the object - only once per all night!
+* `min_moon_dist`, `max_moon_phase` are evaluated **for every minute** of the night, so the Moon
+distance mask follows the Moon across the sky instead of being fixed for the whole night
 * phase masking: object is masked if in defined `phase_bin` are already `no_of_obs` points for `band_light_curve`
-* for `cycle` full functionality, **obs data** are required, and for this the filter has to be specified. If `ph_mk` is not specified, it will take first filter defined in `seq`.
+* `cycle` works on two independent levels:
+  * **against archival data** — needs **obs data**. The light-curve path is built from the **first filter
+  of `seq`** (`ph_mk` is *not* consulted here), unless `obs_data` points at the file explicitly.
+  If the file is missing or unreadable, this part is skipped and the object is treated as never observed.
+  * **within the night** — after the object is scheduled, its visibility is masked for `cycle * 24h`
+  counted from the **start** of the slot. This always works, no data file needed.
 * since version 0.1.2 there is `makro` functionality. This replaces the OB entry with the contents of the file, allowing  
 custom complex observing blocks, calibrations, or engineering sequences. The makro file should be **TOI readable** (OBJECT at the beginning), as it will be just inserted in the final plan. Previous function of splitting long (>10) sequences to multiple shorter sequences was removed. 
 * since version 1.0.0 there are `start_makro` and `end_makro` that are inserted at the beginning and end of the plan. Both files should be **TOI readable**.
@@ -162,24 +183,35 @@ sequence definition (`seq`), priority, timing constraints, cycle limits, phase
 constraints, moon/wind limits, and optional macro substitution.
 
 #### 1. Visibility computation
-For the selected night and telescope location, the altitude of each object is
-computed for every minute between the evening and morning Sun altitude limits
-(`hsun`).  
-From this, an initial **visibility array** is created:
+The night is a grid of minutes, from the evening to the morning crossing of the Sun altitude
+limit `hsun`. Every object carries a **visibility array** over that grid — one boolean per minute —
+which starts out all `True`.
 
-* `True` — object is above `h_min` and below `h_max`
-* `False` — outside altitude limits
+The whole selection stage is a **cascade of masks**: each step ANDs one more condition into the
+array, so **every step can only narrow it, never widen it**. In the order in which they are applied:
 
-This base visibility is then further **masked** using the object’s additional attributes:
+| step | narrows the array by |
+| ---- | -------------------- |
+| `tag` / `status` / `fwhm_min` / `fwhm_max` | drops the object for the whole night if it does not qualify |
+| altitude | object must be above `h_min` and below `h_max` |
+| `min_moon_dist`, `max_moon_phase` | Moon distance (per minute) and Moon illumination |
+| wind | object inside the forbidden azimuth sector around `--wind` |
+| `sunset_dt`, `sunrise_dt` | buffer after the evening / before the morning `hsun` crossing |
+| `cycle` | too soon after the last archival observation |
+| `t_start`, `t_end` | absolute time window |
+| `ph_start`, `ph_end`, `P`, `hjd0` | phase window (cyclic-aware) |
+| `ph_mk` | phase bins already covered by existing data |
 
-* `cycle` — masked according to archival/plan data
-* `t_start`, `t_end` — time window restriction (absolute or relative)
-* `ph_start`, `ph_end`, `P`, `hjd0` — phase restrictions (cyclic-aware)
-* `ph_mk` — phase-masking of already scheduled/archival data
-* `min_moon_dist`, `max_moon_phase` — moon restrictions
-* wind direction — masked if object lies within forbidden azimuth sector
+Each condition is also kept under its own key, next to the merged `"all"` array that the scheduler
+actually uses. With `--loud` the log prints, per object, how many hours are left under each key —
+the quickest way to see *which* mask killed a target. (Most keys hold that one condition alone;
+`t_start`/`t_end`/`ph_*` hold the array as already narrowed up to that step.)
 
-The result is a **final visibility array** for each object.
+```
+OBJECT example1 [28m]  all: 0.0  h_min: 0.0  h_max: 10.2  min_moon_dist: 4.6  ...
+```
+
+The merged `"all"` array is the **final visibility array** of the object.
 
 #### 2. Slot-time calculation
 For every object, the **predicted execution time** (slot length) is computed
@@ -210,7 +242,8 @@ fits is chosen (ties resolved by the drawn order).
    * Objects **without** `cycle` are removed from the candidate pool.
    * Objects **with** `cycle` remain, but their visibility array is masked until  
      `allocation_time + cycle * 24h`, where `allocation_time` is the **start** of the slot.
-5. The time pointer moves to the end of the allocated slot.
+5. The allocated minutes are marked as busy, so the loop simply walks on to the first minute that is
+still free.
 6. If no object fits the current time slot, the scheduler inserts:
 ``WAIT ut=HH:MM:SS``
 and jumps to the next possible time.
@@ -220,6 +253,8 @@ The process repeats until the morning Sun altitude limit is reached.
 #### 4. Final plan construction
 After allocation:
 
+* the plan opens with `WAIT sunset=<hsun>` when it starts at sunset, or with `WAIT ut=HH:MM:SS`
+when an explicit ut was given
 * optional `start_makro` and `end_makro` files are inserted  
 (unless disabled via `--no_start_makro` or `--no_end_makro`)
 * scheduled OB entries and macro expansions are written in TOI / TEXTUI format

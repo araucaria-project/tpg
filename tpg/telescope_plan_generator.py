@@ -651,45 +651,7 @@ class TelescopePlanGenerator():
             period = float(ob["P"])
             hjd0 = float(ob["hjd0"])
 
-            # rozpakowanie ph_mk: "min_count/filter/phase_width"
-            try:
-                ph_parts = ob["ph_mk"].split("/")
-                min_count = int(ph_parts[0])
-                filt = ph_parts[1]
-                phase_width = float(ph_parts[2])
-            except:
-                continue  # zła specyfikacja ph_mk
-
-            # --- wczytanie danych i filtr jakości ---
-            jd = None
-            if d_ver(ob, ["obs_data"]):
-                file = self.cfg[self.tel]["data_file"] + "/" + ob["obs_data"]
-            else:
-                file = (self.cfg[self.tel]["data_file"] + ob["name"].lower() + "/" + filt + "/light-curve/" + ob["name"].lower() + "_" + filt + "_diff_light_curve.txt")
-
-            try:
-                lc_tab = Table.read(file, format="ascii")
-                jd = numpy.array(lc_tab["jd_obs"])
-                jd = jd[~numpy.isnan(jd)]
-                if "quality" in lc_tab.colnames:
-                    quality = numpy.array(lc_tab["quality"])
-                    mask_quality = quality < 2
-                    jd = jd[mask_quality]
-                if len(jd) == 0:
-                    continue
-
-            except FileNotFoundError:
-                txt = f'[{ob["name"]}] no data file {file}'
-                self.log_msg(txt,always_loud=False)
-                continue
-            except ValueError:
-                txt = f'[{ob["name"]}] ERROR loading {file}\n'
-                self.log_msg(txt,always_loud=False)
-                continue
-
-            # Jeśli brak dobrych danych, pomijamy maskę
-            if jd is None:
-                continue
+            # okno fazowe liczy sie tylko z P i hjd0 - dane obserwacyjne nie sa tu potrzebne
 
             t_all = numpy.array(ob["visibility"]["all"])
             nt = numpy.array(self.nightTime)
@@ -762,15 +724,17 @@ class TelescopePlanGenerator():
 
             # --- obliczenie faz ---
             ph = (jd - hjd0) / P % 1
-            night_ph = (numpy.array(self.nightTime) - hjd0) / P % 1
+            jd_nt = numpy.array([ephem.julian_date(ephem.Date(tt)) for tt in self.nightTime])
+            night_ph = (jd_nt - hjd0) / P % 1
 
             # --- przygotowanie maski dla każdego momentu nightTime ---
             t_all = numpy.array(ob["visibility"]["all"])
             for i, np_i in enumerate(night_ph):
-                np_min = np_i - phase_width
-                np_max = np_i + phase_width
+                # odleglosc w fazie, cyklicznie - faza 0.99 i 0.01 dzieli 0.02, nie 0.98
+                dist = numpy.abs(ph - np_i)
+                dist = numpy.minimum(dist, 1.0 - dist)
                 # liczymy ile punktów w danych obserwacji jest w tym oknie
-                in_window = (ph >= np_min) & (ph <= np_max)
+                in_window = dist <= phase_width
                 if in_window.sum() >= min_count:
                     t_all[i] = False  # maskujemy
             # zapisujemy
