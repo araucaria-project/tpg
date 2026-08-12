@@ -90,14 +90,19 @@ zb08:                                                           # telescope
   start_makro: /home/user/tpg/master_files/zb08_start_makro.txt # start_makro
   end_makro: /home/user/tpg/master_files/zb08_end_makro.txt     # end makro
   data_file: /data/fits/zb08/processed-ofp/targets/             # observations root, also root for obs_data
-  overhead: 15                                                  # overhead for time slot calculation
-  hmin: 35                                                      # min altitude to observe
-  hmax: 80                                                      # max altitude to observe
-  hsun: -18                                                     # Sun alt to start and stop obs
-  wind_dist: 95                                                 # wind distance to avoid in azimuth
-  moon_dist: 40                                                 # distance to avoid moon
+  overhead: 15                                                  # SECONDS added to each exposure
+  hmin: 35                                                      # deg, min altitude to observe
+  hmax: 80                                                      # deg, max altitude to observe
+  hsun: -18                                                     # deg, Sun alt to start and stop obs
+  wind_dist: 95                                                 # deg, wind sector to avoid in azimuth
+  moon_dist: 40                                                 # deg, default distance to avoid moon
   def_read_mode: 2                                              # for slot time calculation
-```      
+```
+
+`overhead` is **seconds per exposure** (readout and similar), not minutes per observing block —
+it is passed to `ObsValidator.calc_seq_time` as its per-exposure term. The only fixed per-block
+cost in the manual path is a hardcoded 5 s; slew between targets is not modelled (see ROADMAP).
+
 ### MASTER FILE (format examples)
 
 `OBJECT NAME RA DEC seq=<N/filter/exp_time>  priority=<priority> [optional_parameters]` 
@@ -282,6 +287,88 @@ Objects → Predicted slot time
 → Masking (cycle/phase/moon/wind/time)   
 → Priority-based randomized scheduling  
 → Insert macros → Output plan
+
+
+
+### ROADMAP
+
+Ideas and known limitations, not commitments. Ordered roughly by return on effort.
+For scale: of the 917 active OBJECT lines in `master_files/`, 596 use `cycle`, 540 use `ph_mk`
+and 305 use `ph_start` — the phase and cadence machinery is the core of this catalogue, so that
+is where most of the value sits.
+
+#### Observing model
+
+* **Slew and dome rotation are not modelled.** `overhead` is per-exposure readout, and the only
+fixed per-block cost is a hardcoded 5 s, so the scheduler effectively assumes the telescope moves
+between any two points of the sky instantly. Over a night the plan drifts late.
+`CycleTimeCalc` already exposes `set_telescope_start_az_alt`, `set_dome_start_az`,
+`set_start_time` and `set_observatory_location`, and tpg calls none of them — it calls
+`reset_time()` before every block and computes each one from an unspecified position.
+Wiring this up is mostly plumbing, but it has an architectural cost: `slotTime` stops being a
+property of an object and becomes a function of the *pair* (previous target, next target), so it
+can no longer be computed once at parse time — the allocator has to evaluate it as it goes.
+* **The Moon's altitude is ignored.** `max_moon_phase` looks only at the illuminated fraction, so
+a bright Moon that has already set still masks the target for the rest of the night. The cheap fix
+is to apply the mask only while the Moon is above the horizon. The proper fix is to replace both
+`min_moon_dist` and `max_moon_phase` with one physical quantity — sky brightness at the target
+(e.g. Krisciunas & Schaefer 1991), which combines separation, phase, Moon altitude and target
+altitude. Telling: only 3 objects set `min_moon_dist` explicitly, which suggests the present knobs
+are not the ones anyone wants to turn.
+* **Phase coverage is binary.** `ph_mk` either masks a minute or not. Weighting by *coverage gain*
+— a point in an empty phase bin being worth more than one in a nearly full bin — would reuse the
+existing `Waga` mechanism rather than introduce a new concept.
+* **No multi-night planning.** Every night is scheduled independently and `cycle` is a coarse
+substitute for cadence. A period of 13.7 d cannot be covered in one night. A "plan the next N
+nights, maximising phase coverage" mode would be the largest gain in scientific value here, and
+also the largest piece of work.
+* **Bright targets cannot use twilight.** The minute grid *starts* at the `hsun` crossing, so a
+per-object `hsun` would change nothing until the grid boundaries themselves are derived from the
+earliest `hsun` among the objects. Worth 30–60 min a night for standards and calibrators.
+* **Altitude limits stand in for airmass.** `h_min`/`h_max` are a proxy for what actually matters.
+`pyaraucaria` already ships `airmass.py`, so an `airmass_max` attribute would be wiring, not physics.
+* **Time scales are mixed.** `hjd0` is named heliocentric and `jd_obs` is geocentric, and they are
+subtracted directly. Harmless for one site and long periods; the heliocentric correction reaches
+±8.3 min, which is 0.06 in phase at `P = 0.1 d` — larger than a typical `phase_bin`. This becomes
+a correctness issue as soon as archival data from several sources is mixed.
+
+#### Architecture
+
+* **An observation-history provider.** After the 2026-08-12 clean-up the whole dependency on
+archival data is two masks asking one question: *give me the JDs of good past observations of this
+target in this band*. Behind a small protocol that could be the current OFP directory layout, a
+database, a TAP query, or an external survey — which is what would make `cycle` mean "since anyone
+observed it" rather than "since we did, and only if the file is where we expect". It also makes
+`cycle` and `ph_mk` testable without files on disk. A provider must declare which time scale it
+returns (see above).
+* **The cascade as a list of functions.** Each mask is essentially `(ob, grid, ctx) -> ndarray`.
+A registry instead of a hardcoded `go()` would let a new mask be added without touching the
+pipeline, and is the natural extension point for anyone reusing this.
+* **No `sys.exit()` in library code.** `LoadObjects` and `_parse_date` kill the process. The class
+is already used as a library (by the test suite), so these should raise and the CLI wrapper should
+translate to exit codes — which also fixes `tpg` always exiting with status 1.
+* **Smaller, but real:** two bare `except:` clauses remain — a third, in `MaskPhaseStartEnd`, was
+what silently disabled the phase window until it was removed. The one left in `MaskPhase` is
+unreachable for schema-valid input, since a malformed `ph_mk` is already rejected by the validator.
+Per-key visibility arrays are inconsistent (some hold the isolated condition, some the cumulative
+one, which muddies `--loud` diagnostics); `visibility["all"]` starts as a list and silently becomes
+an `ndarray` halfway through the cascade; `d_ver` treats `0` as a missing key, which is currently
+harmless only because the parser returns strings.
+
+#### Housekeeping
+
+* CI running `pytest` on push — the suite exists, the workflow file does not.
+* `pyproject.toml` to the `[project]` layout and poetry to uv (see INSTALLATION).
+* `poetry.lock` is gitignored, so two machines can resolve different versions. Worth deciding
+deliberately when the packaging is touched.
+
+#### Deliberately not planned
+
+Rewriting the allocator as a solver (ILP/CP-SAT). The greedy walk with weighted randomisation is
+**explainable**: when an observer asks why a target did not make it, `--loud` answers with hours
+remaining per mask key. A solver would buy a few percent of packing efficiency and take that
+answer away. With 243 objects sharing `priority=5`, the weighted draw already does real work
+inside each priority class.
 
 
 
