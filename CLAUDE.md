@@ -40,8 +40,16 @@ poetry run group2master <group>           # dump a TAB.ALL object-database group
 `uobi_generator.py` (not wired as a poetry script) prints random 8-char UOBI ids: run it directly
 with `python tpg/uobi_generator.py [n]`.
 
-There is no automated test suite (no pytest files/config in this repo) and no lint config —
-verify changes by running `tpg` against the `test` telescope config and inspecting stdout/the
+Run the test suite (pytest, in the `dev` dependency group):
+```
+poetry install --with dev
+poetry run pytest
+```
+`tests/` covers the mask cascade, the allocator and plan export. Two things to know before
+adding tests: `tests/conftest.py` replaces the whole config after `Initiate()` so the
+developer's `~/.config/tpg/local_config.yaml` cannot leak into results, and expectations that
+depend on ephemerides are derived from `ob["calc"]` rather than hardcoded. There is no lint
+config. For manual checks, run `tpg` against the `test` telescope config and inspect stdout/the
 generated plan and log files.
 
 ## Configuration resolution

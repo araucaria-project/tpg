@@ -60,6 +60,16 @@ upgrading
 poetry update
 ```
 
+### TESTS
+```commandline
+poetry install --with dev
+poetry run pytest
+```
+The suite covers the mask cascade, the allocator and plan export. It is self-contained: every
+test builds its own master file and light-curve data under a temporary directory, and the
+config is replaced after `Initiate()` so a local `~/.config/tpg/local_config.yaml` cannot
+change the results.
+
 **Planned:** `pyproject.toml` will be moved to the standard `[project]` layout (PEP 621) and the
 project will switch from **poetry** to **uv**. `poetry check` already reports the current
 `[tool.poetry]` metadata and `[tool.poetry.scripts]` as deprecated. Until that happens the commands
