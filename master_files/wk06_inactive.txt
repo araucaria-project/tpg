@@ -8,7 +8,7 @@
 # SCIPROG amcvn
 # PI kbakowska
 
-ASASSN-14cc   21:39:48.25    -59:59:32.85   status=finished    seq=2/V/300       priority=10     sciprog=amcvn         pi=kbakowska     comment="Karolina's cataclysmic variable, mV=12-15"       mV=12
+OBJECT ASASSN-14cc   21:39:48.25    -59:59:32.85   status=finished    seq=2/V/300       priority=10     sciprog=amcvn         pi=kbakowska     comment="Karolina's cataclysmic variable, mV=12-15"       mV=12
 
 
 
@@ -165,31 +165,31 @@ OBJECT  LQ_Mus    12:52:08.2    -68:54:01    status=halted     seq=1/B/2,1/V/3,1
 # PI hnetzel
 # INFO not a season for the LMC, so commented
 #
-OGLE-LMC-CEP-0619    05:00:08    -68:27:00   status=waiting   seq=2/B/10,2/V/5,2/Ic/4      P=133.779     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=30e850ac    mV=11.63     
-OGLE-LMC-CEP-1591    05:19:31    -68:41:10   status=waiting   seq=2/B/10,2/V/5,2/Ic/4      P=118.624     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3598c79e    comment="mG=11.7"
-OGLE-LMC-CEP-4629    04:56:27    -64:41:41   status=waiting   seq=2/B/15,2/V/7,2/Ic/6      P=108.700     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=83770a25    mV=12.02
-OGLE-LMC-CEP-4628    04:55:41    -66:25:43   status=waiting   seq=2/B/15,2/V/7,2/Ic/6      P=99.200      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=948919d2    mV=11.93
-OGLE-LMC-CEP-4689    05:43:47    -66:35:09   status=waiting   seq=2/B/15,2/V/7,2/Ic/6      P=78.508      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=2f0b2cf9    mV=12.02
-OGLE-LMC-CEP-4691    05:44:51    -67:29:41   status=waiting   seq=2/B/17,2/V/8,2/Ic/6      P=73.897      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=8f8e2dc6    mV=12.21
-OGLE-LMC-CEP-0992    05:07:16    -68:53:01   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=52.874      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=19ca8dc3    mV=12.305
-OGLE-LMC-CEP-2253    05:31:22    -70:57:25   status=waiting   seq=2/B/30,2/V/15,2/Ic/13    P=52.374      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3ebe8d6f    mV=12.806
-OGLE-LMC-CEP-1290    05:13:54    -67:03:49   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=48.384      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=7d959f8a    mV=12.21
-OGLE-LMC-CEP-4663    05:25:08    -67:38:39   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=47.956      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=180b7f26    mV=12.28
-OGLE-LMC-CEP-0966    05:06:48    -70:02:13   status=waiting   seq=2/B/30,2/V/15,2/Ic/13    P=47.385      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3cf92ed9    mV=12.944
-OGLE-LMC-CEP-0461    04:57:02    -67:59:43   status=waiting   seq=2/B/42,2/V/22,2/Ic/20    P=45.166      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3c7e75d0    mV=13.363
-OGLE-LMC-CEP-0943    05:06:09    -71:15:26   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=42.239      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=4c77101e    mV=12.26      
-OGLE-LMC-CEP-0512    04:58:11    -69:56:59   status=waiting   seq=2/B/33,2/V/17,2/Ic/16    P=39.398      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=b712dd3c    mV=13.134     
-OGLE-LMC-CEP-1113    05:09:20    -70:27:27   status=waiting   seq=2/B/25,2/V/13,2/Ic/12    P=37.559      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=7bfb03e6    mV=12.67      
-OGLE-LMC-CEP-0510    04:58:06    -69:27:16   status=waiting   seq=2/B/42,2/V/22,2/Ic/20    P=36.831      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=6a1f5a31    mV=13.457     
-OGLE-LMC-CEP-0945    05:06:15    -66:40:46   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=36.580      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=6e27839f    mV=12.15      
-OGLE-LMC-CEP-0528    04:58:33    -70:20:46   status=waiting   seq=2/B/33,2/V/17,2/Ic/16    P=35.731      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=b816df60    mV=13.175
-OGLE-LMC-CEP-0328    04:54:24    -70:54:06   status=waiting   seq=2/B/20,2/V/10,2/Ic/10    P=34.449      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=d81f825e    mV=12.44      
-OGLE-LMC-CEP-1637    05:20:23    -69:02:18   status=waiting   seq=2/B/22,2/V/16,2/Ic/23    P=31.945      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=61550fb5    mV=13.337     
-OGLE-LMC-CEP-0590    04:59:41    -69:27:22   status=waiting   seq=2/B/42,2/V/22,2/Ic/20    P=31.787      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=ed766711    mV=13.470
-OGLE-LMC-CEP-0986    05:07:08    -68:53:20   status=waiting   seq=2/B/42,2/V/22,2/Ic/20    P=31.061      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=5aad110e    mV=13.471
-OGLE-LMC-CEP-4683    05:35:49    -66:42:02   status=waiting   seq=2/B/20,2/V/10,2/Ic/10    P=30.482      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=a9273ff5    mV=12.36      
-OGLE-LMC-CEP-1058    05:08:18    -68:46:47   status=waiting   seq=2/B/50,2/V/25,2/Ic/23    P=30.400      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=8f3f26ce    mV=13.564     
-OGLE-LMC-CEP-0434    04:56:28    -69:22:47   status=waiting   seq=2/B/33,2/V/17,2/Ic/16    P=30.349      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=2a5126fe    mV=13.131     
+OBJECT OGLE-LMC-CEP-0619    05:00:08    -68:27:00   status=waiting   seq=2/B/10,2/V/5,2/Ic/4      P=133.779     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=30e850ac    mV=11.63     
+OBJECT OGLE-LMC-CEP-1591    05:19:31    -68:41:10   status=waiting   seq=2/B/10,2/V/5,2/Ic/4      P=118.624     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3598c79e    comment="mG=11.7"
+OBJECT OGLE-LMC-CEP-4629    04:56:27    -64:41:41   status=waiting   seq=2/B/15,2/V/7,2/Ic/6      P=108.700     priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=83770a25    mV=12.02
+OBJECT OGLE-LMC-CEP-4628    04:55:41    -66:25:43   status=waiting   seq=2/B/15,2/V/7,2/Ic/6      P=99.200      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=948919d2    mV=11.93
+OBJECT OGLE-LMC-CEP-4689    05:43:47    -66:35:09   status=waiting   seq=2/B/15,2/V/7,2/Ic/6      P=78.508      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=2f0b2cf9    mV=12.02
+OBJECT OGLE-LMC-CEP-4691    05:44:51    -67:29:41   status=waiting   seq=2/B/17,2/V/8,2/Ic/6      P=73.897      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=8f8e2dc6    mV=12.21
+OBJECT OGLE-LMC-CEP-0992    05:07:16    -68:53:01   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=52.874      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=19ca8dc3    mV=12.305
+OBJECT OGLE-LMC-CEP-2253    05:31:22    -70:57:25   status=waiting   seq=2/B/30,2/V/15,2/Ic/13    P=52.374      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3ebe8d6f    mV=12.806
+OBJECT OGLE-LMC-CEP-1290    05:13:54    -67:03:49   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=48.384      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=7d959f8a    mV=12.21
+OBJECT OGLE-LMC-CEP-4663    05:25:08    -67:38:39   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=47.956      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=180b7f26    mV=12.28
+OBJECT OGLE-LMC-CEP-0966    05:06:48    -70:02:13   status=waiting   seq=2/B/30,2/V/15,2/Ic/13    P=47.385      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3cf92ed9    mV=12.944
+OBJECT OGLE-LMC-CEP-0461    04:57:02    -67:59:43   status=waiting   seq=2/B/42,2/V/22,2/Ic/20    P=45.166      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=3c7e75d0    mV=13.363
+OBJECT OGLE-LMC-CEP-0943    05:06:09    -71:15:26   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=42.239      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=4c77101e    mV=12.26      
+OBJECT OGLE-LMC-CEP-0512    04:58:11    -69:56:59   status=waiting   seq=2/B/33,2/V/17,2/Ic/16    P=39.398      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=b712dd3c    mV=13.134     
+OBJECT OGLE-LMC-CEP-1113    05:09:20    -70:27:27   status=waiting   seq=2/B/25,2/V/13,2/Ic/12    P=37.559      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=7bfb03e6    mV=12.67      
+OBJECT OGLE-LMC-CEP-0510    04:58:06    -69:27:16   status=waiting   seq=2/B/42,2/V/22,2/Ic/20    P=36.831      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=6a1f5a31    mV=13.457     
+OBJECT OGLE-LMC-CEP-0945    05:06:15    -66:40:46   status=waiting   seq=2/B/17,2/V/8,2/Ic/8      P=36.580      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=6e27839f    mV=12.15      
+OBJECT OGLE-LMC-CEP-0528    04:58:33    -70:20:46   status=waiting   seq=2/B/33,2/V/17,2/Ic/16    P=35.731      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=b816df60    mV=13.175
+OBJECT OGLE-LMC-CEP-0328    04:54:24    -70:54:06   status=waiting   seq=2/B/20,2/V/10,2/Ic/10    P=34.449      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=d81f825e    mV=12.44      
+OBJECT OGLE-LMC-CEP-1637    05:20:23    -69:02:18   status=waiting   seq=2/B/22,2/V/16,2/Ic/23    P=31.945      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=61550fb5    mV=13.337     
+OBJECT OGLE-LMC-CEP-0590    04:59:41    -69:27:22   status=waiting   seq=2/B/42,2/V/22,2/Ic/20    P=31.787      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=ed766711    mV=13.470
+OBJECT OGLE-LMC-CEP-0986    05:07:08    -68:53:20   status=waiting   seq=2/B/42,2/V/22,2/Ic/20    P=31.061      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=5aad110e    mV=13.471
+OBJECT OGLE-LMC-CEP-4683    05:35:49    -66:42:02   status=waiting   seq=2/B/20,2/V/10,2/Ic/10    P=30.482      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=a9273ff5    mV=12.36      
+OBJECT OGLE-LMC-CEP-1058    05:08:18    -68:46:47   status=waiting   seq=2/B/50,2/V/25,2/Ic/23    P=30.400      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=8f3f26ce    mV=13.564     
+OBJECT OGLE-LMC-CEP-0434    04:56:28    -69:22:47   status=waiting   seq=2/B/33,2/V/17,2/Ic/16    P=30.349      priority=8     pi=hnetzel   sciprog=cep_c2c_var_lmc    uobi=2a5126fe    mV=13.131     
 
 
 
