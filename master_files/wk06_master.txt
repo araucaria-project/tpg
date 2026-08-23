@@ -144,13 +144,13 @@ OBJECT TYC1243-402-1 03:41:14.3 +20:12:54 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_
 
 
 
-# LMC blue early-type eclipsig binaries
+# LMC blue early-type eclipsing binaries
 # SCIPROG deb_blue_lmc
 # PI dgraczyk + mtaormina
-# INFO incl. Stromgren std when possible from the wk06_master_stromgren.txt
+# INFO include Stromgren standards when possible from the wk06_master_stromgren.txt
 # INFO The same targets are listed in jk15_master.txt but commented out. Let's see first what is the SNR of observations obtained with WK06 before we move to the bigger telescope
 
-# Primary eclispes
+# Primary eclipses
 OBJECT OGLE-LMC-ECL-02851 04:55:02.52 -67:09:51.8 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.900 ph_end=0.100 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=2.7403695 hjd0=2460000.8225 max_moon_phase=65 mV=14.584    status=ongoing
 OBJECT OGLE-LMC-ECL-12167 05:18:04.71 -69:48:18.9 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.909 ph_end=0.091 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=3.1070289 hjd0=2461046.734 max_moon_phase=65 mV=14.589    status=ongoing
 OBJECT OGLE-LMC-ECL-18794 05:32:47.74 -68:37:26.6 seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.90 ph_end=0.10 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=5.9468207 hjd0=2460005.9302 max_moon_phase=65 mV=13.416    status=ongoing
@@ -160,7 +160,7 @@ OBJECT OGLE-LMC-ECL-05764 05:02:40.77 -68:24:21.4 seq=3/u_s/300,2/v_s/200,1/b_s/
 OBJECT OGLE-LMC-ECL-06782 05:04:59.05 -70:31:13.9 seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100 priority=4 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.91 ph_end=0.09 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=4.2708193 hjd0=2460001.1675 max_moon_phase=65 mV=13.688 comment="mI=13.913, SNR 200, 3rd light"    status=ongoing
 OBJECT OGLE-LMC-ECL-22270 05:40:47.31 -69:20:28.3 seq=4/u_s/300,1/v_s/300,1/b_s/200,1/y_s/140 priority=4 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.86 ph_end=0.14 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=5.4139949 hjd0=2460005.2472 max_moon_phase=65 mV=14.014 comment="mI=14.022, SNR 200, 3rd light"    status=ongoing
 
-# Secondary eclispes
+# Secondary eclipses
 OBJECT OGLE-LMC-ECL-02851 04:55:02.52 -67:09:51.8 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.400 ph_end=0.600 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=2.7403695 hjd0=2460000.8225 max_moon_phase=65 mV=14.584    status=ongoing
 OBJECT OGLE-LMC-ECL-12167 05:18:04.71 -69:48:18.9 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.387 ph_end=0.563 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=3.1070289 hjd0=2461046.734 max_moon_phase=65 mV=14.589    status=ongoing
 OBJECT OGLE-LMC-ECL-18794 05:32:47.74 -68:37:26.6 seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60 priority=6 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.37 ph_end=0.57 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=5.9468207 hjd0=2460005.9302 max_moon_phase=65 mV=13.416    status=ongoing
