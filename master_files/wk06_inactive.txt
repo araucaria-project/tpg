@@ -193,48 +193,6 @@ OBJECT OGLE-LMC-CEP-0434    04:56:28    -69:22:47   status=waiting   seq=2/B/33,
 
 
 
-# LMC blue early-type eclipsig binaries
-# SCIPROG deb_blue_lmc
-# PI dgraczyk + mtaormina
-
-# Primary eclispes
-OBJECT OGLE-LMC-ECL-17660  05:30:22.13  -69:14:52.0   status=finished     seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.93     ph_end=0.07     sciprog=deb_blue_lmc    pi=dgraczyk    tag=primary    fwhm_max=1.55    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
-
-# Secondary eclispes
-OBJECT OGLE-LMC-ECL-17660  05:30:22.13  -69:14:52.0   status=finished     seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.395    ph_end=0.545    sciprog=deb_blue_lmc    pi=dgraczyk    tag=secondary  fwhm_max=1.55    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
-
-# Random phase
-OBJECT OGLE-LMC-ECL-17660  05:30:22.13  -69:14:52.0   status=finished     seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=4    cycle=0.12     ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    uobi=898314b9      tag=random_phase    fwhm_max=1.55    P=6.2291091    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
-
-
-
-# SMC blue early-type eclipsing binaries
-# SCIPROG deb_blue_smc
-# PI ghajdu + dgraczyk
-# INFO other targets from this program on ZB08
-# INFO project halted by request of Grzesiek on both telescopes WK06 and ZB08
-
-# Primary + secondary eclipses
-OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5  status=halted  seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.93  ph_end=0.1   sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=6.0522822 hjd0=2460657.52   mV=14.32 comment="SMC, prim ecl"
-OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5  status=halted  seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.4   ph_end=0.60  sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=6.0522822 hjd0=2460657.52   mV=14.32 comment="SMC, sec ecl"
-OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5  status=halted  seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.83  ph_end=0.157 sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=3.9460493 hjd0=2460658.06   mV=13.93 comment="SMC, prim ecl"
-OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5  status=halted  seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.38  ph_end=0.61  sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=3.9460493 hjd0=2460658.06   mV=13.93 comment="SMC, sec ecl"
-OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.921 ph_end=0.044 sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=4.4803698 hjd0=2460658.10   mV=14.61 comment="SMC, prim ecl, 3417 in field"
-OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.288 ph_end=0.391 sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=4.4803698 hjd0=2460658.10   mV=14.61 comment="SMC, prim ecl, 3417 in field"
-OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.9   ph_end=0.09  sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, prim ecl, 3378 in field"
-OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.411 ph_end=0.57  sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, sec ecl, 3378 in field"
-OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5  status=halted  seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.95  ph_end=0.06  sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=9.0179343 hjd0=2460653.90   mV=14.95 comment="SMC, prim ecl"
-OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5  status=halted  seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.44  ph_end=0.55  sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=9.0179343 hjd0=2460653.90   mV=14.95 comment="SMC, sec ecl"
-
-# Out of eclipses
-OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5  status=halted  seq=2/B/36,2/V/48,2/Ic/120 priority=5 cycle=0.15  ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=d1584415 tag=random_phase fwhm_max=1.55 P=6.0522822 hjd0=2460657.52   mV=14.32 comment="SMC, out of ecl"
-OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5  status=halted  seq=2/B/30,2/V/40,2/Ic/100 priority=5 cycle=0.1   ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=07fcf4e5 tag=random_phase fwhm_max=1.55 P=3.9460493 hjd0=2460658.06   mV=13.93 comment="SMC, out of ecl"
-OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.15  ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=5426f048 tag=random_phase fwhm_max=1.55 P=4.4803698 hjd0=2460658.10   mV=14.61 comment="SMC, out of ecl, 3417 in field"
-OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.075 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=9a51a4ab tag=random_phase fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, out of ecl, 3378 in field"
-OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5  status=halted  seq=2/B/60,2/V/80,2/Ic/225 priority=5 cycle=0.2   ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=af01c7f3 tag=random_phase fwhm_max=1.55 P=9.0179343 hjd0=2460653.90   mV=14.95 comment="SMC, out of ecl"
-
-
-
 # T Tauri stars
 # SCIPROG tt_mw
 # PI wogloza
@@ -274,7 +232,7 @@ OBJECT KN_Cen     13:36:36.89   -64:33:29.9   status=halted    seq=2/u_s/40,2/b_
 # Back-up
 OBJECT CS_Ori     06:07:25.47   +11:09:07.2   status=halted    seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/6,2/Ic/4        priority=4      cycle=0.125   ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=3.8894        comment="FeH=-0.25"             mV=11.3
 OBJECT TV_CMa     07:09:15.41   -13:47:09.92  status=halted    seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=4.6700        comment="FeH=0.01"               mV=10.6
-OBJECT # X_Pup    07:32:47.03   -20:54:34.88  status=halted    seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/1             priority=4      cycle=0.04    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=25.9730       comment="too birght, FeH=0.02"   mV=8.5
+OBJECT X_Pup      07:32:47.03   -20:54:34.88  status=halted    seq=2/u_s/20,2/b_s/4,2/v_s/4,2/y_s/1,2/B/2,2/V/1,2/Ic/1             priority=4      cycle=0.04    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=25.9730       comment="too birght, FeH=0.02"   mV=8.5
 OBJECT V335_Pup   07:56:57.70   -22:49:31.57  status=halted    seq=2/u_s/20,2/b_s/2,2/v_s/6,2/y_s/1,2/B/0.5,2/V/0.5,2/Ic/0.5       priority=4      cycle=0.16    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=4.8609        comment="too bright?, FeH=0.06"  mV=8.7
 OBJECT LS_Pup     07:58:59.22   -29:18:28.4   status=halted    seq=2/u_s/50,2/b_s/10,2/v_s/10,2/y_s/3.8,2/B/2,2/V/1,2/Ic/1         priority=5      cycle=0.25    ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=14.1468       comment="FeH=-0.12"              mV=10.4
 OBJECT DY_Car     10:52:32.82   -60:31:36.36  status=halted    seq=2/u_s/250,2/b_s/60,2/v_s/60,2/y_s/25,2/B/14,2/V/8,2/Ic/5        priority=4      cycle=0.125   ph_mk=2/V/0.04      sciprog=ccep_oclu     pi=pwielgorski      P=4.6746        comment="FeH=0.04"              mV=11.3
@@ -290,29 +248,69 @@ OBJECT GY_Sge     19:35:13.63   +19:12:08.6   status=halted    seq=2/u_s/50,2/b_
 
 
 
-# Blue LMC eclipsing binaries intended for FLAMES
-# PI dgraczyk
+# Blue LMC early-type eclipsing binaries intended for FLAMES
+# PI dgraczyk + mtaormina
 # SCIPROG deb_blue_lmc
 # INFO not ready for tpg, probably should go to JK15
 # INFO not in objects.txt
 
-OBJECT OGLE-LMC-ECL-09186 05:10:28.6638 -69:20:47.883  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.764  P=3.773452  hjd0=2453562.8651  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-09402 05:11:02.80   -69:13:09.6    status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.021  P=2.15292   hjd0=2453562.01    fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-09971 05:12:36.5841 -69:17:31.699  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.196  P=1.40379   hjd0=2453539.5542  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-10133 05:13:02.1996 -69:19:39.762  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.301  P=2.301265  hjd0=2453560.8939  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-10288 05:13:23.8933 -69:22:49.040  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.603  P=4.502421  hjd0=2453566.6386  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-10377 05:13:36.2397 -69:22:41.418  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.746  P=2.63659   hjd0=2453565.1248  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-10418 05:13:41.2820 -69:32:45.445  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.249  P=2.10873   hjd0=2453561.9957  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-11642 05:16:44.42   -69:32:33.2    status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.504  P=5.457331  hjd0=2453571.1636  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-11763 05:17:02.3828 -69:27:24.090  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.784  P=5.603515  hjd0=2453542.0941  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-11929 05:17:29.9806 -69:27:58.539  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.398  P=1.860482  hjd0=2453538.738   fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-11975 05:17:37.5064 -69:31:39.825  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.826  P=4.42282   hjd0=2453543.7348  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-12344 05:18:28.0679 -69:37:45.226  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.128  P=6.9776    hjd0=2453549.2791  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-12662 05:19:11.7869 -69:42:24.839  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.38   P=2.727111  hjd0=2453543.5498  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-12748 05:19:24.882  -69:38:41.00   status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.5    P=6.01626   hjd0=2453549.9448  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-12919 05:19:51.11   -69:40:02.6    status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.51   P=1.323983  hjd0=2453542.3272  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-12971 05:19:58.0615 -69:28:23.917  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.088  P=1.33831   hjd0=2453534.7902  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-13666 05:21:43.6450 -69:24:42.141  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.216  P=3.388133  hjd0=2453538.6174  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-13912 05:22:15.9081 -69:44:12.865  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=16.228  P=1.954384  hjd0=2453542.0656  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-14061 05:22:35.3436 -69:31:43.373  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.643  P=2.18336   hjd0=2453566.8426  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
-OBJECT OGLE-LMC-ECL-14140 05:22:44.2273 -69:31:43.446  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  mV=15.59   P=2.150526  hjd0=2453564.0208  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards"
+OBJECT OGLE-LMC-ECL-09186 05:10:28.6638 -69:20:47.883  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.764  P=3.773452  hjd0=2453562.8651  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-09402 05:11:02.80   -69:13:09.6    status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.021  P=2.15292   hjd0=2453562.01    fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-09971 05:12:36.5841 -69:17:31.699  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.196  P=1.40379   hjd0=2453539.5542  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-10133 05:13:02.1996 -69:19:39.762  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.301  P=2.301265  hjd0=2453560.8939  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-10288 05:13:23.8933 -69:22:49.040  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.603  P=4.502421  hjd0=2453566.6386  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-10377 05:13:36.2397 -69:22:41.418  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.746  P=2.63659   hjd0=2453565.1248  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-10418 05:13:41.2820 -69:32:45.445  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.249  P=2.10873   hjd0=2453561.9957  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-11642 05:16:44.42   -69:32:33.2    status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.504  P=5.457331  hjd0=2453571.1636  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-11763 05:17:02.3828 -69:27:24.090  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.784  P=5.603515  hjd0=2453542.0941  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-11929 05:17:29.9806 -69:27:58.539  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.398  P=1.860482  hjd0=2453538.738   fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-11975 05:17:37.5064 -69:31:39.825  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.826  P=4.42282   hjd0=2453543.7348  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-12344 05:18:28.0679 -69:37:45.226  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.128  P=6.9776    hjd0=2453549.2791  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-12662 05:19:11.7869 -69:42:24.839  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.38   P=2.727111  hjd0=2453543.5498  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-12748 05:19:24.882  -69:38:41.00   status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.5    P=6.01626   hjd0=2453549.9448  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-12919 05:19:51.11   -69:40:02.6    status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.51   P=1.323983  hjd0=2453542.3272  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-12971 05:19:58.0615 -69:28:23.917  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.088  P=1.33831   hjd0=2453534.7902  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-13666 05:21:43.6450 -69:24:42.141  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.216  P=3.388133  hjd0=2453538.6174  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-13912 05:22:15.9081 -69:44:12.865  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=16.228  P=1.954384  hjd0=2453542.0656  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-14061 05:22:35.3436 -69:31:43.373  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.643  P=2.18336   hjd0=2453566.8426  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+OBJECT OGLE-LMC-ECL-14140 05:22:44.2273 -69:31:43.446  status=waiting   seq=1/u_s/000,1/b_s/000,1/v_s/000,1/y_s/000,1/Hb_w/000  sciprog=deb_blue_lmc  pi=dgraczyk   mV=15.59   P=2.150526  hjd0=2453564.0208  fwhm_max=1.55  h_min=42  max_moon_phase=65  comment="seeing < 1.5, dark/gray sky (u), z > 1.5, add Stromgren standards, intended for FLAMES"
+
+# Primary eclipses
+OBJECT OGLE-LMC-ECL-17660  05:30:22.13  -69:14:52.0   status=finished     seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.93     ph_end=0.07     sciprog=deb_blue_lmc    pi=dgraczyk    tag=primary    fwhm_max=1.55    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
+
+# Secondary eclipses
+OBJECT OGLE-LMC-ECL-17660  05:30:22.13  -69:14:52.0   status=finished     seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=6    cycle=0.001    ph_mk=2/v_s/0.005    ph_start=0.395    ph_end=0.545    sciprog=deb_blue_lmc    pi=dgraczyk    tag=secondary  fwhm_max=1.55    P=6.2291091    hjd0=2460001.2276    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
+
+# Random phase
+OBJECT OGLE-LMC-ECL-17660  05:30:22.13  -69:14:52.0   status=finished     seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100      priority=4    cycle=0.12     ph_mk=2/v_s/0.05    sciprog=deb_blue_lmc    pi=dgraczyk    uobi=898314b9      tag=random_phase    fwhm_max=1.55    P=6.2291091    max_moon_phase=65    mV=14.254    comment="DONE Darek says" 
+OBJECT OGLE-LMC-ECL-17411  05:29:52.31  -69:09:22.6   status=finished     seq=0/B/0,0/V/0,0/Ic/0    P=5.3352175   hjd0=2457001.9753   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.656   comment="mI=14.782"
+OBJECT OGLE-LMC-ECL-21568  05:38:58.08  -69:30:11.3   status=finished     seq=0/B/0,0/V/0,0/Ic/0    priority=6      mV=14.125      P=3.22545       hjd0=2453578.5489      ph_mk=2/V/0.05     pi=dgraczyk      sciprog=deb_blue_lmc     tag=blue_deb    comment="mI=14.212, random phases, SNR 200"
+
+
+
+# SMC blue early-type eclipsing binaries
+# SCIPROG deb_blue_smc
+# PI ghajdu + dgraczyk
+# INFO other targets from this program on ZB08
+# INFO project halted by request of Grzesiek on both telescopes WK06 and ZB08
+
+# Primary + secondary eclipses
+OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5  status=halted  seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.93  ph_end=0.1   sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=6.0522822 hjd0=2460657.52   mV=14.32 comment="SMC, prim ecl"
+OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5  status=halted  seq=2/B/36,2/V/48,2/Ic/120 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.4   ph_end=0.60  sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=6.0522822 hjd0=2460657.52   mV=14.32 comment="SMC, sec ecl"
+OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5  status=halted  seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.83  ph_end=0.157 sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=3.9460493 hjd0=2460658.06   mV=13.93 comment="SMC, prim ecl"
+OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5  status=halted  seq=2/B/30,2/V/40,2/Ic/100 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.38  ph_end=0.61  sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=3.9460493 hjd0=2460658.06   mV=13.93 comment="SMC, sec ecl"
+OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.921 ph_end=0.044 sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=4.4803698 hjd0=2460658.10   mV=14.61 comment="SMC, prim ecl, 3417 in field"
+OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.288 ph_end=0.391 sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=4.4803698 hjd0=2460658.10   mV=14.61 comment="SMC, prim ecl, 3417 in field"
+OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.9   ph_end=0.09  sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, prim ecl, 3378 in field"
+OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=7 cycle=0.0007 ph_mk=2/V/0.002 ph_start=0.411 ph_end=0.57  sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, sec ecl, 3378 in field"
+OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5  status=halted  seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.95  ph_end=0.06  sciprog=deb_blue_smc pi=ghajdu tag=primary   fwhm_max=1.55 P=9.0179343 hjd0=2460653.90   mV=14.95 comment="SMC, prim ecl"
+OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5  status=halted  seq=2/B/60,2/V/80,2/Ic/225 priority=8 cycle=0.0007 ph_mk=4/V/0.002 ph_start=0.44  ph_end=0.55  sciprog=deb_blue_smc pi=ghajdu tag=secondary fwhm_max=1.55 P=9.0179343 hjd0=2460653.90   mV=14.95 comment="SMC, sec ecl"
+
+# Out of eclipses
+OBJECT OGLE-SMC-ECL-0720 00:44:08.67 -73:14:18.5  status=halted  seq=2/B/36,2/V/48,2/Ic/120 priority=5 cycle=0.15  ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=d1584415 tag=random_phase fwhm_max=1.55 P=6.0522822 hjd0=2460657.52   mV=14.32 comment="SMC, out of ecl"
+OBJECT OGLE-SMC-ECL-2770 00:53:33.35 -72:56:24.5  status=halted  seq=2/B/30,2/V/40,2/Ic/100 priority=5 cycle=0.1   ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=07fcf4e5 tag=random_phase fwhm_max=1.55 P=3.9460493 hjd0=2460658.06   mV=13.93 comment="SMC, out of ecl"
+OBJECT OGLE-SMC-ECL-3378 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.15  ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=5426f048 tag=random_phase fwhm_max=1.55 P=4.4803698 hjd0=2460658.10   mV=14.61 comment="SMC, out of ecl, 3417 in field"
+OBJECT OGLE-SMC-ECL-3417 00:56:17.60 -72:19:54.2  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=5 cycle=0.075 ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=9a51a4ab tag=random_phase fwhm_max=1.55 P=2.3200554 hjd0=2457001.7493 mV=14.61 comment="SMC, out of ecl, 3378 in field"
+OBJECT OGLE-SMC-ECL-4440 01:02:01.37 -72:29:07.5  status=halted  seq=2/B/60,2/V/80,2/Ic/225 priority=5 cycle=0.2   ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu uobi=af01c7f3 tag=random_phase fwhm_max=1.55 P=9.0179343 hjd0=2460653.90   mV=14.95 comment="SMC, out of ecl"
+OBJECT OGLE-SMC-ECL-4510 01:03:10.81 -72:01:58.6  status=halted  seq=2/B/48,2/V/64,2/Ic/180 priority=4 cycle=0.1   ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=3.3245338 hjd0=2457002.7186 comment="4510, 4566, 4608, 4711, 4809 in field"
+OBJECT OGLE-SMC-ECL-4352 01:01:33.45 -73:01:22.2  status=halted  seq=2/B/60,2/V/80,2/Ic/225 priority=4 cycle=0.1   ph_mk=2/V/0.015 sciprog=deb_blue_smc pi=ghajdu tag=random_phase P=5.748246  hjd0=2457000.879  comment="mI=15.7"
