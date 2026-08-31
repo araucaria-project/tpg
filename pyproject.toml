@@ -15,7 +15,7 @@ pyyaml = "^6.0.2"
 ephem = "^4.1.5"  # jeśli dostępna, inaczej zostaw 4.1.4
 numpy = "^2.1.0"  # numpy 2.x wspiera nowe Pythony
 tqdm = "^4.66.4"
-astropy = "^6.1.7"  # Table.read w MaskCycle/MaskPhase - dotad wchodzila tylko tranzytywnie
+astropy = ">=6.1.7,<8"  # Table.read jest tez w 7.x; ^6 wymuszal astropy niekompatybilne z numpy>=2.4 (usuniete np.in1d)
 
 ctc = {git = "https://github.com/araucaria-project/ctc.git"}
 pyaraucaria = {git = "https://github.com/araucaria-project/pyaraucaria.git"}
