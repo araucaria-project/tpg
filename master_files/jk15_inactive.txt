@@ -21,11 +21,11 @@
 # Karolina's cataclysmic variable
 # SCIPROG amcvn
 # PI kbakowska
-
 OBJECT ASASSN-15kf     15:38:08.2026   -30:35:50.2189     status=finished   seq=2/V/240     priority=6     cycle=0.8     sciprog=amcvn   pi=kbakowska     mV=17       comment="Karolina's cataclysmic variable, mV=15-17"
 
 
-# Observations of NGC6025 to compqre cameras CCD and CMOS
+
+# Observations of NGC6025 to compare cameras CCD and CMOS
 # PI: skimeswenger
 # SCIPROG: ngc6025
 OBJECT NGC6025 16:03:07.0 -60:25:48  status=finished  seq=2/B/1,1/B/3,1/B/9,2/B/27,2/B/81,2/V/1,1/V/3,1/V/9,2/V/27,2/V/81 sciprog=ngc6025 pi=skimeswenger comment="Target chosen by Stefan to compare performance of CCD and CMOS cameras"

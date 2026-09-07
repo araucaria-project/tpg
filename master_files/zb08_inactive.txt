@@ -170,14 +170,10 @@ OBJECT X_Pup     07:32:47.03 -20:54:34.9   status=finished   seq=2/B/1,2/V/0.5,2
 OBJECT XY_Car    11:02:16.05 -64:15:46.4   status=finished   seq=2/B/2,2/V/0.9,2/Ic/1,2/g/1.1,2/r/0.6,2/i/1.1,2/z/3          priority=6  cycle=0.167 ph_mk=2/V/0.01                             uobi=f8de1be1   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=12.4360971 mV=9.49    comment="T1CepF"
 OBJECT Y_Sct     18:38:03.31 -08:22:08.2   status=finished   seq=2/B/1.5,2/V/0.6,2/Ic/0.5,2/g/1.2,2/r/0.5,2/i/0.5,2/z/0.8    priority=7  cycle=0.167 ph_mk=3/V/0.01                             uobi=fef4c967   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=10.3414413 mV=9.7     comment="T1CepF" 
 
-OBJECT HL_Pup    08:11:10.81 -33:30:57.1   status=waiting  seq=2/B/3,2/V/1.8,2/Ic/2.4,2/g/2.5,2/r/1,2/i/1.5,2/z/6            priority=7  cycle=0.1    ph_mk=2/V/0.02    ph_start=0.590    ph_end=0.378    uobi=640b1f14    sciprog=ccep_mw    pi=ghajdu    tag=ccep,descending_branch    P=3.4824724    mV=10.81    comment="T1CepF" 
-OBJECT HL_Pup    08:11:10.81 -33:30:57.1   status=waiting  seq=2/B/3,2/V/1.8,2/Ic/2.4,2/g/2.5,2/r/1,2/i/1.5,2/z/6            priority=6  cycle=0.084    ph_mk=2/V/0.01      ph_start=0.378         ph_end=0.588         uobi=31da610c      sciprog=ccep_mw       pi=ghajdu        tag=ccep,ascending_branch    P=3.4824724         comment="T1CepF"   mV=10.81
-OBJECT SV_Mon    06:21:26.31 +06:28:12.6   status=waiting  seq=2/B/1,2/V/0.5,2/Ic/0.5,2/g/0.6,2/r/0.5,2/i/0.5,2/z/1          priority=6  cycle=0.167    ph_mk=2/V/0.02    uobi=b82725ff    sciprog=ccep_mw    pi=ghajdu    tag=ccep,random_phase    P=15.2347337    mV=8.28        comment="T1CepF, too bright"
-OBJECT V690_Car  09:48:26.80 -58:01:05.3   status=waiting  seq=2/B/12,2/V/5,2/Ic/4,2/g/10,2/r/3,2/i/3,2/z/10                 priority=5  cycle=0.167    ph_mk=2/V/0.02    uobi=6cb6c3ed    sciprog=ccep_mw    pi=ghajdu    tag=ccep,random_phase    P=4.1505759    mV=11.35    comment="T1CepF" 
-OBJECT V520_Vel  08:36:11.37 -39:03:42.3   status=waiting  seq=2/B/8,2/V/1.2,2/Ic/1.0,2/g/4,2/r/1,2/i/1.0,2/z/3              priority=6  cycle=0.167    ph_mk=2/V/0.02    uobi=94321274    sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=12.9592684 mV=10.45   comment="T1CepF, for the next season"
-OBJECT V729_Pup  08:05:11.03 -34:21:37.0   status=waiting  seq=2/B/12,2/V/5,2/Ic/4.5,2/g/8,2/r/2.5,2/i/3.5,2/z/12            priority=5  cycle=0.167    ph_mk=2/V/0.02    uobi=70c14a25    sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=4.0886258  mV=11.75   comment="T1CepF"
-OBJECT WX_Pup    07:41:59.00 -25:52:34.2   status=waiting  seq=2/B/1.2,2/V/0.6,2/Ic/0.7,2/g/0.7,2/r/0.5,2/i/0.5,2/z/2.5      priority=5  cycle=0.167    ph_mk=2/V/0.02    uobi=fe41571e    sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=8.9363892  mV=9.09    comment="T1CepF" 
-OBJECT XX_Vel    10:36:08.59 -56:02:35.6   status=waiting  seq=2/B/8,2/V/3,2/Ic/1.7,2/g/3,2/r/1.5,2/i/1.7,2/z/6              priority=5  cycle=0.167    ph_mk=2/V/0.02    sciprog=ccep_mw    pi=ghajdu    tag=ccep,random_phase    P=6.984581    comment="G=10.245, Fshortmissing" 
+OBJECT SV_Mon    06:21:26.31 +06:28:12.6   status=waiting  seq=2/B/1,2/V/0.5,2/Ic/0.5,2/g/0.6,2/r/0.5,2/i/0.5,2/z/1          priority=6  cycle=0.167    ph_mk=2/V/0.02    uobi=b82725ff    sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase         P=15.2347337 mV=8.28   comment="T1CepF, too bright"
+OBJECT WX_Pup    07:41:59.00 -25:52:34.2   status=waiting  seq=2/B/1.2,2/V/0.6,2/Ic/0.7,2/g/0.7,2/r/0.5,2/i/0.5,2/z/2.5      priority=5  cycle=0.167    ph_mk=2/V/0.02    uobi=fe41571e    sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase         P=8.9363892  mV=9.09   comment="T1CepF" 
+OBJECT V690_Car  09:48:26.80 -58:01:05.3   status=waiting  seq=2/B/12,2/V/5,2/Ic/4,2/g/10,2/r/3,2/i/3,2/z/10                 priority=5  cycle=0.167    ph_mk=2/V/0.02    uobi=6cb6c3ed    sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase         P=4.1505759  mV=11.35  comment="T1CepF" 
+OBJECT XX_Vel    10:36:08.59 -56:02:35.6   status=waiting  seq=2/B/8,2/V/3,2/Ic/1.7,2/g/3,2/r/1.5,2/i/1.7,2/z/6              priority=5  cycle=0.167    ph_mk=2/V/0.02                     sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase         P=6.984581             comment="G=10.245, Fshortmissing" 
 
 OBJECT AQ_Car   10:21:22.96 -61:04:26.7   status=omitted  seq=2/B/2.5,2/V/1,2/Ic/0.5,2/g/1.2,2/r/0.5,2/i/0.5,2/z/2           priority=5  cycle=0.167    ph_mk=2/V/0.02    sciprog=ccep_mw    pi=ghajdu    tag=ccep,random_phase    P=9.7695137        comment="G=8.642, Fshortmissing"
 OBJECT AY_Cen   11:25:05.74 -60:44:04.6   status=omitted  seq=2/B/5,2/V/1,2/Ic/0.5,2/g/2,2/r/0.5,2/i/0.5,2/z/2               priority=5  cycle=0.167    ph_mk=2/V/0.02    sciprog=ccep_mw    pi=ghajdu    tag=ccep,random_phase    P=5.3094716        comment="G=8.573, Fshortmissing"
@@ -201,7 +197,8 @@ OBJECT vdBergh92 07:03:55.0  -11:34:30      status=waiting   seq=2/g/3,2/g/30,2/
 OBJECT NGC2546A  08:12:19.7  -37:39:40      status=waiting   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90            tag=Nwind    priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
 OBJECT NGC6531   18:04:08.8  -22:31:12      status=waiting   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h, M21"
 
-OBJECT 47_Tuc   00:24:05.359 -72:04:53.20   status=omitted   seq=1/B/120,1/V/90,1/Ic/60    priority=2  cycle=0.01  tag=Nwind   pi=apigulski   sciprog=oclu_young  comment="this is not open cluster, no observations"
+OBJECT 47_Tuc   00:24:05.359 -72:04:53.20   status=halted    seq=1/B/120,1/V/90,1/Ic/60    priority=2  cycle=0.01  tag=Nwind   pi=apigulski   sciprog=oclu_young  comment="this is not open cluster, observations halted"
+
 OBJECT NGC288   00:52:45.24  -26:34:57.4    status=omitted   seq=1/B/200,1/V/150,1/Ic/100  priority=2  cycle=0.01  tag=Nwind   pi=apigulski   sciprog=oclu_young  comment="this is not open cluster, no observations"
 OBJECT NGC6293  17:10:10.42  -26:34:54.2    status=omitted   seq=0/V/0       sciprog=oclu_young    pi=apigulski   comment="this is not open cluster, no observations"
 OBJECT NGC4755  12:53:39.6   -60:22:16      status=omitted   seq=0/V/0       sciprog=oclu_young    pi=apigulski   comment="should be observed on wk06" 
@@ -290,12 +287,27 @@ OBJECT V675_Sgr  18:13:35.41   -34:19:01.85   status=finished  seq=2/u/22,2/g/1.
 
 
 
+# Karolina's cataclysmic variable
+# SCIPROG amcvn
+# PI kbakowska
+OBJECT ASASSN-14cc   21:39:48.25    -59:59:32.85   status=finished    seq=2/V/300       priority=10     sciprog=amcvn         pi=kbakowska     comment="moved to wk06 but already finished there"       mV=12
+
+
+
+
+# Photometry of a symbiotic star V840 Cen to detect the ellipsoidal effect
+# SCIPROG symb
+# PI cgalan
+#
+OBJECT V840_Cen  13:20:49.462  -55:50:14.559  status=finished  seq=2/V/110,2/Ic/90  p=8.1 mV=14.2 priority=6 pi=cgalan sciprog=symb
+
+
 
 # SMC early-type eclipsing binaries
 # SCIPROG deb_blue_smc
-# PI dgraczyk + ghajdu
+# PI ghajdu (+ dgraczyk)
 # INFO other targets from this program on WK06
-# INFO project halted by request of Grzesiek on both telescopes WK06 and ZB08
+# INFO project halted by request of Grzesiek on all telescopes WK06, ZB08, JK15
 
 # Primary + secondary eclipses
 OBJECT OGLE-SMC-ECL-1557 00:49:21.20 -73:03:15.1  status=halted  seq=1x(2/B/48,2/V/64,2/Ic/180) priority=5 cycle=0.0007 ph_mk=2/V/0.005 ph_start=0.419 ph_end=0.6 sciprog=deb_blue_smc pi=ghajdu tag=prim_ecl P=2.3894223 hjd0=2457000.0362 comment="1708, 1557 in field, mI=15.2-15.9"
@@ -339,14 +351,6 @@ OBJECT OGLE-SMC-ECL-5890 01:16:26.11 -73:15:01.3  status=halted  seq=1x(2/B/36,2
 
 
 
-# Photometry of a symbiotic star V840 Cen to detect the ellipsoidal effect
-# SCIPROG symb
-# PI cgalan
-#
-OBJECT V840_Cen  13:20:49.462  -55:50:14.559  status=finished  seq=2/V/110,2/Ic/90  p=8.1 mV=14.2 priority=6 pi=cgalan sciprog=symb
-
-
-
 # LMC blue early-type eclipsing binaries
 # SCIPROG deb_blue_lmc
 # PI dgraczyk + mtaormina
@@ -375,3 +379,45 @@ OBJECT OGLE-LMC-ECL-23176    05:43:06.67   -69:45:35.5   status=finished   seq=0
 OBJECT OGLE-LMC-ECL-23358    05:43:39.33   -69:15:54.9   status=finished   seq=0/B/0,0/V/0,0/Ic/0    P=1.7860501   hjd0=2457000.9298   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.650   comment="mI=14.644"
 OBJECT OGLE-LMC-ECL-33609    05:27:30.35   -67:28:44.3   status=finished   seq=0/B/0,0/V/0,0/Ic/0    P=3.1582003   hjd0=2457001.4764   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.411   comment="mI=14.551"
 OBJECT OGLE-LMC-ECL-02851    04:55:02.53   -67:09:51.7   status=finished   seq=0/B/0,0/V/0,0/Ic/0    P=2.7403866   hjd0=2457000.1277   priority=5   pi=dgraczyk   sciprog=deb_blue_lmc   mV=14.584   comment="mI=14.833"
+
+
+
+# Eclipsing binaries to calibrate the surface brightness-color relation (sbcr)
+# PI dgraczyk
+# SCIPROG deb_sbcr
+OBJECT BK_Peg          23:47:08.46 +26:33:59.9   status=halted  seq=0/V/0  pi=dgraczyk  sciprog=deb_sbcr  comment="PI doesn't want it"
+OBJECT TV_Nor          16:04:09.24 -51:32:40.1   status=halted  seq=0/V/0  pi=dgraczyk  sciprog=deb_sbcr  comment="PI doesn't want it"
+OBJECT TYC1257-132-1   03:56:22.14 +18:52:13.4   status=halted  seq=0/V/0  pi=dgraczyk  sciprog=deb_sbcr  comment="moved to wk06"
+OBJECT E_201253025     11:57:19.8  -03:09:43     status=halted  seq=2/B/30,2/V/19,2/Ic/23,2/y_s/57  sciprog=deb_sbcr pi=dgraczyk  comment="moved to wk06"   priority=7   P=6.78641    hjd0=2456851.124    mV=13.0
+OBJECT TYC8547-1509-1  06:33:56.45 -59:57:37.9   status=halted  seq=2/B/5,2/V/3.3,2/Ic/4,2/y_s/10,2/v_s/26,2/b_s/26  sciprog=deb_sbcr  pi=dgraczyk   comment="moved to wk06"   priority=2  ph_mk=2/V/0.015  uobi=caf06f2f  P=7.14020    hjd0=2458646.3474   mV=11.1
+OBJECT SWASPJ104335.88 10:43:35.86 -43:40:15.2   status=halted  seq=2/B/17,2/V/11,2/Ic/13,2/y_s/33,2/b_s/80    sciprog=deb_sbcr  pi=dgraczyk   comment="moved to wk06"   priority=2    cycle=0.25    ph_mk=2/V/0.015    uobi=5867dc79  P=9.65706    hjd0=2458550.9467   mV=12.4
+OBJECT BD-04_3206      12:06:20.8  -04:54:50     status=halted  seq=2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20 sciprog=deb_sbcr  pi=dgraczyk   comment="moved to wk06"  priority=7  P=5.422527   hjd0=2457618.388    mV=10.8
+OBJECT TYC852-1050-1   10:45:42.3  +12:47:00     status=halted  seq=2/B/2.5,2/V/1.5,2/Ic/1.9,2/y_s/4.7,2/v_s/13,2/b_s/13     sciprog=deb_sbcr  pi=dgraczyk   comment="moved to wk06"  priority=2   uobi=dc1c28dc  P=3.1427839  hjd0=2456832.5513   mV=10.3
+OBJECT TYC6780-1523-1  16:08:51.0  -23:51:01     status=halted  seq=2/B/4,2/V/2.5,2/Ic/3,2/y_s/7.5,2/v_s/20,2/b_s/20    sciprog=deb_sbcr  pi=dgraczyk   comment="moved to wk06"  priority=2   uobi=ae54cb13  P=4.6601     hjd0=2456814.6264   mV=10.8
+OBJECT TYC246-1159-1   10:28:03.4  +01:47:50     status=halted  seq=2/B/4.8,2/V/3,2/Ic/3.6,2/y_s/9,2/v_s/24,2/b_s/24    sciprog=deb_sbcr  pi=dgraczyk   comment="moved to wk06"  priority=2   uobi=e91aa5c8  P=16.77565   hjd0=2456834.876    mV=11.0
+OBJECT TYC1396-393-1   08:44:06.6  +18:30:40     status=halted  seq=2/B/16,2/V/10,2/Ic/12,2/y_s/30,2/v_s/72,2/b_s/72    sciprog=deb_sbcr  pi=dgraczyk   comment="observed on zb08 my mistake, normally observed on wk06"  priority=2 uobi=09371c2f  P=8.79464 hjd0=2456816.2882 mV=12.3
+OBJECT V400_Gem        06:37:36.0  +17:47:33     status=finished    seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_s/35,2/b_s/35    sciprog=deb_sbcr  pi=dgraczyk   comment="observed on zb08 for one eclipse, normally observed on wk06"  priority=8  P=11.305257  hjd0=2456805.5283   mV=11.4
+OBJECT CG_Scl          00:55:26.84 -37:31:26.3   status=halted  seq=0/V/0     sciprog=deb_sbcr  pi=dgraczyk   comment="observed on zb08 for one eclipse, not observed for any other project"
+OBJECT LL_Aqr          22:34:42.15 -03:35:58.2   status=halted  seq=0/V/0     sciprog=deb_sbcr  pi=dgraczyk   comment="observed on zb08 for one eclipse, not observed for any other project"
+OBJECT TYC_8547-22-1   06:36:58.93 -58:27:36.6   status=halted  seq=0/V/0     sciprog=deb_sbcr  pi=dgraczyk   comment="observed on zb08 for one eclipse, not observed for any other project"
+OBJECT CD-31_3271      06:24:48.93 -31:51:52.2   status=halted  seq=0/V/0     sciprog=deb_sbcr  pi=dgraczyk   comment="observed on zb08 for one eclipse, not observed for any other project"
+OBJECT TYC4930-128-1   11:30:03.2  -00:50:04     status=halted  seq=2/B/8,2/V/5,2/Ic/6,2/y_s/15,2/v_s/40,2/b_s/40    sciprog=deb_sbcr  pi=dgraczyk   comment="observed on zb08 my mistake, normally observed on wk06"  priority=7  P=8.48188    hjd0=2457615.7932   mV=11.5
+
+
+# Cepheids with 0.61 mode in the Milky Way
+# SCIPROG cep_mod61_mw
+# PI hnetzel
+OBJECT OGLE-GD-CEP-1314 06:57:58.4616 -15:21:26.656 status=halted  seq=2/B/50,2/V/20 priority=7 pi=hnetzel sciprog=cep_mod61_mw mV=13.538 P=2.416 ph_mk=1/V/0.01 comment="by mistake observed on zb08, normally observed on wk06"
+
+
+
+# Orphan objects that we don't know why were observed or by whom
+# SCIPROG: orphan
+# PI: orphan
+OBJECT AT_Pup  08:12:22.40 -36:56:37.5  status=halted pi=orphan sciprog=orphan  comment="classical Cepheid, too bright for zb08"
+OBJECT AQ_Pup  07:58:22.08 -29:07:48.3  status=halted pi=orphan sciprog=orphan  comment="classical Cepheid, too bright for zb08"
+OBJECT RY_CMa  07:16:37.63 -11:29:14.2  status=halted pi=orphan sciprog=orphan  comment="classical Cepheid, too bright for zb08"
+OBJECT SX_Vel  08:44:53.46 -46:20:34.7  status=halted pi=orphan sciprog=orphan  comment="classical Cepheid, too bright for zb08"
+OBJECT NGC3293 10:35:52.8  -58:13:52    status=halted pi=orphan sciprog=orphan  comment="open cluster, observed before collaboration with apigulski"
+OBJECT M11     18:51:03.8  -06:16:19    status=halted pi=orphan sciprog=orphan  comment="open cluster, observed before collaboration with apigulski, alias NGC6705"
+OBJECT 30_Dor  05:38:42.4  -69:06:03.4  status=halted pi=orphan sciprog=orphan  comment="cluster of stars in the LMC"

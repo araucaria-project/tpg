@@ -33,7 +33,7 @@ OBJECT OGLE-GD-CEP-0568  10:43:18.97  -59:11:29.6  status=finished  seq=2/B/80,2
 
 
 
-# Eclipsing binaries to calibrate the sufrace brightness-color relation (sbcr)
+# Eclipsing binaries to calibrate the surface brightness-color relation (sbcr)
 # PI dgraczyk
 # SCIPROG deb_sbcr
 
