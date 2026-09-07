@@ -29,7 +29,7 @@ OBJECT AN_Ser 15:53:31.0531421656 +12:57:40.112740009   seq=4/d/300   sciprog=rr
 
 # Red Clump stars
 # SCIPROG rc_mw
-# PI rsalinas
+# PI gpietrzynski
 #
 # d = default mode: sequence of exposures + calibrations during the day: flats, arcs, biases, darks (no arc after the science target)
 #
