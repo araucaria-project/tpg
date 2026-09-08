@@ -8,7 +8,7 @@
 
 
 # format of each line should be as follows:
-# name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_sequence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high) comment
+# name RA[hh:mm:ss] DEC[dd:mm:ss] Observing_sequence(number_of_exposures/filter/exp_time) period[d] V_magnitude[mag] priority(0-lowest, 4-normal, >4high, 10-max) comment
 # OBJECT example1  21:24:00.2421    +18:16:43.77  seq=1/Ic/30,1/V/30,1/B/30        priority=4    P=2.4121         mV=9.21      comment="binary and dusty envelope"
 # OBJECT example2  07:24:14         -00:31:41     seq=10x(1/B/60,1/V/30,1/Ic/30)   priority=6    t_start=08:20    t_end=10:00
 # OBJECT example3  07:24:14         -00:31:41     seq=INFx(1/B/60,1/V/30,1/Ic/30)  priority=6    t_start=00:20    t_end=10:00
@@ -213,8 +213,8 @@ OBJECT V341_Aql 20:32:31.55 +00:35:07.04 seq=2/Ic/6,2/V/2,2/g/1.4,2/r/1.4,2/i/3,
 OBJECT V341_Aql 20:32:31.55 +00:35:07.04 seq=2/Ic/6,2/V/2,2/g/1.4,2/r/1.4,2/i/3,2/z/14 priority=5 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.698 ph_end=0.843 uobi=7a7d2ff9 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.5780230 mV=10.83   status=ongoing
 OBJECT V4424_Sgr 19:54:01.90 -30:15:10.43 seq=2/Ic/2,2/V/0.9,2/g/0.7,2/r/0.7,2/i/1.3,2/z/10 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.980 ph_end=0.739 uobi=5d7e2dd2 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4245034 mV=10.32   status=ongoing
 OBJECT V4424_Sgr 19:54:01.90 -30:15:10.43 seq=2/Ic/2,2/V/0.9,2/g/0.7,2/r/0.7,2/i/1.3,2/z/10 priority=5 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.739 ph_end=0.980 uobi=e890e865 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4245034 mV=10.32   status=ongoing
-OBJECT V675_Sgr 18:13:35.40 -34:19:01.85 seq=2/Ic/3.6,2/V/1,2/g/1,2/r/1.2,2/i/2.3,2/z/11 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.273 ph_end=0.124 uobi=bcc9ac2d sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.6422935 mV=10.18   status=ongoing
-OBJECT V675_Sgr 18:13:35.40 -34:19:01.85 seq=2/Ic/3.6,2/V/1,2/g/1,2/r/1.2,2/i/2.3,2/z/11 priority=6 cycle=0.04 ph_mk=3/g/0.004 ph_start=0.124 ph_end=0.273 uobi=7081537f sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6422935 mV=10.18   status=ongoing
+OBJECT V675_Sgr 18:13:35.40 -34:19:01.85 seq=2/Ic/2.6,2/V/1,2/g/0.7,2/r/0.6,2/i/1.8,2/z/9 priority=4 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.273 ph_end=0.124 uobi=bcc9ac2d sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.6422935 mV=10.18   status=ongoing
+OBJECT V675_Sgr 18:13:35.40 -34:19:01.85 seq=2/Ic/2.6,2/V/1,2/g/0.7,2/r/0.6,2/i/1.8,2/z/9 priority=6 cycle=0.04 ph_mk=3/g/0.004 ph_start=0.124 ph_end=0.273 uobi=7081537f sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.6422935 mV=10.18   status=ongoing
 OBJECT V_Ind 21:11:29.90 -45:04:28.39 seq=2/Ic/2,2/V/0.8,2/g/0.5,2/r/0.5,2/i/1.2,2/z/7 priority=5 cycle=0.08 ph_mk=2/g/0.015 ph_start=0.651 ph_end=0.437 uobi=698d5f76 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4796017 mV=10.21   status=ongoing
 OBJECT V_Ind 21:11:29.90 -45:04:28.39 seq=2/Ic/2,2/V/0.8,2/g/0.5,2/r/0.5,2/i/1.2,2/z/7 priority=6 cycle=0.03 ph_mk=3/g/0.004 ph_start=0.437 ph_end=0.651 uobi=b3116a61 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.4796017 mV=10.21   status=ongoing
 OBJECT VW_Scl 01:18:14.97 -39:12:44.84   seq=2/Ic/5,2/V/1.8,2/g/1.8,2/r/1.5,2/i/5,2/z/18 priority=7 cycle=0.02 ph_mk=3/g/0.004 ph_start=0.010 ph_end=0.145 uobi=952ebbdd sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.5109117 mV=11.17   status=ongoing
