@@ -2,17 +2,21 @@
 ######## BESO MASTER ########
 #############################
 
-# Stars in this file are just to be stored and will be selected by hand
-
-# RV standards
-# SCIPROG rv_std
-# PI ocm
 #
-# rv = radial velocity mode: sequence of exposures + ThAr arc immediately after, e.g. 2/rv/300 means 2 x 300 s + ThAr immediately after
+# Calibrations examples:
+#
+# ZERO zero seq_beso=7/empty/0
+# DARK dark seq_beso=7/empty/600
+# FLAT lampflat seq_beso=7/empty/10 or later FLAT skyflat seq_beso=7/empty/10 and era+=1
+# ??? ARC arclamp seq_beso=7/empty/10 ??? ARC arclamp seq_kivi=7/thar/10 ???
+#
+
+#
 # Observe a given std more than once per night, but separated by a couple of hours. Observe one std per night, or both.
 #
-OBJECT HIP079190 16:09:42.7944501960 -56:26:42.541189576 seq=2/rv/300  pi=ocm  sciprog=rv_std   mV=7.12    comment="expose for 10 min in total, observe in 2-3h intervals"
-OBJECT HIP087523 17:52:52.5830170920 -41:59:47.486766588 seq=2/rv/300  pi=ocm  sciprog=rv_std   mV=6.20    comment="expose for 10 min in total, observe in 2-3h intervals"
+
+OBJECT HIP079190 16:09:42.7944501960 -56:26:42.541189576 seq_beso=2/empty/300  pi=ocm  sciprog=rv_std   mV=7.12  arclamp=1/thar/10/after  comment="expose for 10 min in total, observe in 2-3h intervals"
+OBJECT HIP087523 17:52:52.5830170920 -41:59:47.486766588 seq_beso=2/empty/300  pi=ocm  sciprog=rv_std   mV=6.20  arclamp=1/thar/10/after  comment="expose for 10 min in total, observe in 2-3h intervals"
 
 
 
@@ -20,10 +24,10 @@ OBJECT HIP087523 17:52:52.5830170920 -41:59:47.486766588 seq=2/rv/300  pi=ocm  s
 # SCIPROG rrl_metal_rich_mw
 # PI rsalinas
 #
-# d = default mode: sequence of exposures + calibrations during the day: flats, arcs, biases, darks (no arc after the science target)
+# d = default mode: sequence of exposures + calibrations during the day: flats, arcs, zeros, darks (no arc after the science target)
 #
-OBJECT IK_Hya 12:04:47.2726101288 -27:40:43.272236172   seq=3/d/300   sciprog=rrl_metal_rich_mw   pi=rsalinas    mV=10.23    comment="expose for 15 min in total"
-OBJECT AN_Ser 15:53:31.0531421656 +12:57:40.112740009   seq=4/d/300   sciprog=rrl_metal_rich_mw   pi=rsalinas    mV=10.93    comment="expose for 20 min in total"
+OBJECT IK_Hya 12:04:47.2726101288 -27:40:43.272236172   seq_beso=3/empty/300   sciprog=rrl_metal_rich_mw   pi=rsalinas    mV=10.23  arclamp=1/thar/10/after  comment="expose for 15 min in total"
+OBJECT AN_Ser 15:53:31.0531421656 +12:57:40.112740009   seq_beso=4/empty/300   sciprog=rrl_metal_rich_mw   pi=rsalinas    mV=10.93  arclamp=1/thar/10/after  comment="expose for 20 min in total"
 
 
 
@@ -31,88 +35,89 @@ OBJECT AN_Ser 15:53:31.0531421656 +12:57:40.112740009   seq=4/d/300   sciprog=rr
 # SCIPROG rc_mw
 # PI gpietrzynski
 #
-# d = default mode: sequence of exposures + calibrations during the day: flats, arcs, biases, darks (no arc after the science target)
+# d = default mode: sequence of exposures + calibrations during the day: flats, arcs, zeros, darks (no arc after the science target)
 #
-OBJECT HIP3781   00:48:35.4169875336 -74:55:24.367006020  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.413
-OBJECT HIP5485   01:10:11.9457318744 -08:54:22.084762140  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.465
-OBJECT HIP6868   01:28:22.9157619816 +07:57:40.878936036  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.160
-OBJECT HIP7879   01:41:21.4635303720 -79:08:53.500728768  seq=1/d/350  pi=rsalinas  sciprog=rc_mw  mV=6.532
-OBJECT HIP8404   01:48:26.0194155048 +03:41:07.618785792  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.066
-OBJECT HIP8833   01:53:33.3369902664 +03:11:15.117021888  seq=1/d/150  pi=rsalinas  sciprog=rc_mw  mV=4.869
-OBJECT HIP11095  02:22:52.3092955680 -73:38:44.852762652  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.933
-OBJECT HIP12148  02:36:35.0699755272 +07:43:48.100486710  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.752
-OBJECT HIP14168  03:02:42.2880946296 -07:41:07.718204472  seq=1/d/250  pi=rsalinas  sciprog=rc_mw  mV=5.568
-OBJECT HIP18401  03:56:03.9962013072 -63:27:49.373859060  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.045
-OBJECT HIP18554  03:58:15.2327195832 -49:36:36.034802424  seq=1/d/400  pi=rsalinas  sciprog=rc_mw  mV=6.951
-OBJECT HIP18635  03:59:20.2842842304 -43:55:02.904404448  seq=1/d/350  pi=rsalinas  sciprog=rc_mw  mV=6.707
-OBJECT HIP19805  04:14:48.5452781856 -62:11:30.520603428  seq=1/d/250  pi=rsalinas  sciprog=rc_mw  mV=5.326
-OBJECT HIP20877  04:28:26.3699079120 +16:21:34.829804916  seq=1/d/150  pi=rsalinas  sciprog=rc_mw  mV=4.738
-OBJECT HIP22081  04:44:57.9000044304 -63:13:46.973918928  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.458
-OBJECT HIP23595  05:04:24.4021398552 -35:28:58.711349568  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.169
-OBJECT HIP25532  05:27:36.5004843792 -21:22:32.566530504  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.202
-OBJECT HIP26001  05:32:59.5657144881 -64:13:39.053697522  seq=1/d/250  pi=rsalinas  sciprog=rc_mw  mV=5.330
-OBJECT HIP27369  05:47:48.1332956280 -72:42:08.102062116  seq=1/d/350  pi=rsalinas  sciprog=rc_mw  mV=6.527
-OBJECT HIP27530  05:49:49.6600647747 -56:09:59.997681333  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.436
-OBJECT HIP27549  05:50:02.6857306428 +09:52:16.375436948  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.149
-OBJECT HIP28011  05:55:30.1715488392 -04:36:59.560143372  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.715
-OBJECT HIP28085  05:56:14.2716330840 -22:50:23.914176972  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.776
-OBJECT HIP28139  05:56:49.4497394952 +11:31:15.812064624  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.819
-OBJECT HIP28988  06:07:01.8916483176 -45:05:29.433174648  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.315
-OBJECT HIP29233  06:09:47.1450198024 -26:42:03.906560880  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.222
-OBJECT HIP29575  06:13:54.2339540784 -03:44:28.935892248  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.104
-OBJECT HIP31977  06:40:57.6024401064 -71:46:30.687237696  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.428
-OBJECT HIP34142  07:04:47.0513504040 -22:01:54.075708876  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.810
-OBJECT HIP40888  08:20:38.5390861886 -77:29:04.125120011  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.164
-OBJECT HIP40990  08:21:54.6061873296 -17:35:10.813572276  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.675
-OBJECT HIP41191  08:24:19.8866986488 -80:54:51.217550460  seq=1/d/250  pi=rsalinas  sciprog=rc_mw  mV=5.564
-OBJECT HIP41312  08:25:44.1950662149 -66:08:12.796451416  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=3.610
-OBJECT HIP41395  08:26:41.9527264536 -12:32:04.574948568  seq=1/d/200  pi=rsalinas  sciprog=rc_mw  mV=5.223
-OBJECT HIP42134  08:35:19.7051171712 -58:00:33.252679512  seq=1/d/150  pi=rsalinas  sciprog=rc_mw  mV=4.959
-OBJECT HIP42662  08:41:43.3361667432 -15:56:36.187276956  seq=1/d/150  pi=rsalinas  sciprog=rc_mw  mV=4.871
-OBJECT HIP42911  08:44:41.0991810454 +18:09:15.509048595  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=3.891
-OBJECT HIP42915  08:44:42.7537421232 -74:47:16.927048140  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.367
-OBJECT HIP43026  08:46:02.4758337192 -02:02:55.160895156  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.639
-OBJECT HIP43580  08:52:30.7624341384 -13:13:58.600027920  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.916
-OBJECT HIP45166  09:12:12.3671000568 -76:39:46.900727136  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.018
-OBJECT HIP45796  09:20:15.2432075400 -45:10:23.586293856  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.287
-OBJECT HIP45811  09:20:29.0149400062 -09:33:20.532085376  seq=1/d/200  pi=rsalinas  sciprog=rc_mw  mV=5.109
-OBJECT HIP46371  09:27:18.4125035904 -22:20:37.417522380  seq=1/d/150  pi=rsalinas  sciprog=rc_mw  mV=4.545
-OBJECT HIP46869  09:33:01.9727910720 -08:30:19.346260320  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.272
-OBJECT HIP48806  09:57:15.2064346080 -64:29:21.664225824  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.476
-OBJECT HIP50799  10:22:19.5848462136 -41:38:59.863133688  seq=1/d/150  pi=rsalinas  sciprog=rc_mw  mV=4.760
-OBJECT HIP52660  10:46:05.6800707744 +06:22:23.458811556  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.254
-OBJECT HIP52689  10:46:25.2771855408 +14:11:40.722135792  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.785
-OBJECT HIP52948  10:49:43.4917078212 -09:51:09.685878034  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.797
-OBJECT HIP53273  10:53:43.7123043648 -02:07:45.139987848  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.673
-OBJECT HIP53394  10:55:17.2218023112 -60:31:01.203966480  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.807
-OBJECT HIP55249  11:18:54.9596389944 +01:39:01.423590264  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.889
-OBJECT HIP56287  11:32:19.9960982856 -66:57:42.564347316  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.776
-OBJECT HIP56996  11:41:01.3082628216 -83:05:59.777340036  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.105
-OBJECT HIP57791  11:51:02.2295090976 -05:19:59.993484060  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.582
-OBJECT HIP58706  12:02:28.4704934760 -71:29:20.333183460  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.118
-OBJECT HIP61181  12:32:09.9757273920 -73:00:03.804565428  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.852
-OBJECT HIP65468  13:25:07.1188965432 -74:53:16.150139880  seq=1/d/200  pi=rsalinas  sciprog=rc_mw  mV=4.960
-OBJECT HIP67494  13:49:52.2828951024 -18:08:03.009309756  seq=1/d/200  pi=rsalinas  sciprog=rc_mw  mV=4.997
-OBJECT HIP69612  14:14:50.8487473560 +10:06:02.196736560  seq=1/d/250  pi=rsalinas  sciprog=rc_mw  mV=5.346
-OBJECT HIP72471  14:49:07.0558283736 -56:40:04.185739416  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.024
-OBJECT HIP73620  15:02:54.0375635908 +02:05:28.695699730  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.352
-OBJECT HIP75119  15:21:01.9962716352 +00:42:55.210319100  seq=1/d/200  pi=rsalinas  sciprog=rc_mw  mV=5.007
-OBJECT HIP75127  15:21:07.6092898320 -05:49:29.468701344  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.646
-OBJECT HIP76664  15:39:18.3971214240 -77:55:04.819554696  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.930
-OBJECT HIP77853  15:53:49.5379222294 -16:43:45.469368699  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.147
-OBJECT HIP78685  16:03:45.6910511280 +04:59:12.595656228  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.321
-OBJECT HIP79666  16:15:28.6349735016 +18:48:29.117594304  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.648
-OBJECT HIP79882  16:18:19.2902245358 -04:41:33.047349888  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=3.410
-OBJECT HIP81852  16:43:04.6585772236 -77:31:02.759334193  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.212
-OBJECT HIP83000  16:57:40.0975028128 +09:22:30.104472450  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=3.056
-OBJECT HIP86170  17:36:32.8551435432 -38:38:06.891848556  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.096
-OBJECT HIP86391  17:39:08.5045924128 +02:01:40.979804268  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.292
-OBJECT HIP89153  18:11:43.3327588368 -23:42:04.433754384  seq=1/d/200  pi=rsalinas  sciprog=rc_mw  mV=4.960
-OBJECT HIP93683  19:04:40.9820400284 -21:44:29.385451232  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=3.855
-OBJECT HIP99570  20:12:23.8401127176 -42:46:48.215657604  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.912
-OBJECT HIP105425 21:21:16.6006235040 -49:56:17.691421200  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.921
-OBJECT HIP111600 22:36:35.4401305824 -31:39:49.646890872  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=5.719
-OBJECT HIP112127 22:42:43.0816800432 -44:14:52.882380132  seq=1/d/300  pi=rsalinas  sciprog=rc_mw  mV=6.251
-OBJECT HIP114971 23:17:09.9371132484 +03:16:56.245688417  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=3.841
-OBJECT HIP115830 23:27:58.0946643849 +06:22:44.372303191  seq=1/d/100  pi=rsalinas  sciprog=rc_mw  mV=4.289
-OBJECT HIP115919 23:29:09.2992398120 +12:45:37.979571348  seq=1/d/150  pi=rsalinas  sciprog=rc_mw  mV=4.825
+OBJECT HIP3781   00:48:35.4169875336 -74:55:24.367006020  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.413 arclamp=1/thar/10/after
+OBJECT HIP5485   01:10:11.9457318744 -08:54:22.084762140  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.465 arclamp=1/thar/10/after
+OBJECT HIP6868   01:28:22.9157619816 +07:57:40.878936036  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.160 arclamp=1/thar/10/after
+OBJECT HIP7879   01:41:21.4635303720 -79:08:53.500728768  seq_beso=1/empty/350  pi=rsalinas  sciprog=rc_mw  mV=6.532 arclamp=1/thar/10/after
+OBJECT HIP8404   01:48:26.0194155048 +03:41:07.618785792  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.066 arclamp=1/thar/10/after
+OBJECT HIP8833   01:53:33.3369902664 +03:11:15.117021888  seq_beso=1/empty/150  pi=rsalinas  sciprog=rc_mw  mV=4.869 arclamp=1/thar/10/after
+OBJECT HIP11095  02:22:52.3092955680 -73:38:44.852762652  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.933 arclamp=1/thar/10/after
+OBJECT HIP12148  02:36:35.0699755272 +07:43:48.100486710  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.752 arclamp=1/thar/10/after
+OBJECT HIP14168  03:02:42.2880946296 -07:41:07.718204472  seq_beso=1/empty/250  pi=rsalinas  sciprog=rc_mw  mV=5.568 arclamp=1/thar/10/after
+OBJECT HIP18401  03:56:03.9962013072 -63:27:49.373859060  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.045 arclamp=1/thar/10/after
+OBJECT HIP18554  03:58:15.2327195832 -49:36:36.034802424  seq_beso=1/empty/400  pi=rsalinas  sciprog=rc_mw  mV=6.951 arclamp=1/thar/10/after
+OBJECT HIP18635  03:59:20.2842842304 -43:55:02.904404448  seq_beso=1/empty/350  pi=rsalinas  sciprog=rc_mw  mV=6.707 arclamp=1/thar/10/after
+OBJECT HIP19805  04:14:48.5452781856 -62:11:30.520603428  seq_beso=1/empty/250  pi=rsalinas  sciprog=rc_mw  mV=5.326 arclamp=1/thar/10/after
+OBJECT HIP20877  04:28:26.3699079120 +16:21:34.829804916  seq_beso=1/empty/150  pi=rsalinas  sciprog=rc_mw  mV=4.738 arclamp=1/thar/10/after
+OBJECT HIP22081  04:44:57.9000044304 -63:13:46.973918928  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.458 arclamp=1/thar/10/after
+OBJECT HIP23595  05:04:24.4021398552 -35:28:58.711349568  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.169 arclamp=1/thar/10/after
+OBJECT HIP25532  05:27:36.5004843792 -21:22:32.566530504  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.202 arclamp=1/thar/10/after
+OBJECT HIP26001  05:32:59.5657144881 -64:13:39.053697522  seq_beso=1/empty/250  pi=rsalinas  sciprog=rc_mw  mV=5.330 arclamp=1/thar/10/after
+OBJECT HIP27369  05:47:48.1332956280 -72:42:08.102062116  seq_beso=1/empty/350  pi=rsalinas  sciprog=rc_mw  mV=6.527 arclamp=1/thar/10/after
+OBJECT HIP27530  05:49:49.6600647747 -56:09:59.997681333  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.436 arclamp=1/thar/10/after
+OBJECT HIP27549  05:50:02.6857306428 +09:52:16.375436948  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.149 arclamp=1/thar/10/after
+OBJECT HIP28011  05:55:30.1715488392 -04:36:59.560143372  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.715 arclamp=1/thar/10/after
+OBJECT HIP28085  05:56:14.2716330840 -22:50:23.914176972  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.776 arclamp=1/thar/10/after
+OBJECT HIP28139  05:56:49.4497394952 +11:31:15.812064624  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.819 arclamp=1/thar/10/after
+OBJECT HIP28988  06:07:01.8916483176 -45:05:29.433174648  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.315 arclamp=1/thar/10/after
+OBJECT HIP29233  06:09:47.1450198024 -26:42:03.906560880  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.222 arclamp=1/thar/10/after
+OBJECT HIP29575  06:13:54.2339540784 -03:44:28.935892248  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.104 arclamp=1/thar/10/after
+OBJECT HIP31977  06:40:57.6024401064 -71:46:30.687237696  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.428 arclamp=1/thar/10/after
+OBJECT HIP34142  07:04:47.0513504040 -22:01:54.075708876  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.810 arclamp=1/thar/10/after
+OBJECT HIP40888  08:20:38.5390861886 -77:29:04.125120011  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.164 arclamp=1/thar/10/after
+OBJECT HIP40990  08:21:54.6061873296 -17:35:10.813572276  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.675 arclamp=1/thar/10/after
+OBJECT HIP41191  08:24:19.8866986488 -80:54:51.217550460  seq_beso=1/empty/250  pi=rsalinas  sciprog=rc_mw  mV=5.564 arclamp=1/thar/10/after
+OBJECT HIP41312  08:25:44.1950662149 -66:08:12.796451416  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=3.610 arclamp=1/thar/10/after
+OBJECT HIP41395  08:26:41.9527264536 -12:32:04.574948568  seq_beso=1/empty/200  pi=rsalinas  sciprog=rc_mw  mV=5.223 arclamp=1/thar/10/after
+OBJECT HIP42134  08:35:19.7051171712 -58:00:33.252679512  seq_beso=1/empty/150  pi=rsalinas  sciprog=rc_mw  mV=4.959 arclamp=1/thar/10/after
+OBJECT HIP42662  08:41:43.3361667432 -15:56:36.187276956  seq_beso=1/empty/150  pi=rsalinas  sciprog=rc_mw  mV=4.871 arclamp=1/thar/10/after
+OBJECT HIP42911  08:44:41.0991810454 +18:09:15.509048595  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=3.891 arclamp=1/thar/10/after
+OBJECT HIP42915  08:44:42.7537421232 -74:47:16.927048140  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.367 arclamp=1/thar/10/after
+OBJECT HIP43026  08:46:02.4758337192 -02:02:55.160895156  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.639 arclamp=1/thar/10/after
+OBJECT HIP43580  08:52:30.7624341384 -13:13:58.600027920  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.916 arclamp=1/thar/10/after
+OBJECT HIP45166  09:12:12.3671000568 -76:39:46.900727136  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.018 arclamp=1/thar/10/after
+OBJECT HIP45796  09:20:15.2432075400 -45:10:23.586293856  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.287 arclamp=1/thar/10/after
+OBJECT HIP45811  09:20:29.0149400062 -09:33:20.532085376  seq_beso=1/empty/200  pi=rsalinas  sciprog=rc_mw  mV=5.109 arclamp=1/thar/10/after
+OBJECT HIP46371  09:27:18.4125035904 -22:20:37.417522380  seq_beso=1/empty/150  pi=rsalinas  sciprog=rc_mw  mV=4.545 arclamp=1/thar/10/after
+OBJECT HIP46869  09:33:01.9727910720 -08:30:19.346260320  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.272 arclamp=1/thar/10/after
+OBJECT HIP48806  09:57:15.2064346080 -64:29:21.664225824  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.476 arclamp=1/thar/10/after
+OBJECT HIP50799  10:22:19.5848462136 -41:38:59.863133688  seq_beso=1/empty/150  pi=rsalinas  sciprog=rc_mw  mV=4.760 arclamp=1/thar/10/after
+OBJECT HIP52660  10:46:05.6800707744 +06:22:23.458811556  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.254 arclamp=1/thar/10/after
+OBJECT HIP52689  10:46:25.2771855408 +14:11:40.722135792  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.785 arclamp=1/thar/10/after
+OBJECT HIP52948  10:49:43.4917078212 -09:51:09.685878034  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.797 arclamp=1/thar/10/after
+OBJECT HIP53273  10:53:43.7123043648 -02:07:45.139987848  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.673 arclamp=1/thar/10/after
+OBJECT HIP53394  10:55:17.2218023112 -60:31:01.203966480  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.807 arclamp=1/thar/10/after
+OBJECT HIP55249  11:18:54.9596389944 +01:39:01.423590264  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.889 arclamp=1/thar/10/after
+OBJECT HIP56287  11:32:19.9960982856 -66:57:42.564347316  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.776 arclamp=1/thar/10/after
+OBJECT HIP56996  11:41:01.3082628216 -83:05:59.777340036  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.105 arclamp=1/thar/10/after
+OBJECT HIP57791  11:51:02.2295090976 -05:19:59.993484060  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.582 arclamp=1/thar/10/after
+OBJECT HIP58706  12:02:28.4704934760 -71:29:20.333183460  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.118 arclamp=1/thar/10/after
+OBJECT HIP61181  12:32:09.9757273920 -73:00:03.804565428  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.852 arclamp=1/thar/10/after
+OBJECT HIP65468  13:25:07.1188965432 -74:53:16.150139880  seq_beso=1/empty/200  pi=rsalinas  sciprog=rc_mw  mV=4.960 arclamp=1/thar/10/after
+OBJECT HIP67494  13:49:52.2828951024 -18:08:03.009309756  seq_beso=1/empty/200  pi=rsalinas  sciprog=rc_mw  mV=4.997 arclamp=1/thar/10/after
+OBJECT HIP69612  14:14:50.8487473560 +10:06:02.196736560  seq_beso=1/empty/250  pi=rsalinas  sciprog=rc_mw  mV=5.346 arclamp=1/thar/10/after
+OBJECT HIP72471  14:49:07.0558283736 -56:40:04.185739416  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.024 arclamp=1/thar/10/after
+OBJECT HIP73620  15:02:54.0375635908 +02:05:28.695699730  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.352 arclamp=1/thar/10/after
+OBJECT HIP75119  15:21:01.9962716352 +00:42:55.210319100  seq_beso=1/empty/200  pi=rsalinas  sciprog=rc_mw  mV=5.007 arclamp=1/thar/10/after
+OBJECT HIP75127  15:21:07.6092898320 -05:49:29.468701344  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.646 arclamp=1/thar/10/after
+OBJECT HIP76664  15:39:18.3971214240 -77:55:04.819554696  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.930 arclamp=1/thar/10/after
+OBJECT HIP77853  15:53:49.5379222294 -16:43:45.469368699  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.147 arclamp=1/thar/10/after
+OBJECT HIP78685  16:03:45.6910511280 +04:59:12.595656228  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.321 arclamp=1/thar/10/after
+OBJECT HIP79666  16:15:28.6349735016 +18:48:29.117594304  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.648 arclamp=1/thar/10/after
+OBJECT HIP79882  16:18:19.2902245358 -04:41:33.047349888  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=3.410 arclamp=1/thar/10/after
+OBJECT HIP81852  16:43:04.6585772236 -77:31:02.759334193  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.212 arclamp=1/thar/10/after
+OBJECT HIP83000  16:57:40.0975028128 +09:22:30.104472450  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=3.056 arclamp=1/thar/10/after
+OBJECT HIP86170  17:36:32.8551435432 -38:38:06.891848556  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.096 arclamp=1/thar/10/after
+OBJECT HIP86391  17:39:08.5045924128 +02:01:40.979804268  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.292 arclamp=1/thar/10/after
+OBJECT HIP89153  18:11:43.3327588368 -23:42:04.433754384  seq_beso=1/empty/200  pi=rsalinas  sciprog=rc_mw  mV=4.960 arclamp=1/thar/10/after
+OBJECT HIP93683  19:04:40.9820400284 -21:44:29.385451232  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=3.855 arclamp=1/thar/10/after
+OBJECT HIP99570  20:12:23.8401127176 -42:46:48.215657604  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.912 arclamp=1/thar/10/after
+OBJECT HIP105425 21:21:16.6006235040 -49:56:17.691421200  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.921 arclamp=1/thar/10/after
+OBJECT HIP111600 22:36:35.4401305824 -31:39:49.646890872  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=5.719 arclamp=1/thar/10/after
+OBJECT HIP112127 22:42:43.0816800432 -44:14:52.882380132  seq_beso=1/empty/300  pi=rsalinas  sciprog=rc_mw  mV=6.251 arclamp=1/thar/10/after
+OBJECT HIP114971 23:17:09.9371132484 +03:16:56.245688417  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=3.841 arclamp=1/thar/10/after
+OBJECT HIP115830 23:27:58.0946643849 +06:22:44.372303191  seq_beso=1/empty/100  pi=rsalinas  sciprog=rc_mw  mV=4.289 arclamp=1/thar/10/after
+OBJECT HIP115919 23:29:09.2992398120 +12:45:37.979571348  seq_beso=1/empty/150  pi=rsalinas  sciprog=rc_mw  mV=4.825 arclamp=1/thar/10/after
+
