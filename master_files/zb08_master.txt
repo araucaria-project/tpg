@@ -495,3 +495,12 @@ OBJECT OGLE-LMC-ECL-33491 05:27:00.64 -67:29:09.9 seq=1/V/260,2/g/300,1/r/150 mV
 OBJECT OGLE-LMC-ECL-37120 05:41:41.08 -65:05:08.3 seq=1/V/300,2/g/300,1/r/180 mV=17.364 P=72.624695 sciprog=deb_late_lmc pi=dgraczyk cycle=1.4 ph_mk=2/V/0.05 obs_data=ogle-lmc-ecl-37120/r/light-curve/ogle-lmc-ecl-37120_V_diff_light_curve.txt priority=7 tag=random_phase   status=ongoing
 OBJECT OGLE-LMC-ECL-38401 05:49:35.72 -67:12:40.8 seq=1/V/300,2/g/300,1/r/180 mV=17.297 P=412.271417 sciprog=deb_late_lmc pi=dgraczyk cycle=8.0 ph_mk=2/V/0.05 obs_data=ogle-lmc-ecl-38401/r/light-curve/ogle-lmc-ecl-38401_V_diff_light_curve.txt priority=7 tag=random_phase   status=ongoing
 OBJECT OGLE-LMC-ECL-25304 05:54:19.45 -70:50:24.0 seq=1/V/300,2/g/300,1/r/180 mV=17.266 P=194.517900 sciprog=deb_late_lmc pi=dgraczyk cycle=3.7 ph_mk=2/V/0.05 obs_data=ogle-lmc-ecl-25304/r/light-curve/ogle-lmc-ecl-25304_V_diff_light_curve.txt priority=7 tag=random_phase   status=ongoing
+
+
+
+# T Tauri stars
+# SCIPROG tt_mw
+# PI wogloza
+#
+OBJECT V646_Pup 07:50:35.5923 -33:06:23.906 seq=2x(1/u/300,1/g/15,1/r/5,1/i/5)  cycle=2.5  priority=9  tag=Nwind  pi=wogloza sciprog=tt_mw comment="good for wind from N"    status=ongoing
+OBJECT V646_Pup 07:50:35.5923 -33:06:23.906 seq=2x(1/u/300,1/g/15,1/r/5,1/i/5)  cycle=0.2  priority=1  tag=Nwind  pi=wogloza sciprog=tt_mw comment="good for wind from N and if nothing else is to observe"    status=ongoing
