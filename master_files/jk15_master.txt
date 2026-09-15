@@ -122,22 +122,19 @@ OBJECT NGC7793-center 23:57:49.754 -32:35:27.7 seq=4/g/200,4/r/200,4/i/200,4/V/2
 # SCIPROG: var_gclu
 # INFO: cycle through targets multiple times per night, change the order of clusters in a cycle night after night
 
-OBJECT NGC362-center      01:03:14.3     -70:50:55.6   seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65    priority=6    cycle=0.04    uobi=841e6056    sciprog=var_gclu    pi=ghajdu    obs_data=ngc362-center_check1/r/light-curve/ngc362-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"   status=ongoing
+OBJECT NGC362-center     01:03:14.3     -70:50:55.6   seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65    priority=6    cycle=0.04    uobi=841e6056    sciprog=var_gclu    pi=ghajdu    obs_data=ngc362-center_check1/r/light-curve/ngc362-center_check1_r_diff_light_curve.txt    comment="repeat sequence as many times as possible"   status=ongoing
 
-OBJECT NGC5286-SE 13:46:49.0 -51:26:35.0 seq=2/g/70,2/r/45,2/i/50,2/z/85,2/g/70,2/r/45,2/i/50,2/B/90,2/g/70,2/r/45,2/i/50,2/V/65,2/g/70,2/r/45,2/i/50,2/Ic/60 cycle=0.2 priority=6 pi=ghajdu sciprog=var_gclu obs_data=ngc5286-se_check1/g/light-curve/ngc5286-se_check1_g_diff_light_curve.txt comment="dense coverage"   status=ongoing
-OBJECT NGC5286-SE 13:46:49.0 -51:26:35.0 seq=2/g/70,2/r/45,2/i/50,2/z/85,2/g/70,2/r/45,2/i/50,2/B/90,2/g/70,2/r/45,2/i/50,2/V/65,2/g/70,2/r/45,2/i/50,2/Ic/60 cycle=0.04 priority=4 pi=ghajdu sciprog=var_gclu obs_data=ngc5286-se_check1/g/light-curve/ngc5286-se_check1_g_diff_light_curve.txt comment="dense coverage"   status=ongoing
-
-OBJECT NGC5904-center    15:18:33.2     +02:04:51.7   seq=2/i/30,2/r/30,2/g/30,2/z/30,2/i/30,2/r/30,2/g/30,2/Ic/20,2/i/30,2/r/30,2/g/30,2/B/30,2/i/30,2/r/30,2/g/30,2/V/30       priority=6   cycle=0.04   pi=ghajdu    sciprog=var_gclu   obs_data=ngc5904-center_check1/r/light-curve/ngc5904-center_check1_r_diff_light_curve.txt   uobi=ab9c8f27     comment="repeat sequence as many times as possible"   status=ongoing
+OBJECT NGC1851-center    05:14:06.76    -40:02:47.6   seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35 priority=6 cycle=0.04 uobi=d17f590f sciprog=var_gclu pi=ghajdu obs_data=ngc1851-center_check1/r/light-curve/ngc1851-center_check1_r_diff_light_curve.txt comment="repeat sequence as many times as possible"   status=ongoing
 
 OBJECT NGC6333-center    17:19:11.78    -18:30:58.5   seq=2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70,2/g/60,2/r/45,2/i/60,2/z/100,2/B/90,2/V/65,2/Ic/70                  priority=5   cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=ngc6333-center_check1/r/light-curve/ngc6333-center_check1_r_diff_light_curve.txt     uobi=e535f4ef   status=ongoing
 
 OBJECT NGC6362-center    17:31:55.0     -67:02:54.0   seq=2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65,2/g/20,2/r/25,2/i/50,2/z/80,2/B/30,2/V/30,2/Ic/65                    priority=5  cycle=0.12  pi=ghajdu    sciprog=var_gclu   obs_data=ngc6362-center_check1/r/light-curve/ngc6362-center_check1_r_diff_light_curve.txt     uobi=4753da7b   h_min=39   status=ongoing
 
-OBJECT NGC6584-center    18:18:37.6     -52:12:56.8   seq=2/g/50,2/r/60,2/i/90,2/z/180,2/g/50,2/r/60,2/i/90,2/B/80,2/g/50,2/r/60,2/i/90,2/V/70,2/g/50,2/r/60,2/i/90,2/Ic/110  priority=6   cycle=0.1  pi=ghajdu    sciprog=var_gclu   obs_data=ngc6584-center_check1/r/light-curve/ngc6584-center_check1_r_diff_light_curve.txt     uobi=f79080f6 comment="dense coverage"   status=ongoing
-
 OBJECT NGC6402-center    17:37:36.1     -03:14:45.3   seq=1/g/150,1/r/100,1/i/110,1/z/180,1/g/150,1/r/100,1/i/110,1/B/160,1/g/150,1/r/100,1/i/110,1/V/150,1/g/150,1/r/100,1/i/110,1/Ic/130  priority=6 cycle=0.1  pi=ghajdu    sciprog=var_gclu   obs_data=ngc6402-center_check1/r/light-curve/ngc6402-center_check1_r_diff_light_curve.txt     uobi=b8e59c96 comment="dense coverage"   status=ongoing
 
-OBJECT NGC7078-center     21:30:00.5     +12:09:22.1   seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.01  pi=ghajdu    sciprog=var_gclu   obs_data=ngc7078-center_check1/r/light-curve/ngc7078-center_check1_r_diff_light_curve.txt    uobi=b8d1f302    comment="repeat sequence as many times as possible"   status=ongoing
+OBJECT NGC6584-center    18:18:37.6     -52:12:56.8   seq=2/g/50,2/r/60,2/i/90,2/z/180,2/g/50,2/r/60,2/i/90,2/B/80,2/g/50,2/r/60,2/i/90,2/V/70,2/g/50,2/r/60,2/i/90,2/Ic/110  priority=6   cycle=0.1  pi=ghajdu    sciprog=var_gclu   obs_data=ngc6584-center_check1/r/light-curve/ngc6584-center_check1_r_diff_light_curve.txt     uobi=f79080f6 comment="dense coverage"   status=ongoing
+
+OBJECT NGC7078-center    21:30:00.5     +12:09:22.1   seq=2/i/33,2/r/25,2/g/25,2/z/70,2/i/33,2/r/25,2/g/25,2/Ic/50,2/i/33,2/r/25,2/g/25,2/B/35,2/i/33,2/r/25,2/g/25,2/V/35       priority=6   cycle=0.01  pi=ghajdu    sciprog=var_gclu   obs_data=ngc7078-center_check1/r/light-curve/ngc7078-center_check1_r_diff_light_curve.txt    uobi=b8d1f302    comment="repeat sequence as many times as possible"   status=ongoing
 
 
 
