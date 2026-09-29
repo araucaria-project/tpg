@@ -160,8 +160,8 @@ OBJECT V716_Oph 16:30:49.47 -05:30:19.50 seq=2/Ic/14,2/V/7,2/g/7,2/r/5,2/i/8,2/z
 # SCIPROG rrl_mw
 # PI bzgirski
 
-OBJECT AP_Ser 15:14:00.92 +09:58:51.8  seq=2/Ic/6,2/V/4,2/g/4,2/r/2.5,2/i/5,2/z/20   cycle=0.08  ph_mk=2/Ic/0.02  sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase  mV=11.27 P=0.340806 hjd0=2456908.9904   status=ongoing
-OBJECT ASAS_J143322-0418.2  14:33:22.03 -04:18:10.9  seq=2/Ic/5,2/V/2.3,2/g/2.3,2/r/1.7,2/i/3.3,2/z/15 cycle=0.08  ph_mk=2/Ic/0.02  sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase  P=0.249631  mV=10.71   status=ongoing
+OBJECT AP_Ser 15:14:00.92 +09:58:51.8  seq=2/Ic/6,2/V/4,2/g/4,2/r/2.5,2/i/5,2/z/20 priority=5 cycle=0.08  ph_mk=2/Ic/0.02  sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase  mV=11.27 P=0.340806 hjd0=2456908.9904   status=ongoing
+OBJECT ASAS_J143322-0418.2  14:33:22.03 -04:18:10.9  seq=2/Ic/5,2/V/2.3,2/g/2.3,2/r/1.7,2/i/3.3,2/z/15 priority=5 cycle=0.08  ph_mk=2/Ic/0.02  sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase  P=0.249631  mV=10.71   status=ongoing
 OBJECT AA_Aql 20:38:15.07 -02:53:25.01 seq=2/Ic/6.9,2/V/2.8,2/g/2.6,2/r/2.1,2/i/4.2,2/z/20 priority=4 cycle=0.08 ph_mk=2/Ic/0.02 ph_start=0.288 ph_end=0.136 uobi=c64ca884 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3617877 mV=10.53   status=ongoing
 OBJECT AA_Aql 20:38:15.07 -02:53:25.01 seq=2/Ic/6.9,2/V/2.8,2/g/2.6,2/r/2.1,2/i/4.2,2/z/20 priority=5 cycle=0.02 ph_mk=3/Ic/0.007 ph_start=0.136 ph_end=0.288 uobi=80c474b1 sciprog=rrl_mw pi=bzgirski tag=rrl,ascending_branch P=0.3617877 mV=10.53   status=ongoing
 OBJECT AV_Peg 21:52:02.79 +22:34:29.37 seq=2/Ic/3.5,2/V/1.5,2/g/1,2/r/1,2/i/2,2/z/12 priority=6 cycle=0.08 ph_mk=2/Ic/0.02 ph_start=0.251 ph_end=0.039 uobi=bb5ed367 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3903814 mV=11.90   status=ongoing
