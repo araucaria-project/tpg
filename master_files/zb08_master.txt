@@ -376,7 +376,7 @@ OBJECT UY_Boo 13:58:46.34 +12:57:06.46 seq=2/Ic/6,2/V/2.5,2/g/2.4,2/r/1.8,2/i/3.
 # Classical Cepheids in the Milky Way for PLRs, LC templates, BW, metallicity
 # SCIPROG ccep_mw
 # PI ghajdu
-
+OBJECT AY_Sgr    18:23:19.15 -18:34:29.2   status=finished   seq=2/B/8,2/V/2.5,2/Ic/1,2/g/2.5,2/r/0.5,2/i/0.8,2/z/2.5       priority=8  cycle=0.167 ph_mk=2/V/0.01                             uobi=e53e2f2f   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=6.5696422  mV=10.5    comment="T1CepF"
 OBJECT AD_Cru    12:12:59.66 -62:05:48.6 seq=2/B/15,2/V/4,2/Ic/2,2/g/7,2/r/2,2/i/2,2/z/8                 priority=5  cycle=0.167 ph_mk=2/V/0.02                                             sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=6.3972335             comment="G=10.570, Fshortmissing"   status=ongoing
 OBJECT AE_Vel    09:36:51.46 -53:01:58.0 seq=2/B/2,2/V/0.5,2/Ic/0.5,2/g/1.2,2/r/0.5,2/i/0.5,2/z/1.2      priority=5  cycle=0.167 ph_mk=2/V/0.02                             uobi=cc659545   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=7.1339448  mV=10.4    comment="T1CepF"   status=ongoing
 OBJECT ASAS_J182714-1507.1          18:27:13.45 -15:07:04.8 seq=2/B/6,2/V/2,2/Ic/1.7,2/g/3,2/r/1,2/i/1.5,2/z/5       priority=5 cycle=0.167 ph_mk=2/V/0.02                  uobi=a71ab2f9   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=5.5458094  mV=10.7    comment="T1CepF"    status=ongoing
