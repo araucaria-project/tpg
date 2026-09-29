@@ -104,7 +104,6 @@ OBJECT V764_Mon  07:37:43.2004  -07:43:37.985  status=omitted     seq=1/V/0    P
 # SCIPROG ccep_mw
 # PI ghajdu
 
-OBJECT AY_Sgr    18:23:19.15 -18:34:29.2   status=finished   seq=2/B/8,2/V/2.5,2/Ic/1,2/g/2.5,2/r/0.5,2/i/0.8,2/z/2.5       priority=5  cycle=0.167 ph_mk=2/V/0.02                             uobi=e53e2f2f   sciprog=ccep_mw pi=ghajdu tag=ccep,random_phase     P=6.5696422  mV=10.5    comment="T1CepF"
 OBJECT FF_Car    10:44:54.08 -58:17:52.6   status=finished   seq=2/B/60,2/V/18,2/Ic/6,2/g/35,2/r/8,2/i/6,2/z/15              priority=6  cycle=0.125 ph_mk=2/V/0.01 ph_start=0.537 ph_end=0.668 uobi=9b2c4df7   sciprog=ccep_mw pi=ghajdu tag=ccep,ascending_branch P=16.3343552 mV=12.94   comment="T1CepF" 
 OBJECT FQ_Cru    12:22:40.12 -62:09:35.7   status=finished   seq=2/B/30,2/V/7,2/Ic/5,2/g/10,2/r/4,2/i/2.5,2/z/12             priority=6  cycle=0.125 ph_mk=2/V/0.007 ph_start=0.221 ph_end=0.32 uobi=b8a0ecfe   sciprog=ccep_mw pi=ghajdu tag=ccep,ascending_branch P=13.7762812 mV=12.36   comment="T1CepF" 
 OBJECT TV_CMa    07:09:15.41 -13:47:09.9   status=finished   seq=2/B/6,2/V/2.4,2/Ic/2,2/g/4,2/r/1.1,2/i/1.3,2/z/6            priority=6  cycle=0.125 ph_mk=2/V/0.01 ph_start=0.941 ph_end=0.183 uobi=e1094be9   sciprog=ccep_mw pi=ghajdu tag=ccep,ascending_branch P=4.6700971  mV=10.59   comment="T1CepF" 
