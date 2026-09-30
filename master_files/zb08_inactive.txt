@@ -200,7 +200,6 @@ OBJECT NGC2362  07:18:41.0   -24:57:14      status=finished  seq=2/g/3,2/g/30,2/
 OBJECT Pismis11 09:15:53.0   -50:01:00      status=finished  seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=8 cycle=0.2  sciprog=oclu_young pi=apigulski comment="FINISHED, every 3h" last_jd=2461012.8265984766
 OBJECT Pismis11 09:15:53.0   -50:01:00      status=finished  seq=2/g/60,2/g/180,2/r/60,2/r/180 tag=Nwind priority=4 cycle=0.04 sciprog=oclu_young pi=apigulski comment="FINISHED, filler with lower priority, every 1h" last_jd=2461012.8265984766
 
-OBJECT vdBergh92 07:03:55.0  -11:34:30      status=waiting   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
 OBJECT NGC2546A  08:12:19.7  -37:39:40      status=waiting   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90            tag=Nwind    priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
 OBJECT NGC6531   18:04:08.8  -22:31:12      status=waiting   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h, M21"
 
