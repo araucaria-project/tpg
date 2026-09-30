@@ -90,12 +90,12 @@ OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/21,1/V/17,1/Ic/17 t_start=07:50:00 pr
 # SCIPROG agn
 # PI fpozo
 
-OBJECT Mrk1014 01:59:50.25   +00:23:40.86    seq=1/Ic/120,1/y_s/220,1/v_s/300,1/b_s/300,3/u_s/300 priority=9 sciprog=agn pi=fpozo mV=15.9 comment="AGN observe once per night"   status=ongoing
-OBJECT Ark120  05:16:11.41   -00:08:59.15    seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300    priority=8 sciprog=agn pi=fpozo mV=13.9 comment="AGN observe once per night"   status=ongoing
-OBJECT NGC2617 08:35:38.80   -04:05:17.90    seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300    priority=8 sciprog=agn pi=fpozo mV=13.6 cycle=0.09 comment="AGN observe 2-3 times per night"   status=ongoing
-OBJECT WPVS48  09:59:42.64   -31:12:58.49    seq=1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300   priority=9 sciprog=agn pi=fpozo mV=14.8 cycle=0.15     comment="AGN observe twice per night"  status=ongoing
-OBJECT NGC6814 19:42:40.59   -10:19:25.11    seq=1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300   priority=8 sciprog=agn pi=fpozo mV=14.2 cycle=0.14     comment="AGN observe twice per night"  status=ongoing
-OBJECT Mrk509  20:44:09.75   -10:43:24.73    seq=1/Ic/30,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/200     priority=9 sciprog=agn pi=fpozo mV=13.2 comment="AGN observe once per night"   status=ongoing
+OBJECT Mrk1014 01:59:50.25   +00:23:40.86    seq=1/Ic/120,1/y_s/220,1/v_s/300,1/b_s/300,3/u_s/300 priority=8 sciprog=agn pi=fpozo mV=15.9 comment="AGN observe once per night"   status=ongoing
+OBJECT Ark120  05:16:11.41   -00:08:59.15    seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300    priority=7 sciprog=agn pi=fpozo mV=13.9 comment="AGN observe once per night"   status=ongoing
+OBJECT NGC2617 08:35:38.80   -04:05:17.90    seq=1/Ic/30,1/y_s/60,1/v_s/120,1/b_s/90,1/u_s/300    priority=7 sciprog=agn pi=fpozo mV=13.6 cycle=0.12     comment="AGN observe 2-3 times per night"   status=ongoing
+OBJECT WPVS48  09:59:42.64   -31:12:58.49    seq=1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300   priority=8 sciprog=agn pi=fpozo mV=14.8 cycle=0.15     comment="AGN observe twice per night"       status=ongoing
+OBJECT NGC6814 19:42:40.59   -10:19:25.11    seq=1/Ic/75,1/y_s/90,1/v_s/180,1/b_s/180,1/u_s/300   priority=7 sciprog=agn pi=fpozo mV=14.2 cycle=0.14     comment="AGN observe twice per night"       status=ongoing
+OBJECT Mrk509  20:44:09.75   -10:43:24.73    seq=1/Ic/30,1/y_s/60,1/v_s/90,1/b_s/90,1/u_s/200     priority=8 sciprog=agn pi=fpozo mV=13.2 comment="AGN observe once per night"   status=ongoing
 
 
 
@@ -149,7 +149,7 @@ OBJECT TYC1243-402-1 03:41:14.3 +20:12:54 seq=2/B/7,2/V/4.3,2/Ic/5,2/y_s/13,2/v_
 # SCIPROG deb_blue_lmc
 # PI dgraczyk + mtaormina
 # INFO include Stromgren standards when possible from the wk06_master_stromgren.txt
-# INFO The same targets are listed in jk15_master.txt but commented out. Let's see first what is the SNR of observations obtained with WK06 before we move to the bigger telescope
+# INFO The same targets are listed in jk15_inactive.txt with status waiting. Let's see first what is the SNR of observations obtained with WK06 before we move to the bigger telescope
 
 # Primary eclipses
 OBJECT OGLE-LMC-ECL-02851 04:55:02.52 -67:09:51.8 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=9 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.900 ph_end=0.100 sciprog=deb_blue_lmc pi=dgraczyk tag=primary fwhm_max=1.55 P=2.7403695 hjd0=2460000.8225 max_moon_phase=65 mV=14.584    status=ongoing
@@ -172,14 +172,14 @@ OBJECT OGLE-LMC-ECL-06782 05:04:59.05 -70:31:13.9 seq=3/u_s/300,1/v_s/200,1/b_s/
 OBJECT OGLE-LMC-ECL-22270 05:40:47.31 -69:20:28.3 seq=4/u_s/300,1/v_s/300,1/b_s/200,1/y_s/140 priority=8 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.37 ph_end=0.65 sciprog=deb_blue_lmc pi=dgraczyk tag=secondary fwhm_max=1.55 P=5.4139949 hjd0=2460005.2472 max_moon_phase=65 mV=14.014 comment="mI=14.022, SNR 200, 3rd light"    status=ongoing
 
 # Random phase
-OBJECT OGLE-LMC-ECL-02851 04:55:02.52 -67:09:51.8 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=f89655c1 tag=random_phase fwhm_max=1.55 P=2.7403695 max_moon_phase=65 mV=14.584 comment="incl. Stromgren std"    status=ongoing
-OBJECT OGLE-LMC-ECL-12167 05:18:04.71 -69:48:18.9 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=b81f70af tag=random_phase fwhm_max=1.55 P=3.1070289 max_moon_phase=65 mV=14.589 comment="incl. Stromgren std"    status=ongoing
-OBJECT OGLE-LMC-ECL-20299 05:36:10.74 -69:32:02.2 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=1e613ef3 tag=random_phase fwhm_max=1.55 P=5.4139949 max_moon_phase=65 mV=14.493 comment="incl. Stromgren std"    status=ongoing
-OBJECT OGLE-LMC-ECL-23358 05:43:39.34 -69:15:54.9 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=20722bea tag=random_phase fwhm_max=1.55 P=1.7860458 max_moon_phase=65 mV=14.653 comment="incl. Stromgren std"    status=ongoing
-OBJECT OGLE-LMC-ECL-18794 05:32:47.74 -68:37:26.6 seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60   priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=8f72d841 tag=random_phase fwhm_max=1.55 P=5.9468207 max_moon_phase=65 mV=13.416 comment="incl. Stromgren std, SNR 200, 3rd light, incl. Stromgren std"    status=ongoing
-OBJECT OGLE-LMC-ECL-05764 05:02:40.77 -68:24:21.4 seq=4/u_s/300,2/v_s/200,1/b_s/250,1/y_s/180 priority=3 cycle=0.13 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=0d77be79 tag=random_phase fwhm_max=1.55 P=5.7258613 max_moon_phase=65 mV=14.231 comment="mI=14.371, SNR 200, 3rd light, incl. Stromgren std"    status=ongoing
-OBJECT OGLE-LMC-ECL-06782 05:04:59.05 -70:31:13.9 seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100 priority=3 cycle=0.13 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=aaa81616 tag=random_phase fwhm_max=1.55 P=4.270776 max_moon_phase=65 mV=13.714 comment="mI=13.913, SNR 200, 3rd light, incl. Stromgren std"    status=ongoing
-OBJECT OGLE-LMC-ECL-22270 05:40:47.31 -69:20:28.3 seq=4/u_s/300,1/v_s/300,1/b_s/200,1/y_s/140 priority=3 cycle=0.13 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=887367ed tag=random_phase fwhm_max=1.55 P=5.414011 max_moon_phase=65 mV=14.029 comment="mI=14.022, SNR 200, 3rd light, incl. Stromgren std"    status=ongoing
+OBJECT OGLE-LMC-ECL-02851 04:55:02.52 -67:09:51.8 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=f89655c1 tag=random_phase fwhm_max=1.55 P=2.7403695 max_moon_phase=65 mV=14.584     status=ongoing
+OBJECT OGLE-LMC-ECL-12167 05:18:04.71 -69:48:18.9 seq=3/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=b81f70af tag=random_phase fwhm_max=1.55 P=3.1070289 max_moon_phase=65 mV=14.589     status=ongoing
+OBJECT OGLE-LMC-ECL-20299 05:36:10.74 -69:32:02.2 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=1e613ef3 tag=random_phase fwhm_max=1.55 P=5.4139949 max_moon_phase=65 mV=14.493     status=ongoing
+OBJECT OGLE-LMC-ECL-23358 05:43:39.34 -69:15:54.9 seq=3/u_s/300,1/v_s/300,1/b_s/200,1/y_s/160 priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=20722bea tag=random_phase fwhm_max=1.55 P=1.7860458 max_moon_phase=65 mV=14.653     status=ongoing
+OBJECT OGLE-LMC-ECL-18794 05:32:47.74 -68:37:26.6 seq=2/u_s/300,1/v_s/100,1/b_s/80,1/y_s/60   priority=5 cycle=0.12 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=8f72d841 tag=random_phase fwhm_max=1.55 P=5.9468207 max_moon_phase=65 mV=13.416 comment="SNR 200, 3rd light"    status=ongoing
+OBJECT OGLE-LMC-ECL-05764 05:02:40.77 -68:24:21.4 seq=4/u_s/300,2/v_s/200,1/b_s/250,1/y_s/180 priority=3 cycle=0.13 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=0d77be79 tag=random_phase fwhm_max=1.55 P=5.7258613 max_moon_phase=65 mV=14.231 comment="mI=14.371, SNR 200, 3rd light"    status=ongoing
+OBJECT OGLE-LMC-ECL-06782 05:04:59.05 -70:31:13.9 seq=3/u_s/300,1/v_s/200,1/b_s/150,1/y_s/100 priority=3 cycle=0.13 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=aaa81616 tag=random_phase fwhm_max=1.55 P=4.270776  max_moon_phase=65 mV=13.714 comment="mI=13.913, SNR 200, 3rd light"    status=ongoing
+OBJECT OGLE-LMC-ECL-22270 05:40:47.31 -69:20:28.3 seq=4/u_s/300,1/v_s/300,1/b_s/200,1/y_s/140 priority=3 cycle=0.13 ph_mk=2/v_s/0.05 sciprog=deb_blue_lmc pi=dgraczyk uobi=887367ed tag=random_phase fwhm_max=1.55 P=5.414011  max_moon_phase=65 mV=14.029 comment="mI=14.022, SNR 200, 3rd light"    status=ongoing
 
 
 
@@ -187,7 +187,7 @@ OBJECT OGLE-LMC-ECL-22270 05:40:47.31 -69:20:28.3 seq=4/u_s/300,1/v_s/300,1/b_s/
 # SCIPROG cep_c2c_var_mw
 # PI hnetzel
 
-# 10 targets to be observed at leat once per night (higher priority)
+# 10 targets to be observed at least once per night (higher priority)
 OBJECT OGLE-GD-CEP-1884 15:35:46.70 -55:56:56.3 seq=2/B/300,2/V/40,2/Ic/5 P=78.1401185 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=12.8 BP-RP=5.2"    status=ongoing
 OBJECT OGLE-GD-CEP-1859 13:45:14.13 -63:34:15.6 seq=2/B/150,2/V/20,2/Ic/5 P=67.5057177 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=12.5 BP-RP=4.2"    status=ongoing
 OBJECT OGLE-GD-CEP-0889 13:13:50.57 -64:26:28.3 seq=2/B/100,2/V/20,2/Ic/7 P=45.1536783 ph_mk=1/V/0.01 priority=8 pi=hnetzel sciprog=cep_c2c_var_mw comment="mG=13.2 BP-RP=3.0"    status=ongoing
@@ -258,7 +258,7 @@ OBJECT OGLE-GD-CEP-0932 13:35:43.4966 -62:40:02.877 seq=2/B/160,2/V/40,2/Ic/10 p
 # SCIPROG tt_mw
 # PI wogloza
 #
-OBJECT Gaia_DR3_5606987823911441152 06:55:58.1676 -32:33:42.3994 seq=1/B/120,1/V/130,1/Ic/300  cycle=0.001  priority=4  tag=Nwind  pi=wogloza sciprog=tt_mw comment="good for wind from N"    status=ongoing
+OBJECT Gaia_DR3_5606987823911441152 06:55:58.1676 -32:33:42.3994 seq=1/B/120,1/V/130,1/Ic/300  cycle=0.001  priority=3  tag=Nwind  pi=wogloza sciprog=tt_mw comment="good for wind from N"    status=ongoing
 
 
 
@@ -266,8 +266,8 @@ OBJECT Gaia_DR3_5606987823911441152 06:55:58.1676 -32:33:42.3994 seq=1/B/120,1/V
 # SCIPROG oclu_young
 # PI apigulski
 #
-OBJECT NGC3293 10:35:47.9 -58:13:52.4   seq=1/u_s/10,1/u_s/300,1/B/3,1/B/90,1/V/3,1/V/30,1/V/90,1/V/3,1/V/30,1/V/90,1/V/3,1/V/30,1/V/90,1/Ic/3,1/Ic/90   priority=2  cycle=0.001  pi=apigulski sciprog=oclu_young  min_moon_dist=30    status=ongoing
-OBJECT NGC4755 12:53:38.8 -60:22:08.2   seq=1/u_s/10,1/u_s/300,1/B/3,1/B/90,1/V/3,1/V/30,1/V/90,1/V/3,1/V/30,1/V/90,1/V/3,1/V/30,1/V/90,1/Ic/3,1/Ic/90   priority=2  cycle=0.001  pi=apigulski sciprog=oclu_young  min_moon_dist=30    status=ongoing
+OBJECT NGC3293 10:35:47.9 -58:13:52.4   seq=1/u_s/10,1/u_s/300,1/B/3,1/B/90,1/V/3,1/V/30,1/V/90,1/V/3,1/V/30,1/V/90,1/V/3,1/V/30,1/V/90,1/Ic/3,1/Ic/90   priority=3  cycle=0.001  tag=Nwind  pi=apigulski sciprog=oclu_young  min_moon_dist=30    status=ongoing
+OBJECT NGC4755 12:53:38.8 -60:22:08.2   seq=1/u_s/10,1/u_s/300,1/B/3,1/B/90,1/V/3,1/V/30,1/V/90,1/V/3,1/V/30,1/V/90,1/V/3,1/V/30,1/V/90,1/Ic/3,1/Ic/90   priority=3  cycle=0.001  tag=Nwind  pi=apigulski sciprog=oclu_young  min_moon_dist=30    status=ongoing
 
 
 
