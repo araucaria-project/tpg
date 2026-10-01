@@ -168,7 +168,10 @@ class TelescopePlanGenerator():
 
         self.schema = merge_schemas(BASE_SCHEMA, TPG_SCHEMA)
 
-        self.plan_rules = ObsValidator.load_schema("base_rules.yaml")
+        # master-file rules, stricter than base_rules.yaml: tpg needs name/ra/dec/priority
+        # and seq-or-ob_time on every line. base_rules.yaml is still used on export
+        # (see self.export) to filter a plan line down to what TOI accepts.
+        self.plan_rules = ObsValidator.load_schema("tpg_rules.yaml")
         self.validator = ObsValidator(self.schema, self.plan_rules)
 
         self.inactive_statuses = ["finished", "inactive"]
