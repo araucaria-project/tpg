@@ -199,10 +199,8 @@ OBJECT XX_Sgr   18:24:44.50 -16:47:49.8   status=omitted  seq=2/B/2,2/V/0.5,2/Ic
 OBJECT NGC2362  07:18:41.0   -24:57:14      status=finished  seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90 priority=8 cycle=0.06 sciprog=oclu_young pi=apigulski comment="FINISHED, every 1h" 
 
 OBJECT NGC2546A  08:12:19.7  -37:39:40      status=waiting   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90            tag=Nwind    priority=1    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h" 
-OBJECT NGC6531   18:04:08.8  -22:31:12      status=waiting   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90                         priority=8    cycle=0.06    sciprog=oclu_young    pi=apigulski    comment="every 1h, M21"
 
 OBJECT 47_Tuc   00:24:05.359 -72:04:53.20   status=halted    seq=1/B/120,1/V/90,1/Ic/60    priority=2  cycle=0.01  tag=Nwind   pi=apigulski   sciprog=oclu_young  comment="this is not open cluster, observations halted"
-
 OBJECT NGC288   00:52:45.24  -26:34:57.4    status=omitted   seq=1/B/200,1/V/150,1/Ic/100  priority=2  cycle=0.01  tag=Nwind   pi=apigulski   sciprog=oclu_young  comment="this is not open cluster, no observations"
 OBJECT NGC6293  17:10:10.42  -26:34:54.2    status=omitted   seq=0/V/0       sciprog=oclu_young    pi=apigulski   comment="this is not open cluster, no observations"
 OBJECT NGC4755  12:53:39.6   -60:22:16      status=omitted   seq=0/V/0       sciprog=oclu_young    pi=apigulski   comment="should be observed on wk06" 

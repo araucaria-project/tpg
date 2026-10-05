@@ -67,7 +67,6 @@ OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/12,1/V/10,1/Ic/10,1/g/10,1/r/10,1/i/1
 # PI fpozo
 OBJECT HE_0413-4031 04:15:14.4634 -40:23:41.139 seq=2/Ic/25,2/y_s/80,2/v_s/140,2/b_s/100 priority=9 cycle=6.1 h_min=40 sciprog=agn pi=fpozo obs_data=he_0413-4031/Ic/light-curve/he_0413-4031_Ic_diff_light_curve.txt mV=16.5 comment="AGN, observe every 7 days"   status=ongoing
 OBJECT J0529-4351   05:28:31.3789 -43:52:40.69  seq=1/Ic/25,1/y_s/80,1/v_s/140,1/b_s/100 priority=9 cycle=6.1 h_min=40 sciprog=agn pi=fpozo obs_data=j0529-4351/Ic/light-curve/j0529-4351_Ic_diff_light_curve.txt mV=16.3 comment="AGN, observe every 7 days"   status=ongoing
-OBJECT J0029        00:29:11.8114 -43:52:40.56  seq=2/Ic/100,2/y_s/300,4/v_s/300,3/b_s/300,1/u_s/300  priority=9  h_min=40  sciprog=agn pi=fpozo comment="AGN, observe every night"   status=ongoing
 
 
 

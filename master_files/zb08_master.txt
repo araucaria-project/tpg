@@ -452,6 +452,8 @@ OBJECT V520_Vel  08:36:11.37 -39:03:42.3 seq=2/B/8,2/V/1.2,2/Ic/1.0,2/g/4,2/r/1,
 # SCIPROG oclu_young
 # PI apigulski
 
+OBJECT NGC6531   18:04:08.8  -22:31:12   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90 priority=2    cycle=0.04   sciprog=oclu_young    pi=apigulski   comment="every 1h, M21"  status=ongoing
+
 OBJECT NGC6604   18:18:03.0  -12:14:30   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90 priority=7    cycle=0.2    sciprog=oclu_young    pi=apigulski   status=ongoing
 OBJECT NGC6604   18:18:03.0  -12:14:30   seq=2/g/3,2/g/30,2/g/90,2/r/3,2/r/30,2/r/90 priority=3    cycle=0.04   sciprog=oclu_young    pi=apigulski   comment="filler with lower priority, every 1h"    status=ongoing
 
