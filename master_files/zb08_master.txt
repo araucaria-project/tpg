@@ -326,7 +326,6 @@ OBJECT ASAS_J090900-0410.4 09:09:00.08 -04:10:24.67 seq=2/Ic/6,2/V/2.5,2/g/2.4,2
 OBJECT V701_Pup 08:19:32.85 -23:58:10.49 seq=2/Ic/4.5,2/V/2,2/g/1.8,2/r/1.4,2/i/3,2/z/15 priority=4 cycle=0.08 ph_mk=4/Ic/0.015 uobi=decfa5ee sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.285664 mV=10.62 comment="RRc"   status=ongoing
 OBJECT ASAS_J081012-2903.0 08:10:12.06 -29:03:00.69 seq=2/Ic/2.2,2/V/0.9,2/g/0.8,2/r/0.7,2/i/1.4,2/z/6 priority=4 cycle=0.08 ph_mk=3/Ic/0.015 uobi=0b9b3124 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.229656 mV=9.67 comment="RRc"   status=ongoing
 OBJECT RW_Ari 02:16:03.71 +17:31:58.75 seq=2/Ic/19,2/V/8,2/g/9,2/r/6.8,2/i/11,2/z/50 priority=4 cycle=0.08 ph_mk=3/Ic/0.015 uobi=fd862148 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.3542971 mV=12.3 comment="RRc"   status=ongoing
-OBJECT AW_Mic 21:19:05.92 -33:55:07.92 seq=2/Ic/1.2,2/V/0.5,2/g/0.5,2/r/0.5,2/i/0.5,2/z/4 priority=6 cycle=0.08 ph_mk=2/Ic/0.02 uobi=bd7b2075 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.30563 mV=9.05 comment="RRc, BV=0.24"   status=ongoing
 OBJECT SV_Hya 12:30:30.50 -26:02:51.11 seq=2/Ic/4,2/V/1.2,2/g/1,2/r/1,2/i/2,2/z/10 priority=4 cycle=0.08 ph_mk=2/Ic/0.02 uobi=61bed96d sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.4785428 mV=10.54 comment="blazhko, BV=0.28"   status=ongoing
 OBJECT UY_Boo 13:58:46.34 +12:57:06.46 seq=2/Ic/6,2/V/2.5,2/g/2.4,2/r/1.8,2/i/3.6,2/z/16 priority=5 cycle=0.08 ph_mk=2/Ic/0.02 uobi=27c25dfc sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.65083 mV=10.81 comment="blazhko, BV=0.37"   status=ongoing
 

@@ -138,6 +138,7 @@ OBJECT SW_And    00:23:43.08    +29:24:03.62   status=halted      seq=1/Ic/5,1/V
 OBJECT RU_Psc    01:14:26.03    +24:24:56.36   status=halted      seq=2/Ic/3.7,2/V/1.6,2/g/1.6,2/r/1.2,2/i/2.4,2/z/11 priority=4 cycle=0.08 ph_mk=4/Ic/0.015 uobi=35b9c32b sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.390385 mV=10.22 comment="RRc"
 OBJECT RV_Cap    21:01:28.89    -15:13:47.75   status=halted      seq=2/Ic/7.1,2/V/3.1,2/g/2.4,2/r/2.3,2/i/4.4,2/z/18 priority=4 cycle=0.08 ph_mk=2/Ic/0.015 ph_start=0.067 ph_end=0.856 uobi=9e9e3286 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.447745 mV=11.01
 OBJECT RV_Cap    21:01:28.89    -15:13:47.75   status=halted      seq=2/Ic/7.1,2/V/3.1,2/g/2.4,2/r/2.3,2/i/4.4,2/z/18 priority=6 cycle=0.08 ph_mk=3/Ic/0.003 ph_start=0.856 ph_end=0.067 uobi=0641b2ed sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.447745 mV=11.01
+OBJECT AW_Mic    21:19:05.92    -33:55:07.92   status=halted      seq=2/Ic/1.2,2/V/0.5,2/g/0.5,2/r/0.5,2/i/0.5,2/z/4 priority=6 cycle=0.08 ph_mk=2/Ic/0.02 uobi=bd7b2075 sciprog=rrl_mw pi=bzgirski tag=rrl,random_phase P=0.30563 mV=9.05 comment="RRc, BV=0.24, lc doesn't show any pulsations"
 
 
 
