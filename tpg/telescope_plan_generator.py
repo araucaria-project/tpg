@@ -173,7 +173,10 @@ class TelescopePlanGenerator():
         # master-file rules, stricter than base_rules.yaml: tpg needs name/ra/dec/priority
         # and seq-or-ob_time on every line. base_rules.yaml is still used on export
         # (see self.export) to filter a plan line down to what TOI accepts.
-        self.plan_rules = ObsValidator.load_schema("tpg_rules.yaml")
+        # TEMPORARY: tpg_rules.yaml is empty on pyaraucaria master until PR #93 is merged,
+        # so fall back to base_rules.yaml; restore the line below after the merge.
+        # self.plan_rules = ObsValidator.load_schema("tpg_rules.yaml")
+        self.plan_rules = ObsValidator.load_schema("base_rules.yaml")
         self.validator = ObsValidator(self.schema, self.plan_rules)
 
         self.inactive_statuses = ["finished", "inactive"]
