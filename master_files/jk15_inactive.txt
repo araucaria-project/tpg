@@ -32,6 +32,13 @@ OBJECT NGC6025 16:03:07.0 -60:25:48  status=finished  seq=2/B/1,1/B/3,1/B/9,2/B/
 
 
 
+# AGN
+# SCIPROG agn
+# PI fpozo
+OBJECT J0029   00:29:11.8114 -43:52:40.56   status=halted   seq=2/Ic/100,2/y_s/300,4/v_s/300,3/b_s/300,1/u_s/300  priority=9  h_min=40  sciprog=agn pi=fpozo comment="AGN, observe every night"
+
+
+
 # Monitoring globular clusters
 # PI: ghajdu
 # SCIPROG: var_gclu
