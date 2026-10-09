@@ -80,7 +80,8 @@ above stay valid; afterwards they become `uv sync` / `uv run tpg ...`.
 
 if local configuration file exist (path given by `local_config` in config.yaml, by default:
 `~/.config/tpg/local_config.yaml`), specified parameters will be overwritten. The merge is
-shallow — a telescope key present locally replaces that telescope's **whole** block.
+key by key at every level — a local file only needs the fields it changes (typically the
+paths); everything else, e.g. `dome`, comes from `config.yaml`.
 
 ```plainttext
 plan_catalog: ~/tpg_plans/                                      # where plans and logs are saved
@@ -98,6 +99,26 @@ zb08:                                                           # telescope
   moon_dist: 40                                                 # deg, default distance to avoid moon
   def_read_mode: 2                                              # for slot time calculation
 ```
+
+Telescopes on a German equatorial mount (currently only wk06) also get a `dome` block. The dome
+slit is then not at the telescope azimuth, and the wind mask (`--wind`, `wind_dist`) is applied
+to the **dome** azimuth instead. The side of pier is not known in advance, so a minute is masked
+when the dome azimuth for *either* side falls into the wind sector. Without a `dome` block the
+dome is assumed to follow the telescope azimuth (alt-az telescopes).
+
+```plainttext
+wk06:
+  dome:
+    mount: gem          # dome azimuth from GEM geometry, both sides of pier
+    r_dome: 2050        # mm, dome radius
+    spx: -110           # mm, dome center -> ra/dec axes intersection, (+) E / (-) W
+    spy: -110           # mm, dome center -> ra/dec axes intersection, (+) N / (-) S
+    gem: 670            # mm, ra/dec axes intersection -> optical axis
+```
+
+The geometry is a temporary copy of `pyaraucaria.dome_eq` in `tpg/dome_eq.py` (the pyaraucaria
+version only computes for the current moment); once pyaraucaria accepts a time it should be
+used instead and the copy removed.
 
 `overhead` is **seconds per exposure** (readout and similar), not minutes per observing block —
 it is passed to `ObsValidator.calc_seq_time` as its per-exposure term. The only fixed per-block
@@ -215,7 +236,7 @@ array, so **every step can only narrow it, never widen it**. In the order in whi
 | `tag` / `status` / `fwhm_min` / `fwhm_max` | drops the object for the whole night if it does not qualify |
 | altitude | object must be above `h_min` and below `h_max` |
 | `min_moon_dist`, `max_moon_phase` | Moon distance (per minute) and Moon illumination |
-| wind | object inside the forbidden azimuth sector around `--wind` |
+| wind | object (or, with a `dome` block, dome for either side of pier) inside the forbidden azimuth sector around `--wind` |
 | `sunset_dt`, `sunrise_dt` | buffer after the evening / before the morning `hsun` crossing |
 | `cycle` | too soon after the last archival observation |
 | `t_start`, `t_end` | absolute time window |

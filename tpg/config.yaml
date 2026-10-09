@@ -21,8 +21,14 @@ wk06:
   hmin: 35                                                   # min altitude to observe
   hmax: 91                                                   # max altitude to observe
   hsun: -18                                                  # Sun alt to start and stop obs
-  wind_dist: 95                                              # wind distance to avoid in azimuth
+  wind_dist: 30                                              # wind distance to avoid in dome azimuth
   moon_dist: 40                                              # distance to avoid moon
+  dome:                                                      # no block = dome follows telescope azimuth
+    mount: gem                                               # dome azimuth from GEM geometry, both sides of pier
+    r_dome: 2050                                             # [mm] dome radius
+    spx: -110                                                # [mm] dome center -> ra/dec axes, (+) E / (-) W
+    spy: -110                                                # [mm] dome center -> ra/dec axes, (+) N / (-) S
+    gem: 670                                                 # [mm] ra/dec axes -> optical axis
 
 
 zb08:

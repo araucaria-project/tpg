@@ -60,9 +60,9 @@ Two layered YAML configs, merged at runtime in `TelescopePlanGenerator._get_conf
    `wind_dist`, `moon_dist`, `def_read_mode`), plus site coordinates and the `ctc` block
    (readout-mode mapping per telescope).
 2. A local override file at the path in `local_config` (default `~/.config/tpg/local_config.yaml`),
-   loaded if present and merged over the defaults via `dict.update` (shallow — a telescope key
-   present locally replaces that telescope's whole block, it does not deep-merge individual
-   fields). `local_config.yaml` at the repo root is a personal example of this override file, not
+   loaded if present and merged over the defaults via `deep_update` (recursive — a local
+   telescope block only overrides the fields it lists; e.g. wk06's `dome` geometry lives only in
+   `tpg/config.yaml`). `local_config.yaml` at the repo root is a personal example of this override file, not
    something the script reads directly.
 
 `master_file` paths that don't resolve as given are retried relative to the package directory
@@ -103,7 +103,7 @@ morning `hsun` crossing) stored under a named key plus a merged `"all"` key:
 2. `MakeTime` — build the night's minute-resolution time grid (`ephem`-based sunset/sunrise).
 3. `ObjectMask` → `CalcObject` → `MaskVisibility` → `MaskMoon` → `MaskWind` → `MaskTwilight` →
    `MaskCycle` → `MaskStartEnd` → `MaskPhaseStartEnd` → `MaskPhase` — each ANDs a new condition
-   (tag/status/fwhm, altitude limits, moon distance/phase, wind azimuth, sunset/sunrise buffers,
+   (tag/status/fwhm, altitude limits, moon distance/phase, wind vs telescope or (GEM `dome` block) dome azimuth, sunset/sunrise buffers,
    revisit `cycle` from archival light-curve data, absolute time windows, phase-fold windows,
    phase-coverage-based masking) into `visibility["all"]`.
 4. `Waga` / `RandomizeList` — assign each object a weight favoring scarce visibility windows,

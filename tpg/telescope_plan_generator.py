@@ -9,6 +9,8 @@ from tqdm import tqdm
 from pyaraucaria.obs_plan.obs_plan_parser import ObsPlanParser
 from pyaraucaria.ob_validator import ObsValidator
 
+from .dome_eq import dome_eq_azimuth
+
 try:
     from ctc import CycleTimeCalc
     CTC_AVAILABLE = True
@@ -101,7 +103,7 @@ class TelescopePlanGenerator():
         if os.path.exists(local_config_file):
             with open(local_config_file) as f:
                 local_cfg = yaml.safe_load(f) or {}
-                self.cfg.update(local_cfg)
+                deep_update(self.cfg, local_cfg)
                 txt = f'local config loaded from {local_config_file}'
                 self.log_msg(txt)
 
@@ -396,6 +398,7 @@ class TelescopePlanGenerator():
 
             alt = []
             az = []
+            ha = []
             moon_sep = []
             moon_phase = []
 
@@ -407,10 +410,22 @@ class TelescopePlanGenerator():
 
                 alt.append(float(s.alt) * 180.0 / ephem.pi)
                 az.append(float(s.az) * 180.0 / ephem.pi)
+                ha.append(float(s.ha) * 180.0 / ephem.pi)
                 moon_sep.append(float(ephem.separation(s, moon)) * 180.0 / ephem.pi)
                 moon_phase.append(float(moon.phase))
 
             ob["calc"] = {"alt": alt,"az": az,"moon_sep": moon_sep,"moon_phase": moon_phase}
+
+            # GEM: dome slit is off the telescope azimuth, and side of pier is not known in
+            # advance, so keep the dome azimuth for both sides (0 = east, 1 = west)
+            dome = self.cfg[self.tel].get("dome")
+            if dome and dome.get("mount") == "gem":
+                ob["calc"]["dome_az"] = [
+                    dome_eq_azimuth(az, alt, ha, r_dome=dome["r_dome"], spx=dome["spx"],
+                                    spy=dome["spy"], gem=dome["gem"], side_of_pier=side,
+                                    latitude=self.cfg["obs_lat"]).tolist()
+                    for side in (0, 1)
+                ]
 
     def MaskVisibility(self):
         for ob in tqdm(self.ob, desc="Masking visibility"):
@@ -478,7 +493,9 @@ class TelescopePlanGenerator():
             if "calc" not in ob.keys():
                 continue
 
-            az = ob["calc"]["az"]
+            # dome azimuth for every side of pier if known, telescope azimuth otherwise;
+            # a minute is masked when any of them is too close to the wind
+            az_list = ob["calc"].get("dome_az", [ob["calc"]["az"]])
             vis = ob["visibility"]["all"]
 
             wind_dist = float(self.cfg[self.tel]["wind_dist"])
@@ -489,12 +506,13 @@ class TelescopePlanGenerator():
                 ok = vis[i]
 
                 if ok:
-                    dist = abs(self.wind - float(az[i]))
-                    if dist > 180:
-                        dist = abs(360 - dist)
+                    for az in az_list:
+                        dist = abs(self.wind - float(az[i]))
+                        if dist > 180:
+                            dist = abs(360 - dist)
 
-                    if dist < wind_dist:
-                        ok = False
+                        if dist < wind_dist:
+                            ok = False
 
                 new_vis.append(ok)
 
@@ -1024,6 +1042,16 @@ def d_ver(slownik,klucze):
             else:
                 result = False
     return result
+
+def deep_update(base: dict, extra: dict) -> dict:
+    # merge extra into base in place, key by key at every level - a local config
+    # overrides single fields of a telescope block instead of replacing the whole block
+    for k, v in extra.items():
+        if isinstance(v, dict) and isinstance(base.get(k), dict):
+            deep_update(base[k], v)
+        else:
+            base[k] = v
+    return base
 
 def merge_schemas(base: dict, extra: dict) -> dict:
     merged = base.copy()
