@@ -4,6 +4,7 @@ import numpy
 import pytest
 
 from conftest import TEL, obj, run_cascade
+from tpg.telescope_plan_generator import NoObservableObjects
 
 
 def alokuj(p, seed=1):
@@ -55,6 +56,18 @@ class TestWeights:
         p = run_cascade(make_gen([obj(h_min=89)]))
 
         with pytest.raises(ValueError, match="No observable objects"):
+            p.Waga()
+
+    def test_missing_tag_is_reported_as_such(self, make_gen):
+        p = run_cascade(make_gen([obj(name="bez_tagu")], tag="night_monitor"))
+
+        with pytest.raises(NoObservableObjects, match="no object in master file has tag 'night_monitor'"):
+            p.Waga()
+
+    def test_tagged_but_invisible_is_not_reported_as_missing_tag(self, make_gen):
+        p = run_cascade(make_gen([obj(tag="night_monitor", h_min=89)], tag="night_monitor"))
+
+        with pytest.raises(NoObservableObjects, match="none of 1 objects is observable"):
             p.Waga()
 
     def test_same_seed_gives_same_order(self, make_gen):
@@ -263,3 +276,68 @@ class TestGoldenPlan:
             if z and p.ob[int(p.nightObject[n])]["name"] == "gamma"
         )
         assert p.nightTime[start] >= ephem.Date("2026/08/13 05:00:00")
+
+
+class TestNightMonitor:
+    def nm(self, make_gen, lines, gap=30, seed=1):
+        p = make_gen(lines, night_monitor=True, tel_cfg={"night_monitor_gap": gap})
+        return alokuj(p, seed=seed)
+
+    def starty(self, p):
+        return [n for n, zmiana in enumerate(p.nightObChange) if zmiana]
+
+    def test_only_night_monitor_tag_is_allocated(self, make_gen):
+        p = self.nm(make_gen, [obj(name="mon", tag="night_monitor"), obj(name="zwykly")])
+
+        assert set(kolejnosc(p)) == {"mon"}
+
+    def test_object_is_repeated_with_gap(self, make_gen):
+        gap = 30
+        p = self.nm(make_gen, [obj(name="mon", tag="night_monitor")], gap=gap)
+
+        starty = self.starty(p)
+        assert len(starty) > 3
+        slots = int(float(p.ob[0]["slotTime"]))
+        vis_all = p.ob[0]["visibility"]["all"]
+        for a, b in zip(starty, starty[1:]):
+            # obserwacja zajmuje slots+1 minut, potem co najmniej gap wolnych minut;
+            # dluzej tylko wtedy, gdy obiekt akurat nie byl widoczny (np. hmax przy gorowaniu)
+            koniec_przerwy = a + slots + 1 + gap
+            assert b >= koniec_przerwy
+            if all(vis_all[koniec_przerwy:koniec_przerwy + slots + 1]):
+                assert b == koniec_przerwy
+            assert all(p.nightFree[a + slots + 1:b])
+
+    def test_gap_becomes_wait_ut_in_plan(self, make_gen):
+        p = self.nm(make_gen, [obj(name="mon", tag="night_monitor")])
+        p.export()
+
+        obiekty = [i for i, l in enumerate(p.plan) if l.startswith("OBJECT")]
+        for i in obiekty[1:]:
+            assert p.plan[i - 1].startswith("WAIT ut=")
+
+    def test_higher_priority_wins_when_available(self, make_gen):
+        p = self.nm(make_gen, [
+            obj(name="niski", tag="night_monitor", priority=1),
+            obj(name="wysoki", tag="night_monitor", priority=9),
+        ])
+
+        assert set(kolejnosc(p)) == {"wysoki"}
+
+    def test_lower_priority_fills_when_higher_not_visible(self, make_gen):
+        p = self.nm(make_gen, [
+            obj(name="niski", tag="night_monitor", priority=1),
+            obj(name="wysoki", tag="night_monitor", priority=9, h_min=70),
+        ])
+
+        assert set(kolejnosc(p)) == {"niski", "wysoki"}
+
+    def test_equal_priority_is_redrawn_each_step(self, make_gen):
+        p = self.nm(make_gen, [obj(name=f"m{i}", tag="night_monitor") for i in range(3)])
+
+        assert len(set(kolejnosc(p))) == 3
+
+    def test_cycle_still_blocks_repeat(self, make_gen):
+        p = self.nm(make_gen, [obj(name="mon", tag="night_monitor", cycle=1)])
+
+        assert kolejnosc(p) == ["mon"]

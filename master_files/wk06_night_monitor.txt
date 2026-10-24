@@ -1,0 +1,14 @@
+# wk06 objects for --night_monitor mode, kept out of wk06_master.txt so they never enter regular plans
+# usage: poetry run tpg wk06 yyyy/mm/dd --night_monitor --master_file master_files/wk06_night_monitor.txt
+# every object here needs tag=night_monitor; higher priority wins when available
+
+OBJECT TPHE 00:30:33 -46:28:30 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
+OBJECT SA95 03:53:32 -00:00:50 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
+OBJECT SA98 06:52:11 -00:19:18 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
+OBJECT RU149 07:24:14 -00:31:41 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
+OBJECT RU152 07:29:56 -02:05:39 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
+OBJECT SF0841-022 08:43:52 -02:25:15 seq=1/B/31,1/V/25,1/Ic/25 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst., new field"
+OBJECT LSE44 13:52:52 -48:08:50 seq=1/B/11,1/V/9,1/Ic/9 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst., new field"
+OBJECT LSE259 16:53:56 -56:00:30 seq=1/B/11,1/V/9,1/Ic/9 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst., new field"
+OBJECT SA110 18:42:51 +00:05:40 seq=1/B/31,1/V/25,1/Ic/25 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
+OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/21,1/V/17,1/Ic/17 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst., new subfield"

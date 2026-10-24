@@ -22,7 +22,8 @@ poetry update
 Run the generator:
 ```
 poetry run tpg {wk06,zb08,jk15,iris,test} yyyy/mm/dd [hh:mm:ss] [--tag TAG] [--wind DEG] [--fwhm FWHM] \
-    [--seed N] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file PATH]
+    [--seed N] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file PATH] \
+    [--night_monitor]
 ```
 Example (see README.md for the full argument table and master-file syntax):
 ```
@@ -45,8 +46,8 @@ Run the test suite (pytest, in the `dev` dependency group):
 poetry install --with dev
 poetry run pytest
 ```
-`tests/` covers the mask cascade, the allocator and plan export. Two things to know before
-adding tests: `tests/conftest.py` replaces the whole config after `Initiate()` so the
+`tests/` covers the mask cascade, the allocator (including `--night_monitor`) and plan export.
+Two things to know before adding tests: `tests/conftest.py` replaces the whole config after `Initiate()` so the
 developer's `~/.config/tpg/local_config.yaml` cannot leak into results, and expectations that
 depend on ephemerides are derived from `ob["calc"]` rather than hardcoded. There is no lint
 config. For manual checks, run `tpg` against the `test` telescope config and inspect stdout/the
@@ -57,8 +58,8 @@ generated plan and log files.
 Two layered YAML configs, merged at runtime in `TelescopePlanGenerator._get_config()`:
 1. `tpg/config.yaml` — packaged defaults, one block per telescope (`master_file`,
    `start_makro`/`end_makro` paths, `data_file` archive dir, `overhead`, `hmin`/`hmax`, `hsun`,
-   `wind_dist`, `moon_dist`, `def_read_mode`), plus site coordinates and the `ctc` block
-   (readout-mode mapping per telescope).
+   `wind_dist`, `moon_dist`, `def_read_mode`, `night_monitor_gap`), plus site coordinates and the
+   `ctc` block (readout-mode mapping per telescope).
 2. A local override file at the path in `local_config` (default `~/.config/tpg/local_config.yaml`),
    loaded if present and merged over the defaults via `deep_update` (recursive — a local
    telescope block only overrides the fields it lists; e.g. wk06's `dome` geometry lives only in
@@ -73,8 +74,10 @@ Two layered YAML configs, merged at runtime in `TelescopePlanGenerator._get_conf
 `master_files/*.txt` are the tracked, hand-edited source of truth for observing targets (one
 per telescope, e.g. `zb08_master.txt`, `jk15_master.txt`); commits like "updated exposure times"
 or activating/deactivating targets are routine edits to these files, not code changes.
-`makro/*.txt` are reusable TOI-readable macro blocks a master-file line can splice in via
-`makro=path`. `plans/` is git-ignored — it holds generated nightly plans and their `_log.txt`
+`master_files/{tel}_night_monitor.txt` hold the objects for `--night_monitor` mode and are passed
+with `--master_file`; they are deliberately kept out of the regular master files, where they would
+leak into normal plans as gap fillers even at `priority=0`. `makro/*.txt` are reusable
+TOI-readable macro blocks a master-file line can splice in via `makro=path`. `plans/` is git-ignored — it holds generated nightly plans and their `_log.txt`
 siblings, numbered `{tel}_{yyyymmdd}_{n}.txt`.
 
 Each master-file line is parsed by `pyaraucaria.obs_plan.obs_plan_parser.ObsPlanParser` and
@@ -107,11 +110,17 @@ morning `hsun` crossing) stored under a named key plus a merged `"all"` key:
    revisit `cycle` from archival light-curve data, absolute time windows, phase-fold windows,
    phase-coverage-based masking) into `visibility["all"]`.
 4. `Waga` / `RandomizeList` — assign each object a weight favoring scarce visibility windows,
-   then draw a random allocation order (seeded, reproducible via `--seed`).
+   then draw a random allocation order (seeded, reproducible via `--seed`). `Waga` raises
+   `NoObservableObjects` (a `ValueError`) when nothing is observable; the CLI turns it into a
+   one-line stderr message and exit code 1.
 5. `allocate` — walk the night minute-by-minute; at each free minute, scan the random order for
    the highest-priority object that both fits contiguously in its remaining slot time and stays
    visible throughout, schedule it, and either remove it (no `cycle`) or re-mask it until
    `cycle` days later. Objects sharing a `uobi` are allocated/removed as one unit.
+   With `--night_monitor` (implies tag `night_monitor`) `allocate` delegates to
+   `_allocate_night_monitor`: objects stay in the pool, at each free minute one of the fitting
+   highest-priority objects is drawn at random, and `night_monitor_gap` minutes after each
+   observation are left free (export turns them into `WAIT ut=...`).
 6. `export` — emit `WAIT ut=...` gaps and OBJECT lines (or spliced `makro=` file contents,
    filtered to schema-allowed keys) in plan order, then prepend/append `start_makro`/`end_makro`.
 7. `SavePlan` — write the plan and its log to `plan_catalog`, auto-numbering per telescope/date.

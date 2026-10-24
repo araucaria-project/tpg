@@ -23,6 +23,7 @@ wk06:
   hsun: -18                                                  # Sun alt to start and stop obs
   wind_dist: 30                                              # wind distance to avoid in dome azimuth
   moon_dist: 40                                              # distance to avoid moon
+  night_monitor_gap: 30                                      # [min] break between observations in --night_monitor mode
   dome:                                                      # no block = dome follows telescope azimuth
     mount: gem                                               # dome azimuth from GEM geometry, both sides of pier
     r_dome: 2050                                             # [mm] dome radius
@@ -43,6 +44,7 @@ zb08:
   hsun: -18
   wind_dist: 95
   moon_dist: 40
+  night_monitor_gap: 30
 
 jk15:
   master_file: /home/observer/src/tpg/master_files/jk15_master.txt        # file with OB definitions
@@ -56,6 +58,7 @@ jk15:
   hsun: -18
   wind_dist: 95
   moon_dist: 40
+  night_monitor_gap: 30
 
 iris:
   master_file: /home/observer/src/tpg/master_files/iris_master.txt        # file with OB definitions
@@ -69,6 +72,7 @@ iris:
   hsun: -18
   wind_dist: 95
   moon_dist: 40
+  night_monitor_gap: 30
 
 test:
   master_file: ./test/test_master.txt
@@ -80,6 +84,7 @@ test:
   hsun: -18
   wind_dist: 95
   moon_dist: 40
+  night_monitor_gap: 30
 
 
 ctc:

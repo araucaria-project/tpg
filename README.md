@@ -8,7 +8,7 @@ Script creates files readable by *TOI* and *TEXTUI*.
 
 ### RUNNING THE SCRIPT
 ```
-poetry run tpg {wk06,zb08,jk15,iris,test} date [ut] [--tag TAG] [--wind WIND] [--fwhm FWHM] [--seed SEED] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file MASTER_FILE]
+poetry run tpg {wk06,zb08,jk15,iris,test} date [ut] [--tag TAG] [--wind WIND] [--fwhm FWHM] [--seed SEED] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file MASTER_FILE] [--night_monitor]
 date: YYYY/MM/DD [hh:mm:ss] 
 ```
 
@@ -17,6 +17,7 @@ poetry run tpg zb08 2023/08/1
 poetry run tpg wk06 2023/08/1 03:45:00 --no_start_makro
 poetry run tpg wk06 2023/08/1 --seed 101010  --wind 124
 poetry run tpg wk06 2023/08/1 --loud --tag stromgren
+poetry run tpg zb08 2023/08/1 --night_monitor --master_file master_files/zb08_night_monitor.txt
 ```
 If `ut` is specified, the plan will **start at UT**.
 If it's not specified, it will **start at sunset** (defined by `hsun` in ```config.yaml```)
@@ -26,6 +27,10 @@ By default the generated plan is saved automatically to `plan_catalog` (see `con
 to skip this. stdout is **not** a clean plan file — it interleaves the plan's `WAIT`/`OBJECT` lines
 with diagnostic messages (config loaded, sunset/sunrise, random seed, makro status, etc.), so
 redirecting it (e.g. `>| plan.txt`) will not produce a valid TOI/TEXTUI plan.
+
+If nothing can be allocated, tpg prints a one-line reason to stderr and exits with code 1, without
+saving a plan: either no object in the master file has the required tag (`--tag` / `--night_monitor`),
+or no object survives the visibility masks this night (`--loud` shows which mask drops them).
 
 | Argument                    | desription                                                                             |
 | --------------------------- |----------------------------------------------------------------------------------------|
@@ -41,6 +46,7 @@ redirecting it (e.g. `>| plan.txt`) will not produce a valid TOI/TEXTUI plan.
 | `--no_start_makro`          | disables adding **makro** at the beginning of the plan.                                |
 | `--no_end_makro`            | disables adding **makro** at the end of the plan.                                      |
 | `--master_file MASTER_FILE` | override the master file configured for `tel`.                                         |
+| `--night_monitor`           | monitoring mode: only `tag=night_monitor` objects, repeated, with `night_monitor_gap` minutes break (see below). |
 
 
 
@@ -98,6 +104,7 @@ zb08:                                                           # telescope
   wind_dist: 95                                                 # deg, wind sector to avoid in azimuth
   moon_dist: 40                                                 # deg, default distance to avoid moon
   def_read_mode: 2                                              # for slot time calculation
+  night_monitor_gap: 30                                         # min, break between observations in --night_monitor mode (default 30)
 ```
 
 Telescopes on a German equatorial mount (currently only wk06) also get a `dome` block. The dome
@@ -290,6 +297,19 @@ still free.
 and jumps to the next possible time.
 
 The process repeats until the morning Sun altitude limit is reached.
+
+**`--night_monitor` mode** replaces steps 2–5: only objects tagged `night_monitor` are considered
+(the mode implies `--tag night_monitor`), and they are **not** removed after allocation. At each
+step the candidates that fit are narrowed to the highest priority and one of them is drawn
+at random (re-drawn every step, reproducible with `--seed`). After each observation the next
+`night_monitor_gap` minutes (per-telescope config key, default 30) are left free, which the
+export turns into `WAIT ut=...`. `cycle` still applies: an object with `cycle` drops out for
+`cycle` days after its first allocation.
+
+Keep night-monitor objects in a **separate master file** (`master_files/{tel}_night_monitor.txt`) and
+pass it with `--master_file`. In the regular master file they would be ordinary candidates in normal
+runs too — even at `priority=0` they fill slots where nothing else fits, and their mere presence
+changes the random draw for a given `--seed`.
 
 #### 4. Final plan construction
 After allocation:

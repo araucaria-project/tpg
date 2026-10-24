@@ -7,7 +7,8 @@
 # ./tpg.py zb08 2019/08/20  >| plan.txt
 
 import argparse
-from .telescope_plan_generator import TelescopePlanGenerator as tpg
+import sys
+from .telescope_plan_generator import TelescopePlanGenerator as tpg, NoObservableObjects
 
 
 class main:
@@ -25,6 +26,7 @@ class main:
     argparser.add_argument("--no_start_makro", action="store_false", help='do not add makro at the plan beginning')
     argparser.add_argument("--no_end_makro", action="store_false", help='do not add makro at the plan end')
     argparser.add_argument("--master_file", type=str, default=None, help='specify master file')
+    argparser.add_argument("--night_monitor", action="store_true", help='monitor objects tagged night_monitor, with night_monitor_gap break between observations')
 
 
 
@@ -41,8 +43,13 @@ class main:
             add_start_makro=args.no_start_makro,
             add_end_makro=args.no_end_makro,
             master_file=args.master_file,
-            done_uobi=[])
-    p.go()
+            done_uobi=[],
+            night_monitor=args.night_monitor)
+    try:
+        p.go()
+    except NoObservableObjects as e:
+        sys.stderr.write(f"tpg: {e}\n")
+        sys.exit(1)
 
 ####### SCRIPT RUN
     

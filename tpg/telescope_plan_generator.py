@@ -18,8 +18,12 @@ except ImportError:
     CTC_AVAILABLE = False
 
 
+class NoObservableObjects(ValueError):
+    """Nothing can be allocated this night - the CLI reports it without a traceback."""
+
+
 class TelescopePlanGenerator():
-    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, use_ctc=True, master_file=None, done_uobi=[]):
+    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, use_ctc=True, master_file=None, done_uobi=[], night_monitor=False):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.arg_date = date
@@ -36,6 +40,9 @@ class TelescopePlanGenerator():
         self.save_plan = bool(save_plan)
         self.use_ctc = bool(use_ctc)
         self.master_file = master_file
+        self.night_monitor = bool(night_monitor)
+        if self.night_monitor:
+            self.tag = "night_monitor"
 
         self.msg = ""
 
@@ -769,7 +776,7 @@ class TelescopePlanGenerator():
         any_observable = False
 
         if len(self.ob)==0:
-            raise ValueError("No observable objects!")
+            raise NoObservableObjects("No observable objects! master file has no objects")
 
         for ob in self.ob:
             if not d_ver(ob, ["name", "visibility"]):
@@ -790,7 +797,11 @@ class TelescopePlanGenerator():
             ob["waga"] = waga
 
         if not any_observable:
-            raise ValueError("No observable objects!")
+            if self.tag and all("tag" in ob.get("visibility", {}) for ob in self.ob):
+                txt = f"No observable objects! no object in master file has tag '{self.tag}'"
+            else:
+                txt = f"No observable objects! none of {len(self.ob)} objects is observable this night (--loud shows which mask drops them)"
+            raise NoObservableObjects(txt)
 
     def RandomizeList(self):
         # --- obiekty możliwe do losowania ---
@@ -821,6 +832,9 @@ class TelescopePlanGenerator():
         self.random_index_list = numpy.random.choice(indices, size=len(indices), replace=False, p=probability)
 
     def allocate(self):
+        if self.night_monitor:
+            self._allocate_night_monitor()
+            return
         for nn, tmp in enumerate(self.nightTime):
             if self.nightFree[nn]:
 
@@ -881,6 +895,57 @@ class TelescopePlanGenerator():
                     self.random_index_list = numpy.delete(self.random_index_list, del_list)
 
 
+
+    def _allocate_night_monitor(self):
+        # tryb --night_monitor: obiekty nie znikaja z listy po alokacji, w kazdym kroku
+        # losujemy od nowa sposrod najwyzszego priorytetu, a po obserwacji zostawiamy
+        # przerwe night_monitor_gap minut (export wstawi tam WAIT ut=...)
+        gap = int(self.cfg[self.tel].get("night_monitor_gap", 30))
+        txt = f'night_monitor gap: {gap} min\n'
+        self.log_msg(txt, always_loud=False)
+
+        next_free = 0
+        for nn in range(len(self.nightTime)):
+            if nn < next_free or not self.nightFree[nn]:
+                continue
+
+            kandydaci = []
+            priormax = -1
+            for k in self.random_index_list:
+                prior = int(self.ob[k]["priority"])
+                if prior < 0 or prior < priormax:
+                    continue
+                slots = int(float(self.ob[k]["slotTime"]))
+                bounds = (nn, nn + slots)
+                if bounds[1] + 1 > len(self.nightFree):
+                    continue
+                visibility = self.ob[k]["visibility"]["all"]
+                if all(self.nightFree[bounds[0]:bounds[1] + 1]) and all(visibility[bounds[0]:bounds[1] + 1]):
+                    if prior > priormax:
+                        priormax = prior
+                        kandydaci = []
+                    kandydaci.append((k, bounds))
+
+            if not kandydaci:
+                continue
+
+            kfin, bfin = kandydaci[numpy.random.randint(len(kandydaci))]
+            self.nightFree[bfin[0]:bfin[1] + 1] = [False] * ((bfin[1] + 1) - bfin[0])
+            self.nightObject[bfin[0]:bfin[1] + 1] = [int(kfin)] * ((bfin[1] + 1) - bfin[0])
+            self.nightObChange[bfin[0]] = True
+            next_free = bfin[1] + 1 + gap
+
+            # cycle nadal dziala - obiekt (i jego grupa uobi) wypada na cycle dni
+            uobi_tmp = str(self.ob[kfin].get("uobi", "")).strip()
+            if uobi_tmp:
+                grupa = [i for i, item in enumerate(self.ob) if item.get("uobi") == uobi_tmp]
+            else:
+                grupa = [kfin]
+            for q in grupa:
+                if self.ob[q].get("cycle", None):
+                    dn = int(1440 * float(self.ob[q]["cycle"]))  # 1440 minut ma doba
+                    dn = min(dn, len(self.ob[q]["visibility"]["all"][nn:]))
+                    self.ob[q]["visibility"]["all"][nn:nn + dn] = [False] * dn
 
     def export(self):
 
