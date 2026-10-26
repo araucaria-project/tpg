@@ -335,7 +335,7 @@ Objects → Predicted slot time
 
 `sfs` picks the field for twilight sky flats, separately for the evening and the morning session:
 ```
-poetry run sfs {wk06,zb08,jk15,iris,test} yyyy/mm/dd [--evening | --morning] [--wind DEG] [--fields_file PATH] [--loud]
+poetry run sfs {wk06,zb08,jk15,iris,test} yyyy/mm/dd [--evening | --morning] [--wind DEG] [--fields_file PATH] [--history FILE.json] [--loud]
 ```
 The date is the night (evening) date, as in tpg. Without `--evening`/`--morning` both sessions are
 printed. Output per session is a comment line with the session window and the chosen field line
@@ -352,6 +352,18 @@ zenith on the anti-solar vertical (Chromey & Hasselbacher 1996, PASP 108, 944). 
 this favours the highest field opposite the Sun.
 * If no field passes the masks for the whole session, the one visible for the longest part of it
 is chosen and marked as fallback (`WARNING` in the output).
+* **Filters**: `skyflat.groups` (per telescope) is an ordered list of filter groups, from the
+filter needing the most light (darkest flats) to the least, e.g. for jk15
+`[[Hb_n], [Ha_n], [u_s, b_s, v_s, y_s], [B, V, Ic]]`; the number of groups is the number of
+filters one session can do on that telescope. From every group sfs takes the filter with the
+oldest flats (never taken = oldest; ties keep the group order). The evening goes in group order
+(the sky gets darker), the morning in reverse. Ages are counted to the session start.
+* **Flat history** (`--history`): JSON in the flat_overwatch format,
+`{"V": {"last_flats": "2026-10-10T23:00:00", ...}, "u": {"last_flats": null}, ...}` (a bare
+`{"V": "2026-10-10T23:00:00"}` works too), or `{"evening": {...}, "morning": {...}}` for separate
+session histories. Filters missing from the history are treated as never taken; without
+`--history` the first filter of every group is taken. Output gets a `# filters: ...` line in
+observing order with the age of each filter's flats.
 
 Configuration: defaults in the top-level `skyflat:` block of `config.yaml` (`hsun`, `hmin`,
 `hmax`, `sun_az_dist`, optionally `moon_dist`/`wind_dist`, which otherwise come from the telescope

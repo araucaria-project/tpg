@@ -106,8 +106,9 @@ miniature — `go()` runs `Initiate` / `LoadFields` / `MakeTime` / `CalcFields`,
 mean distance to the gradient null point 13 deg from zenith opposite the Sun). It deliberately
 does not import `telescope_plan_generator.py` (astropy/pyaraucaria/ctc): shared config loading
 (`load_config`, `deep_update`, `resolve_path`) lives in `tpg/config.py`, the GEM dome geometry in
-`tpg/dome_eq.py`. Filter selection per session (ordered filter groups, oldest flats first) is the
-planned next stage.
+`tpg/dome_eq.py`. `SelectFilters` (after `Rank`) picks one filter per `skyflat.groups` group —
+oldest flats in the given history first — via the pure function `select_filters`; evening in group
+order, morning reversed.
 
 ## Generation pipeline
 

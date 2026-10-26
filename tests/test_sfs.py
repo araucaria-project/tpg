@@ -4,11 +4,14 @@ Te same zasady co w conftest.py: config podajemy w calosci (bez config.yaml i lo
 override'u), a oczekiwania zalezne od efemeryd wyprowadzamy z `field["calc"]` / `s.sun`.
 """
 
+import math
+
 import ephem
 import numpy
 import pytest
 
-from tpg.sfs import SkyflatSelector, NoSkyflatField, load_fields, az_dist, ang_dist, NULL_POINT_ZD
+from tpg.sfs import (SkyflatSelector, NoSkyflatField, load_fields, az_dist, ang_dist, NULL_POINT_ZD,
+                     select_filters, flat_age)
 
 from conftest import SITE, TEL, TEL_CFG, DATE
 
@@ -247,3 +250,71 @@ class TestGeometry:
         assert ang_dist(90, 0, 90, 123) == pytest.approx(0, abs=1e-6)
         assert ang_dist(0, 0, 0, 90) == pytest.approx(90)
         assert ang_dist(77, 10, 70, 10) == pytest.approx(7)
+
+
+GROUPS = [["Hb_n"], ["u_s", "b_s", "v_s"], ["B", "V", "Ic"]]
+WHEN = ephem.Date("2026/10/27 00:00:00")
+
+
+class TestFilters:
+    def test_flat_age_formats(self):
+        assert flat_age({"last_flats": "2026-10-26T00:00:00", "last_obs": None}, WHEN) == pytest.approx(1.0)
+        assert flat_age("2026-10-25T12:00:00", WHEN) == pytest.approx(1.5)
+        assert flat_age("2026-10-26T00:00:00+00:00", WHEN) == pytest.approx(1.0)
+        assert math.isinf(flat_age({"last_flats": None}, WHEN))
+        assert math.isinf(flat_age(None, WHEN))
+        # flaty "z przyszlosci" (np. historia zapisana po sesji) nie daja ujemnego wieku
+        assert flat_age("2026-10-28T00:00:00", WHEN) == 0.0
+
+    def test_oldest_from_every_group_evening_order(self):
+        history = {
+            "Hb_n": {"last_flats": "2026-10-20T23:00:00"},
+            "u_s": {"last_flats": "2026-10-01T23:00:00"},
+            "b_s": {"last_flats": "2026-09-01T23:00:00"},
+            "v_s": {"last_flats": "2026-10-25T23:00:00"},
+            "B": {"last_flats": "2026-10-25T23:00:00"},
+            "V": {"last_flats": "2026-10-10T23:00:00"},
+            "Ic": {"last_flats": "2026-10-24T23:00:00"},
+        }
+
+        chosen = select_filters(GROUPS, history, "evening", WHEN)
+
+        assert [c["filter"] for c in chosen] == ["Hb_n", "b_s", "V"]
+
+    def test_morning_is_reversed(self):
+        evening = select_filters(GROUPS, {}, "evening", WHEN)
+        morning = select_filters(GROUPS, {}, "morning", WHEN)
+
+        assert morning == evening[::-1]
+
+    def test_never_taken_wins_and_ties_keep_group_order(self):
+        history = {"u_s": {"last_flats": "2026-01-01T00:00:00"}, "b_s": {"last_flats": None},
+                   "B": {"last_flats": "2026-10-20T00:00:00"}, "V": {"last_flats": "2026-10-20T00:00:00"},
+                   "Ic": {"last_flats": "2026-10-20T00:00:00"}}
+
+        chosen = select_filters(GROUPS, history, "evening", WHEN)
+
+        # Hb_n i v_s nie ma w historii - tez "never"; b_s jest pierwszym "never" w swojej grupie
+        assert [c["filter"] for c in chosen] == ["Hb_n", "b_s", "B"]
+        assert math.isinf(chosen[1]["age"])
+
+    def test_selector_uses_config_groups_and_session_start(self, make_sfs):
+        history = {"B": {"last_flats": "2026-08-01T00:00:00"}}
+        s = make_sfs(session="morning", skyflat={"groups": [["u"], "B, V"]}, history=history)
+        r = s.go()
+
+        assert [f["filter"] for f in r["filters"]] == ["V", "u"]
+        assert s.groups == [["u"], ["B", "V"]]
+        assert math.isinf(r["filters"][0]["age"])
+
+    def test_age_counted_to_session_start(self, make_sfs):
+        history = {"u": {"last_flats": "2026-08-01T00:00:00"}}
+        s = make_sfs(skyflat={"groups": [["u"]]}, history=history)
+        r = s.go()
+
+        assert r["filters"][0]["age"] == pytest.approx(flat_age(history["u"], s.start_time))
+
+    def test_no_groups_no_filters(self, make_sfs):
+        r = make_sfs().go()
+
+        assert r["filters"] == []

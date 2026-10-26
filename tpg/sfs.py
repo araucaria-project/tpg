@@ -15,12 +15,22 @@ from zenith on the anti-solar vertical (Chromey & Hasselbacher 1996, PASP 108, 9
 sky brightness gradient is smallest. If no field stays visible the whole session, the one
 visible for the longest part of it is taken and the result is marked as `fallback`.
 
+Filters: `skyflat.groups` is an ordered list of filter groups, from the filter needing the most
+light (darkest flats) to the least; the number of groups is the number of filters one session can
+do. From every group the filter with the oldest flats is taken (never taken = oldest, ties keep
+the group order). The evening goes in group order (the sky darkens), the morning in reverse.
+Flat history is given per session type, in the flat_overwatch format
+`{filter: {"last_flats": ISO | null, ...}}` (a bare `{filter: ISO | null}` works too).
+
 Usage:
-    poetry run sfs zb08 2026/10/26 [--evening | --morning] [--wind DEG] [--loud]
+    poetry run sfs zb08 2026/10/26 [--evening | --morning] [--wind DEG] [--history FILE.json] [--loud]
 """
 
 import argparse
 import copy
+import datetime
+import json
+import math
 import sys
 
 import ephem
@@ -40,7 +50,7 @@ class NoSkyflatField(ValueError):
 
 
 class SkyflatSelector():
-    def __init__(self, tel, date, session, wind=None, loud=False, fields_file=None, cfg=None):
+    def __init__(self, tel, date, session, wind=None, loud=False, fields_file=None, cfg=None, history=None):
         if session not in SESSIONS:
             raise ValueError(f'session must be one of {SESSIONS}, not {session!r}')
         self.tel = tel
@@ -50,6 +60,7 @@ class SkyflatSelector():
         self.loud = loud
         self.fields_file = fields_file
         self.cfg = cfg              # None = load config.yaml + local config in Initiate
+        self.history = history      # flat history for this session type, None = unknown
 
         self.msg = ""
         self.fields = []
@@ -66,6 +77,7 @@ class SkyflatSelector():
         self.MaskMoon()
         self.MaskWind()
         self.Rank()
+        self.SelectFilters()
         return self.result
 
     def log_msg(self, txt, always_loud=True):
@@ -90,6 +102,9 @@ class SkyflatSelector():
         self.moon_dist = float(self.scfg.get("moon_dist", self.cfg[self.tel]["moon_dist"]))
         self.wind_dist = float(self.scfg.get("wind_dist", self.cfg[self.tel]["wind_dist"]))
         self.hsun_low, self.hsun_high = sorted(float(h) for h in self.scfg["hsun"])
+        # a group may be written as a list or as a comma-separated string
+        self.groups = [[f.strip() for f in g.split(",")] if isinstance(g, str) else [str(f) for f in g]
+                       for g in self.scfg.get("groups", [])]
 
     def LoadFields(self):
         fname = self.fields_file or resolve_path(self.scfg["fields_file"])
@@ -238,6 +253,28 @@ class SkyflatSelector():
             self.log_msg(f'WARNING: no field visible for the whole session, '
                          f'{best["name"]} visible for {100 * best["fraction"]:.0f}%')
 
+    def SelectFilters(self):
+        if not self.groups:
+            self.log_msg(f'no skyflat.groups for {self.tel}, no filters selected', always_loud=False)
+            self.result["filters"] = []
+            return
+
+        history = self.history or {}
+        if self.history is None:
+            self.log_msg(f'no flat history, filters taken in group order', always_loud=False)
+        else:
+            missing = [f for g in self.groups for f in g if f not in history]
+            if missing:
+                self.log_msg(f'WARNING: no flat history for {",".join(missing)}, treated as never taken')
+
+        self.result["filters"] = select_filters(self.groups, history, self.session, self.start_time)
+
+        if self.loud:
+            for n, (g, f) in enumerate(zip(self.groups if self.session == "evening" else self.groups[::-1],
+                                            self.result["filters"])):
+                ages = ", ".join(f'{x} {fmt_age(flat_age(history.get(x), self.start_time))}' for x in g)
+                print(f'{n + 1:2}. {f["filter"]:8} <- {ages}')
+
     def _printFieldLog(self):
         print(f'{"field":10} {"alt":>11} {"az":>11} {"sun_az":>6} {"moon":>5} {"vis":>5} {"score":>6}  rejected by')
         sun_az = self.sun["az"]
@@ -274,6 +311,45 @@ def load_fields(fname, log=print):
     return fields
 
 
+def flat_age(entry, when):
+    """Days from the last flats to `when` (ephem.Date); inf if never taken.
+
+    @param entry: flat_overwatch entry `{"last_flats": ISO | None, ...}`, a bare ISO string, or None
+    """
+    if isinstance(entry, dict):
+        entry = entry.get("last_flats")
+    if not entry:
+        return math.inf
+    t = datetime.datetime.fromisoformat(str(entry))
+    if t.tzinfo is not None:
+        t = t.astimezone(datetime.timezone.utc).replace(tzinfo=None)
+    return max(0.0, float(when - ephem.Date(t)))
+
+
+def fmt_age(age):
+    return "never" if math.isinf(age) else f'{age:.1f} d'
+
+
+def select_filters(groups, history, session, when):
+    """The filter with the oldest flats from every group, in the order of the session.
+
+    @param groups: ordered list of filter lists, darkest flats first
+    @param history: {filter: flat_overwatch entry} for this session type
+    @param session: "evening" (group order) or "morning" (reversed)
+    @param when: ephem.Date the ages are counted to
+    @return: [{"filter": name, "age": days or inf}, ...] in observing order
+    """
+    chosen = []
+    for group in groups:
+        best, best_age = None, -1.0
+        for f in group:
+            age = flat_age(history.get(f), when)
+            if age > best_age:      # strict: ties keep the group order
+                best, best_age = f, age
+        chosen.append({"filter": best, "age": best_age})
+    return chosen if session == "evening" else chosen[::-1]
+
+
 def az_dist(az1, az2):
     """Azimuth difference folded to 0-180 deg."""
     d = numpy.abs(numpy.asarray(az1, dtype=float) - numpy.asarray(az2, dtype=float)) % 360.0
@@ -296,8 +372,15 @@ def main():
     session.add_argument("--morning", action="store_true", help='morning session only')
     argparser.add_argument("--wind", type=float, default=None, help='wind direction (to avoid)')
     argparser.add_argument("--fields_file", type=str, default=None, help='specify sky flat fields file')
+    argparser.add_argument("--history", type=str, default=None,
+                           help='flat history JSON, flat_overwatch format; or {"evening": {...}, "morning": {...}}')
     argparser.add_argument("--loud", action="store_true", help="print all fields with masks and scores")
     args = argparser.parse_args()
+
+    history = None
+    if args.history:
+        with open(args.history) as f:
+            history = json.load(f)
 
     if args.evening:
         sessions = ["evening"]
@@ -307,8 +390,10 @@ def main():
         sessions = list(SESSIONS)
 
     for session in sessions:
+        # per-session history if the file has evening/morning keys, else the same for both
+        h = history.get(session, {}) if history and set(history) & set(SESSIONS) else history
         s = SkyflatSelector(args.tel, args.date, session, wind=args.wind, loud=args.loud,
-                            fields_file=args.fields_file)
+                            fields_file=args.fields_file, history=h)
         try:
             r = s.go()
         except NoSkyflatField as e:
@@ -317,6 +402,8 @@ def main():
         note = f', visible {100 * r["fraction"]:.0f}% of session' if r["fallback"] else ""
         print(f'# {session} {ephem.Date(r["start"])} - {ephem.Date(r["end"])} UT, '
               f'null point distance {r["score"]:.1f} deg{note}')
+        if r["filters"]:
+            print('# filters: ' + ", ".join(f'{f["filter"]} ({fmt_age(f["age"])})' for f in r["filters"]))
         print(r["line"])
 
 
