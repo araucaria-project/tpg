@@ -22,7 +22,7 @@ skyflat:
   # moon_dist and wind_dist are taken from the telescope block unless set here
   # groups (per telescope): ordered filter groups, darkest flats first; one filter per group per
   # session, the one with the oldest flats; evening in this order, morning reversed. An entry is a
-  # filter (n/exp below) or a full sequence for it, e.g. 5/Ic/3, used as given
+  # filter (n/exp above) or a full sequence for it, e.g. 5/Ic/3, used as given
 
 
 wk06:

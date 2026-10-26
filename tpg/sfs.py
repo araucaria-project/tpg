@@ -22,8 +22,8 @@ longest part of it is taken (priority, then distance break ties) and the result 
 Filters: `skyflat.groups` is an ordered list of filter groups, from the filter needing the most
 light (darkest flats) to the least; the number of groups is the number of filters one session can
 do. A group entry is a filter name (`Ic`, frames/exposure from `skyflat.n`/`skyflat.exp`) or a full
-sequence for that filter (`5/Ic/3`, used as given). From every group the filter with the oldest flats is taken (never taken = oldest, ties keep
-the group order). The evening goes in group order (the sky darkens), the morning in reverse.
+sequence for that filter (`5/Ic/3`, used as given). From every group the filter with the oldest
+flats is taken (never taken = oldest, ties keep the group order). The evening goes in group order (the sky darkens), the morning in reverse.
 Flat history is given per session type as `{filter: days since the last flats}`; a filter that is
 missing or has None was never taken. Converting from other sources (e.g. flat_overwatch) is left
 to the caller.
@@ -31,8 +31,12 @@ to the caller.
 The result `line` is a plan line for TOI: `SKYFLAT name ra dec seq=n/f1/exp,n/f2/exp,...` with
 `skyflat.n` frames per filter and `skyflat.exp` exposure (`a` = auto exposure).
 
+The date is the night (evening) date, as in tpg: `2026/10/26` morning = morning of 27 Oct.
+
 Usage:
     poetry run sfs zb08 2026/10/26 [--evening | --morning] [--wind DEG] [--history u=3.5 V=12 ...] [--loud]
+
+stdout gets only the SKYFLAT plan lines; logs and warnings go to stderr, details with --loud.
 """
 
 import argparse

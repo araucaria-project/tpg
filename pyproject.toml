@@ -1,7 +1,7 @@
 # TODO: przejscie na uklad [project] (PEP 621) i na uv zamiast poetry - planowane
 [tool.poetry]
 name = "tpg"
-version = "1.1.1"
+version = "1.2.0"
 description = "telescope plan generator"
 authors = ["mgorski <mgorski@camk.edu.pl>"]
 license = "MIT"

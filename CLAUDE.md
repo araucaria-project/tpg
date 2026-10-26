@@ -37,7 +37,7 @@ Other entry points defined in `pyproject.toml`:
 ```
 poetry run chexp <factor> [-f FILTER]     # rescale n/filter/exptime tokens read from stdin
 poetry run group2master <group>           # dump a TAB.ALL object-database group as master-file lines
-poetry run sfs <tel> yyyy/mm/dd [--evening|--morning] [--wind DEG] [--loud]   # sky flat field selector
+poetry run sfs <tel> yyyy/mm/dd [--evening|--morning] [--wind DEG] [--history F=DAYS ...] [--loud]   # sky flat selector
 ```
 `uobi_generator.py` (not wired as a poetry script) prints random 8-char UOBI ids: run it directly
 with `python tpg/uobi_generator.py [n]`.
@@ -47,7 +47,7 @@ Run the test suite (pytest, in the `dev` dependency group):
 poetry install --with dev
 poetry run pytest
 ```
-`tests/` covers the mask cascade, the allocator (including `--night_monitor`) and plan export.
+`tests/` covers the mask cascade, the allocator (including `--night_monitor`), plan export and sfs (`test_sfs.py`).
 Two things to know before adding tests: `tests/conftest.py` replaces the whole config after `Initiate()` so the
 developer's `~/.config/tpg/local_config.yaml` cannot leak into results, and expectations that
 depend on ephemerides are derived from `ob["calc"]` rather than hardcoded. There is no lint
@@ -103,12 +103,15 @@ evening or morning session (Sun between `skyflat.hsun` limits). It mirrors the t
 miniature — `go()` runs `Initiate` / `LoadFields` / `MakeTime` / `CalcFields`, then masks
 (`MaskAltitude`, `MaskSun`, `MaskMoon`, `MaskWind`) narrowing per-field `visibility["all"]`
 (numpy bool arrays over the session minutes), then `Rank` (whole-session visibility first, then
-mean distance to the gradient null point 13 deg from zenith opposite the Sun). It deliberately
+field `priority`, then mean distance to the gradient null point 13 deg from zenith opposite the Sun). It deliberately
 does not import `telescope_plan_generator.py` (astropy/pyaraucaria/ctc): shared config loading
 (`load_config`, `deep_update`, `resolve_path`) lives in `tpg/config.py`, the GEM dome geometry in
 `tpg/dome_eq.py`. `SelectFilters` (after `Rank`) picks one filter per `skyflat.groups` group —
-oldest flats in the given history first — via the pure function `select_filters`; evening in group
-order, morning reversed.
+oldest flats in `flat_history` (`{filter: days | None}`) first — via the pure function
+`select_filters`; evening in group order, morning reversed. A group entry is a filter or a full
+`N/filter/exp` sequence. The date is the night (evening) date as in tpg; `_checkSessionDate` warns
+when the session is over or > 24 h away. CLI stdout carries only `SKYFLAT` plan lines (logs go to
+stderr, details with `--loud`). README "SKYFLAT SELECTOR" is the user-facing reference.
 
 ## Generation pipeline
 

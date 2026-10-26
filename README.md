@@ -341,6 +341,8 @@ The date is the night (evening) date, as in tpg. Without `--evening`/`--morning`
 printed. stdout gets only the plan line `SKYFLAT name ra dec seq=...` per session (see below), ready to
 paste or pipe; warnings go to stderr. `--loud` adds a `#` summary line (session window, null point
 distance) and a `# filters:` line per session, plus every field with its masks and score.
+If a session has no visible field, sfs reports it on stderr, still computes the other session and
+exits with code 1 at the end.
 
 * **Session**: the Sun between the `skyflat.hsun` limits (default +1 -> -15 deg in the evening,
 -15 -> +1 in the morning), 1-minute grid.
@@ -348,12 +350,12 @@ distance) and a `# filters:` line per session, plus every field with its masks a
 when the requested session is already over or starts more than 24 h from now (typically today's
 calendar date passed after midnight, which plans the next day's morning).
 * **Masks** (every minute of the session, a field must pass all of them for the whole session):
-field altitude within `hmin`-`hmax` (default 40-70 deg), azimuth at least `sun_az_dist`
+field altitude within `hmin`-`hmax` (currently 40-78 deg), azimuth at least `sun_az_dist`
 (default 100 deg) from the Sun azimuth, `moon_dist` from the Moon, and with `--wind` the same
 `wind_dist` check as tpg (dome azimuth for both sides of pier on a GEM with a `dome` block).
 * **Ranking**: mean angular distance from the twilight sky gradient null point, 13 deg from the
-zenith on the anti-solar vertical (Chromey & Hasselbacher 1996, PASP 108, 944). With `hmax=70`
-this favours the highest field opposite the Sun.
+zenith on the anti-solar vertical (Chromey & Hasselbacher 1996, PASP 108, 944), i.e. ~77 deg
+altitude opposite the Sun; with `hmax` below that it favours the highest field opposite the Sun.
 * **Priorities**: a field line may have `priority=N` (higher first, default 0; for now all fields
 are equal). Among the fields visible for the whole session the highest priority wins, the null
 point distance decides only within one priority; a lower priority is used only when no field of
@@ -362,7 +364,7 @@ a higher one passes the masks.
 is chosen (priority, then distance break ties) and marked as fallback (`WARNING` in the output).
 * **Filters**: `skyflat.groups` (per telescope) is an ordered list of filter groups, from the
 filter needing the most light (darkest flats) to the least, e.g. for jk15
-`[[Hb_n], [Ha_n], [u_s, b_s, v_s, y_s], [B, V, Ic]]`; the number of groups is the number of
+`[[u_s, Ha_n, Hb_n], [u, z, v_s, b_s, y_s, Hb_w, Ha_w], [B, V, Ic, g, r, i]]`; the number of groups is the number of
 filters one session can do on that telescope. From every group sfs takes the filter with the
 oldest flats (never taken = oldest; ties keep the group order). The evening goes in group order
 (the sky gets darker), the morning in reverse.
@@ -382,11 +384,27 @@ name (`Ic`). A malformed entry (not `filter` or `N/filter/exp`) stops sfs with a
 level and computes the exposure itself). Without groups the line has no `seq`.
 
 Configuration: defaults in the top-level `skyflat:` block of `config.yaml` (`hsun`, `hmin`,
-`hmax`, `sun_az_dist`, optionally `moon_dist`/`wind_dist`, which otherwise come from the telescope
-block); a telescope block may override single fields in its own `skyflat:` block. `fields_file`
+`hmax`, `sun_az_dist`, `n`, `exp`, optionally `moon_dist`/`wind_dist`, which otherwise come from the
+telescope block); a telescope block may override single fields in its own `skyflat:` block, and
+holds its `groups` (no groups = field only, `SKYFLAT` line without `seq`). `fields_file`
 has no default and **must** be set in every telescope's `skyflat:` block (or given with
 `--fields_file`). It may be absolute or relative to the package / repo root; all telescopes
 currently use `master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec [priority=N]` line per field.
+
+From Python (e.g. TOI), one call per session:
+```python
+from tpg.sfs import SkyflatSelector, NoSkyflatField
+
+r = SkyflatSelector("zb08", "2026/10/26", "evening", wind=None,
+                    flat_history={"u": 3.5, "V": 12, "Ic": None}).go()
+r["line"]       # 'SKYFLAT BF22b 22:23:50.0 -30:58:00.0 seq=7/u/a,...' - plan line
+r["filters"]    # [{"filter": "u", "entry": "u", "age": 3.5}, ...] in observing order
+r["fallback"]   # True if no field is visible for the whole session
+```
+Also in the result: `name`, `ra`, `dec`, `priority`, `field_line`, `seq`, `session`, `start`/`end`
+(`ephem.Date`), `score`, `fraction`. Warnings (fallback, missing history, suspicious date) are
+collected in the selector's `msg`. `NoSkyflatField` (a `ValueError`) is raised when no field is
+visible at any minute of the session; a malformed config raises `ValueError`.
 
 ### ROADMAP
 
