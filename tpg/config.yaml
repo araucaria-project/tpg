@@ -15,7 +15,7 @@ plan_catalog: "~/tpg_plans/"
 skyflat:
   hsun: [-15, 1]                                             # Sun altitude range of a session
   hmin: 40                                                   # field altitude limits, whole session
-  hmax: 70
+  hmax: 78
   sun_az_dist: 100                                           # min field azimuth distance from the Sun
   # moon_dist and wind_dist are taken from the telescope block unless set here
 
