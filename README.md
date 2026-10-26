@@ -331,6 +331,34 @@ Objects → Predicted slot time
 
 
 
+### SKYFLAT SELECTOR (sfs)
+
+`sfs` picks the field for twilight sky flats, separately for the evening and the morning session:
+```
+poetry run sfs {wk06,zb08,jk15,iris,test} yyyy/mm/dd [--evening | --morning] [--wind DEG] [--fields_file PATH] [--loud]
+```
+The date is the night (evening) date, as in tpg. Without `--evening`/`--morning` both sessions are
+printed. Output per session is a comment line with the session window and the chosen field line
+from the fields file (`SKYFLAT name ra dec`); `--loud` prints every field with its masks and score.
+
+* **Session**: the Sun between the `skyflat.hsun` limits (default +1 -> -15 deg in the evening,
+-15 -> +1 in the morning), 1-minute grid.
+* **Masks** (every minute of the session, a field must pass all of them for the whole session):
+field altitude within `hmin`-`hmax` (default 40-70 deg), azimuth at least `sun_az_dist`
+(default 100 deg) from the Sun azimuth, `moon_dist` from the Moon, and with `--wind` the same
+`wind_dist` check as tpg (dome azimuth for both sides of pier on a GEM with a `dome` block).
+* **Ranking**: mean angular distance from the twilight sky gradient null point, 13 deg from the
+zenith on the anti-solar vertical (Chromey & Hasselbacher 1996, PASP 108, 944). With `hmax=70`
+this favours the highest field opposite the Sun.
+* If no field passes the masks for the whole session, the one visible for the longest part of it
+is chosen and marked as fallback (`WARNING` in the output).
+
+Configuration is the top-level `skyflat:` block of `config.yaml` (`fields_file`, `hsun`, `hmin`,
+`hmax`, `sun_az_dist`, optionally `moon_dist`/`wind_dist`, which otherwise come from the telescope
+block). A telescope block may override single fields in its own `skyflat:` block. `fields_file`
+may be absolute or relative to the package / repo root; the default is
+`master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec` line per field.
+
 ### ROADMAP
 
 Ideas and known limitations, not commitments. Ordered roughly by return on effort.

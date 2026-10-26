@@ -29,6 +29,7 @@ filterwarnings = ["ignore::DeprecationWarning"]
 
 [tool.poetry.scripts]
 tpg = "tpg.tpg:main"
+sfs = "tpg.sfs:main"
 chexp = "chexp:main"
 group2master = "group2master:main"
 

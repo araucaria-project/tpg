@@ -37,6 +37,7 @@ Other entry points defined in `pyproject.toml`:
 ```
 poetry run chexp <factor> [-f FILTER]     # rescale n/filter/exptime tokens read from stdin
 poetry run group2master <group>           # dump a TAB.ALL object-database group as master-file lines
+poetry run sfs <tel> yyyy/mm/dd [--evening|--morning] [--wind DEG] [--loud]   # sky flat field selector
 ```
 `uobi_generator.py` (not wired as a poetry script) prints random 8-char UOBI ids: run it directly
 with `python tpg/uobi_generator.py [n]`.
@@ -55,7 +56,8 @@ generated plan and log files.
 
 ## Configuration resolution
 
-Two layered YAML configs, merged at runtime in `TelescopePlanGenerator._get_config()`:
+Two layered YAML configs, merged at runtime by `tpg/config.py:load_config()` (called from
+`TelescopePlanGenerator._get_config()` and from sfs):
 1. `tpg/config.yaml` — packaged defaults, one block per telescope (`master_file`,
    `start_makro`/`end_makro` paths, `data_file` archive dir, `overhead`, `hmin`/`hmax`, `hsun`,
    `wind_dist`, `moon_dist`, `def_read_mode`, `night_monitor_gap`), plus site coordinates and the
@@ -93,6 +95,19 @@ a sibling project directory during local development. `ctc` (`CycleTimeCalc`) is
 runtime — if its base folder / package isn't available, `telescope_plan_generator.py` falls back
 to computing slot times manually from `seq` (see `ObsValidator.calc_seq_time`). `--no_ctc` forces
 the manual path.
+
+## Sky flat selector (sfs)
+
+`tpg/sfs.py` (`SkyflatSelector`) picks a twilight flat field from `skyflat.fields_file` for the
+evening or morning session (Sun between `skyflat.hsun` limits). It mirrors the tpg structure in
+miniature — `go()` runs `Initiate` / `LoadFields` / `MakeTime` / `CalcFields`, then masks
+(`MaskAltitude`, `MaskSun`, `MaskMoon`, `MaskWind`) narrowing per-field `visibility["all"]`
+(numpy bool arrays over the session minutes), then `Rank` (whole-session visibility first, then
+mean distance to the gradient null point 13 deg from zenith opposite the Sun). It deliberately
+does not import `telescope_plan_generator.py` (astropy/pyaraucaria/ctc): shared config loading
+(`load_config`, `deep_update`, `resolve_path`) lives in `tpg/config.py`, the GEM dome geometry in
+`tpg/dome_eq.py`. Filter selection per session (ordered filter groups, oldest flats first) is the
+planned next stage.
 
 ## Generation pipeline
 

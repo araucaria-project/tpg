@@ -10,6 +10,15 @@ obs_elev: 2817
 local_config: "~/.config/tpg/local_config.yaml"
 plan_catalog: "~/tpg_plans/"
 
+# sky flat selector (sfs) - defaults, a telescope block may override fields in its own `skyflat:`
+skyflat:
+  fields_file: master_files/sky_flat_fields.txt              # absolute, or relative to the package / repo root
+  hsun: [-15, 1]                                             # Sun altitude range of a session
+  hmin: 40                                                   # field altitude limits, whole session
+  hmax: 70
+  sun_az_dist: 100                                           # min field azimuth distance from the Sun
+  # moon_dist and wind_dist are taken from the telescope block unless set here
+
 
 wk06:
   master_file: /home/observer/src/tpg/master_files/wk06_master.txt        # file with OB definitions
