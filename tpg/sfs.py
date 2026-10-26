@@ -61,7 +61,7 @@ class NoSkyflatField(ValueError):
 
 
 class SkyflatSelector():
-    def __init__(self, tel, date, session, wind=None, loud=False, fields_file=None, cfg=None, flat_history=None, now=None):
+    def __init__(self, tel, date, session, wind=None, loud=False, fields_file=None, cfg=None, flat_history=None, now=None, check_date=True):
         if session not in SESSIONS:
             raise ValueError(f'session must be one of {SESSIONS}, not {session!r}')
         self.tel = tel
@@ -73,6 +73,7 @@ class SkyflatSelector():
         self.cfg = cfg              # None = load config.yaml + local config in Initiate
         self.flat_history = flat_history      # flat history for this session type, None = unknown
         self.now = ephem.Date(now) if now is not None else ephem.now()   # only for the date sanity warning
+        self.check_date = check_date    # False when the caller derived the night date itself (tpg)
 
         self.msg = ""
         self.fields = []
@@ -156,7 +157,8 @@ class SkyflatSelector():
         txt = f'{self.session} session {ephem.Date(t0)} - {ephem.Date(t1)} UT ({n} min), ' \
               f'Sun {self.hsun_high:+.0f} / {self.hsun_low:+.0f} deg'
         self.log_msg(txt, always_loud=False)
-        self._checkSessionDate()
+        if self.check_date:
+            self._checkSessionDate()
 
     def _checkSessionDate(self):
         # the date is the night (evening) date - an easy slip is passing today's calendar date

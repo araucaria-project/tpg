@@ -27,6 +27,7 @@ class main:
     argparser.add_argument("--no_end_makro", action="store_false", help='do not add makro at the plan end')
     argparser.add_argument("--master_file", type=str, default=None, help='specify master file')
     argparser.add_argument("--night_monitor", action="store_true", help='monitor objects tagged night_monitor, with night_monitor_gap break between observations')
+    argparser.add_argument("--skyflats", action="store_true", help='add evening/morning SKYFLAT chosen by sfs (sessions already over at the plan start are skipped)')
 
 
 
@@ -44,7 +45,8 @@ class main:
             add_end_makro=args.no_end_makro,
             master_file=args.master_file,
             done_uobi=[],
-            night_monitor=args.night_monitor)
+            night_monitor=args.night_monitor,
+            skyflats=args.skyflats)
     try:
         p.go()
     except NoObservableObjects as e:

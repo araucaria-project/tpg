@@ -24,7 +24,7 @@ class NoObservableObjects(ValueError):
 
 
 class TelescopePlanGenerator():
-    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, use_ctc=True, master_file=None, done_uobi=[], night_monitor=False):
+    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, use_ctc=True, master_file=None, done_uobi=[], night_monitor=False, skyflats=False, flat_history=None, now=None):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.arg_date = date
@@ -44,6 +44,10 @@ class TelescopePlanGenerator():
         self.night_monitor = bool(night_monitor)
         if self.night_monitor:
             self.tag = "night_monitor"
+        self.skyflats = bool(skyflats)
+        self.flat_history = flat_history or {}   # {"evening": {filter: days|None}, "morning": {...}} dla sfs
+        self.skyflat_info = {}                  # {session: {"line": SKYFLAT...|None, "note": txt}} - np. dla TOI
+        self.now = now                          # opcjonalnie biezacy czas (TOI) - sesje skyflat, ktore juz minely, sa pomijane
 
         self.msg = ""
 
@@ -998,6 +1002,11 @@ class TelescopePlanGenerator():
                         self.log_msg(txt)
 
 
+        # skyflaty obejmuja nocna czesc planu, a start/end makro obejmuja skyflaty
+        # (makro moze otwierac i zamykac kopule)
+        if self.skyflats:
+            self.AddSkyflats()
+
         if self.add_start_makro and d_ver(self.cfg[self.tel],["start_makro"]):
             start_plan = []
             ok = False
@@ -1038,6 +1047,49 @@ class TelescopePlanGenerator():
                 if self.loud: sys.stderr.write(txt)
                 self.log_msg(txt)
 
+
+    def AddSkyflats(self):
+        """SKYFLAT z sfs: wieczorny przed nocna czescia planu, poranny po niej.
+        Sesja, ktora konczy sie przed chwila, od ktorej plan ma ruszyc, jest pomijana (np. plan robiony w nocy -
+        tylko poranne). Ta chwila to data/ut z argumentu (przy start at sunset: dzien, a nie zachod przy hsun,
+        bo wieczorne flaty sa przed nim), a jesli podano now - pozniejsze z nich.
+        Brak pola dla sesji nie zatrzymuje planu - tylko ostrzezenie."""
+        from .sfs import SkyflatSelector, NoSkyflatField
+
+        # data nocy (wieczoru), jak w tpg i sfs - z porannego wschodu, bo zachod przy hsun moze wypasc po polnocy UT
+        night = str(ephem.Date(self.sunrise - 1)).split()[0]
+        reference = ephem.Date(self.date)
+        if self.now is not None:
+            reference = max(reference, ephem.Date(self.now))
+
+        for session in ("evening", "morning"):
+            s = SkyflatSelector(self.tel, night, session, wind=self.wind, cfg=self.cfg,
+                                flat_history=self.flat_history.get(session), check_date=False)
+            try:
+                r = s.go()
+            except NoSkyflatField as e:
+                note = f'WARNING: {session} SKYFLAT skipped, {e}'
+                self.skyflat_info[session] = {"line": None, "note": note}
+                self.log_msg(note)
+                continue
+            finally:
+                # log sfs (np. fallback, brak historii filtra) do logu planu
+                for line in s.msg.splitlines():
+                    self.log_msg(f'sfs {session}: {line}', always_loud=False)
+
+            if reference >= r["end"]:
+                note = f'{session} SKYFLAT skipped, the session is over ({ephem.Date(r["end"])} UT)'
+                self.skyflat_info[session] = {"line": None, "note": note}
+                self.log_msg(note)
+                continue
+
+            if session == "evening":
+                self.plan.insert(0, r["line"])
+            else:
+                self.plan.append(r["line"])
+            note = f'{session} SKYFLAT {r["name"]}' + (' (WARNING: field not visible the whole session)' if r["fallback"] else '')
+            self.skyflat_info[session] = {"line": r["line"], "note": note}
+            self.log_msg(f'{note}: {r["line"]}')
 
     def SavePlan(self):
 

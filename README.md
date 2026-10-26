@@ -8,7 +8,7 @@ Script creates files readable by *TOI* and *TEXTUI*.
 
 ### RUNNING THE SCRIPT
 ```
-poetry run tpg {wk06,zb08,jk15,iris,test} date [ut] [--tag TAG] [--wind WIND] [--fwhm FWHM] [--seed SEED] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file MASTER_FILE] [--night_monitor]
+poetry run tpg {wk06,zb08,jk15,iris,test} date [ut] [--tag TAG] [--wind WIND] [--fwhm FWHM] [--seed SEED] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file MASTER_FILE] [--night_monitor] [--skyflats]
 date: YYYY/MM/DD [hh:mm:ss] 
 ```
 
@@ -47,6 +47,7 @@ or no object survives the visibility masks this night (`--loud` shows which mask
 | `--no_end_makro`            | disables adding **makro** at the end of the plan.                                      |
 | `--master_file MASTER_FILE` | override the master file configured for `tel`.                                         |
 | `--night_monitor`           | monitoring mode: only `tag=night_monitor` objects, repeated, with `night_monitor_gap` minutes break (see below). |
+| `--skyflats`                | add the evening/morning `SKYFLAT` chosen by sfs (see "SKYFLAT SELECTOR" below). |
 
 
 
@@ -390,6 +391,15 @@ holds its `groups` (no groups = field only, `SKYFLAT` line without `seq`). `fiel
 has no default and **must** be set in every telescope's `skyflat:` block (or given with
 `--fields_file`). It may be absolute or relative to the package / repo root; all telescopes
 currently use `master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec [priority=N]` line per field.
+
+**In tpg plans** (`--skyflats`, or `TelescopePlanGenerator(..., skyflats=True, flat_history={"evening": {...},
+"morning": {...}}, now=None)`): the evening `SKYFLAT` goes before the night part of the plan (`WAIT sunset=...` /
+`WAIT ut=...`), the morning one after it, and `start_makro`/`end_makro` still wrap everything (a makro may open or
+close the dome). A session that is over at the moment the plan should start from is skipped — that moment is the
+`date`/`ut` argument (with no ut: the day, so a plan "from sunset" gets the evening flats), or `now` if given and
+later (TOI passes the current time). A session without a field is skipped with a `WARNING`, the plan is still made.
+The outcome per session is in `p.skyflat_info` (`{"evening": {"line": ... | None, "note": ...}, ...}`); tpg uses the
+same `--wind` for sfs. The night date for sfs comes from the plan's own sunrise, not from the argument.
 
 From Python (e.g. TOI), one call per session:
 ```python

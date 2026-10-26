@@ -23,7 +23,7 @@ Run the generator:
 ```
 poetry run tpg {wk06,zb08,jk15,iris,test} yyyy/mm/dd [hh:mm:ss] [--tag TAG] [--wind DEG] [--fwhm FWHM] \
     [--seed N] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file PATH] \
-    [--night_monitor]
+    [--night_monitor] [--skyflats]
 ```
 Example (see README.md for the full argument table and master-file syntax):
 ```
@@ -108,7 +108,10 @@ does not import `telescope_plan_generator.py` (astropy/pyaraucaria/ctc): shared 
 (`load_config`, `deep_update`, `resolve_path`) lives in `tpg/config.py`, the GEM dome geometry in
 `tpg/dome_eq.py`. `SelectFilters` (after `Rank`) picks one filter per `skyflat.groups` group —
 oldest flats in `flat_history` (`{filter: days | None}`) first — via the pure function
-`select_filters`; evening in group order, morning reversed. A group entry is a filter or a full
+`select_filters`; evening in group order, morning reversed.
+`TelescopePlanGenerator(skyflats=True, flat_history=..., now=...)` calls sfs from `AddSkyflats()` at the end of
+`export()`, before the start/end makros are added (evening SKYFLAT first in the night part, morning last); sessions
+already over at the plan's reference time are skipped, results in `skyflat_info`. sfs is imported lazily there. A group entry is a filter or a full
 `N/filter/exp` sequence. The date is the night (evening) date as in tpg; `_checkSessionDate` warns
 when the session is over or > 24 h away. CLI stdout carries only `SKYFLAT` plan lines (logs go to
 stderr, details with `--loud`). README "SKYFLAT SELECTOR" is the user-facing reference.
