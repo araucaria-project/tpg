@@ -32,7 +32,7 @@ class TelescopePlanGenerator():
         self.tag = tag
         self.wind = wind
         self.fwhm = fwhm
-        self.done = done_uobi
+        self.done = [str(u).strip() for u in (done_uobi or [])]
         self.loud = loud
         self.seed = seed
         self.add_start_makro = add_start_makro
@@ -380,6 +380,13 @@ class TelescopePlanGenerator():
                     vis = [False for _ in range(len(self.nightTime))]
                     self.ob[n]["visibility"]["status"] = vis.copy()
                     self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["status"].copy()
+
+            # pomijanie juz wykonanych uobi (night_monitor z definicji powtarza obiekty)
+            if self.done and not self.night_monitor:
+                if str(self.ob[n].get("uobi", "")).strip() in self.done:
+                    vis = [False for _ in range(len(self.nightTime))]
+                    self.ob[n]["visibility"]["done"] = vis.copy()
+                    self.ob[n]["visibility"]["all"] = self.ob[n]["visibility"]["done"].copy()
 
 
             # sprawdzanie fwhm

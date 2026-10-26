@@ -54,6 +54,22 @@ class TestSelection:
 
         assert minutes(p) == len(p.nightTime)
 
+    def test_done_uobi_drops_object(self, make_gen):
+        p = run_cascade(make_gen([obj(uobi="abc123")], done_uobi=["abc123"]), upto="ObjectMask")
+
+        assert minutes(p) == 0
+
+    def test_other_done_uobi_keeps_object(self, make_gen):
+        p = run_cascade(make_gen([obj(uobi="abc123")], done_uobi=["xyz789"]), upto="ObjectMask")
+
+        assert minutes(p) == len(p.nightTime)
+
+    def test_night_monitor_ignores_done_uobi(self, make_gen):
+        p = run_cascade(make_gen([obj(uobi="abc123", tag="night_monitor")], done_uobi=["abc123"], night_monitor=True),
+                        upto="ObjectMask")
+
+        assert minutes(p) == len(p.nightTime)
+
 
 class TestAltitude:
     def test_config_limits_are_applied(self, make_gen):
