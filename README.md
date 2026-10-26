@@ -402,6 +402,25 @@ for the telescope no `SKYFLAT` is added (it would have no `seq`).
 The outcome per session is in `p.skyflat_info` (`{"evening": {"line": ... | None, "note": ...}, ...}`); tpg uses the
 same `--wind` for sfs. The night date for sfs comes from the plan's own sunrise, not from the argument.
 
+**Flat session makros** (`skyflat.evening_makro` / `skyflat.morning_makro` in the telescope's `skyflat` block,
+paths like `fields_file`): with `--skyflats` the whole session comes from the makro instead of a single line — e.g.
+`makro/wk06_evening_makro.txt`:
+```
+# lines starting with # are not copied to the plan
+WAIT sunset=-1
+BELL
+SKYFLAT
+BELL
+WAIT sunset=-16
+BELL
+ZERO seq=11/u/0
+BELL
+```
+The bare `SKYFLAT` line is replaced by the sfs choice; a skipped session leaves out the whole makro (no `WAIT
+sunset=-1` in a plan made at night). A missing makro file or one without a bare `SKYFLAT` line falls back to the single
+`SKYFLAT` line with a `WARNING` in `skyflat_info`. Order: `start_makro`, evening makro, night part, morning makro,
+`end_makro`. Current makros: wk06/zb08 wait for `sunset=-16`, jk15 for `-14` before the zeros.
+
 From Python (e.g. TOI), one call per session:
 ```python
 from tpg.sfs import SkyflatSelector, NoSkyflatField

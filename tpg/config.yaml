@@ -23,6 +23,8 @@ skyflat:
   # groups (per telescope): ordered filter groups, darkest flats first; one filter per group per
   # session, the one with the oldest flats; evening in this order, morning reversed. An entry is a
   # filter (n/exp above) or a full sequence for it, e.g. 5/Ic/3, used as given
+  # evening_makro / morning_makro (per telescope, optional): whole flat session for tpg --skyflats, e.g. WAIT/BELL/ZERO
+  # around a bare SKYFLAT line that tpg replaces with the sfs choice; # lines are not copied; no makro = bare SKYFLAT line
 
 
 wk06:
@@ -41,6 +43,8 @@ wk06:
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
     groups: [[u_s], [v_s], [b_s], [y_s], [B], [V], [Ic]]
+    evening_makro: makro/wk06_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
+    morning_makro: makro/wk06_morning_makro.txt              # morning flat session template
   dome:                                                      # no block = dome follows telescope azimuth
     mount: gem                                               # dome azimuth from GEM geometry, both sides of pier
     r_dome: 2050                                             # [mm] dome radius
@@ -65,6 +69,8 @@ zb08:
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
     groups: [[u], [z], [Ic], [V], [B], [g], [i], [r]]
+    evening_makro: makro/zb08_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
+    morning_makro: makro/zb08_morning_makro.txt              # morning flat session template
 
 jk15:
   master_file: /home/observer/src/tpg/master_files/jk15_master.txt        # file with OB definitions
@@ -82,6 +88,8 @@ jk15:
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
     groups: [[u_s, Ha_n, Hb_n], [u, z, v_s, b_s, y_s, Hb_w, Ha_w], [B, V, Ic, g, r, i]]
+    evening_makro: makro/jk15_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
+    morning_makro: makro/jk15_morning_makro.txt              # morning flat session template
 
 iris:
   master_file: /home/observer/src/tpg/master_files/iris_master.txt        # file with OB definitions

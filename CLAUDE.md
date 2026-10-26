@@ -111,7 +111,10 @@ oldest flats in `flat_history` (`{filter: days | None}`) first — via the pure 
 `select_filters`; evening in group order, morning reversed.
 `TelescopePlanGenerator(skyflats=True, flat_history=..., now=...)` calls sfs from `AddSkyflats()` at the end of
 `export()`, before the start/end makros are added (evening SKYFLAT first in the night part, morning last); sessions
-already over at the plan's reference time are skipped, results in `skyflat_info`. sfs is imported lazily there. A group entry is a filter or a full
+already over at the plan's reference time are skipped, results in `skyflat_info`. sfs is imported lazily there.
+Optional `skyflat.{evening,morning}_makro` (`makro/{tel}_{evening,morning}_makro.txt`) wrap the SKYFLAT line in the
+whole flat session (WAIT/BELL/ZERO); the bare `SKYFLAT` line in the makro is the placeholder, `#` lines are dropped
+(TOI's validator rejects them). start/end makros are unrelated and stay where they were (`master_files/`). A group entry is a filter or a full
 `N/filter/exp` sequence. The date is the night (evening) date as in tpg; `_checkSessionDate` warns
 when the session is over or > 24 h away. CLI stdout carries only `SKYFLAT` plan lines (logs go to
 stderr, details with `--loud`). README "SKYFLAT SELECTOR" is the user-facing reference.

@@ -1,0 +1,7 @@
+# zb08 morning sky flats - used only by tpg --skyflats (TOI: Make SKYFLATS).
+# The bare SKYFLAT line is replaced by the one chosen by sfs; lines starting with # are not copied to the plan.
+ZERO seq=11/u/0
+WAIT sunrise=-10
+BELL
+SKYFLAT
+STOP

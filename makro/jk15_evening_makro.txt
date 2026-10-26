@@ -1,0 +1,11 @@
+# jk15 evening sky flats - used only by tpg --skyflats (TOI: Make SKYFLATS).
+# The bare SKYFLAT line is replaced by the one chosen by sfs; lines starting with # are not copied to the plan.
+# If the evening session is already over when the plan is made, this whole makro is left out.
+WAIT sunset=-1
+BELL
+SKYFLAT
+BELL
+WAIT sunset=-14
+BELL
+ZERO seq=11/u/0
+BELL

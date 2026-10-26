@@ -15,12 +15,12 @@ from test_sfs import FIELDS, SKYFLAT, NEVER_UP
 def make_flat_gen(make_gen, tmp_path):
     """Generator z blokiem skyflat w configu; pola z listy `fields`."""
 
-    def _make(fields=FIELDS, groups=(("V", "Ic"),), tel_cfg=None, **kwargs):
+    def _make(fields=FIELDS, groups=(("V", "Ic"),), tel_cfg=None, makros=None, **kwargs):
         f = tmp_path / "fields.txt"
         f.write_text("\n".join(fields) + "\n")
         p = make_gen([obj(name="cel", ob_time=10)], tel_cfg=tel_cfg, skyflats=True, **kwargs)
         p.cfg["skyflat"] = dict(SKYFLAT)
-        p.cfg[TEL]["skyflat"] = {"fields_file": str(f), "groups": [list(g) for g in groups]}
+        p.cfg[TEL]["skyflat"] = {"fields_file": str(f), "groups": [list(g) for g in groups], **(makros or {})}
         return p
 
     return _make
@@ -128,3 +128,63 @@ class TestSkyflats:
         p.export()
 
         assert seen == [123.0, 123.0]
+
+
+EVENING = "# komentarz\nWAIT sunset=-1\nBELL\nSKYFLAT\nBELL\nWAIT sunset=-16\nZERO seq=11/u/0\n"
+MORNING = "ZERO seq=11/u/0\nWAIT sunrise=-10\nBELL\nSKYFLAT\nSTOP\n"
+
+
+class TestSkyflatMakros:
+    @pytest.fixture
+    def makros(self, tmp_path):
+        ev = tmp_path / "evening.txt"
+        ev.write_text(EVENING)
+        mo = tmp_path / "morning.txt"
+        mo.write_text(MORNING)
+        return {"evening_makro": str(ev), "morning_makro": str(mo)}
+
+    def test_makros_wrap_the_night_with_sfs_line(self, make_flat_gen, makros):
+        p = alokuj(make_flat_gen(makros=makros))
+        p.export()
+
+        ev, mo = p.skyflat_info["evening"]["line"], p.skyflat_info["morning"]["line"]
+        assert p.plan[:7] == ["WAIT sunset=-1", "BELL", ev, "BELL", "WAIT sunset=-16", "ZERO seq=11/u/0",
+                              "WAIT sunset=-18"]
+        assert p.plan[-5:] == ["ZERO seq=11/u/0", "WAIT sunrise=-10", "BELL", mo, "STOP"]
+        assert not any(l.startswith("#") or l == "SKYFLAT" for l in p.plan)
+
+    def test_skipped_session_leaves_out_the_whole_makro(self, make_flat_gen, makros):
+        p = alokuj(make_flat_gen(makros=makros, ut="03:00:00"))
+        p.export()
+
+        assert "WAIT sunset=-1" not in p.plan
+        assert p.plan[0].startswith("WAIT ut=")
+        assert p.plan[-1] == "STOP"
+
+    def test_start_and_end_makro_outside_session_makros(self, make_flat_gen, makros, tmp_path):
+        start = tmp_path / "start.txt"
+        start.write_text("DOMEOPEN\n")
+        koniec = tmp_path / "koniec.txt"
+        koniec.write_text("DOMECLOSE\n")
+        p = alokuj(make_flat_gen(makros=makros, tel_cfg={"start_makro": str(start), "end_makro": str(koniec)}))
+        p.export()
+
+        assert p.plan[:2] == ["DOMEOPEN", "WAIT sunset=-1"]
+        assert p.plan[-2:] == ["STOP", "DOMECLOSE"]
+
+    def test_missing_makro_falls_back_to_bare_line(self, make_flat_gen):
+        p = alokuj(make_flat_gen(makros={"evening_makro": "/nonexistent/evening.txt"}))
+        p.export()
+
+        assert p.plan[0] == p.skyflat_info["evening"]["line"]
+        assert "makro not found" in p.skyflat_info["evening"]["note"]
+
+    def test_makro_without_placeholder_falls_back(self, make_flat_gen, tmp_path):
+        ev = tmp_path / "bad.txt"
+        ev.write_text("WAIT sunset=-1\nBELL\n")
+        p = alokuj(make_flat_gen(makros={"evening_makro": str(ev)}))
+        p.export()
+
+        assert p.plan[0] == p.skyflat_info["evening"]["line"]
+        assert "WAIT sunset=-1" not in p.plan
+        assert "no SKYFLAT line" in p.skyflat_info["evening"]["note"]

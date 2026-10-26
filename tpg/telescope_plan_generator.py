@@ -9,7 +9,7 @@ from tqdm import tqdm
 from pyaraucaria.obs_plan.obs_plan_parser import ObsPlanParser
 from pyaraucaria.ob_validator import ObsValidator
 
-from .config import load_config, deep_update  # deep_update re-exported for callers/tests
+from .config import load_config, deep_update, resolve_path  # deep_update re-exported for callers/tests
 from .dome_eq import dome_eq_azimuth
 
 try:
@@ -1049,7 +1049,8 @@ class TelescopePlanGenerator():
 
 
     def AddSkyflats(self):
-        """SKYFLAT z sfs: wieczorny przed nocna czescia planu, poranny po niej.
+        """SKYFLAT z sfs (albo cale makro sesji flatow z podmieniona linia SKYFLAT): wieczorny przed nocna
+        czescia planu, poranny po niej.
         Sesja, ktora konczy sie przed chwila, od ktorej plan ma ruszyc, jest pomijana (np. plan robiony w nocy -
         tylko poranne). Ta chwila to data/ut z argumentu (przy start at sunset: dzien, a nie zachod przy hsun,
         bo wieczorne flaty sa przed nim), a jesli podano now - pozniejsze z nich.
@@ -1090,13 +1091,30 @@ class TelescopePlanGenerator():
                 self.log_msg(note)
                 continue
 
+            lines, makro_note = self._skyflat_makro(s.scfg.get(f"{session}_makro"), r["line"])
             if session == "evening":
-                self.plan.insert(0, r["line"])
+                self.plan[0:0] = lines
             else:
-                self.plan.append(r["line"])
-            note = f'{session} SKYFLAT {r["name"]}' + (' (WARNING: field not visible the whole session)' if r["fallback"] else '')
+                self.plan.extend(lines)
+            note = f'{session} SKYFLAT {r["name"]}{makro_note}' + (' (WARNING: field not visible the whole session)' if r["fallback"] else '')
             self.skyflat_info[session] = {"line": r["line"], "note": note}
             self.log_msg(f'{note}: {r["line"]}')
+
+    def _skyflat_makro(self, path, skyflat_line):
+        """Linie sesji flatow: makro (skyflat.<session>_makro) z goła linia SKYFLAT podmieniona na wybor sfs,
+        bez linii # (walidator TOI ich nie przyjmuje). Bez makra albo z problemem w makro - sama linia SKYFLAT."""
+        if not path:
+            return [skyflat_line], ""
+        fname = resolve_path(path)
+        if not os.path.isfile(fname):
+            self.log_msg(f'WARNING: skyflat makro {fname} not found, only the SKYFLAT line added')
+            return [skyflat_line], " (WARNING: makro not found)"
+        with open(fname, "r", encoding="utf-8") as makro_file:
+            lines = [l.strip() for l in makro_file if l.strip() and not l.strip().startswith("#")]
+        if "SKYFLAT" not in lines:
+            self.log_msg(f'WARNING: no bare SKYFLAT line in {fname}, only the SKYFLAT line added')
+            return [skyflat_line], " (WARNING: no SKYFLAT line in makro)"
+        return [skyflat_line if l == "SKYFLAT" else l for l in lines], f" with {os.path.basename(fname)}"
 
     def SavePlan(self):
 
