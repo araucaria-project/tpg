@@ -9,3 +9,5 @@ WAIT sunset=-16
 BELL
 ZERO seq=11/u/0
 BELL
+WAIT sunset=-18
+BELL
