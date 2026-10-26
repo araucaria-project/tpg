@@ -1,4 +1,4 @@
-import sys,os,yaml,numpy,ephem
+import sys,os,math,yaml,numpy,ephem
 import random
 import time
 import copy
@@ -74,13 +74,24 @@ class TelescopePlanGenerator():
         self.SavePlan()
 
 
-    def log_msg(self,txt,always_loud=True):
+    def log_msg(self,txt,always_loud=True,log_prefix=""):
+        # log_prefix trafia tylko do logu (self.msg), stdout zostaje czystym planem
         if always_loud:
             print(txt)
         else:
             if self.loud:
                 print(txt)
-        self.msg = self.msg + txt + "\n"
+        self.msg = self.msg + log_prefix + txt + "\n"
+
+    def _slotHours(self, n):
+        """Prefiks logu 'HH:MM:SS-HH:MM:SS  ' z poczatkiem i koncem obiektu zaczynajacego sie w minucie n."""
+        k = self.nightObject[n]
+        m = n
+        while m + 1 < len(self.nightTime) and self.nightObject[m + 1] == k and not self.nightObChange[m + 1]:
+            m = m + 1
+        start = str(ephem.Date(self.nightTime[n])).split()[1]
+        end = str(ephem.Date(self.nightTime[m] + ephem.minute)).split()[1]
+        return f'{start}-{end}  '
 
     def _printObjectLog(self):
         txt = ""
@@ -849,9 +860,7 @@ class TelescopePlanGenerator():
                     # moze to nie jest najbardziej optymalny kod
                     if int(self.ob[k]["priority"]) > priormax and int(self.ob[k]["priority"]) > -1:
                         visibility = self.ob[k]["visibility"]["all"]
-                        slots = float((self.ob[k]["slotTime"])) / 1.
-                        slots = int(slots)
-                        bounds = (nn, nn + slots)
+                        bounds = self._slotBounds(k, nn)
 
                         if bounds[1] + 1 > len(self.nightFree):
                             continue
@@ -895,6 +904,12 @@ class TelescopePlanGenerator():
 
 
 
+    def _slotBounds(self, k, nn):
+        # domkniete granice (pierwsza, ostatnia minuta) slotu obiektu k od minuty nn;
+        # slotTime zaokraglamy w gore, zeby nie obcinac ulamkowych minut
+        slots = max(1, math.ceil(float(self.ob[k]["slotTime"])))
+        return (nn, nn + slots - 1)
+
     def _allocate_night_monitor(self):
         # tryb --night_monitor: obiekty nie znikaja z listy po alokacji, w kazdym kroku
         # losujemy od nowa sposrod najwyzszego priorytetu, a po obserwacji zostawiamy
@@ -914,8 +929,7 @@ class TelescopePlanGenerator():
                 prior = int(self.ob[k]["priority"])
                 if prior < 0 or prior < priormax:
                     continue
-                slots = int(float(self.ob[k]["slotTime"]))
-                bounds = (nn, nn + slots)
+                bounds = self._slotBounds(k, nn)
                 if bounds[1] + 1 > len(self.nightFree):
                     continue
                 visibility = self.ob[k]["visibility"]["all"]
@@ -975,6 +989,7 @@ class TelescopePlanGenerator():
                     self.log_msg(txt)
                 if True:
                     k = int(self.nightObject[n])
+                    hours = self._slotHours(n)
                     if d_ver(self.ob[k], ["name", "makro"]):
                         if os.path.exists(self.ob[k]["makro"]):
                             with open(self.ob[k]["makro"], "r", encoding="utf-8") as makro_file:
@@ -982,10 +997,11 @@ class TelescopePlanGenerator():
                                     if line.strip():
                                         txt = line.strip()
                                         self.plan.append(txt)
-                                        self.log_msg(txt)
+                                        self.log_msg(txt, log_prefix=hours)
+                                        hours = " " * len(hours)  # godziny tylko przy pierwszej linii makra
                         else:
                             tmp = f'no makro: {self.ob[k]["makro"]}'
-                            self.log_msg(tmp)
+                            self.log_msg(tmp, log_prefix=hours)
                     else:
 
                         #par2remove = list(self.cfg["params_2_remove"])
@@ -999,7 +1015,7 @@ class TelescopePlanGenerator():
                         txt = ObsValidator.convert_from_obdict(filtered)
 
                         self.plan.append(txt)
-                        self.log_msg(txt)
+                        self.log_msg(txt, log_prefix=hours)
 
 
         # skyflaty obejmuja nocna czesc planu, a start/end makro obejmuja skyflaty

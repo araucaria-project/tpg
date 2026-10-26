@@ -47,7 +47,8 @@ Run the test suite (pytest, in the `dev` dependency group):
 poetry install --with dev
 poetry run pytest
 ```
-`tests/` covers the mask cascade, the allocator (including `--night_monitor`), plan export and sfs (`test_sfs.py`).
+`tests/` covers the mask cascade, the allocator (including `--night_monitor`), plan export, sfs (`test_sfs.py`) and
+`--skyflats` with flat session makros (`test_skyflats.py`).
 Two things to know before adding tests: `tests/conftest.py` replaces the whole config after `Initiate()` so the
 developer's `~/.config/tpg/local_config.yaml` cannot leak into results, and expectations that
 depend on ephemerides are derived from `ob["calc"]` rather than hardcoded. There is no lint

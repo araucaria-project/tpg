@@ -72,7 +72,8 @@ poetry update
 poetry install --with dev
 poetry run pytest
 ```
-The suite covers the mask cascade, the allocator and plan export. It is self-contained: every
+The suite covers the mask cascade, the allocator, plan export, the sky flat selector (`test_sfs.py`) and sky flats
+in plans (`test_skyflats.py`). It is self-contained: every
 test builds its own master file and light-curve data under a temporary directory, and the
 config is replaced after `Initiate()` so a local `~/.config/tpg/local_config.yaml` cannot
 change the results.

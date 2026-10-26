@@ -106,9 +106,14 @@ class TestAllocation:
 
         zajete = numpy.array([o == 0 for o in p.nightObject])
         indeksy = numpy.flatnonzero(zajete)
-        assert len(indeksy) == 31  # slot rezerwuje ob_time + 1 minute
-        assert numpy.array_equal(indeksy, numpy.arange(indeksy[0], indeksy[0] + 31))
+        assert len(indeksy) == 30  # slot rezerwuje dokladnie ob_time minut
+        assert numpy.array_equal(indeksy, numpy.arange(indeksy[0], indeksy[0] + 30))
         assert not any(p.nightFree[indeksy[0]:indeksy[-1] + 1])
+
+    def test_fractional_slot_time_is_rounded_up(self, make_gen):
+        p = alokuj(make_gen([obj(name="cel", ob_time=10.2)]))
+
+        assert sum(o == 0 for o in p.nightObject) == 11
 
     def test_object_without_cycle_is_scheduled_once(self, make_gen):
         p = alokuj(make_gen([obj(name="jednorazowy", ob_time=10)]))
@@ -341,3 +346,26 @@ class TestNightMonitor:
         p = self.nm(make_gen, [obj(name="mon", tag="night_monitor", cycle=1)])
 
         assert kolejnosc(p) == ["mon"]
+
+
+class TestLogHours:
+    def test_object_line_in_log_has_start_and_end_hours(self, make_gen, capsys):
+        import ephem
+        p = alokuj(make_gen([obj(name="cel", ob_time=10)]))
+        p.msg = ""
+        p.export()
+
+        n = p.nightObChange.index(True)
+        start = str(ephem.Date(p.nightTime[n])).split()[1]
+        end = str(ephem.Date(p.nightTime[n] + 10 * ephem.minute)).split()[1]
+        linia = [l for l in p.msg.splitlines() if "OBJECT cel" in l][0]
+        assert linia.startswith(f"{start}-{end}  OBJECT cel")
+
+    def test_hours_stay_out_of_plan_and_stdout(self, make_gen, capsys):
+        p = alokuj(make_gen([obj(name="cel", ob_time=10)]))
+        capsys.readouterr()
+        p.export()
+
+        out = capsys.readouterr().out
+        assert any(l.startswith("OBJECT cel") for l in out.splitlines())
+        assert any(l.startswith("OBJECT cel") for l in p.plan)
