@@ -11,7 +11,7 @@ import numpy
 import pytest
 
 from tpg.sfs import (SkyflatSelector, NoSkyflatField, load_fields, az_dist, ang_dist, NULL_POINT_ZD,
-                     select_filters, flat_age)
+                     select_filters, flat_age, filter_name)
 
 from conftest import SITE, TEL, TEL_CFG, DATE
 
@@ -84,7 +84,19 @@ class TestFields:
         assert [x["name"] for x in fields] == ["ok"]
         assert fields[0]["kwargs"] == {"h_min": "50"}
         assert fields[0]["line"] == "SKYFLAT ok 01:00:00 -30:00:00 h_min=50"
+        assert fields[0]["priority"] == 0
         assert len(errors) == 3
+
+    def test_priority(self, tmp_path):
+        f = tmp_path / "fields.txt"
+        f.write_text("SKYFLAT a 01:00:00 -30:00:00 priority=5\n"
+                     "SKYFLAT b 01:00:00 -30:00:00 priority=x\n")
+        errors = []
+
+        fields = load_fields(str(f), log=errors.append)
+
+        assert [(x["name"], x["priority"]) for x in fields] == [("a", 5)]
+        assert len(errors) == 1
 
 
 class TestSession:
@@ -100,6 +112,24 @@ class TestSession:
         assert s.sessionTime[-1] <= s.end_time
         # 16 deg Slonca to na OCM okolo godziny, zawsze ponizej dwoch
         assert 50 < len(s.sessionTime) < 120
+
+    @pytest.mark.parametrize("session, now, warning", [
+        # rano po polnocy z data kalendarzowa zamiast daty nocy -> poranek nastepnego dnia
+        ("morning", "2026/08/12 09:00:00", "starts in"),
+        ("morning", "2026/08/13 09:00:00", None),
+        ("evening", "2026/08/12 15:00:00", None),
+        ("evening", "2026/08/13 15:00:00", "already over"),
+        ("evening", "2026/08/10 15:00:00", "starts in"),
+    ])
+    def test_date_warning(self, make_sfs, session, now, warning):
+        s = make_sfs(session=session, now=now)
+        s.Initiate()
+        s.MakeTime()
+
+        if warning:
+            assert f"WARNING: the {session} session" in s.msg and warning in s.msg
+        else:
+            assert "WARNING" not in s.msg
 
     def test_morning_follows_evening(self, make_sfs):
         ev = make_sfs(session="evening")
@@ -255,66 +285,97 @@ class TestGeometry:
 
 
 GROUPS = [["Hb_n"], ["u_s", "b_s", "v_s"], ["B", "V", "Ic"]]
-WHEN = ephem.Date("2026/10/27 00:00:00")
+
+
+def with_priority(lines, names, priority):
+    return [f"{l} priority={priority}" if l.split()[1] in names else l for l in lines]
+
+
+class TestPriority:
+    def run(self, make_sfs, lines, **kw):
+        s = make_sfs(lines, **kw)
+        r = s.go()
+        return s, r
+
+    def test_equal_priorities_rank_by_distance(self, make_sfs):
+        _, plain = self.run(make_sfs, FIELDS)
+        _, same = self.run(make_sfs, [f"{l} priority=3" for l in FIELDS])
+
+        assert same["name"] == plain["name"]
+
+    def test_higher_priority_wins_over_distance(self, make_sfs):
+        # szersze pasmo wysokosci - przy 40-70 tej nocy tylko jedno pole jest widoczne cala sesje
+        wide = {"hmin": 30, "hmax": 85}
+        s, r = self.run(make_sfs, FIELDS, skyflat=wide)
+        full = [f["name"] for f in s.fields if f["fraction"] == 1.0]
+        assert len(full) >= 2, "test needs two fields visible the whole session"
+        worse = full[-1]
+
+        s, r = self.run(make_sfs, with_priority(FIELDS, [worse], 10), skyflat=wide)
+
+        assert r["name"] == worse
+        assert r["priority"] == 10
+        assert r["fallback"] is False
+
+    def test_lower_priority_when_higher_not_visible(self, make_sfs):
+        s, r = self.run(make_sfs, FIELDS)
+        partial = [f["name"] for f in s.fields if f["fraction"] < 1.0]
+
+        # najwyzszy priorytet tylko dla pol niewidocznych przez cala sesje - nie wygrywaja
+        s2, r2 = self.run(make_sfs, with_priority(FIELDS, partial, 10))
+
+        assert r2["name"] == r["name"]
+        assert r2["priority"] == 0
+        assert r2["fallback"] is False
+
+    def test_fallback_prefers_longer_visibility_over_priority(self, make_sfs):
+        s, r = self.run(make_sfs, FIELDS, skyflat={"hmin": 30, "hmax": 50})
+        assert r["fallback"] is True
+        shorter = [f["name"] for f in s.fields if 0 < f["fraction"] < r["fraction"]]
+        assert shorter
+
+        s2, r2 = self.run(make_sfs, with_priority(FIELDS, shorter, 10), skyflat={"hmin": 30, "hmax": 50})
+
+        assert r2["name"] == r["name"]
 
 
 class TestFilters:
-    def test_flat_age_formats(self):
-        assert flat_age({"last_flats": "2026-10-26T00:00:00", "last_obs": None}, WHEN) == pytest.approx(1.0)
-        assert flat_age("2026-10-25T12:00:00", WHEN) == pytest.approx(1.5)
-        assert flat_age("2026-10-26T00:00:00+00:00", WHEN) == pytest.approx(1.0)
-        assert math.isinf(flat_age({"last_flats": None}, WHEN))
-        assert math.isinf(flat_age(None, WHEN))
-        # flaty "z przyszlosci" (np. historia zapisana po sesji) nie daja ujemnego wieku
-        assert flat_age("2026-10-28T00:00:00", WHEN) == 0.0
+    def test_flat_age(self):
+        assert flat_age(1.5) == 1.5
+        assert flat_age(3) == 3.0
+        assert math.isinf(flat_age(None))
+        assert flat_age(-0.2) == 0.0
 
     def test_oldest_from_every_group_evening_order(self):
-        history = {
-            "Hb_n": {"last_flats": "2026-10-20T23:00:00"},
-            "u_s": {"last_flats": "2026-10-01T23:00:00"},
-            "b_s": {"last_flats": "2026-09-01T23:00:00"},
-            "v_s": {"last_flats": "2026-10-25T23:00:00"},
-            "B": {"last_flats": "2026-10-25T23:00:00"},
-            "V": {"last_flats": "2026-10-10T23:00:00"},
-            "Ic": {"last_flats": "2026-10-24T23:00:00"},
-        }
+        history = {"Hb_n": 6, "u_s": 25, "b_s": 55, "v_s": 1, "B": 1, "V": 16, "Ic": 2}
 
-        chosen = select_filters(GROUPS, history, "evening", WHEN)
+        chosen = select_filters(GROUPS, history, "evening")
 
         assert [c["filter"] for c in chosen] == ["Hb_n", "b_s", "V"]
+        assert [c["age"] for c in chosen] == [6, 55, 16]
 
     def test_morning_is_reversed(self):
-        evening = select_filters(GROUPS, {}, "evening", WHEN)
-        morning = select_filters(GROUPS, {}, "morning", WHEN)
+        evening = select_filters(GROUPS, {}, "evening")
+        morning = select_filters(GROUPS, {}, "morning")
 
         assert morning == evening[::-1]
 
     def test_never_taken_wins_and_ties_keep_group_order(self):
-        history = {"u_s": {"last_flats": "2026-01-01T00:00:00"}, "b_s": {"last_flats": None},
-                   "B": {"last_flats": "2026-10-20T00:00:00"}, "V": {"last_flats": "2026-10-20T00:00:00"},
-                   "Ic": {"last_flats": "2026-10-20T00:00:00"}}
+        history = {"u_s": 300, "b_s": None, "B": 6, "V": 6, "Ic": 6}
 
-        chosen = select_filters(GROUPS, history, "evening", WHEN)
+        chosen = select_filters(GROUPS, history, "evening")
 
         # Hb_n i v_s nie ma w historii - tez "never"; b_s jest pierwszym "never" w swojej grupie
         assert [c["filter"] for c in chosen] == ["Hb_n", "b_s", "B"]
         assert math.isinf(chosen[1]["age"])
 
-    def test_selector_uses_config_groups_and_session_start(self, make_sfs):
-        history = {"B": {"last_flats": "2026-08-01T00:00:00"}}
-        s = make_sfs(session="morning", skyflat={"groups": [["u"], "B, V"]}, history=history)
+    def test_selector_uses_config_groups(self, make_sfs):
+        s = make_sfs(session="morning", skyflat={"groups": [["u"], "B, V"]}, flat_history={"B": 80})
         r = s.go()
 
         assert [f["filter"] for f in r["filters"]] == ["V", "u"]
         assert s.groups == [["u"], ["B", "V"]]
         assert math.isinf(r["filters"][0]["age"])
-
-    def test_age_counted_to_session_start(self, make_sfs):
-        history = {"u": {"last_flats": "2026-08-01T00:00:00"}}
-        s = make_sfs(skyflat={"groups": [["u"]]}, history=history)
-        r = s.go()
-
-        assert r["filters"][0]["age"] == pytest.approx(flat_age(history["u"], s.start_time))
 
     def test_no_groups_no_filters(self, make_sfs):
         r = make_sfs().go()
@@ -333,6 +394,31 @@ class TestPlanLine:
         r = make_sfs(skyflat={"groups": [["u"], ["V"]], "n": 5, "exp": 10}).go()
 
         assert r["seq"] == "5/u/10,5/V/10"
+
+    def test_full_sequence_in_group_used_as_given(self, make_sfs):
+        r = make_sfs(skyflat={"groups": [["u"], ["5/Ic/3", "V"]]}, flat_history={"Ic": 30, "V": 2}).go()
+
+        assert r["seq"] == "7/u/a,5/Ic/3"
+        assert r["filters"][1]["filter"] == "Ic"
+        assert r["filters"][1]["entry"] == "5/Ic/3"
+
+    def test_full_sequence_history_by_filter_name(self, make_sfs):
+        # historia jest po nazwie filtra - Ic ma swiezsze flaty, wiec wygrywa V z domyslna sekwencja
+        r = make_sfs(skyflat={"groups": ["5/Ic/3, V"]}, flat_history={"Ic": 1, "V": 20}).go()
+
+        assert r["seq"] == "7/V/a"
+
+    @pytest.mark.parametrize("entry", ["5/Ic", "x/Ic/3", "5//3", "5/Ic/3/1", ""])
+    def test_bad_entry_raises(self, make_sfs, entry):
+        s = make_sfs(skyflat={"groups": [["u", entry]]})
+
+        with pytest.raises(ValueError, match="skyflat group entry"):
+            s.Initiate()
+
+    def test_filter_name(self):
+        assert filter_name("Ic") == "Ic"
+        assert filter_name("5/Ic/3") == "Ic"
+        assert filter_name("7/u_s/a") == "u_s"
 
     def test_no_groups_line_without_seq(self, make_sfs):
         r = make_sfs().go()

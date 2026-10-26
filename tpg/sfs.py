@@ -12,27 +12,31 @@ fields file gets a per-minute `visibility` array narrowed step by step (altitude
 Moon, wind), merged under "all". A field must stay visible for the whole session; among those
 the one closest on average to the twilight sky's gradient null point wins - the point ~13 deg
 from zenith on the anti-solar vertical (Chromey & Hasselbacher 1996, PASP 108, 944), where the
-sky brightness gradient is smallest. If no field stays visible the whole session, the one
-visible for the longest part of it is taken and the result is marked as `fallback`.
+sky brightness gradient is smallest. Fields may have `priority=N` in the fields file (higher
+first, default 0): among the fields visible for the whole session the highest priority wins, and
+the null point distance decides only within it - a lower priority is used only when no field of
+a higher one is visible. If no field stays visible the whole session, the one visible for the
+longest part of it is taken (priority, then distance break ties) and the result is marked as
+`fallback`.
 
 Filters: `skyflat.groups` is an ordered list of filter groups, from the filter needing the most
 light (darkest flats) to the least; the number of groups is the number of filters one session can
-do. From every group the filter with the oldest flats is taken (never taken = oldest, ties keep
+do. A group entry is a filter name (`Ic`, frames/exposure from `skyflat.n`/`skyflat.exp`) or a full
+sequence for that filter (`5/Ic/3`, used as given). From every group the filter with the oldest flats is taken (never taken = oldest, ties keep
 the group order). The evening goes in group order (the sky darkens), the morning in reverse.
-Flat history is given per session type, in the flat_overwatch format
-`{filter: {"last_flats": ISO | null, ...}}` (a bare `{filter: ISO | null}` works too).
+Flat history is given per session type as `{filter: days since the last flats}`; a filter that is
+missing or has None was never taken. Converting from other sources (e.g. flat_overwatch) is left
+to the caller.
 
 The result `line` is a plan line for TOI: `SKYFLAT name ra dec seq=n/f1/exp,n/f2/exp,...` with
 `skyflat.n` frames per filter and `skyflat.exp` exposure (`a` = auto exposure).
 
 Usage:
-    poetry run sfs zb08 2026/10/26 [--evening | --morning] [--wind DEG] [--history FILE.json] [--loud]
+    poetry run sfs zb08 2026/10/26 [--evening | --morning] [--wind DEG] [--history u=3.5 V=12 ...] [--loud]
 """
 
 import argparse
 import copy
-import datetime
-import json
 import math
 import sys
 
@@ -53,7 +57,7 @@ class NoSkyflatField(ValueError):
 
 
 class SkyflatSelector():
-    def __init__(self, tel, date, session, wind=None, loud=False, fields_file=None, cfg=None, history=None):
+    def __init__(self, tel, date, session, wind=None, loud=False, fields_file=None, cfg=None, flat_history=None, now=None):
         if session not in SESSIONS:
             raise ValueError(f'session must be one of {SESSIONS}, not {session!r}')
         self.tel = tel
@@ -63,7 +67,8 @@ class SkyflatSelector():
         self.loud = loud
         self.fields_file = fields_file
         self.cfg = cfg              # None = load config.yaml + local config in Initiate
-        self.history = history      # flat history for this session type, None = unknown
+        self.flat_history = flat_history      # flat history for this session type, None = unknown
+        self.now = ephem.Date(now) if now is not None else ephem.now()   # only for the date sanity warning
 
         self.msg = ""
         self.fields = []
@@ -84,9 +89,10 @@ class SkyflatSelector():
         return self.result
 
     def log_msg(self, txt, always_loud=True):
+        # stderr: stdout is kept for plan lines only
         self.msg = self.msg + txt + "\n"
         if self.loud or always_loud:
-            print(txt)
+            print(txt, file=sys.stderr)
 
     def Initiate(self):
         if self.cfg is None:
@@ -106,8 +112,10 @@ class SkyflatSelector():
         self.wind_dist = float(self.scfg.get("wind_dist", self.cfg[self.tel]["wind_dist"]))
         self.hsun_low, self.hsun_high = sorted(float(h) for h in self.scfg["hsun"])
         # a group may be written as a list or as a comma-separated string
-        self.groups = [[f.strip() for f in g.split(",")] if isinstance(g, str) else [str(f) for f in g]
+        self.groups = [[f.strip() for f in g.split(",")] if isinstance(g, str) else [str(f).strip() for f in g]
                        for g in self.scfg.get("groups", [])]
+        for entry in (e for g in self.groups for e in g):
+            filter_name(entry)      # raises on a malformed entry, before any computation
 
     def LoadFields(self):
         fname = self.fields_file or resolve_path(self.scfg["fields_file"])
@@ -144,6 +152,18 @@ class SkyflatSelector():
         txt = f'{self.session} session {ephem.Date(t0)} - {ephem.Date(t1)} UT ({n} min), ' \
               f'Sun {self.hsun_high:+.0f} / {self.hsun_low:+.0f} deg'
         self.log_msg(txt, always_loud=False)
+        self._checkSessionDate()
+
+    def _checkSessionDate(self):
+        # the date is the night (evening) date - an easy slip is passing today's calendar date
+        # after midnight, which plans the morning of the next day
+        if self.end_time < self.now:
+            self.log_msg(f'WARNING: the {self.session} session of {self.date} is already over '
+                         f'(ended {24 * (self.now - self.end_time):.1f} h ago) - check the date')
+        elif self.start_time - self.now > 1.0:
+            self.log_msg(f'WARNING: the {self.session} session of {self.date} starts in '
+                         f'{24 * (self.start_time - self.now):.1f} h - the date is the night (evening) date, '
+                         f'check it')
 
     def CalcFields(self):
         sun = ephem.Sun()
@@ -229,8 +249,13 @@ class SkyflatSelector():
             field["score"] = float(dist.mean())
             field["fraction"] = float(field["visibility"]["all"].mean())
 
-        # visible for the whole session first, then by distance to the null point
-        self.fields.sort(key=lambda f: (-f["fraction"], f["score"]))
+        # visible for the whole session: by priority, then distance to the null point;
+        # only then the rest, longest visible first
+        def order(f):
+            if f["fraction"] == 1.0:
+                return 0, -f["priority"], f["score"]
+            return 1, -f["fraction"], -f["priority"], f["score"]
+        self.fields.sort(key=order)
 
         if self.loud:
             self._printFieldLog()
@@ -245,6 +270,7 @@ class SkyflatSelector():
             "ra": best["ra"],
             "dec": best["dec"],
             "field_line": best["line"],
+            "priority": best["priority"],
             "session": self.session,
             "start": self.start_time,
             "end": self.end_time,
@@ -264,16 +290,16 @@ class SkyflatSelector():
             self.result["line"] = self._plan_line()
             return
 
-        history = self.history or {}
-        if self.history is None:
+        history = self.flat_history or {}
+        if self.flat_history is None:
             self.log_msg(f'no flat history, filters taken in group order', always_loud=False)
         else:
-            missing = [f for g in self.groups for f in g if f not in history]
+            missing = [filter_name(e) for g in self.groups for e in g if filter_name(e) not in history]
             if missing:
                 self.log_msg(f'WARNING: no flat history for {",".join(missing)}, treated as never taken')
 
-        self.result["filters"] = select_filters(self.groups, history, self.session, self.start_time)
-        self.result["seq"] = ",".join(f'{self.scfg["n"]}/{f["filter"]}/{self.scfg["exp"]}'
+        self.result["filters"] = select_filters(self.groups, history, self.session)
+        self.result["seq"] = ",".join(entry_seq(f["entry"], self.scfg["n"], self.scfg["exp"])
                                       for f in self.result["filters"])
 
         self.result["line"] = self._plan_line()
@@ -281,8 +307,8 @@ class SkyflatSelector():
         if self.loud:
             for n, (g, f) in enumerate(zip(self.groups if self.session == "evening" else self.groups[::-1],
                                             self.result["filters"])):
-                ages = ", ".join(f'{x} {fmt_age(flat_age(history.get(x), self.start_time))}' for x in g)
-                print(f'{n + 1:2}. {f["filter"]:8} <- {ages}')
+                ages = ", ".join(f'{x} {fmt_age(flat_age(history.get(filter_name(x))))}' for x in g)
+                print(f'{n + 1:2}. {f["entry"]:8} <- {ages}')
 
     def _plan_line(self):
         r = self.result
@@ -290,19 +316,19 @@ class SkyflatSelector():
         return f'{line} seq={r["seq"]}' if r["seq"] else line
 
     def _printFieldLog(self):
-        print(f'{"field":10} {"alt":>11} {"az":>11} {"sun_az":>6} {"moon":>5} {"vis":>5} {"score":>6}  rejected by')
+        print(f'{"field":10} {"prio":>4} {"alt":>11} {"az":>11} {"sun_az":>6} {"moon":>5} {"vis":>5} {"score":>6}  rejected by')
         sun_az = self.sun["az"]
         for f in self.fields:
             c = f["calc"]
             failed = [k for k, v in f["visibility"].items() if k != "all" and not v.all()]
-            print(f'{f["name"]:10} {c["alt"].min():5.1f}-{c["alt"].max():5.1f} '
+            print(f'{f["name"]:10} {f["priority"]:4g} {c["alt"].min():5.1f}-{c["alt"].max():5.1f} '
                   f'{c["az"].min():5.1f}-{c["az"].max():5.1f} '
                   f'{az_dist(c["az"], sun_az).min():6.1f} {c["moon_sep"].min():5.1f} '
                   f'{100 * f["fraction"]:4.0f}% {f["score"]:6.1f}  {",".join(failed)}')
 
 
 def load_fields(fname, log=print):
-    """Read `SKYFLAT name ra dec [key=value ...]` lines; `#` comments and empty lines skipped."""
+    """Read `SKYFLAT name ra dec [priority=N] [key=value ...]` lines; `#` comments and empty lines skipped."""
     fields = []
     with open(fname, 'r') as file:
         for line in file:
@@ -320,47 +346,56 @@ def load_fields(fname, log=print):
                 log(f'Line ERROR (coordinates): {line}')
                 continue
             kwargs = dict(t.split("=", 1) for t in tokens[4:] if "=" in t)
-            fields.append({"name": tokens[1], "ra": tokens[2], "dec": tokens[3],
+            try:
+                priority = float(kwargs.get("priority", 0))
+            except ValueError:
+                log(f'Line ERROR (priority): {line}')
+                continue
+            fields.append({"name": tokens[1], "ra": tokens[2], "dec": tokens[3], "priority": priority,
                            "kwargs": kwargs, "line": line})
     return fields
 
 
-def flat_age(entry, when):
-    """Days from the last flats to `when` (ephem.Date); inf if never taken.
-
-    @param entry: flat_overwatch entry `{"last_flats": ISO | None, ...}`, a bare ISO string, or None
-    """
-    if isinstance(entry, dict):
-        entry = entry.get("last_flats")
-    if not entry:
-        return math.inf
-    t = datetime.datetime.fromisoformat(str(entry))
-    if t.tzinfo is not None:
-        t = t.astimezone(datetime.timezone.utc).replace(tzinfo=None)
-    return max(0.0, float(when - ephem.Date(t)))
+def flat_age(days):
+    """Days since the last flats as a float; inf if never taken (None)."""
+    return math.inf if days is None else max(0.0, float(days))
 
 
 def fmt_age(age):
     return "never" if math.isinf(age) else f'{age:.1f} d'
 
 
-def select_filters(groups, history, session, when):
+def filter_name(entry):
+    """Filter of a group entry: `Ic` -> Ic, `5/Ic/3` -> Ic."""
+    parts = entry.split("/")
+    if len(parts) == 1 and entry:
+        return entry
+    if len(parts) == 3 and parts[1] and parts[0].isdigit() and parts[2]:
+        return parts[1]
+    raise ValueError(f'bad skyflat group entry {entry!r}: expected a filter (Ic) or a sequence (5/Ic/3)')
+
+
+def entry_seq(entry, n, exp):
+    """Sequence of a group entry: a full sequence as given, a bare filter as n/filter/exp."""
+    return entry if "/" in entry else f'{n}/{entry}/{exp}'
+
+
+def select_filters(groups, history, session):
     """The filter with the oldest flats from every group, in the order of the session.
 
-    @param groups: ordered list of filter lists, darkest flats first
-    @param history: {filter: flat_overwatch entry} for this session type
+    @param groups: ordered list of group entry lists (`Ic` or `5/Ic/3`), darkest flats first
+    @param history: {filter: days since the last flats, None = never} for this session type
     @param session: "evening" (group order) or "morning" (reversed)
-    @param when: ephem.Date the ages are counted to
-    @return: [{"filter": name, "age": days or inf}, ...] in observing order
+    @return: [{"filter": name, "entry": group entry, "age": days or inf}, ...] in observing order
     """
     chosen = []
     for group in groups:
         best, best_age = None, -1.0
-        for f in group:
-            age = flat_age(history.get(f), when)
+        for entry in group:
+            age = flat_age(history.get(filter_name(entry)))
             if age > best_age:      # strict: ties keep the group order
-                best, best_age = f, age
-        chosen.append({"filter": best, "age": best_age})
+                best, best_age = entry, age
+        chosen.append({"filter": filter_name(best), "entry": best, "age": best_age})
     return chosen if session == "evening" else chosen[::-1]
 
 
@@ -386,15 +421,19 @@ def main():
     session.add_argument("--morning", action="store_true", help='morning session only')
     argparser.add_argument("--wind", type=float, default=None, help='wind direction (to avoid)')
     argparser.add_argument("--fields_file", type=str, default=None, help='specify sky flat fields file')
-    argparser.add_argument("--history", type=str, default=None,
-                           help='flat history JSON, flat_overwatch format; or {"evening": {...}, "morning": {...}}')
+    argparser.add_argument("--history", type=str, nargs="+", default=None, metavar="FILTER=DAYS",
+                           help='days since the last flats per filter, e.g. u=3.5 V=12; missing filter = never')
     argparser.add_argument("--loud", action="store_true", help="print all fields with masks and scores")
     args = argparser.parse_args()
 
     history = None
     if args.history:
-        with open(args.history) as f:
-            history = json.load(f)
+        history = {}
+        for item in args.history:
+            f, sep, days = item.partition("=")
+            if not sep:
+                argparser.error(f'--history expects FILTER=DAYS, got {item!r}')
+            history[f] = float(days) if days.strip().lower() not in ("", "none", "never") else None
 
     if args.evening:
         sessions = ["evening"]
@@ -404,20 +443,20 @@ def main():
         sessions = list(SESSIONS)
 
     for session in sessions:
-        # per-session history if the file has evening/morning keys, else the same for both
-        h = history.get(session, {}) if history and set(history) & set(SESSIONS) else history
         s = SkyflatSelector(args.tel, args.date, session, wind=args.wind, loud=args.loud,
-                            fields_file=args.fields_file, history=h)
+                            fields_file=args.fields_file, flat_history=history)
         try:
             r = s.go()
         except NoSkyflatField as e:
             sys.stderr.write(f"sfs: {e}\n")
             sys.exit(1)
-        note = f', visible {100 * r["fraction"]:.0f}% of session' if r["fallback"] else ""
-        print(f'# {session} {ephem.Date(r["start"])} - {ephem.Date(r["end"])} UT, '
-              f'null point distance {r["score"]:.1f} deg{note}')
-        if r["filters"]:
-            print('# filters: ' + ", ".join(f'{f["filter"]} ({fmt_age(f["age"])})' for f in r["filters"]))
+        # plain plan lines by default, the session summary only with --loud
+        if args.loud:
+            note = f', visible {100 * r["fraction"]:.0f}% of session' if r["fallback"] else ""
+            print(f'# {session} {ephem.Date(r["start"])} - {ephem.Date(r["end"])} UT, '
+                  f'null point distance {r["score"]:.1f} deg{note}')
+            if r["filters"]:
+                print('# filters: ' + ", ".join(f'{f["filter"]} ({fmt_age(f["age"])})' for f in r["filters"]))
         print(r["line"])
 
 

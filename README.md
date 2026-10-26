@@ -335,14 +335,18 @@ Objects → Predicted slot time
 
 `sfs` picks the field for twilight sky flats, separately for the evening and the morning session:
 ```
-poetry run sfs {wk06,zb08,jk15,iris,test} yyyy/mm/dd [--evening | --morning] [--wind DEG] [--fields_file PATH] [--history FILE.json] [--loud]
+poetry run sfs {wk06,zb08,jk15,iris,test} yyyy/mm/dd [--evening | --morning] [--wind DEG] [--fields_file PATH] [--history FILTER=DAYS ...] [--loud]
 ```
 The date is the night (evening) date, as in tpg. Without `--evening`/`--morning` both sessions are
-printed. Output per session is a comment line with the session window, a `# filters:` line and the
-plan line `SKYFLAT name ra dec seq=...` (see below); `--loud` prints every field with its masks and score.
+printed. stdout gets only the plan line `SKYFLAT name ra dec seq=...` per session (see below), ready to
+paste or pipe; warnings go to stderr. `--loud` adds a `#` summary line (session window, null point
+distance) and a `# filters:` line per session, plus every field with its masks and score.
 
 * **Session**: the Sun between the `skyflat.hsun` limits (default +1 -> -15 deg in the evening,
 -15 -> +1 in the morning), 1-minute grid.
+* **Date**: the night (evening) date — `2026/10/26 --morning` is the morning of 27 Oct. sfs warns
+when the requested session is already over or starts more than 24 h from now (typically today's
+calendar date passed after midnight, which plans the next day's morning).
 * **Masks** (every minute of the session, a field must pass all of them for the whole session):
 field altitude within `hmin`-`hmax` (default 40-70 deg), azimuth at least `sun_az_dist`
 (default 100 deg) from the Sun azimuth, `moon_dist` from the Moon, and with `--wind` the same
@@ -350,20 +354,29 @@ field altitude within `hmin`-`hmax` (default 40-70 deg), azimuth at least `sun_a
 * **Ranking**: mean angular distance from the twilight sky gradient null point, 13 deg from the
 zenith on the anti-solar vertical (Chromey & Hasselbacher 1996, PASP 108, 944). With `hmax=70`
 this favours the highest field opposite the Sun.
+* **Priorities**: a field line may have `priority=N` (higher first, default 0; for now all fields
+are equal). Among the fields visible for the whole session the highest priority wins, the null
+point distance decides only within one priority; a lower priority is used only when no field of
+a higher one passes the masks.
 * If no field passes the masks for the whole session, the one visible for the longest part of it
-is chosen and marked as fallback (`WARNING` in the output).
+is chosen (priority, then distance break ties) and marked as fallback (`WARNING` in the output).
 * **Filters**: `skyflat.groups` (per telescope) is an ordered list of filter groups, from the
 filter needing the most light (darkest flats) to the least, e.g. for jk15
 `[[Hb_n], [Ha_n], [u_s, b_s, v_s, y_s], [B, V, Ic]]`; the number of groups is the number of
 filters one session can do on that telescope. From every group sfs takes the filter with the
 oldest flats (never taken = oldest; ties keep the group order). The evening goes in group order
-(the sky gets darker), the morning in reverse. Ages are counted to the session start.
-* **Flat history** (`--history`): JSON in the flat_overwatch format,
-`{"V": {"last_flats": "2026-10-10T23:00:00", ...}, "u": {"last_flats": null}, ...}` (a bare
-`{"V": "2026-10-10T23:00:00"}` works too), or `{"evening": {...}, "morning": {...}}` for separate
-session histories. Filters missing from the history are treated as never taken; without
-`--history` the first filter of every group is taken. Output gets a `# filters: ...` line in
-observing order with the age of each filter's flats.
+(the sky gets darker), the morning in reverse.
+* **Flat history** (`--history u=3.5 V=12 ...`): days since the last flats per filter, for the
+session being planned (evening and morning histories are kept apart by the caller — run
+`--evening`/`--morning` separately with their own history). A filter missing from the history, or
+given as `none`, is treated as never taken; without `--history` the first filter of every group is
+taken. In Python the history is a plain dict `{filter: days | None}`; converting from other
+sources (e.g. flat_overwatch timestamps) is up to the caller. With `--loud` the output gets a
+`# filters: ...` line in observing order with the age of each filter's flats.
+* **Full sequences in groups**: a group entry may be a whole sequence for its filter instead of a
+bare name, e.g. `groups: [[u_s, Ha_n], [5/Ic/3, V]]` — if `Ic` is chosen, `5/Ic/3` goes into the
+plan as given; bare names get the defaults below. Flat history is still looked up by the filter
+name (`Ic`). A malformed entry (not `filter` or `N/filter/exp`) stops sfs with an error.
 * **Plan line**: `SKYFLAT <field> <ra> <dec> seq=7/u/a,7/z/a,...` — `skyflat.n` frames per filter
 (default 7) with `skyflat.exp` exposure (default `a`, auto exposure: TOI waits for the right sky
 level and computes the exposure itself). Without groups the line has no `seq`.
@@ -373,7 +386,7 @@ Configuration: defaults in the top-level `skyflat:` block of `config.yaml` (`hsu
 block); a telescope block may override single fields in its own `skyflat:` block. `fields_file`
 has no default and **must** be set in every telescope's `skyflat:` block (or given with
 `--fields_file`). It may be absolute or relative to the package / repo root; all telescopes
-currently use `master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec` line per field.
+currently use `master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec [priority=N]` line per field.
 
 ### ROADMAP
 
