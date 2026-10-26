@@ -1077,6 +1077,13 @@ class TelescopePlanGenerator():
                 for line in s.msg.splitlines():
                     self.log_msg(f'sfs {session}: {line}', always_loud=False)
 
+            if not r["seq"]:
+                # bez skyflat.groups sfs daje sam SKYFLAT bez seq - w planie bezuzyteczny (i niepoprawny dla walidatora)
+                note = f'{session} SKYFLAT skipped, no skyflat.groups for {self.tel}'
+                self.skyflat_info[session] = {"line": None, "note": note}
+                self.log_msg(note)
+                continue
+
             if reference >= r["end"]:
                 note = f'{session} SKYFLAT skipped, the session is over ({ephem.Date(r["end"])} UT)'
                 self.skyflat_info[session] = {"line": None, "note": note}

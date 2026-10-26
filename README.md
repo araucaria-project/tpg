@@ -397,7 +397,8 @@ currently use `master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec [prio
 `WAIT ut=...`), the morning one after it, and `start_makro`/`end_makro` still wrap everything (a makro may open or
 close the dome). A session that is over at the moment the plan should start from is skipped — that moment is the
 `date`/`ut` argument (with no ut: the day, so a plan "from sunset" gets the evening flats), or `now` if given and
-later (TOI passes the current time). A session without a field is skipped with a `WARNING`, the plan is still made.
+later (TOI passes the current time). A session without a field is skipped with a `WARNING`, the plan is still made; with no `skyflat.groups`
+for the telescope no `SKYFLAT` is added (it would have no `seq`).
 The outcome per session is in `p.skyflat_info` (`{"evening": {"line": ... | None, "note": ...}, ...}`); tpg uses the
 same `--wind` for sfs. The night date for sfs comes from the plan's own sunrise, not from the argument.
 

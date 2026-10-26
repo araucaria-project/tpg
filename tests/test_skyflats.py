@@ -107,6 +107,13 @@ class TestSkyflats:
             assert p.skyflat_info[session]["line"] is None
             assert "WARNING" in p.skyflat_info[session]["note"]
 
+    def test_no_groups_no_skyflat_line(self, make_flat_gen):
+        p = alokuj(make_flat_gen(groups=()))
+        p.export()
+
+        assert skyflats(p.plan) == []
+        assert "no skyflat.groups" in p.skyflat_info["evening"]["note"]
+
     def test_same_wind_as_the_plan(self, make_flat_gen, monkeypatch):
         import tpg.sfs as sfs
         seen = []
