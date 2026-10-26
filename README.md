@@ -338,8 +338,8 @@ Objects → Predicted slot time
 poetry run sfs {wk06,zb08,jk15,iris,test} yyyy/mm/dd [--evening | --morning] [--wind DEG] [--fields_file PATH] [--history FILE.json] [--loud]
 ```
 The date is the night (evening) date, as in tpg. Without `--evening`/`--morning` both sessions are
-printed. Output per session is a comment line with the session window and the chosen field line
-from the fields file (`SKYFLAT name ra dec`); `--loud` prints every field with its masks and score.
+printed. Output per session is a comment line with the session window, a `# filters:` line and the
+plan line `SKYFLAT name ra dec seq=...` (see below); `--loud` prints every field with its masks and score.
 
 * **Session**: the Sun between the `skyflat.hsun` limits (default +1 -> -15 deg in the evening,
 -15 -> +1 in the morning), 1-minute grid.
@@ -364,6 +364,9 @@ oldest flats (never taken = oldest; ties keep the group order). The evening goes
 session histories. Filters missing from the history are treated as never taken; without
 `--history` the first filter of every group is taken. Output gets a `# filters: ...` line in
 observing order with the age of each filter's flats.
+* **Plan line**: `SKYFLAT <field> <ra> <dec> seq=7/u/a,7/z/a,...` — `skyflat.n` frames per filter
+(default 7) with `skyflat.exp` exposure (default `a`, auto exposure: TOI waits for the right sky
+level and computes the exposure itself). Without groups the line has no `seq`.
 
 Configuration: defaults in the top-level `skyflat:` block of `config.yaml` (`hsun`, `hmin`,
 `hmax`, `sun_az_dist`, optionally `moon_dist`/`wind_dist`, which otherwise come from the telescope

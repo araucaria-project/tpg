@@ -22,6 +22,9 @@ the group order). The evening goes in group order (the sky darkens), the morning
 Flat history is given per session type, in the flat_overwatch format
 `{filter: {"last_flats": ISO | null, ...}}` (a bare `{filter: ISO | null}` works too).
 
+The result `line` is a plan line for TOI: `SKYFLAT name ra dec seq=n/f1/exp,n/f2/exp,...` with
+`skyflat.n` frames per filter and `skyflat.exp` exposure (`a` = auto exposure).
+
 Usage:
     poetry run sfs zb08 2026/10/26 [--evening | --morning] [--wind DEG] [--history FILE.json] [--loud]
 """
@@ -241,7 +244,7 @@ class SkyflatSelector():
             "name": best["name"],
             "ra": best["ra"],
             "dec": best["dec"],
-            "line": best["line"],
+            "field_line": best["line"],
             "session": self.session,
             "start": self.start_time,
             "end": self.end_time,
@@ -257,6 +260,8 @@ class SkyflatSelector():
         if not self.groups:
             self.log_msg(f'no skyflat.groups for {self.tel}, no filters selected', always_loud=False)
             self.result["filters"] = []
+            self.result["seq"] = ""
+            self.result["line"] = self._plan_line()
             return
 
         history = self.history or {}
@@ -268,12 +273,21 @@ class SkyflatSelector():
                 self.log_msg(f'WARNING: no flat history for {",".join(missing)}, treated as never taken')
 
         self.result["filters"] = select_filters(self.groups, history, self.session, self.start_time)
+        self.result["seq"] = ",".join(f'{self.scfg["n"]}/{f["filter"]}/{self.scfg["exp"]}'
+                                      for f in self.result["filters"])
+
+        self.result["line"] = self._plan_line()
 
         if self.loud:
             for n, (g, f) in enumerate(zip(self.groups if self.session == "evening" else self.groups[::-1],
                                             self.result["filters"])):
                 ages = ", ".join(f'{x} {fmt_age(flat_age(history.get(x), self.start_time))}' for x in g)
                 print(f'{n + 1:2}. {f["filter"]:8} <- {ages}')
+
+    def _plan_line(self):
+        r = self.result
+        line = f'SKYFLAT {r["name"]} {r["ra"]} {r["dec"]}'
+        return f'{line} seq={r["seq"]}' if r["seq"] else line
 
     def _printFieldLog(self):
         print(f'{"field":10} {"alt":>11} {"az":>11} {"sun_az":>6} {"moon":>5} {"vis":>5} {"score":>6}  rejected by')

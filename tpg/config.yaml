@@ -15,8 +15,10 @@ plan_catalog: "~/tpg_plans/"
 skyflat:
   hsun: [-15, 1]                                             # Sun altitude range of a session
   hmin: 40                                                   # field altitude limits, whole session
-  hmax: 70
+  hmax: 78
   sun_az_dist: 100                                           # min field azimuth distance from the Sun
+  n: 7                                                       # frames per filter in the SKYFLAT seq
+  exp: a                                                     # exposure per frame, a = auto exposure
   # moon_dist and wind_dist are taken from the telescope block unless set here
   # groups (per telescope): ordered filter groups, darkest flats first; one filter per group per
   # session, the one with the oldest flats; evening in this order, morning reversed
@@ -37,7 +39,7 @@ wk06:
   night_monitor_gap: 30                                      # [min] break between observations in --night_monitor mode
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[Hb_n], [u_s], [v_s], [b_s], [Hb_w], [y_s], [B], [Ic], [V]]   # PROPOSAL - order to be verified
+    groups: [[u_s], [v_s], [b_s], [y_s], [B], [V], [Ic]]   # PROPOSAL - order to be verified
   dome:                                                      # no block = dome follows telescope azimuth
     mount: gem                                               # dome azimuth from GEM geometry, both sides of pier
     r_dome: 2050                                             # [mm] dome radius
@@ -61,7 +63,7 @@ zb08:
   night_monitor_gap: 30
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[u], [z], [Ic], [V]]                             # PROPOSAL - up to ~9, rest of filters to be added
+    groups: [[u], [z], [Ic], [V], [B], [g], [i], [r]]                             # PROPOSAL - up to ~9, rest of filters to be added
 
 jk15:
   master_file: /home/observer/src/tpg/master_files/jk15_master.txt        # file with OB definitions
@@ -78,7 +80,7 @@ jk15:
   night_monitor_gap: 30
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[Hb_n], [Ha_n], [u_s, b_s, v_s, y_s], [B, V, Ic]]
+    groups: [[u_s, Ha_n, Hb_n], [u, z, v_s, b_s, y_s, Hb_w, Ha_w], [B, V, Ic, g, r, i]]
 
 iris:
   master_file: /home/observer/src/tpg/master_files/iris_master.txt        # file with OB definitions

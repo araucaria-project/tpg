@@ -16,6 +16,8 @@ from tpg.sfs import (SkyflatSelector, NoSkyflatField, load_fields, az_dist, ang_
 from conftest import SITE, TEL, TEL_CFG, DATE
 
 SKYFLAT = {
+    "n": 7,
+    "exp": "a",
     "hsun": [-15, 1],
     "hmin": 40,
     "hmax": 70,
@@ -210,7 +212,7 @@ class TestRank:
         assert r["name"] == best["name"]
         assert r["fallback"] is False
         assert r["fraction"] == 1.0
-        assert r["line"].split()[1] == r["name"]
+        assert r["field_line"].split()[1] == r["name"]
 
         c = best["calc"]
         expected = ang_dist(c["alt"], c["az"], 90 - NULL_POINT_ZD, (s.sun["az"] + 180) % 360).mean()
@@ -318,3 +320,21 @@ class TestFilters:
         r = make_sfs().go()
 
         assert r["filters"] == []
+
+
+class TestPlanLine:
+    def test_skyflat_line_with_seq(self, make_sfs):
+        r = make_sfs(session="morning", skyflat={"groups": [["u"], ["B", "V"]]}).go()
+
+        assert r["seq"] == "7/B/a,7/u/a"
+        assert r["line"] == f'SKYFLAT {r["name"]} {r["ra"]} {r["dec"]} seq=7/B/a,7/u/a'
+
+    def test_n_and_exp_from_config(self, make_sfs):
+        r = make_sfs(skyflat={"groups": [["u"], ["V"]], "n": 5, "exp": 10}).go()
+
+        assert r["seq"] == "5/u/10,5/V/10"
+
+    def test_no_groups_line_without_seq(self, make_sfs):
+        r = make_sfs().go()
+
+        assert r["line"] == f'SKYFLAT {r["name"]} {r["ra"]} {r["dec"]}'
