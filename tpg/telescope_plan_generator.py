@@ -9,6 +9,7 @@ from tqdm import tqdm
 from pyaraucaria.obs_plan.obs_plan_parser import ObsPlanParser
 from pyaraucaria.ob_validator import ObsValidator
 
+from .config import load_config, deep_update  # deep_update re-exported for callers/tests
 from .dome_eq import dome_eq_azimuth
 
 try:
@@ -99,20 +100,7 @@ class TelescopePlanGenerator():
         self.log_msg(txt,always_loud=False)
 
     def _get_config(self):
-
-        with open(self.script_dir+'/config.yaml', 'r') as cfg_file:
-            self.cfg = yaml.safe_load(cfg_file)
-            txt = f'config loaded from {self.script_dir}/config.yaml'
-            self.log_msg(txt)
-
-        local_config_file = self.cfg["local_config"]
-        local_config_file = os.path.expanduser(local_config_file)
-        if os.path.exists(local_config_file):
-            with open(local_config_file) as f:
-                local_cfg = yaml.safe_load(f) or {}
-                deep_update(self.cfg, local_cfg)
-                txt = f'local config loaded from {local_config_file}'
-                self.log_msg(txt)
+        self.cfg = load_config(log=self.log_msg)
 
     def _parse_date(self):
 
@@ -1117,16 +1105,6 @@ def d_ver(slownik,klucze):
             else:
                 result = False
     return result
-
-def deep_update(base: dict, extra: dict) -> dict:
-    # merge extra into base in place, key by key at every level - a local config
-    # overrides single fields of a telescope block instead of replacing the whole block
-    for k, v in extra.items():
-        if isinstance(v, dict) and isinstance(base.get(k), dict):
-            deep_update(base[k], v)
-        else:
-            base[k] = v
-    return base
 
 def merge_schemas(base: dict, extra: dict) -> dict:
     merged = base.copy()
