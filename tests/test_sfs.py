@@ -48,10 +48,8 @@ def make_sfs(tmp_path):
         fields.write_text("\n".join(lines) + "\n")
 
         cfg = dict(SITE)
-        cfg["skyflat"] = dict(SKYFLAT, fields_file=str(fields))
-        cfg[TEL] = dict(TEL_CFG)
-        if skyflat:
-            cfg[TEL]["skyflat"] = skyflat
+        cfg["skyflat"] = dict(SKYFLAT)
+        cfg[TEL] = dict(TEL_CFG, skyflat=dict(fields_file=str(fields), **(skyflat or {})))
         if tel_cfg:
             cfg[TEL].update(tel_cfg)
         return SkyflatSelector(TEL, date, session, cfg=cfg, **kwargs)
@@ -106,6 +104,23 @@ class TestSession:
             s.MakeTime()
 
         assert ev.end_time < mo.start_time < ev.end_time + 1
+
+    def test_fields_file_required_in_telescope_block(self, make_sfs):
+        s = make_sfs()
+        del s.cfg[TEL]["skyflat"]["fields_file"]
+
+        with pytest.raises(ValueError, match="fields_file"):
+            s.Initiate()
+
+    def test_fields_file_argument_replaces_config(self, make_sfs, tmp_path):
+        other = tmp_path / "other.txt"
+        other.write_text(FIELDS[0] + "\n")
+        s = make_sfs(fields_file=str(other))
+        del s.cfg[TEL]["skyflat"]["fields_file"]
+        s.Initiate()
+        s.LoadFields()
+
+        assert [f["name"] for f in s.fields] == ["BF00b"]
 
     def test_telescope_block_overrides_skyflat_fields(self, make_sfs):
         s = make_sfs(skyflat={"hmin": 30})

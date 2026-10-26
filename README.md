@@ -353,11 +353,12 @@ this favours the highest field opposite the Sun.
 * If no field passes the masks for the whole session, the one visible for the longest part of it
 is chosen and marked as fallback (`WARNING` in the output).
 
-Configuration is the top-level `skyflat:` block of `config.yaml` (`fields_file`, `hsun`, `hmin`,
+Configuration: defaults in the top-level `skyflat:` block of `config.yaml` (`hsun`, `hmin`,
 `hmax`, `sun_az_dist`, optionally `moon_dist`/`wind_dist`, which otherwise come from the telescope
-block). A telescope block may override single fields in its own `skyflat:` block. `fields_file`
-may be absolute or relative to the package / repo root; the default is
-`master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec` line per field.
+block); a telescope block may override single fields in its own `skyflat:` block. `fields_file`
+has no default and **must** be set in every telescope's `skyflat:` block (or given with
+`--fields_file`). It may be absolute or relative to the package / repo root; all telescopes
+currently use `master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec` line per field.
 
 ### ROADMAP
 

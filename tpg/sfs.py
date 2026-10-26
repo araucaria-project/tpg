@@ -77,6 +77,9 @@ class SkyflatSelector():
         if self.cfg is None:
             self.cfg = load_config(log=lambda txt: self.log_msg(txt, always_loud=False))
 
+        if not self.fields_file and "fields_file" not in self.cfg[self.tel].get("skyflat", {}):
+            raise ValueError(f'no skyflat.fields_file in the {self.tel} block of the config')
+
         # skyflat block from the top level, overridden field by field by the telescope's own
         self.scfg = copy.deepcopy(self.cfg.get("skyflat", {}))
         deep_update(self.scfg, self.cfg[self.tel].get("skyflat", {}))

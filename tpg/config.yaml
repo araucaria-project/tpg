@@ -11,8 +11,8 @@ local_config: "~/.config/tpg/local_config.yaml"
 plan_catalog: "~/tpg_plans/"
 
 # sky flat selector (sfs) - defaults, a telescope block may override fields in its own `skyflat:`
+# block; `fields_file` is required there (no default - every telescope names its fields file)
 skyflat:
-  fields_file: master_files/sky_flat_fields.txt              # absolute, or relative to the package / repo root
   hsun: [-15, 1]                                             # Sun altitude range of a session
   hmin: 40                                                   # field altitude limits, whole session
   hmax: 70
@@ -33,6 +33,8 @@ wk06:
   wind_dist: 30                                              # wind distance to avoid in dome azimuth
   moon_dist: 40                                              # distance to avoid moon
   night_monitor_gap: 30                                      # [min] break between observations in --night_monitor mode
+  skyflat:
+    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
   dome:                                                      # no block = dome follows telescope azimuth
     mount: gem                                               # dome azimuth from GEM geometry, both sides of pier
     r_dome: 2050                                             # [mm] dome radius
@@ -54,6 +56,8 @@ zb08:
   wind_dist: 95
   moon_dist: 40
   night_monitor_gap: 30
+  skyflat:
+    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
 
 jk15:
   master_file: /home/observer/src/tpg/master_files/jk15_master.txt        # file with OB definitions
@@ -68,6 +72,8 @@ jk15:
   wind_dist: 95
   moon_dist: 40
   night_monitor_gap: 30
+  skyflat:
+    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
 
 iris:
   master_file: /home/observer/src/tpg/master_files/iris_master.txt        # file with OB definitions
@@ -82,6 +88,8 @@ iris:
   wind_dist: 95
   moon_dist: 40
   night_monitor_gap: 30
+  skyflat:
+    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
 
 test:
   master_file: ./test/test_master.txt
@@ -94,6 +102,8 @@ test:
   wind_dist: 95
   moon_dist: 40
   night_monitor_gap: 30
+  skyflat:
+    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
 
 
 ctc:
