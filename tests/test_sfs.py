@@ -424,3 +424,45 @@ class TestPlanLine:
         r = make_sfs().go()
 
         assert r["line"] == f'SKYFLAT {r["name"]} {r["ra"]} {r["dec"]}'
+
+
+class TestCli:
+    def test_session_without_field_does_not_stop_the_other(self, monkeypatch, capsys):
+        import tpg.sfs as sfs
+
+        class FakeSelector:
+            def __init__(self, tel, date, session, **kw):
+                self.session = session
+
+            def go(self):
+                if self.session == "evening":
+                    raise NoSkyflatField("no field in the evening")
+                return {"line": "SKYFLAT F 01:00:00 -30:00:00 seq=7/V/a"}
+
+        monkeypatch.setattr(sfs, "SkyflatSelector", FakeSelector)
+        monkeypatch.setattr("sys.argv", ["sfs", "test", "2026/08/12"])
+
+        with pytest.raises(SystemExit) as e:
+            sfs.main()
+
+        out, err = capsys.readouterr()
+        assert e.value.code == 1
+        assert out == "SKYFLAT F 01:00:00 -30:00:00 seq=7/V/a\n"
+        assert "no field in the evening" in err
+
+    def test_all_sessions_ok_exit_0(self, monkeypatch, capsys):
+        import tpg.sfs as sfs
+
+        class FakeSelector:
+            def __init__(self, tel, date, session, **kw):
+                self.session = session
+
+            def go(self):
+                return {"line": f"SKYFLAT {self.session}"}
+
+        monkeypatch.setattr(sfs, "SkyflatSelector", FakeSelector)
+        monkeypatch.setattr("sys.argv", ["sfs", "test", "2026/08/12"])
+
+        sfs.main()
+
+        assert capsys.readouterr().out == "SKYFLAT evening\nSKYFLAT morning\n"

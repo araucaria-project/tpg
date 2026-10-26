@@ -40,7 +40,7 @@ wk06:
   night_monitor_gap: 30                                      # [min] break between observations in --night_monitor mode
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[u_s], [v_s], [b_s], [y_s], [B], [V], [Ic]]   # PROPOSAL - order to be verified
+    groups: [[u_s], [v_s], [b_s], [y_s], [B], [V], [Ic]]
   dome:                                                      # no block = dome follows telescope azimuth
     mount: gem                                               # dome azimuth from GEM geometry, both sides of pier
     r_dome: 2050                                             # [mm] dome radius
@@ -64,7 +64,7 @@ zb08:
   night_monitor_gap: 30
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[u], [z], [Ic], [V], [B], [g], [i], [r]]                             # PROPOSAL - up to ~9, rest of filters to be added
+    groups: [[u], [z], [Ic], [V], [B], [g], [i], [r]]
 
 jk15:
   master_file: /home/observer/src/tpg/master_files/jk15_master.txt        # file with OB definitions

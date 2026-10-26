@@ -442,6 +442,8 @@ def main():
     else:
         sessions = list(SESSIONS)
 
+    # a session without a field is reported and the other one is still computed; exit 1 at the end
+    failed = False
     for session in sessions:
         s = SkyflatSelector(args.tel, args.date, session, wind=args.wind, loud=args.loud,
                             fields_file=args.fields_file, flat_history=history)
@@ -449,7 +451,8 @@ def main():
             r = s.go()
         except NoSkyflatField as e:
             sys.stderr.write(f"sfs: {e}\n")
-            sys.exit(1)
+            failed = True
+            continue
         # plain plan lines by default, the session summary only with --loud
         if args.loud:
             note = f', visible {100 * r["fraction"]:.0f}% of session' if r["fallback"] else ""
@@ -458,6 +461,9 @@ def main():
             if r["filters"]:
                 print('# filters: ' + ", ".join(f'{f["filter"]} ({fmt_age(f["age"])})' for f in r["filters"]))
         print(r["line"])
+
+    if failed:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
