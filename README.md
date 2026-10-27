@@ -52,10 +52,8 @@ or no object survives the visibility masks this night (`--loud` shows which mask
 
 
 ### INSTALLATION
-Requires Python >=3.10,<3.14 (Python 3.14 is not yet supported: `scipy` does not ship a
-prebuilt wheel for it, which forces a from-source build requiring a Fortran compiler and can
-fail on a fresh machine). Once `scipy` publishes 3.14 wheels, the cap in `pyproject.toml` can
-be raised.
+Requires Python >=3.10,<3.15. Python 3.14 is supported since scipy, numpy, astropy and ephem ship
+prebuilt 3.14 wheels (checked 2026-10-27).
 
 pull from github
 ```commandline
