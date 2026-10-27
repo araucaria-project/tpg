@@ -39,7 +39,7 @@ wk06:
   hsun: -18                                                  # Sun alt to start and stop obs
   wind_dist: 30                                              # wind distance to avoid in dome azimuth
   moon_dist: 40                                              # distance to avoid moon
-  night_monitor_gap: 30                                      # [min] break between observations in --night_monitor mode
+  night_monitor_gap: 15                                      # [min] break between observations in --night_monitor mode
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
     groups: [[u_s], [v_s], [b_s], [y_s], [B], [V], [Ic]]
@@ -65,7 +65,7 @@ zb08:
   hsun: -18
   wind_dist: 95
   moon_dist: 40
-  night_monitor_gap: 30
+  night_monitor_gap: 15
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
     groups: [[u], [z], [Ic], [V], [B], [g], [i], [r]]
@@ -84,7 +84,7 @@ jk15:
   hsun: -18
   wind_dist: 95
   moon_dist: 40
-  night_monitor_gap: 30
+  night_monitor_gap: 15
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
     groups: [[u_s, Ha_n, Hb_n], [u, z, v_s, b_s, y_s, Hb_w, Ha_w], [B, V, Ic, g, r, i]]
@@ -103,7 +103,7 @@ iris:
   hsun: -18
   wind_dist: 95
   moon_dist: 40
-  night_monitor_gap: 30
+  night_monitor_gap: 15
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
 
@@ -117,7 +117,7 @@ test:
   hsun: -18
   wind_dist: 95
   moon_dist: 40
-  night_monitor_gap: 30
+  night_monitor_gap: 15
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
     groups: [[u], [z], [Ic], [V]]
