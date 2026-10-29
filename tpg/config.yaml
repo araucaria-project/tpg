@@ -68,7 +68,7 @@ zb08:
   night_monitor_gap: 15
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[u], [z], [Ic], [V], [B], [g], [i], [r]]
+    groups: [[u], [z], [Ic], [V, B], [g], [i], [r]]
     evening_makro: makro/zb08_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
     morning_makro: makro/zb08_morning_makro.txt              # morning flat session template
 
@@ -87,7 +87,7 @@ jk15:
   night_monitor_gap: 15
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[u_s, Ha_n, Hb_n], [u, z, v_s, b_s, y_s, Hb_w, Ha_w], [B, V, Ic, g, r, i]]
+    groups: [[u_s, Ha_n, Hb_n, u, z, v_s, b_s, y_s, Hb_w, Ha_w], [B, V, Ic, g, r, i]]
     evening_makro: makro/jk15_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
     morning_makro: makro/jk15_morning_makro.txt              # morning flat session template
 
