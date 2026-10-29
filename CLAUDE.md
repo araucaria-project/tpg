@@ -23,7 +23,7 @@ Run the generator:
 ```
 poetry run tpg {wk06,zb08,jk15,iris,test} yyyy/mm/dd [hh:mm:ss] [--tag TAG] [--wind DEG] [--fwhm FWHM] \
     [--seed N] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file PATH] \
-    [--night_monitor] [--skyflats]
+    [--night_monitor] [--night_monitor_gap MIN] [--skyflats]
 ```
 Example (see README.md for the full argument table and master-file syntax):
 ```

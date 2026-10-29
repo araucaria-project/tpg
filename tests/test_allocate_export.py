@@ -313,6 +313,16 @@ class TestNightMonitor:
                 assert b == koniec_przerwy
             assert all(p.nightFree[a + slots + 1:b])
 
+    def test_gap_argument_overrides_config(self, make_gen):
+        p = make_gen([obj(name="mon", tag="night_monitor")], night_monitor=True, night_monitor_gap=10,
+                     tel_cfg={"night_monitor_gap": 60})
+        p = alokuj(p, seed=1)
+
+        assert "night_monitor gap: 10 min" in p.msg
+        starty = self.starty(p)
+        slots = int(float(p.ob[0]["slotTime"]))
+        assert min(b - a for a, b in zip(starty, starty[1:])) == slots + 1 + 10
+
     def test_gap_becomes_wait_ut_in_plan(self, make_gen):
         p = self.nm(make_gen, [obj(name="mon", tag="night_monitor")])
         p.export()

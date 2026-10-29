@@ -27,6 +27,7 @@ class main:
     argparser.add_argument("--no_end_makro", action="store_false", help='do not add makro at the plan end')
     argparser.add_argument("--master_file", type=str, default=None, help='specify master file')
     argparser.add_argument("--night_monitor", action="store_true", help='monitor objects tagged night_monitor, with night_monitor_gap break between observations')
+    argparser.add_argument("--night_monitor_gap", type=int, default=None, metavar="MIN", help='break between observations in --night_monitor mode [min], default night_monitor_gap from the config (15)')
     argparser.add_argument("--skyflats", action="store_true", help='add evening/morning SKYFLAT chosen by sfs (sessions already over at the plan start are skipped)')
 
 
@@ -46,6 +47,7 @@ class main:
             master_file=args.master_file,
             done_uobi=[],
             night_monitor=args.night_monitor,
+            night_monitor_gap=args.night_monitor_gap,
             skyflats=args.skyflats)
     try:
         p.go()

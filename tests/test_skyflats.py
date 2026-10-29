@@ -18,7 +18,8 @@ def make_flat_gen(make_gen, tmp_path):
     def _make(fields=FIELDS, groups=(("V", "Ic"),), tel_cfg=None, makros=None, **kwargs):
         f = tmp_path / "fields.txt"
         f.write_text("\n".join(fields) + "\n")
-        p = make_gen([obj(name="cel", ob_time=10)], tel_cfg=tel_cfg, skyflats=True, **kwargs)
+        kwargs.setdefault("skyflats", True)
+        p = make_gen([obj(name="cel", ob_time=10)], tel_cfg=tel_cfg, **kwargs)
         p.cfg["skyflat"] = dict(SKYFLAT)
         p.cfg[TEL]["skyflat"] = {"fields_file": str(f), "groups": [list(g) for g in groups], **(makros or {})}
         return p
@@ -41,6 +42,15 @@ class TestSkyflats:
         assert len(skyflats(p.plan)) == 2
         assert p.skyflat_info["evening"]["line"] == p.plan[0]
         assert p.skyflat_info["morning"]["line"] == p.plan[-1]
+
+    @pytest.mark.parametrize("session", ["evening", "morning"])
+    def test_only_chosen_session(self, make_flat_gen, session):
+        p = alokuj(make_flat_gen(skyflats=[session]))
+        p.export()
+
+        assert len(skyflats(p.plan)) == 1
+        assert list(p.skyflat_info) == [session]
+        assert p.skyflat_info[session]["line"] == (p.plan[0] if session == "evening" else p.plan[-1])
 
     def test_without_option_no_skyflats(self, make_gen):
         p = alokuj(make_gen([obj(name="cel", ob_time=10)]))

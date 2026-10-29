@@ -24,7 +24,7 @@ class NoObservableObjects(ValueError):
 
 
 class TelescopePlanGenerator():
-    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, use_ctc=True, master_file=None, done_uobi=[], night_monitor=False, skyflats=False, flat_history=None, now=None):
+    def __init__(self,tel,date,tag=None,wind=None,fwhm=None,loud=False,seed=None,add_start_makro=True,add_end_makro=True,save_plan=True, use_ctc=True, master_file=None, done_uobi=[], night_monitor=False, night_monitor_gap=None, skyflats=False, flat_history=None, now=None):
         self.cwd = os.getcwd()
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
         self.arg_date = date
@@ -42,9 +42,17 @@ class TelescopePlanGenerator():
         self.use_ctc = bool(use_ctc)
         self.master_file = master_file
         self.night_monitor = bool(night_monitor)
+        self.night_monitor_gap = night_monitor_gap  # min, przerwa w trybie night_monitor; None = z configu (domyslnie 15)
         if self.night_monitor:
             self.tag = "night_monitor"
-        self.skyflats = bool(skyflats)
+        # skyflats: True = obie sesje, albo lista sesji ("evening", "morning"), np. z TOI osobne przelaczniki
+        if skyflats is True:
+            self.skyflat_sessions = ("evening", "morning")
+        elif not skyflats:
+            self.skyflat_sessions = ()
+        else:
+            self.skyflat_sessions = tuple(s for s in ("evening", "morning") if s in skyflats)
+        self.skyflats = bool(self.skyflat_sessions)
         self.flat_history = flat_history or {}   # {"evening": {filter: days|None}, "morning": {...}} dla sfs
         self.skyflat_info = {}                  # {session: {"line": SKYFLAT...|None, "note": txt}} - np. dla TOI
         self.now = now                          # opcjonalnie biezacy czas (TOI) - sesje skyflat, ktore juz minely, sa pomijane
@@ -913,8 +921,11 @@ class TelescopePlanGenerator():
     def _allocate_night_monitor(self):
         # tryb --night_monitor: obiekty nie znikaja z listy po alokacji, w kazdym kroku
         # losujemy od nowa sposrod najwyzszego priorytetu, a po obserwacji zostawiamy
-        # przerwe night_monitor_gap minut (export wstawi tam WAIT ut=...)
-        gap = int(self.cfg[self.tel].get("night_monitor_gap", 30))
+        # przerwe night_monitor_gap minut (export wstawi tam WAIT ut=...); argument ma pierwszenstwo przed configiem
+        gap = self.night_monitor_gap
+        if gap is None:
+            gap = self.cfg[self.tel].get("night_monitor_gap", 15)
+        gap = int(gap)
         txt = f'night_monitor gap: {gap} min\n'
         self.log_msg(txt, always_loud=False)
 
@@ -1066,7 +1077,7 @@ class TelescopePlanGenerator():
 
     def AddSkyflats(self):
         """SKYFLAT z sfs (albo cale makro sesji flatow z podmieniona linia SKYFLAT): wieczorny przed nocna
-        czescia planu, poranny po niej.
+        czescia planu, poranny po niej - tylko sesje z self.skyflat_sessions.
         Sesja, ktora konczy sie przed chwila, od ktorej plan ma ruszyc, jest pomijana (np. plan robiony w nocy -
         tylko poranne). Ta chwila to data/ut z argumentu (przy start at sunset: dzien, a nie zachod przy hsun,
         bo wieczorne flaty sa przed nim), a jesli podano now - pozniejsze z nich.
@@ -1079,7 +1090,7 @@ class TelescopePlanGenerator():
         if self.now is not None:
             reference = max(reference, ephem.Date(self.now))
 
-        for session in ("evening", "morning"):
+        for session in self.skyflat_sessions:
             s = SkyflatSelector(self.tel, night, session, wind=self.wind, cfg=self.cfg,
                                 flat_history=self.flat_history.get(session), check_date=False)
             try:

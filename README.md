@@ -8,7 +8,7 @@ Script creates files readable by *TOI* and *TEXTUI*.
 
 ### RUNNING THE SCRIPT
 ```
-poetry run tpg {wk06,zb08,jk15,iris,test} date [ut] [--tag TAG] [--wind WIND] [--fwhm FWHM] [--seed SEED] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file MASTER_FILE] [--night_monitor] [--skyflats]
+poetry run tpg {wk06,zb08,jk15,iris,test} date [ut] [--tag TAG] [--wind WIND] [--fwhm FWHM] [--seed SEED] [--loud] [--no_save] [--no_ctc] [--no_start_makro] [--no_end_makro] [--master_file MASTER_FILE] [--night_monitor] [--night_monitor_gap MIN] [--skyflats]
 date: YYYY/MM/DD [hh:mm:ss] 
 ```
 
@@ -47,12 +47,13 @@ or no object survives the visibility masks this night (`--loud` shows which mask
 | `--no_end_makro`            | disables adding **makro** at the end of the plan.                                      |
 | `--master_file MASTER_FILE` | override the master file configured for `tel`.                                         |
 | `--night_monitor`           | monitoring mode: only `tag=night_monitor` objects, repeated, with `night_monitor_gap` minutes break (see below). |
+| `--night_monitor_gap MIN`   | break between observations in `--night_monitor` mode [min]; default `night_monitor_gap` from the config (15). |
 | `--skyflats`                | add the evening/morning `SKYFLAT` chosen by sfs (see "SKYFLAT SELECTOR" below). |
 
 
 
 ### INSTALLATION
-Requires Python >=3.10,<3.15. Python 3.14 is supported since scipy, numpy, astropy and ephem ship
+Requires Python >=3.11,<3.15 (with 3.10 allowed poetry resolved scipy 1.15.3, which has no 3.14 wheels and fails to build). Python 3.14 is supported since scipy, numpy, astropy and ephem ship
 prebuilt 3.14 wheels (checked 2026-10-27).
 
 pull from github
@@ -104,7 +105,7 @@ zb08:                                                           # telescope
   wind_dist: 95                                                 # deg, wind sector to avoid in azimuth
   moon_dist: 40                                                 # deg, default distance to avoid moon
   def_read_mode: 2                                              # for slot time calculation
-  night_monitor_gap: 30                                         # min, break between observations in --night_monitor mode (default 30)
+  night_monitor_gap: 15                                         # min, break between observations in --night_monitor mode (default 15)
 ```
 
 Telescopes on a German equatorial mount (currently only wk06) also get a `dome` block. The dome
@@ -302,7 +303,8 @@ The process repeats until the morning Sun altitude limit is reached.
 (the mode implies `--tag night_monitor`), and they are **not** removed after allocation. At each
 step the candidates that fit are narrowed to the highest priority and one of them is drawn
 at random (re-drawn every step, reproducible with `--seed`). After each observation the next
-`night_monitor_gap` minutes (per-telescope config key, default 30) are left free, which the
+`night_monitor_gap` minutes (per-telescope config key, default 15; `--night_monitor_gap` /
+`night_monitor_gap=` overrides it, TOI has a field for it in the TPG window) are left free, which the
 export turns into `WAIT ut=...`. `cycle` still applies: an object with `cycle` drops out for
 `cycle` days after its first allocation.
 
@@ -392,7 +394,8 @@ has no default and **must** be set in every telescope's `skyflat:` block (or giv
 currently use `master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec [priority=N]` line per field.
 
 **In tpg plans** (`--skyflats`, or `TelescopePlanGenerator(..., skyflats=True, flat_history={"evening": {...},
-"morning": {...}}, now=None)`): the evening `SKYFLAT` goes before the night part of the plan (`WAIT sunset=...` /
+"morning": {...}}, now=None)`; `skyflats` may also be a list of sessions, e.g. `["morning"]` — TOI has separate
+evening/morning switches): the evening `SKYFLAT` goes before the night part of the plan (`WAIT sunset=...` /
 `WAIT ut=...`), the morning one after it, and `start_makro`/`end_makro` still wrap everything (a makro may open or
 close the dome). A session that is over at the moment the plan should start from is skipped — that moment is the
 `date`/`ut` argument (with no ut: the day, so a plan "from sunset" gets the evening flats), or `now` if given and
