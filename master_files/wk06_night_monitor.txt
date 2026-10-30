@@ -2,13 +2,13 @@
 # usage: poetry run tpg wk06 yyyy/mm/dd --night_monitor --master_file master_files/wk06_night_monitor.txt
 # every object here needs tag=night_monitor; higher priority wins when available
 
-OBJECT TPHE 00:30:33 -46:28:30 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
-OBJECT SA95 03:53:32 -00:00:50 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
-OBJECT SA98 06:52:11 -00:19:18 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
-OBJECT RU149 07:24:14 -00:31:41 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
-OBJECT RU152 07:29:56 -02:05:39 seq=1/B/23,1/V/18,1/Ic/18 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
-OBJECT SF0841-022 08:43:52 -02:25:15 seq=1/B/31,1/V/25,1/Ic/25 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst., new field"
-OBJECT LSE44 13:52:52 -48:08:50 seq=1/B/11,1/V/9,1/Ic/9 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst., new field"
-OBJECT LSE259 16:53:56 -56:00:30 seq=1/B/11,1/V/9,1/Ic/9 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst., new field"
-OBJECT SA110 18:42:51 +00:05:40 seq=1/B/31,1/V/25,1/Ic/25 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst."
-OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/21,1/V/17,1/Ic/17 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins phot. syst., new subfield"
+OBJECT FS001 0:33:54.46 -12:07:58.78 seq=1/B/140,1/V/90,1/Ic/100 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+OBJECT FS011 4:52:58.86 -0:14:41.17 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+OBJECT FS014 7:24:14.37 -0:33:04.16 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+OBJECT FS017 8:51:19.69 11:52:10.75 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+OBJECT FS034 20:42:34.75 -20:04:35.93 seq=1/B/120,1/V/80,1/Ic/100 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+OBJECT FS035 18:27:13.50 4:03:09.80 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+OBJECT FS121 6:59:46.77 -4:54:33.67 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+OBJECT FS152 22:27:16.14 19:16:55.41 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+OBJECT FS153 23:02:32.08 -3:58:53.03 seq=1/B/30,1/V/18,1/Ic/22 priority=1 pi=ocm sciprog=ocm status=ongoing tag=night_monitor test=1
+

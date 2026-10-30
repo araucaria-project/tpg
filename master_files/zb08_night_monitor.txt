@@ -2,13 +2,15 @@
 # usage: poetry run tpg zb08 yyyy/mm/dd --night_monitor --master_file master_files/zb08_night_monitor.txt
 # every object here needs tag=night_monitor; higher priority wins when available
 
-OBJECT TPHE 00:30:33 -46:28:30 seq=1/B/23,1/V/18,1/Ic/18,1/u/200,1/g/18,1/r/14,1/i/18,1/z/42 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst."
-OBJECT SA95 03:53:32 -00:00:50 seq=1/B/23,1/V/18,1/Ic/18,1/u/200,1/g/18,1/r/14,1/i/18,1/z/42 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst."
-OBJECT SA98 06:52:11 -00:19:18 seq=1/B/23,1/V/18,1/Ic/18,1/u/200,1/g/18,1/r/14,1/i/18,1/z/42 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst."
-OBJECT RU149 07:24:14 -00:31:41 seq=1/B/23,1/V/18,1/Ic/18,1/u/200,1/g/18,1/r/14,1/i/18,1/z/42 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst."
-OBJECT RU152 07:29:56 -02:05:39 seq=1/B/23,1/V/18,1/Ic/18,1/u/200,1/g/18,1/r/14,1/i/18,1/z/42 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst."
-OBJECT SF0841-022 08:43:52 -02:25:15 seq=1/B/31,1/V/25,1/Ic/25,1/u/300,1/g/25,1/r/21,1/i/25,1/z/62 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst., new field"
-OBJECT LSE44 13:52:52 -48:08:50 seq=1/B/11,1/V/9,1/Ic/9,1/u/150,1/g/9,1/r/7,1/i/9,1/z/21 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst., new field"
-OBJECT LSE259 16:53:56 -56:00:30 seq=1/B/11,1/V/9,1/Ic/9,1/u/150,1/g/9,1/r/7,1/i/9,1/z/21 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst., new field"
-OBJECT SA110 18:42:51 +00:05:40 seq=1/B/31,1/V/25,1/Ic/25,1/u/300,1/g/25,1/r/21,1/i/25,1/z/63 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst."
-OBJECT SA113-F1 21:36:02 -00:30:25 seq=1/B/21,1/V/17,1/Ic/17,1/u/200,1/g/17,1/r/14,1/i/17,1/z/42 priority=0 sciprog=cal pi=ocm tag=night_monitor comment="standard field for Johnson-Cousins and Sloan phot. syst., new subfield"
+OBJECT YZ_Cap 21:19:32.40 -15:07:01.43 seq=2/Ic/9,2/V/4,2/g/2.2,2/r/2,2/i/5.4 priority=5 sciprog=ocm pi=ocm tag=night_monitor test=1
+OBJECT RR_Gru 21:38:03.56 -44:41:12.09 seq=2/Ic/28,2/V/13,2/g/14.4,2/r/8.5,2/i/15.4 priority=5 sciprog=ocm pi=ocm mV=12.63 tag=night_monitor test=1
+OBJECT BV_Aqr 22:02:54.00 -21:31:32.46 seq=2/Ic/6,2/V/1.8,2/g/1.6,2/r/1.6,2/i/2.2 priority=5 sciprog=ocm pi=ocm mV=11.11 tag=night_monitor test=1
+OBJECT RV_Phe 23:28:31.45 -47:27:13.04 seq=2/Ic/15,2/V/6.5,2/g/7.3,2/r/4.7,2/i/8.6 priority=5 sciprog=ocm pi=ocm mV=11.88 tag=night_monitor test=1
+OBJECT VW_Scl 01:18:14.97 -39:12:44.84 seq=2/Ic/5,2/V/1.8,2/g/1.8,2/r/1.5,2/i/5 priority=5 sciprog=ocm pi=ocm mV=11.17 tag=night_monitor test=1
+OBJECT RV_Cet 02:15:14.90 -10:48:00.71 seq=2/Ic/4,2/V/2,2/g/2,2/r/2,2/i/3 priority=5 sciprog=ocm pi=ocm mV=10.97 tag=night_monitor test=1
+OBJECT ASAS_J031408-3446.4 03:14:08.31 -34:46:22.44 seq=2/Ic/10,2/V/4,2/g/4,2/r/4,2/i/10 priority=5 sciprog=ocm pi=ocm mV=11.88 tag=night_monitor test=1
+OBJECT U_Cae 04:53:14.43 -37:49:15.78 seq=2/Ic/18,2/V/8.4,2/g/7,2/r/5.9,2/i/10 priority=5 sciprog=ocm pi=ocm mV=12.18 tag=night_monitor test=1
+OBJECT AO_Lep 05:24:14.64 -14:06:03.13 seq=2/Ic/16,2/V/7.2,2/g/7.9,2/r/5.2,2/i/9.7 priority=5 sciprog=ocm pi=ocm mV=11.69 tag=night_monitor test=1
+OBJECT AA_CMi 07:17:19.17 +01:43:40.05 seq=2/Ic/10,2/V/5,2/g/6,2/r/3,2/i/8 priority=5 sciprog=ocm pi=ocm mV=11.56 tag=night_monitor test=1
+OBJECT BB_Pup 08:24:22.63 -19:32:31.42 seq=2/Ic/19,2/V/7,2/g/7.5,2/r/5,2/i/12 priority=5 sciprog=ocm pi=ocm mV=12.16 tag=night_monitor test=1
+
