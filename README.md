@@ -17,7 +17,7 @@ poetry run tpg zb08 2023/08/1
 poetry run tpg wk06 2023/08/1 03:45:00 --no_start_makro
 poetry run tpg wk06 2023/08/1 --seed 101010  --wind 124
 poetry run tpg wk06 2023/08/1 --loud --tag stromgren
-poetry run tpg zb08 2023/08/1 --night_monitor --master_file master_files/zb08_night_monitor.txt
+poetry run tpg zb08 2023/08/1 --night_monitor --master_file /data/misc/ocm-plans/master/zb08/zb08_night_monitor.txt
 ```
 If `ut` is specified, the plan will **start at UT**.
 If it's not specified, it will **start at sunset** (defined by `hsun` in ```config.yaml```)
@@ -87,22 +87,30 @@ above stay valid; afterwards they become `uv sync` / `uv run tpg ...`.
 
 if local configuration file exist (path given by `local_config` in config.yaml, by default:
 `~/.config/tpg/local_config.yaml`), specified parameters will be overwritten. The merge is
-key by key at every level — a local file only needs the fields it changes (typically the
-paths); everything else, e.g. `dome`, comes from `config.yaml`.
+key by key at every level — a local file only needs the fields it changes; everything else, e.g.
+`dome`, comes from `config.yaml`. `local_config.yaml` in the repo root is the one for the OCM
+control-room machines (it sets only `plan_catalog`); don't copy master/makro paths into a local file.
+`./reset_local_config.sh` installs it as `~/.config/tpg/local_config.yaml` (the old file is kept as a
+timestamped `.bak` and the differences are printed).
+
+**Masters, makros and sky flat fields live in the [ocm-plans](https://github.com/araucaria-project/ocm-plans)
+repository**, not here: the defaults point at its NFS checkout `/data/misc/ocm-plans/master/<tel>/`, which is
+synced with GitHub every 2 minutes (edit on GitHub or on NFS, no `git pull` on the machines). Generated plans
+and logs (`plan_catalog`) stay on the local disk of each machine, as tpg's run log.
 
 ```plainttext
-plan_catalog: ~/tpg_plans/                                      # where plans and logs are saved
+plan_catalog: ~/tpg_plans/                                      # where plans and logs are saved (local disk)
 
 zb08:                                                           # telescope
-  master_file: /home/user/tpg/master_files/zb08_master.txt      # file with OB definitions
-  start_makro: /home/user/tpg/master_files/zb08_start_makro.txt # start_makro
-  end_makro: /home/user/tpg/master_files/zb08_end_makro.txt     # end makro
+  master_file: /data/misc/ocm-plans/master/zb08/zb08_master.txt      # file with OB definitions
+  start_makro: /data/misc/ocm-plans/master/zb08/zb08_start_makro.txt # start_makro
+  end_makro: /data/misc/ocm-plans/master/zb08/zb08_end_makro.txt     # end makro
   data_file: /data/fits/zb08/processed-ofp/targets/             # observations root, also root for obs_data
   overhead: 15                                                  # SECONDS added to each exposure
   hmin: 35                                                      # deg, min altitude to observe
   hmax: 80                                                      # deg, max altitude to observe
   hsun: -18                                                     # deg, Sun alt to start and stop obs
-  wind_dist: 95                                                 # deg, wind sector to avoid in azimuth
+  wind_dist: 40                                                 # deg, wind sector to avoid in azimuth
   moon_dist: 40                                                 # deg, default distance to avoid moon
   def_read_mode: 2                                              # for slot time calculation
   night_monitor_gap: 15                                         # min, break between observations in --night_monitor mode (default 15)
@@ -308,7 +316,7 @@ at random (re-drawn every step, reproducible with `--seed`). After each observat
 export turns into `WAIT ut=...`. `cycle` still applies: an object with `cycle` drops out for
 `cycle` days after its first allocation.
 
-Keep night-monitor objects in a **separate master file** (`master_files/{tel}_night_monitor.txt`) and
+Keep night-monitor objects in a **separate master file** (`{tel}_night_monitor.txt` next to the master in ocm-plans) and
 pass it with `--master_file`. In the regular master file they would be ordinary candidates in normal
 runs too — even at `priority=0` they fill slots where nothing else fits, and their mere presence
 changes the random draw for a given `--seed`.
@@ -391,7 +399,7 @@ telescope block); a telescope block may override single fields in its own `skyfl
 holds its `groups` (no groups = field only, `SKYFLAT` line without `seq`). `fields_file`
 has no default and **must** be set in every telescope's `skyflat:` block (or given with
 `--fields_file`). It may be absolute or relative to the package / repo root; all telescopes
-currently use `master_files/sky_flat_fields.txt`, one `SKYFLAT name ra dec [priority=N]` line per field.
+currently use `/data/misc/ocm-plans/master/sky_flat_fields.txt` (ocm-plans), one `SKYFLAT name ra dec [priority=N]` line per field.
 
 **In tpg plans** (`--skyflats`, or `TelescopePlanGenerator(..., skyflats=True, flat_history={"evening": {...},
 "morning": {...}}, now=None)`; `skyflats` may also be a list of sessions, e.g. `["morning"]` — TOI has separate
@@ -406,7 +414,7 @@ same `--wind` for sfs. The night date for sfs comes from the plan's own sunrise,
 
 **Flat session makros** (`skyflat.evening_makro` / `skyflat.morning_makro` in the telescope's `skyflat` block,
 paths like `fields_file`): with `--skyflats` the whole session comes from the makro instead of a single line — e.g.
-`makro/wk06_evening_makro.txt`:
+`master/wk06/makro/wk06_evening_makro.txt` in ocm-plans:
 ```
 # lines starting with # are not copied to the plan
 WAIT sunset=-1
@@ -441,7 +449,7 @@ visible at any minute of the session; a malformed config raises `ValueError`.
 ### ROADMAP
 
 Ideas and known limitations, not commitments. Ordered roughly by return on effort.
-For scale: of the 917 active OBJECT lines in `master_files/`, 596 use `cycle`, 540 use `ph_mk`
+For scale: of the 917 active OBJECT lines in the masters (2026-10, then in `master_files/`, now ocm-plans), 596 use `cycle`, 540 use `ph_mk`
 and 305 use `ph_start` — the phase and cadence machinery is the core of this catalogue, so that
 is where most of the value sits.
 

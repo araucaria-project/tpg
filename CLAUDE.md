@@ -66,7 +66,9 @@ Two layered YAML configs, merged at runtime by `tpg/config.py:load_config()` (ca
 2. A local override file at the path in `local_config` (default `~/.config/tpg/local_config.yaml`),
    loaded if present and merged over the defaults via `deep_update` (recursive — a local
    telescope block only overrides the fields it lists; e.g. wk06's `dome` geometry lives only in
-   `tpg/config.yaml`). `local_config.yaml` at the repo root is a personal example of this override file, not
+   `tpg/config.yaml`). `local_config.yaml` at the repo root is the override file for the OCM control-room machines (copy to
+   `~/.config/tpg/` with `./reset_local_config.sh`, which backs up the old one; it sets only `plan_catalog` —
+   generated plans stay on the local disk), not
    something the script reads directly.
 
 `master_file` paths that don't resolve as given are retried relative to the package directory
@@ -74,13 +76,14 @@ Two layered YAML configs, merged at runtime by `tpg/config.py:load_config()` (ca
 
 ## Master files and observing blocks
 
-`master_files/*.txt` are the tracked, hand-edited source of truth for observing targets (one
-per telescope, e.g. `zb08_master.txt`, `jk15_master.txt`); commits like "updated exposure times"
-or activating/deactivating targets are routine edits to these files, not code changes.
-`master_files/{tel}_night_monitor.txt` hold the objects for `--night_monitor` mode and are passed
-with `--master_file`; they are deliberately kept out of the regular master files, where they would
-leak into normal plans as gap fillers even at `priority=0`. `makro/*.txt` are reusable
-TOI-readable macro blocks a master-file line can splice in via `makro=path`. `plans/` is git-ignored — it holds generated nightly plans and their `_log.txt`
+Observing targets (masters, `{tel}_night_monitor.txt`, `{tel}_inactive.txt`, start/end makros, `makro/*.txt`,
+`sky_flat_fields.txt`) live in the separate repo `araucaria-project/ocm-plans` (`master/<tel>/`), read by tpg from its
+NFS checkout `/data/misc/ocm-plans/master/…` (synced with GitHub every 2 min) — the defaults in `tpg/config.yaml`
+point there. `master_files/` and `makro/` here are leftovers kept for a grace period (only the `test` block still uses
+`master_files/sky_flat_fields.txt`, so it works without NFS); don't edit masters here, they no longer reach the machines.
+Night-monitor objects are deliberately kept out of the regular master files, where they would leak into normal plans
+as gap fillers even at `priority=0`; they are passed with `--master_file`. A master line can splice in a TOI-readable
+makro via `makro=path`. `plans/` is git-ignored — it holds generated nightly plans and their `_log.txt`
 siblings, numbered `{tel}_{yyyymmdd}_{n}.txt`.
 
 Each master-file line is parsed by `pyaraucaria.obs_plan.obs_plan_parser.ObsPlanParser` and
@@ -113,9 +116,9 @@ oldest flats in `flat_history` (`{filter: days | None}`) first — via the pure 
 `TelescopePlanGenerator(skyflats=True, flat_history=..., now=...)` calls sfs from `AddSkyflats()` at the end of
 `export()`, before the start/end makros are added (evening SKYFLAT first in the night part, morning last); sessions
 already over at the plan's reference time are skipped, results in `skyflat_info`. sfs is imported lazily there.
-Optional `skyflat.{evening,morning}_makro` (`makro/{tel}_{evening,morning}_makro.txt`) wrap the SKYFLAT line in the
+Optional `skyflat.{evening,morning}_makro` (ocm-plans `master/{tel}/makro/{tel}_{evening,morning}_makro.txt`) wrap the SKYFLAT line in the
 whole flat session (WAIT/BELL/ZERO); the bare `SKYFLAT` line in the makro is the placeholder, `#` lines are dropped
-(TOI's validator rejects them). start/end makros are unrelated and stay where they were (`master_files/`). A group entry is a filter or a full
+(TOI's validator rejects them). start/end makros are unrelated (`master/{tel}/` in ocm-plans). A group entry is a filter or a full
 `N/filter/exp` sequence. The date is the night (evening) date as in tpg; `_checkSessionDate` warns
 when the session is over or > 24 h away. CLI stdout carries only `SKYFLAT` plan lines (logs go to
 stderr, details with `--loud`). README "SKYFLAT SELECTOR" is the user-facing reference.

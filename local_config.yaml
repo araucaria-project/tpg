@@ -1,69 +1,15 @@
+# Local tpg config for the OCM control-room machines: copy to ~/.config/tpg/local_config.yaml
+#
+# Merged over tpg/config.yaml key by key (deep_update), so list ONLY what really
+# differs on this machine. Every copied field hides later changes of the repo
+# defaults - in particular do NOT put master_file / start_makro / end_makro / skyflat
+# paths here: the defaults already point at the ocm-plans checkout on NFS
+# (/data/misc/ocm-plans/master/<tel>/...).
+
+# generated plans + their logs: local disk of this machine
+# (run log of tpg, not shared, not in ocm-plans)
 plan_catalog: "/home/observer/src/tpg/plans"
 
-
-wk06:
-  master_file: /home/observer/src/tpg/master_files/wk06_master.txt
-  start_makro: /home/observer/src/tpg/master_files/wk06_start_makro.txt
-  end_makro: /home/observer/src/tpg/master_files/wk06_end_makro.txt
-  data_file: /data/fits/wk06/processed-ofp/targets/
-  def_read_mode: 2
-  overhead: 15                                               # overhead for time slot calculation
-  hmin: 35                                                   # min altitude to observe
-  hmax: 85                                                   # max altitude to observe
-  hsun: -18                                                  # Sun alt to start and stop obs
-  wind_dist: 30                                              # wind distance to avoid in azimuth
-  moon_dist: 40   
-
-zb08:
-  master_file: /home/observer/src/tpg/master_files/zb08_master.txt
-  start_makro: /home/observer/src/tpg/master_files/zb08_start_makro.txt
-  end_makro: /home/observer/src/tpg/master_files/zb08_end_makro.txt
-  data_file: /data/fits/zb08/processed-ofp/targets/
-  def_read_mode: 2
-  overhead: 15
-  hmin: 35
-  hmax: 80
-  hsun: -18
-  wind_dist: 95
-  moon_dist: 40
-
-
-jk15:
-  master_file: /home/observer/src/tpg/master_files/jk15_master.txt
-  start_makro: /home/observer/src/tpg/master_files/jk15_start_makro.txt
-  end_makro: /home/observer/src/tpg/master_files/jk15_end_makro.txt
-  data_file: /data/fits/jk15/processed-ofp/targets/
-  def_read_mode: 3
-  overhead: 60
-  hmin: 35
-  hmax: 80
-  hsun: -18
-  wind_dist: 95
-  moon_dist: 40
-
-iris:
-  master_file: /home/observer/src/tpg/master_files/iris_master.txt        # file with OB definitions
-  start_makro: /home/observer/src/tpg/master_files/iris_start_makro.txt
-  end_makro: /home/observer/src/tpg/master_files/iris_end_makro.txt
-  data_file: /data/fits/iris/processed-ofp/targets/
-  def_read_mode: 3
-  overhead: 60
-  hmin: 35
-  hmax: 80
-  hsun: -18
-  wind_dist: 95
-  moon_dist: 40
-
-test:
-  master_file: ./test/test_master.txt
-  start_makro: ./test/test_start_makro.txt
-  end_makro: ./test/test_end_makro.txt
-  data_file: ./test/
-  def_read_mode: 2
-  overhead: 15
-  hmin: 35
-  hmax: 80
-  hsun: -18
-  wind_dist: 95
-  moon_dist: 40
-
+# per-telescope overrides, only if this machine needs them, e.g.:
+# wk06:
+#   hmax: 85

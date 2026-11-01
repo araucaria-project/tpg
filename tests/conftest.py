@@ -32,7 +32,7 @@ SITE = {
     "plan_catalog": "/nonexistent/plans/",
 }
 
-# jak blok "test" w config.yaml, z jedna roznica: moon_dist=0.
+# jak blok "test" w config.yaml, z roznicami: moon_dist=0, wind_dist=95 (config.yaml ma 40 od 2026-11).
 # Maski musza byc izolowane - przy produkcyjnym 40 deg Ksiezyc z akurat tej daty
 # zaklocalby testy, ktore z Ksiezycem nie maja nic wspolnego.
 TEL_CFG = {

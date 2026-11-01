@@ -8,7 +8,7 @@ obs_lon: -70.1963
 obs_elev: 2817
 
 local_config: "~/.config/tpg/local_config.yaml"
-plan_catalog: "~/tpg_plans/"
+plan_catalog: "~/tpg_plans/"                     # generated plans + logs: local disk on purpose (run log, not shared)
 
 # sky flat selector (sfs) - defaults, a telescope block may override fields in its own `skyflat:`
 # block; `fields_file` is required there (no default - every telescope names its fields file)
@@ -27,10 +27,13 @@ skyflat:
   # around a bare SKYFLAT line that tpg replaces with the sfs choice; # lines are not copied; no makro = bare SKYFLAT line
 
 
+# Masters, makros and sky flat fields come from the ocm-plans checkout on NFS (/data/misc/ocm-plans,
+# synced with github.com/araucaria-project/ocm-plans every 2 min). Never edit them here.
+
 wk06:
-  master_file: /home/observer/src/tpg/master_files/wk06_master.txt        # file with OB definitions
-  start_makro: /home/observer/src/tpg/master_files/wk06_start_makro.txt
-  end_makro: /home/observer/src/tpg/master_files/wk06_end_makro.txt
+  master_file: /data/misc/ocm-plans/master/wk06/wk06_master.txt        # file with OB definitions
+  start_makro: /data/misc/ocm-plans/master/wk06/wk06_start_makro.txt
+  end_makro: /data/misc/ocm-plans/master/wk06/wk06_end_makro.txt
   data_file: /data/fits/wk06/processed-ofp/targets/          # directory with observations
   def_read_mode: 2
   overhead: 15                                               # overhead for time slot calculation
@@ -41,10 +44,10 @@ wk06:
   moon_dist: 40                                              # distance to avoid moon
   night_monitor_gap: 15                                      # [min] break between observations in --night_monitor mode
   skyflat:
-    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
+    fields_file: /data/misc/ocm-plans/master/sky_flat_fields.txt  # sky flat fields, from ocm-plans
     groups: [[u_s], [v_s], [b_s,y_s], [B,V], [Ic]]
-    evening_makro: makro/wk06_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
-    morning_makro: makro/wk06_morning_makro.txt              # morning flat session template
+    evening_makro: /data/misc/ocm-plans/master/wk06/makro/wk06_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
+    morning_makro: /data/misc/ocm-plans/master/wk06/makro/wk06_morning_makro.txt              # morning flat session template
   dome:                                                      # no block = dome follows telescope azimuth
     mount: gem                                               # dome azimuth from GEM geometry, both sides of pier
     r_dome: 2050                                             # [mm] dome radius
@@ -54,58 +57,58 @@ wk06:
 
 
 zb08:
-  master_file: /home/observer/src/tpg/master_files/zb08_master.txt        # file with OB definitions
-  start_makro: /home/observer/src/tpg/master_files/zb08_start_makro.txt
-  end_makro: /home/observer/src/tpg/master_files/zb08_end_makro.txt
+  master_file: /data/misc/ocm-plans/master/zb08/zb08_master.txt        # file with OB definitions
+  start_makro: /data/misc/ocm-plans/master/zb08/zb08_start_makro.txt
+  end_makro: /data/misc/ocm-plans/master/zb08/zb08_end_makro.txt
   data_file: /data/fits/zb08/processed-ofp/targets/
   def_read_mode: 2
   overhead: 15
   hmin: 35
   hmax: 80
   hsun: -18
-  wind_dist: 95
+  wind_dist: 40
   moon_dist: 40
   night_monitor_gap: 15
   skyflat:
-    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
+    fields_file: /data/misc/ocm-plans/master/sky_flat_fields.txt  # sky flat fields, from ocm-plans
     groups: [[u], [z], [Ic,V], [B,g], [i], [r]]
-    evening_makro: makro/zb08_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
-    morning_makro: makro/zb08_morning_makro.txt              # morning flat session template
+    evening_makro: /data/misc/ocm-plans/master/zb08/makro/zb08_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
+    morning_makro: /data/misc/ocm-plans/master/zb08/makro/zb08_morning_makro.txt              # morning flat session template
 
 jk15:
-  master_file: /home/observer/src/tpg/master_files/jk15_master.txt        # file with OB definitions
-  start_makro: /home/observer/src/tpg/master_files/jk15_start_makro.txt
-  end_makro: /home/observer/src/tpg/master_files/jk15_end_makro.txt
+  master_file: /data/misc/ocm-plans/master/jk15/jk15_master.txt        # file with OB definitions
+  start_makro: /data/misc/ocm-plans/master/jk15/jk15_start_makro.txt
+  end_makro: /data/misc/ocm-plans/master/jk15/jk15_end_makro.txt
   data_file: /data/fits/jk15/processed-ofp/targets/
   def_read_mode: 3
   overhead: 60
   hmin: 35
   hmax: 80
   hsun: -18
-  wind_dist: 95
+  wind_dist: 40
   moon_dist: 40
   night_monitor_gap: 15
   skyflat:
-    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
+    fields_file: /data/misc/ocm-plans/master/sky_flat_fields.txt  # sky flat fields, from ocm-plans
     groups: [[u_s, Ha_n, Hb_n, u, z, v_s, b_s, y_s, Hb_w, Ha_w], [B, V, Ic, g, r, i]]
-    evening_makro: makro/jk15_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
-    morning_makro: makro/jk15_morning_makro.txt              # morning flat session template
+    evening_makro: /data/misc/ocm-plans/master/jk15/makro/jk15_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
+    morning_makro: /data/misc/ocm-plans/master/jk15/makro/jk15_morning_makro.txt              # morning flat session template
 
 iris:
-  master_file: /home/observer/src/tpg/master_files/iris_master.txt        # file with OB definitions
-  start_makro: /home/observer/src/tpg/master_files/iris_start_makro.txt
-  end_makro: /home/observer/src/tpg/master_files/iris_end_makro.txt
+  master_file: /data/misc/ocm-plans/master/iris/iris_master.txt        # file with OB definitions
+  start_makro: /data/misc/ocm-plans/master/iris/iris_start_makro.txt
+  end_makro: /data/misc/ocm-plans/master/iris/iris_end_makro.txt
   data_file: /data/fits/iris/processed-ofp/targets/
   def_read_mode: 3
   overhead: 60
   hmin: 35
   hmax: 80
   hsun: -18
-  wind_dist: 95
+  wind_dist: 40
   moon_dist: 40
   night_monitor_gap: 15
   skyflat:
-    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
+    fields_file: /data/misc/ocm-plans/master/sky_flat_fields.txt  # sky flat fields, from ocm-plans
 
 test:
   master_file: ./test/test_master.txt
@@ -115,11 +118,11 @@ test:
   hmin: 35
   hmax: 80
   hsun: -18
-  wind_dist: 95
+  wind_dist: 40
   moon_dist: 40
   night_monitor_gap: 15
   skyflat:
-    fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
+    fields_file: master_files/sky_flat_fields.txt            # relative to the package / repo root (works without NFS)
     groups: [[u], [z], [Ic], [V]]
 
 
