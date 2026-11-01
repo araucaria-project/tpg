@@ -42,7 +42,7 @@ wk06:
   night_monitor_gap: 15                                      # [min] break between observations in --night_monitor mode
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[u_s], [v_s], [b_s], [y_s], [B], [V], [Ic]]
+    groups: [[u_s], [v_s], [b_s,y_s], [B,V], [Ic]]
     evening_makro: makro/wk06_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
     morning_makro: makro/wk06_morning_makro.txt              # morning flat session template
   dome:                                                      # no block = dome follows telescope azimuth
@@ -68,7 +68,7 @@ zb08:
   night_monitor_gap: 15
   skyflat:
     fields_file: master_files/sky_flat_fields.txt            # sky flat fields; absolute, or relative to the package / repo root
-    groups: [[u], [z], [Ic], [V, B], [g], [i], [r]]
+    groups: [[u], [z], [Ic,V], [B,g], [i], [r]]
     evening_makro: makro/zb08_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
     morning_makro: makro/zb08_morning_makro.txt              # morning flat session template
 
