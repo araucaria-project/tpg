@@ -45,7 +45,7 @@ wk06:
   night_monitor_gap: 15                                      # [min] break between observations in --night_monitor mode
   skyflat:
     fields_file: /data/misc/ocm-plans/master/sky_flat_fields.txt  # sky flat fields, from ocm-plans
-    groups: [[u_s], [v_s], [b_s,y_s], [B,V], [Ic]]
+    groups: [[u_s], [Hb_n], [v_s], [Hb_w], [y_s], [b_s], [V], [Ic], [B]]
     evening_makro: /data/misc/ocm-plans/master/wk06/makro/wk06_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
     morning_makro: /data/misc/ocm-plans/master/wk06/makro/wk06_morning_makro.txt              # morning flat session template
   dome:                                                      # no block = dome follows telescope azimuth
@@ -71,7 +71,7 @@ zb08:
   night_monitor_gap: 15
   skyflat:
     fields_file: /data/misc/ocm-plans/master/sky_flat_fields.txt  # sky flat fields, from ocm-plans
-    groups: [[u], [z], [Ic,V], [B,g], [i], [r]]
+    groups: [[u], [z], [i], [r], [V], [Ic], [B,g]]
     evening_makro: /data/misc/ocm-plans/master/zb08/makro/zb08_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
     morning_makro: /data/misc/ocm-plans/master/zb08/makro/zb08_morning_makro.txt              # morning flat session template
 
@@ -90,7 +90,7 @@ jk15:
   night_monitor_gap: 15
   skyflat:
     fields_file: /data/misc/ocm-plans/master/sky_flat_fields.txt  # sky flat fields, from ocm-plans
-    groups: [[u_s, Ha_n, Hb_n, u, z, v_s, b_s, y_s, Hb_w, Ha_w], [B, V, Ic, g, r, i]]
+    groups: [[u_s], [Hb_n, Ha_n, u], [Hb_w, v_s, z, Ha_w, y_s, b_s], [i, Ic, V, r, B, g]]
     evening_makro: /data/misc/ocm-plans/master/jk15/makro/jk15_evening_makro.txt              # evening flat session template, bare SKYFLAT line replaced by sfs
     morning_makro: /data/misc/ocm-plans/master/jk15/makro/jk15_morning_makro.txt              # morning flat session template
 
