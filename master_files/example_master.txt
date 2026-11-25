@@ -1,0 +1,42 @@
+#############################
+####### EXAMPLE MASTER ######
+#############################
+#
+# Example master file - a small selection of objects showing the format and the options of
+# tpg (full description: README.md, "MASTER FILE"). The real masters are kept in the private
+# repo araucaria-project/ocm-plans (master/<tel>/), tpg reads them from /data/misc/ocm-plans/.
+#
+#   OBJECT <name> <ra> <dec> seq=<N/filter/exptime>[,...] priority=<p> [key=value ...]
+#
+# Usage:  tpg zb08 2026/11/25 --master_file master_files/example_master.txt --no_save --loud
+
+# --- photometric standards: fixed UT window, tags (tpg --tag std_JC), comment for the observer
+OBJECT SA95 03:53:32 -00:00:50 seq=1/B/23,1/V/18,1/Ic/18 t_start=04:20:00 t_end=04:40:00 priority=10 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
+OBJECT SA98 06:52:11 -00:19:18 seq=1/B/23,1/V/18,1/Ic/18 t_start=04:20:00 t_end=04:40:00 priority=10 sciprog=cal pi=ocm tag=std_landolt,std_JC comment="standard field for Johnson-Cousins phot. syst."
+
+# --- pulsating stars: cycle (days since the last observation), phase-bin masking ph_mk, uobi
+OBJECT V549_Sco 17:51:00.56 -40:25:22.66 seq=2/Ic/30,2/V/25,2/B/40,2/g/25,2/r/10,2/i/15,2/z/80 priority=6 cycle=0.25 ph_mk=1/Ic/0.02 uobi=9e68eccf sciprog=t2cep_mw pi=ocm tag=t2cep,random_phase P=16.5483 mV=13.0
+OBJECT OGLE-GD-CEP-1332 07:24:30.5785 -25:05:29.187 seq=2/B/90,2/V/40,2/Ic/25 priority=5 cycle=0.05 ph_mk=1/Ic/0.01 sciprog=cep_mw pi=ocm mV=14.792 P=1.870 comment="mG=14.2 BP-RP=1.7"
+
+# --- observed only in a phase window (P, hjd0 or ph_mk data), cyclic window 0.711-0.894
+OBJECT ASAS_J025822+1540.3 02:58:21.96 +15:40:18.66 seq=2/Ic/15,2/V/6,2/g/6.3,2/r/4.5,2/i/8.7,2/z/31 priority=5 cycle=0.02 ph_mk=3/Ic/0.003 ph_start=0.711 ph_end=0.894 uobi=b6f3adf7 sciprog=rrl_mw pi=ocm tag=rrl,ascending_branch
+OBJECT HD_290025 05:11:18.08 -01:31:32.45 seq=2/V/6,2/g/4 priority=6 cycle=0.02 ph_start=0.2 ph_end=0.48 P=0.6949022 hjd0=2460310.5 uobi=9d308fa9 sciprog=rrl_mw pi=ocm tag=rrl,maximum mV=11.89 comment="RRab"
+
+# --- eclipsing binary: secondary eclipse, Stromgren filters, seeing limit (tpg --fwhm)
+OBJECT OGLE-LMC-ECL-12167 05:18:04.71 -69:48:18.9 seq=2/u_s/300,1/v_s/300,1/b_s/220,1/y_s/160 priority=9 cycle=0.001 ph_mk=2/v_s/0.005 ph_start=0.387 ph_end=0.563 P=3.10 sciprog=deb_lmc pi=ocm tag=secondary fwhm_max=1.55
+
+# --- galaxy fields: altitude, Moon and seeing limits, light curve for cycle from obs_data
+OBJECT NGC7793-center 23:57:49.754 -32:35:27.7 seq=4/g/200,4/r/200,4/i/200 priority=5 cycle=0.2 h_min=45 fwhm_max=1.49 max_moon_phase=65 min_moon_dist=40 sciprog=near_gal pi=ocm obs_data=ngc7793-center_check1/r/light-curve/ngc7793-center_check1_r_diff_light_curve.txt
+
+# --- repeated sequence 5x(...), wind tag (tpg --tag Nwind)
+OBJECT NGC4755 12:53:38.8 -60:22:08.2 seq=5x(1/Ha_w/3,1/Ha_n/30,1/Ha_w/3,1/Ha_w/40,1/Ha_n/240,1/Ha_w/40) priority=8 cycle=20 h_min=40 tag=Nwind sciprog=oclu_young pi=ocm
+
+# --- a makro file instead of the OB line, slot time given by hand (ob_time, minutes);
+#     with cycle a makro line needs obs_data (it has no seq to take the filter from)
+OBJECT NGC253-makro 00:48:07.21 -25:10:56.9 priority=4 cycle=0.2 h_min=45 ob_time=48 makro=makro/example_makro.txt sciprog=near_gal pi=ocm obs_data=ngc253-se_check1/r/light-curve/ngc253-se_check1_r_diff_light_curve.txt
+
+# --- night monitor (tpg --night_monitor; keep these in a separate file, see README)
+OBJECT YZ_Cap 21:19:32.40 -15:07:01.43 seq=2/Ic/9,2/V/4,2/g/2.2,2/r/2,2/i/5.4 priority=5 sciprog=ocm pi=ocm tag=night_monitor
+
+# --- never allocated
+OBJECT V375_Lup 15:28:32.86 -30:51:49.70 seq=2/Ic/39,2/V/29,2/B/39 priority=4 sciprog=t2cep_mw pi=ocm status=finished
