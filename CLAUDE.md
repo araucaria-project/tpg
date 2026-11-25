@@ -79,8 +79,10 @@ Two layered YAML configs, merged at runtime by `tpg/config.py:load_config()` (ca
 Observing targets (masters, `{tel}_night_monitor.txt`, `{tel}_inactive.txt`, start/end makros, `makro/*.txt`,
 `sky_flat_fields.txt`) live in the separate repo `araucaria-project/ocm-plans` (`master/<tel>/`), read by tpg from its
 NFS checkout `/data/misc/ocm-plans/master/…` (synced with GitHub every 2 min) — the defaults in `tpg/config.yaml`
-point there. `master_files/` and `makro/` here are leftovers kept for a grace period (only the `test` block still uses
-`master_files/sky_flat_fields.txt`, so it works without NFS); don't edit masters here, they no longer reach the machines.
+point there. The real masters and target makros were removed from this repo on 2026-11-25 (still in git history;
+the repo is private). Left here: `master_files/example_master.txt` + `makro/example_makro.txt` (a 12-object sample
+showing every option, `pi=ocm`), `master_files/sky_flat_fields.txt` (used by the `test` block, works without NFS) and
+the sky-flat makros `makro/{tel}_{evening,morning}_makro.txt`. Don't add real target lists here.
 Night-monitor objects are deliberately kept out of the regular master files, where they would leak into normal plans
 as gap fillers even at `priority=0`; they are passed with `--master_file`. A master line can splice in a TOI-readable
 makro via `makro=path`. `plans/` is git-ignored — it holds generated nightly plans and their `_log.txt`

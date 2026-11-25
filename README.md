@@ -144,7 +144,7 @@ cost in the manual path is a hardcoded 5 s; slew between targets is not modelled
 
 `OBJECT NAME RA DEC seq=<N/filter/exp_time>  priority=<priority> [optional_parameters]` 
 
-`example_master.txt`
+`master_files/example_master.txt` in this repo is a runnable sample (`tpg zb08 <date> --master_file master_files/example_master.txt --no_save`); the lines below are schematic:
 ```
 OBJECT example1  21:24:00.2421   18:16:43.7   seq=1/Ic/30,1/V/30      priority=4    uobi=24j65   comment="binary and dusty envelope"
 OBJECT example2  07:24:14       -00:31:41     seq=3x(1/B/60,1/V/30)   priority=6    t_start=08:20:00    t_end=10:00:00
